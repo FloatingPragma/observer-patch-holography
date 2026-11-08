@@ -64,6 +64,19 @@ variance v and complementary field-vector norm eta. The complete dimer
 saturates this inequality. A vanishing continuum leakage is a separate
 source estimate, rather than a consequence of the broad-band bound.
 
+The [directed refinement](../../model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+retains at least `1/774400` original probability for each internal charge
+and each opposite momentum cap of radius `delta rho` around `+/-k0`,
+with `rho=|k0|` and `0<delta<=1/4`. Its energy interval is
+`[9rho/774400,580800rho]`; narrowing the cap does not narrow this interval.
+Seven complete continuum records retain the creator and spectral
+complements. In the actual periodic six-site control, all thirteen
+records remain; each directed success has original probability
+`[.00481981,.00481982]`, conditional energy mean `[6.097426,6.097427]`
+and variance `[.048956,.048957]` in its source clock. These are genuine
+finite translation labels, but neither those means nor that finite
+variance supplies a continuum particle mass or a decay width.
+
 The separate [kinetic-node catalogue](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
 maps all eight windings to the proved free Weyl fields and their conjugate
 helicities on `0<=U=o(c^(2/7))`, `c=v/a`. Its zero rest masses describe
@@ -158,6 +171,24 @@ They give `R*R=G-C^2` and `G<=18c^2 I`, while leaving the dynamical
 memory intact. These are full-source translation symbols and source
 observables, rather than parameters fitted to finite cube energies.
 
+The [nodal channel theorem](../../model/source_family_compatibility/NODAL_CHANNELS.md)
+reduces the magnetic node to one common even signed measure on all
+sixteen components of the same interacting reference. The proper-cubic
+channels are identified by inherited site inversion, without an extra
+state average; particle-hole symmetry supplies energy reflection. Every
+transported Weyl valley has the same nodal Lorentzian score
+`(eta^2+m_eta)/(alpha^2+eta^2+m_eta)`, where `alpha=U/2`,
+`m_eta=eta b_eta` and the actual memory is `Sigma(i eta)=-i b_eta I`.
+Its common zero-energy
+residue depends on `R*1_{0}(L_perp)R`, whose value is not fixed by the
+total memory weight. The [canonical spectral measure](../../model/source_family_compatibility/SPECTRAL_RESIDUE.md)
+is continuous in momentum at fixed broadening, not uniformly through
+zero broadening. For c=1,U=8 and packets with
+`S<=delta0=1296/843578984375`, it proves combined original weight
+`>=2592/14340842734375` on `|E|<=sqrt(16-delta0)`. This positive
+fixed-source event includes zero; multiplying the window by c does not
+produce a finite ballistic mass scale.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 uses the full 65,536-state centered source at c=1/8,U=1. Its certified
 composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode
@@ -195,6 +226,20 @@ original true-window weight above `75/401408` in
 `[0,(13/2)pi+1/4]`. This window uses source-clock energy; no large native
 clock tape is claimed executed and no conditional probability replaces
 its original weight.
+
+The [complete direct energy score](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+uses `4m+2` Ramsey charge/sign/dummy records to estimate the original
+Lorentzian window without a ground-energy estimate. Its geometric-time
+error is `Delta sqrt(M2)/2+r^m`, `r=(1+eta Delta)^-1`; packet, collar,
+local-state and service errors remain explicit. Computable pressure
+secants provide a stopping certificate for the finite algebraic score
+when all relevant ground states have a strict common margin. At default
+c=1/8,U=1, the all-input local identity `M2=35/128` gives
+`nu([0,1])>=93/128` analytically. A specified 8194-record protocol gives
+the operational bound `>15/32`; its large tape and pressure search are
+unexecuted. The actual dimer's 66 complete records yield a certified
+original-window floor above 1/3. These are combined-charge probabilities,
+without conditional renormalization or a scaling-uniform infrared claim.
 
 The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 excludes finite-energy original odd response when c=v/a and U/c tends

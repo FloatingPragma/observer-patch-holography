@@ -163,6 +163,20 @@ The momentum comes from commuting two-step magnetic translations.
 Neither a pure broken-symmetry reference nor a scalar frequency-dependent
 memory is inferred from the average or the scalar Gram.
 
+There is a more specific [nodal symmetry reduction](../../model/source_family_compatibility/NODAL_CHANNELS.md).
+The proper-cubic little group gives two scalar channels; inherited site
+inversion identifies them at the same energy, and particle-hole symmetry
+makes the common measure even. The interacting magnetic-node response is
+`mu I` on all sixteen components, with no additional state average.
+Transported Weyl valleys retain their winding but share that response;
+their labels do not count physical species. The [every-momentum construction](../../model/source_family_compatibility/SPECTRAL_RESIDUE.md)
+justifies that nodal value from finite-range moments and exponential tails.
+It gives continuity at fixed nonreal frequency, without a joint infrared
+modulus. The nodal zero-energy residue depends on the omitted memory's
+zero-energy component, not its total Gram. A positive bound below the
+atomic contact scale is proved for a fixed unit-hopping nodal window;
+zero is included and the window does not shrink under ballistic scaling.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 proves `3/80 I<R*R<61/1000 I` on all sixteen mode directions of the full
 65,536-state source. The [complete finite clock](../../model/source_family_compatibility/CUBE_SPECTRUM.md)
@@ -181,6 +195,18 @@ clock proves positive original true-window weight while retaining all
 16384 outcomes. These are supplied coherent local services, with explicit
 marginal and implementation error requirements; the large native tape
 and an effective infinite-ground preparation modulus are not supplied.
+
+The [direct Lorentzian construction](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+retains four charge/sign outcomes per geometric time and the dummy tail.
+Its single error budget combines packet, time, collar, marginal and
+coherent-service errors. Pressure secants certify the finite algebraic
+score over all relevant ground states; a strict common margin gives a
+stopping criterion without selecting an isolated-cut vacuum. The default
+local second moment gives the analytic bound `nu([0,1])>=93/128`.
+The unexecuted 8194-record protocol certifies the operational bound
+`>15/32`, and an exact 66-record dimer control checks its complete score.
+Neither fixed-source bound establishes a positive original probability
+in shrinking unit-hopping energy windows.
 
 The [strong-contact theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 loses all finite-energy original odd response for ballistic c=v/a and
@@ -221,6 +247,19 @@ This power law is a supplied source prescription; repair does not select it.
 Neither equality to the ordered-zero-field histories nor a unique effective
 continuum limit is asserted. Field canonical momentum and the generator
 of spatial translations remain distinct observables.
+
+The [directed bounded preparations](../../model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+have original probability at least `1/774400` for each internal charge
+and each opposite spatial cap, of arbitrary relative radius
+`0<delta<=1/4` about a nonzero `k0`. Their common energy interval remains
+`[9|k0|/774400,580800|k0|]`. All seven records are complete, including
+energies and momenta outside the caps. Actual site inversion and spatial
+translations give a controlled phase for each successful packet; they do
+not give a time phase. Sharp caps retain the continuum resolution premise.
+A periodic six-site source verifies thirteen complete charge, genuine
+translation and energy records, with positive directed energy variance.
+This is spatially directed collective response on the same prepared clock,
+without a physical spin, particle or gauge assignment.
 
 The [same-clock force test](../../model/spin_joint_field_limit/FORCE_READOUT.md)
 is expressed in actual source currents and complete Pauli records. Its

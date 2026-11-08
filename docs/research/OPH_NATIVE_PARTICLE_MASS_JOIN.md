@@ -52,6 +52,22 @@ at every imaginary frequency. The two-block compression therefore cannot
 supply the full response near those nodes. A surviving pole or a
 zero-frequency memory atom requires its actual spectral measure.
 
+The [canonical every-momentum measure](../../model/source_family_compatibility/SPECTRAL_RESIDUE.md)
+is weakly continuous with the source Bloch gluing, and its memory is
+continuous at fixed nonreal frequency. At the magnetic node, the
+[actual little group](../../model/source_family_compatibility/NODAL_CHANNELS.md)
+first reduces the transported Weyl-valley responses to two scalar
+channels. Actual site inversion inherited from the same reference makes
+them equal at each energy, and particle-hole symmetry makes the common
+measure even. The full nodal response is therefore `mu I`, without a
+further state average. This exact identity does not imply an atom or a mass. The common zero-energy residue is
+`m0/(alpha^2+m0)`, with `alpha=U/2` and
+`m0 I=R*1_{0}(L_perp)R`, rather than the total residual Gram.
+An actual fixed-source bound gives combined original weight at least
+`2592/14340842734375` on `|E|<=sqrt(16-delta0)` for packets at source
+normalization c=1,U=8 with `S<=delta0=1296/843578984375`. This includes zero and supplies no
+joint frequency/momentum scaling modulus or shrinking-window weight.
+
 The [kinetic winding dictionary](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
 separately maps `k_b=pi b` to chirality `-(-1)^|b|` in the proved centered
 free family `c=v/a`, `0<=U=o(c^(2/7))`. Both conjugate helicities and all
@@ -71,6 +87,20 @@ control aliases and give determinacy from the entire moment sequence,
 not from a finite compressed matrix. The default tapered readout has
 16384 records and each-charge original true-window weight above
 `75/401408` in `[0,(13/2)pi+1/4]`; the certified large tape is not executed.
+
+A [complete Ramsey score](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+also measures the original Lorentzian energy window directly. Its
+`4m+2` records retain both charges, both signs, the dummy time tail and
+all service failures. Packet truncation, geometric time discretization,
+finite collar, prepared local marginal and service errors have one
+explicit budget. An algebraic local score can instead be certified by
+finite-volume pressure secants over all relevant ground states; a strict
+common score margin makes the search terminate without assuming a unique
+vacuum. The default local moment gives `nu([0,1])>=93/128`; the specified
+8194-record operational construction certifies `>15/32` but its large
+tape and pressure search are unexecuted. The exact dimer calculation keeps
+all 66 records. This is direct access to fixed-source spectral scores,
+not an effective infinite-ground preparation or a physical mass readout.
 
 The [exact full-source energy current](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
 contains a composite term proportional to U as well as the quadratic
@@ -124,13 +154,18 @@ prescription or give a computable continuum-history convergence rate.
 
 On this joint family, the
 [bounded monotone creators](../../model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md)
-give each conjugate charge original probability at least `1/387200` in
-momentum `[r/2,r]` and energy `[3r/387200,387200r]`, uniformly at small r.
-Their finite-source commutator error is controlled by actual longitudinal
-variance. All preparation complements and all nine dimer energy records
-are retained. This supplies broad low-energy collective bands on the
-prepared clock, without an asserted mass shell or identification with
-the original odd CAR excitations.
+give each conjugate charge original weight at least `1/387200` in the
+stated broad annular energy band. The [directed extension](../../model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+uses opposite momentum caps of radius `delta rho` around `+/-k0`,
+`rho=|k0|`, with `0<delta<=1/4`. Each charge and direction has original
+weight at least `1/774400` in energy `[9rho/774400,580800rho]`.
+Site inversion and the linear test vector's spatial support prove this;
+the nonlinear creator's other momenta remain in the complement. All seven
+continuum records remain. The actual periodic six-site control retains
+thirteen records and positive directed energy variance. Narrow spatial
+caps give a controlled translation phase, while the energy band remains
+broad; sharp-cap resolution and source-to-continuum errors are separate.
+No mass shell or identification with original odd CAR excitations follows.
 
 For a charge- and conjugation-invariant spectral tube Pi, the same bounded
 preparation gives each original charge probability at least

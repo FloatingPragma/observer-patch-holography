@@ -92,6 +92,34 @@ also bound the dissipative memory below at each positive imaginary
 frequency. Neither the kinetic node nor its two-block compression is
 therefore sufficient to identify the full interacting dispersion.
 
+The [every-momentum spectral construction](../../model/source_family_compatibility/SPECTRAL_RESIDUE.md)
+uses finite-range CAR moments and uniform exponential tails to define the
+actual matrix measure at every magnetic momentum, with the required Bloch
+chart gluing. It is weakly continuous; its resolvent and memory are
+continuous at each fixed nonreal frequency. This supplies no modulus when
+frequency and distance to a node vanish together. At the magnetic node
+`k_*=(pi/2,pi/2,pi/2)`, the [exact source little group](../../model/source_family_compatibility/NODAL_CHANNELS.md)
+first reduces the response to two scalar signed channels. Site inversion
+inherited from the same finite-box and averaging prescription exchanges
+them at the same energy; particle-hole symmetry makes the common measure
+even. Thus the full sixteen-component nodal measure is `mu I`, with no
+additional state average. The eight transported Weyl-valley probes retain
+their kinetic winding and share this same interacting response. They do
+not define eight independently selected particle poles or mass laws.
+
+More explicitly, `Sigma(i eta)=-i b_eta I`, with `b_eta>=0`,
+`alpha=U/2` and `m_eta=eta b_eta`. The original nodal Lorentzian score is
+`[(eta^2+m_eta)/(alpha^2+eta^2+m_eta)] I`. Its zero-energy residue is
+`m_0/(alpha^2+m_0)`, with `m_0 I=R*1_{0}(L_perp)R`.
+The positive total Gram does not determine this zero-energy component.
+The same source does prove a fixed-unit lower-energy event: for `c=1,U=8`
+and packets supported on `S<=delta0`, where
+`delta0=1296/843578984375`, the combined original measure has weight at
+least `2592/14340842734375` on `|E|<=sqrt(16-delta0)`.
+Zero energy is included. Restoring c multiplies this energy window by c;
+the bound does not supply weight in the shrinking unit-hopping window
+required by ballistic scaling.
+
 The [default-cube certificate](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 has `3/80 I<R*R<61/1000 I` on all sixteen original mode directions of the
 full 65,536-state source. Its three response levels span 48 dimensions,
@@ -115,6 +143,33 @@ readout is specified analytically; its native tape is not executed.
 Bounded Lipschitz spectral scores converge through the stated ordered
 local limits, without assuming a sharp pole or preparing an unspecified
 ground by declaration.
+
+The [direct Lorentzian readout](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+uses four complete charge/sign records at each geometric time and two
+dummy records. For normalized packets f and g, `r=(1+eta Delta)^-1` and
+`M2<=v^2`, its signed score differs from the original
+`Q_eta=integral eta^2/(eta^2+E^2) dnu_f` by at most
+
+```
+2||f-g|| + Delta v/2 + r^m
++ 2 min(1, B_R(T)+delta_marginal+epsilon_prep+epsilon_service+epsilon_repair),
+T=(m-1)Delta.
+```
+
+The collar error is independent of the `4m+2` record count, and failures
+retain their original probabilities. Algebraic local clock approximations
+make the finite score an even algebraic observable. Computable pressure
+secants then bound this observable directly over all relevant
+translation-invariant ground states, without substituting the ground of
+the isolated cut. The strict stopping search terminates when every such
+ground has a common score margin; it does not establish uniqueness or an
+effective growing-marginal modulus. At default c=1/8,U=1 the local
+all-input second-moment identity `M2=35/128` gives the stronger analytic
+bound `nu([0,1])>=93/128`. A specified 8194-record readout and pressure
+search certify the operational lower bound `>15/32`; that large native
+tape and search are not executed. The exact dimer control retains all
+66 records. These fixed-source statements do not give a positive
+scaling-uniform low-energy probability.
 
 The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 excludes every finite-energy original odd response on ballistic c=v/a
@@ -207,6 +262,24 @@ the extra canonical pair from a vacuum commutator alone. Even microscopic
 translations give common continuous spatial translations. The full internal
 U1 acts on both pairs and commutes with the same positive time generator.
 The source locality bound gives a finite propagation cone.
+
+The [directed charged-band construction](../../model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+uses real-even profiles in two opposite caps of relative radius
+`0<delta<=1/4` about `+/-k0`, with `rho=|k0|>0`. The linear canonical
+test vector has this spatial support; no such support is assumed for the
+nonlinear bounded creator. Actual site inversion gives each internal
+charge and each cap original probability at least `1/774400`, uniformly
+in rho and delta, in the broad energy interval
+`[9rho/774400,580800rho]`. All seven creation/cap/complement records remain.
+For a successful unnormalized vector psi of weight w, actual spatial
+translations obey
+`||(U(y)-exp(i sigma k0.y))psi||^2<=min(4,delta^2 rho^2 |y|^2)w`.
+A fixed profile has the inherited finite-source approximation, while a
+sharp continuum cap requires its resolution and boundary-weight controls.
+The full periodic six-site control retains thirteen charge, translation,
+energy and complement records; its directed energy variance is positive.
+Neither arbitrarily narrow spatial caps nor that finite variance fixes a
+continuum energy shell, physical spin or a Standard Model charge.
 
 The positive-field gap supplies quantitative order variance O(1/n) and
 bond-coefficient variance at most `(792/n+24/n^6) a^2 V0` for the owning
