@@ -14,9 +14,10 @@ def _artifact() -> dict:
 
 def test_row_class_declares_the_external_qcd_condition():
     artifact = _artifact()
-    assert artifact["row_class"] == "oph_plus_external_qcd_theory"
+    assert artifact["row_class"] == "oph_plus_external_numeric_ratio"
     assert artifact["promotion_allowed"] is False
-    assert "lattice" in artifact["external_theory_factor"]["source"]
+    assert artifact["external_theory_factor"]["provenance_status"] == 'unverified_declared_input'
+    assert 'declared_band' in artifact['external_theory_factor']['uncertainty_scope']
 
 
 def test_nucleon_central_lands_in_the_expected_window():
@@ -28,7 +29,7 @@ def test_nucleon_central_lands_in_the_expected_window():
 
 def test_compare_block_is_labeled_and_interval_contains_measurement():
     compare = _artifact()["compare_only"]
-    assert compare["role"] == "comparison only, outside the prediction ancestry"
+    assert compare["role"] == "explicit comparison only; ancestry of the external ratio is unverified"
     assert compare["interval_contains_measured"] is True
     assert abs(compare["central_relative_difference"]) < 0.05
 

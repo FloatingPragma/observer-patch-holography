@@ -16,10 +16,11 @@ nonperturbative Ward-projected source measure. Inputs:
   beta function and three-loop decoupling, ported from the source-only lane
   ``code/particles/qcd/derive_lambda_qcd_source_transmutation.py``. Flavor
   thresholds are placed at the internal Stage-5 m_c, m_b, m_t.
-- Lambda_QCD scale: the source-only transmutation lane artifact
+- Lambda_QCD scale: the conditional transmutation lane artifact
   ``code/particles/runs/qcd/lambda_qcd_source_transmutation.json``. Only the
   dimensionless ratio Lambda/mZ is consumed, so the unclosed clock candidate
-  cancels. The declared interval covers the lane's threshold-bracket sweep.
+  cancels. The declared range covers four sampled threshold corners and the
+  central point; it is not a full threshold or perturbative error enclosure.
 
 Declared branches (stated, not tuned):
 
@@ -50,12 +51,12 @@ from payload_harness import (
 
 ZETA3 = 1.2020569031595942
 
-# Source-only Lambda_QCD transmutation lane (dimensionless ratios to mZ_run;
+# Conditional Lambda_QCD transmutation lane (dimensionless ratios to mZ_run;
 # the lane's display-GeV clock candidate cancels in the ratio).
 LAMBDA_LANE_MZ_DISPLAY_GEV = 91.58833750192969
-LAMBDA3_CENTRAL_OVER_MZ = 0.33481516768895897 / LAMBDA_LANE_MZ_DISPLAY_GEV
-LAMBDA3_LO_OVER_MZ = 0.31949328977395597 / LAMBDA_LANE_MZ_DISPLAY_GEV
-LAMBDA3_HI_OVER_MZ = 0.34974968299682957 / LAMBDA_LANE_MZ_DISPLAY_GEV
+LAMBDA3_CENTRAL_OVER_MZ = 0.3400216627247194 / LAMBDA_LANE_MZ_DISPLAY_GEV
+LAMBDA3_LO_OVER_MZ = 0.325109202884305 / LAMBDA_LANE_MZ_DISPLAY_GEV
+LAMBDA3_HI_OVER_MZ = 0.35465390053474294 / LAMBDA_LANE_MZ_DISPLAY_GEV
 LAMBDA3_GRID = {
     "lane_lo": LAMBDA3_LO_OVER_MZ,
     "lane_central": LAMBDA3_CENTRAL_OVER_MZ,
@@ -86,8 +87,8 @@ def beta_coeffs(nf: int) -> tuple[float, float, float, float]:
 
 def _decouple_down(alpha_nf: float, nl: int) -> float:
     a = alpha_nf / math.pi
-    c2 = -11.0 / 72.0
-    c3 = -564731.0 / 124416.0 + 82043.0 * ZETA3 / 27648.0 + 2633.0 * nl / 31104.0
+    c2 = 11.0 / 72.0
+    c3 = 564731.0 / 124416.0 - 82043.0 * ZETA3 / 27648.0 - 2633.0 * nl / 31104.0
     return alpha_nf * (1.0 + c2 * a * a + c3 * a**3)
 
 

@@ -194,19 +194,21 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
 
 - Lane: Lambda_QCD by dimensional transmutation of the source coupling
   - Tier: T2 (conditional on declared threshold inputs)
-  - explanation: The source strong coupling transmutes perturbatively into the QCD scale with no hadronic input. This is the perturbative half of every light-hadron mass.
-  - lambda3_GeV_display: 0.33481516768895897
-  - lambda3_interval_GeV: `[0.31949328977395597, 0.34974968299682957]`
-  - lambda5_GeV_display: 0.2135192157084192
+  - explanation: The inherited conditional D10 coupling gives a perturbative QCD scale. Source color-action selection and renormalization matching are not certified. The displayed range covers sampled threshold corners, without a full uncertainty enclosure.
+  - lambda3_GeV_display: 0.3400216627247194
+  - lambda3_interval_GeV: `[0.325109202884305, 0.35465390053474294]`
+  - lambda5_GeV_display: 0.21351921570840174
+  - range_scope: sampled_threshold_corner_ranges
   - Artifact: `runs/qcd/lambda_qcd_source_transmutation.json`
-  - Blocking objects: declared threshold inputs (bracket-swept), strict no-target P root
+  - Blocking objects: source color action and renormalization matching, declared threshold inputs (sampled corners), strict no-target P root
 
-- Lane: nucleon mass from source Lambda times external lattice ratio
-  - Tier: conditional: oph_plus_external_qcd_theory
-  - explanation: The nonperturbative factor m_N/Lambda is a published lattice-theory constant, declared as the external condition. A source-only nucleon mass requires the production hadron backend; this row is the realistic conditional route.
-  - m_nucleon_GeV_display: 0.9291120903368612
-  - m_nucleon_interval_GeV: `[0.8231904357670862, 1.0425338550769496]`
-  - compare_only_relative: -0.009760420415380278
+- Lane: nucleon mass from conditional Lambda times external numerical ratio
+  - Tier: conditional: oph_plus_external_numeric_ratio
+  - explanation: The factor m_N/Lambda=2.775 with declared band 0.105 is an external numerical condition with unverified primary provenance and scale-setting ancestry. No source-only nucleon mass is derived.
+  - m_nucleon_GeV_display: 0.9435601140610963
+  - m_nucleon_interval_GeV: `[0.8376601166915559, 1.0571523467139616]`
+  - range_scope: external ratio and convention bands propagated over sampled threshold corners; no certified full-threshold, numerical or perturbative uncertainty enclosure
+  - compare_only_relative: 0.0056381575251220895
   - Artifact: `runs/hadron/nucleon_mass_external_qcd_ratio.json`
   - Blocking objects: production hadron backend (source-only nonperturbative factor)
 

@@ -1,26 +1,29 @@
-# Ward-Projected Hadronic Transport Harness
+# Conditional Ward spectral diagnostics
 
-This directory emits source-side transport diagnostics for the source-chain and gauge-width pixel maps of the
-P-closure issue (#545). It contains no comparison target, tolerance, decision rule, scorer,
-or promotion mechanism.
+`run_bracket.py` evaluates 58 declared spectral variants at the internal
+Stage-5 evaluation point and writes
+`runtime/ward_projected_payload_source_bracket_current.json`. The coupling
+uses four-loop running and high-to-low flavor matching. The Lambda grid
+matches the conditional transmutation producer's central value and four
+sampled threshold corners. The grid envelope is a numerical sensitivity
+diagnostic, without a full uncertainty enclosure or a physical prediction.
 
-The harness computes the declared source quantities at the internal Stage-5
-root. The nonperturbative Ward-projected spectral measure, the same-scheme
-remainder, and the electroweak transport contribution are work in progress.
-The emitted sampled-grid envelope is not a certified interval or a physical
-Thomson prediction.
+The harness computes the declared source-chain and gauge-width pixel-map
+quantities. The nonperturbative Ward-projected source measure, same-scheme
+remainder and electroweak transport contribution are separate physical
+premises. Generated diagnostic artifacts set `promotion_allowed=false`.
+See [the payload contract](PAYLOAD_STATUS.md) for these requirements.
 
-## Usage
+The retained `runtime/ward_projected_payload_bracket_current.json` is a
+fixed comparison-bearing fixture with its own declared inputs and target
+access. It is not an output of the source diagnostic producer or a receipt
+for its corrected threshold convention. Its stored parameter values and
+content digest identify the comparison protocol; replaying that fixture
+does not certify the live source calculation.
 
-```bash
-python3 payload_harness.py --module parton_free
-python3 run_bracket.py --output /tmp/source-bracket.json
-python3 -m pytest test_payload_harness.py -q
+```sh
+python code/particles/hadron/ward_projected_payload/run_bracket.py
+python code/particles/hadron/ward_projected_payload/payload_harness.py --module parton_free
+python -m pytest -q -W error code/particles/hadron/ward_projected_payload/test_threshold_matching.py
+python -m pytest -q code/particles/hadron/ward_projected_payload/test_payload_harness.py
 ```
-
-No CODATA/NIST alpha value, measured hadronic cross section, PDG hadron datum,
-or empirical endpoint interval enters the source calculation. Generated
-artifacts set `promotion_allowed = false`.
-
-See [`PAYLOAD_STATUS.md`](PAYLOAD_STATUS.md) for the source quantities and
-missing physical construction.

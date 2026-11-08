@@ -591,28 +591,31 @@ def _hadron_rows(lambda_qcd: dict, nucleon: dict) -> dict[str, Any]:
                 "lane": "Lambda_QCD by dimensional transmutation of the source coupling",
                 "tier": "T2 (conditional on declared threshold inputs)",
                 "explanation": (
-                    "The source strong coupling transmutes perturbatively "
-                    "into the QCD scale with no hadronic input. This is the "
-                    "perturbative half of every light-hadron mass."
+                    "The inherited conditional D10 coupling gives a "
+                    "perturbative QCD scale. Source color-action selection "
+                    "and renormalization matching are not certified. The "
+                    "displayed range covers sampled threshold corners, "
+                    "without a full uncertainty enclosure."
                 ),
                 "lambda3_GeV_display": lambda_qcd["central"]["lambda3_gev"],
                 "lambda3_interval_GeV": lambda_qcd["lambda3_interval_gev"],
                 "lambda5_GeV_display": lambda_qcd["central"]["lambda5_gev"],
+                "range_scope": lambda_qcd["range_scope"]["legacy_interval_fields"],
                 "artifact": "runs/qcd/lambda_qcd_source_transmutation.json",
                 "blocking_objects": [
-                    "declared threshold inputs (bracket-swept)",
+                    "source color action and renormalization matching",
+                    "declared threshold inputs (sampled corners)",
                     "strict no-target P root",
                 ],
             },
             {
-                "lane": "nucleon mass from source Lambda times external lattice ratio",
-                "tier": "conditional: oph_plus_external_qcd_theory",
+                "lane": "nucleon mass from conditional Lambda times external numerical ratio",
+                "tier": "conditional: oph_plus_external_numeric_ratio",
                 "explanation": (
-                    "The nonperturbative factor m_N/Lambda is a published "
-                    "lattice-theory constant, declared as the external "
-                    "condition. A source-only nucleon mass requires the "
-                    "production hadron backend; this row is the realistic "
-                    "conditional route."
+                    "The factor m_N/Lambda=2.775 with declared band 0.105 "
+                    "is an external numerical condition with unverified "
+                    "primary provenance and scale-setting ancestry. "
+                    "No source-only nucleon mass is derived."
                 ),
                 "m_nucleon_GeV_display": nucleon["prediction"][
                     "m_nucleon_gev_display"
@@ -620,6 +623,7 @@ def _hadron_rows(lambda_qcd: dict, nucleon: dict) -> dict[str, Any]:
                 "m_nucleon_interval_GeV": nucleon["prediction"][
                     "m_nucleon_interval_gev_display"
                 ],
+                "range_scope": nucleon["prediction"]["range_scope"],
                 "compare_only_relative": nucleon["compare_only"][
                     "central_relative_difference"
                 ],

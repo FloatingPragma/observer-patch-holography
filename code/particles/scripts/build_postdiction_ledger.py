@@ -6420,7 +6420,9 @@ def _hadron_rows(
             "loop_order": lambda_scale["loop_order"],
             "declared_external_inputs": (
                 "threshold locations are declared external quark scheme masses, "
-                "and the interval is the swept threshold bracket"
+                "and the reported range covers four sampled corners and the "
+                "central point; no full-threshold, numerical or perturbative "
+                "uncertainty enclosure is certified"
             ),
             "claim_boundary": lambda_scale["claim_boundary"],
             "artifact_refs": [_rel("lambda_transmutation")],
@@ -7622,7 +7624,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "shape and cannot be predictions; target-anchored rows are back-solved "
         "calibrations. `certified_interval_fixed_point_of_declared_closure_map` "
         "is an interval-certified fixed point of a declared map, and "
-        "`oph_plus_external_qcd_theory` consumes an external QCD calculation. "
+        "`oph_plus_external_numeric_ratio` consumes a declared numerical "
+        "ratio whose primary provenance is unverified. "
         "The [cosmology ledger](../code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md) "
         "uses its own classes: `conditional_theorem_postdiction` corresponds to "
         "`T2_conditional` exposed after the data, `shared_baseline` marks a value "
@@ -8178,8 +8181,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
                 f"proton mass `{_fmt(row['measured_gev'], 6)}` GeV "
                 f"(compare-only), `{row['relative_deviation']:+.2%}` relative, "
                 f"with the measured value {inside} the interval. The declared "
-                f"external lattice-theory ratio is "
-                f"`{row['external_theory_factor']}` with uncertainty "
+                f"external numerical ratio is "
+                f"`{row['external_theory_factor']}` with declared band "
                 f"`{row['external_theory_uncertainty']}`. {row['claim_boundary']}")
     add("")
     add("## Neutrinos")

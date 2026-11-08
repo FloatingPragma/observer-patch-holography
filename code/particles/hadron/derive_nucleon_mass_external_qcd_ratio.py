@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Nucleon mass from the source Lambda_QCD and an external lattice ratio.
+"""Conditional nucleon mass from an inherited coupling and external ratio.
 
 Every light-hadron mass factors as
 ``m_h/E_star = (m_h/Lambda) * (Lambda/E_star)``.  The second factor is the
-perturbative transmutation of the source strong coupling
-(``qcd/derive_lambda_qcd_source_transmutation.py``).  The first factor is a
-nonperturbative pure-theory number that lattice QCD computes; this lane
-consumes it as a declared external theory constant, so the row class is
-``oph_plus_external_qcd_theory`` and the output is a conditional hadron mass,
-never a source-only claim.
+perturbative transmutation of the inherited conditional D10 coupling,
+including declared external heavy-quark thresholds
+(``qcd/derive_lambda_qcd_source_transmutation.py``). The first factor is a
+declared external numerical ratio whose primary provenance is unverified.
+The row class is ``oph_plus_external_numeric_ratio`` and the output is a
+conditional hadron mass, never a source-only claim.
 
 The external constant is the dimensionless ratio ``R_N = m_N/Lambda_MSbar^(3)``
-from published lattice determinations.  Its ancestry includes lattice scale
-setting; that ancestry is declared.  A machinery-convention band covers the
-difference between this repository's Lambda extraction and the published
-extraction on identical input.  No measured hadron mass enters the prediction
-row; the comparison block is labeled compare-only.
+with value 2.775 and a declared band 0.105. No primary paper or table
+certifies this value or its scale-setting ancestry in this producer.
+The additional 0.035 relative band is a declared numerical allowance.
+The explicit proton comparison is compare-only; whether hadron measurements
+entered the external ratio's ancestry is unverified.
 """
 
 from __future__ import annotations
@@ -38,15 +38,12 @@ DEFAULT_OUT = (
     ROOT / "particles" / "runs" / "hadron" / "nucleon_mass_external_qcd_ratio.json"
 )
 
-# External pure-theory constant: nucleon mass over Lambda_MSbar^(3) from
-# published lattice QCD (FLAG-class averages).  Declared ancestry: lattice
-# scale setting.  The uncertainty is dominated by the published Lambda.
+# Declared external numerical ratio and band. Primary provenance, scale
+# setting and statistical meaning are unverified.
 R_NUCLEON_OVER_LAMBDA3 = 2.775
 R_NUCLEON_UNCERTAINTY = 0.105
 
-# Relative band covering the difference between this repository's exact-ODE
-# Lambda extraction and the published extraction on identical world input
-# (measured in the transmutation lane's machinery-validation block).
+# Declared relative convention allowance, without a full uncertainty proof.
 EXTRACTION_CONVENTION_BAND = 0.035
 
 E_STAR_DISPLAY_GEV = 1.2208901289579269e19
@@ -73,7 +70,7 @@ def build_artifact(lambda_artifact: dict[str, Any]) -> dict[str, Any]:
         "artifact": "oph_nucleon_mass_external_qcd_ratio",
         "schema_version": 1,
         "status": "conditional_hadron_mass_from_source_lambda_and_external_ratio",
-        "row_class": "oph_plus_external_qcd_theory",
+        "row_class": "oph_plus_external_numeric_ratio",
         "promotion_allowed": False,
         "source_factor": {
             "lambda3_gev": lam3,
@@ -83,14 +80,12 @@ def build_artifact(lambda_artifact: dict[str, Any]) -> dict[str, Any]:
         "external_theory_factor": {
             "R_nucleon_over_lambda3": R_NUCLEON_OVER_LAMBDA3,
             "uncertainty": R_NUCLEON_UNCERTAINTY,
-            "source": (
-                "published lattice QCD determinations (FLAG-class averages "
-                "of m_N and Lambda_MSbar^(3))"
-            ),
+            "source": "declared external numerical ratio; primary provenance unverified",
+            "provenance_status": "unverified_declared_input",
+            "uncertainty_scope": "declared_band_without_verified_statistical_interpretation",
             "ancestry_note": (
-                "lattice scale setting enters the published ratio; the "
-                "constant is a theory computation, never a direct hadron "
-                "measurement in this lane's ancestry"
+                "the source table, scale-setting procedure and possible "
+                "empirical hadron inputs of this ratio are unverified"
             ),
             "extraction_convention_band_relative": EXTRACTION_CONVENTION_BAND,
         },
@@ -98,12 +93,17 @@ def build_artifact(lambda_artifact: dict[str, Any]) -> dict[str, Any]:
             "m_nucleon_gev_display": central,
             "m_nucleon_interval_gev_display": list(interval),
             "m_nucleon_over_E_star": central / E_STAR_DISPLAY_GEV,
+            "range_scope": (
+                "external ratio and convention bands propagated over sampled "
+                "threshold corners; no certified full-threshold, numerical "
+                "or perturbative uncertainty enclosure"
+            ),
         },
         "compare_only": {
             "measured_m_proton_gev": 0.93827,
             "central_relative_difference": central / 0.93827 - 1.0,
             "interval_contains_measured": interval[0] < 0.93827 < interval[1],
-            "role": "comparison only, outside the prediction ancestry",
+            "role": "explicit comparison only; ancestry of the external ratio is unverified",
         },
         "display_note": (
             "GeV values use the unclosed clock candidate; the clock audit "
@@ -112,9 +112,11 @@ def build_artifact(lambda_artifact: dict[str, Any]) -> dict[str, Any]:
         "checks": checks,
         "checks_pass": all(bool(v) for v in checks.values()),
         "claim_boundary": (
-            "This is a conditional hadron mass: source transmutation times a "
-            "declared external lattice-theory ratio. A source-only hadron "
-            "mass requires the production hadron backend."
+            "This is a conditional hadron mass: inherited D10 coupling and "
+            "threshold transmutation times a declared external numerical "
+            "ratio. Source color-action selection, renormalization matching "
+            "and the nonperturbative hadron factor are not derived here. "
+            "The external ratio's primary provenance is unverified."
         ),
     }
 

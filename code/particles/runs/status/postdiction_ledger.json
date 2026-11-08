@@ -15123,8 +15123,8 @@
         "artifact_refs": [
           "code/particles/runs/qcd/lambda_qcd_source_transmutation.json"
         ],
-        "claim_boundary": "Lambda is the perturbative transmutation scale of the source coupling. Hadron masses additionally require the nonperturbative ratio m_h/Lambda, which this lane does not supply.",
-        "declared_external_inputs": "threshold locations are declared external quark scheme masses, and the interval is the swept threshold bracket",
+        "claim_boundary": "Lambda is the conditional perturbative transmutation scale of the inherited D10 coupling. Source color-action selection and renormalization matching are not certified. Hadron masses additionally require the nonperturbative ratio m_h/Lambda, which this lane does not supply.",
+        "declared_external_inputs": "threshold locations are declared external quark scheme masses, and the reported range covers four sampled corners and the central point; no full-threshold, numerical or perturbative uncertainty enclosure is certified",
         "historical_owner_issues": [
           736
         ],
@@ -15135,13 +15135,13 @@
         "loop_order": "four_loop_beta_with_three_loop_decoupling",
         "published_central_gev": 0.338,
         "published_source": "published perturbative determinations of the three-flavor scale, compare-only",
-        "relative_deviation": -0.009422580801896605,
+        "relative_deviation": 0.005981250664850222,
         "row_class": "conditional_on_P_and_declared_threshold_inputs",
         "tier": "T2_conditional",
-        "value_central_gev": 0.33481516768895897,
+        "value_central_gev": 0.3400216627247194,
         "value_interval_gev": [
-          0.31949328977395597,
-          0.34974968299682957
+          0.325109202884305,
+          0.35465390053474294
         ]
       },
       {
@@ -15149,7 +15149,7 @@
           "code/particles/runs/hadron/nucleon_mass_external_qcd_ratio.json",
           "code/particles/runs/qcd/lambda_qcd_source_transmutation.json"
         ],
-        "claim_boundary": "This is a conditional hadron mass: source transmutation times a declared external lattice-theory ratio. A source-only hadron mass requires the production hadron backend.",
+        "claim_boundary": "This is a conditional hadron mass: inherited D10 coupling and threshold transmutation times a declared external numerical ratio. Source color-action selection, renormalization matching and the nonperturbative hadron factor are not derived here. The external ratio's primary provenance is unverified.",
         "external_theory_factor": 2.775,
         "external_theory_uncertainty": 0.105,
         "historical_owner_issues": [
@@ -15162,13 +15162,13 @@
         ],
         "measured_gev": 0.93827,
         "measured_source": "proton mass, compare-only",
-        "relative_deviation": -0.009760420415380278,
-        "row_class": "oph_plus_external_qcd_theory",
+        "relative_deviation": 0.0056381575251220895,
+        "row_class": "oph_plus_external_numeric_ratio",
         "tier": "T2_conditional",
-        "value_central_gev": 0.9291120903368612,
+        "value_central_gev": 0.9435601140610963,
         "value_interval_gev": [
-          0.8231904357670862,
-          1.0425338550769496
+          0.8376601166915559,
+          1.0571523467139616
         ]
       }
     ],

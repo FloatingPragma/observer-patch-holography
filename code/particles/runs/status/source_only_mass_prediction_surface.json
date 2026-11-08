@@ -458,17 +458,19 @@
         {
           "artifact": "runs/qcd/lambda_qcd_source_transmutation.json",
           "blocking_objects": [
-            "declared threshold inputs (bracket-swept)",
+            "source color action and renormalization matching",
+            "declared threshold inputs (sampled corners)",
             "strict no-target P root"
           ],
-          "explanation": "The source strong coupling transmutes perturbatively into the QCD scale with no hadronic input. This is the perturbative half of every light-hadron mass.",
-          "lambda3_GeV_display": 0.33481516768895897,
+          "explanation": "The inherited conditional D10 coupling gives a perturbative QCD scale. Source color-action selection and renormalization matching are not certified. The displayed range covers sampled threshold corners, without a full uncertainty enclosure.",
+          "lambda3_GeV_display": 0.3400216627247194,
           "lambda3_interval_GeV": [
-            0.31949328977395597,
-            0.34974968299682957
+            0.325109202884305,
+            0.35465390053474294
           ],
-          "lambda5_GeV_display": 0.2135192157084192,
+          "lambda5_GeV_display": 0.21351921570840174,
           "lane": "Lambda_QCD by dimensional transmutation of the source coupling",
+          "range_scope": "sampled_threshold_corner_ranges",
           "tier": "T2 (conditional on declared threshold inputs)"
         },
         {
@@ -476,15 +478,16 @@
           "blocking_objects": [
             "production hadron backend (source-only nonperturbative factor)"
           ],
-          "compare_only_relative": -0.009760420415380278,
-          "explanation": "The nonperturbative factor m_N/Lambda is a published lattice-theory constant, declared as the external condition. A source-only nucleon mass requires the production hadron backend; this row is the realistic conditional route.",
-          "lane": "nucleon mass from source Lambda times external lattice ratio",
-          "m_nucleon_GeV_display": 0.9291120903368612,
+          "compare_only_relative": 0.0056381575251220895,
+          "explanation": "The factor m_N/Lambda=2.775 with declared band 0.105 is an external numerical condition with unverified primary provenance and scale-setting ancestry. No source-only nucleon mass is derived.",
+          "lane": "nucleon mass from conditional Lambda times external numerical ratio",
+          "m_nucleon_GeV_display": 0.9435601140610963,
           "m_nucleon_interval_GeV": [
-            0.8231904357670862,
-            1.0425338550769496
+            0.8376601166915559,
+            1.0571523467139616
           ],
-          "tier": "conditional: oph_plus_external_qcd_theory"
+          "range_scope": "external ratio and convention bands propagated over sampled threshold corners; no certified full-threshold, numerical or perturbative uncertainty enclosure",
+          "tier": "conditional: oph_plus_external_numeric_ratio"
         },
         {
           "blocking_objects": [
@@ -539,7 +542,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-10-28T01:17:00Z",
+  "generated_utc": "2026-11-08T12:02:05Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [
