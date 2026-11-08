@@ -8,7 +8,7 @@ from fractions import Fraction as F
 from pathlib import Path
 
 from tools import strict_json
-from . import algebra, bounds, polarization, readout, state_bounds
+from . import algebra, bounds, field_gap, polarization, readout, state_bounds
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -87,6 +87,12 @@ def build():
                                                    for n in (4,16,64,256)],
         'actual_source_energy_only_phase_control':state_bounds.source_phase_control(),
         'actual_finite_gap_boundary_controls':[state_bounds.source_gap_control(n) for n in (2,3,4)],
+        'fixed_field_gap_theorem_substitution':field_gap.source_certificate(),
+        'fixed_field_native_preparation_plans':[
+            field_gap.resource_plan(2,((0,1),)),
+            field_gap.resource_plan(8,field_gap.source.cube()[0]),
+            field_gap.resource_plan(1,())],
+        'fixed_field_short_native_ramp':field_gap.small_native_execution(),
         'vanishing_scalar_polarization_residual':polarization.exact_checks(),
         'actual_product_state_residual_countercontrol':polarization.product_source_control(),
         'scalar_residual_history_bounds':[polarization.compact_bounds(F(1,n),1,1,1)

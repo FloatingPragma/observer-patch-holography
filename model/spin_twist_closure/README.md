@@ -18,6 +18,12 @@ regional energy-density squared error to `36J^2/L^2` and bounds its
 complete excitation tail. Opposite ordered source phases have identical
 energy statistics and distinct local spin readouts, so this energy
 estimate does not select a full regional state.
+At a strictly positive selection field, the [source gap substitution]
+(FINITE_FIELD_GAP.md) gives a uniform finite-volume gap `B/8`. An explicit
+gapped ramp from the staggered product, with native pulse and complete
+failure bounds, prepares each finite source ground to a chosen error.
+This imports the stated Lee--Yang and adiabatic theorems; it does not
+provide the subsequent infinite-volume or zero-field state modulus.
 Exact source force checks and a positive two-oscillator control distinguish
 quadratic control response from a single-frequency dynamical law.
 
