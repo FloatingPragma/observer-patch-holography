@@ -59,7 +59,8 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
                   'particle_primary_coherent_odd_response',
-                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'):
+                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
+                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert '../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md' in hrefs
     assert 'Filtered and unfiltered probes share positive time dynamics' in text
@@ -74,8 +75,6 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'disjoint-site fermionic exchange are exact' in text
     assert 'finite Fourier labels, not exact momentum projections' in text
     assert 'opposite Q6=±6 transfers' in text
-    assert 'Opposite native occupations have identical spectra' in text
-    assert 'odd inversion eigenstates have opposite parity under C' in text
     assert 'radix-five coherent meters' in text
     assert 'original joint success weight >1/4' in text
     assert 'without reading initial absolute charges' in text
@@ -92,26 +91,23 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'separately chosen normalized phase has weight >1/3' in text
     assert 'not total-spin or conserved-momentum eigenvalues' in text
     assert 'Four uncomputed spectral measures determine each summed multiplet' in text
-    assert 'full sector complement resolvent' in text
-    assert 'prepared odd composite has low-energy weight >1/26' in text
-    assert 'complete clock retains >1/27' in text
-    assert 'No isolated pole, uniform residue or GeV rest mass follows' in text
-    assert 'followed only by the final energy clock' in text
-    assert 'weight >c/864 at member zero' in text
-    assert 'This tiny floor can collapse with capacity' in text
     assert 'Complete selector sums preserve the original energy law' in text
     assert 'blank centered at 9/a retains weight >1/80 at energy scale 1/a' in text
-    assert 'crossing links remain outside' in text
-    assert '0≤S_edge≤ℓ b log 6' in text
-    assert 'Complete center recording preserves regional entropy' in text
     assert 'finite universal area coefficient' in text
-    assert 'First moments: 0 : 1 : 2 : 3' in text
-    assert 'These even density waves are different observables' in text
-    assert 'unit-width, amplitude-one cube' in text
-    assert 'lattice O(a²) and phase O(a⁴) errors' in text
-    assert 'Iambient = Ialgebra + 2Sedge + Ccenter' in text
-    assert 'variance ≥9c/4' in text
-    assert 'neither locates a pole nor identifies a particle' in text
+    assert 'same gauge representation and identical reflected records' in text
+    assert 'Native Γ5 is not established Lorentz chirality' in text
+    assert 'equivariant field/current dictionary' in text
+    assert 'one-handed sector' in text
+    assert 'Cube symmetry forces multiplicity ≥2' in text
+    assert 'Exact G1/G2/H matrix units remove those forced partners' in text
+    assert '43 admitted coordinates' in text
+    assert 'c_low=2⁻⁵⁵²⁹⁵³' in text
+    assert '[−722.222,−715.10018] source units' in text
+    assert 'No isolated pole, rest frame or GeV mass follows' in text
+    assert 'P(reverse) = e⁻κ P(forward)' in text
+    assert 'positive work moment does not guarantee surviving fixed-energy probability' in text
+    assert 'J + C_center ≤ 2β‖V_cut‖ + r' in text
+    assert 'finite polynomial correction r cannot be dropped' in text
     assert 'All 96 successes and 8 failures remain' in text
 
 

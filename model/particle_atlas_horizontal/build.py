@@ -41,7 +41,8 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
     'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
-    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'))
+    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
+    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
@@ -55,7 +56,8 @@ PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
     'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
-    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'))
+    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
+    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -98,9 +100,15 @@ def scientific_receipt_records():
             if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
                 raise ValueError('stale primary response input: '+path)
         paths.update(pins)
+        # Validate every embedded copy before deduplicating exact bindings.
+        # A repeated parity binding is one result, not an additional experiment.
+        verified=list(bindings(value));distinct=[];seen=set()
+        for row in verified:
+            key=(row['member_id'],row['result_sha256'])
+            if key not in seen:distinct.append(row);seen.add(key)
         records.append({'path':name,'schema':value['schema'],
                         'receipt_sha256':sha(ROOT/name),'source_pin_count':len(pins),
-                        'member_result_bindings':list(bindings(value)),
+                        'member_result_bindings':distinct,
                         'scientific_experiments_replayed_by_atlas':False})
     return records,paths
 
@@ -263,6 +271,10 @@ def reader(svg,data):
         ('particle_primary_original_branch','Polynomial detailed balance, original total-cube/current branches and non-single-line odd transfer measures'),
         ('particle_primary_critical_refinement','Controlled three-dimensional phase-work limit and source-independent profile-work ratios'),
         ('particle_primary_boundary_information','Original boundary-center coherence, complete recording work and regional information identity'),
+        ('particle_primary_odd_sum_rules','Exact native chirality parity pairing, odd spectral sum rules and original graded propagation'),
+        ('particle_primary_branch_certificate','Admitted43-coordinate sector upper, original low-energy records and exact symmetry reduction'),
+        ('particle_primary_work_spectrum','Original modular fluctuation and work records, stronger moment bounds and fixed-energy survival boundary'),
+        ('particle_primary_boundary_correlation','Actual boundary-interaction bound on original conditional correlations and center coherence'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

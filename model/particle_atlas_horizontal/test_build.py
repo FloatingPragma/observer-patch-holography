@@ -88,7 +88,8 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
                   'particle_primary_coherent_odd_response',
-                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'):
+                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
+                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 
@@ -105,6 +106,14 @@ def test_primary_response_audit_authenticates_receipt_and_source_bytes(tmp_path,
     assert paths=={'source.py','receipt.json'}
     assert rows[0]['member_result_bindings']==[{'member_id':'control-member','result_sha256':digest}]
     assert rows[0]['scientific_experiments_replayed_by_atlas'] is False
+    receipt['embedded_duplicate']=deepcopy(receipt['selected_member_bound'])
+    path.write_text(json.dumps(receipt))
+    duplicate_rows,_=build.scientific_receipt_records()
+    assert duplicate_rows[0]['member_result_bindings']==rows[0]['member_result_bindings']
+    receipt['embedded_duplicate']['result']['physical_mass_table_GeV']=[1]
+    path.write_text(json.dumps(receipt))
+    with pytest.raises(ValueError,match='binding differs'):build.scientific_receipt_records()
+    receipt.pop('embedded_duplicate')
     receipt['selected_member_bound']['result']['physical_mass_table_GeV']=[1]
     path.write_text(json.dumps(receipt))
     with pytest.raises(ValueError,match='binding differs'):build.scientific_receipt_records()

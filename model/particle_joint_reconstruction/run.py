@@ -58,6 +58,10 @@ from model.particle_primary_original_shell_moments import model as original_shel
 from model.particle_primary_original_branch import model as original_branch
 from model.particle_primary_critical_refinement import model as critical_refinement
 from model.particle_primary_boundary_information import model as boundary_information
+from model.particle_primary_branch_certificate import model as branch_certificate
+from model.particle_primary_odd_sum_rules import model as odd_sum_rules
+from model.particle_primary_work_spectrum import model as work_spectrum
+from model.particle_primary_boundary_correlation import model as boundary_correlation
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -171,7 +175,8 @@ def build():
                    sector_threshold, populated_momentum, weighted_survival, charge_conjugation,
                    composite_transport, composite_spin, selected_odd_response, covariant_stress,
                    selected_spin, odd_resolvent, odd_filter, geometric_cut, coherent_odd,
-                   original_shells, original_branch, critical_refinement, boundary_information):
+                   original_shells, original_branch, critical_refinement, boundary_information,
+                   branch_certificate, odd_sum_rules, work_spectrum, boundary_correlation):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -342,6 +347,18 @@ def build():
     boundary_records = boundary_information.certificate()
     for level, receipt in zip((0, 1, 2, 8), boundary_records['members'], strict=True):
         boundary_information.verify_bound(contract.member(level), receipt)
+    admitted_branches = branch_certificate.certificate()
+    branch_certificate.verify_bound(member, admitted_branches['selected_member_bound'])
+    odd_sum_records = odd_sum_rules.certificate()
+    odd_sum_rules.verify_bound(member, odd_sum_records['members'][0])
+    for level, receipt in zip((0, 1, 2, 8), odd_sum_records['chirality_members'], strict=True):
+        odd_sum_rules.verify_chirality_bound(contract.member(level), receipt)
+    phase_spectra = work_spectrum.certificate()
+    for level, receipt in zip((0, 1, 2, 8), phase_spectra['members'], strict=True):
+        work_spectrum.verify_bound(contract.member(level), receipt)
+    boundary_correlations = boundary_correlation.certificate()
+    for level, receipt in zip((0, 1, 2, 8), boundary_correlations['members'], strict=True):
+        boundary_correlation.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -402,6 +419,15 @@ def build():
         'primary_original_total_cube_and_number_branches': original_branches,
         'primary_critical_profile_work_refinement': critical_profiles,
         'primary_boundary_center_information_and_record_work': boundary_records,
+        'primary_admitted_two_link_branch_and_symmetry_reduction': admitted_branches,
+        'primary_original_odd_sum_rules_and_native_chirality_pairing': odd_sum_records,
+        'primary_critical_work_spectrum_and_fluctuation_records': phase_spectra,
+        'primary_physical_boundary_correlation_upper_bound': boundary_correlations,
+        'primary_original_finite_graded_neighbor_contrast_proved': True,
+        'primary_selected_native_parity_chirality_pairing_proved': True,
+        'primary_odd_sector_exact_multiplicity_space_reduction_proved': True,
+        'primary_critical_phase_finite_fluctuation_premises_instantiated': True,
+        'primary_boundary_correlation_bound_with_polynomial_remainder_proved': True,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,

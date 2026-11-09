@@ -30,7 +30,7 @@ The [positive-sector construction](../../model/particle_primary_sector_threshold
 certifies whole physical occupation sectors above the full ground on member
 zero. In charge order `(-4,-3,1,2,6)`, the opposite increments
 `±(0,2,0,0,1)` and `±(1,0,0,2,0)` are CAR odd, with lowest-excitation
-intervals `[1.54674,12.71314]` and `[0.56642,12.72435]` source units.
+intervals `[1.54674,12.39802]` and `[0.56642,12.72435]` source units.
 The even pair `±(0,0,0,3,-1)` has interval `[3.56682,15.71559]`.
 These use full-space lower bounds and exact interacting trial uppers.
 Paired physical memories and a parity-corrected graded exchange supply
@@ -90,6 +90,28 @@ contains at least two frequencies. This tiny finite bound gives no line
 positions or clock-resolved separation and permits an isolated pole with
 additional spectral weight.
 
+The [native odd-field sum rules](../../model/particle_primary_odd_sum_rules/PROOF.md)
+retain creation and reflected adjoint-annihilation histories. Their
+combined success effect is identical in every full Walsh row, and the
+first spectral shell moments reduce exactly to `(m0,m1,0,0)`; the actual
+neighbor expectation `m1` requires calculation. A separate complete
+four-point graded experiment distinguishes neighbors from nonneighbors
+with original probability difference at least `c t^2/128`, at
+`t=c/(64 R_H^2)`. This is a tiny finite propagation record, not an odd
+two-point dispersion or a particle mass.
+
+On every selected capacity, exact spatial inversion exchanges the native
+`Gamma5` projectors while preserving their gauge representation and energy
+laws. The proof supplies complete Wilson-dressed bilinear and clock
+records, with all failures retained. A parity-equivariant identification
+with physical handedness cannot discard one reflected low-energy response;
+parity breaking or a different physical current dictionary needs an
+explicit construction. Native chirality is not proved Lorentz chirality,
+and paired records need not be distinct particles. The local weak and
+color trion creators are gauge singlets, so their occupation labels do
+not identify charged leptons or quarks. Charged regional fermions need a
+compensating dressing or boundary/memory construction.
+
 The [complete odd filter](../../model/particle_primary_odd_low_energy/PROOF.md)
 uses the original four Slater probes with a triangular duration `a/6`
 and analyzer frequency `9/a`. A finite coherent selector and the same
@@ -121,6 +143,26 @@ nor a uniform continuum residue. Neither this interval
 nor the resolvent bounds isolate a particle branch. The same parent fourth
 moment improves the specified one-spin-row weak-composite transport guarantee to
 `Pr(transfer)>=t^6/256` for `0<|t|<=2.77366e-6`.
+
+The [full-sector virtual-pair certificate](../../model/particle_primary_branch_certificate/PROOF.md)
+uses 43 admitted real trial coordinates, including two distinct quantum
+links, to lower the full weak odd-sector upper below `-715.10018`.
+The bound uses the complete source operator, not an invariant compression.
+An energy-local polynomial floor
+`c_low=2^(-b_D-ceil(2 beta(U_Delta-L_0)))=2^(-552953)` gives original
+probability at least `2 c_low(1-delta)` per signed occupation sector, or twice that
+for their union, in the widened final-energy band around
+`[L_Delta,U_Delta]`. The finite clock loss `delta<1/512` is applied
+before the tiny density factor. There is no creation probe, initial
+energy clock or success normalization in this event.
+
+Every energy in this odd sector has binary-cube multiplicity at least
+two. A rank-one complement in the entire sector therefore retains a sector
+ground vector and cannot have a raised bottom. Exact `G1`, `G2` and `H`
+matrix units remove these compulsory partners while preserving the source
+clock. The remaining resolvent estimate belongs to one diagonal irrep
+multiplicity block. An isolated multiplet, its original creation weight,
+dispersion and physical mass require that estimate and their own attachment.
 
 The [selected odd residual](../../model/particle_primary_selected_odd_response/PROOF.md)
 places more than `1/50` original weight at energies of order `1/a` and
@@ -170,23 +212,33 @@ refinement; the finite faithfulness floor and filtered upper bounds do
 not supply that estimate.
 
 The [critical-profile work calculation](../../model/particle_primary_critical_refinement/PROOF.md)
-keeps the actual source and proves a three-dimensional gradient limit for
-complete signed local phase experiments. Its selected hopping coefficient
-has the sharper bound `h_n>=h_*+3a^2/7-3a^4/28-a^8/128`, where
-`h_*=-g-3/7>0.0424` and `g` is the authenticated tiled-trial energy gain.
-For fixed rectangular physical tents of half-widths `b_i` and rational
-amplitude `s`, `W_n/h_n` tends to
-`(pi^2 s^2/6) integral |grad f_b|^2`, with explicit rational
-`O(a^2)` lattice and `O(a^4)` phase errors. The complete source clocks
-record these means with `O(a^2)` error. Work ratios cancel `h_n`
-exactly. Starting from the unit-width, amplitude-one cube, doubling
-amplitude, all widths, or one width gives limiting ratios 4, 2, or 3/2.
-These are actual spatial work comparisons.
-Energy-weighted ultraviolet escape can coexist with a purely elastic
-probability limit, so this Dirichlet work form does not prove an action,
-fixed-energy particle residue or relativistic dispersion. A fixed-anchor
+keeps the actual source and bounds its selected hopping coefficient by
+`h_n>=h_*+3a^2/7-3a^4/28-a^8/128`, with `h_*>0.0424`.
+For fixed physical tents, `W_n/h_n` approaches the three-dimensional
+Dirichlet moment `(pi^2 s^2/6) integral |grad f|^2`, with explicit
+`O(a^2)` lattice and clock errors and `O(a^4)` phase errors. Work ratios
+cancel the unknown coefficient. This is an energy-weighted response;
+a purely elastic probability limit remains possible. The fixed-anchor
 relative-perturbation decomposition has bounded remainder norm at least
-`sqrt(15)` per Wilson bond; no endpoint gap-stability threshold is supplied.
+`sqrt(15)` per Wilson bond and supplies no uniform interacting gap.
+
+The [original work-spectrum calculation](../../model/particle_primary_work_spectrum/PROOF.md)
+instantiates the finite fluctuation theorems on the actual energy-index
+marginal, with a symmetric doubly stochastic kernel. Its entropy variable
+`log p_i-log q_j` differs from modular work `Delta K`;
+`E exp(-Delta K)=1` and the source affinity is `E exp(-Delta K/2)`.
+Paired source transitions sharpen the negative first moment to
+`1/(3 beta_low)`. The full-CAR second-moment cap improves to
+`C_n=O(a^-4)`. For the actual positive work floor `w_n`, the original
+band `[w_n/4,4 C_n/w_n]` has probability at least `w_n^2/(4 C_n)`;
+the unchanged complete clocks retain more than half this floor in a
+slightly widened positive band. Its ideal member-zero floor exceeds
+`2.58e-5`. The bound decreases as `a^4` and its upper endpoint grows,
+so it does not prove fixed-energy survival. Source affinity and complete
+record distinguishability have positive finite bounds too. A separate
+faithful control with the literal cooling polynomial proves that these
+modular identities and positive work alone permit an elastic limit;
+it is not a collapse proof for the primary source.
 
 The [cube-covariant energy convention](../../model/particle_primary_covariant_stress/PROOF.md)
 supplies exact density/current covariance, a boundary improvement and
@@ -219,6 +271,20 @@ The regional-algebra information has the finite floor
 These floors deteriorate with capacity. The reference-inclusive pure-state
 quantity is different, and none of these entropies is identified with
 proper area, a geometric modular kernel or an Einstein coefficient.
+
+The [Gauss-compatible boundary comparison](../../model/particle_primary_boundary_correlation/PROOF.md)
+retains the physical representation singlets and both source regional
+marginals while removing conditional multiplicity correlations and center
+coherence. Exact relative entropy gives
+`sum p_lambda I(tau_lambda)+C_center <=2 beta ||V_cut||+r`, where
+`r=beta delta(U-L)` is the actual polynomial modular defect. Only crossing
+hopping and mixed plaquettes enter `V_cut`, with
+`||V_cut||<=(30 b+p_mix/7)/a` and `p_mix<=2b`.
+Together with `H(p)<=ell b log(451)` and `S_edge<=ell b log(6)`, this
+bounds full source mutual information by a boundary count plus `r`.
+A noninteracting polynomial control proves that `r` cannot be omitted.
+The coefficient diverges along refinement; proper area, a geometric
+modular kernel and Einstein dynamics remain separate premises.
 
 The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
 preserves the Hamiltonian and polynomial state at every finite member,

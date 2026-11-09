@@ -22,9 +22,9 @@ SUMMARIES = {
     'joint_refinement':
         'Filtered and unfiltered probes share positive time dynamics. The relative-observation sector has commuting H≥0 and P, HΩ=PΩ=0; sinc² energy/momentum weight may vanish. Complete selector sums preserve the original energy law. A finite blank centered at 9/a retains weight >1/80 at energy scale 1/a. Odd weight escapes every fixed upper energy band; fixed-band survival and spatial momentum require proof.',
     'relativistic_field':
-        'At coefficient one, exact fourth moments bound the full sector complement resolvent. A prepared odd composite has low-energy weight >1/26; the complete clock retains >1/27. Separately, one original-state creation row followed only by the final energy clock has weight >c/864 at member zero, with ρ≥cP_G. This tiny floor can collapse with capacity. Physical memories retain displaced source/reference data. No isolated pole, uniform residue or GeV rest mass follows.',
+        'An admitted 43-coordinate trial bounds the odd-sector bottom below −715.10018 source units. Original sector-energy records have positive weight from an energy-local density floor c_low=2⁻⁵⁵²⁹⁵³. Cube symmetry forces multiplicity ≥2, so a rank-one complement in the full sector retains a ground partner. Exact G1/G2/H matrix units remove those forced partners before the complementary-spectrum test. No isolated pole, rest frame or GeV mass follows.',
     'chiral_species_attachment':
-        'A weak doublet pair plus a singlet, or a color triple, gives six odd gauge-singlet states: G1 ⊕ H. Uniform spatial preparation gives G1g ⊕ Hg; conjugates give G1u ⊕ Hu. Native-current increments and disjoint-site fermionic exchange are exact. Opposite native occupations have identical spectra; odd inversion eigenstates have opposite parity under C. These finite cube labels establish no Lorentz spin or named species. Chiral propagation and interactions require proof.',
+        'Local gauge-singlet trions give G1g ⊕ Hg; conjugates give G1u ⊕ Hu. Native increments and disjoint-site fermionic exchange are exact. Parity exchanges native Γ± with the same gauge representation and identical reflected records. An equivariant field/current dictionary needs an explicit parity-breaking state/selection or changed attachment for a one-handed sector. Native Γ5 is not established Lorentz chirality; no named species is identified.',
     'particle_observables':
         'Each complete Walsh spatial row has original positive-energy weight >1/24 in [0.25,17.75] source units; G1/H parts exceed 5/384 and 11/384. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/3. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Relativistic dispersion, an isolated rest branch and a GeV mass require proof.',
     'independent_comparison':
@@ -32,7 +32,7 @@ SUMMARIES = {
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
-        "A region contains its matter and internal links; crossing links remain outside. This cut has a cube-covariant state and modular flow. Entropy from boundary representation dimensions obeys 0≤S_edge≤ℓ b log 6 for word degree ℓ and b crossing links, with a strictly positive finite Wilson-loop witness. Complete center recording preserves regional entropy and can disturb global coherences. Contained regional energy differs from H'_R by an explicit boundary operator. Proper geometry, Lorentz stress, a finite universal area coefficient and Einstein dynamics require proof.",
+        "The selected polynomial state has I_ambient=H(p)+2S_edge+J+C_center. A physical comparison preserves both regional marginals and Gauss pairing, giving J+C_center≤2β‖V_cut‖+r. Actual crossing terms obey ‖V_cut‖≤(30+2/7)b/a; r is the finite polynomial correction. This controls source boundary information, while its upper coefficient grows under refinement. Proper geometry, Lorentz stress, a finite universal area coefficient and Einstein dynamics require proof.",
 }
 
 
@@ -109,8 +109,8 @@ def render(c, data, y):
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
         theorem = {'local_records': 'model/particle_primary_selected_spin_response/PROOF.md',
                    'joint_refinement': 'model/particle_primary_odd_low_energy/PROOF.md',
-                   'relativistic_field': 'model/particle_primary_odd_resolvent/PROOF.md',
-                   'chiral_species_attachment': 'model/particle_primary_composite_spin/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_branch_certificate/PROOF.md',
+                   'chiral_species_attachment': 'model/particle_primary_odd_sum_rules/PROOF.md',
                    'particle_observables': 'model/particle_primary_original_branch/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
@@ -148,9 +148,11 @@ def render(c, data, y):
                 ('Distinct selected A1u response', 'model/particle_primary_odd_residual/PROOF.md'),
                 ('Full-source Rayleigh bound', 'model/particle_primary_variational_readout/PROOF.md'),
                 ('Sector floors', 'model/particle_primary_sector_threshold/PROOF.md'),
+                ('Full sector resolvent', 'model/particle_primary_odd_resolvent/PROOF.md'),
                 ('Actual odd transport', 'model/particle_primary_composite_transport/PROOF.md')),
             'chiral_species_attachment': (
                 ('Literal conjugation', 'model/particle_primary_charge_conjugation/PROOF.md'),
+                ('Actual trion multiplets', 'model/particle_primary_composite_spin/PROOF.md'),
                 ('Populated odd response', 'model/particle_primary_selected_odd_response/PROOF.md')),
             'particle_observables': (
                 ('Local [4,8] response', 'model/particle_primary_branch_resolution/PROOF.md'),
@@ -187,22 +189,22 @@ def render(c, data, y):
            76, TEAL, 700, serif=True)
     card_width=(W-2*M)/4
     cards=(
-        ('Odd creation and native labels',
-         '>1/24 per complete Walsh row',
-         'The unchanged polynomial state suppresses reverse negative-energy records. G1/H creation parts exceed 5/384 and 11/384; all 104 outcomes remain. Total cube and native-number detectors preserve the summed energy law. Every component has more than one exact transfer frequency, with variance ≥9c/4 and c=2⁻⁵⁸²⁴⁰⁷¹³³. This tiny floor neither locates a pole nor identifies a particle.',
-         'particle_primary_original_branch'),
-        ('Even density: real energy contrast',
-         'First moments: 0 : 1 : 2 : 3',
-         'Four cube classes have these exact source-energy moment ratios. The spatially constant density field is elastic; the other classes have positive inelastic weight. Complete finite clocks retain distinct mean records. These even density waves are different observables from the odd G1/H creators; the ratios are neither masses nor a relativistic dispersion law.',
-         'particle_primary_original_shell_moments'),
-        ('Spatial work: a controlled 3D limit',
-         'Work ratios: 4 • 2 • 3/2',
-         'Relative to the unit-width, amplitude-one cube: double the amplitude, all three widths, or just one width. The selected-state coefficient cancels from these limiting work ratios. The positive gradient-energy form has explicit lattice O(a²) and phase O(a⁴) errors. A limit of energy moments does not prove a fixed-energy particle residue or a four-dimensional field theory.',
-         'particle_primary_critical_refinement'),
-        ('Boundary records change the source',
-         'Iambient = Ialgebra + 2Sedge + Ccenter',
-         'Recording the region’s boundary sector preserves its marginal entropy but removes global center coherence. The actual action proves Ccenter >0 and positive recording work. The identity separates boundary representation entropy from accessible algebra information. Bounds shrink with capacity; no geometric area law, Newton constant or Einstein dynamics is inferred.',
-         'particle_primary_boundary_information'),
+        ('Native handedness is parity paired',
+         'Γ+ ↔ Γ− • same gauge representation',
+         'On every selected capacity, physical inversion pairs complete native-chirality and reflected-position records with identical energy laws. The entire dressing/controller must be reflected. An equivariant physical dictionary needs a specified parity-breaking state/selection, changed source or changed attachment for a one-handed sector. Native Γ5 is not established Lorentz chirality. A separate odd four-point experiment proves finite spatial contrast; its two-point dispersion is uncomputed.',
+         'particle_primary_odd_sum_rules'),
+        ('Odd sector: reduce symmetry first',
+         '43 admitted coordinates • c_low=2⁻⁵⁵²⁹⁵³',
+         'The actual sector bottom lies in [−722.222,−715.10018] source units. A complete final-energy clock records that sector with positive original weight. Forced cube degeneracy blocks rank-one full-sector isolation; diagonal G1/G2/H matrix units remove those partners. The reduced complementary-spectrum estimate remains to be calculated. The analysis vector is not substituted for the selected density, and no isolated particle or GeV rest mass follows.',
+         'particle_primary_branch_certificate'),
+        ('Work records and spectral survival',
+         'P(reverse) = e⁻κ P(forward)',
+         'The complete origin/sign phase menu obeys this exact polynomial-state fluctuation identity; κ is the change in −log p(E). It gives a strong negative-energy tail bound and positive finite record contrast. The full-CAR second-moment cap improves but grows as a⁻⁴. A positive work moment does not guarantee surviving fixed-energy probability. The separate polynomial control demonstrates that missing implication without replacing the primary source.',
+         'particle_primary_work_spectrum'),
+        ('Boundary interactions bound information',
+         'J + C_center ≤ 2β‖V_cut‖ + r',
+         'A physical comparison retains both regional marginals and gauge-representation pairing. J is conditional correlation; C_center is lost boundary-sector coherence. Only actual interactions crossing the cut contribute, with ‖V_cut‖≤(30+2/7)b/a. The finite polynomial correction r cannot be dropped: even uncoupled systems can have polynomial-state correlations. This finite bound supplies no universal proper-area law or Einstein equation.',
+         'particle_primary_boundary_correlation'),
     )
     for i,(title,equation,body,owner) in enumerate(cards):
         x=M+i*card_width;top=y+3420
@@ -212,7 +214,15 @@ def render(c, data, y):
         c.para(x+80,top+315,card_width-230,body,55,INK,max_y=top+525)
         c.link(x+80,top+575,'Exact proof, source and complete records',
                'model/'+owner+'/PROOF.md',46)
-    c.link(M+card_width*.53,y+3995,'Positive-window theorem',
+    c.link(M+card_width*.53,y+3995,'Original creation bands',
+           'model/particle_primary_original_branch/PROOF.md',42)
+    c.link(M+card_width*1.53,y+3995,'Even density contrast',
+           'model/particle_primary_original_shell_moments/PROOF.md',42)
+    c.link(M+card_width*2.53,y+3995,'Controlled gradient work',
+           'model/particle_primary_critical_refinement/PROOF.md',42)
+    c.link(M+card_width*3.53,y+3995,'Boundary information identity',
+           'model/particle_primary_boundary_information/PROOF.md',42)
+    c.link(M+card_width*.74,y+3995,'Positive window',
            'model/particle_positive_window/PROOF.md',42)
     c.para(M, y+4160, W-2*M,
            'Conditional candidate: a declared chiral gauge-Higgs action supplies calibrated tree/running coefficients, with a separately calibrated neutrino extension. These coefficients are not physical pole masses, full radiative matching or independent predictions. The massless photon excludes a positive global vacuum gap for the full theory.',

@@ -132,11 +132,15 @@ proof shows that the whole class of laws cannot work.
   has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
   a stationary limiting state, positive energy and convergent finite detector
   histories on one subsequence. Its energy currents obey exact finite
-  conservation. [Local phase experiments](model/particle_primary_critical_refinement/PROOF.md)
-  have a controlled spatial work limit. An
-  [exact information identity](model/particle_primary_boundary_information/PROOF.md)
-  separates boundary entropy from correlations and proves that recording
-  boundary labels costs positive source work. These results do not show
+  conservation. [Local phase experiments](model/particle_primary_work_spectrum/PROOF.md)
+  have a controlled spatial work limit and complete finite fluctuation records.
+  [Exact symmetry reduction](model/particle_primary_branch_certificate/PROOF.md)
+  sharpens the finite odd-sector calculation; the
+  [native chirality audit](model/particle_primary_odd_sum_rules/PROOF.md)
+  identifies a paired response that a physical chiral assignment must resolve.
+  A [regional correlation bound](model/particle_primary_boundary_correlation/PROOF.md)
+  retains boundary representations and the actual polynomial-state error.
+  These results do not show
   that excitations survive the limit or identify physical particles,
   Lorentz symmetry or gravity. The
   [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)

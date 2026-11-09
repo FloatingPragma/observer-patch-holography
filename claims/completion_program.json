@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "ef36bdb5204cf5ba13f91e0a9761ca302000549aa24a615bf0161930cae0eb18",
+          "sha256": "363ece2a13e5938fb043187cc7a3882fcd1baae4fc9488ed55a72527a72197e7",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "The common ten-node map retains three accepted finite domains. Actual original even-density moments give finite spatial energy-shape contrast, while polynomial adjoint detailed balance strengthens odd G1/H records and conserved total-cube instruments refine their source energies. Explicit original branches and a non-single-frequency variance floor retain source-faithfulness bounds, without selecting a particle line. Critical local-phase experiments have a controlled Dirichlet work form and coefficient-canceling spatial ratios, permitting an elastic probability limit. The induced source cut separates regional-algebra information, representation entropy and global center coherence, with strictly positive work for its complete center record. These results do not prove conserved particle momentum, Lorentz dispersion, fixed-energy continuum residue, GeV masses, proper area or Einstein dynamics. Every conclusion retains its actual source, state, reference and clock.",
+          "scope": "The ten-node common-source map retains three accepted finite domains. A 43-coordinate admitted two-link trial improves the odd-sector upper and an energy-local polynomial floor gives original complete final-energy events. Exact binary-cube matrix units remove compulsory partners before multiplicity-space isolation tests. Original odd sum rules and a finite graded propagation experiment retain the selected state; native inversion pairs opposite-chirality projectors with identical gauge representations and energy laws, constraining a physical chiral attachment. The actual critical phase apparatus instantiates finite fluctuation premises and has a positive finite energy band whose weight bound decays with capacity. A physical boundary comparison bounds correlations and center coherence by crossing interactions plus the required polynomial remainder. Isolated particle poles, fixed-energy continuum survival, physical chiral species, GeV masses, proper area and Einstein dynamics remain unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -4264,7 +4264,19 @@
         "model/particle_primary_original_branch/PROOF.md",
         "model/particle_primary_original_branch/model.py",
         "model/particle_primary_original_branch/test_model.py",
-        "model/particle_primary_original_branch/results.json"
+        "model/particle_primary_original_branch/results.json",
+        "model/particle_primary_work_spectrum/PROOF.md",
+        "model/particle_primary_work_spectrum/model.py",
+        "model/particle_primary_work_spectrum/test_model.py",
+        "model/particle_primary_work_spectrum/results.json",
+        "model/particle_primary_odd_sum_rules/PROOF.md",
+        "model/particle_primary_odd_sum_rules/model.py",
+        "model/particle_primary_odd_sum_rules/test_model.py",
+        "model/particle_primary_odd_sum_rules/results.json",
+        "model/particle_primary_branch_certificate/PROOF.md",
+        "model/particle_primary_branch_certificate/model.py",
+        "model/particle_primary_branch_certificate/test_model.py",
+        "model/particle_primary_branch_certificate/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5174,6 +5186,30 @@
           "independent_check": "model/particle_primary_original_branch/test_model.py",
           "scope": "The actual selected polynomial derivative gives a forward/adjoint-reverse probability bracket without replacing the state by a Gibbs density. On member zero the chosen spatial phase has original reported creation weight above 1/3, G1 above 5/48 and H above 11/48; every complete Walsh row has total weight above 1/24, G1 above 5/384 and H above 11/384. Complete conserved native-number and total-cube records preserve the original energy marginal. Explicit original A1g to G1g/Hg final-energy branches have positive source-faithfulness bounds, with all other records and the reference retained; they are not initial-to-final transfer-window bounds. Same-label sectors have spectral diameter at least 12, and every normalized coherent component has original transfer variance at least 9c/4, with c=2^(-582407133). Thus their whole transfer measures have multiple frequencies; no line location, useful clock-resolved separation or exclusion of an isolated pole follows. Source adjoints differ from source-conjugate hole creation. Lorentz spin, physical dispersion, species, uniform residue and GeV masses are unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_original_work_spectrum_and_complete_window",
+          "path": "model/particle_primary_work_spectrum/PROOF.md",
+          "sha256": "7b2a827ce05f2418d020a5df737ab45edf64e4bae4ce1ce8bfaee16768181481",
+          "independent_check": "model/particle_primary_work_spectrum/test_model.py",
+          "scope": "The actual signed critical-phase apparatus instantiates the finite fluctuation theorem on its symmetric energy-index kernel. Its entropy-production variable log(p_i)-log(q_j) differs from modular DeltaK. Exact modular fluctuation and source-affinity identities sharpen the negative first moment to 1/(3 beta_low), with positive finite source and complete-record distinguishing bounds. A full-CAR second-moment cap C_n=O(a^-4) gives original probability at least w_n^2/(4C_n) in [w_n/4,4C_n/w_n]; the unchanged complete clocks retain more than half this floor. The ideal member-zero floor exceeds 2.58e-5. The shrinking weight and growing upper endpoint prove no uniform fixed-energy residue. A separate faithful carrier using the literal polynomial disproves the entropy/positive-work shortcut without proving primary collapse.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_native_odd_sum_rules_and_parity_pairing",
+          "path": "model/particle_primary_odd_sum_rules/PROOF.md",
+          "sha256": "a45b132331f27f856f53f5ac935593c28e73b40da1de20b38d7905dd15c04e99",
+          "independent_check": "model/particle_primary_odd_sum_rules/test_model.py",
+          "scope": "On the actual source, creation plus reflected adjoint-annihilation has identical full Walsh success effects and first shell moments(m0,m1,0,0), with the selected neighbor expectation m1 uncomputed. A complete four-point graded source experiment has a strictly positive finite neighbor/nonneighbor probability contrast with the original density and reference. At every selected capacity, native Gamma5 Wilson-dressed bilinear records pair under parity with the same gauge representation and energy law. These are not independent conserved Lorentz-chiral sectors or a universal chiral no-go. A parity-equivariant one-handed physical attachment must address the exact pairing. Local trion creators are gauge singlets, not charged-lepton or quark assignments; no dispersion, isolated pole or mass is inferred.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_full_sector_virtual_pair_certificate",
+          "path": "model/particle_primary_branch_certificate/PROOF.md",
+          "sha256": "9dabef0ba596c18b2063874ee7390e1357905a74eb64a0967d8218531210697d",
+          "independent_check": "model/particle_primary_branch_certificate/test_model.py",
+          "scope": "An exact 43-coordinate physical trial retaining admitted distinct-link virtual pairs lowers the full weak odd-sector upper below -715.10018 at interaction coefficient one. The actual energy-local polynomial floor is c_low=2^(-552953), giving complete original occupation-sector/final-energy probability at least 2*c_low*(1-delta) per sign and 4*c_low*(1-delta) for the conjugate union, delta<1/512. This is not a creation-probe or transfer-energy law. Every odd-sector energy has compulsory binary-cube multiplicity at least two, so a rank-one complement in the whole sector retains a sector ground vector. Exact G1/G2/H matrix units supply diagonal multiplicity-block reduction. No invariant trial compression, reduced complementary isolation, original creation residue, dispersion or GeV mass is established.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -5521,7 +5557,11 @@
         "model/particle_primary_boundary_information/PROOF.md",
         "model/particle_primary_boundary_information/model.py",
         "model/particle_primary_boundary_information/test_model.py",
-        "model/particle_primary_boundary_information/results.json"
+        "model/particle_primary_boundary_information/results.json",
+        "model/particle_primary_boundary_correlation/PROOF.md",
+        "model/particle_primary_boundary_correlation/model.py",
+        "model/particle_primary_boundary_correlation/test_model.py",
+        "model/particle_primary_boundary_correlation/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5929,6 +5969,14 @@
           "sha256": "54ebaa2531c0dbd38452e3ab8826e6381f79b5603598c8d75524b8dc3c6a42ac",
           "independent_check": "model/particle_primary_boundary_information/test_model.py",
           "scope": "The actual induced source cut satisfies I_ambient=I_alg+2*S_edge+C_center, retaining multiplicity correlations and global central coherence. Exact full-action magnetic matrix elements and the selected polynomial slope prove C_center>=10*(c*beta_low/(210*a))^2 and positive source work at least20*c*beta_low/(210*a)^2 for the complete center record. Its entropy/work comparison is beta_low*W<=C_center+D(pinch(rho)||rho)<=beta*W. The regional-algebra information has floor10*N*c*log(2) with c=2^(-N). These are source-marginal quantities; the pure reference-inclusive information differs. Finite floors deteriorate with capacity and give no proper area law, geometric modular kernel, Newton coefficient or Einstein limit.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_gauss_compatible_boundary_correlation",
+          "path": "model/particle_primary_boundary_correlation/PROOF.md",
+          "sha256": "dc64f85b5d38c1030d70558bc156b6071ceb5d16a730f355c2e8ca5d01de209a",
+          "independent_check": "model/particle_primary_boundary_correlation/test_model.py",
+          "scope": "A physical Schur-block comparison preserves both source regional marginals and the mandatory representation singlets while removing conditional multiplicity correlations and global center coherence. Exact source relative entropy gives sum p_lambda I(tau_lambda)+C_center<=2 beta ||V_cut||+r, with actual polynomial remainder r=beta delta(U-L). Only crossing hopping and mixed plaquettes enter V_cut, with norm at most (30b+p_mix/7)/a and p_mix<=2b. Crossing representation dimensions also bound center and edge information. A separate noninteracting polynomial control proves the remainder cannot be omitted. The finite boundary coefficient diverges along the selected refinement; no pure-reference entropy, proper area, geometric modular kernel, Newton coefficient or Einstein dynamics is inferred.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
