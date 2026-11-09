@@ -23,6 +23,16 @@ or time units may be declared immediately; the declaration supplies no
 missing spectrum or species identification. Pure Yang-Mills and gravity
 are deferred for this mass calculation.
 
+The [finite endpoint result](OPH_FIELD_RECONSTRUCTION.md#full-strength-finite-energy-bounds-and-joint-records)
+encloses member zero's full interacting ground energy in
+`[-740.229068,-723.7678199]` source units using independent local lower
+and exact variational upper bounds. Its broad residual and failed
+retained-penalty isolation test identify the required error improvement;
+no particle mass follows from that interval. Complete joint energy and
+spatial-phase records are constructed on one authenticated member, with
+all clock, aperture and reference effects retained. A resolved interacting
+branch and its physical momentum/dispersion attachment are unproved.
+
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
 interpretations. Agreed records support effective spacetime and field

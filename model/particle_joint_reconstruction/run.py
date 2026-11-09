@@ -20,6 +20,9 @@ from model.particle_compact_mass_probe import compact
 from model.particle_primary_momentum import momentum
 from model.particle_primary_channel_labels import channels
 from model.particle_primary_spectral_scale import scale
+from model.particle_primary_endpoint_bounds import endpoint
+from model.particle_primary_variational_readout import variational
+from model.particle_primary_joint_spectroscopy import spectroscopy
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -124,7 +127,8 @@ def build():
     paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
     for module in (algebra, stress, window, filtered_probe, survival,
-                   mass_readout, spatial, capacity, compact, momentum, channels, scale):
+                   mass_readout, spatial, capacity, compact, momentum, channels, scale,
+                   endpoint, variational, spectroscopy):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -196,6 +200,14 @@ def build():
     for level, receipt in zip((1, 2), channel_labels['finite_members'], strict=True):
         channels.verify_bound(contract.member(level), receipt)
     spectral_scale = scale.certificate()
+    endpoint_bounds = endpoint.certificate()
+    for level, receipt in zip((0, 1), endpoint_bounds['source_ground_bounds'], strict=True):
+        endpoint.verify_bound(contract.member(level), receipt)
+    variational_bounds = variational.certificate()
+    for level, receipt in zip((0, 1, 2), variational_bounds['members'], strict=True):
+        variational.verify_bound(contract.member(level), receipt)
+    joint_spectroscopy = spectroscopy.certificate()
+    spectroscopy.verify_bound(contract.member(2), joint_spectroscopy['actual_source_instrument'])
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -218,6 +230,9 @@ def build():
         'primary_complete_spatial_Fourier_readout': spatial_readout,
         'primary_conserved_occupations_and_cubic_channel': channel_labels,
         'primary_decoupled_expansion_and_spectral_scale': spectral_scale,
+        'primary_interacting_endpoint_ground_bounds': endpoint_bounds,
+        'primary_interacting_variational_bounds': variational_bounds,
+        'primary_complete_joint_energy_wavevector_readout': joint_spectroscopy,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -226,6 +241,8 @@ def build():
         'primary_finite_aperture_Fourier_instrument_proved': True,
         'primary_conserved_particle_momentum_proved': False,
         'primary_interacting_endpoint_gap_proved': False,
+        'primary_interacting_ground_energy_enclosure_proved': True,
+        'primary_isolated_excitation_branch_proved': False,
         'declared_SI_and_GeV_comparison_conversion_available': True,
         'source_derived_particle_mass_table_GeV': [],
         'primary_proper_geometry_or_Einstein_limit_proved': False,

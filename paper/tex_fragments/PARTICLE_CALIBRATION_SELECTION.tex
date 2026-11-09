@@ -1136,6 +1136,59 @@ bound reaches $\lambda=1$, and the anchor vacuum does not replace the
 selected polynomial state. These finite channel and perturbation results
 do not supply a momentum-resolved particle pole or a physical mass.
 
+\paragraph{Interacting endpoint bounds and joint spectroscopy.}
+At $\lambda=1$, a
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_endpoint_bounds/PROOF.md}{one-link electric Schur inequality}
+retains all Fock occupations and the quantum link. Assign onsite cost
+$\mu=3/d_{\max}$ to each bond endpoint, where $d_{\max}=3$ for $L=2$
+and $6$ otherwise. The exact two-site fermion spectrum gives
+$\Delta(\mu)=60(\sqrt{\mu^2+1/4}-\mu)$. The nonconstant link block
+has positive floor $63/4-\Delta(\mu)$, and Haar contraction in native
+block $r$ has full-occupation norm at most $2(d_r+1)$. Summing the
+resulting operator inequalities before Gauss restriction gives
+\[
+ E_0(H)\ge\frac{-90V-\mathcal B c(\mu)-\mathcal P/7}{a},
+ \qquad c(\mu)=\sum_r\frac{2(d_r+1)}{105C_r/2-\Delta(\mu)}.
+\]
+An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_variational_readout/PROOF.md}{exact eleven-vector Rayleigh calculation}
+uses the physical anchor and its five hopping and five real-loop
+packets. For $n=0$ the two certified bounds give
+$-740.229068\le E_0\le-723.7678199$ in source energy units, an
+enclosure of width less than $16.461249$.
+The omitted-space residual is retained and its broad spectral interval
+does not identify an excitation. Both bounds concern the full physical
+ground; the trial vector does not replace the selected polynomial state.
+The retained-defect-penalty lower bound supplies no isolated ground
+branch at the tested endpoint.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_joint_spectroscopy/PROOF.md}{complete joint instrument}
+records initial energy, a spatial Fourier outcome, and final energy on
+a specified primary member with an admitted aperture. For the unchanged
+source clock, define
+\[
+ F_j(H)=\frac1J\sum_{r=0}^{J-1}e^{2\pi i jr/J}e^{-ir\tau H},
+ \qquad L_{j,b,k,l}=F_l(H)K_{b,k}F_j(H).
+\]
+All $2MJ^2$ records are retained. Their original probabilities are
+$\sum_{uv}p_u|(K_{b,k})_{vu}|^2|F_j(E_u)|^2|F_l(E_v)|^2$.
+The initial energy instrument preserves the stationary source marginal
+and changes its correlations with the retained idle reference. A signed
+energy chart with $\tau=1/(4\|H\|_{\rm bound})$ avoids aliasing;
+finite clock tails and complete implementation errors are bounded.
+If the reported transfer lies in $[l,u]$ with original weight at least
+$w$, energy resolution $\eta$, per-clock tail $t_J$, complete error
+$e_J$ covering both clocks and other event errors, and
+initial-excitation cutoff $r_0>0$, then final excitation lies
+in $[\max(0,l-2\eta),u+2\eta+r_0]$ with weight at least
+$\max(0,w-2t_J-e_J-2^{-n-4}/r_0)$.
+Authenticated lower and upper ground bounds also convert a final-energy
+interval directly, without an initial cooling-tail subtraction. Every
+bound is recomputed at the apparatus's member; a small-box ground bound
+is not transferred to a larger aperture. These energy and spatial-phase
+records define an operational structure factor. A resolved branch and
+its physical momentum attachment require their own error-controlled
+record evidence.
+
 \paragraph{From transfer energy to final excitation.}
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_mass_readout/PROOF.md}{mass-readout transport bound}
 uses a common eigenbasis of $H$ and $\rho$. The positive weights

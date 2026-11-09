@@ -18,11 +18,11 @@ SUMMARIES = {
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
-        'The same source supplies complete boundary and time-filter records with uniform influence bounds. A coherent spatial Fourier aperture retains all 2M outcomes and the idle reference; its one-step open-edge error is at most 2/M. Wavevector bins are not conserved-momentum projectors.',
+        'Boundary records have uniform influence bounds. Two energy readouts and a Fourier aperture retain the initial pointer, all failures and the idle reference, with controlled clock/aperture errors. The first measurement preserves the source marginal and changes purification coherences. No conserved momentum is inferred.',
     'joint_refinement':
         'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; a same-representation spatial implementation, momentum origin and nonzero finite-energy weight require proof.',
     'relativistic_field':
-        'The filtered algebra has nonnegative energy and a cone. A decoupled source Hamiltonian has dimensionless physical gap 6 and exact perturbative coefficients; continuation to the primary endpoint is unproved. A nontrivial Lorentz field and an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary require proof.',
+        'The interacting source has a ground-energy enclosure from a local electric lower bound and an 11-vector Rayleigh upper bound. The trial residual is too broad to isolate an excitation. A nontrivial Lorentz field and an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary require proof.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
@@ -107,8 +107,9 @@ def render(c, data, y):
                64, color, max_y=top+580)
         c.link(x+80, top+660, 'Acceptance conditions and exact evidence',
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
-        theorem = {'local_records': 'model/particle_filtered_probe/PROOF.md',
+        theorem = {'local_records': 'model/particle_primary_joint_spectroscopy/PROOF.md',
                    'joint_refinement': 'model/particle_primary_field_algebra/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_endpoint_bounds/PROOF.md',
                    'particle_observables': 'model/particle_primary_survival/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
@@ -124,6 +125,8 @@ def render(c, data, y):
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
         fourth = {
             'local_records': ('Fourier', 'model/particle_primary_momentum/PROOF.md'),
+            'joint_refinement': ('Filters', 'model/particle_filtered_probe/PROOF.md'),
+            'relativistic_field': ('Rayleigh', 'model/particle_primary_variational_readout/PROOF.md'),
             'particle_observables': ('Channels', 'model/particle_primary_channel_labels/PROOF.md'),
         }.get(node['id'])
         if fourth: c.link(x+width*.9, top+660, fourth[0], fourth[1], 49)

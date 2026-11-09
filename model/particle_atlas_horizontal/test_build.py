@@ -70,7 +70,9 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     for owner in ('particle_primary_survival','particle_primary_mass_readout',
                   'particle_primary_spatial_algebra','particle_primary_capacity',
                   'particle_compact_mass_probe', 'particle_primary_momentum',
-                  'particle_primary_channel_labels', 'particle_primary_spectral_scale'):
+                  'particle_primary_channel_labels', 'particle_primary_spectral_scale',
+                  'particle_primary_endpoint_bounds', 'particle_primary_variational_readout',
+                  'particle_primary_joint_spectroscopy'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

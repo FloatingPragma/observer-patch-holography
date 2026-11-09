@@ -233,3 +233,25 @@ an exact infinite-volume continuum theorem. The claim of a nontrivial
 continuum family requires the additional uniform spectral and refinement
 estimates in nodes4-5. Both routes keep the original weights, source,
 state, reference, clock and unit ancestry.
+
+Actual endpoint control is supplied by the
+[local electric Schur bound](../particle_primary_endpoint_bounds/PROOF.md)
+and [eleven-packet Ritz enclosure](../particle_primary_variational_readout/PROOF.md).
+For member zero they give the full physical ground enclosure
+`[-740.229068,-723.7678199]` in source units. The trial's residual bound
+is about102.09, and every admitted retained-penalty second-level lower
+bound lies below the available ground upper bound. Neither method
+isolates an excitation. A sharper argument must retain the occupation
+dependence discarded by the local all-input bound or control the connected
+local remainder in the variational estimate. This is an error-bound
+obstruction to those methods, not a no-go theorem for the source spectrum.
+
+The [joint finite instrument](../particle_primary_joint_spectroscopy/PROOF.md)
+has `2 M J²` complete energy/address records and explicit alias, Fejer-tail,
+clock, preparation and reference allowances. Its source-bound ground
+adapter recomputes both spectral bounds at the same member as the aperture;
+it does not combine member-zero energies with member-two wavevectors.
+The actual positive broad band and its precision plan are proved.
+The measured response ridge, particle-momentum interpretation and a
+controlled rest-energy branch are unproved. The two energy registers
+are additional resources beyond the compact Ramsey apparatus.

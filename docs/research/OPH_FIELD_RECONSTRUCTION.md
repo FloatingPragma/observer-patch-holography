@@ -103,6 +103,44 @@ actual bonds and plaquettes. The remainder and interacting endpoint gap
 are unproved; the reference gap is not a particle mass. This makes
 endpoint spectral control a concrete calculation on the specified action.
 
+## Full-strength finite energy bounds and joint records
+
+The [local electric bound](../../model/particle_primary_endpoint_bounds/PROOF.md)
+controls the actual interacting Hamiltonian, with every occupation and
+quantum link retained. Its one-link Schur estimate is summed before the
+physical Gauss restriction. The independent
+[eleven-vector Ritz calculation](../../model/particle_primary_variational_readout/PROOF.md)
+uses exact hopping and loop packets on the same source. It supplies a
+variational upper bound at interaction coefficient one, rather than an
+extrapolated perturbative coefficient. For member zero their outward
+interval for the full physical ground energy is
+
+`-740.229068 <= E0 <= -723.7678199` in source energy units.
+
+The interval width is below16.461249. These are absolute ground energies,
+not particle rest energies. The variational full-space residual is about
+102.09 source units. The retained-penalty family's second-level bounds
+cannot isolate the ground with this upper bound: even their method ceiling
+is about10.46 below it. This rejects that isolation argument, not a physical
+spectral gap. Sharper control requires the occupation dependence discarded
+by the all-input Schur bound or a tighter connected local remainder. Exact
+covariances improve the disconnected fourth-moment term, but the connected
+bound dominates it in the small member.
+
+The [complete joint spectrometer](../../model/particle_primary_joint_spectroscopy/PROOF.md)
+records an initial source energy, all spatial Fourier outcomes, and a final
+source energy, retaining `2 M J²` fine outcomes and the reference. The
+source marginal is unchanged by its initial energy readout; the joint
+purification is disturbed and that record is retained. Explicit bounds
+cover aliasing, both clock tails, clock approximation and the conversion
+from original transfers to final excitation. An unfiltered zero-wavevector
+channel has a proved positive broad band. That Fourier label is not an
+established rest frame, and the full histogram and a resolved branch are
+uncomputed. The ground adapter recomputes its lower and upper bounds at
+the aperture's actual member, so member-zero bounds are not assigned to
+member-two records. Two energy registers and their precision costs are
+additional resources beyond the compact Ramsey apparatus.
+
 ## One specified source, state, reference and clock
 
 The [primary construction contract](../../model/particle_common_contract/PROOF.md)

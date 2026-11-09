@@ -44,7 +44,8 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert '../../model/particle_primary_stress/PROOF.md' in hrefs
     assert '../../model/particle_positive_window/PROOF.md' in hrefs
     for owner in ('particle_primary_momentum', 'particle_primary_channel_labels',
-                  'particle_primary_spectral_scale'):
+                  'particle_primary_spectral_scale', 'particle_primary_endpoint_bounds',
+                  'particle_primary_variational_readout', 'particle_primary_joint_spectroscopy'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert 'convergent finite pointer histories' in text
     assert 'coin and reference remain in the complete output' in text
@@ -52,8 +53,10 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'times shrink and its weight floor vanishes' in text
     assert 'not proved spatially invariant' in text
     assert 'one physical hypercharge relation' in text
-    assert 'Wavevector bins are not conserved-momentum projectors' in text
-    assert 'continuation to the primary endpoint is unproved' in text
+    assert 'No conserved momentum is inferred' in text
+    assert 'ground-energy enclosure' in text
+    assert 'residual is too broad to isolate an excitation' in text
+    assert 'changes purification coherences' in text
     assert 'Finite mass comparison needs a resolved branch' in text
 
 

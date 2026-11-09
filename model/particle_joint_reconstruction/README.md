@@ -89,3 +89,13 @@ computes exact local costs around a decoupled physical ground. Its gap of
 six is not the interacting endpoint gap. A first finite-capacity mass
 comparison needs a resolved branch and controlled dispersion errors;
 uniform refinement is an additional continuum claim.
+
+At full interaction strength, a
+[local electric bound](../particle_primary_endpoint_bounds/PROOF.md) and an
+[eleven-vector variational calculation](../particle_primary_variational_readout/PROOF.md)
+enclose the smallest member's ground energy in
+`[-740.229068,-723.7678199]` source units. The residual is broad and the
+retained-penalty isolation test fails. The
+[joint spectrometer](../particle_primary_joint_spectroscopy/PROOF.md) retains
+both energy records, the spatial aperture outcomes and the reference;
+its broad positive band is not a resolved particle branch or a GeV mass.

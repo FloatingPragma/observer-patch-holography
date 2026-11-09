@@ -4140,7 +4140,16 @@
         "model/particle_primary_channel_labels/results.json",
         "model/particle_primary_spectral_scale/PROOF.md",
         "model/particle_primary_spectral_scale/test_scale.py",
-        "model/particle_primary_spectral_scale/results.json"
+        "model/particle_primary_spectral_scale/results.json",
+        "model/particle_primary_endpoint_bounds/PROOF.md",
+        "model/particle_primary_endpoint_bounds/test_endpoint.py",
+        "model/particle_primary_endpoint_bounds/results.json",
+        "model/particle_primary_variational_readout/PROOF.md",
+        "model/particle_primary_variational_readout/test_variational.py",
+        "model/particle_primary_variational_readout/results.json",
+        "model/particle_primary_joint_spectroscopy/PROOF.md",
+        "model/particle_primary_joint_spectroscopy/test_spectroscopy.py",
+        "model/particle_primary_joint_spectroscopy/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4785,6 +4794,30 @@
           "sha256": "3264d7231cea098d4fd80381c6e96d51317c5335b3f7ed73bf95981e3364fd2d",
           "independent_check": "model/particle_primary_spectral_scale/test_scale.py",
           "scope": "The actual onsite/electric reference has physical gap6, ground energy-90V and exact local hopping/loop perturbation coefficients. Only lambda=1 is the primary action; its remainder and endpoint gap are unproved. A supplied uniform actual dimensionless gap g would suppress fixed-band original weight below g/a by C^2 a epsilon/g. A finite-capacity mass comparison can instead use a resolved branch and controlled finite-domain dispersion errors, without a full continuum theorem. No physical GeV mass is supplied.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_full_interaction_ground_floor",
+          "path": "model/particle_primary_endpoint_bounds/PROOF.md",
+          "sha256": "52f2662689c49b1149a9b6d6ed67afaa88b1de1cd2fc3bc155a1dda67ce69291",
+          "independent_check": "model/particle_primary_endpoint_bounds/test_endpoint.py",
+          "scope": "Actual full-strength electric Schur bounds retain every Fock occupation, the complete quantum links and physical Gauss support. A sharp Haar variance cap and local cluster allocation give a rational ground lower bound; with the authenticated Ritz upper, member zero has outward source-energy enclosure[-740.229068,-723.7678199]. The entire admitted retained-penalty family fails to isolate the ground with that upper by more than10.46 units. This is a limit of that bound, not a no-go for an actual gap; no particle mass is identified.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_full_interaction_Ritz_complement",
+          "path": "model/particle_primary_variational_readout/PROOF.md",
+          "sha256": "7e7e6e3cd427c2e50a225d9c4206a25cf0778835a5e46b1d63eb7987dd3d8a73",
+          "independent_check": "model/particle_primary_variational_readout/test_variational.py",
+          "scope": "An exact eleven-vector physical packet compression evaluates the actual interaction coefficient one. Independent character calculations, rational Schur-root brackets and a physical trial give member-zero ground upper bound approximately-723.7678199426574. The full-space complement is bounded using orthogonal local covariances, a connected fourth-moment bound and an independent global norm bound. The source-unit residual is approximately102.09, so no isolated eigenbranch or original probe residue is inferred; the trial is not substituted for the prepared polynomial state.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_complete_joint_energy_wavevector_records",
+          "path": "model/particle_primary_joint_spectroscopy/PROOF.md",
+          "sha256": "ed7ca07db6df70fa6fec4db5c3df7788448c3cb47316196fc8bdf2d86331dbe8",
+          "independent_check": "model/particle_primary_joint_spectroscopy/test_spectroscopy.py",
+          "scope": "A complete two-clock/spatial instrument retains all2MJ^2 outcomes, including initial energy, failed spatial records and the quantum reference. Its original two-kernel law, alias-free clock chart, summed tails and full instrument errors give source-bound transfer/final-excitation adapters. The actual k0 channel has a positive broad unfiltered band and a factored finite precision plan; the histogram and resolved ridge are uncomputed. Endpoint and Ritz bounds are recomputed on the same member2 as the aperture. Wavevector labels are not a physical momentum PVM or rest frame; no GeV mass is supplied.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
