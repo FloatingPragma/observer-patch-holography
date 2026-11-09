@@ -61,11 +61,11 @@ internal representations do not identify their prepared states or clocks.
 | Obligation | Established output | Required physical conclusion |
 | --- | --- | --- |
 | 1. Preparation and complete instruments | Complete scalar and charged instruments, faithful referenced Gibbs preparation, a certified full-scalar ground with twelve charged channels, a filled-origin spatial experiment with all 61 occupation outcomes, and a referenced gauge-twirled state with uniform local energy densities. | A physical state family for the interacting spatial theory and its detector dictionary. The scalar ground uses Q*=6; the Gibbs and neutral-reference charged experiments use Q*=0. The filled-origin and mixed gauge-twirled field preparations are distinct. |
-| 2. Common operational observables | Same-Hamiltonian scalar energies and modular time; the Q*=0 charged coefficient inverse cancels its additive sector offset. The Q*=6 ground has separately certified multi-line charged measures. | Position, momentum, physical spin and Lorentz clocks attached to these same interacting fields; a source duration is not automatically proper time. |
-| 3. Interacting relativistic behavior | The mixed gauge-twirled family has [all-time local roughness](../../model/particle_local_gauge_state/PROOF.md), [local Wilson low-mode weight](../../model/particle_local_wilson_density/PROOF.md) and a [fixed-duration thermodynamic limit of complete polynomial-field records](../../model/particle_local_history_family/PROOF.md) at fixed local parameters. | Full local exact-sign response, uniform spacing/order refinement, Lorentz transformations, interacting chiral content and control of mirror modes. The large coefficients are declared inputs, without a physical vacuum or coupling identification. |
+| 2. Common operational observables | Same-Hamiltonian scalar energies and state-specific modular time; separate complete Q*=0 and Q*=6 charged responses. The [periodic field instruments](../../model/particle_joint_translation_readout/PROOF.md) give full-number position records, conserved joint field/reference crystal momentum, exact Born backaction and finite uncertainty. | Single-particle momentum and physical spin attached to the same interacting spatial sectors, and a Lorentz clock. Joint crystal momentum is not an individual particle's momentum; source time is not automatically proper time. |
+| 3. Interacting relativistic behavior | Fixed-parameter polynomial-field records have a thermodynamic limit. The [positive-smoothing action](../../model/particle_smooth_sign_field/PROOF.md) also has complete local quantum-record control at fixed duration, including electric links and all occupations, without a Wilson-gap premise. | Uniform spacing refinement, a physical state, Lorentz transformations, interacting chiral content and control of mirror modes. Exact-sign equivalence is required only when that different action is the target. A finite-range Wilson action is another permitted choice. |
 | 4. Physical masses and interactions | Original neutral/charged spectral weights, complete Q*=6 charged spectra and the separate Q*=0 inverse response. A common number-energy shift cannot equalize the Q*=6 addition/removal spectral shapes on that reference. | Dispersion and charged dressing on the common spatial state, physical mass convention, scattering/decay observables and comparison errors. The finite shape obstruction is not a physical CPT-violation claim. Calibrated coefficients retain their target ancestry. |
 | 5. Protected defects and species | [Exact controlled attachment](../../model/particle_defect_attachment/PROOF.md) sends protected memory or regional holonomy into distinguishable complete scalar records. | Species identification preserving the same propagation, transformations, statistics and currents. Declared coupling strengths 1 and 2 are not derived from topological protection. |
-| 6. Controlled errors and gravity | Complete representation/numerical errors, fixed-spacing volume control, [same-action energy continuity](../../model/particle_gravity_response/PROOF.md) and [actual internal-region modular/entropy response](../../model/particle_regional_geometry/PROOF.md). | Uniform refinement and capacity errors; geometric stress, proper clocks, spatial-region modular/area responses and the same-state small-ball hypotheses of the Einstein theorem. Internal family regions are not spatial balls. |
+| 6. Controlled errors and gravity | Complete representation/numerical errors; fixed-spacing smooth-field polynomial, volume and cutoff errors totaling `3/2^20` at duration one; [same-action energy continuity](../../model/particle_gravity_response/PROOF.md) and [internal-region modular/entropy response](../../model/particle_regional_geometry/PROOF.md). | Uniform spacing and capacity errors; geometric stress, proper clocks, spatial-region modular/area responses and the same-state small-ball hypotheses of the Einstein theorem. Internal family regions are not spatial balls. |
 
 For the declared attachment `H_Q=(3I-Q)V/2`, the scalar vacuum at one tick
 `t=pi/(6 sqrt(56))` has occupied probability `1/4` in sector `Q=+1` and
@@ -279,13 +279,88 @@ compatible local reference outputs; arbitrary extensions require that
 compatibility explicitly. Measurements can break translation symmetry,
 so uninterrupted-evolution roughness bounds are not reused after them.
 
-The remaining sign-response step concerns the full interacting quantum
-dynamics. Time-evolved local observables contain electric/link derivatives;
-the local one-body spectral bound alone does not bound their commutator
-with the sign Hamiltonian. A volume-uniform local Duhamel estimate on
-the same state and clock must control that dependence. Spacing and
-polynomial-order refinement, a physical vacuum, chirality, mass shells
-and surviving interactions remain separate physical requirements.
+### Regulator choice and complete local quantum response
+
+The [native sign-sensitivity calculation](../../model/particle_sign_response_boundary/PROOF.md)
+tests an inference that the local spectral bound does not justify. A
+legitimate sixty-column weak-link family has squared Wilson eigenvalues
+`delta^2,1,3+2delta`, with ranks `16,28,16`. Its unit-electric derivative
+of the sign has squared Hilbert–Schmidt norm `(1-delta)^2/delta^2`.
+Giving that branch original weight delta makes its low-mode trace tend
+to zero while this derivative cost diverges. Normalizable packet controls
+retain their preparation flags; no uniform electric-energy bound is
+asserted. This refutes a shortcut from unweighted low-mode density to
+inverse-gap electric response. It is not a failure theorem for the
+configured mixed preparation or for its fixed-time interacting records.
+
+The [smooth field construction](../../model/particle_smooth_sign_field/PROOF.md)
+chooses a different, explicit action:
+`h_delta=[beta+sqrt(1+delta^2) H_W/sqrt(H_W^2+delta^2)]/a`, with fixed
+positive delta. Its uniformly convergent finite-path expansion gives an
+exponentially summable interaction on the full quantum electric/link and
+fermion carrier. Local Duhamel bounds compare every specified complete
+instrument history with polynomial approximants on the same input and
+clock, uniformly in unobserved volume and untouched reference dimension.
+No Wilson gap, low-mode estimate or link-derivative assumption enters
+that comparison. Compatible local preparations supply its thermodynamic
+record limit; full-volume purifiers are not identified.
+
+For delta=1 and duration one, the certificate assigns `2^-20` each to
+smooth-to-polynomial, finite-volume and representation-cutoff errors,
+giving total `3/2^20` before preparation, apparatus and numerical errors.
+It specifies finite resources without executing the enormous code.
+The mixed input and fixed plaquette coefficient are retained; energy
+estimates use this action's recomputed kinetic allowance, rather than
+the Legendre action's value. Its free symbol has one zero at momentum
+zero, all other corners at energy at least `2/a`, and leading Dirac
+velocity one. Both chiralities and every internal component are retained.
+
+The delta-to-zero comparison is needed only to reproduce the
+discontinuous-sign architecture. It is not a prerequisite for the
+permitted positive-delta construction. The finite-range Wilson action
+`(beta+H_W)/a` can also be chosen directly; it is the uniform
+infinite-smoothing endpoint on the bounded Wilson spectrum. Neither
+choice inherits exact-sign chiral-projector identities. A physical state,
+spacing refinement, chiral matter, mass shells and surviving interactions
+require their own same-action estimates.
+
+### Actual field position and joint crystal momentum
+
+The [complete translation/readout construction](../../model/particle_joint_translation_readout/PROOF.md)
+uses the periodic polynomial field, its finite word cutoff and its
+referenced mixed input. Translation moves every matter and link register.
+On the actual canonical purification its admitted measurement also moves
+the conjugate reference. These joint translations commute with the same
+Hamiltonian and preserve the joint Gauss-zero subspace; their Fourier
+projectors need not commute with gauge transformations on every ambient
+charged input. Their complete sum is identity, with outside-domain and
+zero labels retained. The result is whole-system crystal momentum, not
+momentum of a selected particle.
+
+These finite global menus are outside the local-record thermodynamic
+theorem: the momentum projectors and the full-number normalization
+`N^(-1)` do not have fixed local support. Their complete finite laws
+do not identify global canonical purifiers across volumes.
+
+The position effects are `F_x=n_x/N` on `N>0`, with `F_vac=1_(N=0)`.
+They sample an occupied mode's site while retaining every number sector.
+For `V` cells and sixty modes per cell, put `v=2^(-60V)`,
+`A=(1-v)/V` and `C=E[sqrt(n_x n_y)/N;N>0]` for distinct sites under
+the full initial tracial Fock law. The owning proof gives its exact finite
+binomial sum. Position followed by joint momentum has original weights
+`Prob(vac,0)=v`, `Prob(vac,k!=0)=0`,
+`Prob(x,0)=[A+(V-1)C]/V` and `Prob(x,k!=0)=(A-C)/V`.
+The strict bound `A-C>=60*2^(-60V)` proves nonzero momentum backaction
+without postselection. Later interacting records use displacement-dependent
+correlations; this initial formula is not substituted for them.
+
+The actual coordinate first moment and momentum generator satisfy finite
+Robertson uncertainty. Recorded position variance includes the positive
+POVM noise and can exceed the first-moment operator variance. The exact
+cyclic wrap term and number-dependent Weyl phase are retained; a finite
+commutator cannot equal `i hbar I`. These are verified finite operational
+observables, without a universal physical `hbar/2` bound or a particle
+dispersion identification.
 
 The [regional modular calculation](../../model/particle_regional_geometry/PROOF.md)
 uses the faithful Q*=0 Gibbs preparation rather than the Q*=6 ground.
@@ -317,6 +392,8 @@ declared program; their spectra are not pooled into one particle list.
 | [Quantum-Higgs transition](../../model/particle_observer_outputs/HIGGS_RECORDS.md) | The literal full-CAR vertex has a complete 307-state conserved sector with two bright and 305 dark states. The same vertex prepares its ground. Complete two-time occupation records recover `Delta=sqrt(d^2+16 Tr(Y^dagger Y))` on a stated unaliased window. | A finite gauge-invariant scalar/fermion transition. Spatial hopping and gauge transport are excluded from this local Hamiltonian. |
 | [Charged Higgs records](../../model/particle_observer_outputs/CHARGED_HIGGS_RECORDS.md) | The same ground has two addition lines per internal singular channel and one removal energy. All 1,650 addition and 36 removal states are retained, including 1,614 dark addition states. A compensating charged probe keeps its quantum reference and both original event probabilities. | Actual interacting charged response energies and residues. Their physical dispersion, spin and mass dictionary are not inferred from their internal labels. |
 | [Gauge-coordinate field](../../model/particle_observer_outputs/FIELD_ROUTE.md) | A gauge-covariant bounded overlap polynomial acts on the full Dirac Fock space of a finite three-dimensional lattice. The same Hamiltonian defines the local conserved current. A representation-word cutoff gives a rational Dyson-tail bound on complete histories, including references. | The coordinate completion, action and apparatus are permitted choices. Both chiralities are retained; a chiral interacting relativistic limit is a separate output claim. |
+| [Positive-smoothing field](../../model/particle_smooth_sign_field/PROOF.md) | A convergent interaction expansion controls complete local quantum records at fixed duration, uniformly in volume. Polynomial, volume and finite-word errors total `3/2^20` at duration one. | A declared action with full quantum electric links and vectorlike matter. Zero smoothing is optional; physical spacing refinement and chirality do not follow from this thermodynamic limit. |
+| [Joint position/momentum instruments](../../model/particle_joint_translation_readout/PROOF.md) | Complete `n_x/N` position effects plus vacuum, Fourier projectors of all-register/reference translations, original Born joint weights and finite uncertainty on the periodic field. | Gauge-preserving on the joint invariant preparation domain. These whole-field measurements are not single-particle momentum or a physical mass shell. |
 | [Executed spinor/flux readout](../../model/particle_observer_outputs/FIELD_ROUTE.md#executed-common-state-spinor-and-quantum-flux-control) | The native `q=6Y=6` singlet on one periodic cell has exact initial flux, current and energy `3,6,11`. Two signed-flux reads retain all 1,369 or 3,721 outcomes at cutoffs 18 or 30. Exact rational Taylor weights enclose the complete finite record law; the cutoff-30 evolution half-L1 error is below `1.155e-35`. | One interacting quantum coordinate on the declared clock. These values are neither GeV masses nor a demonstration of three-dimensional propagation. |
 
 The [readout contract](../../model/particle_observer_outputs/READOUT_CONTRACT.md)
@@ -403,10 +480,10 @@ This checklist does not require a uniqueness theorem for the architecture.
 | --- | --- | --- |
 | 1. Identify the common program | Source operators, preparation, references and clock must be fixed together. The scalar, ordered-spin, free-Weyl and gauge-coordinate constructions have distinct state domains. | Source specifications and the theorem-domain inventory above |
 | 2. Prepare a scalable local state | The [mixed gauge-twirled family](../../model/particle_local_gauge_state/PROOF.md) supplies uniform initial local densities and all-time local roughness at fixed link degree and plaquette coefficient. Its compensating charged reference and full maximally mixed Fock input are retained; it is distinct from the filled-origin input and is not a vacuum. | 1 |
-| 3. Control the local sign response | The [same-state Wilson bound](../../model/particle_local_wilson_density/PROOF.md) controls expected local low-mode weight and the one-body sign/polynomial error. The full local dynamical comparison must also control electric/link derivatives; it does not follow from that spectral bound. | 2 |
-| 4. Control complete records under refinement | The [mixed-state local history](../../model/particle_local_history_family/PROOF.md) has a fixed-spacing, fixed-polynomial-action thermodynamic limit at nonzero duration and finite-code errors. Spacing/order refinement and a surviving interacting relativistic response require additional uniform estimates. | 2; 3 for comparison to exact-sign dynamics |
-| 5. Attach physical observables | Complete finite energy readouts and state-specific modular identities are available. Position, translations, energy and clock must be realized on the same interacting state with the uncertainty theorem's operator domain. | 1, 4 |
-| 6. Establish the relativistic regime | Free-overlap and free-Weyl calculations supply reusable symbol estimates. The interacting state must support the claimed Lorentz transformations and energy-momentum response. Celestial symmetry alone does not establish this. | 4, 5 |
+| 3. Control the chosen regulator's local response | The [positive-smoothing action](../../model/particle_smooth_sign_field/PROOF.md) has a complete local quantum-record comparison, including electric links, with no gap premise. Finite-range Wilson dynamics is another admissible design. The [native sensitivity control](../../model/particle_sign_response_boundary/PROOF.md) excludes inferring exact-sign electric response from low-mode weight alone; exact-sign equivalence is conditional on choosing that target. | 1, 2 |
+| 4. Control complete records under refinement | Fixed-spacing polynomial and positive-smoothing records have thermodynamic limits at nonzero duration. The smooth duration-one finite-code certificate has error `3/2^20`. Spacing refinement, a physical state and a surviving interacting relativistic response require additional estimates; polynomial approximation order is controlled at each fixed positive smoothing. | 2, 3 |
+| 5. Attach physical observables | [Complete periodic position/joint-momentum instruments](../../model/particle_joint_translation_readout/PROOF.md) share the field state, cutoff and clock, with actual finite uncertainty and retained reference charge. Scalar energies and modular identities keep their separate state domains. Single-particle momentum, physical spin and proper time require the corresponding interacting-sector map. | 1, 4 |
+| 6. Establish the relativistic regime | Free-overlap, free-Weyl and normalized smooth-field symbols supply reusable estimates; the smooth free action has one massless Dirac corner and velocity one. The interacting state must support Lorentz transformations and the same energy-momentum response. Celestial symmetry or a free symbol alone does not establish this. | 4, 5 |
 | 7. Establish chiral gauge matter | The internal representation, CAR and native currents are available. Their physical spin, chiral propagation and complementary regulator modes must be controlled together. | 4, 6 |
 | 8. Extract physical particle data | Complete finite charged spectra are calculated. Stable sectors, infrared thresholds or resonances require the common spatial correlators before attaching masses, mixing, scattering or decay observables. | 5, 6, 7 |
 | 9. Supply geometric gravity premises | Energy continuity and actual internal entropy response are available. The [ten-frame Einstein consumer](../../model/matched_einstein_limit/PROOF.md) requires same-state geometric stress, regional entropy and area estimates with shrinking-ball errors. | 4, 5; no need to wait for every species label |

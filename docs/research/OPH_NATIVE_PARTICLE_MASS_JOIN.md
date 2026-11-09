@@ -172,9 +172,51 @@ the order-zero, time-one example has volume-plus-cutoff error at most `2^-23`.
 The complete two-time occupation diagnostic has initial squared-increment
 curvature `2880/289`. These statements neither identify a finite-time
 particle response nor equate this state with the filled-origin state or
-scalar ground. The full local sign-response comparison must control
-electric/link derivatives of evolved observables. Physical dispersion,
-chirality and species identification require their own same-state proofs.
+scalar ground.
+
+The [positive-smoothing action](../../model/particle_smooth_sign_field/PROOF.md)
+supplies complete local quantum-record control for a different declared
+regulator, on the full electric/link and Fock carrier. At fixed positive
+delta, its exponentially summable interaction and polynomial approximants
+give a thermodynamic limit at nonzero duration. The duration-one finite
+certificate combines polynomial, volume and cutoff errors to `3/2^20`,
+before preparation, apparatus and numerical errors. It uses the same
+mixed input, fixed plaquette coefficient and shared clock within this
+comparison, with its kinetic bound recomputed for the smooth action.
+Its normalized free symbol has one massless Dirac corner and velocity
+one; the full vectorlike content is retained. This is not a transfer of
+the Q*=6 scalar ground or its charged lines into a spatial mass shell.
+
+Exact-sign equivalence is required only for that chosen architecture.
+The [native small-gap control](../../model/particle_sign_response_boundary/PROOF.md)
+shows why low-mode probability alone does not control inverse-gap electric
+derivatives; it does not prove failure of the configured mixed state.
+A fixed positive smoothing or a directly declared finite-range Wilson
+action avoids that comparison. Physical spacing refinement, chirality,
+dispersion and species identification require their own same-action proofs.
+
+The [periodic polynomial field's position and translation instruments](../../model/particle_joint_translation_readout/PROOF.md)
+retain every number sector with effects `F_x=n_x/N` on `N>0` and a
+vacuum outcome. Joint matter/link/reference translations preserve the
+combined Gauss-zero preparation domain and commute with the periodic
+field Hamiltonian and word cutoff. Their complete Fourier menu gives
+conserved whole-system crystal momentum, without assigning one particle's
+momentum. Source-only translation does not automatically preserve the
+compensated gauge constraint.
+These global finite menus are outside the fixed-support local-record
+limit; its volume error does not apply to their whole-system outcomes.
+
+The initial complete position-then-momentum weights are
+`[A+(V-1)C]/V` at momentum zero and `(A-C)/V` at each nonzero momentum
+for each site, with `A=(1-2^(-60V))/V` and
+`C=E[sqrt(n_x n_y)/N;N>0]` on the full tracial Fock input.
+Vacuum contributes `2^(-60V)` at momentum zero; every other vacuum label
+is retained at zero. The strict inequality `A-C>=60*2^(-60V)` gives
+actual Born backaction. Finite Robertson uncertainty applies to the same
+coordinate first moment and crystal-momentum operator; the recorded
+coordinate variance also includes positive POVM noise. Their cyclic wrap
+and number-dependent Weyl phase preclude an unqualified finite
+`[X,P]=i hbar I` or physical `hbar/2` assertion.
 
 The [native clock calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
 derives `P B=B(I-L/60)` from all 66 source inputs and sixty seam/coin

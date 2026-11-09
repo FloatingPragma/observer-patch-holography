@@ -109,10 +109,47 @@ exists at fixed spacing, polynomial order and nonzero duration. Its
 order-zero, time-one finite-code example has volume-plus-cutoff error `<=2^-23`,
 and the exact initial two-time squared occupation increment has curvature
 `2880/289`. A derivative diagnostic is not a particle energy or finite-time
-scattering law. The full dynamical sign comparison requires control of
-electric/link derivatives in local evolved observables; the one-body
-spectral estimate does not supply it. No scalar-ground mass assignment
-is transferred into this distinct spatial state.
+scattering law. No scalar-ground mass assignment is transferred into
+this distinct spatial state.
+
+For the [declared positive-smoothing action](../../model/particle_smooth_sign_field/PROOF.md),
+an exponentially summable quantum interaction controls complete local
+records, including electric links and the full Fock carrier, at fixed
+positive delta and nonzero duration. The delta=1, duration-one resource
+certificate gives combined polynomial, volume and word-cutoff error
+`3/2^20`, before implementation errors. It retains the specified mixed
+input and one clock within that action; its energy allowance is
+recomputed for the changed regulator. This thermodynamic record limit
+is not a spacing limit or a physical vacuum theorem. Its free zero
+corner and unit Dirac velocity do not assign a measured mass or remove
+the vectorlike partner.
+
+Exact-sign dynamics is one optional target. The
+[native sign-sensitivity result](../../model/particle_sign_response_boundary/PROOF.md)
+exhibits a vanishing low-mode weight with diverging inverse-gap electric
+response, excluding an inference from one-body spectral probability alone.
+It does not establish failure of the configured mixed state. A fixed
+positive smoothing, or a directly specified finite-range Wilson action,
+is a permitted construction without that exact-sign comparison. Physical
+refinement and chiral mass matching keep their own hypotheses.
+
+The [periodic polynomial field's position/momentum calculation](../../model/particle_joint_translation_readout/PROOF.md)
+uses complete effects `n_x/N` plus vacuum and Fourier projectors of
+joint matter/link/reference translations. The same Hamiltonian, cutoff
+and state are retained. Those projectors preserve the joint Gauss-zero
+domain; their conserved crystal momentum belongs to the whole referenced
+field. For the initial full tracial Fock marginal, each site's original
+position-then-momentum weights are `[A+(V-1)C]/V` at zero and `(A-C)/V`
+at each nonzero momentum, where `A=(1-2^(-60V))/V` and
+`C=E[sqrt(n_x n_y)/N;N>0]`. Vacuum and all zero labels are retained.
+The strict lower bound `A-C>=60*2^(-60V)` proves measurement backaction.
+Finite uncertainty applies to the coordinate first moment and this
+momentum; recorded coordinate variance includes positive POVM noise.
+Physical particle dispersion requires a sector map beyond these exact
+whole-field records. A finite cyclic commutator supplies no universal
+physical `hbar/2` bound or rest-mass identification.
+Their global support is outside the local-record thermodynamic theorem;
+its error bounds are not assigned to these finite joint menus.
 
 ## An exact interacting coefficient-to-record map
 

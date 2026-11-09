@@ -112,14 +112,17 @@ proof shows that the whole class of laws cannot work.
   [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
   [spectral readout](model/spin_shell_readout/README.md),
   [ten common-theory requirements](docs/research/OPH_FIELD_RECONSTRUCTION.md#ten-common-theory-construction-requirements).
-  A separate [mixed gauge-state family](model/particle_local_history_family/PROOF.md)
-  has controlled complete local records at fixed nonzero duration as volume
-  grows, with one action and clock and explicit finite-code errors.
-  Its [local Wilson spectral bound](model/particle_local_wilson_density/PROOF.md)
-  controls low-mode weight. Interacting exact-sign dynamics and relativistic
-  refinement require further estimates. The
-  [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) distinguishes
-  these finite outputs from the physical connections they require.
+- **Interacting fields and actual position records.** A declared
+  [smooth gauge-field action](model/particle_smooth_sign_field/PROOF.md)
+  has controlled complete local detector records at fixed spacing and time,
+  including quantum links and the electric field. Its finite approximation
+  bounds are uniform in volume. A
+  [joint field/reference instrument](model/particle_joint_translation_readout/PROOF.md)
+  supplies conserved crystal momentum, position backaction and finite
+  uncertainty. Physical chiral refinement and particle mass identification
+  require their own same-state derivations. The
+  [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) explains
+  these finite measurements and the remaining physical connections.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs. Computational
   receipts bind their source inputs and include replay checks.

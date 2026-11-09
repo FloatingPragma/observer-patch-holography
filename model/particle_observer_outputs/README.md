@@ -5,9 +5,11 @@ interacting programs. The scalar source supplies an exact gap, charged
 addition/removal lines and complete detector probabilities. A faithful
 thermal preparation connects modular time to the same Hamiltonian.
 A gauge-coordinate field route bounds cutoff and numerical errors in an
-interacting recorded experiment. These are finite output laws; a physical
-particle assignment requires their interacting relativistic limit and
-laboratory observable map.
+interacting recorded experiment. A specified smooth action also has a
+controlled local-record limit at fixed spacing, including the quantum
+electric field. A physical particle assignment requires relativistic
+refinement and a laboratory observable map. The [composition contract](PROOF.md)
+states which state, action, clock and references each connection uses.
 
 The architecture, coherent controls, state and apparatus may be declared.
 No uniqueness theorem for these choices is required. None of the fixtures
@@ -61,6 +63,17 @@ same Hamiltonian and verifies its modular generator. The measured gap
 ratio also works for any reproducible preparation with nonzero empty-state
 weight, so ground cooling is unnecessary for that particular observable.
 
+The [position and joint translation readout](../particle_joint_translation_readout/PROOF.md)
+acts on the complete spatial field and its compensating reference. Its
+position menu includes the vacuum and every occupation; its conserved
+crystal momentum translates all matter, links and the reference. The
+complete position-then-momentum probabilities and finite uncertainty
+relation are derived. This total-system momentum does not identify an
+individual particle's physical momentum. The 480-column native covariance
+check and the distinct small reference control have separate domains.
+Both global menus are distinct from the local occupation pointers used
+in the thermodynamic record bound.
+
 ## A controlled field program
 
 The [gauge-coordinate route](FIELD_ROUTE.md) uses the retained native
@@ -112,9 +125,23 @@ and a one-body sign-approximation estimate. The
 uses exact matching marginals to obtain a thermodynamic limit of polynomial
 field records at fixed nonzero duration, with finite-code errors. Its local
 occupation dynamics has nonzero two-time curvature. These results do not
-prove the interacting exact-sign response, chiral relativistic refinement
-or physical particle masses. Quantum electric dependence remains part of
-the required dynamical estimate.
+prove the interacting exact-sign response. The
+[native sign-response family](../particle_sign_response_boundary/PROOF.md)
+shows why small low-mode weight alone cannot bound inverse-gap electric
+response. It does not prove failure of the configured preparation or of
+every exact-sign comparison strategy.
+
+The [smooth field construction](../particle_smooth_sign_field/PROOF.md)
+provides a different declared action with complete interacting local
+records at fixed positive smoothing. An exponentially summable path
+expansion controls quantum electric/link dynamics, every Fock occupation
+and local instruments, uniformly in volume. Its finite-resource plan at
+time one bounds polynomial, volume and representation errors by
+`3/1048576`. It is not an execution of those enormous resources.
+Ordinary finite-range Wilson dynamics is another permitted design.
+Relativistic spacing refinement and chiral particle identification require
+their own proofs; zero smoothing is needed only for equivalence to the
+discontinuous-sign action.
 
 The physical output requirements are the common spatial and relativistic
 limit, controlled chiral matter content, interacting spectral/detector

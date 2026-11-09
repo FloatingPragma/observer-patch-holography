@@ -30,6 +30,9 @@ def build():
     from model.particle_local_gauge_state import state as local_gauge
     from model.particle_local_wilson_density import density as wilson_density
     from model.particle_local_history_family import history as local_history
+    from model.particle_sign_response_boundary import boundary as sign_boundary
+    from model.particle_smooth_sign_field import smooth
+    from model.particle_joint_translation_readout import readout as joint_translation
     inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
         if sha(ROOT/path)!=digest:
@@ -40,7 +43,7 @@ def build():
     for module in (higgs_records,charged_higgs_records,readout_contract,field_route,thermal_clock,
                    holonomy_transport,consensus_records,gauge_input,bare_effective,controller_readout,
                    attachment,causality,energy,ground,regional,preparation,spectrum,experiment,
-                   local_gauge,wilson_density,local_history):
+                   local_gauge,wilson_density,local_history,sign_boundary,smooth,joint_translation):
         paths.update(getattr(module,'SOURCE_INPUTS',()))
         owner=Path(module.__file__).parent
         paths.update(str(p.relative_to(ROOT)) for p in owner.iterdir()
@@ -70,17 +73,20 @@ def build():
             'local_gauge_density_family':local_gauge.certificate(),
             'local_wilson_spectral_density':wilson_density.certificate(),
             'fixed_time_local_polynomial_records':local_history.certificate(),
+            'exact_sign_response_boundary':sign_boundary.certificate(),
+            'smooth_interacting_local_records':smooth.certificate(),
+            'joint_position_translation_records':joint_translation.certificate(),
             'empirical_mass_inputs':[],
             'physical_particle_assignments':[],
             'source_predicted_GeV_masses':[],
             'empirical_calibrations_eliminated':[],
             'physical_requirement_status':[
-                {'id':1,'name':'preparation and complete instruments','status':'finite scalar and composed spatial preparations and complete readouts established; physical spatial-state attachment unproved'},
-                {'id':2,'name':'common operational position, momentum, time and energy','status':'same-H finite energies and state-specific Gibbs modular clock established; common physical spatial dictionary unproved'},
-                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-time local polynomial record limit and local Wilson spectral control established; interacting exact-sign comparison and chiral relativistic refinement unproved'},
+                {'id':1,'name':'preparation and complete instruments','status':'finite scalar and referenced spatial preparations, complete occupation-position and joint crystal-momentum instruments established; a physical relativistic state attachment unproved'},
+                {'id':2,'name':'common operational position, momentum, time and energy','status':'same-H energies, state-specific Gibbs modular time, full-field position records and conserved joint crystal momentum established; physical particle position/momentum and clock dictionary unproved'},
+                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-positive-smoothing interacting local-record limit established with quantum links and electric dynamics; original exact-sign comparison, chiral matter and relativistic spacing refinement unproved'},
                 {'id':4,'name':'physical masses, mixing, scattering and decays','status':'finite spectral responses established; physical mass and scattering matching unproved'},
                 {'id':5,'name':'defect-to-species attachment','status':'declared protected-label interaction established; physical species identification unproved'},
-                {'id':6,'name':'controlled errors and same-source gravity','status':'finite cutoff, volume and energy identities established; uniform refinement and geometric Einstein premises unproved'}],
+                {'id':6,'name':'controlled errors and same-source gravity','status':'fixed-time smooth-regulator, volume and complete cutoff record bounds plus same-action energy identities established; uniform physical refinement and geometric Einstein premises unproved'}],
             'finite_output_connections':['same-source neutral and charged spectral response',
                 'complete scalar and energy instruments with coherent-control compile bounds',
                 'faithful Gibbs modular clock on the same interacting Hamiltonian',
@@ -102,7 +108,10 @@ def build():
         'one prepared finite field experiment composing parent, volume, cutoff and complete local detector errors',
         'referenced mixed gauge-state family with volume-independent energy densities and all-time local roughness at fixed parameters',
         'all-time local Wilson low-mode weight and one-body sign-polynomial spectral error at fixed parameters',
-        'exact local marginal consistency, fixed-time complete polynomial record limits and finite word-code error moduli']
+        'exact local marginal consistency, fixed-time complete polynomial record limits and finite word-code error moduli',
+        'native inverse-gap electric-response counterfamily distinguishing low-mode weight from dynamical control',
+        'declared smooth gauge-coordinate action with exponentially summable interactions and complete fixed-time local quantum records',
+        'exact joint source/reference translations, conserved crystal momentum and complete position-then-momentum records on all occupations']
     if any(sha(ROOT/p)!=h for p,h in pins.items()):
         raise ValueError('input changed during complete-output replay')
     return json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+'\n'

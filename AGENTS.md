@@ -30,6 +30,13 @@ its consequences. A component may be a primitive of the declared architecture;
 claiming that a narrower source implements it requires an implementation proof.
 Conditional finite theorems retain their stated hypotheses and domains.
 
+Regulators are construction choices too. Reproducing a particular earlier
+regulator, such as the discontinuous Wilson sign, is required only when
+claiming equivalence to that program. An explicitly declared smooth or
+finite-range alternative may instead prove its own complete records and
+physical refinement. Keep its action and parameter ancestry explicit;
+changing a regulator does not transfer a chirality or continuum theorem.
+
 Freeze the declared construction and observation domain, then derive its
 complete native observer outputs and consensus statistics, including retained
 failures, no-operation records and quantum references. Establish the mappings

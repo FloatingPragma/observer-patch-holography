@@ -1,0 +1,192 @@
+{
+  "complete_interacting_local_Duhamel_bound_proved": false,
+  "exact_native_control": {
+    "all_sixty_columns_retained": true,
+    "exact_source_link_kernel_match": true,
+    "native_spectral_control": {
+      "1": 28,
+      "1/16": 16,
+      "7/2": 16
+    },
+    "small_block_axis_derivative": "3",
+    "small_block_beta_derivative": "0",
+    "two_time_complete_coordinate_symbol_records": {
+      "all_native_columns": 60,
+      "complete_original_probability_sum": "1",
+      "coordinate_symbol_not_normalizable_preparation": true,
+      "gap": "1/4",
+      "original_records": [
+        {
+          "block": "small",
+          "first_sign": -1,
+          "last_sign": -1,
+          "original_probability": "(1 - 3*sqrt(15)/16)/(15*sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)) + 1/15"
+        },
+        {
+          "block": "small",
+          "first_sign": -1,
+          "last_sign": 1,
+          "original_probability": "-(1 - 3*sqrt(15)/16)/(15*sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)) + 1/15"
+        },
+        {
+          "block": "small",
+          "first_sign": 1,
+          "last_sign": -1,
+          "original_probability": "-(1 - 3*sqrt(15)/16)/(15*sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)) + 1/15"
+        },
+        {
+          "block": "small",
+          "first_sign": 1,
+          "last_sign": 1,
+          "original_probability": "(1 - 3*sqrt(15)/16)/(15*sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)) + 1/15"
+        },
+        {
+          "block": "large",
+          "first_sign": -1,
+          "last_sign": -1,
+          "original_probability": "sqrt(14)*(1/4 + 13*sqrt(15)/16)/(105*sqrt((1 - 3*sqrt(15)/16)**2 + 825/256)) + 1/15"
+        },
+        {
+          "block": "large",
+          "first_sign": -1,
+          "last_sign": 1,
+          "original_probability": "-sqrt(14)*(1/4 + 13*sqrt(15)/16)/(105*sqrt((1 - 3*sqrt(15)/16)**2 + 825/256)) + 1/15"
+        },
+        {
+          "block": "large",
+          "first_sign": 1,
+          "last_sign": -1,
+          "original_probability": "-sqrt(14)*(1/4 + 13*sqrt(15)/16)/(105*sqrt((1 - 3*sqrt(15)/16)**2 + 825/256)) + 1/15"
+        },
+        {
+          "block": "large",
+          "first_sign": 1,
+          "last_sign": 1,
+          "original_probability": "sqrt(14)*(1/4 + 13*sqrt(15)/16)/(105*sqrt((1 - 3*sqrt(15)/16)**2 + 825/256)) + 1/15"
+        },
+        {
+          "block": "singlet",
+          "first_sign": -1,
+          "last_sign": -1,
+          "original_probability": "7/30"
+        },
+        {
+          "block": "singlet",
+          "first_sign": -1,
+          "last_sign": 1,
+          "original_probability": "0"
+        },
+        {
+          "block": "singlet",
+          "first_sign": 1,
+          "last_sign": -1,
+          "original_probability": "0"
+        },
+        {
+          "block": "singlet",
+          "first_sign": 1,
+          "last_sign": 1,
+          "original_probability": "7/30"
+        }
+      ],
+      "pulse_and_fixed_block_menu_Gauss_preservation_proved": false,
+      "pulse_angle": "arcsin(delta)",
+      "small_block_conditional_flip_probability": "-(1 - 3*sqrt(15)/16)/(2*sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)) + 1/2",
+      "small_block_original_probability": "4/15",
+      "small_block_sign_correlation": "(1 - 3*sqrt(15)/16)/sqrt(9/256 + (1 - 3*sqrt(15)/16)**2)",
+      "unit_electric_length": "4 arcsin(delta)"
+    },
+    "unit_electric_HS_squared": "9"
+  },
+  "input_sha256": {
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/interacting_extension/chiral_lattice/PROOF.md": "6ebad18a35c53aa32dd32367f92e804bd5294ffe89824fcad5fc9d74934095b3",
+    "model/interacting_extension/chiral_lattice/source_data.py": "b09044e27b0f9c27612b82c07888f859bb4e6220ede9f58f60ecfffd2e770665",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/particle_local_gauge_state/PROOF.md": "90890b00c9ade8f4769b563349190bc4c391dd17c83bb0a1fa2be83a73160cab",
+    "model/particle_local_wilson_density/PROOF.md": "7c5781fd7b8643aff596f47ce9f228d1c1678633a7e2a43923dfb1346d7bb8b6",
+    "model/particle_local_wilson_density/density.py": "ea7743c2e17b350e25134f0fcd5f7936a7bc14d216348a6c59f34a5872acbd11",
+    "model/particle_observer_outputs/FIELD_ROUTE.md": "cf9b4bb50f21819f9fbc17c53ec6cb38266df01b54f73f527c97b0b2ce3f2bfb",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698",
+    "model/particle_sign_response_boundary/PROOF.md": "e2d1ec9d4c7531e173ddda22359bf57acdd75b31eadcdd664680c529d218d764",
+    "model/particle_sign_response_boundary/README.md": "79074c4dcaadc18fb21ee32459e8859c8c9213c36c41d6e778e3d1b17fe0be3c",
+    "model/particle_sign_response_boundary/__init__.py": "80696915ec98407380823ec745470f1ab9eb4387646891b7ea6c0d5cde9b4c32",
+    "model/particle_sign_response_boundary/__main__.py": "6d069c1d2691b0fb2727012d0d14b77a27247a6c862708507060bb73d206f388",
+    "model/particle_sign_response_boundary/boundary.py": "b2c4d23f5128d96e3fb9f914f0781a275aa6f2f6a56e3a526fdc757b98a56739",
+    "model/particle_sign_response_boundary/test_boundary.py": "70b5e31b402045e0f5f909f517163a41850c5c78e9fe2479b5c5c8a3ab44a2f9"
+  },
+  "low_mode_density_alone_controls_electric_derivative": false,
+  "physical_mass_or_species_assignments": [],
+  "positive_sufficient_input": "inverse-gap-weighted electric matrix-element control, or a proved smooth-regulator local comparison",
+  "rare_packet_sequence": [
+    {
+      "complete_probe_original_rare_flip_lower": "1/240",
+      "counterfamily_is_the_existing_prepared_density": false,
+      "fixed_duration_interacting_response_impossible_claimed": false,
+      "gap": "1/4",
+      "mean_square_record_change_per_unit_electric_length_squared_lower": "1/960",
+      "normalizable_packet_realization": "smooth neighborhoods and finite-word approximation with all preparation flags retained",
+      "packet_word_degree_or_uniform_electric_energy_bound_supplied": false,
+      "rare_branch_conditioning_used": false,
+      "rare_branch_original_weight": "1/4",
+      "rare_symbol_low_mode_trace": "4",
+      "rare_symbol_normalized_low_effect_probability": "1/15",
+      "rare_symbol_unit_electric_derivative_HS_squared": "9/4"
+    },
+    {
+      "complete_probe_original_rare_flip_lower": "1/960",
+      "counterfamily_is_the_existing_prepared_density": false,
+      "fixed_duration_interacting_response_impossible_claimed": false,
+      "gap": "1/16",
+      "mean_square_record_change_per_unit_electric_length_squared_lower": "1/240",
+      "normalizable_packet_realization": "smooth neighborhoods and finite-word approximation with all preparation flags retained",
+      "packet_word_degree_or_uniform_electric_energy_bound_supplied": false,
+      "rare_branch_conditioning_used": false,
+      "rare_branch_original_weight": "1/16",
+      "rare_symbol_low_mode_trace": "1",
+      "rare_symbol_normalized_low_effect_probability": "1/60",
+      "rare_symbol_unit_electric_derivative_HS_squared": "225/16"
+    },
+    {
+      "complete_probe_original_rare_flip_lower": "1/15360",
+      "counterfamily_is_the_existing_prepared_density": false,
+      "fixed_duration_interacting_response_impossible_claimed": false,
+      "gap": "1/256",
+      "mean_square_record_change_per_unit_electric_length_squared_lower": "1/15",
+      "normalizable_packet_realization": "smooth neighborhoods and finite-word approximation with all preparation flags retained",
+      "packet_word_degree_or_uniform_electric_energy_bound_supplied": false,
+      "rare_branch_conditioning_used": false,
+      "rare_branch_original_weight": "1/256",
+      "rare_symbol_low_mode_trace": "1/16",
+      "rare_symbol_normalized_low_effect_probability": "1/960",
+      "rare_symbol_unit_electric_derivative_HS_squared": "65025/256"
+    },
+    {
+      "complete_probe_original_rare_flip_lower": "1/245760",
+      "counterfamily_is_the_existing_prepared_density": false,
+      "fixed_duration_interacting_response_impossible_claimed": false,
+      "gap": "1/4096",
+      "mean_square_record_change_per_unit_electric_length_squared_lower": "16/15",
+      "normalizable_packet_realization": "smooth neighborhoods and finite-word approximation with all preparation flags retained",
+      "packet_word_degree_or_uniform_electric_energy_bound_supplied": false,
+      "rare_branch_conditioning_used": false,
+      "rare_branch_original_weight": "1/4096",
+      "rare_symbol_low_mode_trace": "1/256",
+      "rare_symbol_normalized_low_effect_probability": "1/15360",
+      "rare_symbol_unit_electric_derivative_HS_squared": "16769025/4096"
+    }
+  ],
+  "schema": "oph.sign_response_boundary.v1",
+  "source_inputs": [
+    "model/particle_local_wilson_density/density.py",
+    "model/particle_local_wilson_density/PROOF.md",
+    "model/particle_local_gauge_state/PROOF.md",
+    "model/particle_observer_outputs/field_route.py",
+    "model/particle_observer_outputs/FIELD_ROUTE.md",
+    "model/interacting_extension/chiral_lattice/PROOF.md",
+    "model/interacting_extension/chiral_lattice/source_data.py",
+    "model/common_source/overlap_regulator.py",
+    "model/observer_particles/results/representation_identification_operators.json"
+  ],
+  "specific_prepared_state_failure_proved": false
+}

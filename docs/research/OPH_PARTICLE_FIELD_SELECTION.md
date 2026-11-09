@@ -112,10 +112,47 @@ the required finite code is specified, not executed. The initial two-time
 squared occupation increment has curvature `2880/289`, without a
 finite-time scattering interpretation. Full-volume purifiers are not
 identified; correlated reference comparisons require compatible local
-preparation. The remaining local exact-sign comparison must control the
-quantum electric/link dependence of evolved observables. Physical state,
-chirality and spacing/order refinement requirements remain distinct from
-this fixed-parameter local-record limit.
+preparation.
+
+Regulator selection is an allowed design choice. The
+[positive-smoothing construction](../../model/particle_smooth_sign_field/PROOF.md)
+uses `h_delta=[beta+sqrt(1+delta^2) H_W/sqrt(H_W^2+delta^2)]/a` at fixed
+positive delta. Its full quantum interaction is exponentially summable,
+so its polynomial approximants control complete local records uniformly
+in volume, including electric links and all Fock occupations. With the
+declared mixed preparation, delta=1 and duration one, polynomial,
+finite-volume and representation errors total `3/2^20`; implementation
+errors are additional. Energy bounds use this regulator's kinetic
+allowance. The same-state comparison does not identify canonical
+purifiers in different volumes or transfer a scalar ground to the field.
+
+The free smooth symbol has one zero corner, unit leading Dirac velocity
+and heavy other corners, retaining both chiralities. Choosing finite-range
+Wilson dynamics directly is another permitted route. Neither choice
+inherits the exact-sign chiral-projector identities. A delta-to-zero
+limit is necessary only when reproducing the discontinuous action, not
+for every permissible field construction. The
+[native sign-sensitivity family](../../model/particle_sign_response_boundary/PROOF.md)
+has low-mode original weight tending to zero while inverse-gap electric
+derivative cost diverges. It excludes that proposed shortcut, without
+showing that the configured preparation's local dynamics fails.
+Physical spacing refinement, state selection and chiral response require
+their own estimates for the chosen action.
+
+The [periodic polynomial field's observation menu](../../model/particle_joint_translation_readout/PROOF.md)
+also gives a complete random-occupied-site position instrument, retaining
+vacuum and every fermion number. Fourier projections of simultaneous
+matter, link and compensating-reference translations are conserved joint
+crystal-momentum readouts. They preserve the combined Gauss-zero domain,
+without commuting with every ambient charged gauge action. Exact native
+position-then-momentum Born weights include every outcome and have
+positive nonzero-momentum weight after a site observation. The finite
+Robertson relation concerns these actual operators; position-record
+variance includes additional POVM noise. This field/reference momentum
+is not single-particle momentum, and the cyclic Weyl relation does not
+supply a universal finite `hbar/2` lower bound.
+Both menus are global finite instruments; the fixed-support local-record
+thermodynamic theorem does not supply their volume limit.
 
 The [same-source quantum-Higgs readout](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
 prepares the full 307-state conserved-sector ground using the actual vertex

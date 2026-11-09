@@ -419,10 +419,146 @@ $\partial_t^2\langle(n'_x-n_x)^2\rangle|_{t=0}=2880/289$
 for the complete two-time occupation law. These are exact native
 current identities, not a particle dispersion. The resulting polynomial
 field has a controlled fixed-spacing thermodynamic record limit.
-The local spectral estimate does not control the sign operator's
-dependence on the dynamical electric/link variables in the required
-many-body Duhamel comparison. That estimate, chiral relativistic
-refinement and the physical particle dictionary remain separate tasks.
+The local spectral estimate alone does not control the sign operator's
+dependence on the dynamical electric/link variables in a many-body
+Duhamel comparison. A different declared regulator supplies a direct
+local-interaction construction, without claiming equivalence to the
+discontinuous action.
+
+\subsection{Electric sign response and a smooth interacting action}
+
+An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_sign_response_boundary/PROOF.md}{exact native gauge family}
+exposes the distinction between spectral weight and electric response.
+For $0<\delta<1/2$, write $c=(1-\delta)/2$, $s=\sqrt{1-c^2}$,
+$\cos\theta=c$, and take weak links
+$U_1(u)=\exp(i(\theta+u)\sigma_1)$,
+$U_2(u)=\exp(i(\theta-u)\sigma_2)$, $U_3=I$, with trivial color.
+On all sixty native Dirac/internal rows at $u=0$, the squared Wilson
+kernel has eigenvalues and ranks
+\[
+ (\delta^2,16),\qquad (1,28),\qquad (3+2\delta,16).
+\]
+The source electric metric gives the unit tangent $X=\tfrac14\partial_u$,
+and
+\[
+ \|X\operatorname{sign}H_W\|=\frac{1-\delta}{4\delta},\qquad
+ \|X\operatorname{sign}H_W\|_{\rm HS}^2
+       =\frac{(1-\delta)^2}{\delta^2}.
+\]
+A near-critical packet with original weight $\delta$ can have vanishing
+weighted low-mode count and diverging weighted derivative cost.
+Each smooth packet has finite electric energy; no uniform energy bound
+or identification with the configured mixed preparation is asserted.
+This disproves an inference from low-mode weight alone. It neither
+excludes the exact-sign theory nor proves failure of that preparation.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_smooth_sign_field/PROOF.md}{smooth alternative}
+uses the same gauge-coordinate carrier and clock units, with declared
+positive smoothing $\delta$ and spacing $a$:
+\[
+ h_\delta=\frac{\beta+\sqrt{1+\delta^2}\,
+             H_W(H_W^2+\delta^2I)^{-1/2}}{a},\qquad
+ H_\delta=H_E+d\Gamma(h_\delta)
+              -\kappa\sum_p\frac{\operatorname{Re}\operatorname{Tr}_{15}U_p}{15}.
+\]
+The flat-source normalization sets zero free energy at zero momentum
+and leading Dirac velocity one; it uses no measured mass. Since
+$\|H_W\|<8$, set $D=64+\delta^2$, $q=64/D<1$ and
+$Z=(64I-H_W^2)/D$. The binomial expansion
+\[
+ \sqrt{1+\delta^2}\,H_W(H_W^2+\delta^2I)^{-1/2}
+ =\frac{\sqrt{1+\delta^2}}{\sqrt D}
+   \sum_{n\ge0}\frac{\binom{2n}{n}}{4^n}H_W Z^n
+\]
+converges uniformly over every gauge configuration and volume. The
+$n$th term has range $2n+1$ and norm at most $(1+\delta)q^n$.
+Rooting its full second quantization at a cell costs at most the native
+rank sixty. Exponentially weighted interaction norms are therefore
+summable. The onsite unbounded electric generator is handled in the
+interaction picture; no derivative of the sign function is needed.
+
+The resulting graded locality estimate controls a local Duhamel
+comparison between $H_\delta$ and its finite polynomials. Complete
+instrument histories, all occupations, and untouched references are
+retained. With the compatible mixed-state marginals, the same estimate
+gives a thermodynamic local-record limit and explicit finite-box and
+representation-cutoff approximations. In that volume comparison,
+volume-specific canonical purifiers are traced; independent untouched
+references or compatible references from a common local preparation
+may be retained. For $\delta=a=T=1$, the declared
+plan allocates $2^{-20}$ to each of these three errors, giving total
+half-trace distance at most $3/2^{20}$. Its degree, box and cutoff are
+enormous certified finite resources, not a materialized simulation.
+Preparation, apparatus compilation and numerical errors have separate
+budgets. The roughness estimate is recomputed for this action rather
+than transferred from a different polynomial.
+
+The free symbol has one zero corner and
+$h_\delta(p)=\boldsymbol\alpha\cdot p+
+ a|p|^2\beta/2+O(a^2)$ at fixed $p,\delta$. Other corners have energy
+at least $2/a$. This is a vectorlike free statement. The interacting
+physical refinement, chiral matter, particle poles and masses are not
+consequences of the fixed-spacing locality theorem. Sending
+$\delta\to0$ is required only to reproduce the discontinuous action.
+The allowed $\delta\to\infty$ endpoint is the ordinary finite-range
+Wilson action $(\beta+H_W)/a$; it may instead be declared directly.
+Neither choice inherits an overlap chirality theorem.
+
+\subsection{Position and momentum on the referenced field}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_translation_readout/PROOF.md}{actual periodic field}
+has translations $T_S(b)$ moving every matter and gauge-link register.
+Their fermionic action is the signed exterior lift. They commute with
+the uniform action and coordinate-word cutoff, and normalize the local
+gauge group. This algebra applies to polynomials and the uniform smooth
+functional calculus above. On the mixed preparation's canonical
+purification, the admitted translation also moves the conjugate reference:
+$T_J(b)=T_S(b)\otimes\overline{T_S(b)}$. It preserves the joint
+Gauss-zero subspace; source-only translation need not do so. Character
+orthogonality gives complete conserved crystal-momentum projections
+$\Pi_k=V^{-1}\sum_b e^{-2\pi i k\cdot b/s}T_J(b)$ on $V=s^3$ cells, $s\ge2$.
+The initial purification has joint crystal momentum zero. These are
+whole-field/reference records, without a single-particle identification.
+The momentum instrument is global; the local-record theorem does not
+assert a thermodynamic limit of these global projectors.
+
+A complete position instrument has effects
+$F_x=n_xN^{-1}\mathbf1_{N>0}$ and $F_{\rm vac}=\mathbf1_{N=0}$,
+with square-root Kraus maps. It samples the site of a uniformly chosen
+occupied mode and retains vacuum. This menu is also global because
+$N^{-1}$ depends on the whole field; the local-record theorem instead
+applies to local occupation pointers. Canonical purifications are
+volume-specific, without an asserted cross-volume identification.
+For the actual maximally mixed
+sixty-mode-per-cell fermion marginal, define
+\[
+ A=\frac{1-2^{-60V}}{V},\qquad
+ C=\mathbb E\left[\frac{\sqrt{n_xn_y}}{N}\mathbf1_{N>0}\right]
+ \quad(x\ne y).
+\]
+At preparation time the complete sequential Born law is
+\[
+ p(x,0)=\frac{A+(V-1)C}{V},\qquad
+ p(x,k\ne0)=\frac{A-C}{V},\qquad
+ p({\rm vac},k)=2^{-60V}\mathbf1_{k=0}.
+\]
+Here $A-C=\tfrac12\mathbb E[(\sqrt{n_x}-\sqrt{n_y})^2/N;
+N>0]>0$. Position measurement thus changes conserved total-momentum
+records, with no selected number sector or discarded outcome.
+This explicit initial-state formula is not claimed for the subsequently
+interacting state, whose complete records use its evolved density.
+
+Finite Fourier momentum and the position instrument's first moment
+obey the existing finite Robertson theorem on these actual operators.
+The variance of the recorded unsharp position is at least the variance
+of that first-moment operator. In a separate complete two-site
+$\mathbb Z_2$ control these variances are $15/64$ and $11/64$,
+respectively, while $\operatorname{Var}P=3\pi^2/16$ and
+$\langle[X,P]\rangle=i\pi/4$ for its stated phase preparation.
+This control illustrates the instrument algebra; it is not the native
+sixty-mode experiment. Finite-dimensional trace excludes
+$[X,P]=i\hbar I$. A universal physical uncertainty normalization and
+particle momentum require their own continuum identification.
 
 \subsection{Finite holonomy and shared event meaning}
 
