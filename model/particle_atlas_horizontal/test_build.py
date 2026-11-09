@@ -84,7 +84,10 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
                   'particle_primary_weighted_survival', 'particle_primary_charge_conjugation',
                   'particle_primary_composite_spin', 'particle_primary_composite_transport',
-                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress'):
+                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress',
+                  'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
+                  'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
+                  'particle_primary_coherent_odd_response'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

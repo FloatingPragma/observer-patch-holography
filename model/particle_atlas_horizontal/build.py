@@ -38,7 +38,9 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_populated_momentum', 'particle_primary_weighted_survival',
     'particle_primary_charge_conjugation', 'particle_primary_composite_spin',
     'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
-    'particle_primary_covariant_stress'))
+    'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
+    'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
+    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
@@ -49,7 +51,9 @@ PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
     'particle_primary_weighted_survival', 'particle_primary_charge_conjugation', 'particle_primary_composite_spin',
     'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
-    'particle_primary_covariant_stress'))
+    'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
+    'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
+    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -248,6 +252,11 @@ def reader(svg,data):
         ('particle_primary_composite_transport','Literal full-source third-order composite transport across complete six-state spin multiplets'),
         ('particle_primary_selected_odd_response','Original selected-state odd creation weight, complete clocks and a uniform cutoff-scale escaping energy band'),
         ('particle_primary_covariant_stress','Cube-covariant source energy and current, exact boundary improvement and conjugate regional response'),
+        ('particle_primary_selected_spin_response','Original G1/H probe-energy records, exact twelve-mode CAR residuals and coherent native-number meters'),
+        ('particle_primary_odd_resolvent','Actual coefficient-one full sector complement resolvent, prepared window and finite original final-energy probability'),
+        ('particle_primary_odd_low_energy','Complete finite odd filters, exact selector energy laws and necessary dressing depth'),
+        ('particle_primary_geometric_cut','Covariant induced regional state, actual boundary-representation entropy and contained energy'),
+        ('particle_primary_coherent_odd_response','Positive G1/H energy records in every complete coherent Walsh spatial row on the original state'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

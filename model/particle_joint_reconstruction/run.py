@@ -49,6 +49,11 @@ from model.particle_primary_composite_transport import model as composite_transp
 from model.particle_primary_composite_spin import model as composite_spin
 from model.particle_primary_selected_odd_response import model as selected_odd_response
 from model.particle_primary_covariant_stress import model as covariant_stress
+from model.particle_primary_selected_spin_response import model as selected_spin
+from model.particle_primary_odd_resolvent import model as odd_resolvent
+from model.particle_primary_odd_low_energy import model as odd_filter
+from model.particle_primary_geometric_cut import model as geometric_cut
+from model.particle_primary_coherent_odd_response import model as coherent_odd
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -160,7 +165,8 @@ def build():
                    charged_string, odd_residual, momentum_transfer, local_fluctuation,
                    spectral_resolution, charged_readout, staggered_response, current_tail,
                    sector_threshold, populated_momentum, weighted_survival, charge_conjugation,
-                   composite_transport, composite_spin, selected_odd_response, covariant_stress):
+                   composite_transport, composite_spin, selected_odd_response, covariant_stress,
+                   selected_spin, odd_resolvent, odd_filter, geometric_cut, coherent_odd):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -308,6 +314,19 @@ def build():
     cubic_energy = covariant_stress.certificate()
     for level, receipt in zip((0, 1, 2, 8), cubic_energy['members'], strict=True):
         covariant_stress.verify_bound(contract.member(level), receipt)
+    original_spin_records = selected_spin.certificate()
+    for level, receipt in zip((0, 1, 2, 8), original_spin_records['members'], strict=True):
+        selected_spin.verify_bound(contract.member(level), receipt)
+    full_odd_resolvent = odd_resolvent.certificate()
+    odd_resolvent.verify_bound(member, full_odd_resolvent['selected_member_bound'])
+    complete_odd_filters = odd_filter.certificate()
+    for level, receipt in zip((0, 1, 2, 8), complete_odd_filters['members'], strict=True):
+        odd_filter.verify_bound(contract.member(level), receipt)
+    regional_cuts = geometric_cut.certificate()
+    for level, receipt in zip((0, 1, 2, 8), regional_cuts['members'], strict=True):
+        geometric_cut.verify_bound(contract.member(level), receipt)
+    spatial_odd_records = coherent_odd.certificate()
+    coherent_odd.verify_bound(member, spatial_odd_records['members'][0])
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -359,6 +378,11 @@ def build():
         'primary_physical_composite_spin_and_exchange': composite_labels,
         'primary_selected_odd_creation_energy_records': original_odd_records,
         'primary_cubic_covariant_energy_and_boundary_improvement': cubic_energy,
+        'primary_selected_spin_resolved_creation_energy_records': original_spin_records,
+        'primary_actual_coupling_odd_full_complement_resolvent': full_odd_resolvent,
+        'primary_complete_selected_odd_energy_filters': complete_odd_filters,
+        'primary_covariant_regional_cuts_and_boundary_entropy': regional_cuts,
+        'primary_original_coherent_spatial_odd_energy_records': spatial_odd_records,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -383,6 +407,13 @@ def build():
         'primary_selected_odd_creation_original_energy_band_proved': True,
         'primary_local_odd_probe_has_uniform_energy_escape_under_refinement': True,
         'primary_cubic_energy_allocation_and_finite_Ward_premises_proved': True,
+        'primary_selected_G1_H_probe_original_energy_records_proved': True,
+        'primary_actual_coupling_prepared_odd_full_complement_resolvent_bounded': True,
+        'primary_complete_odd_filter_with_original_band_weight_proved': True,
+        'primary_covariant_regional_entropy_and_boundary_representation_bound_proved': True,
+        'primary_member_zero_each_coherent_spatial_odd_row_populated': True,
+        'primary_original_coherent_spatial_odd_dispersion_proved': False,
+        'primary_selected_odd_filter_proves_fixed_energy_continuum_residue': False,
         'primary_composite_transport_is_an_isolated_particle_band': False,
         'primary_scanned_analyzer_labels_are_conserved_momenta': False,
         'primary_subcritical_normalized_phase_histories_lose_fixed_positive_energy': True,

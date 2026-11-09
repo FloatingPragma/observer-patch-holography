@@ -48,29 +48,102 @@ composites. Every spin component is transported. Spatial Walsh preparation
 changes the full energy law, without making its label conserved momentum
 or the eight-dimensional vector span an invariant Hamiltonian subspace.
 
-Field selection must also retain the preparation domain. The
-[selected-density odd probe](../../model/particle_primary_selected_odd_response/PROOF.md)
-has member-zero original transfer weight above `23/32` in `[3,15]`.
-Its loaded apparatus compensates the odd native increment and retains
-failure; the source is not reset to a bare or Ritz state. Uniformly in
-capacity, more than `1/50` weight lies at energies of order `1/a`, with
-positive-frequency first moment and unnormalized output excitation mean
-at least `1/(100a)`. These raw odd probes therefore fail uniform energy
-form tightness, without excluding a low-energy component. A dressed or
-filtered odd field requires a nonzero original low-energy residue and
-the same branch's momentum readout. Number-preserving density Weyls do
-not create its odd occupation change from a fixed-number input.
-The exact residual bounds every fixed-band limsup by `1/9`. A triangular
-time filter suppresses the proved inverse-spacing component, without
-certifying a surviving low-energy residue. The selected field therefore
-needs an odd-sector complementary-resolvent estimate at the actual
-interaction coefficient one; a comparison-source band cannot supply it.
+The [spin-resolved original-state apparatus](../../model/particle_primary_selected_spin_response/PROOF.md)
+uses all six weak-pair/singlet creation polynomials on the unchanged
+selected density. Its complete seven-outcome instrument at each address
+retains the compensating memory, failure and reference. At member zero,
+reported original weights exceed `121/512` for G1 and `61/128` for H in
+`[11/4,61/4]`. Five coherent native-number meters record the same
+`Delta=(0,2,0,0,1)` without measuring the unknown initial numbers.
+These are probe representations, not total-spin labels of the mixed
+output. Cube symmetry fixes equal component weights after the address
+average.
+
+The [coherent signed spatial apparatus](../../model/particle_primary_coherent_odd_response/PROOF.md)
+adds the adjoint rows and uses exact odd-field anticommutators to control
+every chosen flat Fourier phase on the original state. At member zero,
+its reported creation weights exceed `1/16` for G1 and `9/64` for H in
+`[1/4,71/4]`. The complete Walsh probe has 104 outcomes before clocks and native-number
+meters, including eight address failures. Every one of its eight spatial rows has original
+reported G1 weight above `1/128` and H weight above `9/512`. These bounds
+sum each multiplet's components. The adjoint rows are not identified with
+source-conjugate antiparticles. A finite spatial label is not conserved
+momentum, and populated rows alone do not prove that their energy laws
+differ with phase.
+
+The [complete odd filter](../../model/particle_primary_odd_low_energy/PROOF.md)
+uses the original four Slater probes with a triangular duration `a/6`
+and analyzer frequency `9/a`. A finite coherent selector and the same
+source clocks retain original reported blank weight above `3/5` in
+`[11/4,61/4]` at member zero and at least `1/80` in
+`[1/(4a),71/(4a)]` throughout the family. The analyzer frequency does
+not shift the source energy zero. Summing all retained selector outputs
+recovers the raw probe's energy law exactly. A useful successful filtered
+field is permitted, but its own low-energy weight requires a lower bound.
+The proved spin-resolved and source-centered bands scale as `1/a`.
+
+The [full odd-sector resolvent](../../model/particle_primary_odd_resolvent/PROOF.md)
+is bounded at the actual interaction coefficient one on member zero.
+For the prepared local weak trion, the complete complement within its
+reducing occupation sector gives two-sided self-energy and resolvent
+enclosures below the rigorous sector floor `L=-722.22108`. Exact moments also give prepared spectral weight
+above `1/26` in `[L,-714]`, and one complete source clock retains above
+`1/27` in `[L-1/64,-714+1/64]`. These are absolute source energies with
+the unchanged zero. The preparation moves the original state/reference
+into retained memory. The actual source-marginal faithfulness floor
+`rho>=c P_G` also transfers its implemented positive final-clock event:
+the original fixed local odd probe has weight above `c/27`, or above
+`c/864` for one retained row in the member-zero `4V` probe menu.
+This event measures final energy without initial energy recording. It
+neither transfers the prepared probability wholesale nor identifies an
+original transfer-energy law. The authenticated member-zero floor is
+`c=2^(-582407133)`. Its positivity supplies neither a practical event rate
+nor a uniform continuum residue. Neither this interval
+nor the resolvent bounds isolate a particle branch. The same parent fourth
+moment improves the specified one-spin-row weak-composite transport guarantee to
+`Pr(transfer)>=t^6/256` for `0<|t|<=2.77366e-6`.
+
+The [selected odd residual](../../model/particle_primary_selected_odd_response/PROOF.md)
+places more than `1/50` original weight at energies of order `1/a` and
+forces the positive-frequency first moment and unnormalized output
+excitation mean above `1/(100a)`. A coexisting low-energy component is
+permitted. The complete filter calculation bounds the raw odd fixed-band
+limsup by `1/9`; its ideal zero-centered duration-one blank has weight
+below `1/4` at every member. Neither upper bound proves a surviving residue. Static
+number-phase conjugation only changes each retained local odd row by a
+scalar phase. Even time-separated critical density-Weyl dressings of
+depth `o(a^-1/2)` cannot make the complete odd output energy tight.
+
+The [exact cube-kernel reduction](../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md)
+reduces each component-summed G1/H response to four real spectral measures,
+indexed by cell-pair Hamming distance. Off-diagonal measures may be signed.
+Their four Walsh combinations have multiplicities `1,3,3,1`; this is a
+spectral Gram decomposition, without an H-eigenstate or momentum assignment.
+The next calculation is those measures on the original selected density.
+Their actual values, normalized energy-shape differences and a common
+branch or threshold are not fixed by symmetry or by prepared-vector
+transport. Intensity contrast alone is insufficient for dispersion.
+Operational momentum and controlled dispersion are the physical mass
+connections. A continuum claim also requires fixed-energy original weight bounded away from zero under
+refinement; the finite faithfulness floor and filtered upper bounds do
+not supply that estimate.
 
 The [cube-covariant energy convention](../../model/particle_primary_covariant_stress/PROOF.md)
 supplies exact density/current covariance, a boundary improvement and
 complete scalar-control work records on the unchanged action. Selecting
 it as a local energy observable does not supply Lorentz stress, proper
 geometry or a geometric modular kernel.
+
+The [induced regional cut](../../model/particle_primary_geometric_cut/PROOF.md)
+uses regional matter and wholly internal links, with crossing links in
+the complement. Its actual marginal, boundary sectors and modular flow
+are cube covariant. The representation entropy satisfies
+`0<=S_edge<=ell b_R log(6)`, where `b_R` counts crossing links; this is
+not a total entropy or finite area-coefficient theorem. A contained
+regional energy differs from the covariant allocation by an explicit
+boundary operator. Its modular generator is not identified with that
+energy. Proper geometry and the matched Einstein estimates are separate
+physical premises.
 
 The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
 preserves the Hamiltonian and polynomial state at every finite member,

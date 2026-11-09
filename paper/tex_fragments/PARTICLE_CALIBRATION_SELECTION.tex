@@ -1337,13 +1337,50 @@ If $R\ge\max_{z\in\{x,y\}}\|(H-b)^2\phi_z\|$, the full-space Taylor remainder gi
  \quad\Longrightarrow\quad
  |\langle\phi_y,e^{-itH}\phi_x\rangle|^2\ge\frac{|t|^6}{256}.
 \]
-For the one-spin-row witnesses, the certified interval reaches about
-$4.94\times10^{-8}$ source time units. The complete detector tests the full bare target and retains its
+For the weak-pair/singlet one-spin-row witnesses, the certified interval reaches about
+$2.77\times10^{-6}$ source time units using the fourth-moment bound below.
+The complete detector tests the full bare target and retains its
 complement. Coherent cube characters have different third energy moments,
 despite equal means and variances. Exact weak-interaction effective
 hopping coefficients have a certified coupling radius below $0.009$;
 the selected interaction value one is outside it. Neither those
 coefficients nor the moment matrix is a physical dispersion spectrum.
+
+For the specified weak-pair/singlet Slater composite, an
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_resolvent/PROOF.md}{exact parent fourth-moment calculation}
+gives $\langle(H-b)^4\rangle\le M_4=9738478674383/18007500$ after the actual
+link compression. Conditional Slater traces keep all native-block cross
+terms; Haar integration retains the 120 backtracking four-step cube
+walks and removes the 48 plaquette walks. This supplies a full-complement
+resolvent enclosure at interaction coefficient one. Write
+$\langle\phi,(H_\Delta-z)^{-1}\phi\rangle=(-711-z-\Sigma(z))^{-1}$
+on the reducing occupation sector of the composite.
+With $L=-722.22108$, $v=132301/735$, $d_3=369869271/42875$,
+$\mu=-711+d_3/v$ and variance cap $\tau=M_4/v-v-(d_3/v)^2$,
+its full-complement self-energy obeys, for $z<L$,
+\[
+ \frac{v}{\mu-z}\le\Sigma(z)\le
+ \min\left\{\frac{v[(L-z)(\mu-L)+\tau]}
+ {(L-z)[(\mu-L)(\mu-z)+\tau]},
+ \frac{v(-711-L)}{v+(L-z)(-711-L)}\right\}.
+\]
+The complement contains every other physical state in that sector. For example,
+$\langle\phi,(H_\Delta-L+8)^{-1}\phi\rangle$ lies between $0.060458$ and
+$0.070342$. An independent cubic polynomial of $H+711$ certifies
+prepared weight above $1/26$ in $[L,-714]$; a complete clock retains
+more than $1/27$ in the widened report. These bounds use the explicitly
+prepared composite, retaining the displaced original state and reference.
+They also imply finite original-state positivity: $\rho\ge cP_G$ and
+$A\Omega=\phi$ give
+\[
+ A\rho A^*\ge c|\phi\rangle\langle\phi|.
+\]
+Applying the same positive complete clock effect yields weight above
+$c/27$ for fixed $A$, or $c/(108V)$ for its one retained row in the
+uniform four-spin/address instrument. The clock error is included before
+this multiplication. This is a final-energy event with a deteriorating
+faithfulness floor, without an initial-energy or transfer-law assertion.
+It supplies neither an isolated pole nor a refinement-uniform residue.
 
 \paragraph{Odd creation on the selected state.}
 A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_selected_odd_response/PROOF.md}{complete trilinear probe}
@@ -1375,6 +1412,71 @@ local-composite measures are not uniformly energy tight: at least $1/50$
 escapes every fixed upper energy. A separate finite-energy component can
 coexist with this weight; its existence and particle interpretation are
 not established by this estimate.
+
+\paragraph{Spin-resolved records and finite filtering.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_selected_spin_response/PROOF.md}{complete six-row creation instrument}
+resolves its two-dimensional G1 and four-dimensional H probe multiplets
+on the original selected state. Exact full-CAR occupation inequalities
+and residual bounds give complete reported weights above $121/512$ and
+$61/128$, respectively, in $[11/4,61/4]$ at member zero. Uniformly in
+capacity, their reported weights exceed $1/200$ and $3/200$ in
+$[1/(4a),71/(4a)]$. The labels transform as the actual source cube
+representations; the mixed input and final state are not assigned those
+total-spin eigenvalues. Coherent occupation-transfer meters distinguish
+the native increments without measuring the initial absolute occupations.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_coherent_odd_response/PROOF.md}{coherent spatial instrument}
+also gives positive original response in each of the eight cube Walsh
+rows. For a chosen flat phase, set $A_{f,j}=\sum_x f_xF_{x,j}$ with
+$|f_x|^2=1/8$, and retain all six creation operators and their adjoints,
+divided by $\sqrt6$, together with the full failure. Exact local
+anticommutators give completeness and the original vacancy floor.
+Four colors pair opposite cube vertices with disjoint residual stars,
+bounding the total signed centered second moment by $110/3$.
+The complete downward-record theorem bounds negative transfer below
+$-1/2$ by $1/8$. After both energy clocks, each chosen flat phase has
+creation weight above $1/5$ in $[1/4,71/4]$; separately its G1 and H
+weights exceed $1/16$ and $9/64$. In a single complete eight-row Walsh
+instrument, each row carries an additional factor $1/8$: the corresponding
+original joint bounds are $1/40$, $1/128$ and $9/512$.
+All 96 signed success records and eight address failures are retained.
+The adjoint rows are annihilation operations, without an antiparticle
+identification. These are populated finite spatial analyzers, not
+spectral values of conserved momentum or an isolated dispersion branch.
+
+Cube symmetry gives an exact reduction of the original energy-transfer
+kernel after summing the components of either probe multiplet. Its entry
+between vertices $x,y$ is a real spectral measure $m_d$, where $d$ is their
+Hamming distance; off-diagonal measures can be signed. The four Walsh
+eigenmeasures are
+\[
+\begin{pmatrix}\Lambda_0\\\Lambda_1\\\Lambda_2\\\Lambda_3\end{pmatrix}
+=
+\begin{pmatrix}1&3&3&1\\1&1&-1&-1\\1&-1&-1&1\\1&-3&3&-1\end{pmatrix}
+\begin{pmatrix}m_0\\m_1\\m_2\\m_3\end{pmatrix}.
+\]
+Their multiplicities are $1,3,3,1$. The matrix squares to $8I$;
+the selected-phase measure is $\Lambda_s/6$, and one row of the complete
+apparatus has measure $\Lambda_s/48$. Thus four measures determine all
+eight spatial rows. This diagonalizes a probe spectral kernel, not the
+source Hamiltonian. Nonzero off-diagonal measures give unequal joint
+responses; unequal intensities alone do not imply different normalized
+energy profiles or dispersion. The component-resolved and cross-multiplet
+kernels require their full transformation laws.
+
+An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_low_energy/PROOF.md}{explicit complete filter}
+uses a triangle of half-width $T=a/6$, analyzer frequency $9/a$ and
+1024 selector cells. The actual centered commutator bounds its quadrature
+error by $1/2048$; algebraic source clocks and two energy clocks retain
+original blank probability above $3/5$ in $[11/4,61/4]$ at member zero.
+Summing every selector outcome exactly restores the original creation
+energy law. Demodulation selects a response without shifting source
+energies. A fixed-width zero-centered filter has success limsup at most
+$1/9$, with no positive fixed-energy residue bound. Dressing the complete
+odd output by critical-density phase operations and source waits requires
+at least $[(a^{-1/2}-20)/450]_+$ such operations to reduce its original
+excitation weight above energy one to $1/200$. This is a necessary depth
+for that operation class, without excluding other dressed fields.
 
 \paragraph{Prepared scalar-odd spectroscopy.}
 An alternative source-determined rational combination of the same twelve
@@ -2066,15 +2168,29 @@ $\partial_t\langle H_f\rangle=\sum_x\dot f_x\langle h_x\rangle$.
 They transform as scalar controls under the cube. Their identification
 with proper lapse or a metric stress tensor is a separate premise.
 The difference from the three-owner plaquette and owned-electric
-allocation is an exact nearest-edge divergence: route half each electric
-term to its other endpoint, and route a plaquette's signed potential
-with weights $1/24,1/24,1/8,1/8$ along its two forward corner paths.
-The resulting regional energy difference is only the crossing boundary
-operator; total energy and the clock are unchanged. Its norm need not
-vanish under refinement. Charge conjugation fixes these energies and
-their currents, so conjugate complete square-root instruments give equal
-classical record laws. Rotation of an energy observable does not by
-itself rotate the owner-cell partial trace into a geometric region.
+allocation is an exact nearest-edge divergence, preserving total energy
+and the source clock. Its norm need not vanish under refinement.
+Charge conjugation fixes these energies and their currents.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_geometric_cut/PROOF.md}{covariant regional cut}
+retains the matter in $R$ and links with both endpoints in $R$, assigning
+crossing links to the complement. The actual cube action then factors
+across the cut, making the partial trace, supported modular operator
+and complete boundary records covariant. If $b$ links cross the cut,
+the actual native representations give
+\[
+ S_{\rm extended}=S_{\rm algebra}+\sum_\lambda p_\lambda\log d_\lambda,
+ \qquad 0\le\sum_\lambda p_\lambda\log d_\lambda\le b\ell\log6.
+\]
+Recording the existing central label leaves the regional entropy
+unchanged, although it can disturb global coherences. On the two-site,
+one-interior-link cut, native Wilson characters give the positive lower
+bound $4c\log108$, with the actual source floor $\rho\ge cP_G$.
+The whole contained action $H_{\rm int}(R)$ belongs to this regional
+algebra; its difference from $\sum_{x\in R}h_x$ is a crossing operator
+of norm at most $b[609\ell^2/4+15+3/14]/a$. Neither this boundary
+comparison nor the representation entropy identifies a proper area,
+regional modular-energy kernel or finite Newton coefficient.
 
 Write $\rho\ge2^{-N}P_G$ for the selected source floor. Its regional density obeys
 $\sigma_R\ge m_RP_R$, where $P_R=\operatorname{supp}\operatorname{Tr}_{\bar R}P_G$

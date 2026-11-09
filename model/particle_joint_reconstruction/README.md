@@ -32,7 +32,11 @@ entropy first law. The [covariant allocation](../particle_primary_covariant_stre
 adds exact cube covariance, a nearest-edge boundary improvement and
 complete scalar-control work records, without changing H. Proper geometry,
 Lorentz stress, the geometric modular kernel and area response require
-independent proofs. The [reuse map](REUSE.md) separates these actual-source
+independent proofs. The [regional-cut construction](../particle_primary_geometric_cut/PROOF.md)
+supplies an actual cube-covariant marginal and boundary-charge records,
+with representation entropy at most `ell b_R log(6)`. This is a bound on
+one entropy term, without a finite geometric area coefficient.
+The [reuse map](REUSE.md) separates these actual-source
 results from the hypotheses and methods of other constructions.
 
 The [conditional candidate](CANDIDATE.md) reuses the three-family chiral
@@ -159,19 +163,39 @@ propagate. A full-source remainder bounds short-time transition records;
 coherent spatial preparations have distinct energy laws. These facts do
 not make the bare vector span an invariant particle band.
 
-The [original-density odd probe](../particle_primary_selected_odd_response/PROOF.md)
-has member-zero transfer weight above `23/32` in `[3,15]`, without
-replacing the source density. Across capacity, more than `1/50` original
-weight lies in `[1/(2a),35/(2a)]`, with positive-frequency first moment
-and unnormalized output excitation mean at least `1/(100a)`. A dressed
-or filtered low-energy odd residue is therefore needed for a uniform
-finite-energy field. Such a component is not excluded. A finite GeV
-comparison needs the same channel's resolved branch, operational momentum
-and controlled dispersion; the continuum claim adds uniform survival.
-The immediate spectral calculation is the actual odd-sector complementary
-resolvent at coefficient one, with selected-state matrix elements.
-The raw fixed-band limsup is at most `1/9`; filtering away the certified
-inverse-spacing tail does not by itself certify a low-energy residue.
+The [original spinor-channel instrument](../particle_primary_selected_spin_response/PROOF.md)
+reports weights above `121/512` for G1 and `61/128` for H in
+`[11/4,61/4]`, on the unchanged selected state at member zero. These
+are creation-operator labels, with exact native-number transfer records.
+The [source-centered complete filter](../particle_primary_odd_low_energy/PROOF.md)
+separately retains above `3/5` in that reported band. Across capacity
+these proved bands scale as `1/a`. A uniformly populated fixed-energy component
+requires its own original residue; neither discarding other selectors nor
+a fixed-depth number-phase dressing supplies that proof.
+
+The [signed spatial analyzer](../particle_primary_coherent_odd_response/PROOF.md)
+populates both odd probe multiplets at every chosen flat Fourier phase
+on the original density. Its Walsh probe has 104 outcomes and retains every failure. Each spatial
+row has reported G1 weight above `1/128` and H weight above
+`9/512` in `[1/4,71/4]` after the complete clocks. The [cube-kernel reduction](../particle_primary_coherent_odd_response/KERNEL_PROOF.md)
+uses the actual symmetry to reduce each summed probe multiplet to four
+spectral measures. Their values must establish energy-shape differences
+and a common resolved branch; intensity changes alone are insufficient.
+The spatial label is not conserved particle momentum.
+
+The [full odd resolvent](../particle_primary_odd_resolvent/PROOF.md)
+is bounded at interaction coefficient one, including the entire physical
+complement within its reducing occupation sector. An explicitly prepared
+weak trion has spectral weight above
+`1/26` in `[-722.22108,-714]` and complete reported weight above `1/27`
+in its widened window.
+
+This preparation retains the displaced source and reference in memory. Source faithfulness also gives a positive original
+final-energy event above `c/864` for one retained odd-probe row, where
+`c=2^(-582407133)` at member zero. This capacity-deteriorating floor
+is distinct from the prepared weight and supplies no uniform continuum residue. Its interval does not
+isolate a particle line; same-channel momentum and controlled dispersion
+are physical mass requirements.
 
 The [phase-scanned analyzer](../particle_primary_populated_momentum/PROOF.md)
 has a populated joint spatial-label/energy event with reported probability

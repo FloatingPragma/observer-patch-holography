@@ -89,12 +89,13 @@ proof shows that the whole class of laws cannot work.
   balance.
 - **Particle candidates and energy readouts.** The
   [primary source](model/particle_joint_reconstruction/README.md) has six
-  certified physical occupation sectors with positive excitation thresholds. Its odd
-  composites propagate under the full interacting Hamiltonian, carry exact
-  finite rotation labels and obey odd exchange. Opposite sectors have equal
-  spectra, and complete probes on the selected state have substantial
-  excitation probability. Part of that response moves toward the cutoff
-  as capacity grows. The [defect catalogue](model/protected_defect_catalog/CATALOG.md)
+  certified physical occupation sectors with positive excitation thresholds.
+  Its odd composites propagate, carry finite rotation labels and have complete
+  spin-resolved energy readouts in all eight rows of a finite spatial analyzer.
+  One prepared composite has energy-response bounds retaining every other state in its sector.
+  Complete filters preserve original probability. Part of the
+  response moves toward the cutoff as capacity grows. The
+  [defect catalogue](model/protected_defect_catalog/CATALOG.md)
   distinguishes source charges from physical species; a surviving
   relativistic branch and GeV rest masses require further proof.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
@@ -129,10 +130,10 @@ proof shows that the whole class of laws cannot work.
 - **One source, state, reference and clock.** The selected Wilson construction
   has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
   a stationary limiting state, positive energy and convergent finite detector
-  histories on one subsequence. An [actual finite excitation](model/particle_primary_survival/PROOF.md)
-  has positive original weight, with no uniform particle-survival bound. Its
-  [cubic energy currents](model/particle_primary_covariant_stress/PROOF.md) obey exact
-  conservation on the same finite source. These results do not show
+  histories on one subsequence. Its energy currents obey exact finite
+  conservation. A [covariant regional cut](model/particle_primary_geometric_cut/PROOF.md)
+  retains the actual boundary charges and specifies their contribution to
+  entropy, with an explicit boundary comparison to regional energy. These results do not show
   that excitations survive the limit or identify physical particles,
   Lorentz symmetry or gravity. The
   [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)

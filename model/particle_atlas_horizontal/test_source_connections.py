@@ -55,51 +55,55 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
                   'particle_primary_weighted_survival', 'particle_primary_charge_conjugation',
                   'particle_primary_composite_spin', 'particle_primary_composite_transport',
-                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress'):
+                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress',
+                  'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
+                  'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
+                  'particle_primary_coherent_odd_response'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
+    assert '../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md' in hrefs
     assert 'Filtered and unfiltered probes share positive time dynamics' in text
-    assert 'coin and reference remain in the complete output' in text
     assert 'primary physical-mass table in GeV is empty' in text
     assert '[1/(100β),46/a]' in text
     assert 'fixed-band survival and spatial momentum require proof' in text
     assert 'relative-observation sector has commuting H≥0 and P' in text
     assert 'HΩ=PΩ=0' in text
     assert 'sinc² energy/momentum weight may vanish' in text
-    assert 'a²S→0 lose every fixed positive-energy weight' in text
-    assert 'Actual Weyl probes have S=30/a², outside this obstruction' in text
-    assert 'CAR-even records' in text
-    assert 'Selected-state odd creation succeeds with original probability >0.84402' in text
-    assert 'transfer weight >23/32 in [3,15]' in text
     assert 'weight escapes every fixed upper energy band' in text
-    assert 'H³ transfer matrix −3/4 I₆' in text
     assert 'G1g ⊕ Hg' in text and 'G1u ⊕ Hu' in text
     assert 'disjoint-site fermionic exchange are exact' in text
-    assert 'cube-covariant energy and currents' in text
-    assert 'C-odd supported tangents' in text
     assert 'finite Fourier labels, not exact momentum projections' in text
-    assert 'full-space floors above the actual ground' in text
-    assert 'identify no isolated particle or GeV rest mass' in text
-    assert 'original union weight >0.06646' in text
     assert 'opposite Q6=±6 transfers' in text
-    assert 'A1u prepared window has weight >1/4' in text
-    assert 'Pair preparation retains the opposite sector and displaced source/reference state' in text
-    assert 'probability ≥255/512' in text
     assert 'Opposite native occupations have identical spectra' in text
     assert 'odd inversion eigenstates have opposite parity under C' in text
-    assert 'final-excitation union >15/256' in text
-    assert 'finite analyzer labels establish no conserved momentum or dispersion curve' in text
     assert 'radix-five coherent meters' in text
     assert 'original joint success weight >1/4' in text
     assert 'without reading initial absolute charges' in text
     assert 'Absolute terminal charge is a separate disturbing readout' in text
-    assert 'identify no particle species or rest mass' in text
     assert '104.806' not in text and '5.913111' not in text
     assert 'Fourier-to-momentum map require proof' not in text
-    assert 'H(I)=H_primary exactly' in text
     assert 'Proper geometry, Lorentz stress' in text
-    assert 'source-marginal relative entropy D/β' in text
-    assert 'entropy comparison traces out the quantum reference' in text
     assert 'Finite mass comparison needs a resolved branch' in text
+    assert 'Five coherent qutrit meters' in text
+    assert 'Each complete Walsh spatial row has original positive-energy' in text
+    assert 'weight >1/40 in [0.25,17.75]' in text
+    assert 'G1/H parts exceed 1/128 and 9/512' in text
+    assert 'All 96 successes and 8 failures remain' in text
+    assert 'separately chosen normalized phase has weight >1/5' in text
+    assert 'not total-spin or conserved-momentum eigenvalues' in text
+    assert 'Four uncomputed spectral measures determine each summed multiplet' in text
+    assert 'full sector complement resolvent' in text
+    assert 'prepared odd composite has low-energy weight >1/26' in text
+    assert 'complete clock retains >1/27' in text
+    assert 'No isolated pole, uniform residue or GeV rest mass follows' in text
+    assert 'followed only by the final energy clock' in text
+    assert 'weight >c/864 at member zero' in text
+    assert 'This tiny floor can collapse with capacity' in text
+    assert 'Complete selector sums preserve the original energy law' in text
+    assert 'blank centered at 9/a retains weight >1/80 at energy scale 1/a' in text
+    assert 'crossing links remain outside' in text
+    assert '0≤S_edge≤ℓ b log 6' in text
+    assert 'Complete center recording preserves regional entropy' in text
+    assert 'finite universal area coefficient' in text
 
 
 @pytest.mark.parametrize('mutation', [

@@ -18,21 +18,21 @@ SUMMARIES = {
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
-        'Eight radix-five coherent meters attach opposite Q6=±6 transfers to complete energy records in [9.625,33.875] source units, with original joint success weight >1/4. They preserve source/reference histories without reading initial absolute charges. Failures and all labels are retained. Absolute terminal charge is a separate disturbing readout. Coherent offsets give finite Fourier labels, not exact momentum projections.',
+        'Five coherent qutrit meters attach native occupation increments to G1/H records without reading initial numbers; all probe, pointer and failure labels remain. Separate radix-five coherent meters attach opposite Q6=±6 transfers with original joint success weight >1/4 without reading initial absolute charges. Absolute terminal charge is a separate disturbing readout. Coherent offsets give finite Fourier labels, not exact momentum projections.',
     'joint_refinement':
-        'Filtered and unfiltered probes share positive time dynamics. Histories with a²S→0 lose every fixed positive-energy weight. Actual Weyl probes have S=30/a², outside this obstruction; fixed-band survival and spatial momentum require proof. The relative-observation sector has commuting H≥0 and P, HΩ=PΩ=0; sinc² energy/momentum weight may vanish. Odd weight escapes every fixed upper energy band (>1/50 at energy scale 1/a). Finite-energy survival is open.',
+        'Filtered and unfiltered probes share positive time dynamics. The relative-observation sector has commuting H≥0 and P, HΩ=PΩ=0; sinc² energy/momentum weight may vanish. Complete selector sums preserve the original energy law. A finite blank centered at 9/a retains weight >1/80 at energy scale 1/a. Odd weight escapes every fixed upper energy band; fixed-band survival and spatial momentum require proof.',
     'relativistic_field':
-        'Three signed pairs have full-space floors above the actual ground. Each cube multiplet has a positive window with probability ≥255/512. Pair preparation retains the opposite sector and displaced source/reference state. Neighboring odd composites have H³ transfer matrix −3/4 I₆; lower neighbor-transfer moments vanish. The three constituents must all hop. These moments identify no isolated particle or GeV rest mass. A separate A1u prepared window has weight >1/4.',
+        'At coefficient one, exact fourth moments bound the full sector complement resolvent. A prepared odd composite has low-energy weight >1/26; the complete clock retains >1/27. Separately, one original-state creation row followed only by the final energy clock has weight >c/864 at member zero, with ρ≥cP_G. This tiny floor can collapse with capacity. Physical memories retain displaced source/reference data. No isolated pole, uniform residue or GeV rest mass follows.',
     'chiral_species_attachment':
         'A weak doublet pair plus a singlet, or a color triple, gives six odd gauge-singlet states: G1 ⊕ H. Uniform spatial preparation gives G1g ⊕ Hg; conjugates give G1u ⊕ Hu. Native-current increments and disjoint-site fermionic exchange are exact. Opposite native occupations have identical spectra; odd inversion eigenstates have opposite parity under C. These finite cube labels establish no Lorentz spin or named species. Chiral propagation and interactions require proof.',
     'particle_observables':
-        'Selected-state odd creation succeeds with original probability >0.84402; transfer weight >23/32 in [3,15] source units. A compensating memory supplies the native occupation increment; no trial replaces the input. Separate CAR-even records use an order-32 scan: original union weight >0.06646, clock reports >1/16 and final-excitation union >15/256. They identify no particle species or rest mass; finite analyzer labels establish no conserved momentum or dispersion curve.',
+        'Each complete Walsh spatial row has original positive-energy weight >1/40 in [0.25,17.75] source units; G1/H parts exceed 1/128 and 9/512. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/5. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Relativistic dispersion, an isolated rest branch and a GeV mass require proof.',
     'independent_comparison':
         'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
-        'Half-edge electric energy and quarter-plaquette shares give actual cube-covariant energy and currents, with an exact boundary improvement and unchanged H. C-odd supported tangents have zero first-order regional entropy and energy. A coframe has H(I)=H_primary exactly. Complete origin/sign records bound source-marginal relative entropy D/β: 0.04099<D/β≤14175/32. The coin and reference remain in the complete output; this entropy comparison traces out the quantum reference. Proper geometry, Lorentz stress and Einstein limits require proof.',
+        "A region contains its matter and internal links; crossing links remain outside. This cut has a cube-covariant state and modular flow. Entropy from boundary representation dimensions obeys 0≤S_edge≤ℓ b log 6 for word degree ℓ and b crossing links, with a strictly positive finite Wilson-loop witness. Complete center recording preserves regional entropy and can disturb global coherences. Contained regional energy differs from H'_R by an explicit boundary operator. Proper geometry, Lorentz stress, a finite universal area coefficient and Einstein dynamics require proof.",
 }
 
 
@@ -107,11 +107,11 @@ def render(c, data, y):
                64, color, max_y=top+580)
         c.link(x+80, top+660, 'Acceptance conditions and exact evidence',
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
-        theorem = {'local_records': 'model/particle_primary_charged_readout/PROOF.md',
-                   'joint_refinement': 'model/particle_primary_selected_odd_response/PROOF.md',
-                   'relativistic_field': 'model/particle_primary_composite_transport/PROOF.md',
+        theorem = {'local_records': 'model/particle_primary_selected_spin_response/PROOF.md',
+                   'joint_refinement': 'model/particle_primary_odd_low_energy/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_odd_resolvent/PROOF.md',
                    'chiral_species_attachment': 'model/particle_primary_composite_spin/PROOF.md',
-                   'particle_observables': 'model/particle_primary_populated_momentum/PROOF.md',
+                   'particle_observables': 'model/particle_primary_coherent_odd_response/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
         c.link(x+width/2, top+660, 'Scoped construction or theorem',
@@ -134,7 +134,8 @@ def render(c, data, y):
         earlier = {
             'local_records': (
                 ('Finite Fourier aperture', 'model/particle_primary_momentum/PROOF.md'),
-                ('Complete energy clocks', 'model/particle_primary_joint_spectroscopy/PROOF.md')),
+                ('Complete energy clocks', 'model/particle_primary_joint_spectroscopy/PROOF.md'),
+                ('Local charge transfers', 'model/particle_primary_charged_readout/PROOF.md')),
             'joint_refinement': (
                 ('Spatial action', 'model/particle_primary_spatial_algebra/PROOF.md'),
                 ('Occupation bound', 'model/particle_primary_refinement_response/PROOF.md'),
@@ -146,7 +147,8 @@ def render(c, data, y):
                 ('Selected occupation bound', 'model/particle_primary_occupation_bound/PROOF.md'),
                 ('Distinct selected A1u response', 'model/particle_primary_odd_residual/PROOF.md'),
                 ('Full-source Rayleigh bound', 'model/particle_primary_variational_readout/PROOF.md'),
-                ('Sector floors', 'model/particle_primary_sector_threshold/PROOF.md')),
+                ('Sector floors', 'model/particle_primary_sector_threshold/PROOF.md'),
+                ('Actual odd transport', 'model/particle_primary_composite_transport/PROOF.md')),
             'chiral_species_attachment': (
                 ('Literal conjugation', 'model/particle_primary_charge_conjugation/PROOF.md'),
                 ('Populated odd response', 'model/particle_primary_selected_odd_response/PROOF.md')),
@@ -154,7 +156,9 @@ def render(c, data, y):
                 ('Local response window', 'model/particle_primary_response_moments/PROOF.md'),
                 ('Local [4,8] response', 'model/particle_primary_branch_resolution/PROOF.md'),
                 ('Charged endpoint band', 'model/particle_primary_charged_string/PROOF.md'),
-                ('Checkerboard A2g band', 'model/particle_primary_staggered_response/PROOF.md')),
+                ('Checkerboard A2g band', 'model/particle_primary_staggered_response/PROOF.md'),
+                ('Populated spatial scans', 'model/particle_primary_populated_momentum/PROOF.md'),
+                ('Four spectral measures', 'model/particle_primary_coherent_odd_response/KERNEL_PROOF.md')),
         }.get(node['id'], ())
         for j, (label, path) in enumerate(earlier):
             c.link(x+80+j*width/len(earlier), top+610, label, path, 45)
@@ -173,8 +177,10 @@ def render(c, data, y):
            'model/particle_primary_open_coframe/PROOF.md', 49)
     c.link(M+12000, top+480, 'Modular clock',
            'model/particle_primary_gravity_premises/PROOF.md', 49)
-    c.link(M+25000, top+480, 'Covariant source energy and boundary improvement',
-           'model/particle_primary_covariant_stress/PROOF.md', 49)
+    c.link(M+25000, top+480, 'Induced cut and boundary entropy',
+           'model/particle_primary_geometric_cut/PROOF.md', 49)
+    c.link(M+9000, top+420, 'Covariant source energy and boundary improvement',
+           'model/particle_primary_covariant_stress/PROOF.md', 45)
     c.para(M, y+3360, W-2*M,
            'Conditional candidate: a declared chiral gauge-Higgs action supplies calibrated tree/running coefficients, with a separately calibrated neutrino extension. These coefficients are not physical pole masses, full radiative matching or independent predictions. The massless photon excludes a positive global vacuum gap for the full theory.',
            60, BLUE, max_y=y+3470)
