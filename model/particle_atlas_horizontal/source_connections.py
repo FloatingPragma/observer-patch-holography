@@ -18,9 +18,9 @@ def render(c, data, y):
            47, INK, max_y=y+280)
     cards = [
         ('01  PREPARATION AND DETECTORS', 'state → interaction → complete record',
-         'The diagonal scalar source has a certified full-carrier Q* = 6 ground. A separate interacting flux control has complete thermal preparation on all 208 states and 169 original flux records. The degree-zero Legendre spatial input has a same-action lower-energy competitor.',
-         'Physical target: one spatial state family and detector dictionary under refinement. The finite thermal control is not that vacuum; the lower-energy competitor is not proved to be the interacting ground.',
-         'model/particle_field_state_response/PROOF.md'),
+         'One declared Wilson source has a physical Gauss preparation with its conjugate reference retained. Actual loop states prove 11 nonzero regional charge sectors. The first finite member has a complete 1,331-outcome boundary-charge detector; all outcomes are kept.',
+         'Finite preparation including boundary charges is constructed. Physical target: compatible states and complete records under joint refinement. The enormous full spatial matrix and preparation tape are not claimed as executed.',
+         'model/particle_physical_boundary_state/PROOF.md'),
         ('02  POSITION, MOMENTUM AND CLOCK', 'same source + same state + same clock',
          'Joint translations move matter, links and the compensating reference. Their complete Fourier instrument measures conserved crystal momentum. A position detector samples an occupied mode’s site and retains vacuum; reading it changes the momentum law.',
          'Physical target: one particle’s momentum, physical spin and Lorentz clocks for the same interacting excitations. Whole-field crystal momentum and finite uncertainty do not fix a GeV mass.',

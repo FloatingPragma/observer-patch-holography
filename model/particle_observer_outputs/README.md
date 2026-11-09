@@ -16,6 +16,25 @@ No uniqueness theorem for these choices is required. None of the fixtures
 uses a measured particle mass. An empirical parameter supplied to a field
 completion retains its calibration ancestry.
 
+## One declared field construction
+
+The [authenticated common contract](../particle_common_contract/PROOF.md)
+fixes an open Wilson source, its source-only Gauss polynomial state, an
+idle retained conjugate reference and the clock `exp(-itH)`. Each finite
+member fixes its volume, spacing, per-link cutoff, energy zero and action
+coefficients. Typed consumers recompute the actual source bounds,
+preparation, matched quadratic characteristic and physical regional support
+floor. They reject substitutions even when the submitted hashes agree.
+The polynomial state's modular Hamiltonian is `log(Tr Q²)I-2log Q` on its
+physical support; exact Gibbs time is not substituted for this clock.
+
+This fixes the construction specification. The exporter computes finite
+plans and bounds, without allocating the full spatial matrix or executing
+its preparation tape. All comparison certificates retain their own stated
+source/state domains. Their detector laws do not automatically become laws
+of this selected spatial state. Physical joint refinement, chiral particles
+and the Einstein regional premises are separate output theorems.
+
 ## The same scalar source, state and clock
 
 The [neutral calculation](HIGGS_RECORDS.md) uses the literal finite scalar

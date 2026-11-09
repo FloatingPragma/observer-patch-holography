@@ -21,6 +21,135 @@ identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
+## One specified source, state, reference and clock
+
+The [primary construction contract](../../model/particle_common_contract/PROOF.md)
+resolves the specification requirement for one field family. For integer
+`n>=0`, it selects an open Wilson box of side `2^(2n+1)`, spacing `2^-n`,
+per-link native-word degree `n+1`, all sixty CAR modes per cell, and
+`e0=105, kappa0=1/7`. Each cell owns three outgoing links; the local
+Gauss constraints include their exterior endpoints with zero external
+charge. The exact operator, basis order and energy zero are fixed by
+[contract.py](../../model/particle_common_contract/contract.py).
+These are declared architecture choices without measured mass inputs.
+
+The prepared density is `rho=Q²/Tr(Q²)` on the source-only Gauss carrier,
+where `Q=P_G[T_m(beta(U-H)/(2s))]^s`. Its temperature, least dyadic scale
+and least certified Taylor order follow a deterministic plan with mean
+energy excess at most `2^(-n-4)`. The exact canonical Householder
+preparation retains a full conjugate reference with idle Hamiltonian
+zero. Both factors are separately Gauss invariant. Source stationarity
+does not imply joint-purification stationarity. A compiled approximate
+preparation needs its own deterministic tape and complete error bound.
+
+The clock is `U(t)=exp(-itH)`, with `hbar=1` in source units. On the
+physical support, `K=log(Tr Q²)I-2 log Q` is its modular Hamiltonian;
+the polynomial state does not have the exact Gibbs identity
+`tau=-beta s`. That identity belongs to the separately stated exact
+Gibbs controls. Reference counter-evolution is an apparatus gate,
+not an alternative idle Hamiltonian. Declared coframe responses vary
+`H` at fixed bare spacing and fixed input state.
+
+Typed consequence receipts recompute the actual source bounds, Gauss
+preparation, quadratic gauge/matter characteristic match, and
+[regional support floor](../../model/particle_spatial_modular_response/PROOF.md).
+They reject substitutions of the source, state, reference, clock or result.
+The inventory keeps scalar, directional-rotor and periodic detector controls
+in their own domains. It does not transfer their distributions to this
+primary open-box state. The finite sequence is fully specified; convergence
+of its simultaneous volume, spacing and link-cutoff refinement, relativistic
+particle sectors and proper geometric readouts are output obligations.
+
+## Physical preparation with retained boundary charges
+
+The [finite boundary-state construction](../../model/particle_physical_boundary_state/PROOF.md)
+resolves preparation including boundary charges on every member of the
+selected program. Its full-support polynomial density is prepared by the
+specified deterministic source/reference map. Zero external charge at the
+outer box does not erase charges at a regional cut: inside and outside
+representations pair to a singlet.
+
+For the origin cell and its three owned links, exact integer hypercharge
+projectors give the complete boundary-charge menu. At the first member,
+it has 1,331 outcomes, retaining vacuum and all zero-weight outcomes.
+An explicit neutral pointer unitary records those projectors while
+preserving the full Gauss constraints and the outside reference. It is
+not assumed to commute with H or to perform work-free measurement.
+Actual native plaquette-character vectors and their conjugates exhibit
+ten distinct nonzero cut-charge tuples; the blank gives an eleventh.
+The selected state's faithful support proves positive probability for
+each, bounded below by `2^(-582407133)` at member zero. This very small
+bound proves positivity, not an abundance prediction. Their regional
+Schmidt ranks `d²` are representation dimensions, not particle counts.
+
+The executed one-link control retains all 119 native coefficient,
+conjugate-coefficient and constant states. The spatial preparation and
+complete instrument are finite matrix constructions; their enormous full
+matrices and gate tapes are not claimed as executed. Full nonabelian
+multiplicities are retained by the carrier but are not inferred from the
+coarse hypercharge labels. Compatibility under simultaneous volume,
+spacing and cutoff refinement is a separate output requirement.
+
+## Interacting four-dimensional Yang–Mills and the vacuum gap
+
+The existing continuum results have distinct conclusions and domains.
+The [original Weyl/contact field net](../../model/continuum_field_net/README.md)
+supplies a positive-energy, local 3+1-dimensional continuum hierarchy on a
+subsequence, without a proof of Lorentz covariance or surviving interactions.
+The [centered Weyl limit](../../model/continuum_free_limit/README.md) is
+proved free and massless. The [joint spin construction](../../model/spin_joint_field_limit/PROOF.md)
+has nonzero charged response at arbitrarily small positive energies in its
+specified scaling. Supplied massive Dirac symbols, a fixed-spacing interacting
+ground, and a nonrelativistic moving pair do not supply an interacting
+relativistic continuum with a positive vacuum gap.
+
+The [Yang–Mills paper](../../extra/yang_mills_gap_clay_problem.pdf) states its
+continuum and spectral-transfer premises explicitly. In particular,
+[RepairGapChain](../../Lean/ObserverPatchHolography/RepairGapChain.lean)
+assumes the repair gap and equality of the relevant spectra. Its conclusion
+does not establish either premise. The
+[variable-rate comparison](../../Lean/Screen/KogutSusskindFiberRateComparison.lean)
+allows fiber-dependent repair rates with a positive floor; it avoids an
+unnecessary constant-rate identity. Applying it requires the actual
+interacting quotient measure's uniform variance bound and a transfer to
+its physical clock. A product-measure calculation supplies neither.
+
+A theory containing a massless photon cannot have a positive global vacuum
+gap. The [Clay target](https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf)
+is pure Yang–Mills for every compact simple gauge group, with a nontrivial
+four-dimensional continuum theory and the stated axiomatic and short-distance
+properties. Selecting a Lie-algebra factor of the native representation does
+not select an invariant subspace of the coupled field Hamiltonian. A pure-gauge
+comparison needs a separately specified program or a proved decoupling map.
+It does not replace the primary observer-field program silently.
+
+The [local-correlation gap criterion](../../model/particle_yang_mills_gap_contract/PROOF.md)
+provides a direct alternative to assumed spectral equality. If the same
+reconstructed positive-energy time group has a dense family of centered
+local vectors and their Euclidean correlations obey one exponential decay
+rate, its spectrum has the corresponding gap. It is enough to prove the
+correlation estimate with vanishing complete errors at each fixed time,
+take the regulator limit, and then take long time. A retained finite-energy
+vector with nonzero variance excludes an empty or infinite-energy limit.
+These correlation bounds are not established for the primary field merely
+by cooling it. A stationary approximate ground can contain negative-energy
+transfers; the proof includes an explicit two-level counterexample.
+
+The concrete dependencies are: the finite physical Gauss preparation and
+its boundary readout; a specified pure-gauge sector; compatible vacuum and
+correlation limits; relativistic reconstruction; surviving Yang–Mills
+interaction with its required short-distance behavior; a positive spectral
+gap in the same physical clock with a nonvanishing finite-energy observable;
+and complete observer-record approximation bounds. Finite state preparation
+is a separate completed construction from the joint physical refinement.
+The selected action has `H_n=(1/a_n) Hhat_n` at fixed dimensionless couplings.
+For a proof using uniform finite-sector gaps and a finite-energy
+noncollapse witness, the dimensionless thresholds must be of order `a_n`.
+A fixed positive lattice gap would instead diverge in that clock. A slower
+prelimit mode whose original local weight vanishes need not survive in the
+limiting observable sector. Changing the time unit changes every propagation speed and
+requires a fresh common-clock comparison.
+
 ## Low-energy states, conjugate records and common propagation
 
 Three constructions connect the field action to reusable finite consumers.
@@ -51,28 +180,65 @@ is at most `log(D)/beta + (U-L) eta`. Choosing temperature and polynomial
 order from this formula reaches any positive finite energy tolerance.
 This is an explicit finite construction with very large resources; no
 efficient many-body ground algorithm or autonomous cooling law is inferred.
-The gauge-invariant density on the full carrier need not be supported
-on a source-only Gauss-singlet sector.
+The [physical Gauss preparation](../../model/particle_gauss_ground_state/PROOF.md)
+restricts this construction to `P_G`, the product of commuting local Haar
+projectors. Its source and conjugate reference are separately invariant;
+invariance of an unrestricted mixed density alone would not establish
+this source-only support. A nonconstant Wilson-loop singlet has nonzero
+magnetic coupling to the blank, so the physical interaction is nontrivial.
 
-For a stationary state with excess at most `epsilon`, every bounded
-probe satisfies `omega(A* [H,A]) >= -||A||^2 epsilon`. This supplies an
-approximate ground-state premise directly from a preparation budget.
+For a stationary state with excess at most `epsilon` above the restricted
+ground, every bounded probe preserving the physical carrier satisfies
+`omega(A* [H,A]) >= -||A||^2 epsilon`. A charged apparatus needs its full
+compensated domain and the corresponding accessible-sector ground energy.
+This supplies an approximate ground-state premise directly from a preparation
+budget.
 For the finite-range Wilson member, local interaction bounds and a
 diagonal compactness argument give a stationary algebraic ground-state
 subsequence at fixed spacing and fixed per-link cutoff. Spatial averaging
-can make it translation invariant. This supplies a ground state for the
-actual gauge-coordinate interaction, with all CAR occupations retained;
-it gives no computable selection, uniqueness or spacing-refinement rate.
+can make it translation invariant. The source-only Gauss version supplies
+a ground state on the gauge-invariant observable algebra, with all CAR
+occupations retained; it gives no computable selection, uniqueness or
+spacing-refinement rate.
 Small total energy excess alone does not prove convergence as spacing
 tends to zero. The separate [Weyl/contact ground construction](../../model/thermodynamic_ground/README.md)
 supplies a reusable compactness argument on its own source, without
 transferring that source's state to the gauge-coordinate field.
 
+The [fixed-volume link-cutoff theorem](../../model/particle_link_cutoff_limit/PROOF.md)
+removes the electric cutoff on the same parent Wilson source. Native word
+spaces form an electric form core; ground energies converge, and cooled
+canonical preparations have trace-norm subsequences. Complete bounded
+detector histories converge with the reference and every failure label
+retained. This is a fixed-spacing, fixed-volume result. Combining it with
+a separate fixed-cutoff volume subsequence does not prove the primary
+contract's simultaneous refinement.
+
+The spatial restriction uses the actual CAR ordering and outgoing-link
+partition. For the primary Gauss state,
+`rho_R >= 2^(-N) Tr_out(P_G)`, where `N` is computed from its exact
+preparation and source bounds. The first member gives `N=582407133`.
+This proves faithfulness on the supported regional algebra, with boundary
+charge center weights retained; it does not assert full ambient rank or
+identify the region with a proper geometric ball. The
+[regional entropy construction](../../model/particle_spatial_modular_response/PROOF.md)
+proves the finite first law with a relative-entropy remainder on that
+support. Its four exact rational spinor/flux controls execute the complete
+apparatus on separate full208 and physical78 states. Those internal cuts
+are not spatial regions, and their modular energy differs from bare local
+energy. A geometric modular kernel and an area response are additional
+premises of the Einstein consumer.
+
 **Original charged records and energy signs.** The unchanged 208-state
 charge-six quantum-flux control admits complete compensated CAR
 addition/removal probes. Charge conjugation exchanges opposite charge
 sectors while preserving this Hamiltonian. Rational spectral enclosures
-give its ground and charged thresholds. These are energies in its
+give its ground and charged thresholds. The
+[complete charged-window apparatus](../../model/particle_charged_residue/PROOF.md)
+certifies a nonzero original lowest-window weight near `0.498558` for
+each charge sign, and excitation energy near `1.107713183`. Its rational
+ground trial, forty complete detector records and bounded source-clock
+Fourier plan belong to that finite control. These are energies in its
 declared clock, with no GeV conversion or physical species assignment.
 For a complete contraction instrument, the total original weight of
 transfers `Delta E <= -delta` is at most `epsilon/delta` for every
@@ -139,12 +305,12 @@ internal representations do not identify their prepared states or clocks.
 
 | Obligation | Established output | Required physical conclusion |
 | --- | --- | --- |
-| 1. Preparation and complete instruments | Complete scalar and charged instruments, faithful referenced Gibbs preparation, a certified full-scalar ground with twelve charged channels, and spatial gauge-state density controls. The [208-state quantum-flux control](../../model/particle_field_state_response/PROOF.md) has a deterministic positive-polynomial approximation to its actual Gibbs target and all 169 two-time flux records. | A physical state family for the interacting spatial theory and its detector dictionary. The scalar Q*=6 ground, scalar Q*=0 Gibbs state, filled-origin spatial input, mixed gauge-twirled field, and finite quantum-flux Gibbs target have distinct domains. |
-| 2. Common operational observables | Same-Hamiltonian scalar energies and state-specific modular time; separate complete Q*=0 and Q*=6 charged responses. The [periodic field instruments](../../model/particle_joint_translation_readout/PROOF.md) give full-number position records, conserved joint field/reference crystal momentum, exact Born backaction and finite uncertainty. | Single-particle momentum and physical spin attached to the same interacting spatial sectors, and a Lorentz clock. Joint crystal momentum is not an individual particle's momentum; source time is not automatically proper time. |
+| 1. Preparation and complete instruments | The primary contract fixes one source-only Gauss polynomial state, exact canonical reference preparation and source clock at every finite member. Typed consumers verify source bounds, preparation, common quadratic characteristics and regional support. Separate scalar and directional controls have complete detector laws. | Execute or certify complete physical detector laws on the primary family and control their refinement. Construction specification is resolved; legacy control distributions are not its output laws. |
+| 2. Common operational observables | The primary Hamiltonian fixes source time and energy; its polynomial modular flow is separately defined. The separate Q*=0 Gibbs control has an exact modular clock relation; Q*=6 ground responses use their own source clock. The [periodic field instruments](../../model/particle_joint_translation_readout/PROOF.md) give full-number position records, conserved joint field/reference crystal momentum, exact Born backaction and finite uncertainty. | Single-particle momentum and physical spin attached to the same interacting spatial sectors, and a Lorentz clock. Joint crystal momentum is not an individual particle's momentum; source time is not automatically proper time. |
 | 3. Interacting relativistic behavior | Fixed-parameter polynomial and [positive-smoothing fields](../../model/particle_smooth_sign_field/PROOF.md) have controlled complete local records. The [physical-distance bound](../../model/particle_physical_causality/PROOF.md) controls remote influence under `kappa(a)<=kappa0/a`, including growing supports. The ordinary-Wilson estimate also extends uniformly over [compact constant-coframe families](../../model/particle_geometric_response/PROOF.md). | Convergent states and observable records across spacings, Lorentz transformations, interacting chiral content and mirror-mode control. A uniform causal estimate does not supply those limits. Exact-sign equivalence is optional; finite-range Wilson dynamics is an allowed architecture. |
 | 4. Physical masses and interactions | Original neutral/charged spectral weights, complete Q*=6 charged spectra and the separate Q*=0 inverse response. A common number-energy shift cannot equalize the Q*=6 addition/removal spectral shapes on that reference. | Dispersion and charged dressing on the common spatial state, physical mass convention, scattering/decay observables and comparison errors. The finite shape obstruction is not a physical CPT-violation claim. Calibrated coefficients retain their target ancestry. |
 | 5. Protected defects and species | [Exact controlled attachment](../../model/particle_defect_attachment/PROOF.md) sends protected memory or regional holonomy into distinguishable complete scalar records. | Species identification preserving the same propagation, transformations, statistics and currents. Declared coupling strengths 1 and 2 are not derived from topological protection. |
-| 6. Controlled errors and gravity | Fixed-spacing smooth-field errors total `3/2^20` at duration one. [Same-action energy continuity](../../model/particle_gravity_response/PROOF.md), [internal modular response](../../model/particle_regional_geometry/PROOF.md), and [six constant-coframe strain operators](../../model/particle_geometric_response/PROOF.md) are derived. The finite quantum-flux preparation and strain detector share one action and clock. | Convergent refinement/capacity records; identification of declared strain with proper geometric stress, proper clocks, spatial modular/area responses and the Einstein theorem's same-state small-ball premises. Internal regions and declared volumes are not identified with proper spatial balls. |
+| 6. Controlled errors and gravity | Fixed-volume electric-cutoff convergence, primary-state regional support and the finite entropy first law are proved. Separate fixed-spacing smooth-field errors total `3/2^20` at duration one. [Same-action energy continuity](../../model/particle_gravity_response/PROOF.md) and [six constant-coframe strain operators](../../model/particle_geometric_response/PROOF.md) are derived. | Convergent refinement/capacity records; identification of declared strain with proper geometric stress, proper clocks, spatial modular/area responses and the Einstein theorem's same-state small-ball premises. Internal regions and declared volumes are not identified with proper spatial balls. |
 
 For the declared attachment `H_Q=(3I-Q)V/2`, the scalar vacuum at one tick
 `t=pi/(6 sqrt(56))` has occupied probability `1/4` in sector `Q=+1` and
@@ -679,8 +845,8 @@ This checklist does not require a uniqueness theorem for the architecture.
 
 | Construction | Available result and exact acceptance condition | Dependencies |
 | --- | --- | --- |
-| 1. Identify the common program | Source operators, preparation, references and clock must be fixed together. The scalar, ordered-spin, free-Weyl and gauge-coordinate constructions have distinct state domains. | Source specifications and the theorem-domain inventory above |
-| 2. Prepare a scalable local state | The [mixed gauge family](../../model/particle_local_gauge_state/PROOF.md) supplies compatible local densities. Its degree-zero member is not a finite ground state by the `750 V/(17a)` variational witness. A separate [208-state thermal control](../../model/particle_field_state_response/PROOF.md) has deterministic referenced polynomial preparation and a same-H Gibbs target with exact thermal identities. The [full spatial product-cutoff preparation](../../model/particle_spatial_ground_state/PROOF.md) reaches any positive finite ground-energy tolerance without a gap oracle and supplies a stationary fixed-cutoff spatial ground subsequence. Compatible physical refinement records require an additional construction. | 1 |
+| 1. Identify the common program | **Specification resolved.** The [primary contract](../../model/particle_common_contract/PROOF.md) fixes one open Wilson source, Gauss polynomial state, retained conjugate reference and Hamiltonian clock at every finite member. Typed consumers regenerate actual results and reject mixed inputs. Scalar, ordered-spin, free-Weyl and directional controls retain separate domains; their outputs are not transferred to the primary state. | Executable contract and exhaustive comparison-certificate inventory |
+| 2. Prepare the physical state, including boundary charges | **Finite construction resolved.** The [selected Gauss state and boundary readout](../../model/particle_physical_boundary_state/PROOF.md) specify deterministic preparation, physical regional support, eleven strictly positive charge-sector witnesses and a complete finite central-charge detector. The full spatial matrix and tape are not claimed as executed. Compatible physical refinement belongs to requirement 4. | 1 |
 | 3. Control the chosen regulator's local response | The [positive-smoothing action](../../model/particle_smooth_sign_field/PROOF.md) has a complete local quantum-record comparison, including electric links, with no gap premise. Finite-range Wilson dynamics is another admissible design. The [native sensitivity control](../../model/particle_sign_response_boundary/PROOF.md) excludes inferring exact-sign electric response from low-mode weight alone; exact-sign equivalence is conditional on choosing that target. | 1, 2 |
 | 4. Control complete records under refinement | Fixed-spacing polynomial and smooth records have thermodynamic limits. The [physical-distance estimate](../../model/particle_physical_causality/PROOF.md), with its [compact-coframe Wilson extension](../../model/particle_geometric_response/PROOF.md), gives uniform causal control for the declared scaling. Both complete-experiment implementation errors can vanish with a. Convergence of states and interacting observables across spacings is a distinct requirement; a uniform influence bound alone does not prove it. | 2, 3 |
 | 5. Attach physical observables | [Periodic position/joint-momentum instruments](../../model/particle_joint_translation_readout/PROOF.md) have finite uncertainty and retained reference charge. The [coframe family](../../model/particle_geometric_response/PROOF.md) supplies action-derived spatial strain/work detectors. Single-particle momentum, physical spin, proper time and identification of strain with proper stress require the corresponding interacting-sector and geometry maps. | 1, 4 |

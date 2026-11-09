@@ -1,0 +1,164 @@
+{
+  "Clay_Yang_Mills_existence_or_mass_gap_proved": false,
+  "continuum_decay_hypotheses_instantiated_on_primary": false,
+  "finite_coupled_source": {
+    "all_original_spectral_weights_retained": true,
+    "centered_span_rank": 2,
+    "continuum_or_Yang_Mills_identification": false,
+    "decay_ratio": "3/4",
+    "dimension": 3,
+    "full_excitation_span": true,
+    "physical_gap_lower_expression": "-log(3/4)/(1)",
+    "probes": [
+      {
+        "mean": "0",
+        "variance": "2/3",
+        "weights": [
+          {
+            "original_weight": "0",
+            "transfer_value": "1/4"
+          },
+          {
+            "original_weight": "2/3",
+            "transfer_value": "3/4"
+          },
+          {
+            "original_weight": "0",
+            "transfer_value": "1"
+          }
+        ]
+      },
+      {
+        "mean": "0",
+        "variance": "2",
+        "weights": [
+          {
+            "original_weight": "2",
+            "transfer_value": "1/4"
+          },
+          {
+            "original_weight": "0",
+            "transfer_value": "3/4"
+          },
+          {
+            "original_weight": "0",
+            "transfer_value": "1"
+          }
+        ]
+      }
+    ],
+    "time_step": "1"
+  },
+  "finite_nonuniform_vacuum": {
+    "all_original_spectral_weights_retained": true,
+    "centered_span_rank": 1,
+    "continuum_or_Yang_Mills_identification": false,
+    "decay_ratio": "1/2",
+    "dimension": 2,
+    "full_excitation_span": true,
+    "physical_gap_lower_expression": "-log(1/2)/(1)",
+    "probes": [
+      {
+        "mean": "16/25",
+        "variance": "144/625",
+        "weights": [
+          {
+            "original_weight": "144/625",
+            "transfer_value": "1/2"
+          },
+          {
+            "original_weight": "0",
+            "transfer_value": "1"
+          }
+        ]
+      }
+    ],
+    "time_step": "1"
+  },
+  "same_primary_scaling": {
+    "Hamiltonian_identity": "H_n = a_n^(-1) Hhat(L_n,ell_n;105,1/7)",
+    "all_terms_share_inverse_spacing": true,
+    "bare_couplings_run_toward_asymptotic_freedom": false,
+    "dimensionless_operator_changes_with_volume_and_cutoff": true,
+    "ground_excess_target_is_a_gap_lower_bound": false,
+    "members": [
+      {
+        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
+        "ground_excess_target": "1/16",
+        "level": 0,
+        "link_degree": 1,
+        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "side": 2,
+        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
+        "spacing": "1",
+        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      },
+      {
+        "clock_id": "60e3fd0e4d0a05cf1c74204fd9d868412ba32fe97ef87632f7d3988c68dc519d",
+        "ground_excess_target": "1/32",
+        "level": 1,
+        "link_degree": 2,
+        "member_id": "93d537ac70e8b9f097ba6be4058ca408edc5cc9acdc396e5abfd0d857ba3b260",
+        "reference_id": "010be7ac310e947cc95ccc8a785eec1e8bf7fe74896c795ea316d9c17df490f1",
+        "side": 8,
+        "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
+        "spacing": "1/2",
+        "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+      }
+    ],
+    "pure_compact_simple_Yang_Mills_source": false,
+    "uniform_gap_or_continuum_vacuum_derived": false
+  },
+  "schema": "oph.euclidean_gap_transfer.v1",
+  "separate_native_clock_diagnostics": {
+    "certified_eigenvalue_enclosures": false,
+    "clock_was_fitted_to_measured_mass": false,
+    "four_dimensional_Yang_Mills_mass_gap": false,
+    "rows": [
+      {
+        "attempts_per_comparison_time": 1260,
+        "comparison_time_gap_diagnostic": "4414253069900029/100000000000000000",
+        "exact_normalization_identity": true,
+        "laplacian_eigenvalue_decimal_diagnostic": "4414253069900029/100000000000000000",
+        "level": 0,
+        "per_attempt_gap_diagnostic": "4414253069900029/126000000000000000000",
+        "ports": 240,
+        "seams": 630
+      },
+      {
+        "attempts_per_comparison_time": 20160,
+        "comparison_time_gap_diagnostic": "5157913901319107/125000000000000000",
+        "exact_normalization_identity": true,
+        "laplacian_eigenvalue_decimal_diagnostic": "5157913901319107/500000000000000000",
+        "level": 1,
+        "per_attempt_gap_diagnostic": "5157913901319107/2520000000000000000000",
+        "ports": 960,
+        "seams": 2520
+      },
+      {
+        "attempts_per_comparison_time": 322560,
+        "comparison_time_gap_diagnostic": "12773011028585637/312500000000000000",
+        "exact_normalization_identity": true,
+        "laplacian_eigenvalue_decimal_diagnostic": "12773011028585637/5000000000000000000",
+        "level": 2,
+        "per_attempt_gap_diagnostic": "4257670342861879/33600000000000000000000",
+        "ports": 3840,
+        "seams": 10080
+      }
+    ],
+    "same_source_as_selected_Wilson_Gauss_program": false
+  },
+  "source_sha256": {
+    "Lean/ObserverPatchHolography/RepairGapChain.lean": "931204349ea0a7e46e2c55867e45d4f9c78c11e5b13a02c0d78fbee76ee20b61",
+    "Lean/Screen/KogutSusskindFiberRateComparison.lean": "7bde95c46fc1d23a0b22779769a8aaeeaec7a5055dff833c5540e78b2216e8c9",
+    "extra/yang_mills_gap_clay_problem.tex": "8e6c2fe53b5458c3fff5d46010e0e612bfa4cf99cc919125763dce63434d0734",
+    "model/observer_time_fields/REFINEMENT.md": "d46924cf0fd3fd7afe947de6fc8ce6c0028c94f8197e4f24808852d8a1348cd0",
+    "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+    "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/particle_yang_mills_gap_contract/PROOF.md": "f2984e894b6ef7ba87b85e76150eaa4369cd18f4530e4117f37d5b1d0db34884",
+    "model/particle_yang_mills_gap_contract/transfer.py": "860b132bb33502e18d1e4c5dc7510927dc9d13a3a09c27fafdcd93dc8b0967f4",
+    "model/physical_space_time/occupation_field_results.json": "13a3252e868e100d3d305ffd78704e02e58da6324466835a12952d053148814b"
+  }
+}

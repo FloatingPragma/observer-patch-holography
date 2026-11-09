@@ -19,6 +19,38 @@ requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
+The [physical preparation with boundary charges](OPH_FIELD_RECONSTRUCTION.md#physical-preparation-with-retained-boundary-charges)
+is constructed on every selected finite member. Its complete central-charge
+readout retains all outcomes; eleven physical Wilson-loop/blank witnesses
+have positive selected-state weights. These are regional charge sectors,
+not eleven particle species. The
+[interacting four-dimensional gap target](OPH_FIELD_RECONSTRUCTION.md#interacting-four-dimensional-yangmills-and-the-vacuum-gap)
+requires separate continuum, interaction and spectral estimates. The finite
+construction does not assign physical masses or a positive global gap to a
+theory containing a massless photon.
+
+## The primary field and its readout domain
+
+The [specified field family](OPH_FIELD_RECONSTRUCTION.md#one-specified-source-state-reference-and-clock)
+fixes the construction input: an open Wilson source with all sixty CAR
+modes per cell, product link-word cutoffs, `e0=105, kappa0=1/7`, a
+source-only Gauss polynomial density, its retained conjugate reference,
+and `exp(-itH)` in source units. The
+[contract verifier](../../model/particle_common_contract/PROOF.md) regenerates
+these objects and typed consequences rather than accepting caller-supplied
+labels. Construction specification is resolved. A particle assignment must
+refer to the resulting state and clock, or prove its transfer from another
+experiment.
+
+The actual primary modular Hamiltonian is `-log rho` on its physical
+support. Its positive-polynomial preparation is not exact Gibbs, so an
+affine modular/source-time relation is not assigned to it. The
+[regional support consumer](../../model/particle_spatial_modular_response/PROOF.md)
+keeps boundary charge sectors and gives an explicit faithfulness floor.
+Its entropy response does not identify a geometric ball, proper time or
+physical stress. Scalar and finite-rotor spectral controls retain their
+separate states, reference actions and complete laws.
+
 ## Same-source low-energy and charge-conjugate readouts
 
 The [low-energy and propagation construction](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
@@ -31,8 +63,16 @@ original weights. These certified finite thresholds require spatial
 dispersion, dressing and physical units before a measured-mass assignment.
 The actual trace-dual gauge metric also gives a common quadratic cone;
 matching it to matter requires the declared relation `e0*kappa0=15`.
-No source-predicted GeV mass or observed-species entry follows from these
-finite controls alone.
+The [rational charged detector](../../model/particle_charged_residue/PROOF.md)
+resolves a lowest excitation near `1.107713183` and original weight near
+`0.498558` for each conjugate charge sign. Every one of its forty outcomes
+and all compensating references are retained. These results concern the
+finite208 source and its certified ground trial; no primary spatial state
+is replaced by that trial. The
+[uncut-rotor comparison](../../model/particle_link_cutoff_limit/PROOF.md)
+shows that its finite K=6 and K=12 ground intervals differ, so cutoff
+control is part of the energy interpretation. No source-predicted GeV mass
+or observed-species entry follows from these finite controls alone.
 
 ## Complete neutral and charged observer records
 

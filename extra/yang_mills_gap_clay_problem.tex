@@ -1128,6 +1128,91 @@ coherence passes this estimate to the direct-limit semigroup, and the spectral t
 same continuum form inequality.
 \end{proof}
 
+\begin{theorem}[Spectral exclusion from local Euclidean correlations]
+\label{thm:local-correlation-gap}
+Let a reconstructed local theory have a nonnegative self-adjoint Hamiltonian
+\(H\), normalized vacuum \(\Omega\), and strongly continuous time translations,
+with \(H\Omega=0\). Suppose the centered local vectors
+\(v_A=(A-\langle\Omega,A\Omega\rangle I)\Omega\) have dense linear span in
+\(\Omega^\perp\). At each finite regulator use one declared source, ground state,
+and physical time normalization
+\[
+K_r=s_r(H_r^{\mathrm{source}}-E_{0,r}I),
+\]
+where \(s_r>0\) specifies source time units per physical time unit before the
+comparison. Compute finite Euclidean correlations using \(e^{-tK_r}\).
+For every fixed local test \(A\), suppose its
+centered Euclidean correlations satisfy, for fixed \(h>0\), \(\delta>0\), and
+every integer \(k\ge0\),
+\[
+C_{A,r}(kh)\longrightarrow
+C_A(kh):=\langle v_A,e^{-khH}v_A\rangle,
+\qquad
+0\le C_{A,r}(kh)\le B_Ae^{-\delta kh}+\varepsilon_{A,r}(k),
+\]
+where \(B_A<\infty\) is independent of the regulator and
+\(\varepsilon_{A,r}(k)\to0\) for each fixed \(k\). All implementation and
+record errors are included in \(\varepsilon_{A,r}(k)\). Then
+\[
+H\ge\delta\bigl(I-|\Omega\rangle\langle\Omega|\bigr).
+\]
+The vacuum is unique in this cyclic representation. No equality of finite
+and continuum spectra is assumed.
+\end{theorem}
+
+\begin{proof}
+First take the regulator limit at fixed \(k\), giving
+\(C_A(kh)\le B_Ae^{-\delta kh}\). If \(\mu_A\) is the positive spectral
+measure of \(H\) in \(v_A\), then for \(0\le E<\delta\),
+\[
+\mu_A([0,E])\le e^{khE}C_A(kh)
+\le B_Ae^{-kh(\delta-E)}\longrightarrow0.
+\]
+Thus \(\mathbf1_{[0,E]}(H)\) annihilates every centered local vector.
+Boundedness of this projection extends the conclusion to
+\(\Omega^\perp\); it acts as the identity on \(\Omega\). Increasing \(E\)
+to \(\delta\) proves the form inequality. The regulator limit precedes
+the large-time limit, so no uniform error bound at arbitrarily large time
+is inferred. Exact finite transfer controls and the full criterion are
+given in~\cite{ophgaptransfer}.
+\end{proof}
+
+\begin{corollary}[A finite threshold from correlation noncollapse]
+\label{cor:local-correlation-noncollapse}
+Under Theorem~\ref{thm:local-correlation-gap}, suppose one fixed local test
+also has correlation convergence at times \(t_j\downarrow0\), a finite-stage
+variance floor \(\|v_{A,r}\|^2\ge v_0>0\), and a uniform physical energy bound
+\(\langle v_{A,r},K_rv_{A,r}\rangle\le M<\infty\), in that same clock. Then
+\[
+0<\delta\le\inf\bigl(\operatorname{Spec}(H)\setminus\{0\}\bigr)
+\le M/v_0<\infty.
+\]
+\end{corollary}
+
+\begin{proof}
+Time-zero convergence preserves the variance floor. The elementary bound
+\(1-e^{-tE}\le tE\) gives
+\[
+0\le\frac{C_{A,r}(0)-C_{A,r}(t_j)}{t_j}\le M.
+\]
+Pass to the regulator limit at fixed \(j\). The spectral functions
+\((1-e^{-t_jE})/t_j\) increase to \(E\), so monotone convergence gives
+\(\|H^{1/2}v_A\|^2\le M\). Its nonzero spectral measure has mass at least
+\(v_0\), hence mean energy at most \(M/v_0\). The nonzero spectral threshold
+cannot exceed that mean.
+\end{proof}
+
+These results are an alternative route to a gap of the reconstructed physical
+Hamiltonian. Their correlation-identification premise requires the same
+local theory and time translations as the reconstruction. They establish
+neither the existence of that theory nor the equality
+\(\Delta_{\YM}=\Delta_{\mathrm{rep}}\), which retains the unitary-intertwining
+hypotheses of Theorem~\ref{thm:continuum}. A uniform finite gap is sufficient
+for the decay bound, but is not necessary: low-energy prelimit modes whose
+original weights vanish in every limiting local test can disappear from the
+cyclic continuum representation. Conversely, decay for a single fast probe
+does not exclude slower spectrum outside its generated subspace.
+
 \section{Axiomatic Reconstruction and Nontriviality}
 
 \begin{theorem}[Conditional Osterwalder--Schrader reconstruction on the support-visible compact-gauge branch]
@@ -1249,7 +1334,7 @@ Therefore
 =
 \operatorname{Spec}(L^{\mathrm{rep}})\setminus\{0\}.
 \]
-The Yang--Mills gap is exactly the first nonzero repair eigenvalue:
+The Yang--Mills gap is exactly the infimum of the nonzero repair spectrum:
 \[
 \Delta_{\YM}
 :=
@@ -1296,6 +1381,51 @@ This is a conditional statement for pure Yang--Mills with compact simple
 $G$. The full theory with an unbroken electromagnetic sector and a massless
 photon has no positive global vacuum gap. Its sector gaps must specify
 the state, sector and limiting procedure.
+
+The coordinate-field construction used in the finite observer controls has
+sixty fermionic modes per cell and a fifteen-dimensional product-group
+representation~\cite{ophfixedfield}. Choosing a compact simple factor of
+its Lie algebra does not exhibit a reducing Hilbert sector of its coupled
+Wilson action. Fixing the other quantum link variables to the identity is
+not normalizable in Haar \(L^2\), and projecting them to constant words need
+not preserve plaquette multiplication. A pure Yang--Mills branch therefore
+requires a separately declared source or a proved decoupling map, with its
+own vacuum and clock.
+
+That finite source has spacing \(a_n=2^{-n}\), side \(L_n=2^{2n+1}\),
+per-link word degree \(\ell_n=n+1\), and fixed electric and magnetic
+coefficients \(105\) and \(1/7\). Every Hamiltonian term scales as
+\(a_n^{-1}\), so
+\[
+H_n=a_n^{-1}\widehat H(L_n,\ell_n;105,1/7).
+\]
+Its physical-sector gap in the declared clock is \(\widehat\Delta_n/a_n\).
+If the uniform finite-gap route and a noncollapsing finite-energy local
+witness both apply, they require
+\[
+a_n\delta\le\widehat\Delta_n\le a_n M/v_0.
+\]
+A constant positive dimensionless gap would instead send the physical
+threshold to infinity and contradict that witness. Neither a positive
+finite gap nor a fitted change of clock proves a finite continuum mass.
+The fixed coefficients supply no running-coupling or asymptotically free
+short-distance theorem~\cite{ophgaptransfer}.
+
+Its stationary polynomial preparation is also distinct from the exact
+vacua in Theorem~\ref{thm:local-correlation-gap}. For example,
+\(H=\operatorname{diag}(0,1)\),
+\(\rho=\operatorname{diag}(1-\epsilon,\epsilon)\), and
+\(A=|0\rangle\langle1|\) give
+\[
+\operatorname{Tr}\!\left(\rho A^*e^{-tH}Ae^{tH}\right)
+=\epsilon e^t.
+\]
+The ground-energy excess is \(\epsilon\), yet this ordered correlation
+contains a negative energy transfer. Ground-energy excess alone therefore
+supplies neither a vacuum correlation nor control of exponential moments
+as spectral widths grow. Prepared approximants require their own errors
+vanishing at each fixed Euclidean time; their source and retained
+reference cannot be replaced by a different vacuum during the limit.
 
 \begin{thebibliography}{99}
 
@@ -1351,6 +1481,17 @@ B.~M\"uller,
 \emph{Finite \(\mathbb Z_2\) lattice-gauge diagnostic for the ground-state-transform receipt},
 2026.\\
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/r2062/code/yang_mills}.
+
+\bibitem{ophgaptransfer}
+FloatingPragma,
+\emph{Euclidean decay, the physical clock and a continuum spectral gap}.\\
+Proof: \path{model/particle_yang_mills_gap_contract/PROOF.md}.\\
+Exact finite transfer controls: \path{model/particle_yang_mills_gap_contract/transfer.py}.
+
+\bibitem{ophfixedfield}
+FloatingPragma,
+\emph{One declared source, state, reference and clock}.\\
+\path{model/particle_common_contract/PROOF.md}.
 
 \bibitem{ophmodel}
 FloatingPragma,

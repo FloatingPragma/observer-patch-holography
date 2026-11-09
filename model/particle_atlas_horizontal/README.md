@@ -8,6 +8,12 @@ Solid arrows are proved steps under their premises; dashed arrows identify
 physical connections to derive. The scientific classifications and numerical
 reference values are inherited from the authenticated vertical atlas.
 
+The one-program panel fixes the source, physical preparation, retained
+reference and Hamiltonian clock of the [primary contract](../particle_common_contract/PROOF.md).
+It verifies the actual consumer receipts before rendering. Separate scalar
+and directional controls retain their own domains; matching labels cannot
+transfer their detector laws to the selected spatial state.
+
 The outer panels show finite defect operations at the left and observer
 interpretation at the right. They explain preparation, work exchange,
 regional protection, complete Born records and compatible meanings.

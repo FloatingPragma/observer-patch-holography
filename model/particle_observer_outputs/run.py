@@ -55,6 +55,13 @@ def build():
     from model.particle_spatial_ground_state import ground as spatial_ground
     from model.particle_ground_spectral_records import records as ground_records
     from model.particle_gauge_characteristics import characteristics as gauge_characteristics
+    from model.particle_common_contract import contract as common_contract
+    from model.particle_gauss_ground_state import gauss
+    from model.particle_charged_residue import residue
+    from model.particle_spatial_modular_response import regional as spatial_modular
+    from model.particle_link_cutoff_limit import cutoff
+    from model.particle_physical_boundary_state import boundary as physical_boundary
+    from model.particle_yang_mills_gap_contract import transfer as gap_transfer
     inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
         if sha(ROOT/path)!=digest:
@@ -67,12 +74,14 @@ def build():
                    attachment,causality,energy,ground,regional,preparation,spectrum,experiment,
                    local_gauge,wilson_density,local_history,sign_boundary,smooth,joint_translation,
                    physical_cone,field_thermal,spatial_geometry,
-                   spatial_ground,ground_records,gauge_characteristics):
+                   spatial_ground,ground_records,gauge_characteristics,
+                   common_contract,gauss,residue,spatial_modular,cutoff,physical_boundary,gap_transfer):
         paths.update(getattr(module,'SOURCE_INPUTS',()))
         owner=Path(module.__file__).parent
         paths.update(str(p.relative_to(ROOT)) for p in owner.iterdir()
                      if p.is_file() and p.suffix in ('.py','.md'))
     paths.add('model/matched_einstein_limit/frame.py')
+    paths.add('model/particle_common_contract/contract.json')
     pins={p:sha(ROOT/p) for p in sorted(paths)}
     report={'schema':'oph.complete_finite_observer_outputs.v1',
             'input_sha256':pins,
@@ -106,15 +115,24 @@ def build():
             'spatial_low_energy_preparation':capture_certificate(spatial_ground),
             'ground_energy_spectral_records':capture_certificate(ground_records),
             'gauge_matter_characteristics':capture_certificate(gauge_characteristics),
+            'common_source_contract':capture_certificate(common_contract),
+            'Gauss_constrained_preparation':gauss.certificate(include_records=True),
+            'accessible_charged_threshold':capture_certificate(residue),
+            'spatial_regional_modular_response':capture_certificate(spatial_modular),
+            'fixed_volume_link_cutoff_limit':capture_certificate(cutoff),
+            'physical_boundary_state':capture_certificate(physical_boundary),
+            'continuum_gap_transfer':capture_certificate(gap_transfer),
+            'common_construction_specification_resolved':True,
+            'finite_physical_preparation_including_boundary_charges_resolved':True,
             'empirical_mass_inputs':[],
             'physical_particle_assignments':[],
             'source_predicted_GeV_masses':[],
             'empirical_calibrations_eliminated':[],
             'physical_requirement_status':[
-                {'id':1,'name':'preparation and complete instruments','status':'complete finite preparations and gap-free polynomial low-energy plans on the full tensor-cutoff spatial source established; a physical relativistic state and convergence across spacings are unproved'},
-                {'id':2,'name':'common operational position, momentum, time and energy','status':'same-H energies, state-specific Gibbs modular time, full-field position records and conserved joint crystal momentum established; physical particle position/momentum and clock dictionary unproved'},
+                {'id':1,'name':'preparation and complete instruments','status':'selected finite Gauss-constrained polynomial preparation, physical boundary sectors and complete central-charge readout constructed; joint refinement compatibility and a physical particle detector dictionary are unproved'},
+                {'id':2,'name':'common operational position, momentum, time and energy','status':'selected Hamiltonian source clock and supported polynomial modular generator fixed; separate Gibbs, position and crystal-momentum controls retain their own states; physical particle observables and proper-time dictionary unproved'},
                 {'id':3,'name':'interacting relativistic field behavior','status':'fixed-positive-smoothing local records, refinement-uniform causal bounds and same-clock quadratic gauge-matter cone matching established on declared families; convergent physical states, interacting Lorentz transformations and chiral matter are unproved'},
-                {'id':4,'name':'physical masses, mixing, scattering and decays','status':'finite spectral responses established; physical mass and scattering matching unproved'},
+                {'id':4,'name':'physical masses, mixing, scattering and decays','status':'finite spectral responses and a conditional same-clock local-correlation gap criterion established; interacting four-dimensional Yang-Mills decay premises, physical mass and scattering matching unproved'},
                 {'id':5,'name':'defect-to-species attachment','status':'declared protected-label interaction established; physical species identification unproved'},
                 {'id':6,'name':'controlled errors and same-source gravity','status':'fixed-time regulator/volume/cutoff bounds, refinement-uniform influence tails, same-action energy and declared spatial strain responses established; observer-derived proper geometry, physical state refinement and Einstein regional premises unproved'}],
             'finite_output_connections':['same-source neutral and charged spectral response',
@@ -151,6 +169,19 @@ def build():
         'gap-free low-energy preparation plans for full spatial CAR and product coordinate cutoffs, with reference-preserving polynomial error',
         'conjugate-charge spectral symmetry and complete phase records on the same cooled208-state control, with a finite Lean downward-record bound',
         'native trace-dual electric metric and Wilson plaquette Hessian give a common twelve-direction quadratic gauge cone and an explicit matter-speed matching relation']
+    report['finite_output_connections'] += [
+        'one authenticated open Wilson source, Gauss polynomial state, retained idle reference and source clock, with typed actual-producer joins',
+        'source-only physical Gauss preparation and nonzero plaquette dynamics, with a separate complete78-state directional control',
+        'nonzero original charged-threshold residues and complete40-outcome collision records on the native208-state ground trial',
+        'physical regional support floors on the selected polynomial state, with separately calculated warm internal modular controls',
+        'fixed-volume electric cutoff removal with same-clock complete bounded-history subsequences, distinct from joint physical refinement']
+    report['finite_output_connections'] += [
+        'actual physical Wilson-loop boundary sectors and complete central-charge records on the selected Gauss polynomial state',
+        'dense local Euclidean-decay criterion for a same-clock continuum gap, with noncollapse and mixed-state boundaries explicit']
+    common_contract.validate_inventory(report)
+    selected=report['common_source_contract']['fixed_primary_member']
+    common_contract.verify_result(selected, report['spatial_regional_modular_response']['selected_common_state_consumer'])
+    physical_boundary.verify_bound(selected,report['physical_boundary_state']['selected_state_boundary'])
     if any(sha(ROOT/p)!=h for p,h in pins.items()):
         raise ValueError('input changed during complete-output replay')
     return json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+'\n'

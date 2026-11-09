@@ -1,0 +1,600 @@
+{
+  "GeV_mass": null,
+  "all_flux_states": 13,
+  "all_fock_states": 16,
+  "charged_channels": {
+    "-1": {
+      "energy_transfer_interval": [
+        "4988696678531865/4503599627370496",
+        "4988696678531891/4503599627370496"
+      ],
+      "inside_window_failure_upper": [
+        "0",
+        "1/1099511627776"
+      ],
+      "original_charge_branch_weight": "1/2",
+      "original_ground_residue_interval": [
+        "274085055497/549755813888",
+        "68521286927/137438953472"
+      ],
+      "outside_window_success_upper": [
+        "134733/1099511627776",
+        "67367/549755813888"
+      ],
+      "projector_rank": 2,
+      "state_transfer_probability_error_upper": [
+        "58527/1099511627776",
+        "1829/34359738368"
+      ],
+      "target_occupation": 1,
+      "target_source_energy_interval": [
+        "-1185157344484909/1125899906842624",
+        "-4740629377939623/4503599627370496"
+      ],
+      "trial_original_window_probability": [
+        "68521279611/137438953472",
+        "548170236889/1099511627776"
+      ]
+    },
+    "1": {
+      "energy_transfer_interval": [
+        "4988696678531865/4503599627370496",
+        "4988696678531891/4503599627370496"
+      ],
+      "inside_window_failure_upper": [
+        "0",
+        "1/1099511627776"
+      ],
+      "original_charge_branch_weight": "1/2",
+      "original_ground_residue_interval": [
+        "274085055497/549755813888",
+        "68521286927/137438953472"
+      ],
+      "outside_window_success_upper": [
+        "134733/1099511627776",
+        "67367/549755813888"
+      ],
+      "projector_rank": 2,
+      "state_transfer_probability_error_upper": [
+        "58527/1099511627776",
+        "1829/34359738368"
+      ],
+      "target_occupation": 3,
+      "target_source_energy_interval": [
+        "-1185157344484909/1125899906842624",
+        "-4740629377939623/4503599627370496"
+      ],
+      "trial_original_window_probability": [
+        "68521279611/137438953472",
+        "548170236889/1099511627776"
+      ]
+    }
+  },
+  "charged_polynomial_descending": [
+    1,
+    -35,
+    286,
+    341
+  ],
+  "common_original_residue_interval": [
+    "274085055497/549755813888",
+    "68521286927/137438953472"
+  ],
+  "complete_rational_window_detector": {
+    "conditioned_on_success": false,
+    "failures_and_references_retained": true,
+    "filter_power": 4,
+    "filter_width": "1/16",
+    "original_probability_per_sign": "1/2",
+    "original_probability_sum": 1,
+    "records": [
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "68521279611/274877906944",
+          "274085118445/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "407590973/1099511627776",
+          "203795487/549755813888"
+        ],
+        "outcome": "failure_0",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "2435/549755813888",
+          "4871/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "68521279611/274877906944",
+          "274085118445/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "407590973/1099511627776",
+          "203795487/549755813888"
+        ],
+        "outcome": "failure_0",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "2435/549755813888",
+          "4871/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "24071059/68719476736",
+          "385136945/1099511627776"
+        ],
+        "outcome": "failure_0",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "13915/274877906944",
+          "55661/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "25/549755813888",
+          "51/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "24071059/68719476736",
+          "385136945/1099511627776"
+        ],
+        "outcome": "failure_0",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "13915/274877906944",
+          "55661/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "25/549755813888",
+          "51/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": -6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": 1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "24071059/68719476736",
+          "385136945/1099511627776"
+        ],
+        "outcome": "failure_0",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "13915/274877906944",
+          "55661/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "25/549755813888",
+          "51/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 0,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "24071059/68719476736",
+          "385136945/1099511627776"
+        ],
+        "outcome": "failure_0",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "13915/274877906944",
+          "55661/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "25/549755813888",
+          "51/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 1,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "68521279611/274877906944",
+          "274085118445/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "407590973/1099511627776",
+          "203795487/549755813888"
+        ],
+        "outcome": "failure_0",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "2435/549755813888",
+          "4871/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 2,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "68521279611/274877906944",
+          "274085118445/1099511627776"
+        ],
+        "outcome": "window",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "407590973/1099511627776",
+          "203795487/549755813888"
+        ],
+        "outcome": "failure_0",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "2435/549755813888",
+          "4871/1099511627776"
+        ],
+        "outcome": "failure_1",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_2",
+        "sign": -1
+      },
+      {
+        "compensating_reference_charge": 6,
+        "compensating_reference_parity": 1,
+        "mode": 3,
+        "original_probability_interval": [
+          "0",
+          "1/1099511627776"
+        ],
+        "outcome": "failure_3",
+        "sign": -1
+      }
+    ]
+  },
+  "exact_charge_conjugate_ground_weights_equal": true,
+  "finite_clock_window_plan": {
+    "Cayley_substeps_per_clock_step": 32768,
+    "Fourier_bins": 131072,
+    "alias_probability_upper": "0",
+    "all_clock_bins_and_compensating_references_retained": true,
+    "clock_step": "1/16",
+    "complete_clock_error_upper": "174455501/6597069766656",
+    "energy_resolution": "1/64",
+    "filter_leakage_upper": "11/426",
+    "final_energy_window_center": "-9481258755879259/9007199254740992",
+    "full_clock_histogram_executed": false,
+    "maximum_source_time": "131071/16",
+    "original_event_error_per_sign_upper": "14210169145/1099511627776",
+    "original_readout_weight_per_sign_interval": [
+      "533959941849/1099511627776",
+      "1/2"
+    ],
+    "reported_energy_radius": "1/32",
+    "reported_transfer_center_interval": [
+      "9977393357063743/9007199254740992",
+      "9977393357063769/9007199254740992"
+    ],
+    "source_ground_reference_interval": [
+      "-4864663028235757/2251799813685248",
+      "-9729326056471501/4503599627370496"
+    ]
+  },
+  "ground_complement_lower": "-2",
+  "ground_energy_interval": [
+    "-4864663028235757/2251799813685248",
+    "-9729326056471501/4503599627370496"
+  ],
+  "ground_polynomial_descending": [
+    1,
+    -54,
+    958,
+    -5328,
+    -5816,
+    23184
+  ],
+  "ground_rank": 1,
+  "ground_trial": {
+    "half_trace_distance_upper": "117055/1099511627776",
+    "inverse_iterations": 8,
+    "mean_energy_interval": [
+      "-1159826047/536870912",
+      "-2375323744255/1099511627776"
+    ],
+    "prepared_by_postselection": false,
+    "shift": "-9/4",
+    "source_density_exactly_stationary": false
+  },
+  "physical_particle_identification": false,
+  "relativistic_mass_shell": false,
+  "same_source_H_and_clock": true,
+  "schema": "oph.native_charged_residue.v1",
+  "source_dimension": 208,
+  "source_sha256": {
+    "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
+    "model/particle_candidate_atlas/interacting_chiral.py": "f9a5685f3abaa076eee459941a3643554628ff22679115cd9955b65d2a3a4694",
+    "model/particle_field_state_response/state_response.py": "3dc00db2122f21533682cdbd14d104f4b35b990a4f390e5cba42a6351938b5e3",
+    "model/particle_ground_spectral_records/PROOF.md": "548be624899ba3e4c02237c75ce7198ff58fdbf03fb40006618093f7c782d425",
+    "model/particle_ground_spectral_records/records.py": "91449367b8ed2eedf9790b506bd0683eb35ca4874255db400541098428a174b8",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698",
+    "model/spectral_readout/kernels.py": "e160fc96e83b0d8124eea750ef137d8c1e701ff4e1d9c850689169bf73333293"
+  }
+}

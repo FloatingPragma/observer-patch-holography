@@ -44,6 +44,38 @@ lines below refer to another preparation; their residues cannot be
 transferred to this ground. The [prepared-state dependency map](OPH_FIELD_RECONSTRUCTION.md#prepared-states-and-actual-regional-response)
 also records the finite gauge-gap and regional modular premises.
 
+The [physical preparation with boundary charges](OPH_FIELD_RECONSTRUCTION.md#physical-preparation-with-retained-boundary-charges)
+is constructed on every selected finite member. Its complete central-charge
+readout retains all outcomes; eleven physical Wilson-loop/blank witnesses
+have positive selected-state weights. These are regional charge sectors,
+not eleven particle species. The
+[interacting four-dimensional gap target](OPH_FIELD_RECONSTRUCTION.md#interacting-four-dimensional-yangmills-and-the-vacuum-gap)
+requires separate continuum, interaction and spectral estimates. The finite
+construction does not assign physical masses or a positive global gap to a
+theory containing a massless photon.
+
+## Fixed construction and admissible mass comparisons
+
+The [primary contract](../../model/particle_common_contract/PROOF.md)
+fixes one open Wilson source/state/reference/clock family. Its carrier
+retains all sixty CAR modes per cell and product link cutoffs, with `e0=105, kappa0=1/7`, source-only Gauss support,
+a deterministic positive-polynomial preparation, an idle conjugate
+reference and Hamiltonian time in source units. Construction specification
+is resolved. The typed receipt consumers verify source bounds, physical
+preparation, common quadratic gauge/matter characteristics and regional
+support; they do not assign measured masses or import another state's
+spectral weights.
+
+The [supported regional state](../../model/particle_spatial_modular_response/PROOF.md)
+retains boundary charges and defines a finite modular logarithm on its
+certified support.
+The primary polynomial modular flow is not exactly Hamiltonian time
+rescaled by inverse temperature. Exact Gibbs controls have that separate
+identity. Source energy, modular energy and proper geometric stress
+therefore have distinct definitions until their operational attachment
+is proved. A GeV mass needs a physical energy convention and a relativistic
+spatial dispersion calculation on the specified state.
+
 ## Cooled source thresholds and physical mass interpretation
 
 The [same-source spectral construction](../../model/particle_ground_spectral_records/PROOF.md)
@@ -52,13 +84,29 @@ preparation. Charge conjugation pairs its `N=1` and `N=3` spectra about
 the `N=2` ground. Complete CAR probes and their compensating references
 retain every original weight. A bound on mean ground-energy excess
 controls downward transfers without a spectral gap or success filtering.
-These are source transition energies. Their rest-mass interpretation
-requires momentum-dependent spatial response on the same interacting
-state; a GeV label additionally requires a physical energy reference.
+The [complete charged-window calculation](../../model/particle_charged_residue/PROOF.md)
+certifies a nonzero original weight near `0.498558` for each charge sign
+and excitation energy near `1.107713183`. It executes forty rational
+pointer probabilities on its certified ground trial and bounds a finer
+source-clock Fourier readout. This finite source and state are separate
+from the primary spatial family. Their rest-mass interpretation requires
+momentum-dependent spatial response; a GeV label additionally requires a
+physical energy reference.
 The [dependency map](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
 gives the full spatial low-energy plans and the quadratic gauge/matter
 clock match. Neither substitutes a calibrated lepton ratio for a
 calculated mass shell.
+
+At fixed finite volume, the
+[electric-cutoff limit](../../model/particle_link_cutoff_limit/PROOF.md)
+proves convergence of the parent Wilson ground energies and complete
+bounded detector histories along cooled-state subsequences. It retains
+quantum references and all failure outcomes. The executed directional
+rotor has different K=6 and K=12 ground intervals; at K=18, rigorous
+uncut enclosures put either adjacent-charge threshold in approximately
+`[1.017679,1.197349]` source units. The tighter finite K=6 line is not
+substituted for this uncut interval. Joint volume/spacing refinement and
+physical species identification are independent requirements.
 
 ## Charged energies about the complete finite ground
 

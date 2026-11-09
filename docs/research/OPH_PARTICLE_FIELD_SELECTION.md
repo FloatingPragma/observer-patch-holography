@@ -21,21 +21,49 @@ rest-mass identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
+The [physical preparation with boundary charges](OPH_FIELD_RECONSTRUCTION.md#physical-preparation-with-retained-boundary-charges)
+is constructed on every selected finite member. Its complete central-charge
+readout retains all outcomes; eleven physical Wilson-loop/blank witnesses
+have positive selected-state weights. These are regional charge sectors,
+not eleven particle species. The
+[interacting four-dimensional gap target](OPH_FIELD_RECONSTRUCTION.md#interacting-four-dimensional-yangmills-and-the-vacuum-gap)
+requires separate continuum, interaction and spectral estimates. The finite
+construction does not assign physical masses or a positive global gap to a
+theory containing a massless photon.
+
 ## Preparation and characteristic-speed choices
 
-The [common low-energy construction](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
-uses a product of per-link word cutoffs, every CAR occupation and a
-canonical conjugate reference. Temperature and polynomial order are
-selected from a certified energy tolerance, with no measured mass input.
-This specifies a finite preparation service; it does not prove an
-uncontrolled repair process cools to that state. Gauge invariance of the
-full density differs from support on a source-only Gauss-singlet sector.
-The native trace-dual electric form makes all twelve quadratic gauge
-speeds equal. `e0*kappa0=15` matches them to the unit matter principal
-speed on the same clock. Physical state refinement, interacting Lorentz
-covariance and chiral complementary modes need their own common-family
-proofs. Architecture choice is allowed; measured-parameter ancestry is
-retained wherever used.
+The [primary construction contract](../../model/particle_common_contract/PROOF.md)
+selects the open Wilson field with side `2^(2n+1)`, spacing `2^-n`,
+per-link word degree `n+1` and all sixty CAR modes per cell. The declared
+choice `e0=105, kappa0=1/7` gives `e0*kappa0=15`, matching all twelve
+quadratic gauge characteristics to the matter principal speed. The
+source-only Gauss projector includes exterior endpoints with zero external
+charge. Its positive-polynomial state has certified mean energy excess
+`<=2^(-n-4)` relative to the physical ground, and its exact canonical
+preparation retains a separately invariant conjugate reference.
+
+This resolves source, state, reference and clock specification without a
+uniqueness theorem or measured particle input. The primary clock is
+`exp(-itH)`; the reference idle Hamiltonian is zero. Exact stationarity
+applies to the source marginal. The polynomial state's modular Hamiltonian
+is not an affine copy of `H`; `tau=-beta s` belongs to exact Gibbs controls.
+Typed consumers regenerate the actual source bounds, preparation,
+characteristic match and supported regional state. The
+[domain inventory](../../model/particle_common_contract/contract.py) excludes
+substituting scalar, warm/cold directional, periodic or smooth-field
+control distributions for this primary program.
+
+The [Gauss construction](../../model/particle_gauss_ground_state/PROOF.md)
+supplies fixed-spacing, fixed-link-cutoff ground-state subsequences on the
+invariant observable algebra. The
+[link-cutoff theorem](../../model/particle_link_cutoff_limit/PROOF.md)
+removes that cutoff at fixed volume and spacing for complete bounded
+histories. Neither individual limit supplies the contract's simultaneous
+volume/spacing/cutoff refinement. Interacting relativistic covariance,
+chiral content, masses and physical geometry require consequences of the
+selected family. Declaring architecture fixes its inputs; it does not
+supply those output theorems.
 
 ## Outputs of a specified interacting field and apparatus
 

@@ -652,6 +652,108 @@ by $750V/(17a)$. The mixed state is not a finite ground; the comparison
 neither proves that this Slater alternative is the interacting ground
 nor excludes every continuum interpretation of the mixed family.
 
+\subsection{A fixed source, preparation, reference and clock}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/PROOF.md}{declared finite sequence}
+uses open cubes of side $L_n=2^{2n+1}$, spacing $a_n=2^{-n}$ and
+per-link word degree $\ell_n=n+1$, with all sixty CAR modes at each site.
+The finite-range Wilson action has electric coefficient $105$ and
+magnetic coefficient $1/7$, so its gauge and matter principal speeds agree.
+Each site owns three outgoing links. Zero external charge is imposed also
+at their ghost endpoints; the electric terms remain, while hopping bonds
+and plaquettes require interior support. Parent operator products are
+formed before product-word compression, with the original energy zero.
+These are architectural choices without measured-mass inputs.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_gauss_ground_state/PROOF.md}{physical preparation}
+uses $P=\prod_xP_x$, the commuting local Haar projectors. The nonabelian
+Lie components at a single site need not commute. Since $[P,H]=0$, the
+positive polynomial
+\[
+ Q=P\left[T_m\!\left(\frac{\beta(U-H)}{2s}\right)\right]^s,
+ \qquad \rho=\frac{Q^2}{\operatorname{Tr}Q^2}
+\]
+is supported on the physical carrier. The entropy bound below fixes
+$\beta,m,s$ from ground-energy tolerance $2^{-n-4}$. An exact algebraic
+Householder service maps the empty-Fock, constant-link blank to
+$\operatorname{vec}Q/\sqrt{\operatorname{Tr}Q^2}$. The conjugate reference
+is retained and separately Gauss invariant, with idle Hamiltonian zero.
+This finite specification does not assert execution of its enormous
+spatial matrix or a compiled preparation tape. A finite implementation
+requires its own error bound.
+
+The clock is $U(t)=e^{-itH}$ in source units with $\hbar=1$. The marginal
+$\rho$ is stationary, while its purification need not be stationary under
+$H\otimes I$. On the physical support,
+$K=\log(\operatorname{Tr}Q^2)I-2\log Q$; it is not replaced by the exact
+Gibbs modular clock. Computable source bounds, preparation and quadratic
+characteristic results are regenerated from these same inputs before
+admission. Distinct scalar, warm-flux and ground-trial controls have their
+own preparations and cannot supply this spatial state's detector law.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_spatial_modular_response/PROOF.md}{regional restriction}
+also consumes this exact polynomial state. A certified $c>0$ gives
+$\rho\ge cP$ and $\rho_R\ge c\operatorname{Tr}_{\bar R}P$.
+Its logarithm is defined on this physical regional support; full ambient
+rank is unnecessary. Boundary charge sectors remain in the observable
+algebra. Their representation multiplicities enter regional entropy;
+no geometric area or local diamond-energy kernel is inferred from them.
+The specified simultaneous volume, spacing and word-degree sequence
+requires a distinct convergence proof.
+
+\subsection{Physical boundary charges and complete regional readout}
+
+For the same prepared spatial state, the
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_physical_boundary_state/PROOF.md}{boundary-state construction}
+takes the origin cell and its three outgoing links as a region. Its cut
+vertices are $e_1,e_2,e_3$. A regional charge pairs with the opposite
+outside charge in every physical state; zero external charge at the
+box's ghost endpoints does not impose zero charge on this regional
+factor. The positive polynomial is faithful on the full Gauss kernel,
+and $\rho\ge cP$ implies $\rho_R\ge c\operatorname{Tr}_{\bar R}P$.
+Thus the prescribed deterministic preparation includes the boundary
+correlations without a further acceptance condition or charged seed.
+
+Use integer-normalized hypercharge $Q_6=6Y$. The right-endpoint charge
+spectrum on the complete word space $V_\ell$ is
+$S_\ell=\{a_1+\cdots+a_\ell:a_j\in
+\{0,\pm1,\pm2,\pm3,\pm4,\pm6\}\}$.
+Every sum occurs: a product of corresponding diagonal matrix entries is
+nonzero at the identity. For the three commuting endpoint generators,
+\[
+ E_{\boldsymbol q}=\prod_{j=1}^3
+       \prod_{r\in S_\ell\setminus\{q_j\}}
+           \frac{Q_j-rI}{q_j-r},\qquad
+ \sum_{\boldsymbol q\in S_\ell^3}E_{\boldsymbol q}=I.
+\]
+The neutral record unitary $\sum_{\boldsymbol q}E_{\boldsymbol q}
+\otimes S_{\boldsymbol q}$ uses cyclic pointer shifts and commutes with
+all source Gauss constraints. Its complete menu has $11^3=1331$ labels
+at degree one, including zero-probability labels. An exact control retains
+the entire $119$-dimensional link space, since
+$1+2\sum_r d_r^2=119$. Hypercharge tuples can combine different
+nonabelian representations; their full multiplicities are not replaced
+by this central charge measurement.
+
+The native character dimensions and charges are
+$(q,d)=(-4,3),(-3,2),(1,6),(2,3),(6,1)$.
+For each representation and its conjugate, a normalized elementary
+Wilson-plaquette character is an actual physical vector at every selected
+level. Across the origin-cell cut it has charges $(-q,q,0)$ and $d^2$
+equal Schmidt weights. If $\Pi_r$ projects onto that regional Schmidt
+span, positivity therefore gives
+\[
+ \Pr_\rho(-q,q,0)\ge c>0,\qquad
+ \rho_R\ge\frac{c}{d^2}\Pi_r.
+\]
+Together with the vacuum these are eleven distinct positive-weight
+sectors, with $c=2^{-582407133}$ a conservative bound for the first
+selected state. They are boundary sectors, not particle counts or
+predicted abundances. This supplies a finite physical preparation and
+complete regional charge apparatus on the specified clock; it does not
+assert execution of the full spatial matrix or compatibility of states
+under simultaneous volume, spacing and cutoff refinement.
+
 \subsection{Gap-free low-energy preparation and signed detector records}
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_spatial_ground_state/PROOF.md}{full spatial preparation}
@@ -729,6 +831,41 @@ retains raw weights rather than conditional success probabilities.
 Its zero-excess case has no negative-energy events. The physical
 spectrum condition also requires a common spatial state limit and
 energy-momentum translations.
+
+\subsection{Accessible charged thresholds and finite-volume cutoff removal}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_charged_residue/PROOF.md}{original charged response}
+of the 208-state control has nonzero weight at its lowest opposite-charge
+thresholds. Exact inertia counts isolate the ground and rank-two charged
+targets. A rational ground trial has half-trace error below
+$1.065\times10^{-7}$. For each charge sign the original threshold weight
+lies in $[0.4985578116,0.4985579794]$, at source energy approximately
+$1.107713183$. A complete collision apparatus retains all forty outcomes,
+including failures; its original weights sum to one. A separately bounded
+Fourier apparatus gives a positive threshold-window guarantee. These
+finite directional records do not identify a spatial particle mass.
+
+At fixed finite spatial volume and spacing, write the uncut Wilson source
+as $H=E+B$, with positive electric operator $E$ of compact resolvent and
+bounded $B$. The nested product-word projections commute with $E$ and
+converge strongly to identity; native matrix coefficients separate group
+points. Their union is a form core. Rayleigh--Ritz ground energies decrease
+to the uncut minimum. Cooled states with bounded electric expectation
+have trace-norm subsequences supported in the uncut ground. The same
+argument restricts to the commuting physical Gauss projection.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_link_cutoff_limit/PROOF.md}{same-clock comparison}
+uses $E+P_\ell BP_\ell$: its propagators converge strongly, uniformly on
+compact time intervals. Fixed bounded Kraus menus are compressed with
+the missing contraction weight retained as an explicit failure outcome.
+Complete finite histories converge along the state subsequence, including
+the retained canonical references. This is not uniform diamond-norm
+convergence or a joint thermodynamic and spacing limit. For a complementary
+electric block with floor $b>L$ and cross-block norm at most $c$, the
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/ElectricCutoffFloor.lean}{finite bound}
+is $H\ge L-c^2/(b-L)$. Native rotor cutoffs six and twelve have disjoint
+certified finite ground intervals, demonstrating a real cutoff effect.
+A finite-cutoff residue therefore needs its own continuation bound.
 
 \subsection{The common quadratic gauge characteristic}
 

@@ -44,6 +44,13 @@ between actual preparations, interventions and shared records. Deriving a
 consequence of a specified construction does not require deriving that
 construction's uniqueness.
 
+Field claims use the [primary source/state/reference/clock contract](model/particle_common_contract/PROOF.md)
+and its typed consumers. Regenerate the actual member and result; matching
+labels or hashes alone do not admit a different preparation or clock.
+Comparison programs retain their stated domains until an explicit transfer
+proof connects them. Fixing this construction does not prove its physical
+continuum or observed particle dictionary.
+
 Keep architecture choices distinct from empirical calibration. Settings
 chosen using target masses or other comparison data are calibration inputs;
 agreement with those inputs is not an independent prediction. Changes to the
