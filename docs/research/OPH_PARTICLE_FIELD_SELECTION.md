@@ -101,9 +101,21 @@ initial electric and magnetic densities follow from this construction.
 At `m=128`, `a=1`, one fixed `L=2^64` and
 `kappa≈2.98009318237e50` give every specified rough plaquette the
 all-time bound `11567/17179869184` in every volume, including complete
-finite-code effects. Local Wilson low-mode/sign-response estimates and
-physical state matching are additional requirements. The mixed state is
-not identified with a physical vacuum or the occupied-origin experiment.
+finite-code effects. The [local spectral calculation](../../model/particle_local_wilson_density/PROOF.md)
+bounds expected Wilson low-mode weight by `2 sqrt(5 eta)|X|`, `eta=2^-20`, on this
+state, and hence controls a local one-body sign/polynomial difference.
+The [local-history construction](../../model/particle_local_history_family/PROOF.md)
+uses its exactly consistent marginals and fixed parameters to obtain a
+thermodynamic limit of complete polynomial-field records at fixed duration.
+Its order-zero, time-one example has volume-plus-cutoff error `<=2^-23`;
+the required finite code is specified, not executed. The initial two-time
+squared occupation increment has curvature `2880/289`, without a
+finite-time scattering interpretation. Full-volume purifiers are not
+identified; correlated reference comparisons require compatible local
+preparation. The remaining local exact-sign comparison must control the
+quantum electric/link dependence of evolved observables. Physical state,
+chirality and spacing/order refinement requirements remain distinct from
+this fixed-parameter local-record limit.
 
 The [same-source quantum-Higgs readout](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
 prepares the full 307-state conserved-sector ground using the actual vertex

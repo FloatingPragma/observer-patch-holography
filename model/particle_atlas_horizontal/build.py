@@ -110,7 +110,9 @@ def reader(svg,data):
         ('particle_field_preparation','Finite gauge-word preparation and same-clock Wilson-gap bounds'),
         ('particle_ground_charged','Complete charged spectra about the full scalar ground'),
         ('particle_prepared_field_readout','One prepared spatial field with all 61 local detector outcomes'),
-        ('particle_local_gauge_state','Mixed gauge-state family with fixed-parameter local roughness bounds'))]
+        ('particle_local_gauge_state','Mixed gauge-state family with fixed-parameter local roughness bounds'),
+        ('particle_local_wilson_density','Local Wilson low-mode weight and one-body sign approximation'),
+        ('particle_local_history_family','Complete polynomial field records at fixed nonzero time and growing volume'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
     for item in links([data[k] for k in ('story','families','measurement_content','theorems','field_nature')]+[extra]):

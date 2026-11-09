@@ -101,8 +101,18 @@ plaquette has probability at most `11567/17179869184` for every model
 time. Its maximally mixed full Fock marginal and compensating charged
 reference define a different preparation from the scalar ground and
 filled-origin experiment. These are local roughness probabilities,
-without a physical gap or mass interpretation; the local Wilson-mode
-and sign-response connection is a separate operator requirement.
+without a physical gap or mass interpretation. The
+[local Wilson spectral bound](../../model/particle_local_wilson_density/PROOF.md)
+controls the expected low-mode trace and local one-body sign/polynomial
+error. The [complete local-history limit](../../model/particle_local_history_family/PROOF.md)
+exists at fixed spacing, polynomial order and nonzero duration. Its
+order-zero, time-one finite-code example has volume-plus-cutoff error `<=2^-23`,
+and the exact initial two-time squared occupation increment has curvature
+`2880/289`. A derivative diagnostic is not a particle energy or finite-time
+scattering law. The full dynamical sign comparison requires control of
+electric/link derivatives in local evolved observables; the one-body
+spectral estimate does not supply it. No scalar-ground mass assignment
+is transferred into this distinct spatial state.
 
 ## An exact interacting coefficient-to-record map
 

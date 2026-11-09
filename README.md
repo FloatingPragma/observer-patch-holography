@@ -112,10 +112,12 @@ proof shows that the whole class of laws cannot work.
   [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
   [spectral readout](model/spin_shell_readout/README.md),
   [ten common-theory requirements](docs/research/OPH_FIELD_RECONSTRUCTION.md#ten-common-theory-construction-requirements).
-  A separate [prepared finite gauge field](model/particle_prepared_field_readout/PROOF.md)
-  combines one state, action and clock with complete occupation records and
-  controlled errors. Its conservative tiny duration does not establish an
-  interacting relativistic continuum. The
+  A separate [mixed gauge-state family](model/particle_local_history_family/PROOF.md)
+  has controlled complete local records at fixed nonzero duration as volume
+  grows, with one action and clock and explicit finite-code errors.
+  Its [local Wilson spectral bound](model/particle_local_wilson_density/PROOF.md)
+  controls low-mode weight. Interacting exact-sign dynamics and relativistic
+  refinement require further estimates. The
   [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) distinguishes
   these finite outputs from the physical connections they require.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than

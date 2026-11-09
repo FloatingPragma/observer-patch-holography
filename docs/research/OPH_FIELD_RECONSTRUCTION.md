@@ -62,7 +62,7 @@ internal representations do not identify their prepared states or clocks.
 | --- | --- | --- |
 | 1. Preparation and complete instruments | Complete scalar and charged instruments, faithful referenced Gibbs preparation, a certified full-scalar ground with twelve charged channels, a filled-origin spatial experiment with all 61 occupation outcomes, and a referenced gauge-twirled state with uniform local energy densities. | A physical state family for the interacting spatial theory and its detector dictionary. The scalar ground uses Q*=6; the Gibbs and neutral-reference charged experiments use Q*=0. The filled-origin and mixed gauge-twirled field preparations are distinct. |
 | 2. Common operational observables | Same-Hamiltonian scalar energies and modular time; the Q*=0 charged coefficient inverse cancels its additive sector offset. The Q*=6 ground has separately certified multi-line charged measures. | Position, momentum, physical spin and Lorentz clocks attached to these same interacting fields; a source duration is not automatically proper time. |
-| 3. Interacting relativistic behavior | [Graded locality and finite-volume bounds](../../model/particle_field_causality/PROOF.md) at fixed spacing, [prepared Wilson-gap bounds](../../model/particle_field_preparation/PROOF.md), and [all-time local roughness control at fixed local parameters](../../model/particle_local_gauge_state/PROOF.md) on the mixed gauge-twirled family. | Local Wilson-mode and sign-response control, uniform refinement estimates, Lorentz transformations, interacting chiral content and control of mirror modes. The large coefficients are declared inputs, without a physical vacuum or coupling identification. |
+| 3. Interacting relativistic behavior | The mixed gauge-twirled family has [all-time local roughness](../../model/particle_local_gauge_state/PROOF.md), [local Wilson low-mode weight](../../model/particle_local_wilson_density/PROOF.md) and a [fixed-duration thermodynamic limit of complete polynomial-field records](../../model/particle_local_history_family/PROOF.md) at fixed local parameters. | Full local exact-sign response, uniform spacing/order refinement, Lorentz transformations, interacting chiral content and control of mirror modes. The large coefficients are declared inputs, without a physical vacuum or coupling identification. |
 | 4. Physical masses and interactions | Original neutral/charged spectral weights, complete Q*=6 charged spectra and the separate Q*=0 inverse response. A common number-energy shift cannot equalize the Q*=6 addition/removal spectral shapes on that reference. | Dispersion and charged dressing on the common spatial state, physical mass convention, scattering/decay observables and comparison errors. The finite shape obstruction is not a physical CPT-violation claim. Calibrated coefficients retain their target ancestry. |
 | 5. Protected defects and species | [Exact controlled attachment](../../model/particle_defect_attachment/PROOF.md) sends protected memory or regional holonomy into distinguishable complete scalar records. | Species identification preserving the same propagation, transformations, statistics and currents. Declared coupling strengths 1 and 2 are not derived from topological protection. |
 | 6. Controlled errors and gravity | Complete representation/numerical errors, fixed-spacing volume control, [same-action energy continuity](../../model/particle_gravity_response/PROOF.md) and [actual internal-region modular/entropy response](../../model/particle_regional_geometry/PROOF.md). | Uniform refinement and capacity errors; geometric stress, proper clocks, spatial-region modular/area responses and the same-state small-ball hypotheses of the Einstein theorem. Internal family regions are not spatial balls. |
@@ -224,10 +224,9 @@ on the actual state family. The finite-code effect is the compression
 of the full roughness detector, with its complement retained. The
 filled-origin experiment is not translation invariant and does not
 instantiate this lemma. A translation average is a different preparation.
-Local roughness alone does not control the Wilson low-mode projector
-or the complete local sign-response error; the
-[required operator estimate](../../model/particle_field_preparation/REFINEMENT.md#the-missing-local-operator-estimate)
-states that additional condition on the same state, dynamics and reference.
+The distinction between local spectral control and complete dynamical
+response is specified by the
+[operator interface](../../model/particle_field_preparation/REFINEMENT.md#the-missing-local-operator-estimate).
 
 The [referenced mixed gauge state](../../model/particle_local_gauge_state/PROOF.md)
 realizes those uniform initial-density hypotheses. It independently
@@ -247,9 +246,46 @@ probability at every model time by
 this bound for the compressed full roughness effect and its complement.
 The exact one-open-link control retains 119 positive-support states,
 including total nontrivial charge probability `1/91`; it is not substituted
-for the correlated periodic site twirl. These results supply neither a
-global Wilson gap nor a local sign-response comparison or physical mass.
-They do not change the distinct filled-origin experiment.
+for the correlated periodic site twirl. These results do not change the
+distinct filled-origin experiment.
+
+The [local Wilson spectral bound](../../model/particle_local_wilson_density/PROOF.md)
+uses the full native kernel and a positive square decomposition. For
+`Pi_low=1_(|H_W|<1/2)` and a set X of cells, it gives
+`<Tr(P_X Pi_low P_X)> <=400 |X| sqrt(6 <S>/V)`.
+On the declared state this is at most `2 sqrt(5 eta)|X|` at every time,
+with target `eta=2^-20`, independently of volume. The normalized trace defines a complete binary
+finite-code effect. The result bounds the local one-body
+Hilbert–Schmidt error between the sign and polynomial kernels; it neither
+proves a global gap nor spatial decay of each low mode.
+
+The same mixed family has
+[exactly matching local marginals](../../model/particle_local_history_family/PROOF.md).
+Fixed-parameter polynomial locality therefore gives a thermodynamic
+limit for every specified finite local instrument history at any fixed
+duration. An open-box word code approximates its complete law. The
+order-zero, time-one example allocates `2^-24` to each of the volume
+and cutoff errors, totaling `2^-23` before implementation errors.
+Its radius and code are enormous and are not executed as a simulation.
+All 61 occupation labels and intervening records are retained. The exact
+initial curvature of the two-time squared occupation increment is
+`2880/289`; this is a nonzero dynamical diagnostic, without a finite-time
+particle or scattering interpretation.
+
+Full-volume canonical purifiers are not identified across volumes.
+The default local-record comparison traces them. A fixed independent
+reference, or the same local preparation channel acting on it, gives
+compatible local reference outputs; arbitrary extensions require that
+compatibility explicitly. Measurements can break translation symmetry,
+so uninterrupted-evolution roughness bounds are not reused after them.
+
+The remaining sign-response step concerns the full interacting quantum
+dynamics. Time-evolved local observables contain electric/link derivatives;
+the local one-body spectral bound alone does not bound their commutator
+with the sign Hamiltonian. A volume-uniform local Duhamel estimate on
+the same state and clock must control that dependence. Spacing and
+polynomial-order refinement, a physical vacuum, chirality, mass shells
+and surviving interactions remain separate physical requirements.
 
 The [regional modular calculation](../../model/particle_regional_geometry/PROOF.md)
 uses the faithful Q*=0 Gibbs preparation rather than the Q*=6 ground.
@@ -367,8 +403,8 @@ This checklist does not require a uniqueness theorem for the architecture.
 | --- | --- | --- |
 | 1. Identify the common program | Source operators, preparation, references and clock must be fixed together. The scalar, ordered-spin, free-Weyl and gauge-coordinate constructions have distinct state domains. | Source specifications and the theorem-domain inventory above |
 | 2. Prepare a scalable local state | The [mixed gauge-twirled family](../../model/particle_local_gauge_state/PROOF.md) supplies uniform initial local densities and all-time local roughness at fixed link degree and plaquette coefficient. Its compensating charged reference and full maximally mixed Fock input are retained; it is distinct from the filled-origin input and is not a vacuum. | 1 |
-| 3. Control the local sign response | The [local spectral split](../../model/particle_field_preparation/REFINEMENT.md#the-missing-local-operator-estimate) isolates Wilson low-mode weight. A volume-independent local dynamical comparison is required; small plaquette probability alone does not imply it. | 2 |
-| 4. Control complete records under refinement | Fixed-spacing locality and finite word-cutoff errors are available. The joint family needs uniform errors at nonzero physical duration and a surviving interacting response. | 2, 3 |
+| 3. Control the local sign response | The [same-state Wilson bound](../../model/particle_local_wilson_density/PROOF.md) controls expected local low-mode weight and the one-body sign/polynomial error. The full local dynamical comparison must also control electric/link derivatives; it does not follow from that spectral bound. | 2 |
+| 4. Control complete records under refinement | The [mixed-state local history](../../model/particle_local_history_family/PROOF.md) has a fixed-spacing, fixed-polynomial-action thermodynamic limit at nonzero duration and finite-code errors. Spacing/order refinement and a surviving interacting relativistic response require additional uniform estimates. | 2; 3 for comparison to exact-sign dynamics |
 | 5. Attach physical observables | Complete finite energy readouts and state-specific modular identities are available. Position, translations, energy and clock must be realized on the same interacting state with the uncertainty theorem's operator domain. | 1, 4 |
 | 6. Establish the relativistic regime | Free-overlap and free-Weyl calculations supply reusable symbol estimates. The interacting state must support the claimed Lorentz transformations and energy-momentum response. Celestial symmetry alone does not establish this. | 4, 5 |
 | 7. Establish chiral gauge matter | The internal representation, CAR and native currents are available. Their physical spin, chiral propagation and complementary regulator modes must be controlled together. | 4, 6 |

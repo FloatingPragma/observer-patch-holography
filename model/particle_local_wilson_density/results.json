@@ -1,0 +1,104 @@
+{
+  "all_time_bound_is_on_uncompressed_symbol_effect": true,
+  "exact_native_controls": {
+    "actual_native_basis_used": true,
+    "flat_squared_kernel_is_identity": true,
+    "flat_symbol_dimension": 60,
+    "native_weak_multiplicities_retained": true,
+    "noncommuting_native_symbol": {
+      "H_W_squared_spectral_ranks": {
+        "0": "16",
+        "1": "28",
+        "3": "16"
+      },
+      "complete_auxiliary_symbol_probe_probabilities": {
+        "0": "4/15",
+        "1": "7/15",
+        "3": "4/15"
+      },
+      "full_dimension": 60,
+      "full_spectral_probability_sum": "1",
+      "low_mode_count": "16",
+      "ordered_pair_identity_checks": 6,
+      "positive_plaquette_cost_sum": "3/5",
+      "universal_count_bound_squared": "576000",
+      "weak_links": [
+        "(I+i sqrt3 sigma1)/2",
+        "(I+i sqrt3 sigma2)/2",
+        "I"
+      ]
+    },
+    "point_coordinate_normalizable_preparation_claimed": false,
+    "spatial_beta": "gamma_tuple[3], not gamma5"
+  },
+  "input_sha256": {
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/interacting_extension/chiral_lattice/PROOF.md": "6ebad18a35c53aa32dd32367f92e804bd5294ffe89824fcad5fc9d74934095b3",
+    "model/interacting_extension/chiral_lattice/source_data.py": "b09044e27b0f9c27612b82c07888f859bb4e6220ede9f58f60ecfffd2e770665",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/particle_field_preparation/REFINEMENT.md": "50f3a285885051fcb029fb16c94767e36ea46ac86287c4db6fd142200fa0725c",
+    "model/particle_field_preparation/preparation.py": "71952f964216a30502fa4761df7fc8be083753428c3d23b425e6d330f5c9ecfb",
+    "model/particle_local_gauge_state/PROOF.md": "90890b00c9ade8f4769b563349190bc4c391dd17c83bb0a1fa2be83a73160cab",
+    "model/particle_local_gauge_state/state.py": "ce628cc00eb9918ffb22153f51500a347b19925669a6e674463cb2e8ac023768",
+    "model/particle_local_wilson_density/PROOF.md": "7c5781fd7b8643aff596f47ce9f228d1c1678633a7e2a43923dfb1346d7bb8b6",
+    "model/particle_local_wilson_density/README.md": "e114364a30702a8341e2fa8f00895e006bf3dbaba3a6da9ab87f6df1cc4be03b",
+    "model/particle_local_wilson_density/__init__.py": "d8b9cfa6f31ceb25bf9de41ee0ad6df22932bd7ac668837c6082c6cac6862589",
+    "model/particle_local_wilson_density/__main__.py": "158fe658101d734b0e5a5a06d2b43433c09380fedc285231d6dd284659c6244e",
+    "model/particle_local_wilson_density/density.py": "ea7743c2e17b350e25134f0fcd5f7936a7bc14d216348a6c59f34a5872acbd11",
+    "model/particle_local_wilson_density/test_density.py": "a4fae641bc359f58414d790dcb49c691054d44c72583365ab14c416737521682",
+    "model/particle_observer_outputs/FIELD_ROUTE.md": "cf9b4bb50f21819f9fbc17c53ec6cb38266df01b54f73f527c97b0b2ce3f2bfb",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698"
+  },
+  "low_mode_count_squared_constant": 960000,
+  "physical_mass_or_species_assignments": [],
+  "primary_algebra": "Hernandez-Jansen-Luscher, hep-lat/9808010v2, Appendix C",
+  "remaining_response_premise": "volume-uniform local interacting sign/polynomial Duhamel bound on the same quantum state",
+  "same_source_all_time_local_spectral_plan": {
+    "Legendre_degree": 128,
+    "all_time_on_same_prepared_polynomial_field": true,
+    "auxiliary_uniform_local_mode_probe_low_probability_upper_squared": "11567/3092376453120",
+    "bound_and_local_action_independent_of_total_volume": true,
+    "compiled_detector_error_included": false,
+    "complete_probe_effects": [
+      "P_K Tr(P_X Pi_low P_X)/(60 |X|) P_K",
+      "I_code minus low-mode effect"
+    ],
+    "compressed_effect_not_truncated_kernel_projector": true,
+    "conditioned_outcomes_used": false,
+    "detector_cells": 1,
+    "exact_detector_is_declared_primitive": true,
+    "global_gap_probability_claimed": false,
+    "interacting_Duhamel_record_bound_claimed": false,
+    "local_low_mode_trace_upper_squared": "57835/4294967296",
+    "local_sign_minus_polynomial_HS_squared_upper": {
+      "rational_part": "41489294698777222990036701867533107822076013538636722214640394432025017256072051009789444511603778440759147060594476785578506568892780173991736291789538473035054557808190861562664991091067234173999668364809431645224716312560043570373103316585024732902068278148077773437307769199833273887634277343750000000000/285641770030429136730139519756509061756941346338917181867234511507554605866627388115360544126358273097759420500393716018001938444211394492404190307898002535762037684787859373837949144961796889684698211878080210077322043591980173693114498144995711424055337096576072623365851693797213267167175256617224014541337652203809",
+      "square_root_argument": "57835/4294967296",
+      "square_root_coefficient": "1142568857841964101144221367449383030696030541019847683387929923935209678999320547331249964620966363484264054268220063673267454127605553220600602005005030911711878647925892370610134286545516687896085051737964112862340083494171023565908173787519848908448567331009273206138067780281100092308785106866978791319647483815236/285641770030429136730139519756509061756941346338917181867234511507554605866627388115360544126358273097759420500393716018001938444211394492404190307898002535762037684787859373837949144961796889684698211878080210077322043591980173693114498144995711424055337096576072623365851693797213267167175256617224014541337652203809"
+    },
+    "local_spectral_projector_decay_claimed": false,
+    "low_mode_threshold_absolute_HW": "1/2",
+    "magnetic_cost_density_upper": "11567/824633720832000",
+    "one_body_local_rank": 60,
+    "original_probability_sum": "1",
+    "requested_roughness_target": "1/1048576",
+    "same_per_link_word_degree": 18446744073709551616,
+    "same_plaquette_coefficient": "159272465073221085823186875266582257222931392906722852857097525268919439534326950181998765358623919771906113595594771148061218831120132823555849803680645808380068904579063473121706908648663531717045220959846400/534454647309225983429908142353859294569823608496653691812844521340859449878286124345812277977399568049140265264463072920424344494726866427499674173312523847697",
+    "sign_approximation_error_on_good_spectrum": "831557721977025707402877407431824034224085745025228150752820400553315634089108910484191285279805076526693638147569309637674450641497969627380371093750000/534454647309225983429908142353859294569823608496653691812844521340859449878286124345812277977399568049140265264463072920424344494726866427499674173312523847697",
+    "simpler_local_low_mode_trace_upper_squared": "5/262144",
+    "translation_invariant_coordinate_marginal_required": true
+  },
+  "schema": "oph.local_wilson_density.v1",
+  "source_inputs": [
+    "model/particle_local_gauge_state/state.py",
+    "model/particle_local_gauge_state/PROOF.md",
+    "model/particle_field_preparation/preparation.py",
+    "model/particle_field_preparation/REFINEMENT.md",
+    "model/particle_observer_outputs/field_route.py",
+    "model/particle_observer_outputs/FIELD_ROUTE.md",
+    "model/interacting_extension/chiral_lattice/source_data.py",
+    "model/interacting_extension/chiral_lattice/PROOF.md",
+    "model/common_source/overlap_regulator.py",
+    "model/observer_particles/results/representation_identification_operators.json"
+  ],
+  "trace_error_constant": 20
+}

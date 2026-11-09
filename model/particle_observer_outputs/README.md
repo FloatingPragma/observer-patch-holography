@@ -105,8 +105,16 @@ control any specified rough-plaquette probability for every model time.
 The source contains all fermion occupations and nonsinglet gauge sectors;
 a retained conjugate reference makes the joint preparation invariant.
 This is a distinct specified state, without a field-only vacuum claim.
-Local roughness does not itself prove the local sign-response estimate
-or a physical particle mass.
+The [local Wilson density bound](../particle_local_wilson_density/PROOF.md)
+converts its magnetic density into volume-independent low-mode weight
+and a one-body sign-approximation estimate. The
+[complete local-history construction](../particle_local_history_family/PROOF.md)
+uses exact matching marginals to obtain a thermodynamic limit of polynomial
+field records at fixed nonzero duration, with finite-code errors. Its local
+occupation dynamics has nonzero two-time curvature. These results do not
+prove the interacting exact-sign response, chiral relativistic refinement
+or physical particle masses. Quantum electric dependence remains part of
+the required dynamical estimate.
 
 The physical output requirements are the common spatial and relativistic
 limit, controlled chiral matter content, interacting spectral/detector

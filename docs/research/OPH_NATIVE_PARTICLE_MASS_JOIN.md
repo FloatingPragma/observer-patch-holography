@@ -162,10 +162,19 @@ not be a Gauss singlet or a vacuum. With `m=128`, `a=1`, `L=2^64` and
 `kappa≈2.98009318237e50` fixed across volumes, each specified rough
 plaquette has probability at most `11567/17179869184` for every model
 time. This holds for the complete compressed detector as well. It removes
-the uniform-density premise for this declared family; local Wilson-mode
-and sign-response control, physical dispersion and species identification
-require their own proofs. No equality with the filled-origin state or
-scalar ground is asserted.
+the uniform-density premise for this declared family. Its
+[local Wilson-mode trace](../../model/particle_local_wilson_density/PROOF.md)
+is bounded by `2 sqrt(5 eta)|X|`, with `eta=2^-20`, a complete normalized probe and a
+local one-body sign/polynomial error bound. Its
+[consistent local histories](../../model/particle_local_history_family/PROOF.md)
+have a thermodynamic polynomial-field limit at fixed spacing and duration;
+the order-zero, time-one example has volume-plus-cutoff error at most `2^-23`.
+The complete two-time occupation diagnostic has initial squared-increment
+curvature `2880/289`. These statements neither identify a finite-time
+particle response nor equate this state with the filled-origin state or
+scalar ground. The full local sign-response comparison must control
+electric/link derivatives of evolved observables. Physical dispersion,
+chirality and species identification require their own same-state proofs.
 
 The [native clock calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
 derives `P B=B(I-L/60)` from all 66 source inputs and sixty seam/coin

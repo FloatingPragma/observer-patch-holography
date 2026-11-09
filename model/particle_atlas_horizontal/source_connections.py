@@ -26,9 +26,9 @@ def render(c, data, y):
          'Physical target: operational spatial translations, physical spin and Lorentz clocks for those same interacting excitations. Program energy is not automatically GeV.',
          'model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md'),
         ('03  PROPAGATION AND RELATIVITY', 'local intervention → bounded distant change',
-         'A mixed, gauge-averaged state has local rough-plaquette probability below 6.733 × 10⁻⁷ at every time and volume, using one fixed action. The source keeps all fermion occupations and compensating reference charges.',
-         'Physical target: a local sign-response bound, uniform interacting refinement and Lorentz/chiral behavior. The declared κ ≈ 2.98 × 10⁵⁰ is not an observed coupling; this mixed state is not a proved physical vacuum.',
-         'model/particle_local_gauge_state/PROOF.md'),
+         'One mixed gauge-state family has controlled local roughness and expected low Wilson-mode weight at every time and volume. Exact matching local preparations give a limit of complete polynomial detector records at fixed duration. Its occupation dynamics is nonzero.',
+         'Physical target: interacting exact-sign response, chiral relativistic refinement and a physical state. Large fixed coefficients and the mixed reference are declared choices. A Wilson regulator mode is not a particle mass.',
+         'model/particle_local_history_family/PROOF.md'),
         ('04  MASSES AND INTERACTIONS', 'source spectrum → spectral readout → matching',
          'The Q* = 6 full ground has 12 complete charged channels. First-family doublet removal and addition begin near 0.0710 and 0.4873 source-energy units. A common sector offset cannot equalize their complete spectral shapes.',
          'Physical target: mass shells, charged dressing, scattering and decay laws on the common spatial state. These finite transition lines are not electron or positron masses.',
@@ -38,9 +38,9 @@ def render(c, data, y):
          'Physical target: propagation, spin, statistics and currents identifying a species. Strengths 1 and 2 are declared. Protected motion conserves the coupled action; birth needs controller-work accounting.',
          'model/particle_defect_attachment/PROOF.md'),
         ('06  ERRORS, ENERGY AND GRAVITY', 'H = Σhₓ → Jₓᵧ = i[hₓ,hᵧ] → exact flux',
-         'Same-action energy currents obey exact continuity. The prepared spatial experiment combines locality and cutoff errors on all 61 outcomes: error below 1.051 × 10⁻¹⁴⁹ at a tick near 1.24 × 10⁻¹⁵². The finite transfer event is smaller than the parent error.',
+         'Same-action currents obey exact energy continuity. The mixed field family bounds complete local polynomial record errors by 2⁻²³ at time one, with enormous finite resources. An exact ten-probe tensor decoder applies when its same-state regional premises hold.',
          'Physical target: uniform refinement and capacity errors; geometric stress, proper clocks, regional modular/area responses and the Einstein theorem’s same-state small-ball premises.',
-         'model/particle_prepared_field_readout/PROOF.md')]
+         'model/particle_gravity_response/PROOF.md')]
     width = (W-2*M)/3
     for index, (title, chain, result, boundary, proof) in enumerate(cards):
         x = M+(index % 3)*width

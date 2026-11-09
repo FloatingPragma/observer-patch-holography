@@ -360,7 +360,7 @@ unchanged by this trace-preserving twirl. A canonical conjugate reference
 retains the source's nonsinglet charges and makes the joint preparation
 invariant. This is not a projection onto a field-only singlet vacuum.
 
-For $L=n^2$, the one-link normalization is at least
+For $L=n^2$, the squared link norm is at least
 $(59/60)^2(1+8n)^{-450}$. An exact dyadic tail bound and a four-link
 plaquette estimate give volume-independent initial densities $e_E,s_0$.
 Translation symmetry and the same conserved action imply
@@ -376,6 +376,53 @@ $\kappa\simeq2.98009\times10^{50}$ for every volume. Its all-time
 bound is $11567/17179869184<6.733\times10^{-7}$. These large declared
 parameters have no observed-coupling identification. They supply uniform
 local roughness, not a global Wilson gap or a physical mass gap.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_local_wilson_density/PROOF.md}{full Wilson decomposition}
+also yields a local spectral estimate. On the actual $60V$ one-body
+space, $H_W^2=I+P+E$ with $P\ge0$ and
+$\|E\|_1\le20\sum_p\|I-R(U_p)\|_1$. For
+$\Pi=\mathbf1_{|H_W|<1/2}$ this implies
+$\operatorname{Tr}\Pi\le400\sqrt{6VS}$.
+Translation symmetry and Jensen's inequality give
+\[
+ \left\langle\operatorname{Tr}(P_X\Pi P_X)\right\rangle
+ \le400|X|\sqrt{6\langle S\rangle/V}
+ \le2\sqrt{5\eta}\,|X|
+\]
+when the same source density obeys $\langle S\rangle/V\le\eta/48000$.
+Spectral calculus then bounds the state-averaged squared local
+Hilbert--Schmidt error of the one-body sign approximation by
+$60|X|\epsilon_m^2+(2+\epsilon_m)^2
+\langle\operatorname{Tr}(P_X\Pi P_X)\rangle$.
+Compression gives a complete two-outcome
+finite-code effect, without identifying it with a truncated-kernel
+projector. This controls local spectral weight, not low-mode spatial
+decay or the interacting detector response to the sign operator.
+
+The same mixed preparation has
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_local_history_family/PROOF.md}{exact compatible local marginals}:
+tracing exterior registers leaves only the independent Haar variables
+incident to retained links. At fixed spacing, polynomial order and local
+coefficients, locality therefore makes complete local record laws Cauchy
+as volume grows at any fixed finite duration. A word-cutoff Dyson bound
+then gives finite simulators for that limit. The declared order-zero,
+time-one example has total volume-plus-cutoff error at most $2^{-23}$,
+with enormous radius and code-size bounds rather than a materialized
+simulation. Complete number pointers preserve the filtration; other
+apparatus must include its degree cost. Global canonical purifiers are
+not identified across volumes. Correlated untouched references require
+compatible joint marginals or a common local preparation operation.
+
+This state has a nonzero local dynamical diagnostic:
+$\langle\dot n_x^2\rangle=1440/289$ and
+$\partial_t^2\langle(n'_x-n_x)^2\rangle|_{t=0}=2880/289$
+for the complete two-time occupation law. These are exact native
+current identities, not a particle dispersion. The resulting polynomial
+field has a controlled fixed-spacing thermodynamic record limit.
+The local spectral estimate does not control the sign operator's
+dependence on the dynamical electric/link variables in the required
+many-body Duhamel comparison. That estimate, chiral relativistic
+refinement and the physical particle dictionary remain separate tasks.
 
 \subsection{Finite holonomy and shared event meaning}
 

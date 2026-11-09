@@ -28,6 +28,8 @@ def build():
     from model.particle_ground_charged import spectrum
     from model.particle_prepared_field_readout import experiment
     from model.particle_local_gauge_state import state as local_gauge
+    from model.particle_local_wilson_density import density as wilson_density
+    from model.particle_local_history_family import history as local_history
     inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
         if sha(ROOT/path)!=digest:
@@ -37,7 +39,8 @@ def build():
                  if p.is_file() and p.suffix in ('.py','.md'))
     for module in (higgs_records,charged_higgs_records,readout_contract,field_route,thermal_clock,
                    holonomy_transport,consensus_records,gauge_input,bare_effective,controller_readout,
-                   attachment,causality,energy,ground,regional,preparation,spectrum,experiment,local_gauge):
+                   attachment,causality,energy,ground,regional,preparation,spectrum,experiment,
+                   local_gauge,wilson_density,local_history):
         paths.update(getattr(module,'SOURCE_INPUTS',()))
         owner=Path(module.__file__).parent
         paths.update(str(p.relative_to(ROOT)) for p in owner.iterdir()
@@ -65,6 +68,8 @@ def build():
             'full_ground_charged_records':spectrum.certificate(),
             'prepared_spatial_field_records':experiment.certificate(),
             'local_gauge_density_family':local_gauge.certificate(),
+            'local_wilson_spectral_density':wilson_density.certificate(),
+            'fixed_time_local_polynomial_records':local_history.certificate(),
             'empirical_mass_inputs':[],
             'physical_particle_assignments':[],
             'source_predicted_GeV_masses':[],
@@ -72,7 +77,7 @@ def build():
             'physical_requirement_status':[
                 {'id':1,'name':'preparation and complete instruments','status':'finite scalar and composed spatial preparations and complete readouts established; physical spatial-state attachment unproved'},
                 {'id':2,'name':'common operational position, momentum, time and energy','status':'same-H finite energies and state-specific Gibbs modular clock established; common physical spatial dictionary unproved'},
-                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-spacing locality established; uniform chiral relativistic refinement unproved'},
+                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-time local polynomial record limit and local Wilson spectral control established; interacting exact-sign comparison and chiral relativistic refinement unproved'},
                 {'id':4,'name':'physical masses, mixing, scattering and decays','status':'finite spectral responses established; physical mass and scattering matching unproved'},
                 {'id':5,'name':'defect-to-species attachment','status':'declared protected-label interaction established; physical species identification unproved'},
                 {'id':6,'name':'controlled errors and same-source gravity','status':'finite cutoff, volume and energy identities established; uniform refinement and geometric Einstein premises unproved'}],
@@ -95,7 +100,9 @@ def build():
         'finite gauge-word preparation, complete seed records and same-clock Wilson-gap accuracy bounds',
         'complete compensated charged spectral records about the full scalar ground and offset-invariant shape tests',
         'one prepared finite field experiment composing parent, volume, cutoff and complete local detector errors',
-        'referenced mixed gauge-state family with volume-independent energy densities and all-time local roughness at fixed parameters']
+        'referenced mixed gauge-state family with volume-independent energy densities and all-time local roughness at fixed parameters',
+        'all-time local Wilson low-mode weight and one-body sign-polynomial spectral error at fixed parameters',
+        'exact local marginal consistency, fixed-time complete polynomial record limits and finite word-code error moduli']
     if any(sha(ROOT/p)!=h for p,h in pins.items()):
         raise ValueError('input changed during complete-output replay')
     return json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+'\n'
