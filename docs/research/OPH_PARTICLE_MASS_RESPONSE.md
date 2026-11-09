@@ -37,6 +37,83 @@ Paired physical memories and a parity-corrected graded exchange supply
 complete prepared windows of probability at least 255/512 while retaining
 the original state/reference and compensating occupation increment.
 
+The [physical composite spin construction](../../model/particle_primary_composite_spin/PROOF.md)
+resolves each odd local kernel into the actual cube spinors `G1 + H`.
+Both components have positive sector thresholds and complete prepared
+energy records. The [full-source transport](../../model/particle_primary_composite_transport/PROOF.md)
+has neighbor cubic matrix `-3 I6/4`; its rigorous remainder proves
+prepared transition probability for the one-spin-row witnesses at least `t^6/256` for source times up
+to about `4.945e-8`. Eight Walsh preparations have variance `132301/735`
+and centered third moments `369869271/42875-(3/4)(3-2|k|)`. Their distinct
+energy laws are source outputs, without an isolated dispersion or mass
+inferred from a low-dimensional compression. The exact decoupled
+third-order transport coefficients have no certified continuation to
+the primary interaction coefficient one.
+
+On the actual selected density, the
+[physical odd creation probe](../../model/particle_primary_selected_odd_response/PROOF.md)
+has original weight above `23/32` in transfer band `[3,15]` and above
+`21/32` in final-excitation band `[3,16]` at member zero. These
+probabilities belong to the loaded-apparatus intervention, not the
+prepared bare vector. At every capacity more than `1/50` original weight
+lies in `[1/(2a),35/(2a)]`; complete clocks retain at least `1/64` in
+their widened band. The positive-frequency first moment and unnormalized
+output excitation mean are at least `1/(100a)`. Thus the raw odd field
+has no uniform finite-energy form bound. This permits a coexisting
+low-energy component, whose original residue needs proof. A defensible
+GeV output requires a resolved branch of that same odd response,
+operational momentum, controlled dispersion and matching errors before
+the declared unit conversion is applied.
+For `aR<9`, the raw odd measure in `[-R,R]` is at most
+`9/(9-aR)^2`. Triangular filtering multiplies the measure by
+`sinc(omega T/2)^4` and suppresses the certified escaping band by at
+most `min(1,(4a/T)^4)`, proving no surviving low-energy lower bound.
+The required mass calculation is an actual odd-sector complementary
+resolvent with selected-state matrix elements and a remainder controlled
+at interaction coefficient one, rather than a weak-coupling extrapolation.
+
+Fixed-length phase dressing cannot remove the proved escaping weight.
+Let `sigma_n` be the odd-creation success block, with its original
+normalization `Tr(sigma_n)<=1`, and retain its address, apparatus and
+reference registers. The complementary failure records are also retained.
+For `K_n=H_n-E0_n`, the selected odd response gives
+`Tr(sigma_n 1_[L_n,infinity)(K_n))>=p`, where
+`L_n=1/(2a_n)` and `p=1/50`. The
+[source energy-form theorem](../../model/particle_primary_current_tail/PROOF.md)
+gives every unitary word `U_n` containing at most k critical density Weyls
+or their adjoints, and arbitrary source waits, the inverse bound
+
+\[
+ \|K_n^{1/2}U_n^\dagger v\|
+ \le \|K_n^{1/2}v\|+D\|v\|,\qquad D=45k/2.
+\]
+
+With `P=1_[0,R](K_n)` and `Q=1_[L_n,infinity)(K_n)`, it follows that
+`||Q U_n^dagger P|| <= (sqrt(R)+D)/sqrt(L_n)`. Purify the unnormalized
+`sigma_n` as a vector of norm at most one. Split its transformed vector
+with `P` and `I-P`, and apply the triangle inequality to its original
+`Q` component. This proves the original-probability bound
+
+\[
+ \operatorname{Tr}\!left(U_n\sigma_n U_n^\dagger
+                  1_{(R,\infty)}(K_n)\right)
+ \ge\left[\sqrt p-\frac{\sqrt R+D}{\sqrt{L_n}}\right]_+^2.
+\]
+
+Here the projectors and generator act trivially on all retained registers.
+The same estimate holds for address-controlled words with the same k
+bound. For each fixed R and k, the lower limit is at least `1/50`.
+Thus a fixed number of these phase operations cannot make the unscaled
+odd output energy tight. This statement does not cover growing-length
+words, other dressing operators, or success-filtered observables with
+their own retained original-weight estimates.
+
+The [covariant local energy construction](../../model/particle_primary_covariant_stress/PROOF.md)
+changes only the allocation of complete source terms, with a proved
+boundary divergence and the same total H. Its finite continuity,
+cube-covariant records and conjugation rules do not turn these source
+energies into Lorentz rest masses or supply geometric gravity.
+
 The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
 preserves the Hamiltonian and polynomial state at every finite member,
 matches opposite-sector spectra and complete energy laws, commutes with

@@ -45,6 +45,10 @@ from model.particle_primary_sector_threshold import model as sector_threshold
 from model.particle_primary_populated_momentum import model as populated_momentum
 from model.particle_primary_weighted_survival import model as weighted_survival
 from model.particle_primary_charge_conjugation import model as charge_conjugation
+from model.particle_primary_composite_transport import model as composite_transport
+from model.particle_primary_composite_spin import model as composite_spin
+from model.particle_primary_selected_odd_response import model as selected_odd_response
+from model.particle_primary_covariant_stress import model as covariant_stress
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -155,7 +159,8 @@ def build():
                    branch_resolution, origin_momentum, energy_tightness, open_coframe,
                    charged_string, odd_residual, momentum_transfer, local_fluctuation,
                    spectral_resolution, charged_readout, staggered_response, current_tail,
-                   sector_threshold, populated_momentum, weighted_survival, charge_conjugation):
+                   sector_threshold, populated_momentum, weighted_survival, charge_conjugation,
+                   composite_transport, composite_spin, selected_odd_response, covariant_stress):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -293,6 +298,16 @@ def build():
     conjugate_sectors = charge_conjugation.certificate()
     for level, receipt in zip((0, 1, 2, 8), conjugate_sectors['members'], strict=True):
         charge_conjugation.verify_bound(contract.member(level), receipt)
+    composite_motion = composite_transport.certificate()
+    composite_transport.verify_bound(member, composite_motion['selected_member_bound'])
+    composite_labels = composite_spin.certificate()
+    composite_spin.verify_bound(member, composite_labels['selected_member_bound'])
+    original_odd_records = selected_odd_response.certificate()
+    for level, receipt in zip((0, 1, 2, 8), original_odd_records['members'], strict=True):
+        selected_odd_response.verify_bound(contract.member(level), receipt)
+    cubic_energy = covariant_stress.certificate()
+    for level, receipt in zip((0, 1, 2, 8), cubic_energy['members'], strict=True):
+        covariant_stress.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -340,6 +355,10 @@ def build():
         'primary_scanned_joint_spatial_energy_records': scanned_records,
         'primary_complete_phase_strength_boundary': strength_boundary,
         'primary_exact_conjugate_sector_energy_matching': conjugate_sectors,
+        'primary_physical_composite_transport_moments': composite_motion,
+        'primary_physical_composite_spin_and_exchange': composite_labels,
+        'primary_selected_odd_creation_energy_records': original_odd_records,
+        'primary_cubic_covariant_energy_and_boundary_improvement': cubic_energy,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -359,6 +378,12 @@ def build():
         'primary_undisturbed_joint_charge_transfer_energy_history_proved': True,
         'primary_member_zero_positive_odd_CAR_sector_thresholds_proved': True,
         'primary_exact_charge_conjugation_on_same_source_proved': True,
+        'primary_member_zero_odd_composite_transport_proved': True,
+        'primary_local_composite_gauge_spin_kernels_and_graded_exchange_proved': True,
+        'primary_selected_odd_creation_original_energy_band_proved': True,
+        'primary_local_odd_probe_has_uniform_energy_escape_under_refinement': True,
+        'primary_cubic_energy_allocation_and_finite_Ward_premises_proved': True,
+        'primary_composite_transport_is_an_isolated_particle_band': False,
         'primary_scanned_analyzer_labels_are_conserved_momenta': False,
         'primary_subcritical_normalized_phase_histories_lose_fixed_positive_energy': True,
         'primary_finite_aperture_Fourier_instrument_proved': True,

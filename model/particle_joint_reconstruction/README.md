@@ -28,8 +28,11 @@ the uniform fixed-band test.
 
 The [primary energy construction](../particle_primary_stress/PROOF.md)
 supplies exact local current continuity and a scoped regional marginal
-entropy first law. It does not supply proper geometry or the remaining
-Einstein premises. The [reuse map](REUSE.md) separates these actual-source
+entropy first law. The [covariant allocation](../particle_primary_covariant_stress/PROOF.md)
+adds exact cube covariance, a nearest-edge boundary improvement and
+complete scalar-control work records, without changing H. Proper geometry,
+Lorentz stress, the geometric modular kernel and area response require
+independent proofs. The [reuse map](REUSE.md) separates these actual-source
 results from the hypotheses and methods of other constructions.
 
 The [conditional candidate](CANDIDATE.md) reuses the three-family chiral
@@ -147,6 +150,28 @@ opposite sector retained in memory. The [source conjugation](../particle_primary
 proves equal opposite-sector spectra and complete energy laws at every
 finite capacity. These source sectors require momentum and controlled
 dispersion before their energies can be identified as masses.
+
+The [local spin kernels](../particle_primary_composite_spin/PROOF.md)
+give six states `G1 + H` for each odd composite, with actual native-current
+commutators and graded exchange. The [interacting transport](../particle_primary_composite_transport/PROOF.md)
+has exact nearest-neighbor cubic matrix `-3 I6/4`, so both components
+propagate. A full-source remainder bounds short-time transition records;
+coherent spatial preparations have distinct energy laws. These facts do
+not make the bare vector span an invariant particle band.
+
+The [original-density odd probe](../particle_primary_selected_odd_response/PROOF.md)
+has member-zero transfer weight above `23/32` in `[3,15]`, without
+replacing the source density. Across capacity, more than `1/50` original
+weight lies in `[1/(2a),35/(2a)]`, with positive-frequency first moment
+and unnormalized output excitation mean at least `1/(100a)`. A dressed
+or filtered low-energy odd residue is therefore needed for a uniform
+finite-energy field. Such a component is not excluded. A finite GeV
+comparison needs the same channel's resolved branch, operational momentum
+and controlled dispersion; the continuum claim adds uniform survival.
+The immediate spectral calculation is the actual odd-sector complementary
+resolvent at coefficient one, with selected-state matrix elements.
+The raw fixed-band limsup is at most `1/9`; filtering away the certified
+inverse-spacing tail does not by itself certify a low-energy residue.
 
 The [phase-scanned analyzer](../particle_primary_populated_momentum/PROOF.md)
 has a populated joint spatial-label/energy event with reported probability

@@ -36,7 +36,9 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_charged_readout', 'particle_primary_staggered_response',
     'particle_primary_current_tail', 'particle_primary_sector_threshold',
     'particle_primary_populated_momentum', 'particle_primary_weighted_survival',
-    'particle_primary_charge_conjugation'))
+    'particle_primary_charge_conjugation', 'particle_primary_composite_spin',
+    'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
+    'particle_primary_covariant_stress'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
@@ -45,7 +47,9 @@ PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
     'particle_primary_staggered_response', 'particle_primary_current_tail',
     'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
-    'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'))
+    'particle_primary_weighted_survival', 'particle_primary_charge_conjugation', 'particle_primary_composite_spin',
+    'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
+    'particle_primary_covariant_stress'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -240,6 +244,10 @@ def reader(svg,data):
         ('particle_primary_populated_momentum','Populated scanned spatial/energy records with actual Wilson phase dependence and original union weights'),
         ('particle_primary_weighted_survival','A necessary normalized observation strength for fixed positive-energy records and its critical-Weyl boundary'),
         ('particle_primary_charge_conjugation','Exact full-source particle/hole symmetry, opposite-sector spectra and conjugate complete detector laws'),
+        ('particle_primary_composite_spin','Actual odd gauge-singlet G1 and H multiplets, native currents, graded exchange and complete prepared energy records'),
+        ('particle_primary_composite_transport','Literal full-source third-order composite transport across complete six-state spin multiplets'),
+        ('particle_primary_selected_odd_response','Original selected-state odd creation weight, complete clocks and a uniform cutoff-scale escaping energy band'),
+        ('particle_primary_covariant_stress','Cube-covariant source energy and current, exact boundary improvement and conjugate regional response'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

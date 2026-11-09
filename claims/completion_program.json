@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "a780bd921c9837892a761977ac30b617c1e94b3632b7492ee165d0462dbc4562",
+          "sha256": "4b89aea05bdd6d3f2defab66e1983c1465cf22d8cae923bf7e08e9434272401e",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. The selected source has six positive-threshold occupation sectors, exact conjugate-sector energy equality, compensated prepared readouts and populated phase-scanned spatial/energy records. A complete protocol obstruction excludes subcritical normalized-density strength, without deciding the original critical-strength Weyl limit. Source-derived GeV masses require same-channel physical momentum, dispersion, species attachment, controlled errors and independent comparison. Lorentz interactions and Einstein regional premises retain their actual unproved domains; no physical stage is promoted.",
+          "scope": "The common ten-node dependency map retains three accepted finite domains. Same-source physical composite sectors have exact transport moments, full minimal gauge/spin kernels, graded exchange and populated complete original-state energy records. Their local unscaled response has a proved escaping cutoff-scale component. Cubic energy and its boundary improvement supply finite conservation premises. These results do not certify a surviving relativistic particle branch, observed GeV mass, pure Yang-Mills continuum gap or geometric Einstein dynamics.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -4221,7 +4221,19 @@
         "model/particle_primary_weighted_survival/PROOF.md",
         "model/particle_primary_weighted_survival/model.py",
         "model/particle_primary_weighted_survival/test_model.py",
-        "model/particle_primary_weighted_survival/results.json"
+        "model/particle_primary_weighted_survival/results.json",
+        "model/particle_primary_composite_transport/PROOF.md",
+        "model/particle_primary_composite_transport/model.py",
+        "model/particle_primary_composite_transport/test_model.py",
+        "model/particle_primary_composite_transport/results.json",
+        "model/particle_primary_composite_spin/PROOF.md",
+        "model/particle_primary_composite_spin/model.py",
+        "model/particle_primary_composite_spin/test_model.py",
+        "model/particle_primary_composite_spin/results.json",
+        "model/particle_primary_selected_odd_response/PROOF.md",
+        "model/particle_primary_selected_odd_response/model.py",
+        "model/particle_primary_selected_odd_response/test_model.py",
+        "model/particle_primary_selected_odd_response/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5051,6 +5063,30 @@
           "independent_check": "model/particle_primary_weighted_survival/test_model.py",
           "scope": "For the actual normalized tent density, the full-source double commutator is at most9a^4/80. Complete coherent phase protocols, including filters, controlled source evolution and feedback, have final mean excess at most(sqrt(epsilon)+3a^2 S/4)^2. Total normalized strength S=o(a^-2) therefore loses every original fixed-positive-energy transfer band. Uncontrolled waiting-time comparisons also lose contrast; controlled clock calls retain a measurable ground-energy apparatus phase. The original local Weyl strength30/a^2 lies outside the obstruction and its finite-energy survival is unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_exact_odd_composite_transport",
+          "path": "model/particle_primary_composite_transport/PROOF.md",
+          "sha256": "2fac8a87267a181358ca0236ed9f170423cfccc6641a92e2e88ee026f3e349b1",
+          "independent_check": "model/particle_primary_composite_transport/test_model.py",
+          "scope": "Both signed physical trilinear families have exact nearest-neighbor third moment -3/4 under the full member-zero Hamiltonian. A full-space Taylor remainder certifies positive prepared short-time transfer. Coherent cube preparations have distinct full energy laws. Exact third-order weak-interaction coefficients retain a certified small-coupling radius excluding the primary value one; neither these coefficients nor the cubic moments are dispersion eigenvalues.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_composite_gauge_kernels_spin_and_exchange",
+          "path": "model/particle_primary_composite_spin/PROOF.md",
+          "sha256": "103650ddf88a68ad2ee25d9a28a8cd93b29a16c7fd019824b7cc5c5cb409df56",
+          "independent_check": "model/particle_primary_composite_spin/test_model.py",
+          "scope": "Complete minimal local gauge kernels have dimensions6,6,8. The two odd families have actual source-spin Casimirs3/4 and15/4 with multiplicities2 and4; the even family has2 and6 with multiplicities3 and5. Uniform spatial orbits attach actual binary-cube and inversion labels. Gauge-invariant composite operators have exact native-current commutators and disjoint graded exchange. Compensated preparation and complete cube/energy readout give original joint weight at least255/512. No Lorentz spin, local free CAR, physical chirality or named species is inferred.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_selected_odd_creation_and_energy_escape",
+          "path": "model/particle_primary_selected_odd_response/PROOF.md",
+          "sha256": "2859318ee085d89cfe825ef735c194face194a6cde84d4dbd3f8c02c6bc15ba1",
+          "independent_check": "model/particle_primary_selected_odd_response/test_model.py",
+          "scope": "A compensated weak-pair/singlet creation instrument acts on the unchanged selected polynomial state. Exact fullCAR residual norm, selected charge conjugation and a weighted occupation Schur bound give original transfer weight above23/32 in [3,15] at member zero. All members have original weight at least1/50 in [1/(2a),35/(2a)] and complete reported weight at least1/64. These unscaled local-composite measures lose uniform energy tightness; a possible separate finite-energy component and the critical-strength density-Weyl limit are not decided.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -5386,7 +5422,11 @@
         "model/particle_primary_current_tail/PROOF.md",
         "model/particle_primary_current_tail/model.py",
         "model/particle_primary_current_tail/test_model.py",
-        "model/particle_primary_current_tail/results.json"
+        "model/particle_primary_current_tail/results.json",
+        "model/particle_primary_covariant_stress/PROOF.md",
+        "model/particle_primary_covariant_stress/model.py",
+        "model/particle_primary_covariant_stress/test_model.py",
+        "model/particle_primary_covariant_stress/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5770,6 +5810,14 @@
           "sha256": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
           "independent_check": "model/particle_primary_current_tail/test_model.py",
           "scope": "The actual selected polynomial state obeys finite modular work bounds with relative slope defect at most1/3. Retaining the complete original origin/sign record gives source-marginal classical-quantum relative entropy divided by cooling beta greater than0.04099 and at most14175/32 at every capacity. The arbitrary idle reference is retained by the apparatus and traced out only for this entropy comparison. This is no geometric temperature, regional area response, Einstein theorem or transfer of an unbounded energy mean to the limiting representation.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_cubic_energy_and_boundary_improvement",
+          "path": "model/particle_primary_covariant_stress/PROOF.md",
+          "sha256": "3033590fb1572c3159ad6eade72332b50e439a32ef07078dd38b05d978a620e3",
+          "independent_check": "model/particle_primary_covariant_stress/test_model.py",
+          "scope": "Half-endpoint electric allocation and four-vertex plaquette shares give a cubic-covariant local energy on the exact physical Wilson source. Ghost electric terms vanish by their original Gauss constraints. An exact nearest-edge divergence relates this allocation to the owner convention without changing H or its clock. The actual antisymmetric currents instantiate finite Ward/coarsening premises, with complete instruments, scalar control work and charge-conjugation covariance. Regional C-odd tangents have zero entropy first variation. Proper geometry, geometric modular kernels, uniform stress estimates and Einstein dynamics are not inferred.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

@@ -53,7 +53,9 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
                   'particle_primary_staggered_response', 'particle_primary_current_tail',
                   'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
-                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'):
+                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation',
+                  'particle_primary_composite_spin', 'particle_primary_composite_transport',
+                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert 'Filtered and unfiltered probes share positive time dynamics' in text
     assert 'coin and reference remain in the complete output' in text
@@ -66,6 +68,14 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'a²S→0 lose every fixed positive-energy weight' in text
     assert 'Actual Weyl probes have S=30/a², outside this obstruction' in text
     assert 'CAR-even records' in text
+    assert 'Selected-state odd creation succeeds with original probability >0.84402' in text
+    assert 'transfer weight >23/32 in [3,15]' in text
+    assert 'weight escapes every fixed upper energy band' in text
+    assert 'H³ transfer matrix −3/4 I₆' in text
+    assert 'G1g ⊕ Hg' in text and 'G1u ⊕ Hu' in text
+    assert 'disjoint-site fermionic exchange are exact' in text
+    assert 'cube-covariant energy and currents' in text
+    assert 'C-odd supported tangents' in text
     assert 'finite Fourier labels, not exact momentum projections' in text
     assert 'full-space floors above the actual ground' in text
     assert 'identify no isolated particle or GeV rest mass' in text

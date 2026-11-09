@@ -87,28 +87,16 @@ proof shows that the whole class of laws cannot work.
   in its slow response, the Standard Model gauge Lie algebra with an
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
-- **Particle candidates and energy readouts.** A specified spin cube connects
-  a prepared ground, opposite internal charges and complete energy measurements.
-  A separate full-fermion cube has certified wavepacket energy bands and a
-  nonzero composite response residual. The
-  [defect catalogue](model/protected_defect_catalog/CATALOG.md) distinguishes
-  these source sectors from memory charges and prescribed textures. Physical
-  particle identities require controlled dispersion, spacetime transformations
-  and scattering on one theory; the
-  [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
-  retains unassigned physical masses.
-  The [finite scalar calculation](model/particle_ground_charged/PROOF.md)
-  resolves a full-carrier singlet ground and twelve complete charged-response
-  channels. Their source energies are calculated; physical particle identities
-  and GeV masses require the common spatial field connection.
-  The [primary Wilson/Gauss source](model/particle_joint_reconstruction/README.md)
-  has six conserved physical occupation sectors with positive excitation
-  thresholds, including four with odd fermion parity. Opposite sectors
-  have exactly equal spectra. Compensated preparation gives complete
-  excited-window records, and a spatial phase scan has populated energy
-  bands. Local phase probes share a positive-energy time representation
-  across capacities; their limit can be elastic.
-  Physical species, relativistic dispersion and GeV rest masses are unproved.
+- **Particle candidates and energy readouts.** The
+  [primary source](model/particle_joint_reconstruction/README.md) has six
+  certified physical occupation sectors with positive excitation thresholds. Its odd
+  composites propagate under the full interacting Hamiltonian, carry exact
+  finite rotation labels and obey odd exchange. Opposite sectors have equal
+  spectra, and complete probes on the selected state have substantial
+  excitation probability. Part of that response moves toward the cutoff
+  as capacity grows. The [defect catalogue](model/protected_defect_catalog/CATALOG.md)
+  distinguishes source charges from physical species; a surviving
+  relativistic branch and GeV rest masses require further proof.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
@@ -143,7 +131,7 @@ proof shows that the whole class of laws cannot work.
   a stationary limiting state, positive energy and convergent finite detector
   histories on one subsequence. An [actual finite excitation](model/particle_primary_survival/PROOF.md)
   has positive original weight, with no uniform particle-survival bound. Its
-  [local energy currents](model/particle_primary_stress/PROOF.md) obey exact
+  [cubic energy currents](model/particle_primary_covariant_stress/PROOF.md) obey exact
   conservation on the same finite source. These results do not show
   that excitations survive the limit or identify physical particles,
   Lorentz symmetry or gravity. The

@@ -1294,6 +1294,88 @@ two signs of each local phase probe have exactly equal original energy
 laws on the selected state. No Lorentz spin, physical antiparticle identity
 or relativistic CPT theorem is inferred.
 
+\paragraph{Local multiplets and actual exchange.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_composite_spin/PROOF.md}{full minimal gauge kernels}
+allow both beta spin rows. Their ambient dimensions are $12,90,40$ for
+the three occupation types above, and their gauge kernels have dimensions
+$6,6,8$. The actual Dirac coefficient generators give Casimirs $3/4$
+and $15/4$ with multiplicities two and four in both odd families, and
+$2,6$ with multiplicities three and five in the even family. Restricting
+the exact exterior action to all 48 binary-cube elements, with a uniform
+eight-site orbital preparation, gives $G_{1g}\oplus H_g$ for the positive
+odd increments, $G_{1u}\oplus H_u$ for their negatives, and
+$T_{1u}\oplus E_u\oplus T_{2u}$ for both signs of the even increment.
+Here $G_1$ and $H$ are the two- and four-dimensional cube representations;
+the local spin coefficient algebra is not a continuous symmetry of $H$.
+Every component has a positive full-sector floor and a complete prepared
+symmetry/energy event of weight at least $255/512$.
+
+Replacing each kernel vector by its signed quasiparticle monomial gives
+a gauge-invariant operator $F_v$ with $[N_r,F_v]=\Delta_r F_v$.
+The trilinears anticommute at distinct sites, including against adjoints;
+their local anticommutator need not be the identity. This proves finite
+graded exchange and actual current labels, without assigning Lorentz spin,
+chirality or Standard Model particle names. The calculation explicitly
+distinguishes the ascending-mask gauge chart from the lexicographic
+exterior-coordinate chart and intertwines them before applying a
+non-diagonal link matrix.
+
+\paragraph{Full interacting composite transport.}
+For normalized localized odd singlets $\phi_x$, the source mean is
+$b=-711$. Occupation transfer forces
+$\langle\phi_y,H^j\phi_x\rangle=0$ for distinct sites and $j<3$.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_composite_transport/PROOF.md}{exact full-source third moment}
+is $-3/4$ between adjacent sites, times the local six-state spin overlap.
+Only three directed hops on one link contribute. Gauge invariance removes
+that link coordinate pointwise, and the beta-preserving Wilson blocks
+give $3!(-1/2)^3=-3/4$. First-action admission on both sides proves the
+identity after the actual degree-one link compression; no invariant
+eight-state subspace is assumed.
+If $R\ge\max_{z\in\{x,y\}}\|(H-b)^2\phi_z\|$, the full-space Taylor remainder gives
+\[
+ 0<|t|\le\frac{3}{2R^2}
+ \quad\Longrightarrow\quad
+ |\langle\phi_y,e^{-itH}\phi_x\rangle|^2\ge\frac{|t|^6}{256}.
+\]
+For the one-spin-row witnesses, the certified interval reaches about
+$4.94\times10^{-8}$ source time units. The complete detector tests the full bare target and retains its
+complement. Coherent cube characters have different third energy moments,
+despite equal means and variances. Exact weak-interaction effective
+hopping coefficients have a certified coupling radius below $0.009$;
+the selected interaction value one is outside it. Neither those
+coefficients nor the moment matrix is a physical dispersion spectrum.
+
+\paragraph{Odd creation on the selected state.}
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_selected_odd_response/PROOF.md}{complete trilinear probe}
+creates the two weak entries in one positive-beta spin row and the
+charge-six singlet in either spin row. A loaded physical memory supplies
+the compensating occupations, with failure and reference retained.
+The source input is the original polynomial density. Averaging the four
+spin choices and cells, charge conjugation and vacancy counting give
+\[
+ p\ge1-\frac{\langle D_{-3}+D_6\rangle}{4V},\qquad
+ \|[H,A]-9A/a\|^2\le\frac{3z_x}{2a^2},
+\]
+where $z_x$ counts actual neighbors. After factoring out
+$\sqrt{z_x/2}/a$, the residual is a sum of three exterior creation
+monomials on six orthonormal modes with full-CAR squared norm exactly
+three. The full link/Gauss compression preserves
+the bound. An occupation-sensitive Schur inequality gives
+$\langle D_{-3}+D_6\rangle/V<3.41$ uniformly. Thus the original transfer
+measure satisfies
+\[
+ \mu_0([3,15])>\frac{23}{32},\qquad
+ \mu_n([1/(2a_n),35/(2a_n)])\ge\frac1{50}.
+\]
+Complete two-clock reports retain at least $1/64$ in the corresponding
+enlarged band. At member zero the original final excitation has weight
+above $21/32$ in $[3,16]$. No success normalization or substitute vacuum
+enters these bounds. The uniform moving band proves that these unscaled
+local-composite measures are not uniformly energy tight: at least $1/50$
+escapes every fixed upper energy. A separate finite-energy component can
+coexist with this weight; its existence and particle interpretation are
+not established by this estimate.
+
 \paragraph{Prepared scalar-odd spectroscopy.}
 An alternative source-determined rational combination of the same twelve
 packets has full-space residual at most $4.947619$. Its
@@ -1956,11 +2038,13 @@ the interacting relativistic limit.
 
 \subsection{Energy conservation and the geometric premises}
 
-The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_stress/PROOF.md}{selected Wilson energy partition}
-allocates each onsite matter and owned electric term to its owner,
-one half of each bond to each endpoint, and one third of each plaquette
-to each of its three link-owner cells. Thus $\sum_xh_x=H$ with every
-original boundary term and energy offset retained. The physical even
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_covariant_stress/PROOF.md}{cubic-covariant Wilson energy partition}
+allocates onsite matter to its cell, half of each interior electric and
+bond term to each endpoint, and one quarter of each plaquette to each
+of its four vertices. Ghost Gauss constraints make dangling electric
+terms zero on the physical carrier. Thus $\sum_xh_x=H$ with the original
+action and energy offset retained, and $Rh_xR^*=h_{Rx}$ under the actual
+proper cube rotations. The physical even
 operators $J_{xy}=i[h_x,h_y]$ are Hermitian and antisymmetric, and vanish
 for owner-cell distance greater than four. Their explicit caps are
 \[
@@ -1979,10 +2063,18 @@ undisturbed sequentially measured state.
 
 At fixed preparation, coefficient controls $H_f=\sum_x f_x(t)h_x$ obey
 $\partial_t\langle H_f\rangle=\sum_x\dot f_x\langle h_x\rangle$.
-This is a source work identity, not an identification of proper lapse
-or a metric stress tensor. In a separate quantum-flux control the
-electric, onsite and hopping means are $(9,2,0)$, with initial rates
-$(18,0,-18)$.
+They transform as scalar controls under the cube. Their identification
+with proper lapse or a metric stress tensor is a separate premise.
+The difference from the three-owner plaquette and owned-electric
+allocation is an exact nearest-edge divergence: route half each electric
+term to its other endpoint, and route a plaquette's signed potential
+with weights $1/24,1/24,1/8,1/8$ along its two forward corner paths.
+The resulting regional energy difference is only the crossing boundary
+operator; total energy and the clock are unchanged. Its norm need not
+vanish under refinement. Charge conjugation fixes these energies and
+their currents, so conjugate complete square-root instruments give equal
+classical record laws. Rotation of an energy observable does not by
+itself rotate the owner-cell partial trace into a geometric region.
 
 Write $\rho\ge2^{-N}P_G$ for the selected source floor. Its regional density obeys
 $\sigma_R\ge m_RP_R$, where $P_R=\operatorname{supp}\operatorname{Tr}_{\bar R}P_G$

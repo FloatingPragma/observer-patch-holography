@@ -37,6 +37,41 @@ Paired physical memories and a parity-corrected graded exchange supply
 complete prepared windows of probability at least 255/512 while retaining
 the original state/reference and compensating occupation increment.
 
+The [full local gauge kernels](../../model/particle_primary_composite_spin/PROOF.md)
+give `G1 + H` for each six-state odd composite and `T1 + E + T2` for
+the eight-state even composite. These labels come from actual Dirac-spin
+and exterior-CAR action, with explicit native currents, graded exchange
+and charge conjugation. The
+[full interacting transport](../../model/particle_primary_composite_transport/PROOF.md)
+is `-3 I6/4` at the first nonzero, third moment between adjacent odd
+composites. Every spin component is transported. Spatial Walsh preparation
+changes the full energy law, without making its label conserved momentum
+or the eight-dimensional vector span an invariant Hamiltonian subspace.
+
+Field selection must also retain the preparation domain. The
+[selected-density odd probe](../../model/particle_primary_selected_odd_response/PROOF.md)
+has member-zero original transfer weight above `23/32` in `[3,15]`.
+Its loaded apparatus compensates the odd native increment and retains
+failure; the source is not reset to a bare or Ritz state. Uniformly in
+capacity, more than `1/50` weight lies at energies of order `1/a`, with
+positive-frequency first moment and unnormalized output excitation mean
+at least `1/(100a)`. These raw odd probes therefore fail uniform energy
+form tightness, without excluding a low-energy component. A dressed or
+filtered odd field requires a nonzero original low-energy residue and
+the same branch's momentum readout. Number-preserving density Weyls do
+not create its odd occupation change from a fixed-number input.
+The exact residual bounds every fixed-band limsup by `1/9`. A triangular
+time filter suppresses the proved inverse-spacing component, without
+certifying a surviving low-energy residue. The selected field therefore
+needs an odd-sector complementary-resolvent estimate at the actual
+interaction coefficient one; a comparison-source band cannot supply it.
+
+The [cube-covariant energy convention](../../model/particle_primary_covariant_stress/PROOF.md)
+supplies exact density/current covariance, a boundary improvement and
+complete scalar-control work records on the unchanged action. Selecting
+it as a local energy observable does not supply Lorentz stress, proper
+geometry or a geometric modular kernel.
+
 The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
 preserves the Hamiltonian and polynomial state at every finite member,
 matches opposite-sector spectra and complete energy laws, commutes with

@@ -82,7 +82,9 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
                   'particle_primary_staggered_response', 'particle_primary_current_tail',
                   'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
-                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'):
+                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation',
+                  'particle_primary_composite_spin', 'particle_primary_composite_transport',
+                  'particle_primary_selected_odd_response', 'particle_primary_covariant_stress'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

@@ -37,6 +37,41 @@ Paired physical memories and a parity-corrected graded exchange supply
 complete prepared windows of probability at least 255/512 while retaining
 the original state/reference and compensating occupation increment.
 
+The [complete local spin kernels](../../model/particle_primary_composite_spin/PROOF.md)
+attach six physical source spin states to each odd contraction, with
+binary-cube components `G1 + H`, explicit native-current commutators and
+graded exchange at distinct cells. The even composite gives `T1 + E + T2`.
+The [same-H transport](../../model/particle_primary_composite_transport/PROOF.md)
+has exact nearest-neighbor cubic matrix `-3 I6/4` on each odd kernel.
+Both G1 and H propagate, and coherent spatial preparations have distinct
+complete energy laws. The certified short-time transition is a full-source
+result, while its Walsh labels and weak-interaction coefficients do not
+constitute an isolated relativistic band.
+
+The [original-state odd probe](../../model/particle_primary_selected_odd_response/PROOF.md)
+transfers a loaded physical weak pair and charge-six entry from apparatus
+memory, without replacing the selected density. At member zero its
+original transfer weight in `[3,15]` exceeds `23/32`; it is distinct from
+the bare-vector preparation. Across capacity, more than `1/50` weight lies
+in `[1/(2a),35/(2a)]`. Its positive-frequency first moment and unnormalized
+post-success excitation mean are at least `1/(100a)`, so a uniform
+finite-energy field needs a dressed or filtered odd component with
+controlled original residue. A coexisting low-energy component is not
+excluded. Branch isolation, same-channel operational momentum and
+dispersion, then physical species matching, are the mass attachments.
+The concrete spectral calculation is an odd-sector complementary
+resolvent at primary coefficient one, including original selected-state
+matrix elements. The raw fixed-band limsup is at most `1/9`; filtering
+away its certified inverse-spacing tail does not prove a positive
+low-energy residue. The [canonical route](OPH_FIELD_RECONSTRUCTION.md#finite-composite-spin-propagation-and-original-state-creation)
+states the exact residual and filter bounds used for this decision.
+
+The [covariant regional energy](../../model/particle_primary_covariant_stress/PROOF.md)
+preserves H while replacing its owner convention by a cube-covariant
+endpoint allocation with an exact boundary improvement. Its continuity,
+complete records and charge-conjugation selection rules are finite stress
+inputs; proper geometry and Einstein reconstruction are separate targets.
+
 The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
 preserves the Hamiltonian and polynomial state at every finite member,
 matches opposite-sector spectra and complete energy laws, commutes with
