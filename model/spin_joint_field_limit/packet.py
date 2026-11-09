@@ -9,7 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
-from . import arctan_bands, directed_bands, quantum_force_slack
+from . import arctan_bands, directed_bands, quantum_force_slack, speed_concentration
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -24,6 +24,9 @@ PARENTS=('model/spin_twist_closure/FINITE_FIELD_GAP.md',
          'model/spin_canonical_energy/README.md',
          'model/spin_relaxed_response/README.md',
          'model/spin_shell_diagnostic/README.md',
+         'model/native_joint_spin_spectroscopy/README.md',
+         'model/spin_current_spectrum/README.md',
+         'model/spin_dynamical_memory/RESOLVENT_CLOSURE.md',
          'model/spin_goldstone_sector/README.md',
          'model/spin_goldstone_sector/algebra.py',
          'model/spin_charge_dispersion/PROOF.md',
@@ -98,6 +101,7 @@ def build():
         'same_clock_filtered_current_and_complete_force_readout':force.certificate(),
         'source_Ward_susceptibilities_and_force_equations':ward.certificate(),
         'source_quantum_correction_to_mean_spin_force':quantum_force_slack.certificate(),
+        'uncut_speed_concentration_from_source_susceptibility':speed_concentration.certificate(),
         'uniform_mode_original_weight_and_concentration':uniform_mode.certificate(),
         'complete_finite_uniform_spectral_readout':uniform_spectral.certificate(),
         'bounded_joint_charged_energy_momentum_bands':arctan_bands.certificate(),
@@ -121,6 +125,9 @@ def build():
             'strict_source_bond_minus_squared_order_margin_proved':True,
             'unfiltered_microscopic_mean_spin_force_factorization_excluded':True,
             'quantum_force_margin_excludes_corrected_infrared_shell':False,
+            'uncut_original_weight_speed_tail_from_one_source_susceptibility':True,
+            'complete_finite_field_inverse_score_error_bound':True,
+            'actual_source_speed_concentration_defect_vanishes':False,
             'original_weight_energy_tube_bound_from_filtered_Ward_data':True,
             'uniform_mode_weighted_centre_and_variance_concentrate_at_zero':True,
             'finite_source_uniform_order_floor_computable':True,

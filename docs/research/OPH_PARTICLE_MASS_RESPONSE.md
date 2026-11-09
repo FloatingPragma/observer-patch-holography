@@ -2,6 +2,26 @@
 
 ## Minimum empirical mass target
 
+The [high-field spin sector](../../model/high_field_particle/PROOF.md)
+has a qualitative isolated-band theorem and exact source coefficients
+`E(k)=B+3J+(J^2/(2B))[3-(sum_j cos(k_j))^2]+O(J^3/B^2)`.
+Its conjugate internal charges have equal band energies. The complete
+local preparation is even in the original fermion grading, so the pair
+does not identify leptons or quarks under a grading-preserving dictionary.
+No numerical infinite-volume smallness threshold is asserted.
+
+The same source gap and propagation bounds give a stronger limitation than
+a low-order dispersion fit. At spacing a and common positive clock factor s,
+`E_min>=B/8` and `v_source<=72J` imply
+`v_physical<=576 a (J/B) M_max` when `s E_min<=M_max`.
+Bounded `J/B` therefore excludes a finite-rest-energy relativistic local
+refinement with nonzero speed. A branch of this source with finite rest
+energy and nonzero limiting speed requires `a J/B` bounded away from zero
+along that branch. This is a necessary condition, not a construction of
+such a branch. The existing ordered-spin family avoids this obstruction;
+its source spectral concentration is the separate test in the
+[dependency map](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies).
+
 The [minimum comparison dependencies](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies)
 give the common source-to-observable map. A dimensionless ratio of two
 identified spectral energies avoids an absolute SI energy calibration.

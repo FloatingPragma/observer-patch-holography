@@ -41,6 +41,18 @@ field can have an infrared threshold rather than an isolated mass pole,
 as in [Buchholz's Gauss-law result](https://doi.org/10.1016/0370-2693(86)91110-X).
 A stable neutral sector avoids that particular infrared requirement.
 
+The high-field construction resolves this checklist as follows. Its action,
+ground and clock are specified, and a finite native preparation has an
+explicit error certificate. Its complete local charge instrument is
+constructed. A stable analytic lattice band exists for sufficiently small
+`J/B`, with exact second-order dispersion and equal conjugate-charge energies.
+The equality gives a source energy ratio of one, not a measured mass ratio.
+The local massive relativistic refinement is excluded under bounded `J/B`
+and bounded rest energy; physical species labels remain unassigned. The
+ordered weak-field family avoids this exclusion and is the continuation
+target, but still needs source spectral concentration or a controlled
+shrinking-tube weight bound before physical comparison.
+
 The source constructions supply distinct parts of this chain:
 
 | Construction | Available input to a comparison | Scope of the identification |
@@ -71,40 +83,92 @@ tail constants and measurement errors. Large-time exponential decay can
 locate a threshold without proving a pole. Volume and cutoff control are
 separate from finite-matrix eigenvalue convergence.
 
-[Yarotsky's Theorem 4](https://arxiv.org/abs/math-ph/0411042) supplies an
-isolated analytic lattice quasiparticle band for sufficiently small
-finite-range perturbations of a product Hamiltonian with a unique gapped
-ground and a simple onsite excitation outside all multiparticle sums.
-The [declared spin source](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
-has, after its Marshall and Hadamard changes of frame, the finite-volume form
+The [high-field source proof](../../model/high_field_particle/PROOF.md)
+matches the declared `H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1`
+to Yarotsky's weak-perturbation theorem. Onsite frame changes give a
+product Hamiltonian with simple excitation 1 and interaction norm at most
+`3J/B`. For sufficiently small positive `lambda=J/B`, its ground-relative
+generator has an isolated nonconstant analytic lattice band. Fixed-field
+locality identifies the theorem's boundary convention with the source
+ground. The exact [source matrix tests](../../model/high_field_particle/test_algebra.py)
+include every virtual three-flip state and subtract the interacting
+ground energy. The bulk result is
 
 ```
-H_tilde/B + |Lambda| I/2 = sum_x (I-Z_x)/2 + sum_x phi_(x,Lambda),
-phi_x = (J/(4B)) sum_(j=1)^3 (XX-YY-ZZ-I)_(x,x+e_j),
-||phi_x|| <= 3J/B.
+E(k)/B = 1+3lambda+(lambda^2/2)[3-(sum_j cos(k_j))^2]+O(lambda^3),
+E_min = B+3J-3J^2/B+O(J^3/B^2),
+D^2 E(0) = (3J^2/B) I_3+O(J^3/B^2).
 ```
 
-Here phi_(x,Lambda) omits bonds exiting Lambda; the bulk grouping counts
-each bond once. The onsite excitation is
-1 and the positive multiparticle sums are 2,3,... . Thus the theorem gives
-a concrete high-field route when `J/B` satisfies its smallness condition;
-no numerical threshold for that condition is asserted. Grouped-star and
-ordinary open-box truncations differ at the boundary, so their ground
-limits require the weak-coupling uniqueness identification. The band uses
-the ground-subtracted generator, with excitation energies multiplied by B
-on returning to source units. Odd lattice translations pull back with an
-internal twist; ordinary even translations are preserved. Analyticity
-does not establish nonflat dispersion or nontrivial scattering. This
-declared high-field family is distinct from the proved joint family
-`B/J=n^-5`, and supplies neither a relativistic mass nor primitive-repair
-selection of its field and reference.
+The proof's analytic-kernel argument gives a qualitative uniform `C^2`
+remainder; neither its constant nor the smallness threshold is numerically
+certified. The complete local preparation has transformed Kraus operators
+`K_s=|1><0|` and `K_f=|1><1|`. Its original particle-band weight tends
+to one as `lambda` tends to zero. Preparation failure and success outside
+the band are retained; the infinite-volume band projector is a mathematical
+spectral split, not an asserted exact native detector. The
+[complete readout](../../model/high_field_particle/readout.py) has an abstract
+full-Fock completion preserving fermion grading. The literal native pointer
+agrees on the protected spin code; it has a different out-of-code extension.
 
-For a claimed lattice scattering sector,
-[Bachmann, Dybalski and Naaijkens, section 4](https://arxiv.org/abs/1412.2970)
-reuse locality and an isolated smooth shell to construct scattering states.
-Their shell and velocity hypotheses are inputs; finite propagation alone
-does not discharge them. These reuse statements leave the canonical
-premise classifications unchanged.
+A [finite residual certificate](../../model/high_field_particle/preparation.py)
+avoids the long adiabatic schedule for the eight-site cube at `J=1,B=400`.
+The product reference is within half-trace distance `1/197` of its unique
+interacting ground. The complete native preparation, pointer and feedback
+execute in 167 pulses, retaining 608 first-failure slots. Exact compiler
+bounds keep the full output within `1/100` of the exact-ground instrument.
+This is a finite preparation result, not an evaluation of the unspecified
+infinite-volume band threshold or a particle-pole residue floor.
+
+The unbroken internal `U(1)` gives opposite sublattice charges and equal
+folded bands. These even-CAR spin creators do not supply a lepton spinor
+or photon helicity assignment. The isolated band satisfies the locality
+and spectral hypotheses for lattice wave operators in
+[Bachmann, Dybalski and Naaijkens](https://arxiv.org/abs/1412.2970);
+nontrivial scattering amplitudes and asymptotic completeness are unproved.
+
+The same source has gap at least `B/8` and propagation speed at most `72J`.
+For spacing `a`, a common positive clock factor `s_a`, bounded rest energy
+`s_a E_min<=Mbar` and `J/B<=lambda_bar<lambda_*`, the band obeys
+`|grad_p[s_a E(k_a+a p)]|<=576 a lambda_bar Mbar`. Every finite pointwise
+limit on a connected momentum window is therefore constant. This excludes
+a nonzero-speed massive relativistic refinement under that local spatial
+and common-clock identification. A fixed lattice cutoff, a different
+justified dictionary, or a trajectory with unbounded `J/B` has different
+premises. Configured source parameters are admitted inputs; they do not
+by themselves assign a physical species.
+
+The specified joint family `p=n^-2, B/J=n^-5` avoids the high-field bound,
+but its positive directed energy bands do not prove a sharp shell. Use its
+positive scaled clock K and one filter R supported in a fixed interval
+`[ell,Lambda]`, with `ell>0`. Put `q=RQ Omega`, `a=RP Omega`,
+`h_Q=<q,Kq>`, `chi_Q=<q,K^-1q>`, and analogously for P, with
+`c=Im<q,a>`. The [exact Ward defects](../../model/spin_joint_field_limit/WARD_DYNAMICS.md)
+are `delta_Q=h_Q-c^2/chi_P` and `delta_P=h_P-c^2/chi_Q`.
+Their vanishing tests the two filtered force equations; the filtered cross
+moment c must be measured on the same original response. Sharp corrected
+oscillators and [two-frequency controls](../../model/spin_dynamical_memory/RESOLVENT_CLOSURE.md)
+both satisfy the known static moment and symmetry bounds. The strict
+[quantum force slack](../../model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md)
+excludes the naive mean-spin coefficients, without proving a linewidth or
+excluding a sharp subbranch. Susceptibility saturation or a shrinking-tube
+bound with nonzero original weight is an additional source requirement.
+
+The [weighted inverse-susceptibility test](../../model/spin_joint_field_limit/SPEED_CONCENTRATION.md)
+reduces a sufficient concentration test to one dynamical statistic. On the
+same positive-field source and a momentum packet away from zero, let
+`X=K_B/[J sqrt(2 sum_j(1-cos P_j))]`, `w=||psi||^2`,
+`H=<psi,X psi>` and `chi=<psi,X^-1 psi>`. Exact double commutators express H
+in static bond/order correlations; equal-time correlations give w. For a
+specified speed c, `D_c=H-2cw+c^2 chi>=0`, and original spectral weight
+outside `|X-c|<epsilon` is at most `(c+epsilon)D_c/epsilon^2` without an
+upper energy cutoff. An actual preparation `psi/Lambda` contributes the
+known factor `1/Lambda^2`; no observed success probability is divided out.
+The complete joint energy/momentum score and the positive-B gap give finite
+chi intervals. The source static inputs and chi still need growing-family
+enclosures; the test does not establish `D_c/w->0`. A nonzero full-response
+defect does not exclude a sharp component with a continuum beside it.
+These results leave the canonical premise classifications unchanged.
 
 ## The three field constructions and their source boundaries
 
@@ -2379,6 +2443,14 @@ relation alone. Whether a microscopic realization of an effective particle
 is a defect is an additional question about that source realization.
 
 ## The hypothesis of particles as localized defects
+
+The [protected-object catalogue](../../model/protected_defect_catalog/CATALOG.md)
+contains explicit finite classifications and source-to-observation links.
+Its stated domains distinguish complete charge classifications from partial
+lists of sectors and prescribed textures. The [candidate-assignment table](OPH_PARTICLE_FIELD_SELECTION.md#candidate-assignments-from-the-existing-catalogues)
+uses these results to rank particle hypotheses by their signatures and
+falsifiers. Such hypotheses guide calculation while physical assignments
+remain subject to the same-source field and measurement tests.
 
 The particle hypothesis is **a localized, persistent
 topological defect in the native overlap/transport structure**. Its continued

@@ -8,7 +8,7 @@ Completeness applies only to the explicit domains in the table; there is no exha
 | bare_native_source | only scalar branch-commuting charges | complete native records; no nontrivial source-only charge | Unidentified |
 | ordered_exchange_charge | Q=I66 tensor X, two sharp eigenvalue sectors | coherent charge pointer and pair-configuration transport | Unidentified |
 | selected_spin_charge | integer U1 spin charge Q; global X parity is exp(i pi Q); local Z creates two sharp Q=+/-1 channels | coherent local charge creation; conjugate continuum configuration fields | Unidentified |
-| single_occupancy_spin_memory | full M256 operator algebra under repair alone | native spin controls and pointers; nontrivial exchange dynamics | Unidentified |
+| single_occupancy_spin_memory | full M256 operator algebra under repair alone | native spin controls and pointers; separate high-field family has a conditional isolated lattice band | Unidentified |
 | joint_positive_field_canonical_sector | two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories | two regular canonical pairs and full internal U1; complete fixed-scale prepared H_B histories | Unidentified |
 | common_hidden_spin_factor | at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315 | complete ideal joint histories preserve the global spin factor | Unidentified |
 | cube_eta_range | rank1820 image of eta+ from N4 to N6; eta>=2 sector | prepared eta reference and complete local spectral response | Unidentified |
@@ -209,6 +209,14 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 **Boundary:** the default U/c=8 family is outside this free theorem; neither a selected mass coefficient nor an interacting pole nor a measured species is inferred from winding.
 
 [Owning proof or construction](../../model/source_family_compatibility/KINETIC_NODE_MAP.md).
+
+## High-field spin spectral attachment
+
+The [high-field source](../high_field_particle/PROOF.md) is a spectral attachment to the single-occupancy spin code, not an additional protected defect or topological class.
+For sufficiently small positive J/B, its positive-field ground has an isolated lattice band with conjugate internal charges -1 and +1. No numerical admission threshold is supplied.
+The complete local creator is CAR-even and retains failure; it does not identify an original odd physical fermion. Its finite-coupling success is not a pure band projection.
+The separate eight-site J=1,B=400 preparation executes 167 native pulses with 608 failure slots. Its exact-ground complete-output error is below 1/100; its ideal pointer success floor 155233/155236 is not an infinite-volume particle residue.
+On the same ground-relative clock and local spatial dictionary, bounded J/B and bounded physical rest energy force continuum propagation speed to zero. The ordered B/J->0 family is outside this result. No physical species or mass is assigned.
 
 ## Exact kinetic-node to free-field map
 

@@ -121267,6 +121267,9 @@
       "protected_object": "full M256 operator algebra under repair alone",
       "same_source_relativistic_particle_attachment_proved": false,
       "source": "eight-site one-particle-per-site spin code with complete C/E repair",
+      "spectral_attachments": [
+        "model/high_field_particle/PROOF.md"
+      ],
       "topology": "no topological label supplied by identity repair"
     },
     {
@@ -121412,6 +121415,1839 @@
     }
   ],
   "full_parent_scientific_replays_performed": false,
+  "high_field_spin_spectral_attachment": {
+    "additional_protected_objects_counted": 0,
+    "additional_topological_classes_counted": 0,
+    "attachment_kind": "spectral band on a specified high-field source family",
+    "bounded_mass_speed_controls": [
+      {
+        "J_over_B_ceiling": "1/100",
+        "physical_rest_energy_ceiling": "1",
+        "physical_speed_upper": "18/25",
+        "spacing": "1/8"
+      },
+      {
+        "J_over_B_ceiling": "1/100",
+        "physical_rest_energy_ceiling": "1",
+        "physical_speed_upper": "9/100",
+        "spacing": "1/64"
+      },
+      {
+        "J_over_B_ceiling": "1/100",
+        "physical_rest_energy_ceiling": "1",
+        "physical_speed_upper": "9/800",
+        "spacing": "1/512"
+      },
+      {
+        "J_over_B_ceiling": "1/100",
+        "physical_rest_energy_ceiling": "1",
+        "physical_speed_upper": "9/6400",
+        "spacing": "1/4096"
+      }
+    ],
+    "catalogue_entry": "single_occupancy_spin_memory",
+    "complete_local_charge_creation": {
+      "abstract_full_Fock_completion_equals_literal_native_extension": false,
+      "complete_isometry_rows": 8,
+      "disjoint_creators_commute_exactly": true,
+      "failure_and_out_of_code_records_retained": true,
+      "finite_coupling_success_is_a_pure_particle_band_projection": false,
+      "full_Fock_completeness_and_grading_exact": true,
+      "full_onsite_Fock_dimension": 4,
+      "implementation_on_protected_spin_code": "complete X pointer, followed by logical Z on its + outcome",
+      "native_compiler_execution_performed_in_this_certificate": false,
+      "relative_charge_convention": "-sum_x epsilon_x n_x",
+      "single_physical_fermion_under_grading_preserving_dictionary": false,
+      "source_failure_Kraus_on_spin_code": "(I-X)/2",
+      "source_frame": "Marshall coordinates of native_ordered_ground.source.matrix",
+      "source_physical_frame_on_odd_sites": "relabel the X pointer using the Marshall onsite Z frame",
+      "source_success_Kraus": "Z (I+X)/2",
+      "success_renormalized": false,
+      "successful_charge_by_sublattice": [
+        -1,
+        1
+      ],
+      "transformed_failure_Kraus": "|1><1|",
+      "transformed_success_Kraus": "|1><0|",
+      "uniform_numeric_particle_residue_floor_supplied": false,
+      "untouched_reference_preserved_by_complete_instrument": true
+    },
+    "exact_source_algebra": {
+      "bulk_unit_edge_cubic_paths": {
+        "at_zero_momentum": "-3",
+        "first_order_constant": "3",
+        "hessian_at_zero_momentum": [
+          [
+            "3",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "3",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "3"
+          ]
+        ],
+        "second_order_coefficients": {
+          "(-1, -1, 0)": "-1/4",
+          "(-1, 0, -1)": "-1/4",
+          "(-1, 0, 1)": "-1/4",
+          "(-1, 1, 0)": "-1/4",
+          "(-2, 0, 0)": "-1/8",
+          "(0, -1, -1)": "-1/4",
+          "(0, -1, 1)": "-1/4",
+          "(0, -2, 0)": "-1/8",
+          "(0, 0, -2)": "-1/8",
+          "(0, 0, 0)": "3/4",
+          "(0, 0, 2)": "-1/8",
+          "(0, 1, -1)": "-1/4",
+          "(0, 1, 1)": "-1/4",
+          "(0, 2, 0)": "-1/8",
+          "(1, -1, 0)": "-1/4",
+          "(1, 0, -1)": "-1/4",
+          "(1, 0, 1)": "-1/4",
+          "(1, 1, 0)": "-1/4",
+          "(2, 0, 0)": "-1/8"
+        },
+        "walks": {
+          "(-1, -1, 0)": 2,
+          "(-1, 0, -1)": 2,
+          "(-1, 0, 1)": 2,
+          "(-1, 1, 0)": 2,
+          "(-2, 0, 0)": 1,
+          "(0, -1, -1)": 2,
+          "(0, -1, 1)": 2,
+          "(0, -2, 0)": 1,
+          "(0, 0, -2)": 1,
+          "(0, 0, 0)": 6,
+          "(0, 0, 2)": 1,
+          "(0, 1, -1)": 2,
+          "(0, 1, 1)": 2,
+          "(0, 2, 0)": 1,
+          "(1, -1, 0)": 2,
+          "(1, 0, -1)": 2,
+          "(1, 0, 1)": 2,
+          "(1, 1, 0)": 2,
+          "(2, 0, 0)": 1
+        }
+      },
+      "cubic_energy_through_second_order": "B+3J+(J^2/(2B))*(3-(cos(k1)+cos(k2)+cos(k3))^2)",
+      "cubic_hessian_through_second_order": "3*J^2/B times I3",
+      "dimensionless_parameter": "epsilon=J/B",
+      "explicit_Yarotsky_threshold_supplied": false,
+      "finite_coupling_remainder_computed_by_this_certificate": false,
+      "finite_periodic_double_edges_identified_with_bulk_unit_edges": false,
+      "finite_source_controls": [
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "0"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "0"
+              ]
+            ],
+            "all_complementary_rows_checked": 1,
+            "degree": [
+              0
+            ],
+            "edges": [],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "0",
+            "ground_second": "0",
+            "relative_first": [
+              [
+                "0"
+              ]
+            ],
+            "relative_second": [
+              [
+                "0"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 0,
+            "sites": 1,
+            "squared_multiplicity_degree": [
+              0
+            ],
+            "three_flip_intermediate_masks": []
+          },
+          "frame": {
+            "all_source_rows": 2,
+            "coupling": "2/7",
+            "distinct_edges": 0,
+            "edge_count": 0,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 1,
+            "source_denominator": 70
+          },
+          "name": "isolated_site"
+        },
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0"
+              ]
+            ],
+            "all_complementary_rows_checked": 2,
+            "degree": [
+              1,
+              1
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ]
+            ],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "-1/2",
+            "ground_second": "-1/8",
+            "relative_first": [
+              [
+                "1/2",
+                "0"
+              ],
+              [
+                "0",
+                "1/2"
+              ]
+            ],
+            "relative_second": [
+              [
+                "1/8",
+                "0"
+              ],
+              [
+                "0",
+                "1/8"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 0,
+            "sites": 2,
+            "squared_multiplicity_degree": [
+              1,
+              1
+            ],
+            "three_flip_intermediate_masks": []
+          },
+          "frame": {
+            "all_source_rows": 4,
+            "coupling": "2/7",
+            "distinct_edges": 1,
+            "edge_count": 1,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1,
+              1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 2,
+            "source_denominator": 70
+          },
+          "name": "bond"
+        },
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "-1/2",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-1/2"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "-1/8",
+                "0",
+                "-1/8"
+              ],
+              [
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "-1/8",
+                "0",
+                "-1/8"
+              ]
+            ],
+            "all_complementary_rows_checked": 5,
+            "degree": [
+              1,
+              2,
+              1
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "-1",
+            "ground_second": "-1/4",
+            "relative_first": [
+              [
+                "1/2",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1/2"
+              ]
+            ],
+            "relative_second": [
+              [
+                "1/8",
+                "0",
+                "-1/8"
+              ],
+              [
+                "0",
+                "1/4",
+                "0"
+              ],
+              [
+                "-1/8",
+                "0",
+                "1/8"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 3,
+            "sites": 3,
+            "squared_multiplicity_degree": [
+              1,
+              2,
+              1
+            ],
+            "three_flip_intermediate_masks": [
+              7
+            ]
+          },
+          "frame": {
+            "all_source_rows": 8,
+            "coupling": "2/7",
+            "distinct_edges": 2,
+            "edge_count": 2,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1,
+              1,
+              -1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 3,
+            "source_denominator": 70
+          },
+          "name": "path"
+        },
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "-2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-2",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-2",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-2",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-2",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-2"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "-1/2",
+                "0",
+                "-1/8",
+                "0",
+                "-1/8",
+                "0"
+              ],
+              [
+                "0",
+                "-1/2",
+                "0",
+                "-1/8",
+                "0",
+                "-1/8"
+              ],
+              [
+                "-1/8",
+                "0",
+                "-1/2",
+                "0",
+                "-1/8",
+                "0"
+              ],
+              [
+                "0",
+                "-1/8",
+                "0",
+                "-1/2",
+                "0",
+                "-1/8"
+              ],
+              [
+                "-1/8",
+                "0",
+                "-1/8",
+                "0",
+                "-1/2",
+                "0"
+              ],
+              [
+                "0",
+                "-1/8",
+                "0",
+                "-1/8",
+                "0",
+                "-1/2"
+              ]
+            ],
+            "all_complementary_rows_checked": 58,
+            "degree": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                0,
+                5
+              ]
+            ],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "-3",
+            "ground_second": "-3/4",
+            "relative_first": [
+              [
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "1",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "1",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "1",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "1"
+              ]
+            ],
+            "relative_second": [
+              [
+                "1/4",
+                "0",
+                "-1/8",
+                "0",
+                "-1/8",
+                "0"
+              ],
+              [
+                "0",
+                "1/4",
+                "0",
+                "-1/8",
+                "0",
+                "-1/8"
+              ],
+              [
+                "-1/8",
+                "0",
+                "1/4",
+                "0",
+                "-1/8",
+                "0"
+              ],
+              [
+                "0",
+                "-1/8",
+                "0",
+                "1/4",
+                "0",
+                "-1/8"
+              ],
+              [
+                "-1/8",
+                "0",
+                "-1/8",
+                "0",
+                "1/4",
+                "0"
+              ],
+              [
+                "0",
+                "-1/8",
+                "0",
+                "-1/8",
+                "0",
+                "1/4"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 5,
+            "sites": 6,
+            "squared_multiplicity_degree": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "three_flip_intermediate_masks": [
+              7,
+              11,
+              13,
+              14,
+              19,
+              22,
+              25,
+              26,
+              28,
+              35,
+              37,
+              38,
+              41,
+              44,
+              49,
+              50,
+              52,
+              56
+            ]
+          },
+          "frame": {
+            "all_source_rows": 64,
+            "coupling": "2/7",
+            "distinct_edges": 6,
+            "edge_count": 6,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1,
+              1,
+              -1,
+              1,
+              -1,
+              1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 6,
+            "source_denominator": 70
+          },
+          "name": "periodic_cycle_6"
+        },
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "-9/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-9/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-9/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-9/2",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9/2",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9/2",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9/2",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9/2"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "-9/8",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "-1/4",
+                "-1/4",
+                "0"
+              ],
+              [
+                "0",
+                "-9/8",
+                "-1/4",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "0",
+                "-1/4",
+                "-9/8",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "-9/8",
+                "0",
+                "-1/4",
+                "-1/4",
+                "0"
+              ],
+              [
+                "0",
+                "-1/4",
+                "-1/4",
+                "0",
+                "-9/8",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "-9/8",
+                "-1/4",
+                "0"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "-1/4",
+                "-9/8",
+                "0"
+              ],
+              [
+                "0",
+                "-1/4",
+                "-1/4",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "-9/8"
+              ]
+            ],
+            "all_complementary_rows_checked": 248,
+            "degree": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "edges": [
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "-6",
+            "ground_second": "-3/2",
+            "relative_first": [
+              [
+                "3/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "3/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "3/2",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "3/2",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "3/2",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3/2",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3/2",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3/2"
+              ]
+            ],
+            "relative_second": [
+              [
+                "3/8",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "-1/4",
+                "-1/4",
+                "0"
+              ],
+              [
+                "0",
+                "3/8",
+                "-1/4",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "0",
+                "-1/4",
+                "3/8",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "3/8",
+                "0",
+                "-1/4",
+                "-1/4",
+                "0"
+              ],
+              [
+                "0",
+                "-1/4",
+                "-1/4",
+                "0",
+                "3/8",
+                "0",
+                "0",
+                "-1/4"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "3/8",
+                "-1/4",
+                "0"
+              ],
+              [
+                "-1/4",
+                "0",
+                "0",
+                "-1/4",
+                "0",
+                "-1/4",
+                "3/8",
+                "0"
+              ],
+              [
+                "0",
+                "-1/4",
+                "-1/4",
+                "0",
+                "-1/4",
+                "0",
+                "0",
+                "3/8"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 5,
+            "sites": 8,
+            "squared_multiplicity_degree": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "three_flip_intermediate_masks": [
+              7,
+              11,
+              13,
+              14,
+              19,
+              21,
+              25,
+              26,
+              28,
+              35,
+              37,
+              38,
+              42,
+              44,
+              49,
+              50,
+              52,
+              56,
+              67,
+              69,
+              70,
+              74,
+              76,
+              81,
+              82,
+              84,
+              88,
+              98,
+              100,
+              112,
+              131,
+              133,
+              137,
+              138,
+              140,
+              145,
+              152,
+              161,
+              162,
+              164,
+              168,
+              176,
+              193,
+              194,
+              196,
+              200,
+              208,
+              224
+            ]
+          },
+          "frame": {
+            "all_source_rows": 256,
+            "coupling": "2/7",
+            "distinct_edges": 12,
+            "edge_count": 12,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1,
+              1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 8,
+            "source_denominator": 70
+          },
+          "name": "open_cube"
+        },
+        {
+          "expansion": {
+            "absolute_first": [
+              [
+                "-9",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "-9",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "-9",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "-9",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "-9"
+              ]
+            ],
+            "absolute_second": [
+              [
+                "-9/2",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "-1",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-9/2",
+                "-1",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "-9/2",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "-9/2",
+                "0",
+                "-1",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "-1",
+                "0",
+                "-9/2",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "-9/2",
+                "-1",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "-1",
+                "-9/2",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "-1",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-9/2"
+              ]
+            ],
+            "all_complementary_rows_checked": 248,
+            "degree": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "edges": [
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "full_order_two_intertwiner_exact": true,
+            "ground_first": "-12",
+            "ground_second": "-6",
+            "relative_first": [
+              [
+                "3",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "3",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "3",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "3",
+                "0",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "3",
+                "0",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3",
+                "0",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3",
+                "0"
+              ],
+              [
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0",
+                "3"
+              ]
+            ],
+            "relative_second": [
+              [
+                "3/2",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "-1",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "3/2",
+                "-1",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "0",
+                "-1",
+                "3/2",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "3/2",
+                "0",
+                "-1",
+                "-1",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "-1",
+                "0",
+                "3/2",
+                "0",
+                "0",
+                "-1"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "3/2",
+                "-1",
+                "0"
+              ],
+              [
+                "-1",
+                "0",
+                "0",
+                "-1",
+                "0",
+                "-1",
+                "3/2",
+                "0"
+              ],
+              [
+                "0",
+                "-1",
+                "-1",
+                "0",
+                "-1",
+                "0",
+                "0",
+                "3/2"
+              ]
+            ],
+            "second_wave_maximum_flip_count": 5,
+            "sites": 8,
+            "squared_multiplicity_degree": [
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12
+            ],
+            "three_flip_intermediate_masks": [
+              7,
+              11,
+              13,
+              14,
+              19,
+              21,
+              25,
+              26,
+              28,
+              35,
+              37,
+              38,
+              42,
+              44,
+              49,
+              50,
+              52,
+              56,
+              67,
+              69,
+              70,
+              74,
+              76,
+              81,
+              82,
+              84,
+              88,
+              98,
+              100,
+              112,
+              131,
+              133,
+              137,
+              138,
+              140,
+              145,
+              152,
+              161,
+              162,
+              164,
+              168,
+              176,
+              193,
+              194,
+              196,
+              200,
+              208,
+              224
+            ]
+          },
+          "frame": {
+            "all_source_rows": 256,
+            "coupling": "2/7",
+            "distinct_edges": 12,
+            "edge_count": 24,
+            "exact_global_Hadamard_identity": true,
+            "finite_coupling_local_kick_is_exact_band_projection": false,
+            "full_source_parity_conserved": true,
+            "full_source_staggered_charge_conserved": true,
+            "local_source_Z_equals_transformed_X": true,
+            "one_flip_charge_relative_to_product_vacuum": [
+              -1,
+              1,
+              1,
+              -1,
+              1,
+              -1,
+              -1,
+              1
+            ],
+            "one_flip_parity_relative_to_product_vacuum": -1,
+            "selection_field": "3/5",
+            "sites": 8,
+            "source_denominator": 70
+          },
+          "name": "periodic_cube_declared_parallel_bonds"
+        }
+      ],
+      "first_order_hopping_zero": true,
+      "infinite_lattice_band_uses_external_Yarotsky_smallness_theorem": true,
+      "joint_n_inverse_fifth_field_trajectory_used": false,
+      "measured_particle_inputs_used": false,
+      "native_ground_preparation_executed_here": false,
+      "physical_mass_prediction": false,
+      "physical_particle_assignment": false,
+      "relative_first_formula": "diag(degree)/2",
+      "relative_second_formula": "(2*diag(sum_edge_multiplicity_squared)-A^2)/8",
+      "relativistic_dispersion_claimed": false,
+      "removed_source_scalar": "-B*sites/2",
+      "specified_positive_selection_field_required": true
+    },
+    "external_theorem_contract": {
+      "band_existence": "for sufficiently small positive J/B",
+      "explicit_high_field_admission_threshold": null,
+      "gap": "https://arxiv.org/abs/2607.10765v1",
+      "isolated_band": "https://arxiv.org/abs/math-ph/0411042v1",
+      "theorems_reproved_by_finite_matrix_tests": false,
+      "velocity_bound": "https://arxiv.org/abs/1412.2970v2"
+    },
+    "finite_ground_preparation_plan": {
+      "coupling": "1",
+      "finite_ground_bound_applies": true,
+      "infinite_volume_preparation_error_supplied": false,
+      "native_tape_executed": false,
+      "plan": {
+        "adiabatic_coefficient": "10464/15625",
+        "adiabatic_half_trace_error_upper": "1/300",
+        "adiabatic_theorem": "Theorem 3, Eq.6, rank-one band",
+        "admitted_coherent_controls_and_blank_registers_required": true,
+        "all_first_failure_records_retained": true,
+        "complete_native_isometry_error_upper": "3099667434010861/1152921504606846976",
+        "coupling": "1",
+        "derivative_norm_upper": "12",
+        "dyadic_port_bits": 63,
+        "edges": 12,
+        "finite_volume_target": "the actual physical H_B ground at the specified B",
+        "fixed_binary64_error_sent_to_zero": false,
+        "gap_lower": "25/2",
+        "ground_postselection_used": false,
+        "infinite_volume_or_zero_field_accuracy_included": false,
+        "large_ramp_executed": false,
+        "native_pulses_upper": 855080671451272,
+        "physical_odd_sites": [
+          1,
+          2,
+          4,
+          7
+        ],
+        "piecewise_constant_slices": 1027741191648,
+        "primary_adiabatic_theorem": "https://arxiv.org/abs/quant-ph/0603175v3",
+        "ramp_and_product_operator_error_upper": "127886532552/38365959765625",
+        "refined_rational_port_interface_required": true,
+        "requested_error": "1/100",
+        "second_derivative_exact": "0",
+        "selection_field": "100",
+        "sites": 8,
+        "source_clock_duration": "125568/625",
+        "total_prepared_output_half_trace_error_upper": "1241423949353350686461785647631/132698820176010387495321600000000"
+      },
+      "requested_complete_error": "1/100",
+      "selection_field": "100",
+      "value_1_over_100_certified_below_Yarotsky_threshold": false
+    },
+    "identity_with_ordered_or_joint_small_field_limit_claimed": false,
+    "owning_scientific_and_native_producer_replayed": true,
+    "owning_scope": {
+      "all_source_regimes_excluded": false,
+      "bounded_J_over_B_finite_mass_local_relativistic_refinement_excluded": true,
+      "complete_local_charge_instrument_certified": true,
+      "exact_finite_coefficients_through_second_order": true,
+      "exclusion_uses_same_ground_relative_clock_and_spatial_dictionary": true,
+      "executed_preparation_scope": "finite eight-site J=1 B=400 product-residual certificate",
+      "finite_coupling_dispersion_remainder_certified": false,
+      "measured_mass_inputs_used": false,
+      "native_preparation_tape_executed_in_this_packet": true,
+      "physical_mass_predictions": [],
+      "physical_particle_assignments": [],
+      "same_source_finite_ground_planner_reused": true,
+      "uniform_numeric_original_particle_residue_floor": null
+    },
+    "physical_masses": [],
+    "physical_species": [],
+    "short_complete_native_preparation": {
+      "actual_native_pointer_and_feedback_pulses": 31,
+      "actual_native_preparation_pulses": 136,
+      "actual_native_total_pulses": 167,
+      "all_native_first_failures_and_both_pointer_outcomes_retained": true,
+      "complete_angle_error_bound": "3870492890804021881434617546235489/365375409332725729550921208179070754913983135744",
+      "complete_execution_distance_diagnostic_upper": "1/10000000000",
+      "complete_native_isometry_error_bound": "278346961330248094615393055323707740451739333211268686461535639991/3705346855594118253554271520278013051304639509300498049262642688253220148477952",
+      "complete_port_error_bound": "239095500240593589844359708596555427029932675451301420314121329079/3705346855594118253554271520278013051304639509300498049262642688253220148477952",
+      "complete_work_bits": 17,
+      "complete_work_rows": 131072,
+      "execution_diagnostic_is_a_rigorous_interval_certificate": false,
+      "finite_product_ground_bound": {
+        "Rayleigh_value": "-1606",
+        "edges": 12,
+        "excited_spectrum_minus_Rayleigh_lower": "394",
+        "excited_weight_upper": "3/155236",
+        "full_finite_ground_simple": true,
+        "ground_Hilbert_space": "full tensor product of two-state spins, encoded in the protected single-occupancy code",
+        "ideal_local_aligned_pointer_success_lower": "155233/155236",
+        "product_ground_half_trace_upper": "1/197",
+        "residual_norm_squared": "3",
+        "sites": 8,
+        "squared_edge_multiplicity_sum": 12,
+        "uses_a_fitted_eigenvector": false
+      },
+      "finite_source": {
+        "coupling": "1",
+        "selection_field": "400"
+      },
+      "full_output_half_trace_error_from_exact_ground_instrument_upper": "3705346855648952604936330394917245483203409934169490697905262619486142669556179/729953330552041295950191489494768571107013983332198115704740609585884369250156544",
+      "ideal_exact_ground_success_is_particle_band_weight": false,
+      "ideal_exact_ground_success_probability_lower": "155233/155236",
+      "infinite_volume_Yarotsky_threshold_certified_for_this_coupling": false,
+      "literal_pointer_equals_abstract_out_of_code_extension": false,
+      "literal_pointer_matches_charge_instrument_on_protected_code": true,
+      "native_first_failure_slots": 608,
+      "native_word_sha256": "1cdfc3572b6af45e47205732f835548708c8a536e0a058e55b35b1b3e2d20779",
+      "physical_particle_assigned": false,
+      "source_program_actually_executed": true,
+      "success_renormalized": false
+    },
+    "state_and_clock_regime": "positive-field ground and its H_B clock, sufficiently small positive J/B"
+  },
   "joint_positive_field_source_attachment": {
     "bounded_charged_joint_bands": {
       "actual_finite_source": {
@@ -122941,6 +124777,19 @@
     "model/gauge_defect_transport/transport.py": "0091fe4e9031e5ea1a02e437db410e1a11e5294f65ec38358011d667bba29d63",
     "model/ground_spectral_source/__init__.py": "cbe906326dda259177ccfea3adf64b8a3abf949af5d2ecaa61af8a7f5aadb568",
     "model/ground_spectral_source/preparation.py": "b156d7eef2ff0f4b029ebef845273abf83f1022d1602a7138e46ac038c9d54e1",
+    "model/high_field_particle/PROOF.md": "9abd468de13dd88e7b7a15f17182b82b07939889633c40e4d3631e63f69810d5",
+    "model/high_field_particle/README.md": "aa293ed9a24fb841d0fb683bc9daca7c38f008c3a75877d9b781a8fa0336a665",
+    "model/high_field_particle/__init__.py": "e1cae06fb3cc284df6ad5d18ff9ae649e7af83c8f4f72daf7aaea1b3d3e22227",
+    "model/high_field_particle/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/high_field_particle/algebra.py": "ba1420588c0168e2aa744110c65678dc2c6d2bc714288478f083163c4a011c00",
+    "model/high_field_particle/packet.py": "9ab16cdee9c1687bdc76eceee7876e3c5d9fb977aec6aca0cef666bd0f9b9eff",
+    "model/high_field_particle/preparation.py": "085250a3733e36e083a4b79c0054ba279b4d111b422c4dcb74a81761b815c2a7",
+    "model/high_field_particle/readout.py": "2edd2cdd7a1d0a658e2d7b7c80b918a30b6754dc7f8b60b097ba96bd68504a7f",
+    "model/high_field_particle/results.json": "9108a15ea434dd84a4afeca88d8fc1736a831c1ec7de2259156a2d90ebd525f1",
+    "model/high_field_particle/test_algebra.py": "aa774b2d4a7f564afe037431d4902d1384d9f34ac8b5799e1c2f288d9ae55f94",
+    "model/high_field_particle/test_packet.py": "9be99ecd831b62a360127807a4f3653df7ac347aadd27600b045e2e4fa099015",
+    "model/high_field_particle/test_preparation.py": "369196b4d18922ba0fcb1bf7a3dc67d9d63b4f3474734bb7fb454b26a19b9b8a",
+    "model/high_field_particle/test_readout.py": "0d4013aee87d5069d76de87808ec2c1ab26230f9b56c3786a786c1e7daebe364",
     "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
     "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
     "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
@@ -123008,6 +124857,7 @@
     "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
     "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
     "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_joint_spin_spectroscopy/README.md": "1e4f0bb6223e2e8f2487db7118a45d6441d89ab03280965a812a5546cce7339a",
     "model/native_mass_channels/README.md": "4c5c6209316938e0a03b7b34489a0b3a3b7e7c52d53786cc0b6bae64cdd5848e",
     "model/native_mass_channels/__init__.py": "1a3f5add472ab0f654aada49001198a6d6b68931cf9f72757d0f96e8f2c8479e",
     "model/native_mass_channels/algebra.py": "2a23e72ffb0624088ce6e22721c9b7fb292460116a5709e47e7496974a34d086",
@@ -123102,6 +124952,7 @@
     "model/particle_gauge_band/__init__.py": "0edf95fd5b7c9af3a2319638450907ced0dcf3c09bb21e2bb9f5bd03915cc1d8",
     "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
     "model/particle_identification/NATIVE_CAPACITY.md": "b1d60a6a73b20ba040fd8b563b1e74a0bf98e8d80b06849c3cf4c37341feb6db",
+    "model/particle_identification/README.md": "49e5fc521ff20dba32ca580caa75faab63476f3fa39cb60cd83d89ac6169579c",
     "model/particle_mass_readout_gate/README.md": "0d250497d3598beb2ed4f6a9fd78cf2d0bfd7d27e4db18d2a49838857e56956f",
     "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
     "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
@@ -123137,17 +124988,18 @@
     "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
-    "model/protected_defect_catalog/PROOF.md": "7160c1ea101f7dc9d2be6703fa9ccb37c5c2f4d92bfb8a9dca5b0025dbc66813",
-    "model/protected_defect_catalog/README.md": "080817e99442be4a1289deadf2e551b54c0c271a2f30b6465466849785ed980e",
+    "model/protected_defect_catalog/PROOF.md": "fc84892ac5ff93c8a5dd9cc47231038695b1cbaa4fc796372cde4e68b4daf869",
+    "model/protected_defect_catalog/README.md": "c7d41864bb0f7bbca30dfd6f07e14ca0d23898c150d3feaabd22d9b21a099fb5",
     "model/protected_defect_catalog/__init__.py": "53f25646e289f3cd86b18d4fe4e625794015f9cc3460ddd352de7649218d184b",
     "model/protected_defect_catalog/__main__.py": "383d8c2214442ee3d02e745065abe93d9ee4b3fa6ea9084b5ed2564958dbdf6c",
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
     "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
-    "model/protected_defect_catalog/packet.py": "7b8d32c89dcf2b271128122d7d81643b0ba47345c996abec02fb36f70c290786",
+    "model/protected_defect_catalog/packet.py": "4a03f7a92bb1579826a0bb2811d95e9a0be8cefbbb0c1410ec37486820563291",
     "model/protected_defect_catalog/pauli.py": "20b0c6af00fc4e214e75e08845094da8513cbe0bf35db89c744bfe46a29b6a53",
     "model/protected_defect_catalog/test_charge.py": "8a3b7ba6f51f6025aca2eb273b8bae08dfa3d780dc57412e1eab4a29c400ec2e",
     "model/protected_defect_catalog/test_field.py": "abf03cfdec765d17a1ee7471173f18867cfcf78eaa78cac5a90ed1be5c8aa602",
+    "model/protected_defect_catalog/test_high_field_attachment.py": "5e5e29369b8903fc8bffd2f24eaa7e64611f1036295d6e5a686a57e4e659a429",
     "model/protected_defect_catalog/test_mechanism.py": "7d5db4331edaced485bdf10524f3d77ef21436ebd52a4b8abc15004af7a9759b",
     "model/protected_defect_catalog/test_packet.py": "807b763057da2daee08647bae8eb2b4c205b5bffed3d61f27948bfe173339cb8",
     "model/protected_defect_catalog/test_pauli.py": "fb1ce88125e8022a0bdd5f28e11f26428cf2b3006b58710bbf42125ba9b516a4",
@@ -123326,6 +125178,8 @@
     "model/spin_charge_dispersion/dimer.py": "c12ec83bf9899079a769c033a1c33098a6052c35f47b5d372edf09ce241c5e2f",
     "model/spin_charge_dispersion/order.py": "1314b0ae8a11f4a0deb782408c35f231c20cf6ad569ae85bb013948e8d1c2be8",
     "model/spin_charge_dispersion/results.json": "7fe78ea88136ac6f2eb3fe5279108a76d8820045d0fa8b68050afbb9225a985b",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_dynamical_memory/RESOLVENT_CLOSURE.md": "a8e5a975d1dd0656f0ac80c4964aa1227085cd06587549e1bb44189495d4796c",
     "model/spin_dynamical_memory/__init__.py": "eed35352bc86452f97893dcd981adc2c2d284d1e36c6191313c71f3dcd1515f7",
     "model/spin_dynamical_memory/algebra.py": "caf94e9f48bb35584c19536b1b0a0b81b3af862dbe5d9222fb0631b2df3d2d96",
     "model/spin_dynamical_memory/zero_field.py": "ef8713ef75747921e0cd753f68383d4d46fab3032e55997b14877b94d9a1541f",
@@ -123346,6 +125200,7 @@
     "model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md": "37772315f30f2e8341ff12be70cb49685829caaaff7fb5330c93eb924e9019e6",
     "model/spin_joint_field_limit/README.md": "d23b825ac218b7620e70e67f6b2d9c10282b5cc66ef7b8b83247bad38a7e858f",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
+    "model/spin_joint_field_limit/SPEED_CONCENTRATION.md": "8740f483d65fc20f80dce9ee4bcf894128efd5f1141dfe3d9caf096a152c58db",
     "model/spin_joint_field_limit/UNIFORM_MODE.md": "6c88f4458bce56f67f00269eaac808272820d27bc673c4eb565a20837b10374d",
     "model/spin_joint_field_limit/WARD_DYNAMICS.md": "a2d21ab4a6e356da00cde2a974e68e86d4abbbe02e166712e73323bcb3c00bde",
     "model/spin_joint_field_limit/__init__.py": "4642f35854e6e530b6cf9b4912068956c46a9f71a68d39881a2e1541f3f248c4",
@@ -123358,17 +125213,19 @@
     "model/spin_joint_field_limit/directed_bands.py": "cf6a343674bd54c452e16887e71fdba9d3cec55331c69852caea352e181f8b04",
     "model/spin_joint_field_limit/force.py": "a833d96800bb543e2b3e8fb5d4c36d10a303c40bca737f60015a7840680d3bf1",
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
-    "model/spin_joint_field_limit/packet.py": "278b75a6239362a86b62143f1c995e7f4ad1584d58f05e414825a04c54836b2a",
+    "model/spin_joint_field_limit/packet.py": "3230abf278cc3eeb58a80e748b0e4bbcfa9d6e2b155402fb887d01793270bcc6",
     "model/spin_joint_field_limit/quantum_force_slack.py": "e298922696dee7130571311b3c626b2bae9915b03fb28b2a027887c288c3d402",
-    "model/spin_joint_field_limit/results.json": "651b5bc2d9d7b41eb860313419412a54a818cc8573b2f166f21159f1ea566b17",
+    "model/spin_joint_field_limit/results.json": "a6375b0fa8c04fd10fffe8f1c916e1fe17ae4c83db699cbe5c6ffd07ffb2162f",
+    "model/spin_joint_field_limit/speed_concentration.py": "fcd6e9292212d52e9d3e5b892eb8f73d97c323eaf09ec214a3bc9d390ed7b27a",
     "model/spin_joint_field_limit/test_arctan_bands.py": "35a258349468ec90a5e5b040043b5e0c7e897b85fd05978353176b009cdb6d34",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
     "model/spin_joint_field_limit/test_construction.py": "d6f640daf0cd6f9ae6bcb7d248787b7db9afba6e4d41662aecf61e3f022f4d1b",
     "model/spin_joint_field_limit/test_directed_bands.py": "c804bb0eacc487707aff2c5ac034ec9153c99ba7fe87ae5f93ffd893bc5aac93",
     "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",
-    "model/spin_joint_field_limit/test_joint_family.py": "9f0dd7de83edb1dfd02ed5d31abf1d4f9780108c5c7a47bd3acc3e8b0d8b56ce",
+    "model/spin_joint_field_limit/test_joint_family.py": "33a0bb7db2abad023b6025bd5dedfaf9a7aa7ad8cf1dc5c2ea2e8abb6996b811",
     "model/spin_joint_field_limit/test_joint_symmetry.py": "1db3ee11b445e2faa4b0b02839a805c84dee7c6071cac424d073cc01b82b8199",
     "model/spin_joint_field_limit/test_quantum_force_slack.py": "e6dd6f9313b7ca9c389267ad856eef6cc521e04ee8aacbae298e49b47503d0e2",
+    "model/spin_joint_field_limit/test_speed_concentration.py": "947b85fa42572324ab1a651f8bb02371ba9dfc8178d8c64fb97372d20915905f",
     "model/spin_joint_field_limit/test_uniform_mode.py": "199f3f3f7fc49f470af3e4bbf902aea5608b945b4c3eb45cd81c4e5d8b040703",
     "model/spin_joint_field_limit/test_ward.py": "c364d2130655c8c9bb46466a377bac7a573b69a1bfa475dea464a3b0f26eef26",
     "model/spin_joint_field_limit/uniform_mode.py": "4708aa6b033783da57223199464947ea9ac66b95410b48448a64f9c2e69fb32a",

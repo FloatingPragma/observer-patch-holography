@@ -9,6 +9,7 @@ from tools.build_completion_program import integration_source_paths
 from model.completion import defect_algebra
 from model.defect_protection import protection
 from model.spin_joint_field_limit import packet as joint_field
+from model.high_field_particle import packet as high_field
 from model.source_family_compatibility import hole_records, hole_dispersion, local_matter, charge_bands, composite, cube_response, charge_scaling, boost_current, cube_spectrum
 from model.source_family_compatibility import momentum_response, charge_escape, uv_tail, local_spectral
 from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
@@ -24,7 +25,7 @@ PARENTS = tuple('model/'+name+'/results.json' for name in (
     'defect_protection', 'local_exchange_charge', 'common_spin_protection',
     'cube_eta_protection', 'compact_defect_pair', 'defect_localization_readout',
     'spin_canonical_field', 'spin_canonical_energy', 'spin_joint_field_limit',
-    'source_family_compatibility'))
+    'source_family_compatibility', 'high_field_particle'))
 
 
 def canonical(value):
@@ -93,7 +94,8 @@ def rows():
          'propagation_energy':'exchange evolution acts nontrivially within the code',
          'topology':'no topological label supplied by identity repair',
          'boundary':'repair protection of every state does not make every state an energy eigenstate or a distinct species',
-         'evidence':'model/defect_localization_readout/PROOF.md'},
+         'evidence':'model/defect_localization_readout/PROOF.md',
+         'spectral_attachments':['model/high_field_particle/PROOF.md']},
         {'id':'joint_positive_field_canonical_sector', 'kind':'constructive_field_family',
          'source':'protected spin interaction H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1; supplied p=n^-2 and B=J n^-5; positive-B ground and retained H_B clock',
          'protected_object':'two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories',
@@ -577,6 +579,63 @@ def kinetic_field_attachment():
     return value
 
 
+def high_field_attachment():
+    """Attach a source band without introducing another protected object."""
+    value = high_field.build()
+    if canonical(value) != canonical(strict_json.load(high_field.OUTPUT)):
+        raise ValueError('high-field owning source receipt differs')
+    checks = {
+        'exact_source_algebra': high_field.algebra.certificate(),
+        'complete_local_charge_creation': high_field.readout.creation_certificate(),
+        'finite_ground_preparation_plan': high_field.readout.finite_preparation_example(),
+        'short_complete_native_preparation': high_field.preparation.execution_certificate(),
+    }
+    for key, expected in checks.items():
+        if canonical(value[key]) != high_field.canonical(expected):
+            raise ValueError('high-field independent source certificate differs: '+key)
+    scope = value['scope']
+    required = ('exact_finite_coefficients_through_second_order',
+                'complete_local_charge_instrument_certified',
+                'same_source_finite_ground_planner_reused',
+                'native_preparation_tape_executed_in_this_packet',
+                'bounded_J_over_B_finite_mass_local_relativistic_refinement_excluded',
+                'exclusion_uses_same_ground_relative_clock_and_spatial_dictionary')
+    excluded = ('finite_coupling_dispersion_remainder_certified',
+                'all_source_regimes_excluded', 'measured_mass_inputs_used')
+    contract = value['external_theorem_contract']
+    if (any(scope[key] is not True for key in required)
+            or any(scope[key] is not False for key in excluded)
+            or scope['physical_particle_assignments'] != []
+            or scope['physical_mass_predictions'] != []
+            or scope['uniform_numeric_original_particle_residue_floor'] is not None
+            or scope['executed_preparation_scope'] != 'finite eight-site J=1 B=400 product-residual certificate'
+            or contract['band_existence'] != 'for sufficiently small positive J/B'
+            or contract['explicit_high_field_admission_threshold'] is not None
+            or contract['theorems_reproved_by_finite_matrix_tests'] is not False):
+        raise ValueError('high-field spectral attachment exceeds its source scope')
+    expected_speed = [
+        {'spacing': str(a), 'J_over_B_ceiling': '1/100',
+         'physical_rest_energy_ceiling': '1',
+         'physical_speed_upper': str(high_field.readout.speed_bound(a, F(1, 100), F(1)))}
+        for a in (F(1, 8), F(1, 64), F(1, 512), F(1, 4096))]
+    if canonical(value['bounded_mass_speed_controls']) != canonical(expected_speed):
+        raise ValueError('high-field same-clock speed bound differs')
+    return {
+        'catalogue_entry': 'single_occupancy_spin_memory',
+        'attachment_kind': 'spectral band on a specified high-field source family',
+        'additional_protected_objects_counted': 0,
+        'additional_topological_classes_counted': 0,
+        'owning_scientific_and_native_producer_replayed': True,
+        'state_and_clock_regime': 'positive-field ground and its H_B clock, sufficiently small positive J/B',
+        'identity_with_ordered_or_joint_small_field_limit_claimed': False,
+        **{key: value[key] for key in checks},
+        'external_theorem_contract': contract,
+        'bounded_mass_speed_controls': value['bounded_mass_speed_controls'],
+        'owning_scope': scope,
+        'physical_species': [], 'physical_masses': [],
+    }
+
+
 def build():
     pins = bindings()
     bare = defect_algebra.report()
@@ -598,6 +657,7 @@ def build():
     aligned_attachment = aligned_hole_attachment()
     centered_attachment = centered_matter_attachment()
     kinetic_attachment = kinetic_field_attachment()
+    high_field_spectral = high_field_attachment()
     if bindings() != pins:
         raise RuntimeError('catalogue source changed during construction')
     return {'schema':'oph.protected_defect_catalog.v1', 'source_bindings':pins,
@@ -613,6 +673,7 @@ def build():
             'aligned_hole_source_attachment':aligned_attachment,
             'centered_full_CAR_source_attachment':centered_attachment,
             'kinetic_node_free_field_attachment':kinetic_attachment,
+            'high_field_spin_spectral_attachment':high_field_spectral,
             'entries':entries,
             'catalogue_is_exhaustive_over_all_OPH_sources_or_defects':False,
             'full_parent_scientific_replays_performed':False,
@@ -633,7 +694,7 @@ def render(value):
         'bare_native_source':'complete native records; no nontrivial source-only charge',
         'ordered_exchange_charge':'coherent charge pointer and pair-configuration transport',
         'selected_spin_charge':'coherent local charge creation; conjugate continuum configuration fields',
-        'single_occupancy_spin_memory':'native spin controls and pointers; nontrivial exchange dynamics',
+        'single_occupancy_spin_memory':'native spin controls and pointers; separate high-field family has a conditional isolated lattice band',
         'joint_positive_field_canonical_sector':'two regular canonical pairs and full internal U1; complete fixed-scale prepared H_B histories',
         'common_hidden_spin_factor':'complete ideal joint histories preserve the global spin factor',
         'cube_eta_range':'prepared eta reference and complete local spectral response',
@@ -670,7 +731,13 @@ def render(value):
                   '**Topology:** '+row['topology']+'.', '',
                   '**Boundary:** '+row['boundary']+'.', '',
                   '[Owning proof or construction](../../'+row['evidence']+').']
-    lines += ['', '## Exact kinetic-node to free-field map', '',
+    lines += ['', '## High-field spin spectral attachment', '',
+              'The [high-field source](../high_field_particle/PROOF.md) is a spectral attachment to the single-occupancy spin code, not an additional protected defect or topological class.',
+              'For sufficiently small positive J/B, its positive-field ground has an isolated lattice band with conjugate internal charges -1 and +1. No numerical admission threshold is supplied.',
+              'The complete local creator is CAR-even and retains failure; it does not identify an original odd physical fermion. Its finite-coupling success is not a pure band projection.',
+              'The separate eight-site J=1,B=400 preparation executes 167 native pulses with 608 failure slots. Its exact-ground complete-output error is below 1/100; its ideal pointer success floor 155233/155236 is not an infinite-volume particle residue.',
+              'On the same ground-relative clock and local spatial dictionary, bounded J/B and bounded physical rest energy force continuum propagation speed to zero. The ordered B/J->0 family is outside this result. No physical species or mass is assigned.', '',
+              '## Exact kinetic-node to free-field map', '',
               'This table uses the centered weak-contact family c=v/a, 0<=U=o(c^(2/7)).',
               'Its free energies are v|p|. It assigns no measured particle; U/c=8 is outside this free theorem.', '',
               '| Source node / pi | Kinetic winding | Free particle helicity | Antiparticle helicity | Free rest mass |',

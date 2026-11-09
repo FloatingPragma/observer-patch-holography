@@ -461,6 +461,43 @@ interacting ground band, topological invariant, physical spin, species or
 rest mass to H_h. Its scope is the complete specified repair on this one
 occupation sector, rather than a classification of all source states.
 
+## High-field spectral attachment of the spin code
+
+`high_field_attachment()` authenticates and replays the complete
+`model.high_field_particle.packet` producer. Its result attaches to
+`single_occupancy_spin_memory`; the eleven protected-object domains are
+unchanged. The eight-site code is the finite instance of the same local
+single-occupancy spin construction used on the growing cubic family. The
+spectral theorem concerns the positive-field ground and its `H_B` clock at
+sufficiently small positive `J/B`. It is not identified with either ordered
+small-field limit. The [owning proof](../high_field_particle/PROOF.md) supplies
+the external theorem hypotheses and the exact source substitutions.
+
+Conjugate internal-charge bands have equal source dispersion. Their local
+creator is CAR-even, and the complete instrument retains success, failure
+and an abstract out-of-code completion. The literal native pointer agrees
+on the protected spin code; its full-Fock extension is different. Neither
+finite-coupling success nor its probability is an exact particle-band
+projection. The catalogue separately replays the source algebra, creation
+instrument, finite planner and executed preparation, with type-preserving
+comparisons against their independent producers.
+
+On the eight-site source `J=1,B=400`, the executed 167-pulse preparation has
+608 native first-failure slots and complete-output half-trace error below
+`1/100` from the exact finite-ground instrument. Its ideal aligned pointer
+success is at least `155233/155236`. The finite ground is taken in the full
+tensor-product Hilbert space of two-state spins, encoded in the single-occupancy
+subspace. This success bound is not an infinite-volume residue, and the finite preparation
+does not certify a numerical weak-coupling admission threshold.
+
+On the same positive ground-relative clock and local spatial dictionary,
+gap `B/8` and propagation speed `72J` imply physical band speed at most
+`576 a lambda_bar Mbar` for a fixed admitted ceiling `J/B<=lambda_bar`
+and rest-energy ceiling `Mbar`. A finite band limit under that refinement
+is momentum independent. The ordered `B/J->0` route is outside the
+ceiling. The attachment supplies no physical species, measured mass,
+topological class or exhaustive classification of spin excitations.
+
 ## Catalogue semantics and the particle join
 
 The table separates exhaustive exclusions, memory charges, joint noiseless

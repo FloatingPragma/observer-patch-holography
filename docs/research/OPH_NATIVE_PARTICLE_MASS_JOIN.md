@@ -49,6 +49,24 @@ laboratory units. A bounded comparison of an identified source does not
 require the complete Einstein derivation; identifying that source with
 fundamental matter requires its own physical evidence.
 
+The [high-field spin sector](../../model/high_field_particle/PROOF.md) has
+an isolated analytic lattice band for sufficiently small positive `J/B`,
+with equal dispersion for its two opposite internal spin charges. Its
+first hopping term is second order in `J/B`; this is a sharp lattice
+sector on the declared ground and clock. Complete local creation retains
+the failure and out-of-code outcomes and has nonzero original band overlap
+in that regime. The creator is even under the original CAR grading, so a
+grading-preserving dictionary cannot identify this excitation with a single
+odd physical fermion. The smallness threshold and a numerical residue floor
+at specified couplings are not supplied. Under local spatial refinement,
+bounded rest energy and bounded `J/B` force the physical band speed to zero;
+the band does not supply a nonzero-speed massive relativistic continuum.
+The [short native preparation](../../model/high_field_particle/preparation.py)
+executes 167 pulses on the eight-site `J=1,B=400` source, retaining every
+failure outcome. A finite residual bound certifies complete-output error
+below `1/100` relative to the exact-ground creation instrument; this does
+not certify an infinite-volume pole at that specified coupling.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 uses the full 65,536-state centered source at c=1/8,U=1 and proves
 `3/80 I<R*R<61/1000 I` on all sixteen original mode directions. Its

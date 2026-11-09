@@ -10,6 +10,15 @@ creation followed by one native local pointer prepares two coherent charge
 channels with certified weights. A separate fine readout audits their total
 charge probabilities. No Standard Model particle or physical mass is identified.
 
+The [high-field spectral attachment](../high_field_particle/PROOF.md) gives the
+same spin code an isolated lattice band for sufficiently small positive `J/B`.
+Its conjugate internal charges have complete CAR-even creators. The finite
+eight-site preparation executes 167 native pulses with every failure retained;
+this does not evaluate the infinite-volume admission threshold. The attachment
+adds no protected object or topological class. On the stated local refinement,
+bounded rest energy and bounded `J/B` force propagation speed to zero; the
+separate ordered small-field family is outside that conclusion.
+
 The same native parity acts on the reconstructed canonical field. Its odd
 Stone-field excitations have the inherited positive-energy spectrum. A
 complete odd/even bounded preparation has a uniformly nonzero probability

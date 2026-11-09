@@ -62,6 +62,88 @@ proofs supply public evidence. Private calculations without an imported,
 checked source attachment supply candidate methods rather than additional
 public conclusions.
 
+The [high-field construction](../../model/high_field_particle/PROOF.md)
+attaches the isolated-band theorem to the actual declared spin source at
+sufficiently small positive `J/B`. Its two internal charge sectors have
+equal dispersion, and its complete local creator is CAR-even. No original
+odd-fermion or physical species identification follows. On the same
+ground-relative clock the gap is at least `B/8` and the lattice propagation
+speed is at most `72J`. With spacing `a`, a fixed admitted ratio ceiling
+`J/B<=lambda_bar` and a physical rest-energy ceiling `Mbar`, the physical
+band speed is at most `576a lambda_bar Mbar`. Any finite band limit of
+this local continuum refinement is momentum independent.
+
+The ordered prescription `B/J->0` lies outside that ratio ceiling. It does
+not inherit the high-field band. Its force-closure route to a sharp shell requires the
+actual force-defect saturation described in the
+[central source map](OPH_FIELD_RECONSTRUCTION.md#a-prepared-joint-source-family);
+the high-field theorem supplies no such saturation or mass assignment.
+
+## Candidate assignments from the existing catalogues
+
+The [protected-object catalogue](../../model/protected_defect_catalog/CATALOG.md)
+records the protecting law, preparation, observable response and classification
+domain of each entry. Its complete bare-source commutants, ordered-cover
+charge algebra and exhaustive selected-cube Pauli-word search are finite
+classifications. They do not exhaust all source architectures, all conserved
+operators on the spin cube or all topological defects. Internal charge,
+protection under repair, spatial winding and an isolated excitation are
+different properties; a candidate may possess only some of them.
+
+Two stronger finite classifications avoid unnecessary spectral searches.
+The [quadratic-conservation theorem](../../model/quadratic_conservation/PROOF.md)
+exhausts the self-adjoint even quadratic conserved operators of its declared
+source. The [radial current classification](../../model/radial_current_map/PROOF.md)
+exhausts conserved onsite-even sums on its carrier. A proposed gauge-current
+map outside those classified algebras cannot be obtained merely by
+renaming their generators; it needs a different justified observable class
+or source attachment. These are scoped exclusions, not classifications of
+every possible emergent current.
+
+Reverse engineering can use candidate particle names before completing a
+derivation. The candidate name determines tests to perform and does not fill
+the physical-assignment fields of the [machine correspondence](../../model/standard_model_source_map/PARTICLE_MAP.md).
+The most informative candidates are constrained by several source signatures:
+
+| Source result | Informed candidate interpretation | Decisive missing test |
+| --- | --- | --- |
+| Exact fifteen-state internal weights, including color Cartan weights, weak multiplets and hypercharge | The internal quantum-number template of one Standard Model fermion family | The finite CAR/current and kinetic attachments exist on a configured 90-mode field. Their interacting state and chiral continuum still need a common physical realization; three generations are not supplied by repeating internal rows. |
+| Conditional rank-three family band and the specified memory family's three singular directions | Three generation directions sharing a gauge representation | Realize the conditional family-band premises and their source isometry, then obtain the same interacting poles and mixing. The current real-projector family class has zero charged-current CP invariant and fails that observed feature. |
+| Eight signed kinetic windings with the proved weak-contact free Weyl-field map | Massless chiral fermionic field candidates | Identify their physical currents and survive a justified interacting trajectory. Eight kinetic nodes do not select the observed flavor or family labels. |
+| Complete odd-CAR addition/removal response on the interacting centered ground | Interacting fermionic matter candidates | Prove the relevant relativistic spectral response and attach color/electromagnetic currents on that same ground. Hidden internal spin does not determine physical spin. |
+| Opposite internal charges in the ordered-spin field, or the separate isolated high-field band | Collective bosonic excitation candidates | Establish physical rotation/helicity and the appropriate dispersion. Under the stated grading-preserving map the even creators cannot be single leptons or quarks; the bounded-ratio high-field refinement also has the speed-collapse obstruction. |
+| Eight color-current directions, weak raising/lowering currents and a neutral Higgs stabilizer | Gauge-field and symmetry-breaking channel candidates | Recover propagating polarizations, the selected vacuum, gauge identities and current couplings on one interacting source. A Lie-algebra direction or scalar radial coordinate alone is not a measured boson. |
+| Prescribed opposite texture windings with localized bound modes | Topological-core candidates carrying attached matter | Derive creation, transport, protection and allowed decay under the actual repair law, then map the same core into a physical field sector. |
+
+The internal target conventions follow the [PDG electroweak review, section 10.1](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf);
+the physical spin assignments are summarized by [ATLAS](https://atlas-public.web.cern.ch/glossary/spin).
+The repository uses `Q=T3+Y`; its Y is half the PDG review's hypercharge
+in `Q=T3+Y_PDG/2`. The comparison uses that conversion.
+These target signatures are comparison data, not additional OPH source results.
+
+The family candidate has two precise owning constructions: the
+[conditional three-dimensional band](../../model/conditional_standard_model/PROOF.md)
+and the [native flavor orbit](../../model/native_flavor_orbit/PROOF.md).
+The latter uses a specified static mean-feedback service; it does not identify
+its singular coefficients with the correlated-memory experiment's physical
+poles. Its real-projector class has `Tr[H_u,H_d]^3=0` under every admitted
+family basis change, incompatible with the nonzero quark CP violation
+reviewed in the [PDG CKM account](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-ckm-matrix.pdf).
+The conditional construction also excludes separately conserved additive
+generation windings with its fully connected charged-current interactions.
+These tests constrain the family mechanism before a mass fit; they do not
+exclude every complex source family or metastable internal excitation.
+
+The useful order is charges and allowed transitions, then statistics and
+spatial transformations, then the spectral response, and finally masses or
+widths. Conjugation and charge conservation reduce the number of independent
+channels. Selection rules can reject a proposed decay before calculating
+its rate. A conserved label alone does not stabilize an excited state above
+lighter states with the same total charges. Stable sectors, metastable
+levels and scattering continua therefore belong in separate catalogue
+fields. A proposed assignment should state one independent observation
+that could reject it; a mass used to choose the assignment is not its test.
+
 ## Position selection from the same field
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)

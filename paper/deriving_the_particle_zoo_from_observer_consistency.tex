@@ -3364,6 +3364,71 @@ electromagnetic response before a common interacting feedback fixed point can be
 
 \subsection{The required attachments}
 
+\paragraph{A constructed lattice sector and its refinement boundary.}
+For the declared staggered-field spin source, an onsite frame gives
+$\widetilde H_B=(J/4)\sum_{xy}(X_xX_y-Y_xY_y-Z_xZ_y-I)
+-(B/2)\sum_xZ_x$. Its normalized bond perturbation has grouped norm
+at most $3J/B$. The simple onsite excitation is separated from all
+multiparticle sums, so sufficiently small positive $J/B$ gives an isolated
+analytic lattice particle band \cite{pwyarotsky2004quasiparticles}.
+Exact full-source perturbation, including ground subtraction, gives
+\[
+ E(k)=B+3J+\frac{J^2}{2B}
+       \left[3-\left(\sum_{j=1}^3\cos k_j\right)^2\right]
+       +O(J^3/B^2).
+\]
+The local cluster construction gives a uniform momentum remainder for
+sufficiently small coupling; no numerical admission threshold or remainder
+constant is asserted. Opposite sublattices carry conjugate internal charges
+with equal energies. The complete local creator and its failure branch
+preserve original fermion grading, so this is no single-fermion assignment.
+On an eight-site cube at $J=1,B=400$, the product reference has
+Rayleigh residual squared $3$ and excited-spectrum separation at least
+$394$, hence ground half-trace error at most $1/197$.
+A complete 167-pulse native preparation and charge instrument retains all
+608 first-failure slots, with full-output error below $1/100$ from the
+exact-ground instrument. This finite certificate does not evaluate the
+infinite-volume smallness threshold or isolate its particle-band weight.
+The source calculations and their complete instrument are given in
+\path{model/high_field_particle} \cite{ophrepo}.
+
+The same ground generator has gap at least $B/8$ and a field-independent
+Lieb--Robinson speed at most $72J$. The isolated-shell velocity bound
+\cite{pwbachmann2015latticescattering} therefore implies, at physical spacing
+$a$ and common positive energy conversion $s$,
+\[
+ sE_{\min}\leq M_{\max}
+ \quad\Longrightarrow\quad
+ v_{\rm physical}\leq72asJ
+                \leq576a(J/B)M_{\max}.
+\]
+For bounded $J/B$, the physical dispersion has a vanishing Lipschitz
+constant as $a\to0$. A nonconstant relativistic finite-rest-energy limit
+with local observable weight is excluded on this clock and spatial map.
+This result does not exclude a fixed-cutoff measurement or the distinct
+ordered family with $B/J\to0$. Its pole concentration and physical labels
+require their own source results.
+
+A sufficient concentration test on that positive-field source uses a packet
+$\psi$ away from zero spatial momentum and the joint spectral ratio
+$X=K_B/[J\sqrt{2\sum_j(1-\cos P_j)}]$.
+Write $w=\|\psi\|^2$, $h=\langle\psi,X\psi\rangle$ and
+$\chi=\langle\psi,X^{-1}\psi\rangle<\infty$. For $c,\epsilon>0$,
+\[
+ D_c=h-2cw+c^2\chi
+     =\int\frac{(x-c)^2}{x}\,d\nu_\psi(x)\geq0,
+ \qquad
+ \nu_\psi(|X-c|\geq\epsilon)
+       \leq\frac{c+\epsilon}{\epsilon^2}D_c.
+\]
+This needs no upper energy cutoff. A complete preparation $\psi/\Lambda$
+retains the original probability factor $1/\Lambda^2$. Exact source
+commutators determine $h$ from static bond and order correlations, while
+equal-time correlations determine $w$. The remaining dynamical statistic
+$\chi$ has bounded joint-score enclosures using the positive-field gap.
+Its required saturation on the growing source is unproved; the finite
+certificate does not identify a physical speed or particle.
+
 A comparison of one sector has fewer dependencies than the complete spectrum.
 Fix one admitted source, prepared ground, clock and accessible operator menu.
 For two neutral channels the vacuum-relative Euclidean correlations have the form
@@ -3649,6 +3714,19 @@ Y. Filmus,
 \emph{Orthogonal basis for functions over a slice of the Boolean hypercube},
 Electronic Journal of Combinatorics \textbf{23}(1), P1.23 (2016).
 \url{https://doi.org/10.37236/4567}
+
+\bibitem{pwyarotsky2004quasiparticles}
+D. A. Yarotsky,
+\emph{Quasi-particles in weak perturbations of non-interacting quantum lattice systems},
+arXiv:math-ph/0411042v1 (2004).
+\url{https://arxiv.org/abs/math-ph/0411042v1}
+
+\bibitem{pwbachmann2015latticescattering}
+S. Bachmann, W. Dybalski and P. Naaijkens,
+\emph{Lieb--Robinson bounds, Arveson spectrum and Haag--Ruelle scattering
+theory for gapped quantum spin systems},
+arXiv:1412.2970v2 (2015).
+\url{https://arxiv.org/abs/1412.2970v2}
 
 \bibitem{ophbasis}
 B.\ M\"uller et al.,

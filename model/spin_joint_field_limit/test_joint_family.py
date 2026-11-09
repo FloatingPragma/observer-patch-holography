@@ -99,10 +99,19 @@ def test_receipt_scope_and_mutation_rejection():
     assert [row['n']for row in spectral['finite_cases']]==[2,3,4]
     assert not spectral['fixed_box_table_substituted_for_growing_volume_field']
     assert spectral['physical_mass_prediction_count']==0
+    speed=data['uncut_speed_concentration_from_source_susceptibility']
+    assert packet.canonical(speed)==packet.canonical(packet.serialize(packet.speed_concentration.certificate()))
+    assert speed['finite_source_control']['complete_record_count']==6
+    assert speed['exact_source_speed_tube']['original_inside_probability_lower']=='4/5'
+    assert data['scope']['uncut_original_weight_speed_tail_from_one_source_susceptibility']
+    assert not data['scope']['actual_source_speed_concentration_defect_vanishes']
     for name in (packet.uniform_spectral.WITNESS,packet.uniform_spectral.zero_field.WITNESS):
         assert data['source_bindings'][name]==packet.hashlib.sha256((packet.ROOT/name).read_bytes()).hexdigest()
     changed=copy.deepcopy(data)
     changed['scope']['equality_to_ordered_zero_field_state_clock_limit_proved']=True
+    with pytest.raises(ValueError):packet.validate(changed)
+    changed=copy.deepcopy(data)
+    changed['uncut_speed_concentration_from_source_susceptibility']['actual_ordered_source_concentration_proved']=0
     with pytest.raises(ValueError):packet.validate(changed)
 
 
