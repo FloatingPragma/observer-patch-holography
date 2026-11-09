@@ -15,7 +15,9 @@ connects complete spectral readouts, the faithful modular clock, source
 coupling recovery, energy-accounted holonomy transport and comparison of
 observer meanings. The [coefficient inverse](../../model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md)
 removes an additive sector offset from observable family-coefficient
-ratios. Physical rest-mass identification requires the interacting
+ratios in the prepared Q*=0 experiment. Its two-line inverse is not the
+multi-line response of the full Q*=6 ground. Physical rest-mass
+identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
@@ -48,6 +50,223 @@ records. A realized fixed point must be exhibited where used; closure does
 not substitute for calculating these observable consequences. Conversely,
 a complete calculation for one fixed construction needs no proof that all
 other constructions are impossible.
+
+### Six output obligations: evidence and exact boundaries
+
+The same-source condition applies within each declared program. The
+ordered-memory/scalar attachment, the geometric-holonomy/scalar attachment
+and the spatial gauge-coordinate field are distinct constructions. Equal
+internal representations do not identify their prepared states or clocks.
+
+| Obligation | Established output | Required physical conclusion |
+| --- | --- | --- |
+| 1. Preparation and complete instruments | Complete scalar and charged instruments, faithful referenced Gibbs preparation, a certified full-scalar ground with twelve charged channels, a filled-origin spatial experiment with all 61 occupation outcomes, and a referenced gauge-twirled state with uniform local energy densities. | A physical state family for the interacting spatial theory and its detector dictionary. The scalar ground uses Q*=6; the Gibbs and neutral-reference charged experiments use Q*=0. The filled-origin and mixed gauge-twirled field preparations are distinct. |
+| 2. Common operational observables | Same-Hamiltonian scalar energies and modular time; the Q*=0 charged coefficient inverse cancels its additive sector offset. The Q*=6 ground has separately certified multi-line charged measures. | Position, momentum, physical spin and Lorentz clocks attached to these same interacting fields; a source duration is not automatically proper time. |
+| 3. Interacting relativistic behavior | [Graded locality and finite-volume bounds](../../model/particle_field_causality/PROOF.md) at fixed spacing, [prepared Wilson-gap bounds](../../model/particle_field_preparation/PROOF.md), and [all-time local roughness control at fixed local parameters](../../model/particle_local_gauge_state/PROOF.md) on the mixed gauge-twirled family. | Local Wilson-mode and sign-response control, uniform refinement estimates, Lorentz transformations, interacting chiral content and control of mirror modes. The large coefficients are declared inputs, without a physical vacuum or coupling identification. |
+| 4. Physical masses and interactions | Original neutral/charged spectral weights, complete Q*=6 charged spectra and the separate Q*=0 inverse response. A common number-energy shift cannot equalize the Q*=6 addition/removal spectral shapes on that reference. | Dispersion and charged dressing on the common spatial state, physical mass convention, scattering/decay observables and comparison errors. The finite shape obstruction is not a physical CPT-violation claim. Calibrated coefficients retain their target ancestry. |
+| 5. Protected defects and species | [Exact controlled attachment](../../model/particle_defect_attachment/PROOF.md) sends protected memory or regional holonomy into distinguishable complete scalar records. | Species identification preserving the same propagation, transformations, statistics and currents. Declared coupling strengths 1 and 2 are not derived from topological protection. |
+| 6. Controlled errors and gravity | Complete representation/numerical errors, fixed-spacing volume control, [same-action energy continuity](../../model/particle_gravity_response/PROOF.md) and [actual internal-region modular/entropy response](../../model/particle_regional_geometry/PROOF.md). | Uniform refinement and capacity errors; geometric stress, proper clocks, spatial-region modular/area responses and the same-state small-ball hypotheses of the Einstein theorem. Internal family regions are not spatial balls. |
+
+For the declared attachment `H_Q=(3I-Q)V/2`, the scalar vacuum at one tick
+`t=pi/(6 sqrt(56))` has occupied probability `1/4` in sector `Q=+1` and
+`3/4` in sector `Q=-1`. The geometric birth experiment retains no-pair/pair
+weights `9/25,16/25`; its four original birth/occupation weights are
+`27/100,9/100,16/100,48/100`. Native memory and face parity are alternative
+controllers, not identified registers. Protected transport commutes with
+the coupled Hamiltonian. Birth preserves the defect/work cost but changes
+the coupled field's energy distribution; a separate two-time energy audit
+records work `0,+sqrt(56),-sqrt(56)` with weights `9/25,8/25,8/25`.
+That audit disturbs the scalar preparation and is a different experiment
+from the occupation protocol.
+
+The causal bound is derived from local interaction norms, independent of
+the unobserved exterior volume. Its declared control bounds a remote
+intervention 32 cells away by total variation below `1e-7` at duration
+`1/64`. It is an analytic bound on complete records, not an executed
+large-Fock simulation or an exact relativistic light cone. Total-degree
+representation compression has a nonzero distant commutator: apply the
+locality estimate to the parent field and add cutoff errors separately.
+
+Energy conservation follows from `J_xy=i[h_x,h_y]` for the actual partition
+`H=sum_x h_x`; coarse regional fluxes cancel exactly. An energy response
+to a supplied action coefficient does not by itself define a metric.
+The gravity consumer requires independently attached stress, curvature,
+entropy and area on one state and proper-clock family. These distinctions
+prevent finite energy or modular identities from silently becoming the
+Einstein equations.
+
+### Prepared states and actual regional response
+
+The [full scalar ground certificate](../../model/particle_scalar_ground/PROOF.md)
+uses `H=W(diag(1,2,3))+W†+N_H`, with fermion offset zero and all
+`3*2^18=786432` states. A signed three-mode decomposition reduces the
+complete Gram comparison to blocks of dimension at most 729. Exact
+integer Perron bounds and Sturm root counts isolate a unique gauge/spin
+singlet with `E0≈-7.94630530665`, `Q*=6` and full isolation gap greater
+than `0.04690056`. Its scalar occupation transition is instead
+`Delta≈16.89261061331`. The complete two-time laws retain the same action
+and clock. A six-fermion singlet seed and controlled preparation have
+certified infidelity below `2.6e-11`; autonomous evolution from empty
+Q*=0 cannot reach this different conserved sector. Preparation work is
+assigned to the controller. The general block theorem transports by family
+SVD, but these numerical values certify only the stated diagonal action.
+
+The [full-ground charged instrument](../../model/particle_ground_charged/PROOF.md)
+acts on that Q*=6 singlet, with compensated addition into Q*=7 and removal
+into Q*=5. It calculates twelve complete family/multiplet/direction
+channels. Literal Hamiltonian closures have dimensions 53 through 240;
+their orthogonal complements and all spectral groups are retained.
+Integer Gram/residual checks certify complete spectral projectors and
+their original weights, with the ground-preparation error included.
+For example, a first-family left-removal line lies in
+`[0.0710179490,0.0710358526]`, with single-mode weight in
+`[0.6615763742,0.6616186281]`. Its complete-instrument weight includes
+the factor `4/18`. A corresponding addition line is near `0.48728`.
+These finite lines are not mass shells or species labels.
+
+For the same prepared reference, adding `epsilon Q*` translates addition
+energies by `+epsilon` and removal energies by `-epsilon`, while preserving
+their weights and conditional variances. Certified variance intervals
+exclude equal translated addition/removal shapes in every multiplet.
+The Q*=6 state remains the unique ground for the sufficient window
+`|epsilon|<ground_gap/12`; outside it a global-ground comparison is
+required. This obstruction does not exclude a different vacuum or assert
+physical CPT violation. The tested diagonal action and the coherent source
+matrix require separate ground and charged calculations.
+
+The [gauge-word state](../../model/particle_field_preparation/PROOF.md)
+is the normalized gauge average of
+`product_e ((1+Re Tr_M15 U_e/15)/2)^L` on a periodic cubic carrier.
+It belongs to a finite word code, has explicit normalization and electric
+energy bounds, and can be prepared by a complete unitary. Its conservative
+one-cell 20-bit gap planner uses `L=67108864`; the resulting certified
+duration is extremely short and has no volume-uniform lower bound.
+An executed L=1 character preparation supplies 1728 original electric
+records, including 397 zero complements, and mean electric energy
+`99/9100`. That small seed does not satisfy a useful gap guarantee.
+The unbounded coordinate parent is an analytic comparison; executable
+preparation and evolution use finite codes. Periodic preparation and
+open-box locality comparisons retain their distinct boundary and
+initial-marginal hypotheses.
+
+The [energy-confinement construction](../../model/particle_field_preparation/REFINEMENT.md)
+reuses the plaquette admissibility theorem with
+`S=sum_p(1-Re Tr_M15 U_p/15)`. A Wilson gap below `1/2` implies
+`S>1/48000`. For `H=H_E+K_m+kappa S` up to a constant, positive electric
+energy and conserved total energy give the all-time bound
+`Prob(Bad) <= 48000 [<S>initial+(<H_E>initial+2||K_m||)/kappa]`.
+It also holds for the compressed bad-gap effect on every finite word
+cutoff containing the preparation; this effect is not the gap of the
+compressed Wilson matrix. The explicit finite-time gap preparation and the
+all-time configuration are different choices. The latter is a one-cell
+periodic construction with
+`L=2^86`, word degree `3*2^86`, `m=128` and
+`kappa≈5.4973e69`, giving all-time bad weight below `6.43e-13` and
+polynomial/exact-sign final-record TV below `0.000208` on the periodic
+parent at time one. Finite-cutoff, preparation, compiler and volume errors
+are additional.
+Those values have no physical gauge-coupling identification. Enlarging
+kappa can freeze an interaction; uniform interacting refinement requires
+its own common-state correlation and parameter estimates.
+The Wilson-kernel gap controls a regulator. It is not a physical mass
+gap: the flat free source has Wilson gap at least one while its overlap
+field has a zero at momentum zero. The one-cell, order-128, time-one
+configuration is distinct from the order-zero, side-21 experiment below.
+
+The [prepared finite field experiment](../../model/particle_prepared_field_readout/PROOF.md)
+composes preparation, locality, representation cutoff and a complete
+occupation apparatus on one specified spatial program. It uses `m=0`,
+`a=1`, periodic side 21, an interior radius-five box and the actual
+whole-box marginal of its gauge-word preparation. All sixty origin modes
+are filled and the neighboring cells are empty; total fermion number 60
+is conserved without filtering other source occupations. The same large
+plaquette coefficient is used in every comparison. Boundary charge is
+retained by a conjugate preparation reference. A degree cutoff
+`K=K0+12` gives a finite Hamiltonian and one repeated-unitary clock.
+
+At its declared tick `T≈1.23896e-152`, all 61 origin-occupation records
+have rational bounds. The event with occupation 59 has a positive finite
+probability of order `1e-303`, from the actual hopping norm
+`2880/289`. The composed periodic exact-sign to finite-record total
+variation error is at most `1.05065e-149`, before implementation errors.
+That absolute error exceeds the rare-event probability, so the exact-sign
+parent interval has lower bound zero. The finite event is proved; its
+positivity in the parent is not resolved by this comparison. The enormous
+state and propagator are specified by finite words and bounds rather than
+materialized. This small-tick construction supplies neither a uniform
+interacting refinement nor an identified physical sector.
+
+The obstacle to a fixed-duration volume limit is explicit in these same
+bounds. The [preparation estimate](../../model/particle_field_preparation/REFINEMENT.md#all-time-bound-from-the-actual-conserved-hamiltonian)
+chooses `kappa=96000(E_el+2B)/eta`, where
+`E_el=(29/10) E L²`, `E=3s³` and `s` is the periodic side. For fixed
+target `eta` and `L>=1`, this coefficient grows at least with the volume.
+The [composed locality estimate](../../model/particle_prepared_field_readout/PROOF.md#3-periodic-locality-open-dynamics-and-representation-cutoff)
+has `L_rate=2880/17+192 kappa` at `m=0` and contains
+`2^(-R+4)[exp(2 L_rate T)-1]`. Along `s` proportional to `R` at fixed
+positive duration `T`, its factor `exp(384 kappa T)` defeats the spatial
+decay. This estimate therefore supplies no fixed-action thermodynamic
+or refinement control. It is not a no-go theorem for the dynamics.
+This projected-state estimate requires a different local-energy or
+admissibility argument, or controlled isolated low modes, together with
+local correlation bounds at nonvanishing physical duration that preserve
+the interactions. Enlarging the box or repeating the tiny tick alone
+does not provide that input. The mixed preparation below supplies a
+separate family with fixed local parameters.
+
+The [conditional local-density bound](../../model/particle_field_preparation/REFINEMENT.md#conditional-local-roughness-from-energy-density)
+is one precise alternative. For a translation-invariant source marginal,
+unchanged evolution, finite initial electric and plaquette densities
+`e_E,s_0`, and `||K_m||<=b V`, each plaquette's roughness probability is
+bounded by `min(1,48000[s_0+(e_E+2b)/kappa])` at every time.
+There is no volume factor, provided those densities have uniform bounds
+on the actual state family. The finite-code effect is the compression
+of the full roughness detector, with its complement retained. The
+filled-origin experiment is not translation invariant and does not
+instantiate this lemma. A translation average is a different preparation.
+Local roughness alone does not control the Wilson low-mode projector
+or the complete local sign-response error; the
+[required operator estimate](../../model/particle_field_preparation/REFINEMENT.md#the-missing-local-operator-estimate)
+states that additional condition on the same state, dynamics and reference.
+
+The [referenced mixed gauge state](../../model/particle_local_gauge_state/PROOF.md)
+realizes those uniform initial-density hypotheses. It independently
+normalizes each finite link polynomial and twirls the full product
+density over the vertex gauge group, retaining the maximally mixed
+sixty-mode Fock state at every site. This is a unitary mixture, without
+amplitude projection or smooth-outcome conditioning. A conjugate charged
+reference makes the joint preparation gauge invariant; the source density
+itself includes nonsinglet sectors and is not a vacuum. The reference
+Hamiltonian is zero during observation.
+
+At spacing one and polynomial order 128, one choice uses `L=2^64` on
+every link and `kappa≈2.98009318237e50` for every periodic volume.
+The same energy argument bounds each specified rough-plaquette
+probability at every model time by
+`11567/17179869184≈6.73288013786e-7`. Finite word compression preserves
+this bound for the compressed full roughness effect and its complement.
+The exact one-open-link control retains 119 positive-support states,
+including total nontrivial charge probability `1/91`; it is not substituted
+for the correlated periodic site twirl. These results supply neither a
+global Wilson gap nor a local sign-response comparison or physical mass.
+They do not change the distinct filled-origin experiment.
+
+The [regional modular calculation](../../model/particle_regional_geometry/PROOF.md)
+uses the faithful Q*=0 Gibbs preparation rather than the Q*=6 ground.
+Restriction to one family's six modes has positive-support ranks
+`(1,6,2,13)` and 42 retained zero outcomes. Its modular Hamiltonian has
+the induced pair term `log(p_dark/p_pair) B_f`; for the first family
+the coefficient is `log(13440/41873)`. A gauge-invariant pair/dark probe
+detects it. A source-admitted entropy variation supplies that same slope
+with a controlled finite remainder. A number-only modular ansatz fails,
+and the constructed tracial conditional expectation cannot preserve this
+interacting Gibbs state. The scalar-only regional modular flow is trivial
+on its retained algebra even though the global dynamics changes scalar
+occupation. Thus a global modular clock cannot simply be restricted and
+renamed a local geometric clock.
+The identity `tau=-beta s` belongs to this faithful Q*=0 Gibbs state;
+it does not furnish a modular clock for the Q*=6 ground or the separate
+gauge-coordinate field preparation.
 
 ## Declared field programs and complete observer outputs
 
@@ -136,6 +355,34 @@ numerical constructions and hierarchy exclusions; the
 sets the larger observational target.
 
 ## Minimum particle comparison dependencies
+
+### Ten common-theory construction requirements
+
+The six output obligations organize the physical claims. The following ten
+dependencies organize their construction. A theorem supplies its conclusion
+only on the source, state, algebra and clock satisfying its hypotheses.
+This checklist does not require a uniqueness theorem for the architecture.
+
+| Construction | Available result and exact acceptance condition | Dependencies |
+| --- | --- | --- |
+| 1. Identify the common program | Source operators, preparation, references and clock must be fixed together. The scalar, ordered-spin, free-Weyl and gauge-coordinate constructions have distinct state domains. | Source specifications and the theorem-domain inventory above |
+| 2. Prepare a scalable local state | The [mixed gauge-twirled family](../../model/particle_local_gauge_state/PROOF.md) supplies uniform initial local densities and all-time local roughness at fixed link degree and plaquette coefficient. Its compensating charged reference and full maximally mixed Fock input are retained; it is distinct from the filled-origin input and is not a vacuum. | 1 |
+| 3. Control the local sign response | The [local spectral split](../../model/particle_field_preparation/REFINEMENT.md#the-missing-local-operator-estimate) isolates Wilson low-mode weight. A volume-independent local dynamical comparison is required; small plaquette probability alone does not imply it. | 2 |
+| 4. Control complete records under refinement | Fixed-spacing locality and finite word-cutoff errors are available. The joint family needs uniform errors at nonzero physical duration and a surviving interacting response. | 2, 3 |
+| 5. Attach physical observables | Complete finite energy readouts and state-specific modular identities are available. Position, translations, energy and clock must be realized on the same interacting state with the uncertainty theorem's operator domain. | 1, 4 |
+| 6. Establish the relativistic regime | Free-overlap and free-Weyl calculations supply reusable symbol estimates. The interacting state must support the claimed Lorentz transformations and energy-momentum response. Celestial symmetry alone does not establish this. | 4, 5 |
+| 7. Establish chiral gauge matter | The internal representation, CAR and native currents are available. Their physical spin, chiral propagation and complementary regulator modes must be controlled together. | 4, 6 |
+| 8. Extract physical particle data | Complete finite charged spectra are calculated. Stable sectors, infrared thresholds or resonances require the common spatial correlators before attaching masses, mixing, scattering or decay observables. | 5, 6, 7 |
+| 9. Supply geometric gravity premises | Energy continuity and actual internal entropy response are available. The [ten-frame Einstein consumer](../../model/matched_einstein_limit/PROOF.md) requires same-state geometric stress, regional entropy and area estimates with shrinking-ball errors. | 4, 5; no need to wait for every species label |
+| 10. Match observations and maintain the public claims | Compare independent observables in matching conventions with propagated errors; preserve every calibration's ancestry. Physical-map entries require the preceding sector proof, rather than a relabeled finite eigenvalue. | 8; 9 for gravitational claims |
+
+The state and local-response work can proceed alongside the geometric
+premise survey and the finite spectral analysis. Physical species matching
+depends on their common-state field connection. Ten timelike readouts
+suffice for the existing Einstein tensor decoder; re-proving all-null
+coverage or its tensor algebra is unnecessary. The missing gravitational
+input is the actual geometric realization of those readouts, not a larger
+catalogue of conditional tensor identities.
 
 A comparison of one particle observable requires a narrower construction
 than the full common-theory target. A specified source can supply a

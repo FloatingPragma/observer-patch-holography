@@ -87,7 +87,7 @@ def render(c,data,height):
         carrier(c,xx,14310,440,h,stage)
         c.text(xx,15300,f"defects: {stage['defect_energy_in_J']}J; work: {stage['work_energy_in_J']}J",47,INK,anchor='middle')
         if i<2:c.line(xx+1210,14300,xx+1720,14300,ORANGE,8,arrow=True)
-    c.para(left+150,15700,8800,'The energy ledger reads 2J throughout creation, motion and annihilation. J is a declared source coefficient. This is a real finite work balance; identifying it as relativistic rest mass requires the energy–momentum and detector map.',56,INK,max_y=16160)
+    c.para(left+150,15700,8800,'The uncoupled defect/work ledger reads 2J throughout creation, motion and annihilation. J is a declared source coefficient. The coupled field needs its separate controller-work account; relativistic mass needs the energy–momentum and detector map.',56,INK,max_y=16160)
     c.text(left+150,16400,'Complete birth readout: 9/25 no pair; 16/25 pair',66,TEAL,700)
     c.para(left+150,16600,8800,'These probabilities follow from the declared (3/5, 4/5) coherent pulse. Both histories, every zero label and outside-Gauss outcomes are retained.',48,MUTED,max_y=16880)
 
@@ -104,10 +104,19 @@ def render(c,data,height):
     c.para(left+170,20600,8760,'If QR = −1, a permitted update cannot make every face inside flat. It can move defects or remove pairs. Pair annihilation across the boundary is outside that protecting rule. Gauge symmetry alone does not make every individual defect permanent.',58,INK,max_y=21200)
     c.link(left+170,21650,'Exact protection condition and complete gate truth tables','model/particle_observer_outputs/HOLONOMY_TRANSPORT.md',46)
 
-    box(c,left,22200,'From an invariant to a particle description','The chosen link program establishes defect birth, motion, work accounting and finite readout. The native memory program and this link extension have different state registers and operations.',3600)
-    c.para(left+170,23300,8760,'To call such an excitation a photon, electron or Higgs, connect its actual propagation, charges, transformations and detector response to the corresponding effective field. The middle of this poster displays those candidate field descriptions and the precise bridges.',64,INK,max_y=24010)
-    c.para(left+170,24400,8760,'These two Z2 endpoints have the same self-inverse label; particle/antiparticle names require a field map. The source stays finite. A family of finite programs may support a controlled continuum approximation. Neither a topological label nor a drawing supplies that limit or the measured particle mass.',63,ORANGE,max_y=25010)
-    c.link(left+170,25450,'Continue into the field and mass dependency map','docs/research/OPH_FIELD_RECONSTRUCTION.md',48)
+    box(c,left,22200,'Let the protected defect change a detector law','A declared interaction makes the actual regional holonomy control the scalar vertex: H_Q = (3I − Q)V / 2. The strengths 1 and 2 are program choices. Every field input and birth record is retained.',3600)
+    for i,(label,value) in enumerate((('NO PAIR / Q = +1','occupied: 1/4'),('PAIR / Q = −1','occupied: 3/4'))):
+        xx=left+200+i*4510;c.rect(xx,23400,4210,650,'#e4efea',TEAL,25)
+        c.text(xx+2105,23630,label,61,TEAL,700,anchor='middle')
+        c.text(xx+2105,23900,value,78,INK,700,anchor='middle')
+    c.para(left+170,24400,8760,'These are conditional detector laws at one shared tick; the complete joint experiment keeps birth weights 9/25 and 16/25. The same controller works with native protected memory in a separate construction. Neither attachment assigns a physical particle name.',60,INK,max_y=25100)
+    c.link(left+170,25450,'Exact defect → interaction → complete record attachment','model/particle_defect_attachment/PROOF.md',48)
+
+    box(c,left,26200,'The apparatus and controller also exchange energy','Protected moves preserve the full coupled action. Birth changes Q and hence the scalar coupling. Its work account must include the field, even when the field’s mean energy happens to stay zero.',3000)
+    c.text(left+180,27400,'controller work:  0       +√56       −√56',72,TEAL,700)
+    c.text(left+180,27700,'original weights:  9/25     8/25       8/25',66,INK)
+    c.para(left+180,28070,8740,'These weights belong to a separate two-time energy measurement. That measurement changes the scalar preparation; it is not the occupation experiment above. The uncoupled 2J defect ledger alone does not describe this coupled apparatus.',60,ORANGE,max_y=28700)
+    c.link(left+180,29000,'Full preparation-work accounting and measurement disturbance','model/particle_defect_attachment/PROOF.md#preparation-work-is-not-hidden-in-the-defect-cost',45)
 
     # Right: actual finite instrument, meanings and effective descriptions.
     box(c,right,1200,'An apparatus converts a question into a record','Preparation supplies a state. The selected apparatus couples a property of that state to an orthogonal pointer label. A detector stores one label for this run; the complete law predicts repeated-run frequencies.',3500)
@@ -151,6 +160,12 @@ def render(c,data,height):
     c.link(right+180,21220,'Finite event gluing and observable error contraction','model/particle_observer_outputs/CONSENSUS_RECORDS.md',46)
 
     physics_inset(c,right,21800,9120)
-    c.para(right+130,23800,8840,'E₀ = mc² is the rest-energy relation in a justified relativistic sector. E = c|p| describes a massless Lorentz-vacuum mode. These equations organize energy and momentum readouts; they do not identify every repair counter with mass.',57,INK,max_y=24430)
+    c.para(right+130,23800,8840,'E_rest = mc² is the rest-energy relation in a justified relativistic sector. E = c|p| describes a massless Lorentz-vacuum mode. These equations organize energy and momentum readouts; they do not identify every repair counter with mass.',57,INK,max_y=24430)
     c.para(right+130,24700,8840,'Uncertainty belongs to the actual pair of instruments and generators: ΔX ΔP ≥ ½ |⟨[X,P]⟩|. The familiar ℏ/2 bound uses the canonical relation on its valid domain. Measuring one does not make the other distribution meaningless.',56,INK,max_y=25340)
     c.text(right+130,25750,'SIMULATION-GENERATED OBSERVABLES',84,TEAL,700)
+
+    box(c,right,26200,'A local clock depends on what is accessible','Specify both the global state and the local observable algebra. Restrict the actual state before calculating its modular generator. A global thermal clock does not automatically restrict to the same local dynamics.',3000)
+    c.text(right+180,27400,'global ρ → actual restriction → ρregion → Kregion = −log ρregion',60,TEAL,700)
+    c.para(right+180,27800,8740,'For one family of the finite scalar source, Kregion contains an induced pair term with coefficient log(13440/41873). A gauge-invariant probe detects it even when every local number probability is fixed. The term comes from the reduced interacting state.',60,INK,max_y=28450)
+    c.para(right+180,28610,8740,'This is an internal family region, not a spatial ball. Geometric clocks, stress and area need their own common-field attachment.',55,ORANGE,max_y=28900)
+    c.link(right+180,29000,'Exact regional modular operator and source-admitted entropy response','model/particle_regional_geometry/PROOF.md',44)

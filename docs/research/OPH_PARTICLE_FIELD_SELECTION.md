@@ -15,17 +15,95 @@ connects complete spectral readouts, the faithful modular clock, source
 coupling recovery, energy-accounted holonomy transport and comparison of
 observer meanings. The [coefficient inverse](../../model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md)
 removes an additive sector offset from observable family-coefficient
-ratios. Physical rest-mass identification requires the interacting
+ratios in its Q*=0 prepared-sector experiment. Its two-line formula does
+not apply to the full Q*=6 ground's multi-line response. Physical
+rest-mass identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
 ## Outputs of a specified interacting field and apparatus
+
+The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)
+give the dependency map and exact source domains. A permitted declared
+controller can make a protected label observable: the
+[finite attachment](../../model/particle_defect_attachment/PROOF.md) uses
+the same scalar vertex with strengths one and two, keeps every native
+record and computes the complete detector law. Protection does not select
+those coefficients. Birth work must include the coupled field; the
+uncoupled defect counter alone is insufficient.
+
+The [spatial parent](../../model/particle_field_causality/PROOF.md) has
+volume-independent graded locality bounds at fixed spacing. Its global
+representation-degree cutoff can destroy exact support commutation, so
+complete-record cutoff errors are added to parent locality estimates.
+The [energy construction](../../model/particle_gravity_response/PROOF.md)
+derives currents from the selected action and supplies the finite
+coarse-energy theorem's premise. A geometric stress or regional modular
+kernel requires its own source attachment; action differentiation alone
+does not establish it.
 
 The [observer-output package](../../model/particle_observer_outputs/README.md)
 treats the field, preparation and measurement service as declared program
 data. Their validity requires consistent complete outputs, rather than a
 theorem forcing a unique architecture. Particle reference data do not enter
 its finite experiments.
+
+The [prepared-state comparison](OPH_FIELD_RECONSTRUCTION.md#prepared-states-and-actual-regional-response)
+keeps three source domains explicit. The full diagonal scalar action has
+a certified Q*=6 singlet ground and complete occupation readout. The
+Q*=0 Gibbs preparation instead gives an actual induced regional modular
+pair term, which is not its bare onsite energy. The periodic gauge-word
+preparation controls small-Wilson-gap weight for an explicitly bounded
+finite duration; a separately declared large plaquette coefficient gives
+all-time gap control through conserved energy. Its large resource and
+coupling costs are explicit. These statements supply concrete inputs to their finite
+consumers; they do not identify the three states or establish a common
+interacting relativistic vacuum.
+The modular identity `tau=-beta s` is specific to the faithful Q*=0
+Gibbs state, without a clock identification for the Q*=6 ground or the
+gauge-coordinate field. The all-time regulator-gap example uses one
+periodic cell and polynomial order 128 at time one. A Wilson gap is
+not a physical mass gap: the flat free source has Wilson gap at least
+one and a zero-momentum overlap zero mode.
+
+The [full-ground charged calculation](../../model/particle_ground_charged/PROOF.md)
+gives twelve complete channels about Q*=6, retaining Q*=5 removal and
+Q*=7 addition responses on the same action and clock. Whole-multiplet
+probes keep their compensating references and original probabilities.
+Every energy group is enclosed by exact integer spectral checks; no small
+or zero residue is dropped. A fixed-reference `epsilon Q*` shift cannot
+equalize the addition/removal spectral shapes, since their conditional
+variances differ. This neither identifies conjugate physical particles
+nor proves CPT violation. Changing the vacuum requires a separate global
+ground calculation; the coherent and diagonal actions are not pooled.
+
+The [prepared spatial field construction](../../model/particle_prepared_field_readout/PROOF.md)
+uses one periodic gauge-word state, its actual interior marginal, one
+polynomial action and a complete 61-outcome origin-occupation detector.
+It retains boundary charge through a conjugate purification and applies
+locality before the nonlocal total-degree compression. With `m=0`,
+`a=1`, side 21 and radius five, its tick is about `1.23896e-152` and
+its finite occupation-transfer probability is positive, of order
+`1e-303`. The composed exact-sign parent error is at most `1.05065e-149`;
+the parent probability interval therefore includes zero. The construction
+provides explicit finite source premises, without proving a uniform
+interacting chiral limit or physical particle identification. Its large
+coupling and resources are architecture choices, with no measured mass input.
+Its order-zero, side-21 program is distinct from that one-cell all-time
+regulator example.
+
+The [referenced mixed gauge state](../../model/particle_local_gauge_state/PROOF.md)
+uses a distinct preparation: the site-gauge twirl of independently
+normalized link words and the full maximally mixed Fock density.
+Its conjugate reference carries the compensating charge; invariance
+of the source density does not project it onto source singlets. Uniform
+initial electric and magnetic densities follow from this construction.
+At `m=128`, `a=1`, one fixed `L=2^64` and
+`kappa≈2.98009318237e50` give every specified rough plaquette the
+all-time bound `11567/17179869184` in every volume, including complete
+finite-code effects. Local Wilson low-mode/sign-response estimates and
+physical state matching are additional requirements. The mixed state is
+not identified with a physical vacuum or the occupied-origin experiment.
 
 The [same-source quantum-Higgs readout](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
 prepares the full 307-state conserved-sector ground using the actual vertex

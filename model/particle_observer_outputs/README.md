@@ -33,6 +33,24 @@ gauge-invariant experiment. The charged-sector offset is a specified
 Hamiltonian coefficient; neutral measurements alone cannot determine it.
 The neutral sector ground is not asserted to be the full carrier ground.
 
+The [complete scalar ground](../particle_scalar_ground/PROOF.md) resolves
+that distinction for the declared diagonal fixture. Exact small-block
+bounds cover all 786432 states and prove a unique gauge/spin-singlet ground
+at energy approximately -7.94630530665. It has conserved charge Q*=6,
+so the closed pair Hamiltonian cannot prepare it from the empty Q*=0
+state. A specified six-fermion seed and controlled preparation supply
+its complete occupation records. Their transition frequency differs from
+the full ground isolation gap; neither quantity is assigned a particle mass.
+
+The [charged-ground readout](../particle_ground_charged/PROOF.md) calculates
+twelve complete addition/removal family-multiplet channels about that
+Q*=6 reference. Exact integer admission bounds all spectral groups and
+original weights, including dark and zero-compatible groups. Conjugate
+probe references are retained. A common charge-sector energy shift cannot
+equalize the complete addition/removal shapes; it changes neither their
+weights nor their unequal variances. This finite-probe statement is not
+a claim of physical CPT violation.
+
 The [apparatus construction](READOUT_CONTRACT.md) gives complete pointer
 unitaries, retained outside-code outcomes and a common repeated program
 tick. It reuses the finite coherent-instrument compiler, including errors
@@ -52,6 +70,43 @@ error bound. A quantum-flux/spinor control uses the actual source charge,
 two recorded flux measurements and exact rational time-evolution estimates.
 Every zero and boundary record is retained. A finite cubic definition and
 a one-cell experiment do not constitute an interacting chiral continuum.
+
+The [finite gauge preparation](../particle_field_preparation/PROOF.md)
+constructs a gauge-averaged polynomial in the actual link coordinates,
+with a nonzero normalization bound, controlled small-Wilson-gap weight
+and electric energy. Its periodic, same-clock accuracy interval is finite
+and extremely short under the conservative bound. A smaller executed
+character preparation retains all 1728 electric records. That seed alone
+does not certify a useful Wilson gap. Finite word codes are executable
+carriers; the unbounded coordinate Hilbert space is an analytic comparison
+parent. Uniform refinement and an interacting vacuum require additional
+state estimates. A distinct [large plaquette-cost configuration](../particle_field_preparation/REFINEMENT.md)
+uses energy conservation and the existing admissibility theorem to bound
+small-gap probability for all times, also on the finite compressed source.
+Its declared coefficient and preparation resources are enormous. The
+polynomial-versus-exact-sign complete final-record comparison on the
+periodic parent at time one has error below 0.000208. Finite-cutoff,
+preparation, compiler and volume errors are additional. This is not an
+observed gauge-coupling prediction or a refinement theorem.
+
+The [prepared field experiment](../particle_prepared_field_readout/PROOF.md)
+composes a periodic preparation, its actual local mixed marginal, an open
+polynomial field, a finite word cutoff and all 61 local occupation outcomes.
+Every comparison uses one configured action and tick. It compares local
+records and genuinely untouched references, without asserting equality of
+the dynamical exterior state. Its extremely short finite protocol does not
+resolve the rare escape event in the exact-sign parent or identify a particle.
+
+The [referenced mixed gauge family](../particle_local_gauge_state/PROOF.md)
+uses independently normalized finite link polynomials and a site-gauge
+twirl of their full density. Its electric and magnetic densities have
+volume-independent bounds. One fixed degree and plaquette coefficient
+control any specified rough-plaquette probability for every model time.
+The source contains all fermion occupations and nonsinglet gauge sectors;
+a retained conjugate reference makes the joint preparation invariant.
+This is a distinct specified state, without a field-only vacuum claim.
+Local roughness does not itself prove the local sign-response estimate
+or a physical particle mass.
 
 The physical output requirements are the common spatial and relativistic
 limit, controlled chiral matter content, interacting spectral/detector
@@ -78,6 +133,38 @@ glue on a specified finite cover. Effective spacetime and field equations
 describe those finite simulation-generated observables; the program
 generates no additional objective continuum universe. The continuum
 approximation requires its own observable and error map.
+
+## Protected defects, propagation and energy
+
+The [controlled attachment](../particle_defect_attachment/PROOF.md)
+couples the actual protected native memory, or the link program's regional
+holonomy, to the complete scalar vertex. Its two sectors have distinct
+detector laws on one clock. The interaction strengths are declared choices.
+Protected motion preserves the coupled action; the birth operation needs
+its own controller-work accounting. This finite attachment supplies no
+particle name, physical spin or relativistic mass.
+
+The [same-field locality bound](../particle_field_causality/PROOF.md)
+controls remote detector influence and finite-volume error at fixed
+spacing. It retains all fermion occupations and unbounded electric
+generators. Global representation-degree compression can violate exact
+support locality, so its separate cutoff error must be added. Uniform
+relativistic refinement is outside this fixed-spacing result.
+
+The [energy response](../particle_gravity_response/PROOF.md) derives exact
+energy continuity and complete energy-transfer detectors from the actual
+scalar and quantum-flux Hamiltonians. It supplies the conservation premise
+of the finite coarse-energy theorem. Einstein reconstruction additionally
+requires same-source geometric stress, regional modular kernels, area
+response and controlled small-ball limits.
+
+The [actual regional modular calculation](../particle_regional_geometry/PROOF.md)
+restricts the faithful 307-state Gibbs preparation to internal family
+algebras. It derives a pair contribution to the regional modular energy,
+with exact positive-support eigenvalues and a controlled entropy response.
+Its tracial conditional expectation cannot preserve the interacting Gibbs
+state. These internal regions are not spatial balls; their explicit
+modular operators do not supply a geometric diamond kernel.
 
 ## Which coefficients can be read
 

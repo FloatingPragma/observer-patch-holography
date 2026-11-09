@@ -35,6 +35,11 @@ color and neutrino sectors. Its formulas follow from the declared action;
 the adjacent source explanations retain their finite domains. The
 [complete observer outputs](../particle_observer_outputs/README.md) supply
 concrete interacting scalar records and a controlled gauge-field experiment.
+The six-obligation panel connects the protected-label interaction, complete
+detector laws, fixed-spacing causal bounds and actual energy currents to
+their physical acceptance criteria. The defect endpoint includes a separate
+controller-work experiment; its probabilities are not substituted for the
+occupation experiment.
 
 ```sh
 python -m model.particle_atlas_horizontal.build --write

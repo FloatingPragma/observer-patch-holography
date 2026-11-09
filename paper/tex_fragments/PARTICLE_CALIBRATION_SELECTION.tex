@@ -12,7 +12,7 @@ spectra alone supplies no such identification.
 For the coherent three-cycle $R$, write
 $C=aI+rb(e^{i\theta}R+e^{-i\theta}R^2)$ and $Y=C^2/3$, where
 $a=\sqrt5/6$, $b=a/\sqrt2$ and $0\le r\le1$.
-The positive-root chamber is $|\theta|\le\pi/12$.
+We use the common nonnegative-root chamber $|\theta|\le\pi/12$.
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md}{exact source calculation}
 gives
 \[
@@ -173,6 +173,69 @@ at $r=0$ the phase is unobservable. Complete spectral records therefore
 reconstruct the configured controller within that branch. They do not
 select its setting independently of a target fit.
 
+\subsection{The full scalar ground and its occupation records}
+
+For the declared test action $Y=\operatorname{diag}(1,2,3)$,
+$d=1$, $\epsilon_F=0$, a
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_scalar_ground/PROOF.md}{complete-carrier calculation}
+covers all $3\cdot2^{18}=786432$ inputs. Splitting the scalar-empty
+and occupied spaces gives $H=\left(\begin{smallmatrix}0&A^\dagger\\A&I\end{smallmatrix}\right)$.
+Six signed three-mode cells reduce the full Gram comparison to matrices
+of dimension at most $3^6=729$. Exact positive-integer Perron witnesses
+and Sturm root counts give a unique largest Gram eigenvalue $\lambda$
+at the largest root of
+\[
+ x^6-244x^5+23737x^4-1171722x^3+30638880x^2
+       -394771968x+1881169920.
+\]
+The unique full ground has
+$E_0=(1-\sqrt{1+4\lambda})/2\simeq-7.94630530665$ and
+is separated from every other state by more than $0.04690056$.
+It has $Q^*=6$, zero hypercharge and singlet weak-gauge and source-spin
+actions. A controlled preparation from a six-fermion singlet seed has
+certified infidelity below $2.6\times10^{-11}$. The closed pair action
+cannot reach this sector from empty $Q^*=0$; the seed and controller work
+are part of the specified experiment.
+
+For the full occupation apparatus, of ranks $2^{18}$ and $2^{19}$,
+put $\Delta=\sqrt{1+4\lambda}$, $\alpha=(1+1/\Delta)/2$ and
+$\beta_b=1-\alpha$. Original two-time probabilities are
+\[
+ (J_{00},J_{01},J_{10},J_{11})=
+ (\alpha(1-T),\alpha T,\beta_bT,\beta_b(1-T)),\qquad
+ T=\frac{4\lambda}{\Delta^2}\sin^2(\Delta t/2).
+\]
+Exact intervals enclose these records at ticks $1/32$ and $1/16$.
+The occupation transition $\Delta\simeq16.89261061331$ differs from
+the full isolation gap. These source energies are not assigned rest
+masses; the neutral-sector charged residues do not describe this other
+prepared ground. Family singular-value decomposition transports the
+block method to general $Y$, but the displayed root and numerical
+certificate belong only to the specified test action.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_ground_charged/PROOF.md}{complete charged calculation}
+uses this same full ground, action and clock. Compensated CAR probes have
+effects $I-N_F/18$ and $N_F/18$; their sum is identity. All twelve
+family/multiplet/addition-or-removal channels retain their original
+weights and conjugate references. Exact reducing blocks, of dimensions
+at most 240, contain every source image of the probe. Dyadic eigenframe
+proposals are admitted by exact integer Gram and residual bounds,
+including degenerate projectors and the preparation error. First-family
+doublet removal and addition have lines near $0.0710$ and $0.4873$
+in the same source-energy units, with many other retained lines.
+They are not one-particle mass shells.
+
+Adding $\epsilon_F Q^*$ shifts addition/removal frequencies by
+$+\epsilon_F$ and $-\epsilon_F$ about this same reference, leaving
+their weights and conditional variances unchanged. For the first-family
+doublet, the addition-minus-removal variance lies in
+$[-0.12243,-0.08993]$. No common offset therefore makes even those
+normalized spectral shapes equal. This is a statement about the specified
+reference, not physical CPT violation or an exclusion of every
+offset-dependent vacuum. The global ground must be recomputed outside
+its certified stability window. The two-line coefficient inverse above
+belongs to the separate $Q^*=0$ preparation.
+
 \subsection{Gauge-coordinate cutoffs and recorded evolution}
 
 A separate declared field program uses the retained native representation
@@ -198,6 +261,122 @@ chiral continuum, its vacuum, physical particle dispersion and GeV
 matching are additional dynamical statements, independent of whether
 architectural choices are unique.
 
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_field_causality/PROOF.md}{same-field locality estimate}
+uses even interactions and graded fermion commutators on the uncut
+coordinate field. Onsite spectral clipping treats the unbounded electric
+generators; its uniform bounded-observable estimate passes to the strong
+unitary limit. At fixed polynomial order and spacing, if the weighted
+local interaction sum is $L$, disjoint homogeneous operators satisfy
+\[
+ \|[\alpha_t(A_X),B_Y]_{\rm gr}\|
+ \le 2\|A_X\|\|B_Y\||X|\,2^{-\operatorname{dist}(X,Y)}
+       (e^{2L|t|}-1).
+\]
+Local complete instruments inherit this bound. Comparing finite boxes
+uses the same initial box/reference marginal and gives a volume-error
+modulus independent of the exterior size. The declared lowest-order
+control bounds a remote detector contrast at distance 32 and duration
+$1/64$ below $10^{-7}$. These are fixed-spacing estimates, without
+uniform relativistic refinement. Total-representation-degree compression
+is nonlocal: compressed distant shifts can have commutator norm one.
+Its complete-record cutoff error must therefore be added to parent
+locality estimates, rather than asserting exact cutoff locality.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_field_preparation/PROOF.md}{finite coordinate preparation}
+uses the normalized gauge average of
+$\prod_e[(1+\operatorname{Re}\operatorname{Tr}_{15}U_e/15)/2]^L$
+on a periodic cubic carrier. Haar covering and positive polynomial
+bounds control normalization and the probability of a Wilson gap below
+$1/2$. The state lies in a finite representation-word code; its electric
+energy has a Casimir bound. A complete Householder preparation acts as
+identity on the entire orthogonal complement. The conservative gap
+planner uses large codes and gives an extremely short finite-time
+overlap comparison, without a uniform-volume vacuum theorem.
+An executed one-cell, degree-one character preparation has 1728 original
+electric records, including 397 zero complements, with mean electric
+energy $99/9100$. This smaller seed alone does not certify a useful
+Wilson gap. The coordinate Hilbert space is an analytic parent for these
+finite executable preparation and evolution codes.
+
+A distinct large-plaquette-cost configuration admits
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_field_preparation/REFINEMENT.md}{all-time gap control}.
+The represented plaquette admissibility theorem implies
+$\mathbf1_{\rm bad}\le48000S$ for
+$S=\sum_p(1-\operatorname{Re}\operatorname{Tr}_{15}U_p/15)$.
+Energy conservation for $H_E+K_m+\kappa S$, with $H_E\ge0$, yields
+\[
+ \Pr_t({\rm bad})\le48000\left[
+ \langle S\rangle_0+
+ \frac{\langle H_E\rangle_0+2\|K_m\|}{\kappa}\right].
+\]
+Compression preserves this positive-operator inequality on finite codes
+containing the preparation. The compressed effect is not a claim about
+the spectral gap of a compressed Wilson matrix. An explicit configuration
+has polynomial-versus-exact-sign complete final-record error below
+$0.000208$ on the periodic parent at time one, with very large declared
+coefficient and code size. Finite-cutoff, preparation, compiler and
+finite-volume errors are additional.
+This finite energy argument does not supply a physical gauge coupling,
+vacuum or uniform interacting refinement.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_prepared_field_readout/PROOF.md}{single prepared field experiment}
+composes these bounds on all sixty fermion modes per cell. At spacing
+one and polynomial order zero, a periodic side-21 gauge preparation and
+filled origin induce the exact radius-five whole-box marginal, including
+boundary charge correlations. A finite conjugate purification prepares
+that marginal. With initial word degree $K_0$, cutoff $K=K_0+12$,
+the same large $\kappa$ throughout, and one fixed rational duration,
+the complete local occupation pointer has all 61 outcomes. The comparison
+retains untouched external references and traces the evolving exterior;
+it is not a global-state approximation. Periodic Wilson-gap control is
+not applied to the open-boundary Wilson matrix.
+
+Six native hopping bonds give exactly
+$\|P_{59}H_K\psi\|^2=2880/289$ on the occupied-origin input,
+independent of its prepared link state. A unitary Taylor bound gives a
+strictly positive finite transfer probability. At the conservative
+duration $T\simeq1.23896\times10^{-152}$, its enclosure is
+$[1.3779,2.4609]\times10^{-303}$. Parent sign, box and cutoff errors
+sum to less than $1.05065\times10^{-149}$ before additional
+implementation errors. This bound is too coarse to resolve that rare
+event in the exact-sign parent. The tiny duration and the large declared
+coefficient provide a finite controlled experiment, without a uniform
+physical observation interval, interacting chiral limit or species map.
+In this planner, $\kappa$ grows with the preparation's total electric
+energy, while the locality rate contains $192\kappa$. For side length
+proportional to box radius $R$, even fixed polynomial degree gives
+$\kappa\gtrsim R^3$; the resulting exponential-in-$\kappa T$ bound
+does not decay against $2^{-R}$ at fixed positive $T$. This is a limit
+of the estimate, not an exclusion of a relativistic phase. A local
+energy/admissibility or low-mode bound, with uniform interacting
+correlations, is needed for that refinement argument.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_local_gauge_state/PROOF.md}{distinct mixed preparation}
+removes the global normalization cost from the local-density argument.
+Normalize each degree-$L$ link polynomial independently, tensor the full
+maximally mixed Fock density, and twirl the joint density under site
+gauge transformations. Gauge-invariant electric and plaquette means are
+unchanged by this trace-preserving twirl. A canonical conjugate reference
+retains the source's nonsinglet charges and makes the joint preparation
+invariant. This is not a projection onto a field-only singlet vacuum.
+
+For $L=n^2$, the one-link normalization is at least
+$(59/60)^2(1+8n)^{-450}$. An exact dyadic tail bound and a four-link
+plaquette estimate give volume-independent initial densities $e_E,s_0$.
+Translation symmetry and the same conserved action imply
+\[
+ \Pr_t(\text{rough plaquette }p)
+ \le48000\left[s_0+\frac{e_E+2b}{\kappa}\right],
+ \qquad \|K_m\|\le bV.
+\]
+The finite compressed roughness effects obey the same inequality, with
+both outcomes and the reference retained. At order 128 and unit spacing,
+the exact planner fixes $L=2^{64}$ and
+$\kappa\simeq2.98009\times10^{50}$ for every volume. Its all-time
+bound is $11567/17179869184<6.733\times10^{-7}$. These large declared
+parameters have no observed-coupling identification. They supply uniform
+local roughness, not a global Wilson gap or a physical mass gap.
+
 \subsection{Finite holonomy and shared event meaning}
 
 An explicit link-register extension on the same icosahedral incidence
@@ -217,6 +396,33 @@ has no nontrivial flat global $\mathbb Z_2$ holonomy. The declared link
 extension is distinct from the native protected-memory program and is
 not assigned a physical species or mass.
 
+An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_defect_attachment/PROOF.md}{explicit coupled construction}
+makes this protected parity operationally visible. For either actual
+regional $Q_R$, or the separate ordered-memory $Q$ commuting with every
+native repair branch, declare
+\[
+ H_Q=\frac{3I-Q}{2}\otimes V,\qquad
+ V=W(Y)+W(Y)^\dagger,\quad Y=\operatorname{diag}(1,2,3),\quad d=0.
+\]
+The full 307-state scalar sector and all native raw records are retained.
+At $t=\pi/(6\sqrt{56})$, a scalar vacuum gives occupied probabilities
+$1/4$ and $3/4$ in the positive and negative protected sectors. The
+geometric birth experiment has original joint no-pair/empty,
+no-pair/occupied, pair/empty and pair/occupied weights
+$(27,9,16,48)/100$. Protected transport commutes with the coupled action.
+The strengths one and two are declared coefficients, not consequences
+of protection or a measured mass hierarchy.
+
+Birth commutes with $H_{\rm cost}$ but not $H_Q$. Its scalar mean energy
+stays zero on the vacuum input while its second moment changes from
+$G$ to $73G/25$. A separate two-time energy experiment records controller
+work $0,+\sqrt G,-\sqrt G$ with weights $9/25,8/25,8/25$.
+That initial energy measurement disturbs the scalar preparation and is
+not the occupation experiment above. The uncoupled defect work counter
+does not supply the whole coupled experiment's energy balance. Neither
+protected memory nor regional parity is identified with scalar occupation,
+spacetime spin or a physical particle species.
+
 The observer endpoint is also an explicit finite calculation. A complete
 four-bin instrument writes a pointer; controlled permutations copy only
 its orthogonal record labels. Two observers use different local codes
@@ -232,3 +438,53 @@ field equations are effective mathematical descriptions with their own
 domains and approximation bounds; the program generates no additional
 objective continuum state. Neither agreement nor finite gluing proves
 the interacting relativistic limit.
+
+\subsection{Energy conservation and the geometric premises}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_gravity_response/PROOF.md}{actual action response}
+uses a Hermitian partition $H=\sum_x h_x$ and currents
+$J_{xy}=i[h_x,h_y]$. Then
+$\partial_t h_x(t)=-\sum_y J_{xy}(t)$, with exact cancellation of
+internal regional pairs. Integrated currents supply the finite
+coarse-energy theorem's premise. Time-dependent coefficients $f_x(t)$
+in $H_f=\sum_x f_xh_x$ give work
+$\partial_t\langle H_f\rangle=\sum_x\dot f_x\langle h_x\rangle$.
+The full quantum-flux control has electric, onsite and hopping energy
+means $(9,2,0)$ and initial rates $(18,0,-18)$.
+
+On the scalar source with $d=1$, the preparation
+$(\Omega+ib)/\sqrt2$ has exact component exchange and a complete current
+detector with ranks $(1,1,305)$. Changing $d$ at fixed state and clock
+gives $\partial_d p_{\rm occupied}(\pi/30)=2\sqrt{14}/3375$.
+This is response to an action coefficient; geometric stress requires
+an independently specified metric coupling. The regional Einstein
+consumer additionally requires actual curvature, proper clocks, the
+same-state modular diamond kernel, fixed-proper-volume area response
+and controlled small-ball errors. Energy conservation alone supplies
+neither the missing stress components nor these geometric identities.
+The existing matched-regional theorem needs only ten future timelike
+probes, with sharp decoder norm $17/8$. For a common proper radius
+$\ell$, it bounds the component Einstein residual by
+$255(e_{\rm bulk}+\eta e_{\rm area}+e_{\rm stationarity})/
+(32\pi\eta\ell^4)$. Its tensor inversion is reused; the task is to
+realize the three regional estimates on one geometric state, with errors
+$o(\ell^4)$ and one positive spacetime-independent limiting $\eta$.
+The separate free-Weyl modular and stress construction cannot supply
+those inputs for an interacting state without an identified map.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_regional_geometry/PROOF.md}{actual regional restriction}
+of the faithful $Q^*=0$ scalar Gibbs state supplies a distinct finite
+modular calculation. One family's six modes have a 22-dimensional
+positive support, with spectral ranks $(1,6,2,13)$ and 42 retained
+zero outcomes. Its modular Hamiltonian includes
+$\log(p_{\rm dark}/p_{\rm pair})B_f$, where $B_f$ projects onto two
+pair states. For the first family the coefficient is
+$\log(13440/41873)$. A gauge-invariant pair/dark probe detects this
+induced interaction; no polynomial of local number reproduces it.
+The source-admitted tangent $B_f/2-D_f/13$ has that entropy slope and
+an explicit relative-entropy remainder bound. The tracial regional
+conditional expectation exists but cannot preserve the interacting
+Gibbs state because it removes nonzero cross-center coherence.
+These are internal regions. Their modular operators are not a spatial
+diamond kernel, and global modular time does not restrict to their
+algebras as the same Hamiltonian evolution.

@@ -13,11 +13,32 @@ connects complete spectral readouts, the faithful modular clock, source
 coupling recovery, energy-accounted holonomy transport and comparison of
 observer meanings. The [coefficient inverse](../../model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md)
 removes an additive sector offset from observable family-coefficient
-ratios. Physical rest-mass identification requires the interacting
+ratios in the prepared Q*=0 experiment. It is not the inverse of the
+full Q*=6 ground's multi-line response. Physical rest-mass identification
+requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
 ## Complete neutral and charged observer records
+
+The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)
+separate complete finite records from physical particle identification.
+The [controlled defect attachment](../../model/particle_defect_attachment/PROOF.md)
+uses `H_Q=(3I-Q)V/2` on every native-memory/scalar input, preserving the
+original C/E records. Its two protected sectors give scalar occupied
+probabilities `1/4` and `3/4` at the same duration. Replacing memory Q by
+actual regional face parity supplies a separate geometric controller with
+all birth/no-birth weights retained. The declared strength ratio two is
+observable; it is not an independently predicted particle-mass ratio.
+
+Protected transport conserves this coupled action. Birth and annihilation
+need controller-work accounting beyond the inherited `2J` defect cost.
+Neither a conserved source label nor its detector contrast is an
+identification with oscillating scalar occupation, physical spin or a
+relativistic species. The [same-field causal bound](../../model/particle_field_causality/PROOF.md)
+and [actual energy currents](../../model/particle_gravity_response/PROOF.md)
+supply separate propagation and conservation evidence within their stated
+field domains; their states are not substituted for the scalar preparation.
 
 The [finite Higgs observer construction](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
 calculates complete records of the declared scalar/full-CAR Hamiltonian
@@ -67,6 +88,9 @@ weight, the unconditional event ratio `J01(2t)/(4 J01(t))` recovers
 `cos²(Delta t/2)` on the unaliased window `0<Delta t<pi`. Ground preparation
 is unnecessary for this neutral gap readout. The charged ground residues
 above are not transferred to the thermal state.
+This modular-time identification is specific to the faithful Q*=0 Gibbs
+state. It is not a clock identification for the Q*=6 ground or the
+spatial gauge-coordinate field.
 
 The certificate evaluates both the actual coherent family matrix at
 `z=1` (phase angle zero) and pass amplitude 1, and the separate rational
@@ -80,6 +104,68 @@ observable sectors. Agreement among copied records does not establish these
 field properties or generate an objective continuum universe.
 
 ## Source normalization and protected-sector readout
+
+The [full-carrier scalar calculation](../../model/particle_scalar_ground/PROOF.md)
+certifies a distinct prepared ground for the same diagonal test action:
+`E0≈-7.94630530665`, conserved Q*=6, and a unique gauge/spin singlet on
+all 786432 source states. Its scalar transition frequency
+`16.89261061331` differs from the full isolation gap, which is bounded
+below by `0.04690056`. The exact full-block comparison, singlet preparation
+and original occupation histories are source derived. They neither reuse
+the Q*=0 ground's charged residues nor identify a relativistic mass.
+The closed pair action cannot prepare Q*=6 from empty Q*=0; the specified
+six-fermion seed and controller work belong to the full-ground experiment.
+
+The [charged readout of this full ground](../../model/particle_ground_charged/PROOF.md)
+retains twelve addition/removal channels, with whole gauge-multiplet
+probes and compensating references. Addition reaches Q*=7 and removal
+Q*=5. Actual reducing blocks of dimensions 53 through 240 give certified
+spectral intervals and original weights; all dark, zero and complementary
+outcomes are retained. A first-family left-removal line is near `0.07103`
+and a left-addition line near `0.48728` in the stated source units.
+Neither is identified as a physical mass, and a dominant residue is not
+a species assignment.
+
+For a fixed Q*=6 reference, an offset `epsilon Q*` changes these relative
+energies by opposite constants but cannot change spectral weights or
+conditional variances. Every multiplet has certified unequal translated
+addition/removal shapes. The sufficient window
+`|epsilon|<ground_gap/12` preserves the same unique ground; larger offsets
+require re-evaluating the reference. This is a finite-source obstruction,
+not a physical CPT violation. The diagonal fixture's spectrum is not
+assigned to the different coherent family matrix.
+
+The [prepared spatial experiment](../../model/particle_prepared_field_readout/PROOF.md)
+supplies a separate complete input/action/clock/detector composition. Its
+finite word code uses the actual periodic preparation's whole-box marginal,
+including boundary charges and a retained conjugate purifier. On the same
+polynomial field Hamiltonian, the filled origin has 61 complete occupation
+outcomes. The declared tick is about `1.23896e-152`; its finite occupation-59
+event has positive probability of order `1e-303`. The total periodic
+exact-sign comparison error is at most `1.05065e-149`, so that parent
+event's lower bound remains zero. This analytic finite-program result
+does not transfer the scalar ground or charged residues to the spatial
+field. The physical conclusions in the six-output dependency map require
+their own common-state bridges.
+Its side-21, order-zero construction differs from the separate one-cell,
+order-128, time-one all-time-gap example. Those gap estimates concern
+the Wilson regulator: a flat free source can have Wilson gap at least
+one and a massless overlap mode at momentum zero. They are not physical
+mass-gap estimates.
+
+The [mixed gauge-twirled family](../../model/particle_local_gauge_state/PROOF.md)
+supplies a different spatial preparation with uniform electric and
+plaquette energy densities. Independently normalized link words, the
+full maximally mixed Fock state and a retained conjugate charged
+reference give a joint gauge-invariant state. The source marginal need
+not be a Gauss singlet or a vacuum. With `m=128`, `a=1`, `L=2^64` and
+`kappa≈2.98009318237e50` fixed across volumes, each specified rough
+plaquette has probability at most `11567/17179869184` for every model
+time. This holds for the complete compressed detector as well. It removes
+the uniform-density premise for this declared family; local Wilson-mode
+and sign-response control, physical dispersion and species identification
+require their own proofs. No equality with the filled-origin state or
+scalar ground is asserted.
 
 The [native clock calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
 derives `P B=B(I-L/60)` from all 66 source inputs and sixty seam/coin

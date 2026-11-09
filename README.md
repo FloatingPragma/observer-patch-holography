@@ -97,6 +97,10 @@ proof shows that the whole class of laws cannot work.
   and scattering on one theory; the
   [source correspondence](model/standard_model_source_map/PARTICLE_MAP.md)
   retains unassigned physical masses.
+  The [finite scalar calculation](model/particle_ground_charged/PROOF.md)
+  resolves a full-carrier singlet ground and twelve complete charged-response
+  channels. Their source energies are calculated; physical particle identities
+  and GeV masses require the common spatial field connection.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
@@ -106,10 +110,17 @@ proof shows that the whole class of laws cannot work.
   central field requirement. A separate scaling gives free massless Weyl fields
   and the matter stress response used by the conditional gravity derivation.
   [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
-  [spectral readout](model/spin_shell_readout/README.md).
+  [spectral readout](model/spin_shell_readout/README.md),
+  [ten common-theory requirements](docs/research/OPH_FIELD_RECONSTRUCTION.md#ten-common-theory-construction-requirements).
+  A separate [prepared finite gauge field](model/particle_prepared_field_readout/PROOF.md)
+  combines one state, action and clock with complete occupation records and
+  controlled errors. Its conservative tiny duration does not establish an
+  interacting relativistic continuum. The
+  [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) distinguishes
+  these finite outputs from the physical connections they require.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
-  12800 public theorems and lemmas with no admitted proofs, and every retained
-  computational receipt is replayed under continuous integration.
+  12800 public theorems and lemmas with no admitted proofs. Computational
+  receipts bind their source inputs and include replay checks.
 - **Tests fixed in advance.** Predictions and their rejection rules enter the
   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) before the
   eligible comparison data, with OpenTimestamps proofs, most of them anchored in

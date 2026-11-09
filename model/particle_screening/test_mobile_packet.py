@@ -51,6 +51,16 @@ print(json.dumps(sorted(loaded - pins.keys())))
     assert "model/relativistic_scalar/__init__.py" in pins
 
 
+def test_research_prose_is_not_an_executed_source_input(monkeypatch):
+    before = packet.source_bindings()
+    original = Path.read_bytes
+    note = packet.ROOT / 'docs/research/OPH_NATIVE_PARTICLE_MASS_JOIN.md'
+    monkeypatch.setattr(Path, 'read_bytes', lambda path: original(path) + (
+        b'\nEditorial change only.\n' if path == note else b''))
+    assert packet.source_bindings() == before
+    assert note.relative_to(packet.ROOT).as_posix() not in before
+
+
 @pytest.mark.parametrize("name", (
     "evidence/native_geometric_source_20260925/spec.json",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py",

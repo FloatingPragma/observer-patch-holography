@@ -29,7 +29,6 @@ OWN_SOURCES = (
     "model/particle_screening/test_mobile.py",
     "model/particle_screening/test_mobile_service.py",
     "model/particle_screening/test_mobile_packet.py",
-    "docs/research/OPH_NATIVE_PARTICLE_MASS_JOIN.md",
     "evidence/native_geometric_source_20260925/spec.json",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py",
 )

@@ -229,8 +229,9 @@ def render(data):
     family_lanes(c,data,6220)
     end=calibration_map(c,data,6220)
     endpoint_closeup(c,data,end+100)
-    from . import named_fields
+    from . import named_fields, source_connections
     end=named_fields.render(c,data,end+2460)
+    end=source_connections.render(c,data,end+100)
     footer(c,data,end+100)
     height=end+1030
     c.items.append('</g>')

@@ -385,7 +385,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "1bc6b4f82be7da8365493b26e64b02aa1174fe5fd2bc66c933646852995f42e8",
+          "sha256": "4e81e87d26d9528abe1307e249601c10e3cccb65c1125b56cc63c8bb7a271563",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -864,7 +864,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "1bc6b4f82be7da8365493b26e64b02aa1174fe5fd2bc66c933646852995f42e8",
+          "sha256": "4e81e87d26d9528abe1307e249601c10e3cccb65c1125b56cc63c8bb7a271563",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -1163,7 +1163,13 @@
         "model/defect_field_modular/results.json",
         "model/defect_field_modular/results.npz",
         "model/defect_field_modular/source_controls.npz",
-        "model/defect_field_modular/test_modular.py"
+        "model/defect_field_modular/test_modular.py",
+        "model/particle_scalar_ground/PROOF.md",
+        "model/particle_regional_geometry/PROOF.md",
+        "model/particle_field_preparation/PROOF.md",
+        "model/particle_ground_charged/PROOF.md",
+        "model/particle_prepared_field_readout/PROOF.md",
+        "model/particle_local_gauge_state/PROOF.md"
       ],
       "legacy_issues": [
         1077,
@@ -1602,7 +1608,9 @@
         "model/defect_field_bridge/coherent_extension_results.json",
         "model/defect_field_bridge/coherent_extension_results.npz",
         "model/native_fixed_algebra/OCCUPATION.md",
-        "model/native_fixed_algebra/occupation_results.json"
+        "model/native_fixed_algebra/occupation_results.json",
+        "model/particle_defect_attachment/PROOF.md",
+        "model/particle_ground_charged/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -1697,7 +1705,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "1bc6b4f82be7da8365493b26e64b02aa1174fe5fd2bc66c933646852995f42e8",
+          "sha256": "4e81e87d26d9528abe1307e249601c10e3cccb65c1125b56cc63c8bb7a271563",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -2207,7 +2215,10 @@
         "model/defect_field_energy/readout.py",
         "model/defect_field_energy/results.json",
         "model/defect_field_energy/results.npz",
-        "model/defect_field_energy/test_energy.py"
+        "model/defect_field_energy/test_energy.py",
+        "model/particle_gravity_response/PROOF.md",
+        "model/particle_scalar_ground/PROOF.md",
+        "model/particle_prepared_field_readout/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -2621,7 +2632,9 @@
         "model/particle_transport/detector.py",
         "model/particle_transport/results.json",
         "model/native_fixed_algebra/OCCUPATION.md",
-        "model/native_fixed_algebra/occupation_results.json"
+        "model/native_fixed_algebra/occupation_results.json",
+        "model/particle_defect_attachment/PROOF.md",
+        "model/particle_prepared_field_readout/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -2646,7 +2659,7 @@
         },
         {
           "path": "model/particle_screening/mobile_results.json",
-          "sha256": "1bc6b4f82be7da8365493b26e64b02aa1174fe5fd2bc66c933646852995f42e8",
+          "sha256": "4e81e87d26d9528abe1307e249601c10e3cccb65c1125b56cc63c8bb7a271563",
           "independent_check": "model/particle_screening/test_mobile_packet.py",
           "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
           "campaign_id": "mobile-screened-memory-20261029-v1"
@@ -3018,7 +3031,12 @@
         "model/defect_field_bridge/test_joint.py",
         "model/defect_field_bridge/JOINT.md",
         "model/defect_field_bridge/joint_results.json",
-        "model/defect_field_bridge/joint_results.npz"
+        "model/defect_field_bridge/joint_results.npz",
+        "model/particle_field_causality/PROOF.md",
+        "model/particle_field_preparation/PROOF.md",
+        "model/particle_ground_charged/PROOF.md",
+        "model/particle_prepared_field_readout/PROOF.md",
+        "model/particle_local_gauge_state/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -3707,7 +3725,10 @@
         "model/defect_field_interactions/packet.py",
         "model/defect_field_interactions/results.json",
         "model/defect_field_interactions/results.npz",
-        "model/defect_field_interactions/test_interaction.py"
+        "model/defect_field_interactions/test_interaction.py",
+        "model/particle_scalar_ground/PROOF.md",
+        "model/particle_prepared_field_readout/PROOF.md",
+        "model/particle_local_gauge_state/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -4592,7 +4613,9 @@
         "model/defect_field_modular/results.json",
         "model/defect_field_modular/results.npz",
         "model/defect_field_modular/source_controls.npz",
-        "model/defect_field_modular/test_modular.py"
+        "model/defect_field_modular/test_modular.py",
+        "model/particle_gravity_response/PROOF.md",
+        "model/particle_regional_geometry/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -5582,7 +5605,7 @@
       ],
       "contract": {
         "path": "model/biased_code_universality/campaign.json",
-        "sha256": "d078b2c2481d0fa895d9b6d739b181efd1c2d456be06092d10cf44c1afc433b7",
+        "sha256": "4211c651ba67b1fdb44b60befdbead01717a9a4b0dfa14e0dc1a1fe556e5b96b",
         "independent_check": "model/biased_code_universality/test_universality.py",
         "scope": "Positive-coin classification transfer proves the fixed biased optimal asymptotic reset rate across arbitrary adaptive exact all-seam sharp-q1 codes. Separate clock-factor composition is operational; finite-horizon biased optimality and particle mass remain unproved.",
         "campaign_id": "OPH-INTEGRATION-BIASED-CODE-UNIVERSALITY-2026-10-29-v1"
@@ -7077,7 +7100,7 @@
       },
       {
         "path": "model/particle_screening/mobile_results.json",
-        "sha256": "1bc6b4f82be7da8365493b26e64b02aa1174fe5fd2bc66c933646852995f42e8",
+        "sha256": "4e81e87d26d9528abe1307e249601c10e3cccb65c1125b56cc63c8bb7a271563",
         "independent_check": "model/particle_screening/test_mobile_packet.py",
         "scope": "Exact all-code moving-core law and finite-horizon optimal reset policy, attaining one reset per 150 native attempts. All 60 encoders and complete C/E recoveries compile with full-register checks and counted errors/resources; complete source histories execute motion, forced reset and identity-holonomy exchange. Recovery remains active every attempt; no localized particle, physical energy, statistics or spin is identified.",
         "campaign_id": "mobile-screened-memory-20261029-v1",

@@ -1,0 +1,153 @@
+{
+  "complete_two_intervention_volume_plan": {
+    "boundary_perturbation_norm_upper": "12481715295/68",
+    "boundary_separation_lower": 76,
+    "complete_local_history_half_trace_upper": "2444064370258263414822434710254423475683374363230009015941593322915641787409392482759072547220490180917852484148799441049207938465307604381290239308921110836924091512959751083/30591563109637497394252327954285599039846850127799746530522380533223773602559247212060678585896140800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "doubling_steps": 5,
+    "duration": "1/64",
+    "initial_state_error_included": false,
+    "initial_state_requirement": "same entire radius-R box and untouched-reference joint marginal",
+    "large_Fock_allocation_used": false,
+    "local_interventions": 2,
+    "local_operator_difference_upper": "2444064370258263414822434710254423475683374363230009015941593322915641787409392482759072547220490180917852484148799441049207938465307604381290239308921110836924091512959751083/152957815548187486971261639771427995199234250638998732652611902666118868012796236060303392929480704000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "observed_radius": 0,
+    "representation_cutoff_error_included": false,
+    "requested_accuracy": "1/1000000",
+    "source_cells": 4173281,
+    "source_radius": 80,
+    "unbounded_exterior_volume_in_bound": false
+  },
+  "cutoff_composition_example": "8251900554192536287216926395887448798883095225077423376380705761475326823941623891975931239242158690187047480256437016954269332762069394192599902256642433638552496959/69924765901515209301258174225695528182732860014093228675129104296132505336828395520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "cutoff_composition_example_errors_are_assumed": true,
+  "fixed_polynomial_control": {
+    "CAR_modes_per_cell": 60,
+    "Legendre_degree": 0,
+    "coordinate_word_degree": 1,
+    "decomposition": "actual nearest-neighbor rank30 Dirac/M15 hopping",
+    "electric_Casimir_norm_in_bound": false,
+    "maximum_term_diameter": 2,
+    "nearest_bond_norm_upper": "120/17",
+    "outer_volume_in_bound": false,
+    "plaquette_norm": "1/100",
+    "root_support_radius": 1,
+    "rooted_kinetic_norm_upper": "360/17",
+    "spacing": "1",
+    "uniform_in_polynomial_degree_claimed": false,
+    "unrestricted_onsite_even_terms_in_interaction_picture": true,
+    "weighted_local_interaction_upper": "72816/425"
+  },
+  "fixed_spacing_local_dynamics_constructed": true,
+  "general_degree_one_control": {
+    "CAR_modes_per_cell": 60,
+    "Legendre_degree": 1,
+    "coordinate_word_degree": 3,
+    "decomposition": "Hermitian polynomial stars with local trace-norm bound",
+    "electric_Casimir_norm_in_bound": false,
+    "maximum_term_diameter": 6,
+    "nearest_bond_norm_upper": null,
+    "outer_volume_in_bound": false,
+    "plaquette_norm": "1/100",
+    "root_support_radius": 3,
+    "rooted_kinetic_norm_upper": "250680/289",
+    "spacing": "1",
+    "uniform_in_polynomial_degree_claimed": false,
+    "unrestricted_onsite_even_terms_in_interaction_picture": true,
+    "weighted_local_interaction_upper": "1591918285872/7225"
+  },
+  "global_cutoff_locality_counterexample": {
+    "actual_M15_total_degree_commutator_norm_lower": "1",
+    "actual_M15_witness": "nontrivial native q6 singlet character on each of two links",
+    "compressed_commutator_norm": "1",
+    "exact_locality_of_total_degree_compression_claimed": false,
+    "parent_disjoint_shift_commutator": "0",
+    "rotor_basis": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "total_word_degree_cutoff": 1,
+    "witness_input": [
+      0,
+      1
+    ],
+    "witness_output": [
+      1,
+      0
+    ]
+  },
+  "input_sha256": {
+    "Lean/Geometry/RefiningLatticeCausalCone.lean": "b8b99907421ccf519235182a5298b0d92fdfd04ba37b6453a5717afe1015b62e",
+    "Lean/QFT/FiniteCausalObserverNet.lean": "d523da22cad68d20f67ab860d165dd7800e1b69892ab7053aaa7d761a617c626",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/full_fock_field/README.md": "58b495b0b27ab3e80f156186750a8d2a09af6bd352d444914e1775d7846decfa",
+    "model/interacting_extension/chiral_lattice/source_data.py": "b09044e27b0f9c27612b82c07888f859bb4e6220ede9f58f60ecfffd2e770665",
+    "model/particle_field_causality/PROOF.md": "0e10c9da736cf9e4fb0f352f5f05e124d5d1adb34de06f026958bad36c64131b",
+    "model/particle_field_causality/README.md": "8547e1d32182590a3ab7a96bb0b35945d50524f349f0a2c22d6a66be5e34f962",
+    "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
+    "model/particle_field_causality/__main__.py": "7604aa41848a397427e34d6157d1d5bac1eb93ad2a4016a66d33d556d8cea95e",
+    "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
+    "model/particle_field_causality/test_causality.py": "711ef6a1a120421dd855ffa45733103f5d2fddbca0fce28fb8a675867db94f3c",
+    "model/particle_observer_outputs/FIELD_ROUTE.md": "cf9b4bb50f21819f9fbc17c53ec6cb38266df01b54f73f527c97b0b2ce3f2bfb",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698",
+    "model/source_family_compatibility/LOCAL_MATTER_READOUT.md": "f75965f77281fd46c4e195dfad6c99356fba6c605dd115efecf72081eadac96e"
+  },
+  "native_bond_norm_replay": [
+    {
+      "full_Dirac_M15_Fock_bond_norm": "120/17",
+      "native_internal_dimension": 15,
+      "single_internal_Fock_norm": "8/17",
+      "spin_projector_rank": 2
+    },
+    {
+      "full_Dirac_M15_Fock_bond_norm": "120/17",
+      "native_internal_dimension": 15,
+      "single_internal_Fock_norm": "8/17",
+      "spin_projector_rank": 2
+    },
+    {
+      "full_Dirac_M15_Fock_bond_norm": "120/17",
+      "native_internal_dimension": 15,
+      "single_internal_Fock_norm": "8/17",
+      "spin_projector_rank": 2
+    }
+  ],
+  "norm_continuous_dynamics_on_all_link_BH_claimed": false,
+  "physical_particle_assignments": [],
+  "remote_complete_detector_comparison": {
+    "clock": "same Hamiltonian duration1/64 in both experiments",
+    "complete_local_record_TV_upper": "6853405236162232101191762911373538235228438024795558802878123675552676717205055981575931239242158690187047480256437016954269332762069394192599902256642433638552496959/69924765901515209301258174225695528182732860014093228675129104296132505336828395520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "detector": "complete origin-occupation PVM, or any admitted local complete instrument",
+    "distance": 32,
+    "duration": "1/64",
+    "exponential_argument": "4551/850",
+    "large_field_experiment_executed": false,
+    "normalized_graded_commutator_upper": "6853405236162232101191762911373538235228438024795558802878123675552676717205055981575931239242158690187047480256437016954269332762069394192599902256642433638552496959/69924765901515209301258174225695528182732860014093228675129104296132505336828395520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "observed_cells": 1,
+    "prepared_field": "all60 modes filled at origin; other cells empty; Haarconstant links",
+    "remote_intervention": "gauge-invariant unitary Wilson-plaquette phase at distance32",
+    "retained_failures_and_zero_outcomes": true,
+    "uncapped_normalized_bound": "6853405236162232101191762911373538235228438024795558802878123675552676717205055981575931239242158690187047480256437016954269332762069394192599902256642433638552496959/69924765901515209301258174225695528182732860014093228675129104296132505336828395520000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "schema": "oph.same_field_causality.v1",
+  "source_predicted_GeV_masses": [],
+  "source_program": "particle_observer_outputs.field_route full gauge-coordinate parent",
+  "strict_Hamiltonian_light_cone_claimed": false,
+  "uniform_refinement_or_Lorentz_boost_claimed": false
+}
