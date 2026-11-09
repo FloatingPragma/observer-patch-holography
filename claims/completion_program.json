@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "5fda2410006dd237be5d4f4aba1572b2bd05c24c4e5dd2b6f67df437d6cfc239",
+          "sha256": "fa81d0eda3c7e96d2717e2cb8300e63e731a6ed250258a7f317317f204d7c173",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. Source-derived GeV masses with declared units and capacity dependence are the active target; pure Yang-Mills and gravity are deferred. Same-source results include a scalar-odd excited eigenvalue enclosure, selected coherent and charged-pair response bands, a complete Fourier-to-canonical-H/P kernel on the retained-origin representation, and original local-unitary energy tightness. Fixed positive-energy noncollapse, nonzero joint momentum weight, resolved relativistic branches, physical species and Einstein dynamics require further proofs. Candidate calibrations and separate sources retain their domains; no downstream physical stage is promoted.",
+          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. Source-derived GeV masses with declared units and capacity dependence are the active target; pure Yang-Mills and gravity have separate requirements. The same primary source supplies a complete prepared excited-window measurement, undisturbed joint charge-transfer/energy histories, a populated checkerboard response and common unfiltered/filtered positive-energy time histories. A finite source-marginal modular response is capacity uniform. Fixed positive-energy noncollapse, nonzero joint momentum weight, relativistic branches, physical species and Einstein dynamics require further proofs. Empirical calibrations and separate sources retain their domains; no downstream physical stage is promoted.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -4189,7 +4189,23 @@
         "model/particle_primary_local_fluctuation/PROOF.md",
         "model/particle_primary_local_fluctuation/model.py",
         "model/particle_primary_local_fluctuation/test_model.py",
-        "model/particle_primary_local_fluctuation/results.json"
+        "model/particle_primary_local_fluctuation/results.json",
+        "model/particle_primary_spectral_resolution/PROOF.md",
+        "model/particle_primary_spectral_resolution/model.py",
+        "model/particle_primary_spectral_resolution/test_model.py",
+        "model/particle_primary_spectral_resolution/results.json",
+        "model/particle_primary_charged_readout/PROOF.md",
+        "model/particle_primary_charged_readout/model.py",
+        "model/particle_primary_charged_readout/test_model.py",
+        "model/particle_primary_charged_readout/results.json",
+        "model/particle_primary_staggered_response/PROOF.md",
+        "model/particle_primary_staggered_response/model.py",
+        "model/particle_primary_staggered_response/test_model.py",
+        "model/particle_primary_staggered_response/results.json",
+        "model/particle_primary_current_tail/PROOF.md",
+        "model/particle_primary_current_tail/model.py",
+        "model/particle_primary_current_tail/test_model.py",
+        "model/particle_primary_current_tail/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4953,7 +4969,39 @@
           "path": "model/particle_primary_local_fluctuation/PROOF.md",
           "sha256": "c806322ece3ae9db1d6f4e2959948e9aba6a300b2a05f2d41e632374456329d5",
           "independent_check": "model/particle_primary_local_fluctuation/test_model.py",
-          "scope": "Actual local number-phase unitaries give complete original probability measures of mass one, signed energy mean greater than (16/9)h_*>0.0615 and uniform absolute first moment at most14179/32. These unfiltered energy measures are tight and have continuous positive-energy subsequential responses. Retained-origin trimming has an explicit vanishing complete-output error. A unitary countercontrol proves that positive mean and probability tightness permit an entirely elastic limit; fixed positive-energy noncollapse, common-field attachment and mass are unproved.",
+          "scope": "Actual local number-phase unitaries give complete original probability measures of mass one, signed energy mean greater than (16/9)h_*>0.06149 and uniform absolute first moment at most14179/32. These unfiltered energy measures are tight and have continuous positive-energy subsequential responses. Retained-origin trimming has an explicit vanishing complete-output error. A unitary countercontrol proves that positive mean and probability tightness permit an entirely elastic limit; fixed positive-energy noncollapse, common-field attachment and mass are unproved.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_prepared_scalar_odd_energy_window",
+          "path": "model/particle_primary_spectral_resolution/PROOF.md",
+          "sha256": "6792b62cddd8b368d0d31a8cd7beb34da10b3e1f2276676279800eef9641f8ba",
+          "independent_check": "model/particle_primary_spectral_resolution/test_model.py",
+          "scope": "An exact rational trial in the unchanged member-zero physical A1u sector has full residual below4.947619 and encloses an actual excitation in [1.06662597,14.69223697]. An explicit physical memory preparation retains the displaced original state and reference, with at most696 extra qubits and bounded source work. Its complete clock gives original excited-window readout probability above1/4. This intervention changes the source preparation and is not attributed to the original stationary K00 law. No isolated line, spin or relativistic rest mass is identified.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_coherent_charge_transfer_energy_history",
+          "path": "model/particle_primary_charged_readout/PROOF.md",
+          "sha256": "f6e5632dff9972dc08b80bb6dc5388b33cf89c35e7d89a60ad10a8630c84d36c",
+          "independent_check": "model/particle_primary_charged_readout/test_model.py",
+          "scope": "Coherent charge uncomputation makes eight radix-five registers record native endpoint transfer0,+6,-6 while preserving every original source/reference Kraus map of the complete charged-pair two-energy history. The successful energy event above1/4 is unchanged. All49 probe labels and every clock/register outcome are retained. Premature charge measurement is explicitly shown to alter the energy law; terminal absolute charges are a different observable. Native transfer labels do not identify electromagnetic particles or mass.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_checkerboard_source_cancellation",
+          "path": "model/particle_primary_staggered_response/PROOF.md",
+          "sha256": "30e51f14b8726fdcfbef0ada42c085d17f0c4abf434725f5458748071f69f17e",
+          "independent_check": "model/particle_primary_staggered_response/test_model.py",
+          "scope": "The actual Wilson beta blocks cancel the pair-creation part of the checkerboard raising-channel hopping commutator. The unchanged selected state has original transfer weight greater than17/1280 in [3,9], final excitation weight greater than23/5120 in [3,10], and complete reported weight greater than539/40960 in [95/32,289/32]. A separately completed Hermitian quadrature has exact hopping cancellation and signed energy moment greater than531/1600. The A2g label is an operator transformation type, not a state irrep, spacetime spin or conserved physical momentum.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_common_unfiltered_filtered_time_histories",
+          "path": "model/particle_primary_current_tail/PROOF.md",
+          "sha256": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
+          "independent_check": "model/particle_primary_current_tail/test_model.py",
+          "scope": "The actual local phase generator has capacity-uniform double-commutator norm at most2025/2. Its energy-form drift is at most45/2; mixed words with the existing filtered contractions have uniform selected-state ground-relative energy first moments. A common subsequence supplies complete fixed mixed histories, strong time continuity and nonnegative GNS energy. An actual physical anchor has averaged squared absolute commutator norm at least160/a, without a selected-state variance lower bound. Spatial momentum attachment, finite-energy nonelastic survival and Lorentz interactions are unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -5286,7 +5334,11 @@
         "model/particle_primary_gravity_premises/results.json",
         "model/particle_primary_open_coframe/PROOF.md",
         "model/particle_primary_open_coframe/test_model.py",
-        "model/particle_primary_open_coframe/results.json"
+        "model/particle_primary_open_coframe/results.json",
+        "model/particle_primary_current_tail/PROOF.md",
+        "model/particle_primary_current_tail/model.py",
+        "model/particle_primary_current_tail/test_model.py",
+        "model/particle_primary_current_tail/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5662,6 +5714,14 @@
           "sha256": "d6a2b959f017fff36b91e7ec596e33480f5fa72eede6038107fb3717e720a733",
           "independent_check": "model/particle_primary_open_coframe/test_model.py",
           "scope": "A declared coframe includes the open partial-shift boundary projections and present-plane magnetic subtraction, giving H(I)=H_primary with the original energy zero and all Gauss constraints. Six physical spatial strains have full-carrier norm bounds and complete two-record mean instruments on the same selected state and reference. Dilation gives K_I=-H-H_W. This closes the periodic-to-open flat-action mismatch for the declared coupling; proper geometry, symmetric Lorentz stress, diamond kernel, area response and Einstein limits remain unproved. No uniqueness requirement is introduced.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_complete_source_marginal_modular_response",
+          "path": "model/particle_primary_current_tail/PROOF.md",
+          "sha256": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
+          "independent_check": "model/particle_primary_current_tail/test_model.py",
+          "scope": "The actual selected polynomial state obeys finite modular work bounds with relative slope defect at most1/3. Retaining the complete original origin/sign record gives source-marginal classical-quantum relative entropy divided by cooling beta greater than0.04099 and at most14175/32 at every capacity. The arbitrary idle reference is retained by the apparatus and traced out only for this entropy comparison. This is no geometric temperature, regional area response, Einstein theorem or transfer of an unbounded energy mean to the limiting representation.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

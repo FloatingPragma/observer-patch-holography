@@ -432,16 +432,19 @@
     "apparatus",
     "record"
   ],
-  "html_sha256": "1c83cc5a6c73c7b360c36d604f9b6c2fbf238e9ac032b33ee9f54ed12002ee00",
+  "html_sha256": "db03a2a11818a6c7a1eceb41e43374a39d0eb1008e92430ae7eb10c2e35e47aa",
   "input_sha256": {
     "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
     "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
     "Lean/EventAlgebra/OperationalBornBridge.lean": "34d3f92fff2f7cc78ec0353005f379b6177dd7826f24365980a05d65ae7ffcdf",
     "Lean/EventAlgebra/PublicRecordAlgebra.lean": "9301de8050611cac94a53b2d28b9b6c26d3019ede6b0c5034160696b7236fcc4",
     "Lean/EventAlgebra/Robertson.lean": "7b08a20ce5f865596fb34a1c969a7d27f5e5090ceb103eb223dd1c0b1c1c928e",
+    "Lean/Geometry/EventFrameSoldering.lean": "bdc5257d6d259d63314cc913d4a57db91e71d0ceb8cc73d92bfb3c8d17ed26af",
     "Lean/Geometry/RecordGluingPrinciple.lean": "e87595ae0ca3c1378a04cfb5b0162fe71b0c61bd5b3515469ae2c3cc39bdffaa",
     "Lean/Geometry/RefiningLatticeCausalCone.lean": "b8b99907421ccf519235182a5298b0d92fdfd04ba37b6453a5717afe1015b62e",
+    "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
     "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean": "c67b38fdcdfba970814cace25dd938d71ea0d68491f233f5bc9083c53d22d426",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean": "c56b09ad4ff85beebe2a46350d62f1606ee33e7fd038da16e4f2180d68696c8b",
     "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean": "f0631f3c7a5ed129984d8831cc957aed870a0e63a19a4dd31e0c358081d11ecc",
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
@@ -796,7 +799,7 @@
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualization_schema.py": "6e3f1c1360cc3b94fe709220677cdaa9e4177fce0a52bd8c50d854e367e5b9e2",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualizer_pack.py": "321a54b79d4b89a895f4b8d21f9611d5d68239c9886c74aa4868ceb3977aaa84",
     "extra/yang_mills_gap_clay_problem.tex": "8e6c2fe53b5458c3fff5d46010e0e612bfa4cf99cc919125763dce63434d0734",
-    "flagship/from_observer_consensus_to_standard_physics.pdf": "a40902b7089c3ea691fe7b668e143a8c90c8ea07c47233b54ae4ca84583fb847",
+    "flagship/from_observer_consensus_to_standard_physics.pdf": "bc8eddf1fe93a8fae10eb7ff402faefc81348a488b4e7ccf11ea547c581b782f",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -1468,7 +1471,7 @@
     "model/particle_atlas_horizontal/STORY.md": "1eae4400513f7c40e25e7ab8eae5524404b18ed972aa36ae83dfeea91237a57c",
     "model/particle_atlas_horizontal/THEOREMS.md": "148e0ee284874c4cfa28403c63d54641af829c6e5744ff6bc8b852927a14a997",
     "model/particle_atlas_horizontal/__init__.py": "c461591d6dece1266c8689d6dde4800fb27009e6cb2f1ff214e87e4387336d2e",
-    "model/particle_atlas_horizontal/build.py": "d0533ce9b04e9a18536bad6a67cffe638657589e770fd524906afc63356a3d6f",
+    "model/particle_atlas_horizontal/build.py": "9e61893556785b1dc65c37e80d7a8f3eff2a077ccde3120a79df26549475c56f",
     "model/particle_atlas_horizontal/common_contract.py": "c4725a34fa475c5686de46606544a80a6f7230f0edd6d3215b093f71c78707e6",
     "model/particle_atlas_horizontal/drawing.py": "46776a61c76866133059d9ea306b7f8d566526b4ea9ab445b543debe56d31323",
     "model/particle_atlas_horizontal/endpoints.py": "566104314a9495fb2269a7958f96e993fad39ee0bbccb46f444635d188655437",
@@ -1482,15 +1485,15 @@
     "model/particle_atlas_horizontal/observer_wings.py": "28c5a3df3b1819ea81479aa98114d9faf1f8d60952e0e46d6db1dbfdb33d2d6f",
     "model/particle_atlas_horizontal/operational_readouts.py": "933a457f9a86ad3fc63ce982ec40a7fc03fa2181334cd628d6e6928520093b0e",
     "model/particle_atlas_horizontal/refinement_readouts.py": "b3c2c12cb1a2617caec69bb490ced4b61d0fb7a0331af4d8771b0ed27b81c9c7",
-    "model/particle_atlas_horizontal/source_connections.py": "a85ea5d472da7907056a48e5777a3bd035803a70985b7d08197344db4a8fbf61",
+    "model/particle_atlas_horizontal/source_connections.py": "70b4c6a4b2d5671d488bb6da3ec88e76b433988f19f8834e38c689e00aea06ea",
     "model/particle_atlas_horizontal/story.json": "d65cb2a87ccb024c3891534d3a17cf67a8b2f65aa204b6510aac740906de7b7a",
-    "model/particle_atlas_horizontal/test_build.py": "be225b7c2147b8443a35d2be601036602224debe594d53116313e6dae1475beb",
+    "model/particle_atlas_horizontal/test_build.py": "402f31521f26d986b662d2896734cbb80f3dc271a9986c3ea05d59601329acde",
     "model/particle_atlas_horizontal/test_endpoints.py": "d788b8004bbe0126530958f35d8e55cf4e94cc7ef05ad9bd96e9a7da17a143cf",
     "model/particle_atlas_horizontal/test_field_nature.py": "b052ce06b95517e86ade3f3778c5ab5f7903be6c6ebc531dca939763e2a73379",
     "model/particle_atlas_horizontal/test_ground_readouts.py": "69dca55f203f78f1bc07352e9b7e9f04cbca7e7c02886ab38c70dc2e619e7336",
     "model/particle_atlas_horizontal/test_measurement.py": "37e71aedcc2956530ecb4e68dda7833ce556825bea3e5a638836de14b49540fd",
     "model/particle_atlas_horizontal/test_refinement.py": "2b260e4f53fb529ff244bc8a98d8218ce5fcf802c617f70d63b8a025d74dea40",
-    "model/particle_atlas_horizontal/test_source_connections.py": "04c0b21d89fdd0bfa054e3232115ad4ddec17926ee0cca5a966827b7c1a5a53b",
+    "model/particle_atlas_horizontal/test_source_connections.py": "b8e016dc6a0a44ff3efa543c3cc182b73a0a5e12e29d928cab16b17f4f099652",
     "model/particle_atlas_horizontal/theorems.json": "9506f36c230717979a9c0a7ff6501de17a9780a1e524d98a6270c5c4e3e08f41",
     "model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md": "2e5bb3d0e40eee2ba261568f8cf64e81ddcb650f153eb12f61559963587007c1",
     "model/particle_calibration_selection/PROOF_CLOCK_UNITS.md": "66e375091ff6ee1e6a73ab6d4abb9b96e0e79ebcf1716c2b654c7ef883b24dc3",
@@ -1636,11 +1639,11 @@
     "model/particle_identification/__init__.py": "823a83bed70c4eeefc4a0f25705906c0e678fc17ce2a89753368d23d66d6cd6f",
     "model/particle_identification/vacuum.py": "429c97bb37612bb1ab1ca48091cfd581967ae0516afcb84fcc9b65cee1fe3deb",
     "model/particle_joint_reconstruction/CANDIDATE.md": "165243a05b45f5957f7b924c1012283d0c54aadf780d90cbcb37b114eeba7052",
-    "model/particle_joint_reconstruction/DEPENDENCIES.md": "a3bfbf353ab745e45806056d8a6cfe1070dc64e240c03f7584ff189a1957d299",
+    "model/particle_joint_reconstruction/DEPENDENCIES.md": "8fe47a69bf5f1534901cb74f7e36c946f75bf18170d6582b88f29c03f6e8fd80",
     "model/particle_joint_reconstruction/POSITIVE_ENERGY.md": "03c489202231153fe39ae672362cd283be880cd627b47c94646d2a7c95ba7b8b",
     "model/particle_joint_reconstruction/__init__.py": "9d8121b692e8a537b2e50dfb8c125d1657547e0bf801bcd0e345cf34f3239517",
     "model/particle_joint_reconstruction/candidate.py": "3727f55b3e691b535350a9c47fc8cb43c01aeedf081b11e54816896e0c90e10f",
-    "model/particle_joint_reconstruction/dependencies.json": "5fda2410006dd237be5d4f4aba1572b2bd05c24c4e5dd2b6f67df437d6cfc239",
+    "model/particle_joint_reconstruction/dependencies.json": "fa81d0eda3c7e96d2717e2cb8300e63e731a6ed250258a7f317317f204d7c173",
     "model/particle_joint_reconstruction/positive_energy.py": "13b9f604ce1cc7be72fde967882865afbc442f612b0c5919bf0ea07c484aa73d",
     "model/particle_joint_translation_readout/PROOF.md": "9c06af860a5a4c177f1d27501d5ed891e222dbcea0d7748f4fead76713748f40",
     "model/particle_joint_translation_readout/README.md": "ae5b99ed4f66ef3ec253e55c50e79afce868b635d8b46a30b4a7358970e29063",
@@ -1706,7 +1709,7 @@
     "model/particle_observer_outputs/higgs_records.py": "8494d22a3d64cb3c7d88bccf4f23c80fb02b67a1924cc616f750cefecb0ea7b9",
     "model/particle_observer_outputs/holonomy_transport.py": "57581d85afbb833a887e6db1c84f32e6d1e76650d97d6ec21866775ef3b84980",
     "model/particle_observer_outputs/readout_contract.py": "33388e2c8572b3b227f504a74c6cb78ec3ed5933e9609328ba975ee8fb78451a",
-    "model/particle_observer_outputs/results.json": "5cbcf6047db05fdc54ec33232057fe6e87a3fbdd22af424bcc6f177d838ca5bd",
+    "model/particle_observer_outputs/results.json": "fe665bbd84432096f713b379d6176b6e3a12302b0c708554701416a2a815a403",
     "model/particle_observer_outputs/run.py": "29e01d2a310b256c7dac078a7c81cb3138deb580789588717863ead87f3de6fc",
     "model/particle_observer_outputs/test_bare_effective.py": "328755076e593ef0473649d8f046b239ed44be179fb7e62d4492dbaf744542d5",
     "model/particle_observer_outputs/test_charged_higgs_records.py": "76addf707a89bf1d5352ef4efc357865c4a40810d3fdca17afbefce65fdea9ed",
@@ -1747,9 +1750,18 @@
     "model/particle_primary_branch_resolution/results.json": "7fe36f80ad84653ec512e9c6eab0c6426d67717bab5a53ce015e440cf0a5f459",
     "model/particle_primary_branch_resolution/test_model.py": "221d6f890bcf1463bc9514313ca6c5422451237c95a27273676b1d8b446219bc",
     "model/particle_primary_capacity/PROOF.md": "c3ff2319ccec99731872cce6f97d8437924049ee808d3b624c2d6e206093a891",
+    "model/particle_primary_capacity/__init__.py": "80049213430999667ee1ab9378acfbcf443c9bfa8b66e8d0aff6e7ed81753b9b",
+    "model/particle_primary_capacity/capacity.py": "f72f24f938f4c566d0720d93fe10b99b8970b7cf69b5e07cb86f9ecea21469f9",
     "model/particle_primary_channel_labels/PROOF.md": "1520ea9f040a473a549cea7f92d90361be07bd32759b10891725e01385d5b270",
     "model/particle_primary_channel_labels/__init__.py": "8e049bc769eb2b350d944da25375e13407b0dedbc7778b3b6a827e2614b6df23",
     "model/particle_primary_channel_labels/channels.py": "8f08ea67ea64fd8dbe79ae76c3f69f1c5009ae3280b9c983091bc2795865f816",
+    "model/particle_primary_charged_readout/PROOF.md": "f6e5632dff9972dc08b80bb6dc5388b33cf89c35e7d89a60ad10a8630c84d36c",
+    "model/particle_primary_charged_readout/README.md": "6e5dca2258c048d88b12f66af60bc71686bf0a5ac127d650255c301af6dc9413",
+    "model/particle_primary_charged_readout/__init__.py": "a4392890f03781dfb742bef03fc0eaf00787667fda95c21a5617d0b62646b9c7",
+    "model/particle_primary_charged_readout/__main__.py": "52f5cf326fce258a5bcad54b5fa53f863bea5da355b22ce9acc8fd25c346e806",
+    "model/particle_primary_charged_readout/model.py": "3211823f83362df2b04c7c5ac6669818902d52075d96a2462c8e0f480a6f17db",
+    "model/particle_primary_charged_readout/results.json": "8c95f195d66260c61ae1ed820723c7444aba64bb8b971603aa11504b51eb8d6c",
+    "model/particle_primary_charged_readout/test_model.py": "15bd4e1245f78a5be5ff7fb767948052a24045669f8fef930de8d16eba8a7c4b",
     "model/particle_primary_charged_string/PROOF.md": "4da28bc2468ce3054f9dd3c33c44a91a90de83888d85a7f81f457c68b5e1bbf6",
     "model/particle_primary_charged_string/README.md": "62a9f5700877d05d9dba9b8658d1fa941d3e8317b5cee24993b39ebc950040a7",
     "model/particle_primary_charged_string/__init__.py": "67a2e31ac493b8519bf2f78031fd3fee13c970edee0e63b3cb1de9a78dea44f3",
@@ -1757,6 +1769,13 @@
     "model/particle_primary_charged_string/model.py": "f1aaf5b86b6f9f6a3575733022c9c4510a4c3a589a4aa3905a6a03b361041987",
     "model/particle_primary_charged_string/results.json": "000e5f3ca48f7508d77da3756219c38cd858c34ccdb18bed7005e4b3346eb115",
     "model/particle_primary_charged_string/test_model.py": "28db05cc6aabc0a6b87108974f2ef2e81b173ef790359f4e7fdfd4e6b353b314",
+    "model/particle_primary_current_tail/PROOF.md": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
+    "model/particle_primary_current_tail/README.md": "6519e896f94806be42f875ec724adee4bdfc626db9bda045f35f480f808a4a0d",
+    "model/particle_primary_current_tail/__init__.py": "67f296003a4924735cc152943722e9fcf0a226f93f95b25136c94502634a3cc2",
+    "model/particle_primary_current_tail/__main__.py": "43bfb7f632dae0d340f7879be027c0623bd6327e775b9352eabf30b5d519d245",
+    "model/particle_primary_current_tail/model.py": "fe220af59bc54dd8a811f05df8aa6433d1fc888024cbb2029877a07e6134e219",
+    "model/particle_primary_current_tail/results.json": "dff0cab1a803626249aa37528986666b83a29a24ec3d5cdca45ab07a4fbf5f01",
+    "model/particle_primary_current_tail/test_model.py": "ea0f0a317a10e77d214f136a8a28da6a7ccf3365a6e638b25548412632e83133",
     "model/particle_primary_endpoint_bounds/PROOF.md": "52f2662689c49b1149a9b6d6ed67afaa88b1de1cd2fc3bc155a1dda67ce69291",
     "model/particle_primary_endpoint_bounds/__init__.py": "7fc57cc9146cdbb394e384cea53bf0ec82d35d5499ce6610ea6dfd30bfaf6c59",
     "model/particle_primary_endpoint_bounds/endpoint.py": "d72f53fae0c40604f7d4dfb515de34f4b3e6153dde352360acf0f25b27ca0d43",
@@ -1770,8 +1789,12 @@
     "model/particle_primary_field_algebra/__init__.py": "076801719ce833650e2a40e24dd0a390e84de338b8e9333488b23c7aa9f75a87",
     "model/particle_primary_field_algebra/algebra.py": "0c00d26ae7db566ecefcaaf3ee4bf90b7aa9ca5bcb12637fc907d49bc689173a",
     "model/particle_primary_gravity_premises/PROOF.md": "7ae2e47878e03317918408c726cd8d34cea82468fabf77de9f4c62ecf757d54a",
+    "model/particle_primary_gravity_premises/README.md": "319b0b259523a254a113d27a17f06f20dbf01b98f4de02ff9d0c30a5f746f509",
     "model/particle_primary_gravity_premises/__init__.py": "df5db309bee1f8cbbc2357ef5a20c2a2a6e7aa8f36e67dd4ac72ca32da0ce72b",
+    "model/particle_primary_gravity_premises/__main__.py": "1a1b2b3230247ca69e210d5bdf30ea85283766e4dc2f732a0e7bf6ecb95d315d",
     "model/particle_primary_gravity_premises/model.py": "87b6dda9952f3733b2280125d66ce7cfc7786558bd42c7d595904876c7e05240",
+    "model/particle_primary_gravity_premises/premises.json": "8292533ed31b2b91246f83aeb08374097eb0715344e864d00be36d172dcd1739",
+    "model/particle_primary_gravity_premises/test_model.py": "1084fa5f446af3c0847c309764dc0ded87576560419a5df6735a622d3dd31507",
     "model/particle_primary_joint_spectroscopy/PROOF.md": "ed7ca07db6df70fa6fec4db5c3df7788448c3cb47316196fc8bdf2d86331dbe8",
     "model/particle_primary_joint_spectroscopy/__init__.py": "2c9dbc19bd71908f57151e2a59bb88fa531ae4a5edc2b6b36ef1a17d959c7247",
     "model/particle_primary_joint_spectroscopy/spectroscopy.py": "eff84e2e0cf960114e428f318594b697a054e2a5c27e2e6e54f4ca4542b4d3f9",
@@ -1843,9 +1866,25 @@
     "model/particle_primary_spatial_algebra/PROOF.md": "178c978079a3a06be4cd37d0bc00b82428d5ba063dc6342e1594b905245852de",
     "model/particle_primary_spatial_algebra/__init__.py": "c9edba5d397e579e4385839ba0e6a2f555e2909ff8733e609021f4f16c0bca84",
     "model/particle_primary_spatial_algebra/spatial.py": "91f922f128910986d09899d2be3ce3116a584661870ecfe40a682547171eefa3",
+    "model/particle_primary_spectral_resolution/PROOF.md": "6792b62cddd8b368d0d31a8cd7beb34da10b3e1f2276676279800eef9641f8ba",
+    "model/particle_primary_spectral_resolution/README.md": "dd86badae52bdd377b5d5396276cd6de93605f35b8476cd4d2acd1fa33b0f320",
+    "model/particle_primary_spectral_resolution/__init__.py": "2245fdc8e835917772a45f72cbe421553f58a482d5f4e6259abfb5a1506c010e",
+    "model/particle_primary_spectral_resolution/__main__.py": "f93ef73bbf7842d96c5b1ae45de6d3efd2015da65bb467241ef1d1df02fddcef",
+    "model/particle_primary_spectral_resolution/model.py": "b01c342a70c4ba021df57b5b722927c0877363b5417095854d66dee05ee51107",
+    "model/particle_primary_spectral_resolution/results.json": "ce388864beeaff445bb474b2088353dcb334b49332698f7f1ddc782096d7bdd5",
+    "model/particle_primary_spectral_resolution/test_model.py": "7cf5e77cc8bc462df9ff4ba076e8378390fe06cc72f7b14eef44354cab35bb15",
     "model/particle_primary_spectral_scale/PROOF.md": "3264d7231cea098d4fd80381c6e96d51317c5335b3f7ed73bf95981e3364fd2d",
     "model/particle_primary_spectral_scale/__init__.py": "774f79817563f616dc60c237a1ffd8ac0d07e1994cb16ae67d23b86f3ef8bc98",
+    "model/particle_primary_spectral_scale/__main__.py": "4c95ef82a8c6c5c43065fc03438abfea05d9d7eb7198053bc542e54a432078bb",
     "model/particle_primary_spectral_scale/scale.py": "163a252de4709a9ce781981ca5b145a983c054b75d544b16dfc96b2b0de526c0",
+    "model/particle_primary_spectral_scale/test_scale.py": "e8d598fff2e4b50f7813684af82e4512c3f57ba68e33b87cdf491398f63bf2af",
+    "model/particle_primary_staggered_response/PROOF.md": "30e51f14b8726fdcfbef0ada42c085d17f0c4abf434725f5458748071f69f17e",
+    "model/particle_primary_staggered_response/README.md": "f8126da0e0451e29c89fa5e8a02dc2e4bc3c94594a720025705098db0ca01d20",
+    "model/particle_primary_staggered_response/__init__.py": "4e55508ffa303ea010b7c4a060cb85d6eee43807b25e1b59b503ca5de4bbcd82",
+    "model/particle_primary_staggered_response/__main__.py": "2d09e02476f49285371f78a5bad52dabaa5fd95c010422ce19580a3ecf658d4d",
+    "model/particle_primary_staggered_response/model.py": "d51d52b8886173b9e688dfa7f879aa53129a0b02ec0cc3683b1a1d8bfea4fb32",
+    "model/particle_primary_staggered_response/results.json": "675c84f69bca8c253706e4e392f62edac9e352f6583e088cdb326871cc067618",
+    "model/particle_primary_staggered_response/test_model.py": "8d1476b9ad85244c8260c37541a2ed8b20ad41e1ea8b71076b7bb5ff7e2cdfef",
     "model/particle_primary_stress/PROOF.md": "763e27a30d59679b389ca56e4340ca62c75ac54c88f78e8d3a5afcb60eaf0ddd",
     "model/particle_primary_stress/__init__.py": "5d87ae127d06c1f718ae8af1ecd6e31fcf3532e1171683b1beaef0ea2cdbfce0",
     "model/particle_primary_stress/stress.py": "5fd9a908ba4a4cf9eb9c1a2364d4c23e76aa19b8864f004a8b701832e1bc84e9",
@@ -2327,7 +2366,7 @@
     "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
     "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "7f66825d059e17b6f5005313e51ea86d3217380cd24cb93f7a48a89b4a493c44",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "33a4fc04114a02c3e762918722b8e6fee575017b10c3f028fe2b10bdf3d9a859",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "eb1620c9567d1ee0c3af334a2982a703880db363f89e97814b0643610e6413ce",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "bd57672e8c9c4080ee552eeac57a2fea42d16eec633472c4116f86909465df97",
     "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077",
     "paper/tex_fragments/CHARGED_DEFECT_PROTECTED_ALGEBRA.tex": "47eda5d53e9ce9229918c8e159249e7fb07a74b55dce0051cfb5f4ba004d4eff",
@@ -4130,6 +4169,70 @@
       "schema": "oph.primary_local_fluctuation_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1573
+    },
+    {
+      "member_result_bindings": [
+        {
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "result_sha256": "9ec243bd43b9686d575a934b5afd0da1b2a367e6a8a05a158c7347f79d867c86"
+        }
+      ],
+      "path": "model/particle_primary_spectral_resolution/results.json",
+      "receipt_sha256": "ce388864beeaff445bb474b2088353dcb334b49332698f7f1ddc782096d7bdd5",
+      "schema": "oph.primary_spectral_resolution_certificate.v1",
+      "scientific_experiments_replayed_by_atlas": false,
+      "source_pin_count": 1571
+    },
+    {
+      "member_result_bindings": [
+        {
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "result_sha256": "93cf13861c7c96242f80bdbd5cfc9748bb76a6a417ef3fba4da79966435fdb94"
+        }
+      ],
+      "path": "model/particle_primary_charged_readout/results.json",
+      "receipt_sha256": "8c95f195d66260c61ae1ed820723c7444aba64bb8b971603aa11504b51eb8d6c",
+      "schema": "oph.primary_charged_readout_certificate.v1",
+      "scientific_experiments_replayed_by_atlas": false,
+      "source_pin_count": 1561
+    },
+    {
+      "member_result_bindings": [
+        {
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "result_sha256": "560726a685bd2223368c5eb2df84b873c7178f214b6cda5ee0aba8935fe8c9e4"
+        }
+      ],
+      "path": "model/particle_primary_staggered_response/results.json",
+      "receipt_sha256": "675c84f69bca8c253706e4e392f62edac9e352f6583e088cdb326871cc067618",
+      "schema": "oph.primary_staggered_response_certificate.v1",
+      "scientific_experiments_replayed_by_atlas": false,
+      "source_pin_count": 1563
+    },
+    {
+      "member_result_bindings": [
+        {
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "result_sha256": "64e686f33622dfa1bde1c76f90def1988cc1764fa6c5603a135a935be0a2cf1a"
+        },
+        {
+          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+          "result_sha256": "3a92d1bbf4e51323fed39850813d4a749b565aa42844dc9dcbc17e2696c9b0d5"
+        },
+        {
+          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
+          "result_sha256": "e7464c2722bb3aebac4ff7895600a972f3bed0e531ec0b3857ab8481735e1ef9"
+        },
+        {
+          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
+          "result_sha256": "7bc2800c5ccd1af7ba2d84e0f37614d5a8389e169b6366fc868fccfa415e9646"
+        }
+      ],
+      "path": "model/particle_primary_current_tail/results.json",
+      "receipt_sha256": "dff0cab1a803626249aa37528986666b83a29a24ec3d5cdca45ab07a4fbf5f01",
+      "schema": "oph.primary_current_tail_certificate.v1",
+      "scientific_experiments_replayed_by_atlas": false,
+      "source_pin_count": 1598
     }
   ],
   "primitive_endpoint_illustration": {
@@ -4272,7 +4375,7 @@
   "schema": "oph.horizontal_particle_atlas.v2",
   "source_physical_identifications": [],
   "source_scientific_experiments_replayed": false,
-  "svg_sha256": "ad17ec91b70219ebbbf31c1151668da0d8f8c45dcee3734ff300fabda1e2b192",
+  "svg_sha256": "66068f0a05159dc2567b5d9899220a436655ea079bea04a2541220e4c0c31ae6",
   "unified_dependency_status": {
     "chiral_species_attachment": "physical_proof_required",
     "fixed_program": "finite_constructed",

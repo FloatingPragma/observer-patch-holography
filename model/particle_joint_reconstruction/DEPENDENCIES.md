@@ -44,7 +44,7 @@ the coupled matter source merely by sharing those node names.
 | 1. Fixed program | The [common contract](../particle_common_contract/PROOF.md) fixes the open Wilson action, all sixty modes per cell, product link cutoff, Gauss boundary condition, polynomial preparation, conjugate reference and `exp(-itH)`. It authenticates the finite inputs and separates architecture from empirical calibration. | Finite specification constructed. No uniqueness theorem for the architecture is required. |
 | 2. Physical preparation | The [physical Gauss preparation](../particle_gauss_ground_state/PROOF.md) and [boundary-state theorem](../particle_physical_boundary_state/PROOF.md) construct the actual selected state, deterministic preparation and complete boundary-charge measurement. Eleven Wilson-loop/blank witnesses have strictly positive weight; all charge outcomes are retained. | Finite construction established. Full spatial execution and compatibility between refinement levels are separate claims. |
 | 3. Local records | The [complete filtered apparatus](../particle_filtered_probe/PROOF.md) supplies distinct LCU/Ramsey and square-root effect instruments with error bounds. The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. Fixed finite effect histories converge on the common subsequence below; growing reference outputs and the full particle-detector repertoire are separate requirements. |
-| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md), stationary subsequential state, positive-energy GNS and fixed finite pointer-history limits are constructed. Noncollapse, charge tightness, effective errors and a full field dictionary remain unproved; fixed-regulator results are not silently composed. |
+| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md) and [mixed phase/filtered history construction](../particle_primary_current_tail/PROOF.md) supply one stationary subsequential state, continuous positive-energy GNS time and fixed finite pointer-history limits. Nonelastic survival, charge tightness, effective errors and a full field dictionary require proof; fixed-regulator results retain their domains. |
 | 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. The [retained-origin domain](../particle_primary_origin_momentum/PROOF.md) supplies a translation-invariant relative state with strongly commuting canonical H>=0 and P. The [complete Fourier transfer](../particle_primary_momentum_transfer/PROOF.md) attaches regular-probe records to canonical joint spectral kernels. Nonzero joint response, Lorentz covariance and a surviving interaction are unproved; fixed-origin invariance is not asserted. |
 | 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | Conditional finite representation and action results are available. Their physical chiral continuum, vacuum and source attachment are unproved. |
 | 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | The [source energy transport theorem](../particle_primary_mass_readout/PROOF.md) connects original transition weights to final ground-relative excitation and supplies conditional rest intervals. Actual momentum-resolved shells, species and a full physical spectrum remain unproved. |
@@ -127,8 +127,14 @@ actual source locality estimate gives filtered spatial commutation, with
 the temporal support of both filters retained. Complete fixed finite effect
 histories and their finite pointer densities converge on that same
 subsequence. This is stronger than separate two-point response limits.
-It supplies neither a growing-reference limit nor a nontrivial physical
-field, an effective subsequence, spatial translations or Lorentz symmetry.
+The [mixed-history extension](../particle_primary_current_tail/PROOF.md)
+adjoins the actual local phase operations. Their uniform energy-form bound,
+together with the fixed-filter commutator estimate, controls every fixed
+mixed word and its real-time continuity. One subsequence therefore carries
+both probe families and complete finite histories with nonnegative GNS
+energy. This supplies no growing-reference trace-norm limit, nonelastic
+field, effective subsequence rate or Lorentz symmetry. Spatial momentum
+for these unfiltered phase fields requires its own attachment.
 
 The [filtered apparatus](../particle_filtered_probe/PROOF.md) specifies
 complete finite records using the declared coherent source interface.
@@ -176,9 +182,10 @@ constructions used at each step.
 The active target is an actual source-derived mass output, with permitted
 declared SI conversion. Nodes9 and10 are separate deferred branches.
 For the current primary family the unresolved shared physical questions
-are a fixed-band excitation with uniform original weight, operational
-momentum on the selected representation, and a same-branch
-relativistic spectral relation. Spin/current/statistics and interaction
+are a populated resolved finite branch with operational momentum and a
+controlled same-branch relativistic spectral relation. A continuum claim
+also needs a fixed physical band with uniform original weight.
+Spin/current/statistics and interaction
 matching then determine whether that branch is a named particle.
 The retained-origin construction supplies canonical vacuum-fixing GNS momentum
 on its explicit relative-observation algebra. The fixed-origin source state
@@ -300,19 +307,28 @@ Gravity is separate from the first finite mass comparison.
 The [concentrated member-zero pair response](../particle_primary_branch_resolution/PROOF.md)
 has original weight at least3/20 in [4,8], fixed-time real correlation below
 -3/8 at time1/2, and complete recorded weight at least9/64 in
-[63/16,129/16]. The [full-complement odd calculation](../particle_primary_odd_residual/PROOF.md)
-bounds the scalar-odd trial residual by 5.365163597 and certifies some
-actual A1u excitation in [0.54794769,15.00864937]. This is neither a global
-gap nor an isolated branch. The selected-state coherent operator separately
-has original transfer weight above 5/1024 in [3/4,45/4] and final excitation
-weight above 1/2048 in [3/4,53/4]. A spectral attachment between this response
-and the trial's certified level requires proof; overlapping intervals do
-not provide it. A difference of trial energy uppers is not a mass.
+[63/16,129/16]. The [physical A1u construction](../particle_primary_spectral_resolution/PROOF.md)
+uses the full omitted-space residual below 4.947619 to certify some actual
+A1u excitation in [1.06662597,14.69223697]. An explicit Householder and
+graded exchange prepare that trial while retaining the original state and
+reference correlations in identical physical memory. One complete energy
+clock reports a window above the ground upper with probability above 1/4.
+The ready memory, state change and source work are explicit; no autonomous
+controller is inferred. This attaches a finite prepared-state measurement
+to an excited spectral window without claiming an isolated level or
+transferring that probability to the original mixed-state coherent probe.
 
-The [charged-string construction](../particle_primary_charged_string/PROOF.md)
-provides complete physical records for opposite local Q6 increments,
-with original transfer weight above 3/10 in [39/4,135/4]. Its pair is
-fermion-parity even and has no assigned physical spin or particle name.
+The [coherent checkerboard calculation](../particle_primary_staggered_response/PROOF.md)
+uses a Wilson commutator cancellation on the unchanged selected state.
+Its original A2g-operator response has weight above 17/1280 in [3,9], with
+complete reported weight above 539/40960 in [95/32,289/32]. The label is
+neither continuum spin nor a proved physical momentum. The
+[charged-transfer construction](../particle_primary_charged_readout/PROOF.md)
+adds alias-free native increment records to the charged pair's same
+49-outcome energy history without measuring its initial charges. Original
+charged-pair success weight above 3/10 in [39/4,135/4] and reported weight
+above 1/4 in [77/8,271/8] are preserved. This even pair has no assigned
+physical spin, electromagnetic charge or particle name.
 The [coherent Fourier transfer](../particle_primary_momentum_transfer/PROOF.md)
 connects finite regular-probe records to joint H/P sinc-squared kernels
 on the same relative state. Its operator and apparatus errors are explicit;
@@ -328,9 +344,14 @@ window, together with its same-channel momentum and dispersion. The
 [bounded local Weyl response](../particle_primary_local_fluctuation/PROOF.md)
 closes uniform probability tightness for an actual unfiltered local
 apparatus: total mass is one, the absolute first moment is at most 14179/32,
-and the injected-energy mean is above 0.0615. Its limit may nevertheless
-be entirely elastic. Uniform integrability or a direct positive-window
-bound must exclude that case before a particle interpretation.
+and the injected-energy mean is above 0.06149. Its limit may nevertheless
+be entirely elastic. The mixed-history energy theorem supplies its common
+continuous time and complete fixed finite histories with the filtered
+probes; it does not force nonelastic survival. Uniform integrability or a
+direct positive-window bound must exclude an elastic limit before a
+continuum particle interpretation. The selected weighted current covariance,
+rather than an absolute operator-norm estimate, is one sufficient route:
+the actual anchor's origin-averaged squared commutator norm is at least 160/a.
 
 The same selected preparation has hopping density
 `-a <H_hop>/V >0.0345`. The exact density double commutator gives a

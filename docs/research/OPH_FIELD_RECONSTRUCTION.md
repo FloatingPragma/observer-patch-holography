@@ -7,9 +7,10 @@ and its [machine-readable acceptance conditions](../../model/particle_joint_reco
 are the single ten-node construction map. The active target is source-derived
 particle masses in declared SI/GeV comparison units, with capacity dependence
 explicit. Nodes 1-3 establish the finite program, physical preparation and
-complete local apparatus. Nodes 4-8 include a positive-energy filtered
-algebra, finite original-weight energy bands and transfer-to-excitation
-transport. A retained observation origin gives a translation-invariant
+complete local apparatus. Nodes 4-8 include a common positive-energy
+algebra of filtered probes and local phase operations, finite complete
+energy records and transfer-to-excitation transport. A retained observation
+origin gives a translation-invariant
 relative-observation limit with commuting energy and momentum generators.
 Nonzero momentum response, dispersion, species and mass identification
 require further spectral control. The primary physical-mass table in GeV
@@ -47,7 +48,7 @@ filtered algebra are available. The following work order expands nodes
 
 | Order | Required mass-readout connection | Existing result and remaining condition |
 | --- | --- | --- |
-| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | Member zero has populated neutral and opposite-endpoint-charge bands. The full-complement A1u trial certifies some actual excitation in [0.54794769,15.00864937]; the separate selected-state coherent probe has original positive-band weight. Isolation, residue attachment to that eigenvalue and dispersion require further calculation; a continuum claim also needs uniform survival. |
+| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | Member zero has populated neutral, coherent checkerboard and opposite-endpoint-charge bands. A complete prepared-trial apparatus gives reported A1u energy-window weight above 1/4, retaining the original state in physical memory; some actual A1u excitation lies in [1.06662597,14.69223697]. Isolation and same-channel dispersion require further calculation; a continuum claim also needs uniform survival. |
 | 2 | Attach momentum to the same source, state and clock. | One retained observation origin supplies commuting canonical H>=0 and P. Complete coherent Fourier records converge to their sinc-squared kernels on the regular probe domain, with explicit apparatus errors. Nonzero joint weight and a state-subsequence convergence rate are unproved; fixed-origin invariance is not assumed. |
 | 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
 | 4 | Identify the propagating particle channel. | The proved plaquette and pair channels are gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
@@ -224,24 +225,53 @@ time contrast, not proof of a single spectral line or a threshold onset.
 Its experiment averages local addresses; the weight is not assigned to
 an individual coherent A1u component.
 
-A separate twelve-vector physical A1u trial has odd-sector energy upper
-bound about -717.8547. The
-[exact odd residual calculation](../../model/particle_primary_odd_residual/PROOF.md)
-retains the complete omitted space and bounds its residual by 5.365163597.
-Together with the full-source ground enclosure, this proves that some
-actual A1u excitation lies in [0.54794769,15.00864937]. It is neither
-a global gap bound nor an isolated spectral line. The difference 5.913111
-between two variational upper bounds is not used as an excitation energy.
+The [physical A1u spectral construction](../../model/particle_primary_spectral_resolution/PROOF.md)
+uses twelve source packets with exact rational coefficients. Its center is
+approximately -717.753576 and its full-complement residual is below 4.947619.
+The ground enclosure therefore places some actual A1u excitation in
+`[1.06662597,14.69223697]`. The residual includes every omitted direction;
+it is not the residual of the small compressed matrix alone. Neither this
+enclosure nor a difference of variational energy uppers is a mass.
 
-The same proof separately bounds the selected-state response of the
-coherent scalar operator \(K=T/(16\sqrt2)\). A full-Fock form bound gives
-original transfer weight above 5/1024 in [3/4,45/4] and final excitation
-weight above 1/2048 in [3/4,53/4]; complete clocks retain at least 39/8192
-in [23/32,361/32]. This operator has type A1u. Its mixed initial and
-final states need not have that type, and its interval's overlap with the
-trial enclosure does not identify the same spectral level. A mass requires
-the original-weight branch, its momentum/dispersion and physical channel
-assignment, with errors on the claimed finite domain.
+The trial has a complete physical preparation and spectral-window readout.
+An identical memory starts in the declared filled-negative-beta,
+constant-link anchor. An admitted Householder prepares the trial there;
+a graded exchange places it on the source and retains the original source
+state and its reference correlations in that memory. The source Hamiltonian,
+energy reference and clock stay fixed, while the source marginal changes
+by this apparatus intervention. The exchange preserves the combined source
+and memory occupations. The extra memory allocation uses at most 696 qubits, and mean
+source work lies in `[5.95174423,9.74461872]` source units. Ready memory and
+controlled gates are explicit resources; no autonomous energy-conserving
+controller or efficient gate compilation is inferred.
+
+In that prepared state the spectral interval of radius 23/4 around the
+trial center has weight above 137/529. One complete finite energy clock,
+with all outcomes retained, reports its radius-widened interval with
+probability above 1/4; even its lower endpoint is more than 0.2486 above
+the authenticated ground upper. This is a detected excited A1u window on
+the prepared state. It does not assign that weight to one isolated line.
+
+On the original selected state the
+[coherent scalar response](../../model/particle_primary_odd_residual/PROOF.md)
+`K=T/(16 sqrt(2))` instead has original transfer weight above 5/1024 in
+`[3/4,45/4]`, final excitation weight above 1/2048 in `[3/4,53/4]`, and
+complete reported weight at least 39/8192 in `[23/32,361/32]`. Its mixed
+initial and final states need not have the A1u operator's type. These
+probabilities and the prepared trial's probabilities belong to distinct
+experiments; overlap of their intervals does not identify a common line.
+
+The [checkerboard response](../../model/particle_primary_staggered_response/PROOF.md)
+uses `w_x=(-1)^(x1+x2+x3)` in the native charge-six pair operator. Opposite
+weights on adjacent sites cancel the pair-creation part of its Wilson
+commutator. The actual selected-state defect bound gives original transfer
+weight above 17/1280 in `[3,9]` and final excitation weight above 23/5120 in
+`[3,10]`. Complete two-clock records retain weight above 539/40960 in
+`[95/32,289/32]`. Its A2g label is an operator representation; the finite
+checkerboard pattern is not an attached conserved momentum or a fixed
+physical wavevector under refinement. The Hermitian partner's signed first
+moment exceeds 531/1600, without identifying a particle or a mass.
+
 The [retained-penalty bound](../../model/particle_primary_branch_resolution/PROOF.md)
 excludes isolation certification by optimizing the retained onsite/electric
 fractions in its Schur-bound family against the authenticated
@@ -259,7 +289,15 @@ and the failure are retained. Original member-zero transfer weight
 exceeds 3/10 in [39/4,135/4]. The instrument is gauge invariant and
 fermion-parity even, so this result identifies a charged endpoint pair,
 not a single charged fermion, continuum spin or measured electromagnetic
-charge. An initial local-charge readout has its own disturbed-state law.
+charge. The [coherent charge-transfer meter](../../model/particle_primary_charged_readout/PROOF.md)
+uses two controlled couplings to record the admitted increments without
+first measuring absolute charges. A radix-five counter at each cell
+separates `{-6,0,+6}`; the meter preserves each original energy/probe
+history, including failures and quantum reference correlations. The
+charged-pair success event keeps original weight above 3/10, and reported
+weight above 1/4 in `[77/8,271/8]`. Arbitrary charge changes are outside
+this alphabet. A terminal absolute-charge measurement has its own
+back-action, and an initial charge measurement has a disturbed-state law.
 
 The [momentum-transfer construction](../../model/particle_primary_momentum_transfer/PROOF.md)
 attaches complete coherent aperture records to the canonical joint spectral
@@ -278,7 +316,7 @@ The [local Weyl construction](../../model/particle_primary_local_fluctuation/PRO
 provides a distinct bounded probe with a fixed physical tent radius:
 \(\exp(\pm i\pi a\sum_y f_R(y-X)(N_y-30))\), where \(R=1/a\).
 It retains the origin and sign. The source-state hopping bound forces
-mean injected energy above 0.0615 uniformly, while the original absolute
+mean injected energy above 0.06149 uniformly, while the original absolute
 first moment is at most 14179/32. Its unfiltered probability responses
 are therefore tight and have continuous positive-energy subsequential
 limits of total mass one. Boundary-wrapped apparatus profiles are removed
@@ -286,14 +324,60 @@ on the same retained-origin menu with explicit full-reference error.
 The limit may be entirely elastic: a first-moment floor does not supply
 uniform integrability or a nonzero fixed positive-energy residue.
 
-The immediate calculations are an omitted-space or spectral-window bound
-that resolves the selected coherent scalar response, a populated energy-momentum
-kernel for that same operator, and controlled dispersion over the
-comparison range. The charged endpoint apparatus requires its own
-physical spin/current and infrared attachment. The Weyl route requires
-nonelastic survival before it can supply a continuum particle field.
-None of these steps requires geometric gravity as an input to the first
-finite-capacity mass comparison.
+The [mixed-history construction](../../model/particle_primary_current_tail/PROOF.md)
+places these unfiltered phase operations and the fixed-time-filtered
+physical probes in one common positive-energy representation. Its exact
+source double-commutator bound is 2025/2. For any fixed mixed word W with
+k phase factors and filter times T_j, the energy-root drift is bounded by
+`D_W=45k/2+sum_j 2 sqrt(2/T_j)`. With the selected mean excess epsilon,
+`Tr rho W* (H-E0) W <= (sqrt(epsilon)+D_W)^2`. This controls original
+absolute energy first moments and state-weighted time continuity on the same
+source, state and clock.
+
+One subsequence consequently supplies all finite mixed real-time words,
+a strongly continuous canonical time group with nonnegative energy, and
+complete fixed finite pointer histories. The proof retains the source
+marginal/reference distinction and does not assert a trace-norm limit of
+the growing reference. Spatial continuity for these unfiltered fields,
+an effective subsequence rate and nonelastic survival need their own
+estimates. A physical anchor gives an origin-averaged squared commutator norm lower
+bound of 160/a, so a uniform absolute operator-norm estimate cannot replace the
+selected energy-form method.
+
+A sufficient **unproved** survival estimate uses that same source marginal
+and complete origin/sign apparatus. Put \(K_n=H_n-E_{0,n}\), let \(\mu_n\)
+be its original energy-transfer measure, and set \(m=(16/9)h_*>0\).
+For one fixed \(E>m/4\), require, for every sufficiently large member,
+\[
+ R_n(E):=\frac1{2V_n}\sum_{X,\sigma}
+ \operatorname{Tr}\!\left[\rho_n U_{X,\sigma}^{\dagger}
+ K_n\mathbf1_{(E,\infty)}(K_n)U_{X,\sigma}\right]
+ \le\frac m4.
+\]
+Ground subtraction is only in this estimate; the source clock and energy
+records are unchanged, and the apparatus retains the idle reference.
+Initial ground-relative energy is nonnegative, so
+\(\int_{\omega>E}\omega\,d\mu_n\le R_n(E)\). Splitting the proved
+signed mean floor across low energies, the fixed band and this tail gives
+\[
+ m\le\frac m4+E\mu_n([m/4,E])+R_n(E),
+ \qquad \mu_n([m/4,E])\ge\frac{m}{2E}.
+\]
+A fixed triangular time filter with \(TE\le1\) retains at least half
+this original band weight, without success normalization. This sufficient
+criterion assumes no uniform second moment and is weaker than proving
+one. The energy-form bound does not supply the required weighted tail;
+the [elastic-limit control](../../model/particle_primary_current_tail/PROOF.md#6-the-physical-boundary)
+shows why positive mean and probability tightness do not suffice.
+
+The mass calculation therefore needs a resolved populated branch and
+momentum/dispersion for the same apparatus domain. The explicit prepared
+A1u window supplies a finite excited-state experiment; the coherent
+checkerboard and charged-transfer records keep their original selected-state
+laws. Their physical spin/current and species assignments are separate
+conditions. For a continuum particle field the local phase route needs
+nonelastic survival in its common history representation. None of these
+conditions requires geometric gravity for a finite-capacity comparison.
 
 For the Weyl route the missing estimate can be stated as a selected-state
 current correlation. Write the dimensionless hopping current on bond b as
@@ -321,13 +405,11 @@ on \(\|\Gamma_n\|\) gives only an \(O(1/a)\) estimate. A uniform second
 moment needs stronger suppression on these smooth-gradient modes;
 vacuum-vector Haar moments cannot replace the selected expectation.
 
-A weaker sufficient target is one fixed E with
-\(\sup_n\int_{\omega>E}\omega\,d\mu_n\le m/4\), where
-\(m=(16/9)h_*>0\). The mean floor then implies original weight at least
-\(m/(2E)\) in \([m/4,E]\). A fixed triangular time filter with
-\(TE\le1\) preserves at least half of that weight, without success
-normalization. The tail estimate is a requirement, not a supplied bound.
-A fixed filter alone cannot prevent the elastic-limit counterexample.
+The source-marginal tail criterion above avoids requiring this stronger
+second-moment bound. A certified
+[fixed-time correlation contrast](../../model/particle_positive_window/PROOF.md)
+is a separate sufficient witness; a fixed filter alone cannot prevent
+the elastic-limit counterexample.
 
 The [complete joint spectrometer](../../model/particle_primary_joint_spectroscopy/PROOF.md)
 records an initial source energy, all spatial Fourier outcomes, and a final
@@ -462,8 +544,11 @@ Continuous functional calculus supplies complete finite effect instruments
 on this algebra. Every fixed finite history and its finite pointer density
 converge on the same subsequence. This does not prove convergence of the
 joint state with the growing canonical reference or completeness of an
-infinite fixed-charge menu. The algebra can represent its chosen probes
-as scalars or zero. Nonzero finite-energy fields, Lorentz covariance,
+infinite fixed-charge menu. The [energy-form extension](../../model/particle_primary_current_tail/PROOF.md)
+includes all fixed mixed histories of the local phase operations and these
+filtered probes on one common continuous positive-energy time representation.
+The algebra can represent its chosen probes as scalars or zero. Nonzero
+finite-energy fields, Lorentz covariance,
 surviving interactions and controlled physical renormalization are
 additional conditions of nodes 4-5.
 

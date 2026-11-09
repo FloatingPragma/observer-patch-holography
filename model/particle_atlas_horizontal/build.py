@@ -32,12 +32,16 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_energy_tightness', 'particle_primary_origin_momentum',
     'particle_primary_open_coframe', 'particle_primary_charged_string',
     'particle_primary_odd_residual', 'particle_primary_momentum_transfer',
-    'particle_primary_local_fluctuation'))
+    'particle_primary_local_fluctuation', 'particle_primary_spectral_resolution',
+    'particle_primary_charged_readout', 'particle_primary_staggered_response',
+    'particle_primary_current_tail'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
     'particle_primary_charged_string', 'particle_primary_odd_residual',
-    'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation'))
+    'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation',
+    'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
+    'particle_primary_staggered_response', 'particle_primary_current_tail'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -224,6 +228,10 @@ def reader(svg,data):
         ('particle_primary_odd_residual','An actual odd excitation enclosure and a separate coherent original-state response'),
         ('particle_primary_momentum_transfer','Complete coherent-offset records and joint energy/momentum sinc kernels on the relative-observation domain'),
         ('particle_primary_local_fluctuation','Bounded local unitary fluctuations with original energy tightness and an allowed elastic limit'),
+        ('particle_primary_spectral_resolution','Prepared physical A1u energy window with original probability above one quarter and retained displaced state'),
+        ('particle_primary_charged_readout','Coherent five-state meters join opposite charge transfers to original complete energy records'),
+        ('particle_primary_staggered_response','Actual Wilson cancellation and populated coherent A2g energy bands on the selected state'),
+        ('particle_primary_current_tail','Energy-form control joins unfiltered phase probes and filtered fields on common positive-energy time dynamics'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

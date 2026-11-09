@@ -13,7 +13,11 @@ particle species or certify a gap.
 The [common filtered algebra](../particle_primary_field_algebra/PROOF.md)
 constructs one stationary subsequence for all finite physical words,
 a continuous time group, nonnegative canonical GNS energy and limits of
-complete fixed finite detector histories. The [apparatus construction](../particle_filtered_probe/PROOF.md)
+complete fixed finite detector histories. The
+[mixed-history energy bound](../particle_primary_current_tail/PROOF.md)
+includes unfiltered local phase operations in that common positive-energy
+time representation, with uniform bounds for every fixed mixed word.
+The [apparatus construction](../particle_filtered_probe/PROOF.md)
 keeps the LCU success effect distinct from a square-root effect readout.
 The [positive-window criterion](../particle_positive_window/PROOF.md)
 provides a quantitative test for a surviving excitation in a fixed band.
@@ -134,24 +138,35 @@ This declared coupling does not identify proper geometry. The finite Einstein th
 its proper metric, diamond kernel, area and common limiting-error premises.
 Gravity is separate from the first finite mass comparison.
 
-The [scalar-odd spectral calculation](../particle_primary_odd_residual/PROOF.md)
-certifies some actual member-zero A1u excitation in
-[0.54794769,15.00864937], with full-space residual at most 5.365163597.
-Its separate selected-state coherent probe has original positive-band
-weight; that weight is not assigned to the trial's eigenvalue. An isolated
-branch and controlled momentum/dispersion are the next mass inputs.
+The [physical A1u preparation](../particle_primary_spectral_resolution/PROOF.md)
+retains the original state and reference correlations in an identical
+physical memory while placing an explicit trial on the source. Its complete
+energy readout has probability above 1/4 in a window entirely above the
+ground upper. The full residual is below 4.947619; some actual A1u excitation
+lies in `[1.06662597,14.69223697]`. This is a specified intervention, with
+ready-memory and work costs, rather than a spectral weight assigned to the
+original mixed-state probe. An isolated branch and dispersion require proof.
 
-The [charged-endpoint apparatus](../particle_primary_charged_string/PROOF.md)
-creates opposite local Q6 increments joined by one quantum-link character.
-Its complete physical records have original weight above 3/10 in
-[39/4,135/4]. This even pair operator is not a single fermion, and no
-continuum spin or Standard Model name is assigned.
+The [checkerboard pair response](../particle_primary_staggered_response/PROOF.md)
+uses an exact Wilson hopping cancellation on the unchanged selected state.
+Original transfer weight in `[3,9]` exceeds17/1280; complete reported weight
+in `[95/32,289/32]` exceeds539/40960. Its A2g operator label does not
+establish continuum spin or conserved momentum.
+
+The [coherent charged-pair meter](../particle_primary_charged_readout/PROOF.md)
+records opposite native charge increments while preserving the original
+49-outcome energy/probe law. Two couplings cancel unknown initial charges
+without measuring them. The charged-pair success band keeps weight above 3/10
+in `[39/4,135/4]`; complete clocks keep weight above 1/4 in `[77/8,271/8]`.
+This even pair operator has no assigned physical spin or particle name.
 
 The [local Weyl apparatus](../particle_primary_local_fluctuation/PROOF.md)
-uses bounded phase operations on a fixed physical region. Its original
-unit-mass response has a uniformly bounded absolute energy moment and
-positive injected-energy mean, without a temporal filter. These measures
-are tight, but their limits may be purely elastic. Nonelastic survival is
-a separate condition. The global density normalization tested in the
-[number-density sum rule](../particle_primary_energy_tightness/PROOF.md)
-loses every fixed positive-energy band; neither result supplies a mass.
+has unit original probability, a uniformly bounded absolute energy moment
+and positive injected-energy mean. The mixed-history theorem attaches it
+to the filtered algebra's common time and fixed finite detector histories.
+Its limiting response may be elastic; a selected current-covariance or
+energy-tail bound must establish nonzero fixed positive-energy weight.
+The [number-density sum rule](../particle_primary_energy_tightness/PROOF.md)
+shows that the specified volume-normalized density probe loses that weight.
+Neither a common time representation nor finite energy windows alone
+identify a physical rest mass.

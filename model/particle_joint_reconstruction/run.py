@@ -37,6 +37,10 @@ from model.particle_primary_charged_string import model as charged_string
 from model.particle_primary_odd_residual import model as odd_residual
 from model.particle_primary_momentum_transfer import model as momentum_transfer
 from model.particle_primary_local_fluctuation import model as local_fluctuation
+from model.particle_primary_spectral_resolution import model as spectral_resolution
+from model.particle_primary_charged_readout import model as charged_readout
+from model.particle_primary_staggered_response import model as staggered_response
+from model.particle_primary_current_tail import model as current_tail
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -145,7 +149,8 @@ def build():
                    endpoint, variational, spectroscopy, occupation, local_residual,
                    pair_response, pair_channels, refinement_response, gravity_premises,
                    branch_resolution, origin_momentum, energy_tightness, open_coframe,
-                   charged_string, odd_residual, momentum_transfer, local_fluctuation):
+                   charged_string, odd_residual, momentum_transfer, local_fluctuation,
+                   spectral_resolution, charged_readout, staggered_response, current_tail):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -264,6 +269,15 @@ def build():
     for level, receipt in zip((0, 1, 2), local_energy['members'], strict=True):
         local_fluctuation.verify_bound(contract.member(level), receipt)
     local_fluctuation.verify_bound(contract.member(32), local_energy['retained_origin_member'])
+    prepared_spectrum = spectral_resolution.certificate()
+    spectral_resolution.verify_bound(member, prepared_spectrum['selected_member_bound'])
+    joint_charge = charged_readout.certificate()
+    charged_readout.verify_bound(member, joint_charge['selected_member_bound'])
+    checkerboard = staggered_response.certificate()
+    staggered_response.verify_bound(member, checkerboard['selected_member_bound'])
+    phase_histories = current_tail.certificate()
+    for level, receipt in zip((0, 1, 2, 8), phase_histories['members'], strict=True):
+        current_tail.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -303,6 +317,10 @@ def build():
         'primary_scalar_odd_excitation_and_coherent_response': odd_excitation,
         'primary_relative_momentum_detector_attachment': momentum_detector,
         'primary_local_Weyl_original_energy_tightness': local_energy,
+        'primary_prepared_scalar_odd_spectral_window': prepared_spectrum,
+        'primary_joint_charge_transfer_and_energy_records': joint_charge,
+        'primary_checkerboard_coherent_response': checkerboard,
+        'primary_common_unfiltered_phase_histories': phase_histories,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -316,6 +334,10 @@ def build():
         'primary_charged_endpoint_original_energy_band_proved': True,
         'primary_local_Weyl_energy_probability_tightness_proved': True,
         'primary_local_Weyl_limit_proved_inelastic': False,
+        'primary_unfiltered_Weyl_and_filtered_probes_common_time_representation_proved': True,
+        'primary_unfiltered_Weyl_spatial_momentum_attachment_proved': False,
+        'primary_prepared_excited_window_with_retained_displaced_state_proved': True,
+        'primary_undisturbed_joint_charge_transfer_energy_history_proved': True,
         'primary_finite_aperture_Fourier_instrument_proved': True,
         'primary_conserved_particle_momentum_proved': False,
         'primary_interacting_endpoint_gap_proved': False,

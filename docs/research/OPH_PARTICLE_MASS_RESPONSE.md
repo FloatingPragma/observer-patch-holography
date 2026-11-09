@@ -7,9 +7,10 @@ and its [machine-readable acceptance conditions](../../model/particle_joint_reco
 are the single ten-node construction map. The active target is source-derived
 particle masses in declared SI/GeV comparison units, with capacity dependence
 explicit. Nodes 1-3 establish the finite program, physical preparation and
-complete local apparatus. Nodes 4-8 include a positive-energy filtered
-algebra, finite original-weight energy bands and transfer-to-excitation
-transport. A retained observation origin gives a translation-invariant
+complete local apparatus. Nodes 4-8 include a common positive-energy
+algebra of filtered probes and local phase operations, finite complete
+energy records and transfer-to-excitation transport. A retained observation
+origin gives a translation-invariant
 relative-observation limit with commuting energy and momentum generators.
 Nonzero momentum response, dispersion, species and mass identification
 require further spectral control. The primary physical-mass table in GeV
@@ -36,14 +37,25 @@ final excitation weight in `[4,9]`, on that selected state. Complete finite
 clocks report `[63/16,129/16]` with probability at least9/64. Its real
 original autocorrelation is below-3/8 at source time1/2. These local-address
 records are distinct from the coherent A1u experiment. The
-[full-complement odd residual](../../model/particle_primary_odd_residual/PROOF.md)
-is at most 5.365163597 and certifies some actual A1u excitation in
-`[0.54794769,15.00864937]`. It does not isolate a line or bound every
-excitation away from zero. On the selected state, the separate coherent
-operator K has original weight above 5/1024 in `[3/4,45/4]` and final
-excitation weight above 1/2048 in `[3/4,53/4]`. Those original probabilities
-are not the trial vector's spectral weights. Momentum/dispersion, species
-and controlled errors are required for a GeV rest mass.
+[full-complement A1u calculation](../../model/particle_primary_spectral_resolution/PROOF.md)
+bounds a physical trial's residual by 4.947619 and certifies some actual
+excitation in `[1.06662597,14.69223697]`. An explicit preparation places
+this trial on the source while moving the original source/reference state
+into retained identical physical memory. Its complete energy clock reports
+an interval entirely above the ground upper with probability above 1/4.
+This is a declared state-changing intervention with a ready memory and
+bounded source work. Its probabilities are not assigned to the original
+mixed-state coherent probe, whose separate original-weight band is proved
+in the [odd-response calculation](../../model/particle_primary_odd_residual/PROOF.md).
+Neither experiment isolates a line. Momentum, dispersion and physical
+species attachment are required for a GeV rest mass.
+
+A [checkerboard coherent pair](../../model/particle_primary_staggered_response/PROOF.md)
+uses an exact cancellation of Wilson hopping on the unchanged selected
+state. Its original weight in `[3,9]` exceeds17/1280; complete clocks
+report `[95/32,289/32]` with probability above 539/40960. The A2g label
+belongs to the operator, not the mixed input state, continuum spin or a
+proved physical momentum.
 
 The [charged-endpoint instrument](../../model/particle_primary_charged_string/PROOF.md)
 creates opposite local increments Q6=+6 and -6 joined by the actual
@@ -51,18 +63,28 @@ character on one quantum link. Its 48 success records and one failure
 preserve physical Gauss support and total charge. Original transfer
 weight exceeds 3/10 in `[39/4,135/4]` on member zero. This is an even pair
 operator, without an electromagnetic-charge, spin or Standard Model
-species assignment. Measuring initial endpoint charges is a separate
-intervention and changes the state used for the energy estimate.
+species assignment. The [coherent charge-transfer meter](../../model/particle_primary_charged_readout/PROOF.md)
+adds opposite local increment records to these same energy histories.
+Two coherent couplings cancel the unknown initial charges; radix-five
+counters resolve every admitted increment without dephasing the source.
+All 49 probe outcomes and the reference are retained. The charged-pair
+success band keeps its original weight above 3/10, and its complete reported
+band `[77/8,271/8]` keeps weight above 1/4. Measuring absolute initial
+endpoint charges is a distinct intervention with a disturbed-state law.
 
 The [bounded local Weyl apparatus](../../model/particle_primary_local_fluctuation/PROOF.md)
 uses number-phase unitaries with a fixed physical tent radius, retaining
 its origin and sign. Its original response has total probability one,
 uniform absolute first energy moment at most 14179/32 and positive mean
-injected energy above 0.0615. Thus unfiltered energy probabilities are
+injected energy above 0.06149. Thus unfiltered energy probabilities are
 tight and have continuous positive-energy subsequential limits. These
-limits may be entirely elastic. The construction does not supply a
-nonzero limiting particle residue or inherit the regular momentum
-probe's dictionary without its required spatial smearing.
+limits may be entirely elastic. The [mixed-history energy bound](../../model/particle_primary_current_tail/PROOF.md)
+puts these phase operations and the fixed-time-filtered probes on one
+common subsequence: all fixed finite mixed histories have continuous
+source time and a nonnegative canonical energy generator. This supplies
+the common-history connection, with no effective subsequence rate or
+trace-norm limit of the growing reference. Nonelastic survival and spatial
+momentum attachment of the unfiltered phase fields require separate bounds.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
