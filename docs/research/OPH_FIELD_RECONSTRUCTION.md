@@ -45,7 +45,7 @@ filtered algebra are available. The following work order expands nodes
 
 | Order | Required mass-readout connection | Existing result and remaining condition |
 | --- | --- | --- |
-| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | The centered primary plaquette has positive original contrast and a finite implemented-filter band. A finite-capacity comparison needs a resolved branch and adequate original probability with controlled errors. A continuum claim additionally needs a uniform fixed-energy-band witness; the proved widening band and vanishing weight floor do not supply it. |
+| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | On member zero, a local neutral pair instrument has original transfer weight at least 1/2 in [2,10] source units and final excitation weight at least 3/8 in [2,21/2], before finite clock errors. This is a broad channel band; branch isolation and dispersion require further calculation. A continuum claim additionally needs uniform survival and refinement control. |
 | 2 | Attach momentum to the same source, state and clock. | The regular physical algebra has a continuous R3 action commuting with time. Its implementation on the selected representation, the operational momentum dictionary and preparation momentum control require proofs. State invariance suffices for the canonical vacuum-fixing implementation; it is not a necessary premise for every operational momentum readout. |
 | 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
 | 4 | Identify the propagating particle channel. | The proved plaquette channel is gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
@@ -112,20 +112,55 @@ physical Gauss restriction. The independent
 [eleven-vector Ritz calculation](../../model/particle_primary_variational_readout/PROOF.md)
 uses exact hopping and loop packets on the same source. It supplies a
 variational upper bound at interaction coefficient one, rather than an
-extrapolated perturbative coefficient. For member zero their outward
-interval for the full physical ground energy is
+extrapolated perturbative coefficient. The
+[occupation-sensitive electric bound](../../model/particle_primary_occupation_bound/PROOF.md)
+retains the filled-reference block and its coupling to four beta defects.
+For member zero it gives the full physical ground enclosure
 
-`-740.229068 <= E0 <= -723.7678199` in source energy units.
+`-727.498195 <= E0 <= -723.7678199` in source energy units, of width below3.731.
 
-The interval width is below16.461249. These are absolute ground energies,
-not particle rest energies. The variational full-space residual is about
-102.09 source units. The retained-penalty family's second-level bounds
-cannot isolate the ground with this upper bound: even their method ceiling
-is about10.46 below it. This rejects that isolation argument, not a physical
-spectral gap. Sharper control requires the occupation dependence discarded
-by the all-input Schur bound or a tighter connected local remainder. Exact
-covariances improve the disconnected fourth-moment term, but the connected
-bound dominates it in the small member.
+These are absolute ground energies. The
+[exact parent Haar and CAR moments](../../model/particle_primary_residual_refinement/PROOF.md)
+bound the same trial's full-space residual by5.231016 source units. All
+omitted states are retained; degree-one link compression only decreases
+the computed parent norm. Neither the ground enclosure nor this trial
+residual isolates a particle branch. The reference vector is an operator
+calculation device and does not replace the selected polynomial state.
+
+## A detected finite neutral excitation band
+
+The [local response calculation](../../model/particle_primary_response_moments/PROOF.md)
+uses the actual member-zero state, reference and clock. Retaining two
+fifths of the onsite defect penalty bounds the selected mean total beta
+defect count by5. Here a beta defect means an occupied positive-beta mode
+or an empty negative-beta mode; it is not a topological-defect species.
+For a uniform choice of the two matched neutral pair probes per cell,
+`B=c_positive† c_negative` in the one-dimensional native Q6=6 block,
+the original success weight is at least11/16. This operator has zero
+gauge charge despite the label of its constituent native block.
+
+Its exact onsite frequency is6 and the full interacting commutator obeys
+`||[H,B]-6B||² <=3` on every corner of this eight-cell member. The original
+second moment therefore places at least1/2 of the complete spectral
+weight in transfers `[2,10]`. The selected energy excess is at most1/16;
+the established transfer-to-excitation bound gives final ground-relative
+excitation in `[2,21/2]` with original weight at least3/8. No conditioning
+on successful detection, replacement of the selected state, or empirical
+mass input enters these inequalities. A complete seventeen-outcome probe
+followed and preceded by finite energy clocks reports transfer in
+`[15/8,81/8]` with original probability at least15/32 after clock tails
+and clock implementation errors. Its sufficient clock size is `J=2^30`;
+all `17 J²` fine records are retained. This is an analytic apparatus and
+probability certificate, not an executed full-source histogram. An
+additional probe-compilation or sampling error requires its own allowance.
+
+This result supplies a broad observable energy band with substantial
+original weight on one finite member. Its interpretation requires a
+resolved energy-momentum branch, physical channel identification and
+controlled errors in the claimed domain. It gives no rest mass or
+Standard Model assignment. The retained-penalty admission used for this
+weight fails on the next larger member; a refinement-uniform bound is
+not established by the small-box result.
 
 The [complete joint spectrometer](../../model/particle_primary_joint_spectroscopy/PROOF.md)
 records an initial source energy, all spatial Fourier outcomes, and a final

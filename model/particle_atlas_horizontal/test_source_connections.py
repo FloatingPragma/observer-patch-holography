@@ -36,7 +36,7 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert '../../model/particle_primary_locality/PROOF.md' in hrefs
     assert '../../model/particle_joint_reconstruction/CANDIDATE.md' in hrefs
     assert '../../model/particle_primary_spatial_algebra/PROOF.md' in hrefs
-    assert '../../model/particle_primary_survival/PROOF.md' in hrefs
+    assert '../../model/particle_primary_response_moments/PROOF.md' in hrefs
     assert '../../model/particle_primary_mass_readout/PROOF.md' in hrefs
     assert '../../model/particle_primary_capacity/PROOF.md' in hrefs
     assert '../../model/particle_primary_field_algebra/PROOF.md' in hrefs
@@ -44,18 +44,20 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert '../../model/particle_primary_stress/PROOF.md' in hrefs
     assert '../../model/particle_positive_window/PROOF.md' in hrefs
     for owner in ('particle_primary_momentum', 'particle_primary_channel_labels',
-                  'particle_primary_spectral_scale', 'particle_primary_endpoint_bounds',
+                  'particle_primary_residual_refinement', 'particle_primary_occupation_bound',
                   'particle_primary_variational_readout', 'particle_primary_joint_spectroscopy'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert 'convergent finite pointer histories' in text
     assert 'coin and reference remain in the complete output' in text
     assert 'primary physical-mass table in GeV is empty' in text
-    assert 'times shrink and its weight floor vanishes' in text
+    assert 'Larger-capacity transfer requires proof' in text
     assert 'not proved spatially invariant' in text
-    assert 'one physical hypercharge relation' in text
+    assert 'broad, even, gauge-neutral response' in text
     assert 'No conserved momentum is inferred' in text
-    assert 'ground-energy enclosure' in text
-    assert 'residual is too broad to isolate an excitation' in text
+    assert 'occupation-sensitive bounds give ground energy' in text
+    assert 'No level is isolated' in text
+    assert 'original transfer weight ≥1/2' in text
+    assert 'no assigned particle name, spin or rest mass' in text
     assert 'changes purification coherences' in text
     assert 'Finite mass comparison needs a resolved branch' in text
 

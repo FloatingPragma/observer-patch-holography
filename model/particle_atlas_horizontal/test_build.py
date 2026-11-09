@@ -72,7 +72,8 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_compact_mass_probe', 'particle_primary_momentum',
                   'particle_primary_channel_labels', 'particle_primary_spectral_scale',
                   'particle_primary_endpoint_bounds', 'particle_primary_variational_readout',
-                  'particle_primary_joint_spectroscopy'):
+                  'particle_primary_joint_spectroscopy', 'particle_primary_occupation_bound',
+                  'particle_primary_residual_refinement', 'particle_primary_response_moments'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

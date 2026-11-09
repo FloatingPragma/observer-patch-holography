@@ -237,14 +237,24 @@ state, reference, clock and unit ancestry.
 Actual endpoint control is supplied by the
 [local electric Schur bound](../particle_primary_endpoint_bounds/PROOF.md)
 and [eleven-packet Ritz enclosure](../particle_primary_variational_readout/PROOF.md).
-For member zero they give the full physical ground enclosure
-`[-740.229068,-723.7678199]` in source units. The trial's residual bound
-is about102.09, and every admitted retained-penalty second-level lower
-bound lies below the available ground upper bound. Neither method
-isolates an excitation. A sharper argument must retain the occupation
-dependence discarded by the local all-input bound or control the connected
-local remainder in the variational estimate. This is an error-bound
-obstruction to those methods, not a no-go theorem for the source spectrum.
+The [occupation-sensitive bound](../particle_primary_occupation_bound/PROOF.md)
+gives member zero the full physical ground enclosure
+`[-727.498195,-723.7678199]` in source units. Its retained onsite penalty
+also bounds the selected mean beta-defect count by5. The
+[exact local moment calculation](../particle_primary_residual_refinement/PROOF.md)
+bounds the unchanged trial's full-space residual by5.231016. These
+statements preserve every occupation and do not isolate an eigenbranch.
+
+The [actual local neutral response](../particle_primary_response_moments/PROOF.md)
+combines that selected-state defect bound with a local frequency-six
+commutator. Averaged original probe success is at least11/16. The
+original transfer band `[2,10]` has weight at least1/2; selected cooling
+gives final excitation `[2,21/2]` with weight at least3/8, before clock
+errors. The probe is gauge neutral and even. These are energy-band
+bounds on member zero, without a particle name, momentum origin or rest
+mass. The next physical inputs are branch resolution, dispersion and
+channel attachment. The same retained-penalty admission fails at the
+next larger member, so capacity transfer needs an additional estimate.
 
 The [joint finite instrument](../particle_primary_joint_spectroscopy/PROOF.md)
 has `2 M J²` complete energy/address records and explicit alias, Fejer-tail,

@@ -22,11 +22,11 @@ SUMMARIES = {
     'joint_refinement':
         'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; a same-representation spatial implementation, momentum origin and nonzero finite-energy weight require proof.',
     'relativistic_field':
-        'The interacting source has a ground-energy enclosure from a local electric lower bound and an 11-vector Rayleigh upper bound. The trial residual is too broad to isolate an excitation. A nontrivial Lorentz field and an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary require proof.',
+        'On the eight-cell source, occupation-sensitive bounds give ground energy [−727.498195, −723.7678199]; exact local moments bound the full-space trial residual by 5.231016. No level is isolated. A resolved energy–momentum branch and controlled relativistic dispersion require proof.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
-        'Five conserved occupation labels obey one physical hypercharge relation. A 24-plaquette cubic A1 average has positive finite excitation weight. No continuum spin or species is assigned. Its times shrink and its weight floor vanishes; massless weight is not excluded.',
+        'Actual eight-cell neutral pair probes: original transfer weight ≥1/2 in [2,10], final excitation weight ≥3/8 in [2,10.5] source units, before clock errors. All outcomes survive. This broad, even, gauge-neutral response has no assigned particle name, spin or rest mass. Larger-capacity transfer requires proof.',
     'independent_comparison':
         'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
@@ -109,8 +109,8 @@ def render(c, data, y):
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
         theorem = {'local_records': 'model/particle_primary_joint_spectroscopy/PROOF.md',
                    'joint_refinement': 'model/particle_primary_field_algebra/PROOF.md',
-                   'relativistic_field': 'model/particle_primary_endpoint_bounds/PROOF.md',
-                   'particle_observables': 'model/particle_primary_survival/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_occupation_bound/PROOF.md',
+                   'particle_observables': 'model/particle_primary_response_moments/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
         c.link(x+width/2, top+660, 'Scoped construction or theorem',
@@ -119,7 +119,7 @@ def render(c, data, y):
             'fixed_program': ('Source capacity', 'model/particle_primary_capacity/PROOF.md'),
             'local_records': ('Local influence', 'model/particle_primary_locality/PROOF.md'),
             'joint_refinement': ('Spatial action', 'model/particle_primary_spatial_algebra/PROOF.md'),
-            'relativistic_field': ('Spectral scale', 'model/particle_primary_spectral_scale/PROOF.md'),
+            'relativistic_field': ('Exact residual', 'model/particle_primary_residual_refinement/PROOF.md'),
             'particle_observables': ('Positive window', 'model/particle_positive_window/PROOF.md'),
         }.get(node['id'])
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)

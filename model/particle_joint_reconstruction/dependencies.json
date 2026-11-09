@@ -136,7 +136,9 @@
         {"path": "model/particle_gauge_characteristics/PROOF.md", "scope": "Matched quadratic principal gauge and matter speeds, without an interacting Lorentz theorem."},
         {"path": "model/continuum_field_net/README.md", "scope": "Separate uncentered Weyl/contact continuum hierarchy with positive energy and a finite cone; no surviving interaction or Lorentz proof."},
         {"path": "model/continuum_free_limit/README.md", "scope": "Separate centered bounded-contact branch is exactly free and massless."},
-        {"path": "model/spin_joint_field_limit/PROOF.md", "scope": "Separate positive-field spin history limit; no sharp relativistic particle or interaction identification."}
+        {"path": "model/spin_joint_field_limit/PROOF.md", "scope": "Separate positive-field spin history limit; no sharp relativistic particle or interaction identification."},
+        {"path": "model/particle_primary_occupation_bound/PROOF.md", "scope": "Actual member-zero full-strength ground floor and selected beta-defect expectation below5. The retained onsite penalty fails the next-member admission; no uniform gap or continuum claim."},
+        {"path": "model/particle_primary_residual_refinement/PROOF.md", "scope": "Exact local Haar/CAR moments bound the unchanged physical trial residual by5.231016 on member zero, retaining its full complement. No isolated level or selected-state probe residue follows."}
       ],
       "conditional_assumptions": ["renormalized_four_dimensional_correlations", "nonzero_connected_interaction", "physical_current_spin_detector_dictionary"],
       "required_for": ["particle_target", "pure_gauge_branch"]
@@ -181,7 +183,8 @@
         {"path": "model/conditional_standard_model/spectrum.py", "scope": "Exact conditional action mass matrices and multiplicities, not interacting physical pole predictions."},
         {"path": "model/conditional_standard_model/matching.py", "scope": "Explicit parameter and observable matching boundaries."},
         {"path": "model/particle_charged_residue/PROOF.md", "scope": "Original finite charged-threshold weights on a separate 208-state control."},
-        {"path": "model/particle_identification/SCATTERING.md", "scope": "Required inclusive and asymptotic observable conventions and error interfaces."}
+        {"path": "model/particle_identification/SCATTERING.md", "scope": "Required inclusive and asymptotic observable conventions and error interfaces."},
+        {"path": "model/particle_primary_response_moments/PROOF.md", "scope": "Actual member-zero original neutral-pair transfer weight at least1/2 in [2,10], final excitation weight at least3/8 in [2,21/2], and finite-clock reported weight at least15/32 in [15/8,81/8]. This broad even gauge-neutral channel has no particle momentum, rest mass, species or refinement transfer."}
       ],
       "conditional_assumptions": ["radiative_infrared_resonance_matching", "neutrino_EFT_completion_and_running"],
       "required_for": ["particle_target"]

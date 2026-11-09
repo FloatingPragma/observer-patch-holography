@@ -23,6 +23,9 @@ from model.particle_primary_spectral_scale import scale
 from model.particle_primary_endpoint_bounds import endpoint
 from model.particle_primary_variational_readout import variational
 from model.particle_primary_joint_spectroscopy import spectroscopy
+from model.particle_primary_occupation_bound import model as occupation
+from model.particle_primary_residual_refinement import model as local_residual
+from model.particle_primary_response_moments import model as pair_response
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -128,7 +131,8 @@ def build():
              | set(positive_energy.SOURCE_INPUTS))
     for module in (algebra, stress, window, filtered_probe, survival,
                    mass_readout, spatial, capacity, compact, momentum, channels, scale,
-                   endpoint, variational, spectroscopy):
+                   endpoint, variational, spectroscopy, occupation, local_residual,
+                   pair_response):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -208,6 +212,13 @@ def build():
         variational.verify_bound(contract.member(level), receipt)
     joint_spectroscopy = spectroscopy.certificate()
     spectroscopy.verify_bound(contract.member(2), joint_spectroscopy['actual_source_instrument'])
+    occupation_bounds = occupation.certificate()
+    occupation.verify_bound(contract.member(0), occupation_bounds['selected_member_bound'])
+    exact_residual = local_residual.certificate()
+    for level, receipt in zip((0, 1, 2), exact_residual['members'], strict=True):
+        local_residual.verify_bound(contract.member(level), receipt)
+    neutral_response = pair_response.certificate()
+    pair_response.verify_bound(contract.member(0), neutral_response['selected_member_bound'])
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -233,6 +244,9 @@ def build():
         'primary_interacting_endpoint_ground_bounds': endpoint_bounds,
         'primary_interacting_variational_bounds': variational_bounds,
         'primary_complete_joint_energy_wavevector_readout': joint_spectroscopy,
+        'primary_occupation_sensitive_ground_and_state_bound': occupation_bounds,
+        'primary_exact_local_moment_residual': exact_residual,
+        'primary_original_weight_neutral_pair_response': neutral_response,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,

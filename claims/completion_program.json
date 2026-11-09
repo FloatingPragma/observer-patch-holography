@@ -4149,7 +4149,16 @@
         "model/particle_primary_variational_readout/results.json",
         "model/particle_primary_joint_spectroscopy/PROOF.md",
         "model/particle_primary_joint_spectroscopy/test_spectroscopy.py",
-        "model/particle_primary_joint_spectroscopy/results.json"
+        "model/particle_primary_joint_spectroscopy/results.json",
+        "model/particle_primary_occupation_bound/PROOF.md",
+        "model/particle_primary_occupation_bound/test_model.py",
+        "model/particle_primary_occupation_bound/results.json",
+        "model/particle_primary_residual_refinement/PROOF.md",
+        "model/particle_primary_residual_refinement/test_model.py",
+        "model/particle_primary_residual_refinement/results.json",
+        "model/particle_primary_response_moments/PROOF.md",
+        "model/particle_primary_response_moments/test_model.py",
+        "model/particle_primary_response_moments/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4809,7 +4818,7 @@
           "path": "model/particle_primary_variational_readout/PROOF.md",
           "sha256": "7e7e6e3cd427c2e50a225d9c4206a25cf0778835a5e46b1d63eb7987dd3d8a73",
           "independent_check": "model/particle_primary_variational_readout/test_variational.py",
-          "scope": "An exact eleven-vector physical packet compression evaluates the actual interaction coefficient one. Independent character calculations, rational Schur-root brackets and a physical trial give member-zero ground upper bound approximately-723.7678199426574. The full-space complement is bounded using orthogonal local covariances, a connected fourth-moment bound and an independent global norm bound. The source-unit residual is approximately102.09, so no isolated eigenbranch or original probe residue is inferred; the trial is not substituted for the prepared polynomial state.",
+          "scope": "An exact eleven-vector physical packet compression evaluates the actual interaction coefficient one. Independent character calculations, rational Schur-root brackets and a physical trial give member-zero ground upper bound approximately-723.7678199426574. The full-space complement is bounded using orthogonal local covariances, a connected fourth-moment bound and an independent global norm bound. The coarse source-unit residual upper bound is approximately102.09, so no isolated eigenbranch or original probe residue is inferred; the trial is not substituted for the prepared polynomial state.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         },
         {
@@ -4818,6 +4827,30 @@
           "sha256": "ed7ca07db6df70fa6fec4db5c3df7788448c3cb47316196fc8bdf2d86331dbe8",
           "independent_check": "model/particle_primary_joint_spectroscopy/test_spectroscopy.py",
           "scope": "A complete two-clock/spatial instrument retains all2MJ^2 outcomes, including initial energy, failed spatial records and the quantum reference. Its original two-kernel law, alias-free clock chart, summed tails and full instrument errors give source-bound transfer/final-excitation adapters. The actual k0 channel has a positive broad unfiltered band and a factored finite precision plan; the histogram and resolved ridge are uncomputed. Endpoint and Ritz bounds are recomputed on the same member2 as the aperture. Wavevector labels are not a physical momentum PVM or rest frame; no GeV mass is supplied.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_occupation_sensitive_selected_state",
+          "path": "model/particle_primary_occupation_bound/PROOF.md",
+          "sha256": "a5f9852fbb730ed6e8ff12c48df9af31203972e4a160d6c0f4cb7e4370023188",
+          "independent_check": "model/particle_primary_occupation_bound/test_model.py",
+          "scope": "Retaining the full active/inactive occupation structure in the actual electric Schur bound gives member-zero ground floor -727.498195 and enclosure width below3.731 with the inherited full-source variational upper. A separate onsite-only retained fraction2/5 gives selected mean beta-defect count below5 and averaged original neutral-pair success at least11/16. The local vacuum is only an operator-analysis reference. The same retained fraction fails the next-member positivity admission; no uniform weight, isolated gap or mass is proved.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_exact_local_full_space_residual",
+          "path": "model/particle_primary_residual_refinement/PROOF.md",
+          "sha256": "da02272410199dd5ddaaa4b2a5625c1fdcaa367df45acaf3c1e68670d413c8e9",
+          "independent_check": "model/particle_primary_residual_refinement/test_model.py",
+          "scope": "Exact full-Fock particle-hole sectors, two-step Haar path counts and independent fourth-character integrals bound the unchanged physical trial residual by5.231016 source units on member zero. The exact parent mixed fourth moment retains every connected and disconnected term; product link compression contracts the norm at degree one and preserves it from degree two. The reference trial does not replace the selected polynomial state, and spectral proximity does not prove an isolated branch or original probe weight.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_populated_original_neutral_pair_band",
+          "path": "model/particle_primary_response_moments/PROOF.md",
+          "sha256": "d739b8e8318cfc98346b31bd31068751919b989f3fa73607102e34bc5567bc78",
+          "independent_check": "model/particle_primary_response_moments/test_model.py",
+          "scope": "On actual member zero, gauge-neutral even pair probes in the native one-dimensional charge-six block have frequency-six commutator residual squared at most3, including nonorthogonal neighbor modes and every Fock occupation. The authenticated selected-state defect bound gives at least1/2 original transfer weight in [2,10] and at least3/8 final excitation weight in [2,21/2]. A complete17-outcome probe and two source-energy clocks retain every failure and the idle reference; after clock tails and implementation errors, the reported transfer interval [15/8,81/8] has probability at least15/32. The huge primary histogram is not executed. A resolved branch, physical momentum, dispersion, species and capacity transfer are unproved; no GeV rest mass is supplied.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

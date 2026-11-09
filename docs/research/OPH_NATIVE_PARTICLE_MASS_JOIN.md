@@ -25,13 +25,15 @@ are deferred for this mass calculation.
 
 The [finite endpoint result](OPH_FIELD_RECONSTRUCTION.md#full-strength-finite-energy-bounds-and-joint-records)
 encloses member zero's full interacting ground energy in
-`[-740.229068,-723.7678199]` source units using independent local lower
-and exact variational upper bounds. Its broad residual and failed
-retained-penalty isolation test identify the required error improvement;
-no particle mass follows from that interval. Complete joint energy and
-spatial-phase records are constructed on one authenticated member, with
-all clock, aperture and reference effects retained. A resolved interacting
-branch and its physical momentum/dispersion attachment are unproved.
+`[-727.498195,-723.7678199]` source units. Occupation-sensitive electric
+bounds and exact Haar/CAR moments retain the full quantum source and
+bound the trial residual by5.231016. The
+[neutral excitation result](OPH_FIELD_RECONSTRUCTION.md#a-detected-finite-neutral-excitation-band)
+places at least1/2 original transfer weight in `[2,10]` and at least3/8
+final excitation weight in `[2,21/2]`, before finite clock errors. These
+are proved broad energy bands on the selected small-box state. A resolved
+branch, its physical momentum/dispersion and species assignment, and
+capacity/refinement control are required for a defensible GeV rest mass.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,

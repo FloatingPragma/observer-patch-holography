@@ -1152,14 +1152,42 @@ resulting operator inequalities before Gauss restriction gives
 \]
 An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_variational_readout/PROOF.md}{exact eleven-vector Rayleigh calculation}
 uses the physical anchor and its five hopping and five real-loop
-packets. For $n=0$ the two certified bounds give
-$-740.229068\le E_0\le-723.7678199$ in source energy units, an
-enclosure of width less than $16.461249$.
-The omitted-space residual is retained and its broad spectral interval
-does not identify an excitation. Both bounds concern the full physical
-ground; the trial vector does not replace the selected polynomial state.
-The retained-defect-penalty lower bound supplies no isolated ground
-branch at the tested endpoint.
+packets. An
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_occupation_bound/PROOF.md}{occupation-sensitive Schur estimate}
+retains the native quartic's vacuum mean $d_r$, variance one and
+four-defect off-diagonal image. At $n=0$ it gives
+$-727.498195\le E_0\le-723.7678199$ in source units, of width below
+$3.731$. Exact parent Haar and CAR contractions bound the
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_residual_refinement/PROOF.md}{full-space trial residual}
+by $5.231016$. The parent product has word degree at most two; the
+degree-one source projection contracts its norm. These bounds retain
+every occupation and omitted state. They do not isolate a particle
+branch or replace the selected polynomial preparation.
+
+Retaining $2/5$ of the onsite defect penalty, with the full electric
+coefficient in the link clusters, proves $\operatorname{Tr}\rho D<5$
+on this member. Here $D$ counts positive-beta occupations and
+negative-beta holes, rather than topological species. For the sixteen
+matched local probes $B_j=c_{j,+}^{\dagger}c_{j,-}$ in the
+one-dimensional native charge-six block,
+$\sum_j B_j^\dagger B_j\ge16-D$ gives averaged original success at
+least $11/16$. The probes themselves are gauge neutral and even.
+Their actual interacting commutators satisfy
+$\|[H,B_j]-6B_j\|^2\le3$ at each corner, including overlapping
+neighbor vectors in the full four-mode CAR calculation. Hence
+\[
+ \frac1{16}\sum_{j,u,v}p_u |(B_j)_{vu}|^2
+       (E_v-E_u-6)^2\le3.
+\]
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_response_moments/PROOF.md}{original transfer measure}
+has weight at least $11/16-3/16=1/2$ in $[2,10]$.
+Selected cooling with excess $1/16$ and initial-excitation cutoff $1/2$
+gives final excitation in $[2,21/2]$ with weight at least $3/8$.
+Complete finite clocks incur their stated tails and implementation errors.
+No successful-record normalization or exact-ground substitution enters
+the bound. Its retained-penalty admission fails on the next larger
+member. A resolved energy--momentum branch and physical channel
+attachment are required for a rest mass or refinement claim.
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_joint_spectroscopy/PROOF.md}{complete joint instrument}
 records initial energy, a spatial Fourier outcome, and final energy on

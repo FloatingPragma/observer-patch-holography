@@ -23,6 +23,9 @@ transferring its physical conclusions needs a proved map.
 | [Source spectral scale](../particle_primary_spectral_scale/PROOF.md) | Exact decoupled gap and local perturbative packets; conditional fixed-band exclusion from a true uniform interacting gap. | The interacting endpoint gap, isolated branch, perturbation remainder and mass spectrum are unproved. Finite comparison and continuum claims have different error domains. |
 | [Endpoint lower bound](../particle_primary_endpoint_bounds/PROOF.md), [Ritz upper bound](../particle_primary_variational_readout/PROOF.md) | Full-strength interacting ground enclosure, with a full-space residual and evaluated branch-isolation test. | The residual is broad and the retained-penalty isolation test fails; no isolated excitation or original probe residue is inferred. |
 | [Joint spectroscopy](../particle_primary_joint_spectroscopy/PROOF.md) | Complete two-energy/address records, original positive broad band and same-member ground interval adapters. | Initial energy measurement disturbs the retained purification; a broad wavevector band is not a resolved relativistic mass branch. |
+| [Occupation-sensitive electric bound](../particle_primary_occupation_bound/PROOF.md) | Member-zero ground floor and selected mean beta-defect count below5; averaged neutral-pair success at least11/16. | The reference enters an operator inequality, not the preparation. The retained penalty used for this weight fails its next-member admission. |
+| [Exact local residual moments](../particle_primary_residual_refinement/PROOF.md) | Parent Haar/CAR moments bound the unchanged trial residual by5.231016 on member zero, retaining the full omitted space. | A residual enclosure does not isolate a level or assign the trial's spectral weights to the selected state. |
+| [Original neutral response](../particle_primary_response_moments/PROOF.md) | Local non-Hermitian pair probes have frequency-six residual squared at most3 on member zero; original transfer weight at least1/2 in [2,10] and final excitation weight at least3/8 in [2,21/2], before clock errors. | Broad gauge-neutral, even response; no selected physical momentum, dispersion or particle name. |
 | [Conditional particle action](../conditional_standard_model/PROOF.md), [candidate](CANDIDATE.md) | Exact representations, invariant couplings and calibrated quadratic spectrum. | Chiral source attachment, physical poles, neutrino matching and independent predictions have their stated premises. |
 | [Dense-correlation gap criterion](../particle_yang_mills_gap_contract/PROOF.md) | A continuum spectral exclusion from dense vacuum correlation decay and finite-energy noncollapse. | The photon-containing full theory and a pure compact-simple Yang-Mills source are different domains. |
 
@@ -43,6 +46,19 @@ field theory; they do not establish those hypotheses for the finite source.
 proves positivity for its specified Wilson lattice theory. Applying it to
 a changed regulator or declaring a continuum mass gap requires the
 corresponding identification and limiting estimates.
+
+[Yarotsky's relative-perturbation theorem](https://arxiv.org/abs/math-ph/0412040)
+provides a possible route to a uniform lattice gap after a local dressing:
+the perturbation must split into a relative part with bound below one and
+a bounded part satisfying the theorem's quantitative smallness condition.
+The primary source has no verified constants admitting that theorem at
+interaction coefficient one. Its Gauss subspace and cutoff family also
+require an explicit application of the theorem's tensor-product hypotheses.
+The companion [quasiparticle theorem](https://arxiv.org/abs/math-ph/0411042)
+requires an isolated reference level separated from multiparticle sums,
+sufficiently small perturbation and translation invariance. A decoupled
+gap, local electric positivity or a finite Rayleigh quotient alone does
+not verify these premises or establish relativistic dispersion.
 
 The productive order follows the shared algebra and its actual apparatus:
 construct complete filtered records; take one state on all their words;

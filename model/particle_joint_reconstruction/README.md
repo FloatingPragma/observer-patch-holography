@@ -90,12 +90,14 @@ six is not the interacting endpoint gap. A first finite-capacity mass
 comparison needs a resolved branch and controlled dispersion errors;
 uniform refinement is an additional continuum claim.
 
-At full interaction strength, a
-[local electric bound](../particle_primary_endpoint_bounds/PROOF.md) and an
-[eleven-vector variational calculation](../particle_primary_variational_readout/PROOF.md)
-enclose the smallest member's ground energy in
-`[-740.229068,-723.7678199]` source units. The residual is broad and the
-retained-penalty isolation test fails. The
-[joint spectrometer](../particle_primary_joint_spectroscopy/PROOF.md) retains
-both energy records, the spatial aperture outcomes and the reference;
-its broad positive band is not a resolved particle branch or a GeV mass.
+At full interaction strength, the
+[occupation-sensitive bound](../particle_primary_occupation_bound/PROOF.md)
+encloses the smallest member's ground energy in
+`[-727.498195,-723.7678199]` source units. The
+[exact local moments](../particle_primary_residual_refinement/PROOF.md)
+bound the full-space trial residual by5.231016. The
+[neutral response](../particle_primary_response_moments/PROOF.md)
+has at least1/2 original transfer weight in `[2,10]`, and at least3/8
+final excitation weight in `[2,21/2]`, before finite clock errors.
+Resolving the branch, momentum and dispersion on that same state is the
+remaining connection to a finite-domain rest mass.
