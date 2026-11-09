@@ -1,6 +1,6 @@
 {
   "schema": "oph.joint_reconstruction_dependencies.v1",
-  "target": "One source-derived interacting relativistic field theory in three spatial dimensions and time, with a complete observable particle spectrum and controlled production, scattering and decay records.",
+  "target": "One source-derived interacting relativistic field theory in three spatial dimensions and time, with a complete observable particle spectrum, controlled production, scattering and decay records, and same-source Einstein dynamics under coarse-graining.",
   "primary_program": "oph.open_wilson_gauss_observer.v1",
   "conditional_candidate": {
     "id": "oph.conditional_chiral_gauge_higgs_extension.v1",
@@ -78,13 +78,14 @@
         "Keep the uniform interaction coefficient 5232/7, support, duration and complete-output domain explicit. Approximate implementations add their own preparation, action, clock and detector errors; directly delivering a remote record is outside the comparison."
       ],
       "evidence": [
+        {"path": "model/particle_filtered_probe/PROOF.md", "scope": "Complete triangular-filter LCU/Ramsey records and distinct complete effect instruments on the declared coherent source interface; exact finite error bounds retain all outcomes and references."},
         {"path": "model/particle_primary_locality/PROOF.md", "scope": "Actual selected-state complete boundary-record comparison and a conservative cone uniform in link degree and assigned spatial refinement."},
         {"path": "model/particle_primary_locality/locality.py", "scope": "Typed selected-member consumer, exact plaquette geometry, interaction incidence and rational finite-time bounds."},
         {"path": "model/particle_physical_causality/PROOF.md", "scope": "Parameterized refinement-uniform causal bound; actual primary instantiation must bind its inputs."},
         {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Finite local factors and Wilson interaction bounds at fixed spacing and per-link cutoff."},
         {"path": "model/particle_physical_boundary_state/PROOF.md", "scope": "One complete physical boundary-charge PVM on the exact selected state."}
       ],
-      "boundary": "This establishes finite local records and a uniform influence estimate. It does not establish joint state/correlation convergence, the full physical particle-detector repertoire, Lorentz covariance or a measured light speed. Required spectrum instruments and their limiting errors are part of nodes 4-8.",
+      "boundary": "This establishes finite local records, complete filtered-probe apparatus specifications and a uniform influence estimate. A common subsequence carries fixed finite pointer histories; a growing reference limit, the full particle-detector repertoire, Lorentz covariance and a measured light speed remain separate. Required spectrum instruments and their limiting errors are part of nodes 4-8.",
       "conditional_assumptions": ["physical_current_spin_detector_dictionary"],
       "required_for": ["particle_target", "pure_gauge_branch"]
     },
@@ -102,10 +103,12 @@
         "Control the joint limits rather than composing fixed-volume link-cutoff removal with fixed-spacing thermodynamic limits without uniform estimates. Retain nonzero finite-energy observable weight and prevent loss of all observed fields to the cutoff."
       ],
       "evidence": [
+        {"path": "model/particle_primary_field_algebra/PROOF.md", "scope": "One common bounded physical sequence algebra, stationary subsequential state, continuous time group, nonnegative canonical GNS energy and convergence of fixed finite complete effect histories; no noncollapse or effective subsequence claimed."},
+        {"path": "model/particle_positive_window/PROOF.md", "scope": "An original-weight positive-energy window bound from complete response contrast; an actual primary contrast witness remains uncomputed."},
         {"path": "model/particle_link_cutoff_limit/PROOF.md", "scope": "Electric-cutoff and complete-history convergence at fixed finite spatial carrier and spacing."},
         {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Ground-state subsequence and dynamics at fixed spacing and link cutoff, not the simultaneous primary limit."},
         {"path": "model/particle_common_contract/PROOF.md", "scope": "Exact finite sequence; joint physical refinement is a separate output theorem."},
-        {"path": "model/particle_joint_reconstruction/POSITIVE_ENERGY.md", "scope": "Selected cooling gives nonnegative support under continuous stationary correlation convergence; fixed triangular time filtering supplies a continuous response subsequence, without noncollapse, a common field algebra or a gap."}
+        {"path": "model/particle_joint_reconstruction/POSITIVE_ENERGY.md", "scope": "Selected cooling gives nonnegative support under continuous stationary correlation convergence; the reused filtered bounds enter the common primary algebra theorem without a gap assumption."}
       ],
       "conditional_assumptions": ["common_vacuum_reference_clock", "renormalized_four_dimensional_correlations"],
       "required_for": ["particle_target", "pure_gauge_branch"]
@@ -124,6 +127,7 @@
         "Prove an interaction at fixed physical separations and times in a fixed renormalized generating-field/current dictionary that is incompatible with a free/Wick hierarchy under the admitted identifications, or supply an appropriate nonfree scattering criterion. Connected correlations of nonlinear composites of free fields, finite non-Gaussianity, canonical commutation relations and a fixed-spacing quartic term are insufficient."
       ],
       "evidence": [
+        {"path": "model/particle_primary_field_algebra/PROOF.md", "scope": "Same-source point-norm continuous time automorphisms, canonical positive-energy GNS and filtered spatial commutation; no spatial translation, boost, nontriviality or interaction theorem."},
         {"path": "model/particle_gauge_characteristics/PROOF.md", "scope": "Matched quadratic principal gauge and matter speeds, without an interacting Lorentz theorem."},
         {"path": "model/continuum_field_net/README.md", "scope": "Separate uncentered Weyl/contact continuum hierarchy with positive energy and a finite cone; no surviving interaction or Lorentz proof."},
         {"path": "model/continuum_free_limit/README.md", "scope": "Separate centered bounded-contact branch is exactly free and massless."},
@@ -222,6 +226,46 @@
       "required_for": ["pure_gauge_branch"],
       "required_for_full_particle_spectrum": false,
       "implies_full_theory_positive_global_gap": false
+    },
+    {
+      "id": "geometric_gravity",
+      "number": 10,
+      "title": "Recover proper geometry and Einstein dynamics",
+      "depends_on": [
+        "relativistic_field"
+      ],
+      "status": "physical_proof_required",
+      "domain": "One source, physical state, proper metric and clock, with matched regional stress, entropy and area responses.",
+      "acceptance": [
+        "Derive conserved local energy and its finite currents on the selected construction; identify a symmetric physical stress tensor and proper geometry on the same limiting observable algebra. An assigned coframe is not itself an observer-derived metric.",
+        "Supply the actual regional modular/stress relation, fixed-proper-volume area response and generalized entropy balance on one state family, including apparatus records and boundary-center contributions in the stated entropy functional. A source marginal entropy first law is not the entropy of the complete observer output.",
+        "Meet the common small-ball error estimates for the ten timelike probes in the matched Einstein theorem, with every error divided by the fourth power of proper radius tending to zero; retain one positive spacetime-independent limiting area coefficient.",
+        "Prove sufficient metric and stress convergence to identify the limiting Einstein tensor, and use same-source Ward conservation and contracted Bianchi conservation for the constant cosmological term. The Newton scale and physical units retain their derivation or calibration ancestry."
+      ],
+      "evidence": [
+        {
+          "path": "model/particle_primary_stress/PROOF.md",
+          "scope": "Selected-source finite local energy continuity and regional source-response bounds; no proper-metric or Einstein identification."
+        },
+        {
+          "path": "model/matched_einstein_limit/PROOF.md",
+          "scope": "Conditional matched regional reconstruction with explicit tensor inverse and small-ball error bound."
+        },
+        {
+          "path": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
+          "scope": "Finite geometric and modular normalizations under their stated geometric premises."
+        },
+        {
+          "path": "model/particle_spatial_modular_response/PROOF.md",
+          "scope": "Supported finite regional modular generator, distinct from the geometric diamond kernel."
+        }
+      ],
+      "conditional_assumptions": [],
+      "required_for": [
+        "gravity_target"
+      ],
+      "required_for_full_particle_spectrum": false,
+      "proper_geometry_or_Einstein_limit_proved": false
     }
   ],
   "requirement_maps": {
@@ -234,7 +278,7 @@
       "6": ["relativistic_field"],
       "7": ["chiral_species_attachment"],
       "8": ["particle_observables"],
-      "9": ["outside_target:geometric_gravity"],
+      "9": ["geometric_gravity"],
       "10": ["independent_comparison"]
     },
     "native_full_spectrum_ten": {
@@ -271,10 +315,6 @@
     }
   },
   "outside_target": {
-    "geometric_gravity": {
-      "path": "model/matched_einstein_limit/PROOF.md",
-      "scope": "A separate same-state consumer for proper geometry, stress, modular/area response and controlled small-ball errors. It is not a prerequisite for the requested particle spectrum or pure Yang-Mills spectral theorem."
-    },
     "public_document_and_ledger_consistency": "Maintaining consistent public claims is a deliverable, not an additional physical theorem."
   },
   "cross_domain_boundaries": [

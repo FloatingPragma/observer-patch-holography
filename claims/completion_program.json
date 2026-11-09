@@ -683,7 +683,33 @@
         "model/particle_joint_reconstruction/results.json",
         "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
         "model/particle_joint_reconstruction/positive_energy.py",
-        "model/particle_joint_reconstruction/test_positive_energy.py"
+        "model/particle_joint_reconstruction/test_positive_energy.py",
+        "model/particle_primary_field_algebra/PROOF.md",
+        "model/particle_primary_field_algebra/README.md",
+        "model/particle_primary_field_algebra/__init__.py",
+        "model/particle_primary_field_algebra/__main__.py",
+        "model/particle_primary_field_algebra/algebra.py",
+        "model/particle_primary_field_algebra/results.json",
+        "model/particle_primary_field_algebra/test_algebra.py",
+        "model/particle_filtered_probe/PROOF.md",
+        "model/particle_filtered_probe/README.md",
+        "model/particle_filtered_probe/__init__.py",
+        "model/particle_filtered_probe/__main__.py",
+        "model/particle_filtered_probe/filter.py",
+        "model/particle_filtered_probe/test_filter.py",
+        "model/particle_primary_stress/PROOF.md",
+        "model/particle_primary_stress/README.md",
+        "model/particle_primary_stress/__init__.py",
+        "model/particle_primary_stress/__main__.py",
+        "model/particle_primary_stress/results.json",
+        "model/particle_primary_stress/stress.py",
+        "model/particle_primary_stress/test_stress.py",
+        "model/particle_positive_window/PROOF.md",
+        "model/particle_positive_window/README.md",
+        "model/particle_positive_window/__init__.py",
+        "model/particle_positive_window/test_window.py",
+        "model/particle_positive_window/window.py",
+        "model/particle_filtered_probe/results.json"
       ],
       "legacy_issues": [
         1033,
@@ -1128,9 +1154,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "1ab1be431a0fc21192baa609102880ef840c5e6b64aad8e063f94eecd71e0791",
+          "sha256": "1c500fcd8ca7f3209125ca919b8296862be715796283f46ba4ebc9b1fa1ea8a0",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "A shared nine-node dependency graph joins fixed program, physical preparation, complete local records, joint refinement, interacting relativistic reconstruction, chiral species, observable spectrum and independent comparison, with a separate pure compact-simple Yang-Mills gap branch. Finite specification, preparation and locality are established only on their selected primary domain; all ten conditional candidate assumptions remain undischarged on that source. Nonfree interaction requires a surviving witness incompatible with a free/Wick theory in the fixed generating-field/current dictionary, not merely connected correlations of nonlinear composites. The graph is a premise map, not physical continuum or downstream gate acceptance.",
+          "scope": "One ten-node dependency graph joins fixed program, physical preparation, complete local records, joint refinement, interacting relativistic reconstruction, chiral species, observable spectrum and independent comparison, with separate pure compact-simple Yang-Mills and geometric-gravity branches. Three finite acceptance domains remain established. The same-source common filtered algebra, positive GNS, finite detector histories and exact energy currents discharge scoped prerequisites without proving finite-energy noncollapse, interacting Lorentz physics, particles or Einstein dynamics. Candidate assumptions retain their source domain. Nonfree interaction requires a surviving witness incompatible with a free/Wick theory in a fixed field/current dictionary. This is a premise map, not downstream physical gate acceptance.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -2319,7 +2345,14 @@
         "model/particle_joint_reconstruction/results.json",
         "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
         "model/particle_joint_reconstruction/positive_energy.py",
-        "model/particle_joint_reconstruction/test_positive_energy.py"
+        "model/particle_joint_reconstruction/test_positive_energy.py",
+        "model/particle_primary_stress/PROOF.md",
+        "model/particle_primary_stress/README.md",
+        "model/particle_primary_stress/__init__.py",
+        "model/particle_primary_stress/__main__.py",
+        "model/particle_primary_stress/results.json",
+        "model/particle_primary_stress/stress.py",
+        "model/particle_primary_stress/test_stress.py"
       ],
       "legacy_issues": [
         1026,
@@ -2625,6 +2658,14 @@
           "independent_check": "model/quadratic_conservation/test_conservation.py",
           "scope": "For every connected finite open Weyl/contact box with c,U>0, all self-adjoint even quadratic conserved operators are the identity and four hidden U(2) generators for H, or the identity and six hidden-spin/eta generators for K=H-UN/2. Vacuum and spectator matrix elements exclude every offsite pairing coefficient; connectivity fixes the onsite eta profile and its centering condition. On the eight-site cube exact full-CAR commutator ranks are 492 and 490 in the entire 496-dimensional traceless quadratic space, with independent full-occupation plaquette checks. No nonconstant such invariant has strict support in a proper site subset. Quadratic-current exhaustion does not construct a conserved Lorentz stress tensor, a maintenance-energy law, or a calibrated physical clock.",
           "campaign_id": "OPH-FINITE-OBSERVABLE-CLOSURE-2026-11-05"
+        },
+        {
+          "id": "primary_exact_local_energy_current",
+          "path": "model/particle_primary_stress/PROOF.md",
+          "sha256": "763e27a30d59679b389ca56e4340ca62c75ac54c88f78e8d3a5afcb60eaf0ddd",
+          "independent_check": "model/particle_primary_stress/test_stress.py",
+          "scope": "On the unchanged sixty-mode Wilson/Gauss primary, onsite and owned electric terms plus half bonds and one-third owner plaquettes sum exactly to H. The physical even cell energies obey J_xy=i[h_x,h_y], antisymmetric local continuity and complete unbiased two-outcome current readouts. Explicit finite errors use separately prepared copies; sequential apparatus requires its disturbance and work. The same supported polynomial-state marginal has a finite entropy first law, with a distinct retained-coin entropy. Neither finite conservation nor this marginal entropy supplies a proper metric, a symmetric Lorentz stress, a geometric modular/area law, uniform continuum stress bounds or Einstein dynamics. A separate 48-state quantum-link control executes the operator and detector identities.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -3241,7 +3282,26 @@
         "model/particle_joint_reconstruction/results.json",
         "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
         "model/particle_joint_reconstruction/positive_energy.py",
-        "model/particle_joint_reconstruction/test_positive_energy.py"
+        "model/particle_joint_reconstruction/test_positive_energy.py",
+        "model/particle_primary_field_algebra/PROOF.md",
+        "model/particle_primary_field_algebra/README.md",
+        "model/particle_primary_field_algebra/__init__.py",
+        "model/particle_primary_field_algebra/__main__.py",
+        "model/particle_primary_field_algebra/algebra.py",
+        "model/particle_primary_field_algebra/results.json",
+        "model/particle_primary_field_algebra/test_algebra.py",
+        "model/particle_filtered_probe/PROOF.md",
+        "model/particle_filtered_probe/README.md",
+        "model/particle_filtered_probe/__init__.py",
+        "model/particle_filtered_probe/__main__.py",
+        "model/particle_filtered_probe/filter.py",
+        "model/particle_filtered_probe/test_filter.py",
+        "model/particle_positive_window/PROOF.md",
+        "model/particle_positive_window/README.md",
+        "model/particle_positive_window/__init__.py",
+        "model/particle_positive_window/test_window.py",
+        "model/particle_positive_window/window.py",
+        "model/particle_filtered_probe/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -3877,6 +3937,22 @@
           "independent_check": "model/particle_primary_locality/test_locality.py",
           "scope": "The selected sixty-mode Wilson/Gauss polynomial source has a uniform complete-record locality bound. Product link compression preserves ambient interaction supports and norms; the full-Fock bond norm is 30/a and the plaquette norm is at most 1/(7a), giving W*=5232/7. The actual origin-cell boundary-charge detector is compared after a remote interior plaquette phase using the same preparation, reference and Hamiltonian clock. Every charge outcome and the full unchanged conjugate reference are retained. Exact zero-time non-signalling and the finite all-state bound require no factorization of the Gauss physical space. This establishes finite selected-source locality, without executed full spatial histories, joint correlation convergence, a Lorentz theorem or physical species identification.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_common_filtered_algebra",
+          "path": "model/particle_primary_field_algebra/PROOF.md",
+          "sha256": "a053b3bf69ae2c8ae3d3889429d8301669fbd3b322d781c7fd59055edee613b2",
+          "independent_check": "model/particle_primary_field_algebra/test_algebra.py",
+          "scope": "The same selected physical Wilson/Gauss sequence admits a bounded filtered observable C* algebra modulo norm-null sequences and one stationary subsequential state on all finite words. Its canonical GNS implementation is continuous and has nonnegative source energy, using the existing finite downward-record theorem. Actual centered charge/plaquette probes have scoped filtered spatial commutation, and all fixed finite square-root effect histories and finite pointer densities converge on that subsequence. This mathematical proof is not a Lean formalization of the whole sequence construction. It supplies no effective subsequence, nonzero finite-energy residue, full physical observable dictionary, growing-reference state limit, spatial translations, Lorentz covariance or surviving interaction.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_complete_filtered_instruments",
+          "path": "model/particle_filtered_probe/PROOF.md",
+          "sha256": "86751ee8a66e8a368f90e54bf20331e3c0c6ccaf922355a9a6400d4ba6f9ac2f",
+          "independent_check": "model/particle_filtered_probe/test_filter.py",
+          "scope": "Complete finite triangular-filter LCU/Ramsey apparatus is specified on the unchanged primary source clock with all failure outcomes and the idle reference retained. Authenticated centered charge and plaquette contractions use a neutral unitary dilation. A distinct square-root effect instrument supplies complete finite histories with all-reference effect, compiler, preparation and interleaved-clock error bounds; the LCU blank effect B*B is not relabelled E. Exact small two- and three-level controls execute completeness and original spectral scores, including a positive-band lower bound on the separate three-level source. The enormous spatial apparatus is specified, not executed; no primary contrast, finite-energy survival or physical particle is inferred. Compilation uses the declared coherent source-code interface and is not identified with autonomous uncontrolled repair.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -3949,7 +4025,19 @@
         "model/particle_joint_translation_readout/test_readout.py",
         "model/particle_ground_spectral_records/records.py",
         "model/particle_ground_spectral_records/PROOF.md",
-        "Lean/QFT/GroundRecordTail.lean"
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_positive_window/PROOF.md",
+        "model/particle_positive_window/README.md",
+        "model/particle_positive_window/__init__.py",
+        "model/particle_positive_window/test_window.py",
+        "model/particle_positive_window/window.py",
+        "model/particle_filtered_probe/PROOF.md",
+        "model/particle_filtered_probe/README.md",
+        "model/particle_filtered_probe/__init__.py",
+        "model/particle_filtered_probe/__main__.py",
+        "model/particle_filtered_probe/filter.py",
+        "model/particle_filtered_probe/test_filter.py",
+        "model/particle_filtered_probe/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4547,6 +4635,14 @@
           "independent_check": "model/native_composite_probe/test_probe.py",
           "scope": "A 1008-pulse native coherent selection word implements the cubic success Kraus operator C_0/3 with complete arbitrary-reference operator error below 1.6e-13. The executed detector consumes the authenticated literal hidden-frame ground preparation and retains all 2097152 successful joint amplitudes, all 7776 raw native pointer records and 3492 first-export failure slots. Its success probability 0.08261623248916 agrees with the independently certified 138-line composite weight within the combined preparation/control bound. The native filter measures total composite response; no clock resolving the 138 individual energies is executed.",
           "campaign_id": "OPH-NATIVE-OBSERVATION-CLOSURE-2026-11-05"
+        },
+        {
+          "id": "primary_original_positive_window_requirement",
+          "path": "model/particle_positive_window/PROOF.md",
+          "sha256": "095a26513110e8b2e34450d9fb475e10949064736be88a2d23c3c9546ee443e3",
+          "independent_check": "model/particle_positive_window/test_window.py",
+          "scope": "Complete original-weight response contrast F(0)-Re F(t), certified detector error and source-derived first-moment and negative-tail bounds give an explicit lower bound on weight in a fixed positive energy interval. Exact controls distinguish a surviving excitation from a zero atom, ultraviolet escape and negative-frequency weight without success renormalization. A positive contrast witness has not been computed on the selected primary spatial source, so neither primary noncollapse nor a particle mass is accepted.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -4865,7 +4961,14 @@
         "model/particle_geometric_response/PROOF.md",
         "model/particle_spatial_ground_state/ground.py",
         "model/particle_spatial_ground_state/PROOF.md",
-        "Lean/Thermodynamics/GapFreeCooling.lean"
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_primary_stress/PROOF.md",
+        "model/particle_primary_stress/README.md",
+        "model/particle_primary_stress/__init__.py",
+        "model/particle_primary_stress/__main__.py",
+        "model/particle_primary_stress/results.json",
+        "model/particle_primary_stress/stress.py",
+        "model/particle_primary_stress/test_stress.py"
       ],
       "legacy_issues": [
         1026,
@@ -5218,6 +5321,14 @@
           "independent_check": "model/native_regional_modular/test_flow.py",
           "scope": "The full 39-term regional modular polynomial of the literal prepared interacting plaquette is implemented by 37568 native pulses at modular parameter 1/2 with 32 symmetric steps. A direct derivative splitting bound, exact literal-control bounds and the source-certified regional logarithm bridge give complete half-diamond error below 6.4e-9 for every regional input and arbitrary untouched references. All 16 regional input columns and every native actuator failure are retained, with an explicit composition map for all 256 preparation records and the exterior field. This finite regional modular action has no derived geometric cap-flow interpretation or physical-duration normalization.",
           "campaign_id": "OPH-NATIVE-OBSERVATION-CLOSURE-2026-11-05"
+        },
+        {
+          "id": "primary_supported_marginal_entropy_response",
+          "path": "model/particle_primary_stress/PROOF.md",
+          "sha256": "763e27a30d59679b389ca56e4340ca62c75ac54c88f78e8d3a5afcb60eaf0ddd",
+          "independent_check": "model/particle_primary_stress/test_stress.py",
+          "scope": "On the unchanged sixty-mode Wilson/Gauss primary, onsite and owned electric terms plus half bonds and one-third owner plaquettes sum exactly to H. The physical even cell energies obey J_xy=i[h_x,h_y], antisymmetric local continuity and complete unbiased two-outcome current readouts. Explicit finite errors use separately prepared copies; sequential apparatus requires its disturbance and work. The same supported polynomial-state marginal has a finite entropy first law, with a distinct retained-coin entropy. Neither finite conservation nor this marginal entropy supplies a proper metric, a symmetric Lorentz stress, a geometric modular/area law, uniform continuum stress bounds or Einstein dynamics. A separate 48-state quantum-link control executes the operator and detector identities.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },

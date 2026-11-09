@@ -22,7 +22,7 @@ def test_all_component_requirements_and_conditional_assumptions_have_destination
         run.validate_dependencies(omitted)
 
 
-@pytest.mark.parametrize('node', [3, 4, 5, 6, 7, 8])
+@pytest.mark.parametrize('node', [3, 4, 5, 6, 7, 8, 9])
 def test_declared_status_cannot_prove_physics(graph, node):
     graph['nodes'][node]['status'] = 'finite_constructed'
     with pytest.raises(ValueError, match='promoted'):
@@ -55,8 +55,14 @@ def test_calibration_or_assumed_qft_cannot_discharge_source_output(graph, field)
 
 
 def test_pure_gauge_must_supply_its_own_shared_nodes(graph):
-    graph['nodes'][-1]['required_shared_nodes'] = ['relativistic_field']
+    graph['nodes'][8]['required_shared_nodes'] = ['relativistic_field']
     with pytest.raises(ValueError, match='own source'):
+        run.validate_dependencies(graph)
+
+
+def test_finite_current_cannot_be_promoted_to_einstein_dynamics(graph):
+    graph['nodes'][9]['proper_geometry_or_Einstein_limit_proved'] = True
+    with pytest.raises(ValueError, match='Einstein'):
         run.validate_dependencies(graph)
 
 

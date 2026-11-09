@@ -6,8 +6,12 @@ import hashlib
 import json
 from pathlib import Path
 
-from model.particle_common_contract import contract
+from model.particle_common_contract import contract, provenance
 from model.particle_joint_reconstruction import candidate, positive_energy
+from model.particle_primary_field_algebra import algebra
+from model.particle_primary_stress import stress
+from model.particle_positive_window import window
+from model.particle_filtered_probe import filter as filtered_probe
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -16,7 +20,7 @@ OUTPUT = HERE / 'results.json'
 NODE_IDS = (
     'fixed_program', 'physical_preparation', 'local_records', 'joint_refinement',
     'relativistic_field', 'chiral_species_attachment', 'particle_observables',
-    'independent_comparison', 'pure_gauge_gap',
+    'independent_comparison', 'pure_gauge_gap', 'geometric_gravity',
 )
 FINITE_CONSUMERS = {
     'fixed_program': ('source_bounds', 'common_quadratic_clock'),
@@ -30,7 +34,7 @@ FINITE_DOMAINS = {
     'local_records': 'The actual selected Wilson action and prepared state, the complete origin-cell boundary-charge instrument, and a remote physical plaquette phase on the same input and clock.',
 }
 REQUIRED_EDGES = {
-    node: ([] if index == 0 else ['relativistic_field'] if node == 'pure_gauge_gap'
+    node: ([] if index == 0 else ['relativistic_field'] if node in ('pure_gauge_gap', 'geometric_gravity')
            else [NODE_IDS[index-1]]) for index, node in enumerate(NODE_IDS)
 }
 COMPONENT_REQUIREMENTS = {
@@ -48,8 +52,8 @@ def validate_dependencies(graph):
         raise ValueError('dependency graph belongs to another program')
     rows = graph['nodes']
     if [row['id'] for row in rows] != list(NODE_IDS):
-        raise ValueError('the unified graph must contain its nine distinct nodes')
-    if [row['number'] for row in rows] != list(range(1, 10)):
+        raise ValueError('the unified graph must contain its ten distinct nodes')
+    if [row['number'] for row in rows] != list(range(1, 11)):
         raise ValueError('dependency numbering differs')
     known = set(NODE_IDS)
     assumptions = {row['id'] for row in candidate.assumption_ledger()}
@@ -87,11 +91,14 @@ def validate_dependencies(graph):
             or extension['calibrated_tree_coefficients_are_independent_predictions']
             or extension['full_theory_positive_global_gap_claimed']):
         raise ValueError('conditional extension cannot discharge primary physics or a global photon gap')
-    pure = rows[-1]
+    pure = rows[8]
     if (pure['required_for_full_particle_spectrum']
             or pure['implies_full_theory_positive_global_gap']
             or pure['required_shared_nodes'] != list(NODE_IDS[:5])):
         raise ValueError('pure Yang-Mills must instantiate its own source through reconstruction')
+    gravity = rows[9]
+    if gravity['required_for_full_particle_spectrum'] or gravity['proper_geometry_or_Einstein_limit_proved']:
+        raise ValueError('finite stress cannot be promoted to a physical Einstein limit')
     maps = graph['requirement_maps']
     if set(maps) != set(COMPONENT_REQUIREMENTS):
         raise ValueError('component requirement coverage is incomplete')
@@ -108,10 +115,14 @@ def build():
     stored_candidate = strict_json.load(candidate.OUTPUT)
     paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
+    for module in (algebra, stress, window, filtered_probe):
+        paths.update(module.SOURCE_INPUTS)
+        paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
+                     if path.is_file() and path.suffix in ('.py', '.md'))
     paths.update(str(path.relative_to(ROOT)) for path in HERE.iterdir()
                  if path.suffix in ('.py', '.md') or path.name in
                  ('dependencies.json', 'candidate_results.json'))
-    pins = {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
+    pins = provenance.definition_hashes(provenance.definition_inputs(paths))
     graph = strict_json.load(HERE / 'dependencies.json')
     validate_dependencies(graph)
     common = contract.certificate()
@@ -140,6 +151,23 @@ def build():
         })
     positive = positive_energy.certificate()
     positive_energy.verify_bound(member, positive['selected_member_bounds'][0])
+    field_algebra = algebra.certificate()
+    for level, receipt in zip((1, 6), field_algebra['selected_members'], strict=True):
+        algebra.verify_bound(contract.member(level), receipt)
+    source_stress = stress.certificate()
+    for level, receipt in zip((0, 1, 3), source_stress['selected_member_bounds'], strict=True):
+        stress.verify_bound(contract.member(level), receipt)
+    filtered = filtered_probe.certificate()
+    filtered_probe.verify_bound(member, filtered['selected_member_plan'],
+                                **filtered_probe.precision_parameters(member))
+    menu_member = contract.member(1)
+    menu_parameters = filtered_probe.precision_parameters(menu_member, half_width='1/100000')
+    for kind, receipt in zip(('charge', 'plaquette'), filtered['authenticated_field_menu_plans'], strict=True):
+        filtered_probe.verify_bound(menu_member, receipt,
+            probe_descriptor=algebra.probe(menu_member, kind=kind), **menu_parameters)
+    spectral_window = window.certificate()
+    if spectral_window['selected_requirements_without_a_positive_contrast_witness'] != window.selected_requirement(contract.member(2), 0, 0):
+        raise ValueError('the spectral diagnostic substituted its primary source or contrast')
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -150,6 +178,13 @@ def build():
         'candidate_id': candidate.EXTENSION_ID,
         'conditional_candidate_scope': conditional['scope'],
         'conditional_positive_energy_transfer': positive,
+        'primary_common_filtered_algebra': field_algebra,
+        'primary_complete_filtered_apparatus': filtered,
+        'primary_finite_energy_and_regional_response': source_stress,
+        'original_weight_positive_window_diagnostic': spectral_window,
+        'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
+        'primary_nonzero_positive_energy_weight_proved': False,
+        'primary_proper_geometry_or_Einstein_limit_proved': False,
         'conditional_candidate_calibration': 'inherited common-scale action coefficients; no physical pole matching supplied',
         'full_particle_spectrum_derived': False,
         'interacting_relativistic_primary_limit_proved': False,
@@ -171,7 +206,7 @@ def main():
         OUTPUT.write_text(result)
     elif not OUTPUT.is_file() or OUTPUT.read_text() != result:
         raise ValueError('unified reconstruction receipt differs from actual producers')
-    print('PASS: nine dependencies; three finite primary acceptances; physical interfaces explicit')
+    print('PASS: ten dependencies; three finite primary acceptances; physical interfaces explicit')
 
 
 if __name__ == '__main__':

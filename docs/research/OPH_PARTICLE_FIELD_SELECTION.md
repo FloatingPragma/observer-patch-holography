@@ -4,13 +4,20 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical state with boundary charges,
-and complete local-record influence bound. Joint refinement, an interacting
-relativistic field, physical species, the full observable spectrum and
-independent comparison belong to nodes 4-8. Node 9 is the separate pure
-Yang-Mills gap branch. The comparison results below retain their own sources;
-they do not constitute additional canonical dependency lists.
+are the single ten-node construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical boundary state, complete local
+records and controlled filtered apparatus. Node 4 includes a common
+subsequential filtered observable algebra with positive energy and finite
+pointer-history limits; its nonzero physical field content is unproved.
+The interacting relativistic field, species, spectrum and independent
+comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
+node 10 is proper geometry and Einstein dynamics. The comparison results
+below retain their own sources and do not add canonical dependency lists.
+
+The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
+prioritizes primary spectral response, momentum and rest-energy attachment,
+then physical GeV conversion. Gravity is a separate target and is deferred
+for this particle-mass calculation.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -73,6 +80,26 @@ running/matching assumptions. Agreement between action producers is not
 proof of physical matching. Nodes 4-8 specify that matching; the pure
 Yang-Mills gap branch is node 9, distinct from a full photon-containing
 theory with no positive global vacuum gap.
+
+## The common bounded algebra and its physical boundary
+
+The [primary filtered algebra](../../model/particle_primary_field_algebra/PROOF.md)
+constructs one common subsequence for all finite word moments and finite
+pointer histories, with stationary state and nonnegative canonical GNS
+energy. Fixed temporal filters and source-locality bounds also give scoped
+spatial commutation. This construction does not select a nonzero field,
+Lorentz representation, interaction or physical renormalization trajectory.
+
+The [finite filtering apparatus](../../model/particle_filtered_probe/PROOF.md)
+implements original correlation scores with every failure and the idle
+reference retained. A [positive-energy window](../../model/particle_positive_window/PROOF.md)
+requires an actual contrast beyond the supplied finite error and tail
+bounds; the primary witness is not computed. The
+[primary energy consumer](../../model/particle_primary_stress/PROOF.md)
+adds exact interaction currents and a supported source-marginal entropy
+first law. Coin-plus-region entropy is a separate functional. Its finite
+premises support gravity node 10 without identifying proper geometry or
+establishing Einstein dynamics.
 
 ## Preparation and characteristic-speed choices
 

@@ -1,0 +1,549 @@
+{
+  "SOURCE_INPUTS": [
+    "model/particle_common_contract/contract.py",
+    "model/particle_common_contract/PROOF.md",
+    "model/particle_physical_boundary_state/boundary.py",
+    "model/particle_physical_boundary_state/PROOF.md",
+    "model/particle_primary_locality/locality.py",
+    "model/particle_primary_locality/PROOF.md",
+    "model/particle_joint_reconstruction/positive_energy.py",
+    "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
+    "model/particle_ground_spectral_records/PROOF.md",
+    "model/continuum_field_net/README.md",
+    "Lean/QFT/ColimitSelectedStateGNS.lean",
+    "Lean/QFT/ColimitGNSRepresentation.lean",
+    "Lean/QFT/GroundRecordTail.lean"
+  ],
+  "complete_pointer_control": {
+    "all_record_probabilities": [
+      "1/4",
+      "1/4",
+      "1/4",
+      "1/4"
+    ],
+    "complete_isometry_checked": true,
+    "history_count": 4,
+    "is_selected_spatial_source": false,
+    "off_diagonal_pointer_entries_retained": true,
+    "pointer_trace": "1"
+  },
+  "escaping_charge_control": {
+    "complete_finite_probability_sum": 1,
+    "control_is_primary_spatial_source": false,
+    "finite_PVM_labels": [
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "finite_gap_free_ground": true,
+    "fixed_charge_probabilities": {
+      "-1": 0,
+      "0": 0,
+      "1": 0
+    },
+    "limiting_fixed_charge_PVM_completeness_follows": false,
+    "state_charge": 4
+  },
+  "full_interacting_relativistic_field_reconstruction": false,
+  "proof": "model/particle_primary_field_algebra/PROOF.md",
+  "schema": "oph.primary_filtered_algebra_certificate.v1",
+  "selected_members": [
+    {
+      "result": {
+        "GNS_source_energy_generator_nonnegative": true,
+        "Lorentz_symmetry_interactions_or_particles_proved": false,
+        "actual_probe_examples": [
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "0",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "0",
+              "0",
+              "0"
+            ],
+            "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "charge",
+            "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+            "nearest_lower_owner_cell": [
+              4,
+              4,
+              4
+            ],
+            "normalization": "Q6=6Y",
+            "operator": "spectral projection of outgoing-link right endpoint Q6",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+            "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "zero_reason": null
+          },
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "0",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "0",
+              "0",
+              "0"
+            ],
+            "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "plaquette",
+            "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+            "nearest_lower_owner_cell": [
+              4,
+              4,
+              4
+            ],
+            "normalization": "native trace divided by15",
+            "operator": "compressed ReTr_M15(U_plaquette)/15",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+            "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                4,
+                4,
+                4
+              ],
+              [
+                4,
+                5,
+                4
+              ],
+              [
+                5,
+                4,
+                4
+              ]
+            ],
+            "zero_reason": null
+          },
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "1",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "1",
+              "0",
+              "0"
+            ],
+            "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "charge",
+            "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+            "nearest_lower_owner_cell": [
+              6,
+              4,
+              4
+            ],
+            "normalization": "Q6=6Y",
+            "operator": "spectral projection of outgoing-link right endpoint Q6",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+            "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                6,
+                4,
+                4
+              ]
+            ],
+            "zero_reason": null
+          }
+        ],
+        "all_fixed_finite_complete_effect_history_probabilities_converge": true,
+        "arbitrary_idle_reference_observables_in_stationary_algebra": false,
+        "canonical_GNS_U_t_Omega_equals_Omega": true,
+        "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+        "compiled_filtered_source_apparatus_execution_claimed": false,
+        "construction": "separable filtered sequence C*-algebra modulo norm-null sequences",
+        "countable_menu_claimed_complete_for_all_physical_observables": false,
+        "faithful_nontrivial_field_or_nonzero_energy_limit_proved": false,
+        "filtered_locality_example": {
+          "commutator_norm_upper": "2",
+          "exact_zero": false,
+          "exponential_power": 0,
+          "global_Gauss_projected_H_declared_local": false,
+          "graph_owner_distance": 2,
+          "prefactor_owner_count": 1,
+          "rational_cone_margin": "20567/43750",
+          "same_primary_source_clock": true,
+          "source_spacing": "1/2",
+          "total_temporal_reach": "1/50000",
+          "weighted_rate_times_spacing_upper": "5232/7"
+        },
+        "finite_pointer_density_matrices_converge_in_trace_norm": true,
+        "growing_canonical_reference_state_limit_claimed": false,
+        "infinite_charge_PVM_complete_without_tightness": false,
+        "limit_exists_for_full_selected_sequence_without_subsequence": false,
+        "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+        "one_subsequence_for_all_finite_star_moments": true,
+        "perfect_finite_interlevel_state_embeddings_assumed": false,
+        "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+        "separate_CAR_continuum_source_transferred": false,
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+        "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f",
+        "stationary_state_and_norm_continuous_source_time_group": true,
+        "subsequence_effectively_computed": false,
+        "word_example": {
+          "covers_all_finite_star_words_on_one_subsequence": true,
+          "spectral_bound": {
+            "bare_charged_probe_uses_this_floor": false,
+            "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+            "correlation": "omega(A_dagger alpha_t(A)), alpha_t(A)=exp(i t H) A exp(-i t H)",
+            "fixed_time_correlation_convergence_proved": false,
+            "formula": "min(C_squared, C_squared*epsilon/delta)",
+            "frequency": "final source energy minus initial source energy",
+            "idle_reference_purification_assumed_stationary": false,
+            "limiting_nonzero_finite_energy_weight_proved": false,
+            "mean_physical_ground_excess_upper": "1/32",
+            "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+            "negative_transfer_threshold": "1/4",
+            "operator_norm_squared_upper": "1",
+            "ordered_correlation_is_sequential_pointer_probability": false,
+            "original_negative_spectral_weight_upper": "1/8",
+            "original_weights_normalized_by_probe_success": false,
+            "probe_domain": "source algebra; A maps ran(P_G) into ran(P_G)",
+            "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+            "source_density_stationary": true,
+            "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+            "source_level": 1,
+            "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
+          },
+          "word": {
+            "degree": 2,
+            "norm_upper": "1",
+            "time_Lipschitz_upper": "400000"
+          }
+        }
+      },
+      "result_sha256": "832c9869ad4800f2bc85073e25cfa2f9159810f2302b6f5d7c0826c3e5ac9eb3",
+      "schema": "oph.primary_filtered_algebra.v1"
+    },
+    {
+      "result": {
+        "GNS_source_energy_generator_nonnegative": true,
+        "Lorentz_symmetry_interactions_or_particles_proved": false,
+        "actual_probe_examples": [
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "0",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "0",
+              "0",
+              "0"
+            ],
+            "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "charge",
+            "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+            "nearest_lower_owner_cell": [
+              4096,
+              4096,
+              4096
+            ],
+            "normalization": "Q6=6Y",
+            "operator": "spectral projection of outgoing-link right endpoint Q6",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+            "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                4096,
+                4096,
+                4096
+              ]
+            ],
+            "zero_reason": null
+          },
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "0",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "0",
+              "0",
+              "0"
+            ],
+            "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "plaquette",
+            "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+            "nearest_lower_owner_cell": [
+              4096,
+              4096,
+              4096
+            ],
+            "normalization": "native trace divided by15",
+            "operator": "compressed ReTr_M15(U_plaquette)/15",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+            "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                4096,
+                4096,
+                4096
+              ],
+              [
+                4096,
+                4097,
+                4096
+              ],
+              [
+                4097,
+                4096,
+                4096
+              ]
+            ],
+            "zero_reason": null
+          },
+          {
+            "active": true,
+            "actual_centered_anchor": [
+              "1",
+              "0",
+              "0"
+            ],
+            "axis": 0,
+            "centered_embedding": "a*(owner_cell-side/2)",
+            "centered_target": [
+              "1",
+              "0",
+              "0"
+            ],
+            "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+            "commutes_all_local_Gauss_constraints": true,
+            "filter": "f_T(s)=(1-abs(s)/T)_+/T",
+            "filtered_norm_upper": "1",
+            "full_spatial_matrix_executed": false,
+            "half_width": "1/100000",
+            "individual_filtered_observable_is_a_PVM_projection": false,
+            "integer_Q6_charge": 1,
+            "kind": "charge",
+            "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+            "nearest_lower_owner_cell": [
+              4160,
+              4096,
+              4096
+            ],
+            "normalization": "Q6=6Y",
+            "operator": "spectral projection of outgoing-link right endpoint Q6",
+            "plaquette_axes": [
+              0,
+              1
+            ],
+            "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+            "sequence_time_Lipschitz_upper": "200000",
+            "sequence_uniform_norm_upper": "1",
+            "source_even": true,
+            "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+            "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6",
+            "stationary_algebra_includes_idle_reference": false,
+            "unsmeared_norm_upper": "1",
+            "unsmeared_owner_support": [
+              [
+                4160,
+                4096,
+                4096
+              ]
+            ],
+            "zero_reason": null
+          }
+        ],
+        "all_fixed_finite_complete_effect_history_probabilities_converge": true,
+        "arbitrary_idle_reference_observables_in_stationary_algebra": false,
+        "canonical_GNS_U_t_Omega_equals_Omega": true,
+        "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+        "compiled_filtered_source_apparatus_execution_claimed": false,
+        "construction": "separable filtered sequence C*-algebra modulo norm-null sequences",
+        "countable_menu_claimed_complete_for_all_physical_observables": false,
+        "faithful_nontrivial_field_or_nonzero_energy_limit_proved": false,
+        "filtered_locality_example": {
+          "commutator_norm_upper": "1/536870912",
+          "exact_zero": false,
+          "exponential_power": 30,
+          "global_Gauss_projected_H_declared_local": false,
+          "graph_owner_distance": 64,
+          "prefactor_owner_count": 1,
+          "rational_cone_margin": "20567/43750",
+          "same_primary_source_clock": true,
+          "source_spacing": "1/64",
+          "total_temporal_reach": "1/50000",
+          "weighted_rate_times_spacing_upper": "5232/7"
+        },
+        "finite_pointer_density_matrices_converge_in_trace_norm": true,
+        "growing_canonical_reference_state_limit_claimed": false,
+        "infinite_charge_PVM_complete_without_tightness": false,
+        "limit_exists_for_full_selected_sequence_without_subsequence": false,
+        "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+        "one_subsequence_for_all_finite_star_moments": true,
+        "perfect_finite_interlevel_state_embeddings_assumed": false,
+        "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+        "separate_CAR_continuum_source_transferred": false,
+        "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+        "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6",
+        "stationary_state_and_norm_continuous_source_time_group": true,
+        "subsequence_effectively_computed": false,
+        "word_example": {
+          "covers_all_finite_star_words_on_one_subsequence": true,
+          "spectral_bound": {
+            "bare_charged_probe_uses_this_floor": false,
+            "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+            "correlation": "omega(A_dagger alpha_t(A)), alpha_t(A)=exp(i t H) A exp(-i t H)",
+            "fixed_time_correlation_convergence_proved": false,
+            "formula": "min(C_squared, C_squared*epsilon/delta)",
+            "frequency": "final source energy minus initial source energy",
+            "idle_reference_purification_assumed_stationary": false,
+            "limiting_nonzero_finite_energy_weight_proved": false,
+            "mean_physical_ground_excess_upper": "1/1024",
+            "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+            "negative_transfer_threshold": "1/4",
+            "operator_norm_squared_upper": "1",
+            "ordered_correlation_is_sequential_pointer_probability": false,
+            "original_negative_spectral_weight_upper": "1/256",
+            "original_weights_normalized_by_probe_success": false,
+            "probe_domain": "source algebra; A maps ran(P_G) into ran(P_G)",
+            "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+            "source_density_stationary": true,
+            "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+            "source_level": 6,
+            "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6"
+          },
+          "word": {
+            "degree": 2,
+            "norm_upper": "1",
+            "time_Lipschitz_upper": "400000"
+          }
+        }
+      },
+      "result_sha256": "c85cbc6f9a6911958e08e1d18f39be817581c7bb749188ebdcbcc0e535fc1ddc",
+      "schema": "oph.primary_filtered_algebra.v1"
+    }
+  ],
+  "two_level_control": {
+    "Gram_positive_by_explicit_factorization": true,
+    "Gram_rank": 2,
+    "is_selected_spatial_source": false,
+    "left_null_ideal_is_not_two_sided": true,
+    "positive_frequency": "pi",
+    "positive_frequency_weight": "4/pi**4",
+    "word_count": 6
+  }
+}

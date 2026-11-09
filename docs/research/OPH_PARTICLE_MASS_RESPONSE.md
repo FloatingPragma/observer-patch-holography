@@ -4,13 +4,20 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical state with boundary charges,
-and complete local-record influence bound. Joint refinement, an interacting
-relativistic field, physical species, the full observable spectrum and
-independent comparison belong to nodes 4-8. Node 9 is the separate pure
-Yang-Mills gap branch. The comparison results below retain their own sources;
-they do not constitute additional canonical dependency lists.
+are the single ten-node construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical boundary state, complete local
+records and controlled filtered apparatus. Node 4 includes a common
+subsequential filtered observable algebra with positive energy and finite
+pointer-history limits; its nonzero physical field content is unproved.
+The interacting relativistic field, species, spectrum and independent
+comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
+node 10 is proper geometry and Einstein dynamics. The comparison results
+below retain their own sources and do not add canonical dependency lists.
+
+The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
+prioritizes primary spectral response, momentum and rest-energy attachment,
+then physical GeV conversion. Gravity is a separate target and is deferred
+for this particle-mass calculation.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -106,6 +113,26 @@ assigned separation one and duration `1/10000` give complete-output
 half-trace error at most `2^-21`. The conservative influence cone is uniform
 in the declared scaling; this does not provide a pole, dispersion relation
 or convergence of mass observables across levels.
+
+## Original response weight and the common primary limit
+
+The [common filtered observable algebra](../../model/particle_primary_field_algebra/PROOF.md)
+has a stationary subsequential state, positive canonical GNS energy and
+finite pointer-history limits. The representation can lose all nonzero
+energy response, so positive energy alone is not a mass or particle theorem.
+The [complete filtered apparatus](../../model/particle_filtered_probe/PROOF.md)
+measures original norm and Ramsey scores with explicit finite clock and
+compiler errors, retaining failures and the idle quantum reference.
+Its [positive-window criterion](../../model/particle_positive_window/PROOF.md)
+requires an actual positive contrast after all error and spectral-tail
+allowances. No primary mass or noncollapse witness is inserted into it.
+
+The [same-primary energy construction](../../model/particle_primary_stress/PROOF.md)
+conserves the unchanged source Hamiltonian through local interaction
+currents. Its entropy first law concerns the supported source marginal,
+not the full retained coin/reference output. Gravity node 10 needs proper
+geometry, physical stress and controlled regional area/entropy matching;
+these finite source-energy records do not supply those identifications.
 
 ## Fixed construction and admissible mass comparisons
 
@@ -204,8 +231,8 @@ The composed periodic exact-sign comparison error is at most
 `1.05065e-149`, so it does not resolve that parent's rare-event positivity.
 This field uses its own prepared state; it does not transfer the Q*=6
 scalar spectrum into a spatial mass shell. Dispersion, physical spin and
-Lorentz readouts, scattering/decays and geometric gravity premises keep
-the physical acceptance conditions of nodes 4-8 in the unified dependency graph.
+Lorentz readouts and scattering/decays retain the physical acceptance
+conditions of nodes 4-8; geometric gravity uses node 10 of the same graph.
 The side-21, order-zero program and the one-cell, order-128, time-one
 all-time-gap example are distinct constructions. Their Wilson-kernel
 gap is a regulator property, not a physical mass gap; the flat free

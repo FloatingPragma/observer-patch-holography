@@ -17,6 +17,9 @@ AUDIT = HERE/'audit.json'
 V1 = ROOT/'model/particle_candidate_atlas/audit.json'
 OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
 DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
+PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
+    'particle_primary_field_algebra', 'particle_filtered_probe',
+    'particle_primary_stress', 'particle_positive_window'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -58,6 +61,7 @@ def load():
                   'model/particle_joint_reconstruction/DEPENDENCIES.md',
                   data['joint_dependencies']['conditional_candidate']['proof'],
                   data['joint_dependencies']['conditional_candidate']['producer']})
+    paths.update(PRIMARY_PROOFS)
     for node in data['joint_dependencies']['nodes']:
         for evidence in node['evidence']:
             name=evidence['path']
@@ -143,9 +147,13 @@ def reader(svg,data):
         ('particle_link_cutoff_limit','Fixed-volume electric cutoff and complete-record convergence'),
         ('particle_physical_boundary_state','Physical preparation with boundary charges and complete records'),
         ('particle_primary_locality','Complete local boundary records on the selected physical source'),
+        ('particle_primary_field_algebra','Common filtered observable algebra, positive energy and finite pointer limits'),
+        ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
+        ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
+        ('particle_positive_window','Original positive-energy window weight from complete records'),
         ('particle_yang_mills_gap_contract','Same-clock local correlations and a continuum spectral-gap criterion'))]
     extra += [{'label':label, 'path':'model/particle_joint_reconstruction/'+name} for name,label in (
-        ('DEPENDENCIES.md','One dependency graph for interacting fields, particles and the separate pure-gauge gap'),
+        ('DEPENDENCIES.md','One dependency graph for fields, particles, the pure-gauge gap and gravity'),
         ('CANDIDATE.md','Conditional chiral gauge-Higgs candidate and calibrated spectrum conventions'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
@@ -158,7 +166,7 @@ def reader(svg,data):
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OPH particle atlas v2: illustrated reader</title>
 <style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
-<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Nine dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
+<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Ten dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
 <main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Full references behind the illustrated steps. Supplied hypotheses and unproved bridges are labeled in the spread.</p><ul>'''+''.join(full_links)+'''</ul></aside>
 <nav id="nav"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="out" aria-label="Zoom out">−</button><button id="in" aria-label="Zoom in">+</button><button id="zoom">100%</button></nav>
 <script>

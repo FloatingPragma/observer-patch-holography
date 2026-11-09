@@ -1,4 +1,4 @@
-# One dependency graph for the field and particle spectrum
+# One dependency graph for fields, particles and gravity
 
 The [conditional chiral gauge-Higgs candidate](CANDIDATE.md) gives a concrete
 target whose action spectrum can be calculated under explicit assumptions.
@@ -10,7 +10,8 @@ matching and neutrino completion as declared premises.
 
 The physical target is one source-derived interacting relativistic field
 in three spatial dimensions and time, with a complete observable spectrum
-and its production, scattering and decay laws. The graph below joins the
+and its production, scattering and decay laws, with same-source geometric
+gravity. The graph below joins the
 field-construction and native-particle requirements without repeating the
 source, preparation or clock. [dependencies.json](dependencies.json) records
 the acceptance conditions, exact evidence domains and the mapping from the
@@ -26,6 +27,7 @@ flowchart LR
     F --> G[7. Spectrum, scattering and decays]
     G --> H[8. Independent comparison]
     E --> Y[9. Pure Yang-Mills gap branch]
+    E --> R[10. Proper geometry and Einstein dynamics]
 ```
 
 An arrow states an acceptance dependency. Conditional calculations of a
@@ -41,13 +43,14 @@ the coupled matter source merely by sharing those node names.
 | --- | --- | --- |
 | 1. Fixed program | The [common contract](../particle_common_contract/PROOF.md) fixes the open Wilson action, all sixty modes per cell, product link cutoff, Gauss boundary condition, polynomial preparation, conjugate reference and `exp(-itH)`. It authenticates the finite inputs and separates architecture from empirical calibration. | Finite specification constructed. No uniqueness theorem for the architecture is required. |
 | 2. Physical preparation | The [physical Gauss preparation](../particle_gauss_ground_state/PROOF.md) and [boundary-state theorem](../particle_physical_boundary_state/PROOF.md) construct the actual selected state, deterministic preparation and complete boundary-charge measurement. Eleven Wilson-loop/blank witnesses have strictly positive weight; all charge outcomes are retained. | Finite construction established. Full spatial execution and compatibility between refinement levels are separate claims. |
-| 3. Local records | The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. It supplies neither convergence of physical records nor the complete particle-detector repertoire. |
-| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | The simultaneous primary limit is unproved. The fixed-volume link-cutoff theorem and fixed-regulator volume theorem cannot be composed without uniform estimates. |
+| 3. Local records | The [complete filtered apparatus](../particle_filtered_probe/PROOF.md) supplies distinct LCU/Ramsey and square-root effect instruments with error bounds. The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. Fixed finite effect histories converge on the common subsequence below; growing reference outputs and the full particle-detector repertoire are separate requirements. |
+| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md), stationary subsequential state, positive-energy GNS and fixed finite pointer-history limits are constructed. Noncollapse, charge tightness, effective errors and a full field dictionary remain unproved; fixed-regulator results are not silently composed. |
 | 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The matched gauge/matter quadratic cone is finite evidence. It does not prove Lorentz covariance or a continuum interaction. |
 | 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | Conditional finite representation and action results are available. Their physical chiral continuum, vacuum and source attachment are unproved. |
 | 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | Action-level coefficients and separate finite spectral controls are available. A full physical spectrum on the primary family is unproved. |
 | 8. Independent comparison | Fix physical units and a frozen observable dictionary; compare joint records in the same schemes, initial conditions and resolution, with propagated errors. Preserve fitted-input ancestry and distinguish independent tests from calibration. | Calibrated candidate comparisons have their declared scope. Empirical particle assignments require the preceding physical attachments. |
 | 9. Pure Yang-Mills branch | Admit a pure compact-simple source or prove a reducing/decoupling map, instantiate 1-5 for that source, establish Yang-Mills short-distance behavior, and prove dense local Euclidean decay with finite-energy noncollapse in its reconstructed clock. | The [spectral criterion](../particle_yang_mills_gap_contract/PROOF.md) is proved conditionally. Its pure-gauge source, continuum correlation estimates and positive physical gap are not supplied by the primary finite construction. |
+| 10. Geometric gravity | Attach the selected local energy currents and regional responses to physical stress, proper geometry, the geometric modular kernel and fixed-volume area law. Meet the matched small-ball error estimates on the same state and clock. | The [primary energy and regional response](../particle_primary_stress/PROOF.md) supplies finite prerequisites. Proper geometry and the hypotheses of the [Einstein reconstruction](../matched_einstein_limit/PROOF.md) require physical proofs. |
 
 The full theory containing a massless photon has no positive global vacuum
 gap. Node 7 therefore uses the appropriate sector threshold, resonance or
@@ -115,12 +118,29 @@ a conditional consequence of node 4, without proving its convergence or
 finite-energy noncollapse, node 5's Lorentz/interacting requirements, or
 stationarity of the finite idle-reference purification.
 
-Fixed triangular time filtering strengthens the response statement:
-uniformly norm-bounded probes have uniformly bounded filtered spectral
-first moments and hence a continuous compact-time response subsequence.
-Cooling gives nonnegative limiting support. This does not ensure a
-nonzero response, a common local field algebra or implementation of the
-filtered apparatus. It is a partial construction within node 4.
+The [common filtered algebra](../particle_primary_field_algebra/PROOF.md)
+uses one countable menu of actual centered charge projections and Wilson
+plaquettes. The bounded sequence algebra modulo norm-null sequences has
+one stationary subsequential state for all finite words. Its continuous
+source-time group has a canonical nonnegative GNS energy generator. The
+actual source locality estimate gives filtered spatial commutation, with
+the temporal support of both filters retained. Complete fixed finite effect
+histories and their finite pointer densities converge on that same
+subsequence. This is stronger than separate two-point response limits.
+It supplies neither a growing-reference limit nor a nontrivial physical
+field, an effective subsequence, spatial translations or Lorentz symmetry.
+
+The [filtered apparatus](../particle_filtered_probe/PROOF.md) specifies
+complete finite records using the declared coherent source interface.
+A successful LCU Kraus operator B has effect B*B; the square-root instrument
+for an effect E is a separate construction. Neither discards failed flags.
+The [positive-window bound](../particle_positive_window/PROOF.md) converts
+an original-weight contrast F(0)-Re F(t), its error and the source-derived
+moment bounds into a lower bound on weight in a fixed interval [delta,R].
+An actual primary contrast that stays above the allowances is the shortest
+next test of a surviving excitation. Positive results on the separate
+small matrix control do not supply that primary contrast, a mass pole,
+physical species or a surviving interaction.
 
 No second observer-preparation checklist is introduced for that branch.
 Its source must instantiate the same nodes 1-5 or be connected by a proved
@@ -130,9 +150,20 @@ identity is not a normalizable Haar state. The polynomial state's energy
 excess is not a spectral-gap lower bound, and stationarity alone supplies
 no vacuum Euclidean decay estimate.
 
-Geometric gravity has a separate
-[same-state Einstein consumer](../matched_einstein_limit/PROOF.md) for
-proper stress, geometry, modular/area response and small-ball errors. It
-is outside this field-and-spectrum target. Maintaining consistent papers,
-ledgers and public claims is a delivery requirement, not an additional
-physical dependency.
+Geometric gravity is node 10. Its
+[same-state Einstein consumer](../matched_einstein_limit/PROOF.md) requires
+proper stress, geometry, modular/area response and small-ball errors.
+It shares the physical source and field reconstruction requirements,
+without being a prerequisite for every particle comparison. Maintaining
+consistent papers, ledgers and public claims is a delivery requirement,
+not an additional physical dependency.
+
+The [primary current construction](../particle_primary_stress/PROOF.md)
+partitions the unchanged Wilson action into local cell energies and proves
+exact antisymmetric current continuity, complete current readouts and a
+regional marginal entropy first law. Energy sampling uses separately
+prepared copies; sequential apparatus has its own disturbance and work.
+The retained coin-plus-region entropy differs from the regional marginal
+entropy. Neither is silently identified with geometric generalized entropy.
+See the [reuse map](REUSE.md) for the finite theorems and comparison
+constructions used at each step.

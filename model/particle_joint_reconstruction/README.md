@@ -1,7 +1,7 @@
 # Joint field and particle reconstruction
 
-The [nine-node dependency map](DEPENDENCIES.md) joins the physical field,
-particle and pure Yang-Mills requirements. Its [machine register](dependencies.json)
+The [ten-node dependency map](DEPENDENCIES.md) joins the physical field,
+particle, pure Yang-Mills and geometric-gravity requirements. Its [machine register](dependencies.json)
 maps each component requirement to one acceptance condition, preserving the
 source, state, reference, clock and observation domain.
 
@@ -10,8 +10,20 @@ finite downward-record theorem to this exact cooling family. Its scope is
 stationary physical source probes. The limiting statement retains explicit
 correlation, normalization and continuity hypotheses; it does not assign a
 particle species or certify a gap.
-Fixed triangular time filtering supplies a continuous response subsequence
-for uniformly bounded probes, without a noncollapse or full-field claim.
+The [common filtered algebra](../particle_primary_field_algebra/PROOF.md)
+constructs one stationary subsequence for all finite physical words,
+a continuous time group, nonnegative canonical GNS energy and limits of
+complete fixed finite detector histories. The [apparatus construction](../particle_filtered_probe/PROOF.md)
+keeps the LCU success effect distinct from a square-root effect readout.
+The [positive-window criterion](../particle_positive_window/PROOF.md)
+provides a quantitative test for a surviving excitation; the primary
+contrast needed to pass it is still uncomputed.
+
+The [primary energy construction](../particle_primary_stress/PROOF.md)
+supplies exact local current continuity and a scoped regional marginal
+entropy first law. It does not supply proper geometry or the remaining
+Einstein premises. The [reuse map](REUSE.md) separates these actual-source
+results from the hypotheses and methods of other constructions.
 
 The [conditional candidate](CANDIDATE.md) reuses the three-family chiral
 gauge-Higgs calculation and its empirical inputs. It verifies the inherited
@@ -36,7 +48,10 @@ python -m model.particle_joint_reconstruction --check
 python -m pytest model/particle_joint_reconstruction
 ```
 
-The next shared physical acceptance is simultaneous refinement of the
-selected state and its multitime correlations. Fixed-volume link-cutoff
-removal and fixed-spacing thermodynamic results retain their distinct
-domains until uniform estimates justify their joint use.
+The next shared physical acceptance is a nontrivial finite-energy field
+on this common subsequence, with effective correlation and apparatus errors
+where predictions require them. Fixed-volume link-cutoff removal and
+fixed-spacing thermodynamic results retain their distinct domains.
+The receipt replays all four new consumers, authenticating their actual
+finite member levels without treating the small matrix controls as those
+members or promoting node 4 to a completed physical continuum.

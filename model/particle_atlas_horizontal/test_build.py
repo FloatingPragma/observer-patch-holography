@@ -63,7 +63,7 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     assert 'pointermove' in text and 'ArrowRight' in text
     assert 'ModularClockComparison.lean#L40' in text
     assert 'FiniteBuschGleason.lean#L1133' in text
-    assert '>Nine dependencies</button>' in text
+    assert '>Ten dependencies</button>' in text
     assert 'model/particle_primary_locality/PROOF.md' in text
     assert 'model/particle_joint_reconstruction/DEPENDENCIES.md' in text
     assert 'model/particle_joint_reconstruction/CANDIDATE.md' in text

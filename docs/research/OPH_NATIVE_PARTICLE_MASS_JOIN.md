@@ -4,13 +4,20 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical state with boundary charges,
-and complete local-record influence bound. Joint refinement, an interacting
-relativistic field, physical species, the full observable spectrum and
-independent comparison belong to nodes 4-8. Node 9 is the separate pure
-Yang-Mills gap branch. The comparison results below retain their own sources;
-they do not constitute additional canonical dependency lists.
+are the single ten-node construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical boundary state, complete local
+records and controlled filtered apparatus. Node 4 includes a common
+subsequential filtered observable algebra with positive energy and finite
+pointer-history limits; its nonzero physical field content is unproved.
+The interacting relativistic field, species, spectrum and independent
+comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
+node 10 is proper geometry and Einstein dynamics. The comparison results
+below retain their own sources and do not add canonical dependency lists.
+
+The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
+prioritizes primary spectral response, momentum and rest-energy attachment,
+then physical GeV conversion. Gravity is a separate target and is deferred
+for this particle-mass calculation.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -69,6 +76,25 @@ control; it does not overwrite the minimal catalogue. Physical species
 and full spectral records require nodes 4-8. Pure Yang-Mills uses the
 separate node 9; the photon-containing continuum has no positive global
 vacuum gap.
+
+## Common primary records, spectrum tests and gravity
+
+The [filtered primary algebra](../../model/particle_primary_field_algebra/PROOF.md)
+has one subsequential stationary state, positive canonical GNS energy and
+convergent finite pointer histories. Its chosen bounded fields can vanish
+or become scalar; this is not a physical species or mass assignment.
+The [complete filtered apparatus](../../model/particle_filtered_probe/PROOF.md)
+retains all selector and Ramsey outcomes, the idle reference and original
+spectral weights. Its finite precision plan does not compute the growing
+primary response. The [positive-window test](../../model/particle_positive_window/PROOF.md)
+requires a measured or computed contrast exceeding its controlled error
+and tail allowances before asserting surviving positive-energy weight.
+
+The [primary energy and entropy consumer](../../model/particle_primary_stress/PROOF.md)
+supplies exact local interaction currents and a first law for the supported
+source regional marginal. The retained coin and reference have a different
+entropy functional. These are finite inputs to gravity node 10; proper
+geometry, Lorentz stress and the matched Einstein limit are unproved.
 
 ## The primary field and its readout domain
 

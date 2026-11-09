@@ -4,13 +4,15 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical state with boundary charges,
-and complete local-record influence bound. Joint refinement, an interacting
-relativistic field, physical species, the full observable spectrum and
-independent comparison belong to nodes 4-8. Node 9 is the separate pure
-Yang-Mills gap branch. The comparison results below retain their own sources;
-they do not constitute additional canonical dependency lists.
+are the single ten-node construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical boundary state, complete local
+records and controlled filtered apparatus. Node 4 includes a common
+subsequential filtered observable algebra with positive energy and finite
+pointer-history limits; its nonzero physical field content is unproved.
+The interacting relativistic field, species, spectrum and independent
+comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
+node 10 is proper geometry and Einstein dynamics. The comparison results
+below retain their own sources and do not add canonical dependency lists.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -30,6 +32,35 @@ multi-line response of the full Q*=6 ground. Physical rest-mass
 identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
+
+## Mass outputs and the immediate physical target
+
+The immediate target is a source-derived mass output in GeV. Geometric
+gravity and the pure Yang-Mills gap branch are separate targets; they are
+not prerequisites for a first particle comparison. The fixed source,
+physical preparation, complete finite instruments and common bounded
+filtered algebra are available. The following work order expands nodes
+4-8 of the canonical map; it does not add another set of acceptance gates.
+
+| Order | Required mass-readout connection | Existing result and remaining condition |
+| --- | --- | --- |
+| 1 | Select a primary physical channel and complete detector. | Centered charge and plaquette probes and their complete apparatus are specified; select the actual channel used for the claimed mass. |
+| 2 | Calculate its original-weight time response. | The apparatus and error bounds are constructed. A calculation must use the selected spatial state, not a separate small control. |
+| 3 | Retain nonzero finite-energy response under refinement. | Positive GNS energy and a quantitative positive-window test are available; a uniform positive primary witness is required. |
+| 4 | Attach spatial momentum on the same state and clock. | Assigned coordinates and a finite cone do not supply continuous spatial translations or a translation-invariant state. |
+| 5 | Extract a rest threshold, stable branch or resonance. | An energy-transfer window is not a rest mass. The vacuum, momentum and species domain must be identified. |
+| 6 | Control the complete prediction errors. | Volume, cutoff, preparation, filtering, time and detector errors must accompany the same observable. |
+| 7 | Identify spin, gauge currents and statistics. | Internal gauge weights constrain candidates; the propagating physical representation must carry them. |
+| 8 | Apply interaction and observable matching. | Running/action coefficients, stable poles, charged infrared thresholds and unstable resonances have different conventions. |
+| 9 | Establish the source-clock conversion to GeV. | The primary contract specifies no GeV/proper-time conversion. A declared unit and an empirically identified physical clock have distinct ancestry. |
+| 10 | Compare independent masses or ratios. | Values used to set a scale or coefficient are inputs, not independent predictions. |
+
+The efficient parallel lanes are actual primary response/noncollapse,
+spatial-momentum attachment, and rest-energy/unit conversion. Downstream
+mass identification joins their results on the same source. A failure to
+match a measured ratio must first be localized to that chain; it does not
+justify modifying coefficients using the target and relabelling the fit
+as a derivation.
 
 ## One specified source, state, reference and clock
 
@@ -66,9 +97,10 @@ preparation, quadratic gauge/matter characteristic match, and
 They reject substitutions of the source, state, reference, clock or result.
 The inventory keeps scalar, directional-rotor and periodic detector controls
 in their own domains. It does not transfer their distributions to this
-primary open-box state. The finite sequence is fully specified; convergence
-of its simultaneous volume, spacing and link-cutoff refinement, relativistic
-particle sectors and proper geometric readouts are output obligations.
+primary open-box state. The finite sequence is fully specified. Nontrivial
+physical joint refinement beyond the bounded filtered subsequence,
+relativistic particle sectors and proper geometric readouts are output
+obligations.
 
 ## Physical preparation with retained boundary charges
 
@@ -128,31 +160,78 @@ are not executed by the certificate.
 
 The bound preserves exact zero-time non-signalling. Its conservative cone
 is uniform in the declared spatial scaling, without identifying it with
-a measured light speed or a Lorentz action. Thus unified node 3 has an
-actual selected-state consumer. Node 4 requires convergence of the states
-and complete multitime records across levels; state-uniform influence
-bounds do not prove that convergence.
+a measured light speed or Lorentz action. This is a selected-state
+consumer of unified node 3.
 
-The [selected-source energy-transfer consumer](../../model/particle_joint_reconstruction/POSITIVE_ENERGY.md)
-reuses the finite downward-record theorem. For a uniformly bounded physical
-source probe `A_n`, response weight below energy transfer `-delta` is at
-most `||A_n||² 2^(-n-4)/delta`. If its stationary real-time correlations
-converge at every fixed time, including zero, to a function continuous at
-zero, the limiting response has support in nonnegative energies. With a
-common strongly continuous limiting dynamics and a dense cyclic probe
-family this gives a nonnegative GNS energy generator. The result concerns
-the source algebra; the idle-reference purification is not a stationary
-vacuum. It supplies neither correlation convergence nor a surviving
-positive-energy excitation, Lorentz covariance or a mass gap.
+## Common filtered observables and complete records
 
-A fixed normalized triangular time average of width `T` gives a sharper
-response result: for probes bounded by `C`, the filtered spectral measures
-have total mass at most `C²` and first absolute moment at most `2C²/T`.
-Their correlations therefore have a continuous compact-time subsequence,
-with nonnegative limiting spectral support supplied by cooling. This
-subsequence can vanish or contain only zero energy. The filter changes the
-temporal apparatus domain and does not construct a common field algebra
-or its complete detector implementation.
+The [primary observable-algebra construction](../../model/particle_primary_field_algebra/PROOF.md)
+uses bounded physical charge and plaquette probes, fixed source-time
+filters and all finite products and time translates. Their separable
+sequence algebra, modulo norm-null sections, admits one subsequential
+stationary state for every finite multitime word. Its canonical GNS time
+group is strongly continuous and fixes the cyclic vector. The
+[selected cooling bound](../../model/particle_joint_reconstruction/POSITIVE_ENERGY.md)
+removes negative energy-transfer weight, proving a nonnegative generator
+on the whole cyclic representation. The filtered source cone gives scoped
+spatial commutation. No inter-level state embeddings or change of source
+clock enter this construction.
+
+Continuous functional calculus supplies complete finite effect instruments
+on this algebra. Every fixed finite history and its finite pointer density
+converge on the same subsequence. This does not prove convergence of the
+joint state with the growing canonical reference or completeness of an
+infinite fixed-charge menu. The algebra can represent its chosen probes
+as scalars or zero. Nonzero finite-energy fields, Lorentz covariance,
+surviving interactions and controlled physical renormalization are
+additional conditions of nodes 4-5.
+
+The [filtered-probe apparatus](../../model/particle_filtered_probe/PROOF.md)
+constructs a finite coherent implementation of a triangularly filtered
+boundary-charge parity. Exact positive quadrature weights, source-clock
+Cayley echoes and a neutral selector retain every failure outcome and the
+idle reference. Complete Ramsey records give the original filtered norm
+and real or imaginary correlation, without success normalization. The
+finite precision planner includes state, clock and compiler allowances;
+its exact apparatus-service route and conditional source-code compilation
+route are distinct. The enormous primary matrices and tape are not executed.
+An authenticated Hermitian-contraction dilation extends this apparatus to
+the centered charge and plaquette menu of the common algebra. Its LCU
+success effect is `B*B`. A separate square-root instrument measures the
+filtered charge effect `E=B` or plaquette effect `E=(I+B)/2`. If the effect
+error is at most `delta`, its complete Stinespring error is at most
+`sqrt(2 delta)`; compiler, preparation and interleaved clock errors then
+compose over each fixed finite history, including arbitrary references.
+
+The [positive-window criterion](../../model/particle_positive_window/PROOF.md)
+uses a lower original correlation contrast together with slow-response,
+negative-transfer and ultraviolet allowances to bound weight in a fixed
+positive energy band. A uniform positive bound would establish finite-energy
+survival on this same family. The primary contrast is not supplied by the
+criterion or by the apparatus specification. Broad positive-band weight
+would require dispersion, spin and scattering attachments before a
+particle or mass interpretation.
+
+## Primary energy transport and the gravity branch
+
+The [primary energy consumer](../../model/particle_primary_stress/PROOF.md)
+partitions the unchanged Wilson action into local cell energies, including
+owned electric links and allocated bond and plaquette energies. The exact
+currents `J_xy=i[h_x,h_y]` give complete regional boundary continuity and
+finite detector/flux-integration error bounds on the selected source clock.
+The physical density is stationary; its retained idle-reference purification
+need not be. Readouts used to estimate an undisturbed energy balance are
+alternative experiments on copies of that same preparation.
+
+The same consumer uses the actual supported regional marginal and the
+existing finite entropy theorem for a complete identity/unitary mixture.
+Its source-marginal first law retains physical boundary sectors. The
+classical coin and quantum reference remain in the observer output;
+the coin-plus-region entropy is `H2(s)+S(sigma)`, distinct from the smooth
+marginal functional. Node 10 therefore has same-source finite energy and
+marginal-entropy premises, without a proper metric, Lorentz stress tensor,
+geometric diamond kernel or area response. The matched Einstein theorem
+requires those objects and common shrinking-ball error estimates.
 
 ## Conditional chiral candidate and observable spectrum
 
@@ -916,7 +995,7 @@ sets the larger observational target.
 ### A restricted comparison within the unified graph
 
 The canonical construction and its status are specified only by
-[the nine-node graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+[the ten-node graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and [dependencies.json](../../model/particle_joint_reconstruction/dependencies.json).
 Nodes 1-3 establish the finite primary program, physical boundary-state
 preparation and same-source complete local-record bound. Nodes 4-8 retain
@@ -924,8 +1003,10 @@ the joint refinement, interacting relativistic reconstruction, species,
 spectrum and independent-comparison requirements. A conditional calculation
 may supply a premise explicitly, while preserving its calibration and
 source ancestry; that calculation does not certify the supplied premise.
-The pure Yang-Mills gap branch and the separate Einstein target do not
-create extra common source or observer-preparation requirements.
+Nodes 9 and 10 reuse the common source and observer-preparation conditions
+for the pure Yang-Mills and geometric-gravity branches. Each branch needs
+its own admitted source instance or transfer; no duplicated preparation
+requirements are added.
 
 The narrower table below expands acceptance for a single proposed
 observable within these nodes. It is not a replacement construction graph.

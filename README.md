@@ -111,7 +111,7 @@ proof shows that the whole class of laws cannot work.
   and the matter stress response used by the conditional gravity derivation.
   [Field constructions](docs/research/OPH_FIELD_RECONSTRUCTION.md#the-three-field-constructions-and-their-source-boundaries),
   [spectral readout](model/spin_shell_readout/README.md),
-  [ten common-theory requirements](docs/research/OPH_FIELD_RECONSTRUCTION.md#ten-common-theory-construction-requirements).
+  [ten common-theory requirements](model/particle_joint_reconstruction/DEPENDENCIES.md).
 - **Interacting fields and actual position records.** A declared
   [gauge-field construction](model/particle_observer_outputs/PROOF.md)
   has controlled local detector records and a causal bound uniform in
@@ -130,16 +130,16 @@ proof shows that the whole class of laws cannot work.
   same state and clock. The proper geometric interpretation and regional
   entropy and area premises required for Einstein dynamics are separate
   physical requirements.
-- **One source, state, reference and clock.** The
-  [fixed construction](model/particle_common_contract/PROOF.md) specifies
-  one Wilson field, its physical Gauss preparation, boundary-charge
-  readout and Hamiltonian clock. Executable checks reject mixed inputs
-  and substituted results.
-  A separate [charged control](model/particle_charged_residue/PROOF.md)
-  has nonzero opposite-charge detector weights. Physical particles require
-  the corresponding interacting spatial limit; the
-  [atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) distinguishes that
-  requirement from the resolved construction specification.
+- **One source, state, reference and clock.** The selected Wilson construction
+  has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
+  a stationary limiting state, positive energy and convergent finite detector
+  histories on one subsequence. Its
+  [local energy currents](model/particle_primary_stress/PROOF.md) obey exact
+  conservation on the same finite source. These results do not show
+  that excitations survive the limit or identify physical particles,
+  Lorentz symmetry or gravity. The
+  [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
+  records the precise remaining physical requirements.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs. Computational
   receipts bind their source inputs and include replay checks.
