@@ -29,6 +29,7 @@ def test_integer_logarithm_is_outward_at_exact_thresholds():
     lambda: m.lorentzian_difference(1, 1, accuracy=2),
     lambda: m.conditional_window(0, 1), lambda: m.conditional_window(F(10, 17), 1),
     lambda: m.conditional_window(F(1, 10), 0),
+    lambda: m.conditional_window(F(9, 17), 1),
 ])
 def test_rejects_unproved_domains_and_inexact_inputs(call):
     with pytest.raises(ValueError):
@@ -144,7 +145,7 @@ def test_uniform_dyadic_envelope_handles_logarithm_jumps():
 
 
 def test_conditional_plan_has_uniform_original_and_measured_margins():
-    for z in (F(1, 1000), F(1, 100), F(1, 10), F(9, 17)):
+    for z in (F(1, 1000), F(1, 100), F(1, 10), F(9, 20)):
         for k in (F(1, 3), F(2)):
             plan = m.conditional_window(z, k, F(3, 2))
             for ratio in (F(1), F(9, 10), F(1, 2), F(1, 3), F(1, 10000)):
@@ -182,3 +183,18 @@ def test_certificate_is_compact_detached_and_does_not_assert_atom_or_mass():
     assert first['physical_mass_assigned'] is None
     assert first['sharp_dispersion_proved'] is False
     assert first['growing_native_instrument_executed'] is False
+
+
+def test_atom_input_is_checked_against_exact_paired_star_bound():
+    scale = 2**40
+    low = F(math.isqrt(577*scale*scale), scale)
+    high = low+F(1, scale)
+    assert low*low < 577 < high*high
+    lower = (31+low)/(95+low)
+    upper = (31+high)/(95+high)
+    assert lower < upper < F(7, 15)
+    assert m.conditional_window(lower, 1)['assumed_nodal_atom_lower'] == lower
+    with pytest.raises(ValueError):
+        m.conditional_window(upper, 1)
+    # Unsigned squaring would incorrectly reject sufficiently small floors.
+    assert m.conditional_window(F(1, 10000), 1)['actual_nodal_atom_lower_proved'] is False

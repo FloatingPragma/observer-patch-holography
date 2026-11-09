@@ -142,8 +142,12 @@ scalar node measure from [NODAL_CHANNELS.md](NODAL_CHANNELS.md) satisfies
 
     z0 = mu({0}) = m0/(16+m0) >= z > 0.                    (8)
 
-The source bound is `z0<=9/17`; the code rejects a larger proposed lower
-bound. Equation (8) is a hypothesis, not a computed value.
+The paired spin/eta stars of
+[NODAL_MOMENT_BOUNDS.md](NODAL_MOMENT_BOUNDS.md) give
+`z0<=chi=(31+sqrt(577))/(95+sqrt(577))<7/15`. The code rejects a larger
+proposed lower bound using exact rational comparisons: for `0<z<1`, test
+`(95z-31)^2<=577(1-z)^2` only when `95z-31>0`. Equation (8) is a
+hypothesis, not a computed value.
 
 For every unit packet supported in `||k-k_*||_1<=aK`, set
 

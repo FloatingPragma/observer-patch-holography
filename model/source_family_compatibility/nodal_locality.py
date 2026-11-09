@@ -99,8 +99,10 @@ def conditional_window(atom_lower, packet_radius_l1, velocity=1):
     """Conditional finite physical-window budget; atom_lower is NOT derived."""
     z = _rational(atom_lower, positive=True)
     k = _rational(packet_radius_l1, positive=True); v = _rational(velocity, positive=True)
-    if z > F(9, 17):
-        raise ValueError('hypothesized source atom must respect its proved upper bound')
+    # Exact comparison with chi=(31+sqrt(577))/(95+sqrt(577)).
+    # Rearrangement is squared only when its left side is positive.
+    if z >= 1 or (95*z-31 > 0 and (95*z-31)**2 > 577*(1-z)**2):
+        raise ValueError('hypothesized source atom must respect the paired-star upper bound')
     tau = max(F(1), 2352*v*k/z)
     power = 0
     while dyadic_log_remainder(power) > z/8:
@@ -122,6 +124,7 @@ def conditional_window(atom_lower, packet_radius_l1, velocity=1):
         raise ArithmeticError('conditional original-weight margin failed')
     return {'assumed_nodal_atom_lower': z,
             'actual_nodal_atom_lower_proved': False,
+            'admitted_atom_ceiling_exact': '(31+sqrt(577))/(95+sqrt(577))',
             'fixed_normalized_source_c': F(1), 'fixed_normalized_source_U': F(8),
             'same_normalized_reference_at_every_spacing_required': True,
             'packet_radius_l1_coefficient': k, 'physical_velocity_scale': v,
