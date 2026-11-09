@@ -51,29 +51,33 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_charged_string', 'particle_primary_odd_residual',
                   'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation',
                   'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
-                  'particle_primary_staggered_response', 'particle_primary_current_tail'):
+                  'particle_primary_staggered_response', 'particle_primary_current_tail',
+                  'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
+                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
-    assert 'common real-time histories with positive GNS energy' in text
+    assert 'Filtered and unfiltered probes share positive time dynamics' in text
     assert 'coin and reference remain in the complete output' in text
     assert 'primary physical-mass table in GeV is empty' in text
     assert '[1/(100β),46/a]' in text
-    assert 'Unfiltered spatial momentum and fixed-origin invariance are unproved' in text
+    assert 'fixed-band survival and spatial momentum require proof' in text
     assert 'relative-observation sector has commuting H≥0 and P' in text
     assert 'HΩ=PΩ=0' in text
-    assert 'joint sinc² energy/momentum kernels; their weight may vanish' in text
-    assert 'limit may be purely elastic' in text
+    assert 'sinc² energy/momentum weight may vanish' in text
+    assert 'a²S→0 lose every fixed positive-energy weight' in text
+    assert 'Actual Weyl probes have S=30/a², outside this obstruction' in text
     assert 'CAR-even records' in text
     assert 'finite Fourier labels, not exact momentum projections' in text
-    assert 'ground energy lies in' in text
-    assert 'No level is isolated' in text
-    assert 'Source-clock energy transfer on the original selected state: local pairs ≥3/20 in [4,8]' in text
+    assert 'full-space floors above the actual ground' in text
+    assert 'identify no isolated particle or GeV rest mass' in text
+    assert 'original union weight >0.06646' in text
     assert 'opposite Q6=±6 transfers' in text
-    assert 'charged endpoint pairs >3/10 in [9.75,33.75]' in text
-    assert 'excited energy in [1.06662597,14.69223697]' in text
-    assert 'residual ≤4.947618257' in text
-    assert 'original prepared weight >1/4' in text
-    assert 'Idle memory retains the displaced source state and reference' in text
-    assert 'coherent A2g pairs >17/1280 in [3,9]' in text
+    assert 'A1u prepared window has weight >1/4' in text
+    assert 'Pair preparation retains the opposite sector and displaced source/reference state' in text
+    assert 'probability ≥255/512' in text
+    assert 'Opposite native occupations have identical spectra' in text
+    assert 'odd inversion eigenstates have opposite parity under C' in text
+    assert 'final-excitation union >15/256' in text
+    assert 'finite analyzer labels establish no conserved momentum or dispersion curve' in text
     assert 'radix-five coherent meters' in text
     assert 'original joint success weight >1/4' in text
     assert 'without reading initial absolute charges' in text

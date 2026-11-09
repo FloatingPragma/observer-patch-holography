@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "fa81d0eda3c7e96d2717e2cb8300e63e731a6ed250258a7f317317f204d7c173",
+          "sha256": "a780bd921c9837892a761977ac30b617c1e94b3632b7492ee165d0462dbc4562",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. Source-derived GeV masses with declared units and capacity dependence are the active target; pure Yang-Mills and gravity have separate requirements. The same primary source supplies a complete prepared excited-window measurement, undisturbed joint charge-transfer/energy histories, a populated checkerboard response and common unfiltered/filtered positive-energy time histories. A finite source-marginal modular response is capacity uniform. Fixed positive-energy noncollapse, nonzero joint momentum weight, relativistic branches, physical species and Einstein dynamics require further proofs. Empirical calibrations and separate sources retain their domains; no downstream physical stage is promoted.",
+          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. The selected source has six positive-threshold occupation sectors, exact conjugate-sector energy equality, compensated prepared readouts and populated phase-scanned spatial/energy records. A complete protocol obstruction excludes subcritical normalized-density strength, without deciding the original critical-strength Weyl limit. Source-derived GeV masses require same-channel physical momentum, dispersion, species attachment, controlled errors and independent comparison. Lorentz interactions and Einstein regional premises retain their actual unproved domains; no physical stage is promoted.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -4205,7 +4205,23 @@
         "model/particle_primary_current_tail/PROOF.md",
         "model/particle_primary_current_tail/model.py",
         "model/particle_primary_current_tail/test_model.py",
-        "model/particle_primary_current_tail/results.json"
+        "model/particle_primary_current_tail/results.json",
+        "model/particle_primary_sector_threshold/PROOF.md",
+        "model/particle_primary_sector_threshold/model.py",
+        "model/particle_primary_sector_threshold/test_model.py",
+        "model/particle_primary_sector_threshold/results.json",
+        "model/particle_primary_charge_conjugation/PROOF.md",
+        "model/particle_primary_charge_conjugation/model.py",
+        "model/particle_primary_charge_conjugation/test_model.py",
+        "model/particle_primary_charge_conjugation/results.json",
+        "model/particle_primary_populated_momentum/PROOF.md",
+        "model/particle_primary_populated_momentum/model.py",
+        "model/particle_primary_populated_momentum/test_model.py",
+        "model/particle_primary_populated_momentum/results.json",
+        "model/particle_primary_weighted_survival/PROOF.md",
+        "model/particle_primary_weighted_survival/model.py",
+        "model/particle_primary_weighted_survival/test_model.py",
+        "model/particle_primary_weighted_survival/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5002,6 +5018,38 @@
           "sha256": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
           "independent_check": "model/particle_primary_current_tail/test_model.py",
           "scope": "The actual local phase generator has capacity-uniform double-commutator norm at most2025/2. Its energy-form drift is at most45/2; mixed words with the existing filtered contractions have uniform selected-state ground-relative energy first moments. A common subsequence supplies complete fixed mixed histories, strong time continuity and nonnegative GNS energy. An actual physical anchor has averaged squared absolute commutator norm at least160/a, without a selected-state variance lower bound. Spatial momentum attachment, finite-energy nonelastic survival and Lorentz interactions are unproved.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_positive_physical_occupation_thresholds",
+          "path": "model/particle_primary_sector_threshold/PROOF.md",
+          "sha256": "a68870ecce8dba1b375c47401d98f5757aba9db05a1b7a21694c5175de5d6de4",
+          "independent_check": "model/particle_primary_sector_threshold/test_model.py",
+          "scope": "Six nonempty physical occupation sectors have complete energy support above the same primary ground: two CAR-odd pairs and one even pair. Full-occupation lower bounds and exact interacting trials enclose sector-bottom excitations in [1.5467,12.7132], [0.5664,12.7244] and [3.5668,15.7156] source units. Explicit paired-memory preparation retains opposite occupation increments, the displaced source and its reference, with a graded-exchange parity correction. Complete prepared energy windows retain at least255/512; original stationary sector populations retain their separate cooling upper bounds. No isolated relativistic branch or physical mass is identified.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_exact_full_source_charge_conjugation",
+          "path": "model/particle_primary_charge_conjugation/PROOF.md",
+          "sha256": "e4048ac1c10f6c2cfe8da64fa3ad599571ca7235a00a178bf9f416845ffc7003",
+          "independent_check": "model/particle_primary_charge_conjugation/test_model.py",
+          "scope": "The actual Clifford matrix gamma2, full-CAR particle/hole unitary and linear gauge-coordinate conjugation preserve the original Wilson action, physical Gauss projector, product link cutoff, polynomial density and source clock at every finite capacity. The complete native determinant cancellation is checked. Opposite occupation sectors are exactly isospectral and conjugate complete instruments have equal original energy-record laws. Proper binary cube rotations commute with this symmetry; inversion intertwines through CAR parity. The canonical reference comparison is descriptive covariance, not an active reference operation. Physical antiparticle identity, continuous spin and CPT are not inferred.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_populated_scanned_spatial_energy_records",
+          "path": "model/particle_primary_populated_momentum/PROOF.md",
+          "sha256": "39dd8b6dee68af4ed1da763f9197272451c59b990e73921eaeafd18ed7edc571",
+          "independent_check": "model/particle_primary_populated_momentum/test_model.py",
+          "scope": "The complete64-outcome source spatial/internal analyzer admits a continuous phase scan with exact Wilson phase-dependent residual bounds. An order32 phase configuration has an original joint scalar energy-band union above0.06646, complete reported union above1/16 and final-excitation union above15/256. All failures and quantum references remain; union errors are subtracted once. Actual finite cube covariance is proved. The apparatus wavevector labels are neither conserved momentum nor a measured dispersion curve or rest frame.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_complete_normalized_phase_strength_obstruction",
+          "path": "model/particle_primary_weighted_survival/PROOF.md",
+          "sha256": "3b83ccb022e947fc7e32f5744a6fb0400d1dbe69f05dfab1201ca724b9c2e5b4",
+          "independent_check": "model/particle_primary_weighted_survival/test_model.py",
+          "scope": "For the actual normalized tent density, the full-source double commutator is at most9a^4/80. Complete coherent phase protocols, including filters, controlled source evolution and feedback, have final mean excess at most(sqrt(epsilon)+3a^2 S/4)^2. Total normalized strength S=o(a^-2) therefore loses every original fixed-positive-energy transfer band. Uncontrolled waiting-time comparisons also lose contrast; controlled clock calls retain a measurable ground-energy apparatus phase. The original local Weyl strength30/a^2 lies outside the obstruction and its finite-energy survival is unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

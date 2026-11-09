@@ -48,10 +48,10 @@ filtered algebra are available. The following work order expands nodes
 
 | Order | Required mass-readout connection | Existing result and remaining condition |
 | --- | --- | --- |
-| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | Member zero has populated neutral, coherent checkerboard and opposite-endpoint-charge bands. A complete prepared-trial apparatus gives reported A1u energy-window weight above 1/4, retaining the original state in physical memory; some actual A1u excitation lies in [1.06662597,14.69223697]. Isolation and same-channel dispersion require further calculation; a continuum claim also needs uniform survival. |
-| 2 | Attach momentum to the same source, state and clock. | One retained observation origin supplies commuting canonical H>=0 and P. Complete coherent Fourier records converge to their sinc-squared kernels on the regular probe domain, with explicit apparatus errors. Nonzero joint weight and a state-subsequence convergence rate are unproved; fixed-origin invariance is not assumed. |
+| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | Three conjugate native-occupation sector pairs have full positive thresholds on member zero, including two CAR-odd pairs. Complete prepared sector windows have probability at least 255/512, with the displaced state and compensating sector retained in memory. Their lowest-energy intervals are bounded; an isolated branch or resolved threshold onset and same-channel dispersion require further calculation. A continuum claim also needs uniform survival. |
+| 2 | Attach momentum to the same source, state and clock. | One retained observation origin supplies commuting canonical H>=0 and P, with complete regular-probe detector kernels. The actual member-zero spatial-phase analyzer has a populated energy-band union above 1/16 after clock errors. That finite aperture label requires a same-channel connection to canonical P, nonzero limiting weight and a convergence rate; fixed-origin invariance is not assumed. |
 | 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
-| 4 | Identify the propagating particle channel. | The proved plaquette and pair channels are gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
+| 4 | Identify the propagating particle channel. | Physical local gauge-singlet composites populate two CAR-odd native-occupation sector pairs. Exact source charge conjugation matches opposite sectors, complete energy records and proper cube transformations; odd conjugate inversion eigenvalues differ. Continuum spin, physical statistics, currents and interactions must attach to the same propagating branch before assigning a Standard Model name. |
 | 5 | Bound the complete prediction error and capacity dependence. | Finite preparation, filtering, clock and detector bounds are constructed. Joint volume, spacing, link-cutoff and observable-matching errors require control. The chosen sequence changes these together, so capacity alone does not determine a mass law. |
 | 6 | Apply one explicit SI/GeV comparison scale. | Available immediately through a declared absolute length or clock unit. Keep that scale fixed or explicitly tracked across refinement; deriving a cesium atom is not a prerequisite for this convention. A scale fitted from a measured mass retains that calibration ancestry. |
 | 7 | Compare independent observable masses and ratios. | The primary physical-mass table in GeV is empty. Stable masses, charged infrared thresholds and unstable resonances require their respective experimental definitions. Inputs used to fit a scale or coefficient are not independent predictions. |
@@ -74,6 +74,85 @@ results on the same source. A failure to
 match a measured ratio must first be localized to that chain; it does not
 justify modifying coefficients using the target and relabelling the fit
 as a derivation.
+
+## Positive sector thresholds and conjugate source excitations
+
+The [conserved-sector construction](../../model/particle_primary_sector_threshold/PROOF.md)
+uses the exact occupation increments relative to the filled-beta anchor,
+in native charge order `(-4,-3,1,2,6)`. The full Hamiltonian preserves
+each increment. Full-occupation electric inequalities and exact physical
+Gauss-singlet trials bound the bottom of each indicated sector above the
+full source ground:
+
+| Sector pair | Physical local gauge contraction | Source CAR parity | Lowest excitation interval, source units |
+| --- | --- | --- | --- |
+| `±(0,2,0,0,1)` | Weak-doublet epsilon pair and charge-six singlet | Odd | `[1.54674,12.71314]` |
+| `±(1,0,0,2,0)` | Charge-minus-four and two charge-two color antifundamentals, contracted by epsilon | Odd | `[0.56642,12.72435]` |
+| `±(0,0,0,3,-1)` | Charge-two color determinant and charge-six hole | Even | `[3.56682,15.71559]` |
+
+Every state in a listed sector obeys its lower bound. The upper bounds
+come from exact 13-packet interacting Rayleigh quotients; no invariance
+of the packet span is assumed. These are member-zero threshold enclosures,
+not rest masses or a positive global gap. Their six sectors are physical
+reducing subspaces; their names describe source contractions and do not
+assign measured particles.
+
+A complete preparation makes each sector operational. An even joint
+Householder prepares opposite sectors in two idle physical memories.
+A graded source/memory exchange with its required parity correction moves
+the original state and all reference correlations into retained memory;
+the second memory keeps the compensating increment. Combined native
+occupations and parity are preserved. One unchanged source-energy clock
+then has original probability at least 255/512 in an interval wholly above
+the ground upper. Ready-memory capacity and source work are explicit.
+This changes the source marginal and does not assign that probability to
+its original near-ground sector population.
+
+The [source charge-conjugation theorem](../../model/particle_primary_charge_conjugation/PROOF.md)
+gives more than equality of trial expectations: at every finite member,
+combined full-CAR particle/hole transformation and gauge-coordinate
+conjugation are a linear unitary preserving Gauss support, cutoff and H.
+It maps `Delta N` to `-Delta N`, so the full opposite-sector spectra,
+multiplicities and conjugate complete energy laws agree with the same
+energy zero. The polynomial preparation is invariant; the canonical
+reference transforms only in the comparison identity. Proper binary cube
+rotations commute with this symmetry, while odd conjugate inversion eigenstates have
+opposite inversion signs. This supplies source transformation information,
+without a Lorentz or observed-antiparticle identification.
+For the centered local density, `C(N_x-30)C†=-(N_x-30)`, so the two
+single-probe phase signs have equal original energy laws at every origin
+on the unchanged selected state. Their sign-averaged bounds therefore
+also hold for either deterministic sign after the same origin average.
+This does not permit flipping one sign inside an arbitrary conditional
+history while leaving its other operations unchanged.
+
+The same symmetry preserves each Hermitian source-action term separately.
+For the fixed [regional energy allocation](../../model/particle_primary_stress/PROOF.md),
+it follows that `C h_x C†=h_x` and
+`C i[h_x,h_y] C†=i[h_x,h_y]`; C is linear and does not conjugate i.
+The specified square-root energy/current instruments therefore give equal
+complete classical histories on conjugate input states, with unitarily
+related retained quantum outputs. Arbitrary extra noncovariant measurement
+back-action is outside this comparison. This supplies a finite regional
+energy property; proper Lorentz stress, geometry and Einstein dynamics
+retain their independent premises.
+
+A defensible finite GeV mass requires a populated branch or threshold
+with physical momentum and controlled dispersion in one of these same
+apparatus domains, followed by species/current matching and the declared
+unit conversion. The positive source thresholds do not complete those
+connections. The primary physical-mass table in GeV is empty.
+
+A direct dispersion construction uses coherent spatial superpositions of
+the localized gauge-singlet sector witnesses. Their different local
+occupation patterns are orthogonal, so the preparation has a defined
+finite spatial phase without a particle-name input. The required calculation
+is the actual interacting transport between those locations, with the
+omitted link and matter states retained or bounded. Moving a localized
+triple requires multiple elementary hops; a projected one-hop matrix or
+the interval widths of the separate neutral analyzer cannot supply its
+dispersion. The resulting energy response must be attached to the same
+operational momentum before its minimum is interpreted as a rest mass.
 
 ## Populated channels across the finite source family
 
@@ -299,6 +378,20 @@ weight above 1/4 in `[77/8,271/8]`. Arbitrary charge changes are outside
 this alphabet. A terminal absolute-charge measurement has its own
 back-action, and an initial charge measurement has a disturbed-state law.
 
+The [phase-scanned spatial apparatus](../../model/particle_primary_populated_momentum/PROOF.md)
+has 32 coherent address/internal rows and 64 complete probe outcomes.
+For `K(q)=sum exp(-iq.x) B_xalpha/(16 sqrt(2))`, its exact Wilson
+creation residual has squared coefficient norm `16 sum_i cos²(q_i/2)`.
+This gives populated original energy bands for all phases and a tighter
+band in a neighborhood of the checkerboard cancellation. With
+`kappa=(pi/16,pi/16,pi/16)`, eight scalar analyzer records have a joint
+band-union weight above 0.06646; complete clocks retain more than 1/16.
+The corresponding original final-excitation union has weight above 15/256
+under the same initial-energy cut. Cube and inversion covariance are exact.
+These finite aperture settings are not conserved momentum eigenvalues or
+a measured dispersion curve, and their source occupations differ from
+those of the prepared odd-sector experiment.
+
 The [momentum-transfer construction](../../model/particle_primary_momentum_transfer/PROOF.md)
 attaches complete coherent aperture records to the canonical joint spectral
 measure of H and P in the retained-origin regular representation. A
@@ -408,8 +501,27 @@ vacuum-vector Haar moments cannot replace the selected expectation.
 The source-marginal tail criterion above avoids requiring this stronger
 second-moment bound. A certified
 [fixed-time correlation contrast](../../model/particle_positive_window/PROOF.md)
-is a separate sufficient witness; a fixed filter alone cannot prevent
-the elastic-limit counterexample.
+is a separate sufficient witness; a fixed filter alone cannot prevent the elastic-limit counterexample.
+
+The [complete-history strength bound](../../model/particle_primary_weighted_survival/PROOF.md)
+excludes a normalization shortcut. For the bounded local density
+`Q_X=sum f_R(N-30)/(30R³)`, the exact source double commutator is at
+most `9a⁴/80`. A complete coherent circuit of phase calls
+`exp(i pi r_j Q_X tensor A_j)`, with `||A_j||<=1` and total strength
+`S=sum |r_j|`, has final source excitation mean at most
+`(sqrt(epsilon)+3a²S/4)²`. Its original probability above any fixed
+positive energy therefore vanishes when `a²S -> 0`, even with coherent
+filtering, all failure records and arbitrary retained references.
+A nonzero event floor p at energy eta requires
+`S >= 4 (sqrt(p eta)-sqrt(epsilon))_+/(3a²)`.
+
+The original local Weyl probe has `r=30/a²`, outside that vanishing
+strength domain. Its nonelastic survival is neither proved nor excluded
+by this restriction. The selected weighted current or energy-tail estimate
+is required on that actual stronger probe. Uncontrolled waiting-time
+comparisons have a full-reference bound in this circuit family; controlled
+clock queries keep their observable ground-energy apparatus phase.
+
 
 The [complete joint spectrometer](../../model/particle_primary_joint_spectroscopy/PROOF.md)
 records an initial source energy, all spatial Fourier outcomes, and a final

@@ -26,6 +26,39 @@ or time units may be declared immediately; the declaration supplies no
 missing spectrum or species identification. Pure Yang-Mills and gravity
 are deferred for this mass calculation.
 
+The [positive-sector construction](../../model/particle_primary_sector_threshold/PROOF.md)
+certifies whole physical occupation sectors above the full ground on member
+zero. In charge order `(-4,-3,1,2,6)`, the opposite increments
+`±(0,2,0,0,1)` and `±(1,0,0,2,0)` are CAR odd, with lowest-excitation
+intervals `[1.54674,12.71314]` and `[0.56642,12.72435]` source units.
+The even pair `±(0,0,0,3,-1)` has interval `[3.56682,15.71559]`.
+These use full-space lower bounds and exact interacting trial uppers.
+Paired physical memories and a parity-corrected graded exchange supply
+complete prepared windows of probability at least 255/512 while retaining
+the original state/reference and compensating occupation increment.
+
+The [exact source conjugation](../../model/particle_primary_charge_conjugation/PROOF.md)
+preserves the Hamiltonian and polynomial state at every finite member,
+matches opposite-sector spectra and complete energy laws, commutes with
+proper binary cube rotations and reverses inversion signs on odd inversion eigenstates.
+It is a linear particle/hole plus gauge-coordinate symmetry, without a
+Lorentz or observed-antiparticle identification. Its centered-density
+identity makes the two single-probe phase signs have equal original energy
+laws on the selected state, with the corresponding reference covariance.
+It does not justify independent sign flips inside a conditional history.
+The [scanned spatial analyzer](../../model/particle_primary_populated_momentum/PROOF.md)
+also supplies a member-zero joint energy/spatial-label event above 1/16
+after clock errors. Its aperture label is not conserved physical momentum,
+and its neutral-probe law is distinct from the prepared sector laws.
+
+The [density-circuit bound](../../model/particle_primary_weighted_survival/PROOF.md)
+shows that phase-call strength `S=o(a^-2)` on normalized smooth densities
+loses every fixed positive-energy event, including complete filtered
+histories. The original Weyl probe has strength `30/a²`, outside that
+obstruction. Same-channel momentum, resolved branch/threshold and
+controlled dispersion are required for finite GeV masses; nonelastic
+survival and common refinement are additional continuum conditions.
+
 The [finite endpoint result](OPH_FIELD_RECONSTRUCTION.md#full-strength-finite-energy-bounds-and-joint-records)
 encloses member zero's full interacting ground energy in
 `[-727.498195,-723.7678199]` source units. Occupation-sensitive electric

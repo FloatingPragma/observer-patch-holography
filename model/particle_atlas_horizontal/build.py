@@ -34,14 +34,18 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_odd_residual', 'particle_primary_momentum_transfer',
     'particle_primary_local_fluctuation', 'particle_primary_spectral_resolution',
     'particle_primary_charged_readout', 'particle_primary_staggered_response',
-    'particle_primary_current_tail'))
+    'particle_primary_current_tail', 'particle_primary_sector_threshold',
+    'particle_primary_populated_momentum', 'particle_primary_weighted_survival',
+    'particle_primary_charge_conjugation'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
     'particle_primary_charged_string', 'particle_primary_odd_residual',
     'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation',
     'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
-    'particle_primary_staggered_response', 'particle_primary_current_tail'))
+    'particle_primary_staggered_response', 'particle_primary_current_tail',
+    'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
+    'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -232,6 +236,10 @@ def reader(svg,data):
         ('particle_primary_charged_readout','Coherent five-state meters join opposite charge transfers to original complete energy records'),
         ('particle_primary_staggered_response','Actual Wilson cancellation and populated coherent A2g energy bands on the selected state'),
         ('particle_primary_current_tail','Energy-form control joins unfiltered phase probes and filtered fields on common positive-energy time dynamics'),
+        ('particle_primary_sector_threshold','Positive finite occupation-sector thresholds and complete prepared energy windows with compensating memory'),
+        ('particle_primary_populated_momentum','Populated scanned spatial/energy records with actual Wilson phase dependence and original union weights'),
+        ('particle_primary_weighted_survival','A necessary normalized observation strength for fixed positive-energy records and its critical-Weyl boundary'),
+        ('particle_primary_charge_conjugation','Exact full-source particle/hole symmetry, opposite-sector spectra and conjugate complete detector laws'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

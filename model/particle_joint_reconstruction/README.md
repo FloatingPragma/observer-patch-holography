@@ -138,6 +138,23 @@ This declared coupling does not identify proper geometry. The finite Einstein th
 its proper metric, diamond kernel, area and common limiting-error premises.
 Gravity is separate from the first finite mass comparison.
 
+The [conserved-sector calculation](../particle_primary_sector_threshold/PROOF.md)
+gives full positive excitation thresholds for three opposite-occupation
+sector pairs on member zero, including two CAR-odd pairs. Exact physical
+trial dressings bound each sector bottom; complete prepared energy windows
+have probability at least 255/512, with the displaced state, reference and
+opposite sector retained in memory. The [source conjugation](../particle_primary_charge_conjugation/PROOF.md)
+proves equal opposite-sector spectra and complete energy laws at every
+finite capacity. These source sectors require momentum and controlled
+dispersion before their energies can be identified as masses.
+
+The [phase-scanned analyzer](../particle_primary_populated_momentum/PROOF.md)
+has a populated joint spatial-label/energy event with reported probability
+above 1/16, on the unchanged selected state. Its 64-outcome physical
+apparatus retains all failures; the phase label is a finite aperture
+setting. Attaching a populated branch of this or the prepared sector
+experiment to the canonical momentum is a separate requirement.
+
 The [physical A1u preparation](../particle_primary_spectral_resolution/PROOF.md)
 retains the original state and reference correlations in an identical
 physical memory while placing an explicit trial on the source. Its complete
@@ -170,3 +187,11 @@ The [number-density sum rule](../particle_primary_energy_tightness/PROOF.md)
 shows that the specified volume-normalized density probe loses that weight.
 Neither a common time representation nor finite energy windows alone
 identify a physical rest mass.
+
+The [complete density-circuit restriction](../particle_primary_weighted_survival/PROOF.md)
+shows why weaker smooth observations cannot supply a fixed-energy field:
+total normalized phase strength `S=o(a^-2)` gives vanishing original
+positive-energy probability, including coherent filtering and references.
+The original local Weyl operation has strength `30/a²`, outside that
+restriction. Its selected weighted energy tail or a positive fixed-time
+contrast is required for nonelastic survival.

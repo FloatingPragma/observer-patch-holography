@@ -41,6 +41,10 @@ from model.particle_primary_spectral_resolution import model as spectral_resolut
 from model.particle_primary_charged_readout import model as charged_readout
 from model.particle_primary_staggered_response import model as staggered_response
 from model.particle_primary_current_tail import model as current_tail
+from model.particle_primary_sector_threshold import model as sector_threshold
+from model.particle_primary_populated_momentum import model as populated_momentum
+from model.particle_primary_weighted_survival import model as weighted_survival
+from model.particle_primary_charge_conjugation import model as charge_conjugation
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -150,7 +154,8 @@ def build():
                    pair_response, pair_channels, refinement_response, gravity_premises,
                    branch_resolution, origin_momentum, energy_tightness, open_coframe,
                    charged_string, odd_residual, momentum_transfer, local_fluctuation,
-                   spectral_resolution, charged_readout, staggered_response, current_tail):
+                   spectral_resolution, charged_readout, staggered_response, current_tail,
+                   sector_threshold, populated_momentum, weighted_survival, charge_conjugation):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -278,6 +283,16 @@ def build():
     phase_histories = current_tail.certificate()
     for level, receipt in zip((0, 1, 2, 8), phase_histories['members'], strict=True):
         current_tail.verify_bound(contract.member(level), receipt)
+    physical_sectors = sector_threshold.certificate()
+    sector_threshold.verify_bound(member, physical_sectors['selected_member_bound'])
+    scanned_records = populated_momentum.certificate()
+    populated_momentum.verify_bound(member, scanned_records['selected_member_bound'])
+    strength_boundary = weighted_survival.certificate()
+    for level, receipt in zip((0, 1, 2, 8), strength_boundary['members'], strict=True):
+        weighted_survival.verify_bound(contract.member(level), receipt)
+    conjugate_sectors = charge_conjugation.certificate()
+    for level, receipt in zip((0, 1, 2, 8), conjugate_sectors['members'], strict=True):
+        charge_conjugation.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -321,6 +336,10 @@ def build():
         'primary_joint_charge_transfer_and_energy_records': joint_charge,
         'primary_checkerboard_coherent_response': checkerboard,
         'primary_common_unfiltered_phase_histories': phase_histories,
+        'primary_physical_occupation_sector_thresholds': physical_sectors,
+        'primary_scanned_joint_spatial_energy_records': scanned_records,
+        'primary_complete_phase_strength_boundary': strength_boundary,
+        'primary_exact_conjugate_sector_energy_matching': conjugate_sectors,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -338,6 +357,10 @@ def build():
         'primary_unfiltered_Weyl_spatial_momentum_attachment_proved': False,
         'primary_prepared_excited_window_with_retained_displaced_state_proved': True,
         'primary_undisturbed_joint_charge_transfer_energy_history_proved': True,
+        'primary_member_zero_positive_odd_CAR_sector_thresholds_proved': True,
+        'primary_exact_charge_conjugation_on_same_source_proved': True,
+        'primary_scanned_analyzer_labels_are_conserved_momenta': False,
+        'primary_subcritical_normalized_phase_histories_lose_fixed_positive_energy': True,
         'primary_finite_aperture_Fourier_instrument_proved': True,
         'primary_conserved_particle_momentum_proved': False,
         'primary_interacting_endpoint_gap_proved': False,

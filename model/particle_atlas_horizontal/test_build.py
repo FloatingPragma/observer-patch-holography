@@ -80,7 +80,9 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_charged_string', 'particle_primary_odd_residual',
                   'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation',
                   'particle_primary_spectral_resolution', 'particle_primary_charged_readout',
-                  'particle_primary_staggered_response', 'particle_primary_current_tail'):
+                  'particle_primary_staggered_response', 'particle_primary_current_tail',
+                  'particle_primary_sector_threshold', 'particle_primary_populated_momentum',
+                  'particle_primary_weighted_survival', 'particle_primary_charge_conjugation'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 
