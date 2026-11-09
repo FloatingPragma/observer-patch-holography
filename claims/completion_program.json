@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "f827e2dad8968f3be9cdea5c1fb329ce28d969a37568fabe9e0bceb014ce150a",
+          "sha256": "5fda2410006dd237be5d4f4aba1572b2bd05c24c4e5dd2b6f67df437d6cfc239",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. The active target is source-derived particle masses with allowed declared SI/GeV comparison units and explicit capacity dependence; pure Yang-Mills and gravity are deferred branches. The same-source filtered algebra, positive time energy, regular spatial action, finite complete histories, exact energy currents, finite plaquette excitation and transfer-to-final-excitation estimates discharge scoped prerequisites. Uniform finite-energy survival, selected-state spatial invariance/canonical momentum, interacting Lorentz shells, physical species and Einstein dynamics remain unproved. Candidate calibrations and different comparison sources retain their domains; no downstream physical stage is promoted.",
+          "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. Source-derived GeV masses with declared units and capacity dependence are the active target; pure Yang-Mills and gravity are deferred. Same-source results include a scalar-odd excited eigenvalue enclosure, selected coherent and charged-pair response bands, a complete Fourier-to-canonical-H/P kernel on the retained-origin representation, and original local-unitary energy tightness. Fixed positive-energy noncollapse, nonzero joint momentum weight, resolved relativistic branches, physical species and Einstein dynamics require further proofs. Candidate calibrations and separate sources retain their domains; no downstream physical stage is promoted.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -4173,7 +4173,23 @@
         "model/particle_primary_origin_momentum/results.json",
         "model/particle_primary_energy_tightness/PROOF.md",
         "model/particle_primary_energy_tightness/test_model.py",
-        "model/particle_primary_energy_tightness/results.json"
+        "model/particle_primary_energy_tightness/results.json",
+        "model/particle_primary_charged_string/PROOF.md",
+        "model/particle_primary_charged_string/model.py",
+        "model/particle_primary_charged_string/test_model.py",
+        "model/particle_primary_charged_string/results.json",
+        "model/particle_primary_odd_residual/PROOF.md",
+        "model/particle_primary_odd_residual/model.py",
+        "model/particle_primary_odd_residual/test_model.py",
+        "model/particle_primary_odd_residual/results.json",
+        "model/particle_primary_momentum_transfer/PROOF.md",
+        "model/particle_primary_momentum_transfer/model.py",
+        "model/particle_primary_momentum_transfer/test_model.py",
+        "model/particle_primary_momentum_transfer/results.json",
+        "model/particle_primary_local_fluctuation/PROOF.md",
+        "model/particle_primary_local_fluctuation/model.py",
+        "model/particle_primary_local_fluctuation/test_model.py",
+        "model/particle_primary_local_fluctuation/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4906,6 +4922,38 @@
           "sha256": "0d35d0b520f0a988fa4f117c701c86b70b2cb88da8800ae710d9f4a17821a3e3",
           "independent_check": "model/particle_primary_energy_tightness/test_model.py",
           "scope": "Actual Clifford neighbor Grams and the full CAR raising algebra sharpen the collective centered moment to M(L)/a^2 with M(L)<=3141/224. The original family-wide band [1/(100 beta_n),46/a_n] has weight at least3/100; complete reported records retain at least1/50. The level-one charge-six scalar has weight above1/20 below48. A direct selected occupation bound also populates the retained-origin protocol at levelseven. An actual physical anchor proves the unfiltered operator-norm residual scales as1/a, without claiming a selected-state weighted lower bound or a no-go theorem for dressed fields. The selected hopping density is strictly nonzero and gives an exact total-number density f-sum. The tested volume-normalized cosine/sine instrument has original weight above any fixed positive energy bounded by (a/(6V)+epsilon)/delta, so that specific normalization cannot supply continuum particle weight.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_charged_endpoint_pair_response",
+          "path": "model/particle_primary_charged_string/PROOF.md",
+          "sha256": "4da28bc2468ce3054f9dd3c33c44a91a90de83888d85a7f81f457c68b5e1bbf6",
+          "independent_check": "model/particle_primary_charged_string/test_model.py",
+          "scope": "The original member-zero physical state supports complete link-dressed endpoint-pair interventions with opposite native Q6 increments +6 and -6, preserved Gauss constraints and even CAR parity. Full-space retained electric/onsite bounds give original success above0.79446654 and transfer weight above3/10 in [39/4,135/4]; complete clocks retain above1/4 in [77/8,271/8]. Local charge histories have their own disturbance. No physical species, dispersion or rest mass is identified.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_scalar_odd_excitation_and_coherent_response",
+          "path": "model/particle_primary_odd_residual/PROOF.md",
+          "sha256": "6f9580bbe9e79824af3c90d5756b8f4ddede3bd4c7d00b316f60e1d58386eb6b",
+          "independent_check": "model/particle_primary_odd_residual/test_model.py",
+          "scope": "Exact full32-mode CAR and link-character second actions give Gram [[93/2,123/2],[123/2,348]], and the full-complement scalar-odd trial residual is at most5.365163597. A physical A1u excited eigenvalue is enclosed in [0.54794769,15.00864937] above the same ground. Separately the selected coherent K00 response has original transfer weight greater than5/1024 in [3/4,45/4] and final excitation weight greater than1/2048 in [3/4,53/4]. These overlapping intervals do not identify the transition, a unique line, particle spin or rest mass.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_relative_momentum_detector_attachment",
+          "path": "model/particle_primary_momentum_transfer/PROOF.md",
+          "sha256": "ba7d9f3c7ee82fca314f6e569a70bf841b902a17acda7540570ceb3d83db4d61",
+          "independent_check": "model/particle_primary_momentum_transfer/test_model.py",
+          "scope": "A complete coherent-offset Fourier instrument on the unchanged source/state/reference/clock attaches its distinguished success to the joint sinc kernel of canonical H and P in the retained-origin relative representation. Actual growing-width quadrature, complete Cayley, regular outer-grid and bulk errors are bounded. Inactive zero-aperture plans do not claim an applicable fixed-target error. Nonzero response, an effective state-subsequence modulus, dispersion and a finite exact momentum PVM are not proved.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_local_Weyl_original_energy_tightness",
+          "path": "model/particle_primary_local_fluctuation/PROOF.md",
+          "sha256": "c806322ece3ae9db1d6f4e2959948e9aba6a300b2a05f2d41e632374456329d5",
+          "independent_check": "model/particle_primary_local_fluctuation/test_model.py",
+          "scope": "Actual local number-phase unitaries give complete original probability measures of mass one, signed energy mean greater than (16/9)h_*>0.0615 and uniform absolute first moment at most14179/32. These unfiltered energy measures are tight and have continuous positive-energy subsequential responses. Retained-origin trimming has an explicit vanishing complete-output error. A unitary countercontrol proves that positive mean and probability tightness permit an entirely elastic limit; fixed positive-energy noncollapse, common-field attachment and mass are unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

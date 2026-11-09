@@ -102,9 +102,11 @@ proof shows that the whole class of laws cannot work.
   channels. Their source energies are calculated; physical particle identities
   and GeV masses require the common spatial field connection.
   The [primary Wilson/Gauss source](model/particle_joint_reconstruction/README.md)
-  has controlled original-weight pair energy bands and a retained-origin
-  observation limit with commuting energy and momentum generators. Its
-  physical species, dispersion and GeV rest masses are unproved.
+  has a certified scalar-odd excitation, populated charged endpoint-pair
+  energy bands and a complete detector attached to its relative energy
+  and momentum generators. Local phase probes have controlled energy
+  distributions across capacities, but their limit can be elastic.
+  Physical species, relativistic dispersion and GeV rest masses are unproved.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.

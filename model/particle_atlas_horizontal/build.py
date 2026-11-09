@@ -30,10 +30,14 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_pair_channels', 'particle_primary_refinement_response',
     'particle_primary_gravity_premises', 'particle_primary_branch_resolution',
     'particle_primary_energy_tightness', 'particle_primary_origin_momentum',
-    'particle_primary_open_coframe'))
+    'particle_primary_open_coframe', 'particle_primary_charged_string',
+    'particle_primary_odd_residual', 'particle_primary_momentum_transfer',
+    'particle_primary_local_fluctuation'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
-    'particle_primary_origin_momentum', 'particle_primary_open_coframe'))
+    'particle_primary_origin_momentum', 'particle_primary_open_coframe',
+    'particle_primary_charged_string', 'particle_primary_odd_residual',
+    'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -216,6 +220,10 @@ def reader(svg,data):
         ('particle_primary_energy_tightness','Exact collective moments and narrower finite energy bands; fixed-energy survival unproved'),
         ('particle_primary_origin_momentum','Retained common origins and commuting energy/momentum on the relative-observation domain'),
         ('particle_primary_open_coframe','Boundary-completed spatial strain with exact flat primary action and complete mean records'),
+        ('particle_primary_charged_string','Opposite physical hypercharge endpoints with original selected-state energy weight'),
+        ('particle_primary_odd_residual','An actual odd excitation enclosure and a separate coherent original-state response'),
+        ('particle_primary_momentum_transfer','Complete coherent-offset records and joint energy/momentum sinc kernels on the relative-observation domain'),
+        ('particle_primary_local_fluctuation','Bounded local unitary fluctuations with original energy tightness and an allowed elastic limit'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

@@ -76,7 +76,9 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_joint_spectroscopy', 'particle_primary_occupation_bound',
                   'particle_primary_residual_refinement', 'particle_primary_response_moments',
                   'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
-                  'particle_primary_origin_momentum', 'particle_primary_open_coframe'):
+                  'particle_primary_origin_momentum', 'particle_primary_open_coframe',
+                  'particle_primary_charged_string', 'particle_primary_odd_residual',
+                  'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

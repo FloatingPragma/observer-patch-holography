@@ -47,24 +47,32 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_residual_refinement', 'particle_primary_occupation_bound',
                   'particle_primary_variational_readout', 'particle_primary_joint_spectroscopy',
                   'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
-                  'particle_primary_origin_momentum', 'particle_primary_open_coframe'):
+                  'particle_primary_origin_momentum', 'particle_primary_open_coframe',
+                  'particle_primary_charged_string', 'particle_primary_odd_residual',
+                  'particle_primary_momentum_transfer', 'particle_primary_local_fluctuation'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert 'convergent finite pointer histories' in text
     assert 'coin and reference remain in the complete output' in text
     assert 'primary physical-mass table in GeV is empty' in text
     assert '[1/(100β),46/a]' in text
     assert 'Fixed-origin invariance is unproved' in text
-    assert 'relative-observation limit with commuting H≥0 and P' in text
+    assert 'relative-observation state with commuting H≥0 and P' in text
     assert 'HΩ=PΩ=0' in text
-    assert 'momentum response may vanish' in text
-    assert 'CAR-even and gauge-neutral' in text
-    assert 'No conserved momentum is inferred' in text
+    assert 'joint sinc² energy/momentum kernels; their weight may vanish' in text
+    assert 'limit may be purely elastic' in text
+    assert 'CAR-even records' in text
+    assert 'A finite Fourier label is not an exact momentum projection' in text
     assert 'ground energy lies in' in text
     assert 'No level is isolated' in text
-    assert 'original weight ≥3/20 in [4,8]' in text
-    assert 'complete reported weight ≥9/64 in [63/16,129/16]' in text
-    assert 'no particle name, spin, pole or rest mass is assigned' in text
-    assert 'difference 5.913111 compares two upper bounds' in text
+    assert 'Original source-clock transfer weights: local pairs ≥3/20 in [4,8]' in text
+    assert 'opposite endpoint increments Q6=±6' in text
+    assert 'Q6=±6 >3/10 in [9.75,33.75]' in text
+    assert 'excitation energy in [0.54794769,15.00864937]' in text
+    assert 'residual ≤5.365163597' in text
+    assert 'without attachment to the trial eigenvalue' in text
+    assert 'identify no particle species or rest mass' in text
+    assert '104.806' not in text and '5.913111' not in text
+    assert 'Fourier-to-momentum map require proof' not in text
     assert 'H(I)=H_primary exactly' in text
     assert 'Proper geometry, Lorentz stress' in text
     assert 'changes purification coherences' in text

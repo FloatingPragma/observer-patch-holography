@@ -18,15 +18,15 @@ SUMMARIES = {
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
-        'Boundary records have uniform influence bounds. Two energy readouts and a Fourier aperture retain the initial pointer, all failures and the idle reference, with controlled clock/aperture errors. The first measurement preserves the source marginal and changes purification coherences. No conserved momentum is inferred.',
+        'Boundary records have uniform influence bounds. Two energy readouts and coherent spatial/time offsets retain the origin, every Fourier bin, failures and the idle reference, with controlled finite clock/aperture errors. The first energy measurement preserves the source marginal and changes purification coherences. A finite Fourier label is not an exact momentum projection.',
     'joint_refinement':
-        'Fixed-filter words have convergent finite pointer histories. One retained origin gives a relative-observation limit with commuting H≥0 and P, with HΩ=PΩ=0; momentum response may vanish. Fixed-origin invariance is unproved. Every finite member has original collective weight ≥3/100 in [1/(100β),46/a]. Fixed-energy survival and the Fourier-to-momentum map require proof.',
+        'Fixed-filter words have convergent finite pointer histories. Retained origins give a relative-observation state with commuting H≥0 and P, HΩ=PΩ=0. Coherent offsets attach joint sinc² energy/momentum kernels; their weight may vanish. Local unitary phase probes have uniform original energy tightness, but their limit may be purely elastic. Fixed-origin invariance is unproved.',
     'relativistic_field':
-        'The eight-cell ground energy lies in [−727.498195, −723.7678199], with full-space trial residual ≤5.231016. A twelve-vector A1u trial gives odd-sector upper energy −717.8547 and residual ≤104.806. The difference 5.913111 compares two upper bounds and has no excitation-energy interpretation. No level is isolated; dispersion requires proof.',
+        'The eight-cell ground energy lies in [−727.498195, −723.7678199]. The full odd-trial residual ≤5.365163597 proves some excited physical A1u eigenvalue has excitation energy in [0.54794769,15.00864937] source units. Its selected-state residue is not identified. No level is isolated; momentum dispersion and a rest mass require proof.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
-        'All 10 cubic/parity channels are populated. Uniform local pair records have original weight ≥3/20 in [4,8], final excitation weight ≥7/80 in [4,9], and complete reported weight ≥9/64 in [63/16,129/16]. Re F(1/2)<−3/8. This CAR-even and gauge-neutral experiment differs from the coherent A1u trial; no particle name, spin, pole or rest mass is assigned.',
+        'All 10 cubic/parity channels are populated. Original source-clock transfer weights: local pairs ≥3/20 in [4,8]; link-dressed pairs with opposite endpoint increments Q6=±6 >3/10 in [9.75,33.75]. A separate coherent scalar-odd response has weight >5/1024 in [0.75,11.25], without attachment to the trial eigenvalue. These CAR-even records identify no particle species or rest mass.',
     'independent_comparison':
         'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
@@ -109,8 +109,8 @@ def render(c, data, y):
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
         theorem = {'local_records': 'model/particle_primary_joint_spectroscopy/PROOF.md',
                    'joint_refinement': 'model/particle_primary_field_algebra/PROOF.md',
-                   'relativistic_field': 'model/particle_primary_occupation_bound/PROOF.md',
-                   'particle_observables': 'model/particle_primary_branch_resolution/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_odd_residual/PROOF.md',
+                   'particle_observables': 'model/particle_primary_charged_string/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
         c.link(x+width/2, top+660, 'Scoped construction or theorem',
@@ -124,21 +124,27 @@ def render(c, data, y):
         }.get(node['id'])
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
         fourth = {
-            'local_records': ('Fourier', 'model/particle_primary_momentum/PROOF.md'),
-            'joint_refinement': ('Energy bands', 'model/particle_primary_energy_tightness/PROOF.md'),
+            'local_records': ('Joint H/P', 'model/particle_primary_momentum_transfer/PROOF.md'),
+            'joint_refinement': ('Weyl records', 'model/particle_primary_local_fluctuation/PROOF.md'),
             'relativistic_field': ('Rayleigh', 'model/particle_primary_variational_readout/PROOF.md'),
             'particle_observables': ('Pair channels', 'model/particle_primary_pair_channels/PROOF.md'),
         }.get(node['id'])
         if fourth: c.link(x+width*.9, top+660, fourth[0], fourth[1], 49)
         earlier = {
+            'local_records': (
+                ('Finite Fourier aperture', 'model/particle_primary_momentum/PROOF.md'),),
             'joint_refinement': (
                 ('Fixed-origin spatial action', 'model/particle_primary_spatial_algebra/PROOF.md'),
-                ('Selected occupation bound', 'model/particle_primary_refinement_response/PROOF.md')),
+                ('Selected occupation bound', 'model/particle_primary_refinement_response/PROOF.md'),
+                ('Collective weight ≥3/100 in [1/(100β),46/a]', 'model/particle_primary_energy_tightness/PROOF.md')),
+            'relativistic_field': (
+                ('Selected occupation bound', 'model/particle_primary_occupation_bound/PROOF.md'),),
             'particle_observables': (
-                ('Broader local response window', 'model/particle_primary_response_moments/PROOF.md'),),
+                ('Broader local response window', 'model/particle_primary_response_moments/PROOF.md'),
+                ('Local [4,8] response', 'model/particle_primary_branch_resolution/PROOF.md')),
         }.get(node['id'], ())
         for j, (label, path) in enumerate(earlier):
-            c.link(x+80+j*width/2, top+610, label, path, 45)
+            c.link(x+80+j*width/len(earlier), top+610, label, path, 45)
     gravity = nodes[9]; top = y+2720
     c.rect(M, top, W-2*M-70, 530, '#fffdf7', LINE, 26)
     c.text(M+90, top+110, 'DEFERRED · PHYSICAL PROOF REQUIRED · after 5', 57, ORANGE, 700)

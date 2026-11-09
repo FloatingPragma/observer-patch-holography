@@ -35,10 +35,15 @@ places at least3/20 original transfer weight in `[4,8]`, and at least7/80
 final excitation weight in `[4,9]`, on that selected state. Complete finite
 clocks report `[63/16,129/16]` with probability at least9/64. Its real
 original autocorrelation is below-3/8 at source time1/2. These local-address
-records are distinct from the coherent A1u trial, whose twelve-vector
-energy upper bound and broad residual do not isolate an excitation.
-Momentum/dispersion, species and controlled errors are required for a GeV
-rest mass; a difference of two variational upper bounds is not that mass.
+records are distinct from the coherent A1u experiment. The
+[full-complement odd residual](../../model/particle_primary_odd_residual/PROOF.md)
+is at most 5.365163597 and certifies some actual A1u excitation in
+`[0.54794769,15.00864937]`. It does not isolate a line or bound every
+excitation away from zero. On the selected state, the separate coherent
+operator K has original weight above 5/1024 in `[3/4,45/4]` and final
+excitation weight above 1/2048 in `[3/4,53/4]`. Those original probabilities
+are not the trial vector's spectral weights. Momentum/dispersion, species
+and controlled errors are required for a GeV rest mass.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -107,9 +112,33 @@ a translation-invariant cyclic state with strongly commuting `H>=0` and
 `P`, and `H Omega=P Omega=0`. The fixed-origin state is not proved invariant;
 the representation can be trivial. The same-origin collective experiment
 has positive finite weight from member seven, without proving nonzero
-fixed-smear survival or a map from finite Fourier labels to spectral
-momentum. The mass route requires that map and the same channel's dispersion.
+fixed-smear survival. The [coherent Fourier transfer](../../model/particle_primary_momentum_transfer/PROOF.md)
+connects complete finite aperture records to sinc-squared kernels of this
+same canonical H and P for regular probes, with explicit quadrature,
+clock and bulk errors. It supplies no effective state-subsequence rate
+or nonzero joint spectral residue. A finite bin is a filter, not an exact
+momentum projection; the mass route needs a populated same-channel
+spectral ridge and controlled dispersion.
 
+
+The [charged-endpoint instrument](../../model/particle_primary_charged_string/PROOF.md)
+creates opposite local increments Q6=+6 and -6 joined by the actual
+character on one quantum link. Its 48 success records and one failure
+preserve physical Gauss support and total charge. Original transfer
+weight exceeds 3/10 in `[39/4,135/4]` on member zero. This is an even pair
+operator, without an electromagnetic-charge, spin or Standard Model
+species assignment. Measuring initial endpoint charges is a separate
+intervention and changes the state used for the energy estimate.
+
+The [bounded local Weyl apparatus](../../model/particle_primary_local_fluctuation/PROOF.md)
+uses number-phase unitaries with a fixed physical tent radius, retaining
+its origin and sign. Its original response has total probability one,
+uniform absolute first energy moment at most 14179/32 and positive mean
+injected energy above 0.0615. Thus unfiltered energy probabilities are
+tight and have continuous positive-energy subsequential limits. These
+limits may be entirely elastic. The construction does not supply a
+nonzero limiting particle residue or inherit the regular momentum
+probe's dictionary without its required spatial smearing.
 
 The [same-source modular-work comparison](../../model/particle_primary_gravity_premises/PROOF.md)
 bounds source-marginal relative entropy for physical source unitaries
@@ -143,6 +172,8 @@ counts as protection.
 For the primary source, the five occupation labels are conserved by its
 Hamiltonian and the specified neutral detectors. They are not thereby
 topological defects or invariants of every allowed preparation service.
+The charged endpoint pair has exact local charge-increment selection rules;
+these do not prove topological protection or a particle species.
 Classifying repair protection requires the relevant complete branch maps;
 classifying topology requires its configuration and deformation space.
 An entry's physical map then uses its source-created response, original

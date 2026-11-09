@@ -66,8 +66,10 @@ has a continuous spatial action commuting with source time. The
 [retained-origin protocol](../particle_primary_origin_momentum/PROOF.md)
 yields a translation-invariant relative-observation limit and strongly
 commuting canonical H>=0 and P, with H Omega=P Omega=0. It preserves the
-finite source preparation and clock. A nonzero momentum response, its
-finite detector attachment and Lorentz dispersion require further proof.
+finite source preparation and clock. The [complete coherent Fourier transfer](../particle_primary_momentum_transfer/PROOF.md)
+connects finite regular-probe records to sinc-squared kernels of these
+same generators. Nonzero joint response, an effective state-subsequence
+rate and Lorentz dispersion require further proof.
 The [mass-readout theorem](../particle_primary_mass_readout/PROOF.md) bounds
 the difference between original transfer and final excitation laws by
 `C² epsilon_n`, supplies conditional rest intervals, and accepts a declared
@@ -132,14 +134,24 @@ This declared coupling does not identify proper geometry. The finite Einstein th
 its proper metric, diamond kernel, area and common limiting-error premises.
 Gravity is separate from the first finite mass comparison.
 
-The [concentrated local-pair response](../particle_primary_branch_resolution/PROOF.md)
-retains original weight at least3/20 in [4,8] on member zero and a negative
-real correlation at source time1/2. A separate scalar-odd Rayleigh trial
-has an explicit omitted-space error, which does not isolate a line. The
-next mass input is a resolved branch or threshold with its momentum
-attachment, not a difference of variational energy upper bounds.
+The [scalar-odd spectral calculation](../particle_primary_odd_residual/PROOF.md)
+certifies some actual member-zero A1u excitation in
+[0.54794769,15.00864937], with full-space residual at most 5.365163597.
+Its separate selected-state coherent probe has original positive-band
+weight; that weight is not assigned to the trial's eigenvalue. An isolated
+branch and controlled momentum/dispersion are the next mass inputs.
 
-An exact selected-state number-density f-sum follows from nonzero hopping
-energy. It also proves that the tested volume-normalized cosine/sine
-apparatus loses fixed positive-energy weight under refinement. This
-normalization boundary does not rule out local or dressed particle fields.
+The [charged-endpoint apparatus](../particle_primary_charged_string/PROOF.md)
+creates opposite local Q6 increments joined by one quantum-link character.
+Its complete physical records have original weight above 3/10 in
+[39/4,135/4]. This even pair operator is not a single fermion, and no
+continuum spin or Standard Model name is assigned.
+
+The [local Weyl apparatus](../particle_primary_local_fluctuation/PROOF.md)
+uses bounded phase operations on a fixed physical region. Its original
+unit-mass response has a uniformly bounded absolute energy moment and
+positive injected-energy mean, without a temporal filter. These measures
+are tight, but their limits may be purely elastic. Nonelastic survival is
+a separate condition. The global density normalization tested in the
+[number-density sum rule](../particle_primary_energy_tightness/PROOF.md)
+loses every fixed positive-energy band; neither result supplies a mass.

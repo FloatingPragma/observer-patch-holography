@@ -33,6 +33,10 @@ from model.particle_primary_branch_resolution import model as branch_resolution
 from model.particle_primary_origin_momentum import model as origin_momentum
 from model.particle_primary_energy_tightness import model as energy_tightness
 from model.particle_primary_open_coframe import model as open_coframe
+from model.particle_primary_charged_string import model as charged_string
+from model.particle_primary_odd_residual import model as odd_residual
+from model.particle_primary_momentum_transfer import model as momentum_transfer
+from model.particle_primary_local_fluctuation import model as local_fluctuation
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -140,7 +144,8 @@ def build():
                    mass_readout, spatial, capacity, compact, momentum, channels, scale,
                    endpoint, variational, spectroscopy, occupation, local_residual,
                    pair_response, pair_channels, refinement_response, gravity_premises,
-                   branch_resolution, origin_momentum, energy_tightness, open_coframe):
+                   branch_resolution, origin_momentum, energy_tightness, open_coframe,
+                   charged_string, odd_residual, momentum_transfer, local_fluctuation):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -247,6 +252,18 @@ def build():
     matched_strain = open_coframe.certificate()
     for level, receipt in zip((0, 1, 2), matched_strain['members'], strict=True):
         open_coframe.verify_bound(contract.member(level), receipt)
+    charged_pairs = charged_string.certificate()
+    charged_string.verify_bound(member, charged_pairs['selected_member_bound'])
+    odd_excitation = odd_residual.certificate()
+    odd_residual.verify_bound(member, odd_excitation['selected_member_bound'])
+    momentum_detector = momentum_transfer.certificate()
+    momentum_transfer.verify_bound(contract.member(8), momentum_detector['selected_member_bound'])
+    for level, receipt in zip((0, 4, 12), momentum_detector['other_members'], strict=True):
+        momentum_transfer.verify_bound(contract.member(level), receipt)
+    local_energy = local_fluctuation.certificate()
+    for level, receipt in zip((0, 1, 2), local_energy['members'], strict=True):
+        local_fluctuation.verify_bound(contract.member(level), receipt)
+    local_fluctuation.verify_bound(contract.member(32), local_energy['retained_origin_member'])
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -282,6 +299,10 @@ def build():
         'primary_retained_origin_relative_momentum': relative_momentum,
         'primary_sharper_capacity_dependent_energy_windows': sharper_response,
         'primary_boundary_completed_spatial_strain': matched_strain,
+        'primary_charged_endpoint_pair_response': charged_pairs,
+        'primary_scalar_odd_excitation_and_coherent_response': odd_excitation,
+        'primary_relative_momentum_detector_attachment': momentum_detector,
+        'primary_local_Weyl_original_energy_tightness': local_energy,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -290,6 +311,11 @@ def build():
         'relative_observation_state_spatial_invariance_proved': True,
         'relative_observation_commuting_positive_energy_and_momentum_proved': True,
         'relative_observation_nonzero_momentum_response_proved': False,
+        'relative_observation_Fourier_detector_spectral_kernel_proved': True,
+        'primary_scalar_odd_excited_eigenvalue_enclosed': True,
+        'primary_charged_endpoint_original_energy_band_proved': True,
+        'primary_local_Weyl_energy_probability_tightness_proved': True,
+        'primary_local_Weyl_limit_proved_inelastic': False,
         'primary_finite_aperture_Fourier_instrument_proved': True,
         'primary_conserved_particle_momentum_proved': False,
         'primary_interacting_endpoint_gap_proved': False,

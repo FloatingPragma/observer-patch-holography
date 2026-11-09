@@ -1214,14 +1214,71 @@ An independent twelve-vector $A_{1u}$ trial separates scalar-pair
 electric packets with relative denominators $63/4$ and $87/4$ and
 squared norms $3$ and $21/2$. Its full-sector Rayleigh upper bound is
 $-717.8547086510$ source units, rounded outward. The difference from a ground-trial
-upper bound is not an excitation bound. Its retained-complement
-residual estimate also fails spectral isolation, so this trial is not
-substituted for the selected preparation or a measured mass.
+upper bound is not an excitation bound. An
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_residual/PROOF.md}{exact local moment calculation}
+instead bounds its full outside-space residual by $5.365163597$.
+The charge-six second-action Haar Gram, keeping all 32 CAR modes and
+independent link characters, is
+\[
+ \begin{pmatrix}93/2&123/2\\123/2&348\end{pmatrix}
+ \quad\hbox{for }YP_{D_6=2}Y\phi,\;YP_{D_6=4}Y\phi.
+\]
+Combining it with the other native and magnetic moments puts an
+$A_{1u}$ eigenvalue in $[-723.219872248,-712.489545054]$.
+Its lower endpoint exceeds the certified ground upper. With the same
+source's ground lower bound, some strictly excited $A_{1u}$ energy lies
+in $[0.54794769,15.00864937]$. This is neither a global gap nor an
+isolated spectral line. The trial is not substituted for the preparation.
 Optimizing the retained onsite/electric fractions within this Schur-bound
 family cannot certify isolation against the authenticated ground upper:
 two rational cases bound every resulting complement floor below $-724$,
 whereas that upper is greater than $-724$. This excludes that estimate,
 not a physical gap or a different resolvent calculation.
+
+The selected coherent scalar outcome is
+$K=T/(16\sqrt2)$, with $\|K\|^2=9/64$ and
+$[K^\dagger,K]=(16-D_6)/512$. In beta particle/hole variables the
+hopping residual splits into a pair-creation term and a number-preserving
+term. Their full-Fock form bounds are respectively $48(1+D_6/2)$ and
+$36D_6$. Young's inequality therefore gives
+\[
+ ([H,K]-6K)^\dagger([H,K]-6K)\le\frac{624+858D_6}{3584}.
+\]
+On the unchanged selected state this proves original transfer weight
+greater than $5/1024$ in $[3/4,45/4]$ and final excitation weight greater
+than $1/2048$ in $[3/4,53/4]$. This is the coherent apparatus's original
+normalization, not a normalized successful subensemble. Overlap with
+the trial enclosure does not identify its transitions with that eigenvalue.
+
+\paragraph{Physical charged endpoints and energy records.}
+For a directed interior bond, the native weak/color singlet character
+$\chi_6(U_{xy})$ dresses the pair
+\[
+ B_{xy\alpha}=c^\dagger(p_{x\alpha})c(m_{y\alpha})
+                         \chi_6(U_{xy})P_{0,xy}.
+\]
+It preserves Gauss support and global occupations while changing local
+integer charges by $+6$ and $-6$. Its CAR parity is even; these endpoint
+labels do not identify a single electron. The Haar projection $P_0$ is
+an intervention with a retained failure, not a replacement preparation.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_charged_string/PROOF.md}{complete 49-outcome apparatus}
+uses the 48 directed-bond/component successes $B_b/\sqrt{48}$ and their
+complementary root. Retaining onsite fraction $7/10$ for the charge-six
+block and electric fraction $8/45$ in the full-Fock inequality gives
+original success probability greater than $0.79446654$.
+The exact onsite/electric transfer center is $87/4$; full commutators obey
+\[
+ \|[H,B_b]-(87/4)B_b\|
+ \le\sqrt{40}+\sqrt2+4/7<\sqrt{70}.
+\]
+The selected-bond hopping terms have orthogonal input and output blocks;
+the four other incident bonds give two disjoint CAR raising pairs.
+Consequently original transfer weight exceeds $3/10$ in $[39/4,135/4]$.
+Cooling puts weight at least $19/80$ in final excitation interval
+$[39/4,139/4]$. Complete finite clocks report $[77/8,271/8]$ with original
+weight greater than $1/4$. A separate initial/final local-charge apparatus
+obeys the endpoint selection rules but disturbs the input state; these
+energy bounds are not transferred to that charge-dephased history.
 
 \paragraph{Symmetry-resolved neutral records.}
 In the actual beta chart define
@@ -1319,6 +1376,28 @@ readout therefore loses fixed positive-energy weight. This conclusion
 concerns that apparatus normalization, not every local or dressed field
 of the source.
 
+\paragraph{Bounded local phase response across capacities.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_local_fluctuation/PROOF.md}{local phase apparatus}
+uses $R=1/a$, a product tent $f_R$ of physical radius one, and
+\[
+ U_{X,\sigma}=\exp\!\left(i\sigma\pi a
+                   \sum_y f_R(y-X)(N_y-30)\right),\qquad \sigma=\pm1.
+\]
+Uniform retained address and sign give a complete instrument of unitaries,
+with total original spectral weight one. Only the apparatus coefficients
+wrap around the finite address list; the source has open boundaries.
+The exact cosine-gradient average and selected hopping estimate give
+signed first moment greater than $(16/9)h_*>0.0615$ and absolute first
+moment at most $14179/32$, uniformly across capacities. Thus original
+energy measures are tight and their subsequential limits have continuous
+characteristic functions and nonnegative support. Restricting the retained
+address to the common bulk cube changes complete record laws by at most
+its omitted volume fraction, which tends to zero. The limiting measure
+can be purely elastic: $(1-a)\delta_0+a\delta_{1/a}$ has positive first
+moment and the same probability tightness but tends to $\delta_0$.
+A uniform-integrability estimate or a populated fixed positive-energy
+window is required to establish an inelastic surviving field.
+
 \paragraph{Relative observations and canonical momentum.}
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_origin_momentum/PROOF.md}{retained-origin construction}
 adjoins an independent uniform classical origin $X$ with zero
@@ -1340,11 +1419,33 @@ finite-to-infinite boundary comparison for fixed spatial and time smears.
 The common relative-observation limit is stationary and translation
 invariant. Its canonical $H\ge0$ and three momentum generators strongly
 commute and annihilate the cyclic vector. This does not prove invariance
-of the frozen fixed-origin state. Nor does it prove nonzero momentum
-response, convergence of a finite Fourier detector to $P$, or a mass shell.
+of the frozen fixed-origin state or a nonzero momentum response.
 The actual defect-density bound also gives a populated retained-origin
 moving band at level seven; its unsmeared response is not silently
 identified with a nonzero regular limiting field.
+
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_momentum_transfer/PROOF.md}{complete coherent-offset detector}
+attaches finite records to the relative representation. For a bounded
+physical seed with fixed spatial and temporal smears, retain the common
+origin and all coherent offset, Fourier and failure labels. The
+distinguished success approaches
+\[
+ B_{q,\nu}=\frac1{(2Q)^3\,2S}
+  \int_{[-Q,Q]^3}\!d^3y\int_{-S}^{S}\!dt\,
+       e^{-i(q\cdot y+\nu t)}\alpha_t\beta_y(A).
+\]
+Its canonical vector is
+\[
+ B_{q,\nu}\Omega=
+ \operatorname{sinc}\!\bigl(S(H-\nu)\bigr)
+ \prod_{j=1}^3\operatorname{sinc}\!\bigl(Q(P_j-q_j)\bigr)A\Omega.
+\]
+The squared norm is the original response, not a probability conditioned
+on an analyzer outcome. Positive finite quadrature, source-norm Cayley
+errors, regular outer-grid errors and the bulk boundary estimate are
+controlled separately. This is a detector-to-generator connection on
+the common subsequence; it supplies no effective state-convergence rate,
+nonzero joint weight, finite exact momentum PVM or relativistic dispersion.
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_joint_spectroscopy/PROOF.md}{complete joint instrument}
 records initial energy, a spatial Fourier outcome, and final energy on
