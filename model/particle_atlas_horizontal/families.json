@@ -1173,6 +1173,11 @@
       "success_condition": "The chosen program yields the observable ratio with controlled errors; data used to choose its phase are marked as calibration.",
       "links": [
         {
+          "label": "Complete spectral reconstruction of the controller",
+          "path": "model/particle_observer_outputs/CONTROLLER_READOUT.md",
+          "anchor": ""
+        },
+        {
           "label": "Source test and exact selection boundary",
           "path": "model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md"
         },
@@ -1189,7 +1194,7 @@
           "path": "Lean/ObserverPatchHolography/KoideCirculant.lean"
         }
       ],
-      "tested_result": "Tested vacuum routes do not select the fitted phase.",
+      "tested_result": "Configured phase is readable; target selection unproved.",
       "input_classification": "Calibrated setting in this benchmark"
     },
     {
@@ -1213,7 +1218,7 @@
           "path": "model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md"
         }
       ],
-      "tested_result": "Free/Higgs minimization favors r = 1.",
+      "tested_result": "Finite spectra read r; no fitted value is selected.",
       "input_classification": "Calibrated controller in this benchmark"
     },
     {
@@ -1253,6 +1258,11 @@
       "success_condition": "All compared observables use the stated operational clock and normalization, with bounded conversion errors.",
       "links": [
         {
+          "label": "Same-Hamiltonian faithful state and modular clock",
+          "path": "model/particle_observer_outputs/THERMAL_CLOCK.md",
+          "anchor": ""
+        },
+        {
           "label": "Source test and exact selection boundary",
           "path": "model/particle_calibration_selection/PROOF_CLOCK_UNITS.md"
         },
@@ -1271,7 +1281,7 @@
           "anchor": "page=66"
         }
       ],
-      "tested_result": "Common units cancel from same-source gap ratios.",
+      "tested_result": "Finite state/clock and complete gap readout proved.",
       "input_classification": "Units are conventional; common readout must be proved"
     },
     {
@@ -1312,6 +1322,11 @@
       "success_condition": "The claimed interacting phase and response follow from that program. A supplied Higgs number is not substituted for an uncomputed state.",
       "links": [
         {
+          "label": "Source couplings, count inverse and conditional gauge ray",
+          "path": "model/particle_observer_outputs/GAUGE_INPUT.md",
+          "anchor": ""
+        },
+        {
           "label": "Conditional action and Hessians",
           "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
           "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
@@ -1325,7 +1340,8 @@
           "path": "Lean/Screen/ElectroweakBreakingComposition.lean"
         }
       ],
-      "input_classification": "Couplings/action may be specified or calibrated"
+      "input_classification": "Couplings/action may be specified or calibrated",
+      "tested_result": "Finite source couplings known; physical matching separate."
     },
     {
       "id": "quark_flavor",
@@ -1382,6 +1398,11 @@
       "success_condition": "The observed mass is computed from the source, rather than assigned to an action coefficient without the required matching.",
       "links": [
         {
+          "label": "Complete charged source spectrum and original weights",
+          "path": "model/particle_observer_outputs/CHARGED_HIGGS_RECORDS.md",
+          "anchor": ""
+        },
+        {
           "label": "Whitening and matching theorem",
           "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
         },
@@ -1394,7 +1415,8 @@
           "path": "model/particle_candidate_atlas/COMPATIBILITY.md"
         }
       ],
-      "input_classification": "Genuine output derivation"
+      "input_classification": "Genuine output derivation",
+      "tested_result": "Finite charged lines derived; physical mass map unproved."
     },
     {
       "id": "defect_species",
@@ -1404,6 +1426,11 @@
       "removal_strategy": "Compute creation, transport, fusion and decay under the chosen program. Show that its defect/excitation records have the claimed charge, spin, statistics, dispersion and interactions.",
       "success_condition": "One operational map preserves those properties and complete measurements; neither a name nor a shared internal dimension establishes species identity.",
       "links": [
+        {
+          "label": "Holonomy creation, work balance and protection domain",
+          "path": "model/particle_observer_outputs/HOLONOMY_TRANSPORT.md",
+          "anchor": ""
+        },
         {
           "label": "Exact compact defect-field join",
           "path": "model/particle_candidate_atlas/DEFECT_FIELD_JOIN.md"
@@ -1419,7 +1446,8 @@
           "anchor": "page=66"
         }
       ],
-      "input_classification": "Genuine output identification"
+      "input_classification": "Genuine output identification",
+      "tested_result": "Finite birth and transport; species map unproved."
     }
   ],
   "mass_explainer": {

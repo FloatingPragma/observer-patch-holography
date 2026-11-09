@@ -244,10 +244,10 @@
     },
     {
       "id": "field",
-      "title": "A moving wave needs its own dynamics",
+      "title": "A candidate effective law for the records",
       "status": "conditional",
       "status_label": "Free relativistic attachment; moving-defect bridge unproved",
-      "plain_explanation": "In the supplied homogeneous field action, phase amplitudes spread and interfere. Its charged branches have a controlled free Dirac limit. Nonzero energy at zero momentum is the mass term. The fixed core’s bound frequencies are different quantities; an autonomous moving-defect bridge is required.",
+      "plain_explanation": "The supplied field action is a mathematical description to test against finite records. It predicts spreading amplitudes and free Dirac dispersion in its stated limit. A continuum is an idealization; the executable retains finite states. Linking moving defects to these predictions requires the same source and detector.",
       "formula": "E_j(p)² = c²p² + |v_H|²σ_j(Y)²; E_j(0) = m_j c²",
       "diagram_spec": {
         "kind": "wavepacket_and_dispersion",
@@ -324,10 +324,10 @@
     },
     {
       "id": "record",
-      "title": "One result becomes a shared record",
+      "title": "Compare meanings; describe shared events",
       "status": "conditional",
       "status_label": "Born weights and conditional state update",
-      "plain_explanation": "A detector interaction correlates the field with an outcome record. Conditioning on that record gives the state used for later questions; forgetting the result sums every branch. Comparing records fixes a shared description of the event. It does not let consensus choose an outcome or fix incompatible observables together.",
+      "plain_explanation": "Observers receive records, interpret them using explicit dictionaries, and compare those interpretations. Agreed event records support effective field and spacetime descriptions. Consensus neither creates a smooth universe nor chooses detector outcomes. The Born law belongs to the specified complete instrument.",
       "formula": "ρ_r = K_r ρ K_r† / p(r), p(r)>0; unread output = Σ_r K_r ρ K_r†",
       "diagram_spec": {
         "kind": "detector_record_consensus",
@@ -422,5 +422,6 @@
     "anchor": "L574",
     "statement": "Connections modulo port gauges have nineteen independent U(1) chord holonomies on the specified graph.",
     "boundary": "No dynamics, protection, electromagnetic identification or continuum limit follows from this kinematic classification."
-  }
+  },
+  "observer_output_interpretation": "Finite simulation-generated events and apparatus records are compared through observer interpretation maps. Effective spacetime and field equations describe those shared records; no additional objective continuum world is generated."
 }

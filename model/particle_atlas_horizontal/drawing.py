@@ -189,10 +189,11 @@ DIAGRAMS = [loop_diagram,charge_diagram,bridge_diagram,texture_diagram,mode_diag
 
 def render(data):
     c=Canvas();story=data['story'];families=data['families'];measure=data['measurement']
+    c.items.append('<g transform="translate(10000,0)">')
     stages=story['stages']
     if len(stages)!=8:raise ValueError('eight hero stages required for the illustrated sequence')
     c.rect(0,0,W,420,INK,radius=0)
-    c.text(M,190,'FROM A LOOP TO A DETECTOR',150,'#fff9ed',700,serif=True)
+    c.text(M,190,'FINITE EVENTS, SHARED RECORDS, EFFECTIVE PHYSICS',135,'#fff9ed',700,serif=True)
     c.text(M,305,'OPH PARTICLE ATLAS  /  THE HORIZONTAL EXPLAINER',48,'#a9d6d4',700)
     c.text(W-M,175,'02',175,GOLD,700,anchor='end',serif=True)
     c.text(W-M,300,'Follow the arrows. Read the assumptions beside them.',46,'white',anchor='end')
@@ -200,7 +201,7 @@ def render(data):
     c.text(M+4200,520,'DASHED: a physical connection to derive',41,ORANGE,700)
     c.text(M+8700,520,'BLUE: a supplied field model or calibration',41,BLUE,700)
     c.text(M+14300,520,'RED: an excluded shortcut',41,RED,700)
-    c.para(M,620,W-2*M,'The orange motif follows a candidate identity. Native loop memory, spatial winding and a measured particle are different mathematical objects. The dashed joins show exactly what must connect them; no complete defect-to-Standard-Model identification is asserted.',47,INK)
+    c.para(M,620,W-2*M,'SIMULATION-GENERATED OBSERVABLES: the executable produces finite events and records. Observers compare their meanings and use field equations to describe the agreed events. The middle panels show candidate descriptions and their dependencies, not an objective continuum world forming.',47,INK)
     col=(W-2*M)/8
     for i,s in enumerate(stages):
         x=M+i*col
@@ -228,13 +229,19 @@ def render(data):
     family_lanes(c,data,6220)
     end=calibration_map(c,data,6220)
     endpoint_closeup(c,data,end+100)
-    footer(c,data,end+2460)
-    height=end+3390
+    from . import named_fields
+    end=named_fields.render(c,data,end+2460)
+    footer(c,data,end+100)
+    height=end+1030
+    c.items.append('</g>')
+    from . import observer_wings
+    observer_wings.render(c,data,height)
     defs='<defs><marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>'
     # Explicit titles and descriptive text support screen readers and text search.
-    head=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-labelledby="title desc">'
+    total_width=W+20000
+    head=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{total_width}" height="{height}" viewBox="0 0 {total_width} {height}" role="img" aria-labelledby="title desc">'
     desc='<title id="title">OPH particle atlas: from a loop to a detector</title><desc id="desc">A horizontal illustrated dependency map with a protected-memory example, conditional spatial defect and field connections, preparation and quantum measurement diagrams, all Standard Model families, finite theorem premises and calibration-removal strategies. Dashed arrows mark unproved physical connections.</desc>'
-    return head+desc+defs+f'<rect width="{W}" height="{height}" fill="{PAPER}"/>'+''.join(c.items)+'</svg>\n'
+    return head+desc+defs+f'<rect width="{total_width}" height="{height}" fill="{PAPER}"/>'+''.join(c.items)+'</svg>\n'
 
 
 def experiment(c,data,y):
@@ -383,13 +390,14 @@ def family_lanes(c,data,y):
     c.para(M,y+100,20700,'These are full dependency chains, including their missing links. The right-hand masses and spins belong to the supplied Standard Model benchmark. No row is a proved identification of an individual OPH defect with a measured species.',47,MUTED)
     starts=[M,M+2600,M+7000,M+11500,M+16600]
     widths=[2300,4000,4100,4700,4200]
-    heads=['FAMILY / CONJUGATE','SOURCE FEATURE','FIELD & THEOREM','PROPAGATION / MASS','MEASURED BENCHMARK']
+    heads=['FAMILY / CONJUGATE','SOURCE FEATURE','FIELD & THEOREM','PROPAGATION / MASS','NAMED PARTICLES: MASS REFERENCE']
     for x,title in zip(starts,heads):c.label(x,y+250,title)
     refs={r['target']:r for r in data['v1']['reference']['masses']}
     for i,lane in enumerate(data['families']['lanes']):
         yy=y+310+i*510
         c.rect(M-35,yy,21100,480,'white' if i%2==0 else '#f1eee6',radius=0)
         c.rect(M-35,yy,14,480,TEAL if i<4 else BLUE,radius=0)
+        c.rect(starts[4]-70,yy+5,widths[4]+140,470,'#fff0cf',GOLD,radius=15)
         c.para(starts[0]+20,yy+75,widths[0]-80,lane['title'],53,INK,700,max_y=yy+175)
         targets=lane.get('targets',[])
         syms='  ·  '.join(t.get('symbol',t.get('id','')) for t in targets)
@@ -415,15 +423,18 @@ def family_lanes(c,data,y):
         if len(ids)<=3:
             for j,t in enumerate(ids):
                 r=refs[t]
-                text=(f"{t}: {r['value']} ± {r.get('uncertainty','?')} GeV" if r.get('value') is not None else t+': mass not specified')
-                if t.endswith('neutrino'):text=t.replace('_neutrino',' flavor')+': not a mass eigenstate'
-                if t=='photon':text='γ: 0 in the SM; bound < 10⁻²⁷ GeV'
-                if t=='gluon':text='8 gluons: zero gauge mass; no free pole'
+                names={'electron':'electron (e−)','muon':'muon (μ−)','tau':'tau (τ−)',
+                       'W_plus':'W+ boson','W_minus':'W− boson','Z':'Z boson','Higgs':'Higgs boson (H)'}
+                name=names.get(t,t+' quark' if t in ('up','down','charm','strange','top','bottom') else t)
+                text=(f"{name}: {r['value']} ± {r.get('uncertainty','?')} GeV" if r.get('value') is not None else name+': mass not specified')
+                if t.endswith('neutrino'):text=t.replace('_',' ')+': flavor, not a mass eigenstate'
+                if t=='photon':text='photon (γ): gauge mass 0; bound < 10⁻²⁷ GeV'
+                if t=='gluon':text='gluons (g): 8 color fields; zero gauge mass, no free pole'
                 if t in ('up','down','strange'):text+='; MSbar(2 GeV), 90% CL'
                 if t in ('charm','bottom'):text+='; MSbar(mq), 90% CL'
                 if t in ('electron','muon'):text+='; CODATA2022'
                 if t in ('tau','top','W_plus','W_minus','Z','Higgs'):text+='; PDG2026'
-                c.text(x,yy+70+j*66,text.replace('electron','e').replace('muon','μ'),38,INK,700)
+                c.text(x,yy+70+j*66,text,41,INK,700)
         c.para(x,yy+265,widths[4],last.get('text',''),37,MUTED,max_y=yy+416)
         links=last.get('links',[])
         if links:

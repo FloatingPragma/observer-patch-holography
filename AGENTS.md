@@ -12,6 +12,15 @@ OPH does not claim to prove its own uniqueness or force its architectural
 choices. Verify self-reference and the observable consequences on the same
 declared construction.
 
+Describe physics as **simulation-generated observables**. The executable
+produces finite events, apparatus records and observer comparisons of their
+interpretations. Agreed records support effective field and spacetime
+descriptions; the program does not output an additional objective continuum
+universe. Smooth continuum limits are mathematical descriptions with stated
+domains and error bounds. Agreement alone neither fixes Born probabilities
+nor proves a relativistic field limit. A record-copying operation copies an
+orthogonal classical record, not an arbitrary quantum state.
+
 Use the [construction contract](model/CONSTRUCTION.md#what-is-being-built)
 and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
 The carrier, code, repair law, scheduler, preparation and observer apparatus

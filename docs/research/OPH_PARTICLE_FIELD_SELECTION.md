@@ -2,6 +2,76 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+The objects produced by the executable are finite simulation-generated
+observables: events, apparatus records and observer comparisons of their
+interpretations. Agreed records support effective spacetime and field
+models. A smooth continuum is a mathematical limit or approximation with
+stated error bounds, not an additional objective universe emitted by the
+program. Agreement alone does not prove the dimension, relativistic
+symmetry or dynamics of that effective description.
+
+The [finite source/output construction](../../model/particle_observer_outputs/README.md)
+connects complete spectral readouts, the faithful modular clock, source
+coupling recovery, energy-accounted holonomy transport and comparison of
+observer meanings. The [coefficient inverse](../../model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md)
+removes an additive sector offset from observable family-coefficient
+ratios. Physical rest-mass identification requires the interacting
+spatial response of those same operators; no measured particle assignment
+is inferred from the finite coefficient reconstruction.
+
+## Outputs of a specified interacting field and apparatus
+
+The [observer-output package](../../model/particle_observer_outputs/README.md)
+treats the field, preparation and measurement service as declared program
+data. Their validity requires consistent complete outputs, rather than a
+theorem forcing a unique architecture. Particle reference data do not enter
+its finite experiments.
+
+The [same-source quantum-Higgs readout](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
+prepares the full 307-state conserved-sector ground using the actual vertex
+and derives its neutral gap from complete two-time occupation records.
+The [charged experiment](../../model/particle_observer_outputs/CHARGED_HIGGS_RECORDS.md)
+uses that same Hamiltonian and ground on the entire adjacent addition and
+removal sectors. Its exact Gram operator is `G I-gamma`, where
+`G=4 Tr(Y^dagger Y)`, `gamma_L=YY^dagger` and
+`gamma_e=2(Y^dagger Y)^T`. It gives two addition lines per channel and a
+removal line with original CAR weights, including zero residues. All 1,614 dark addition states
+are retained. The gauge-compensating probe keeps its charged reference;
+a bare charged operator is not substituted for a gauge-invariant pointer.
+The separate fermion number energy fixes the charged-sector offsets on
+the same clock. A neutral gap alone does not fix those offsets.
+
+The [complete readout contract](../../model/particle_observer_outputs/READOUT_CONTRACT.md)
+constructs exact pointer matrices, retained outside-sector outcomes and a
+fixed evolution macro. Its alternative coherent-source implementation
+uses the existing finite compiler and propagates its errors through the
+whole record law, including arbitrary quantum references. Declaring those
+apparatus matrices as primitives is also an admissible construction.
+Neither route claims that a narrower occupation-only repair instruction
+set executes those matrices without an implementation proof.
+
+The [chosen gauge-coordinate route](../../model/particle_observer_outputs/FIELD_ROUTE.md)
+supplies a different finite spatial field. Its globally bounded,
+gauge-covariant overlap polynomial retains the full Dirac Fock space,
+defines a conserved local current and admits a representation cutoff with
+a rational complete-history error bound. The executed native-charge rotor
+control has the same Hamiltonian, initial state and flux-current identity;
+its two-time record weights have exact rational Taylor error enclosures.
+At flux cutoff 30 the evolution half-L1 error is below `1.155e-35`, in
+addition to the separate infinite-cutoff allowance. Every boundary and
+zero outcome is retained. This one-cell experiment does not establish
+three-dimensional propagation, and its coordinate completion is explicitly
+different from the finite raising-only link dynamics.
+
+These calculations give finite interacting energies and detector laws.
+An interacting chiral relativistic limit requires controlled complementary
+modes, a suitable common state and uniform spatial limits. A particle
+interpretation also requires the same currents, dispersion and physical
+readout convention. The atlas's [field meanings](../../model/particle_atlas_horizontal/FIELD_NATURE.md)
+describe those target observables. The
+[construction/output table](OPH_FIELD_RECONSTRUCTION.md#declared-field-programs-and-complete-observer-outputs)
+keeps each program's proof domain explicit.
+
 ## Finite selection tests and their physical domain
 
 The [phase and attenuation test](../../model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md)
@@ -11,7 +81,9 @@ vertex. Its ground energy is `(d-sqrt(d^2+16 Tr(Y^dagger Y)))/2`;
 with a repeated charged action pair. The full spatial interacting ground
 and an autonomous phase register are different requirements. A nonzero
 momentum free-field example proves an interior phase minimum is possible,
-while changing its kinetic scale reverses a phase comparison.
+while changing its kinetic scale reverses a phase comparison. Choosing a
+phase is permitted program configuration; the external minimization result
+concerns only the specified energy-selection experiment.
 
 The [event-cost and canonical-dressing proof](../../model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md)
 removes the dimension window from the smallest-positive finite band

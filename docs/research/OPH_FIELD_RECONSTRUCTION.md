@@ -2,6 +2,23 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+The objects produced by the executable are finite simulation-generated
+observables: events, apparatus records and observer comparisons of their
+interpretations. Agreed records support effective spacetime and field
+models. A smooth continuum is a mathematical limit or approximation with
+stated error bounds, not an additional objective universe emitted by the
+program. Agreement alone does not prove the dimension, relativistic
+symmetry or dynamics of that effective description.
+
+The [finite source/output construction](../../model/particle_observer_outputs/README.md)
+connects complete spectral readouts, the faithful modular clock, source
+coupling recovery, energy-accounted holonomy transport and comparison of
+observer meanings. The [coefficient inverse](../../model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md)
+removes an additive sector offset from observable family-coefficient
+ratios. Physical rest-mass identification requires the interacting
+spatial response of those same operators; no measured particle assignment
+is inferred from the finite coefficient reconstruction.
+
 ## Required outputs of a declared construction
 
 The atlas cards distinguish design choices from output derivations.
@@ -32,6 +49,47 @@ not substitute for calculating these observable consequences. Conversely,
 a complete calculation for one fixed construction needs no proof that all
 other constructions are impossible.
 
+## Declared field programs and complete observer outputs
+
+The [finite observer-output package](../../model/particle_observer_outputs/README.md)
+calculates complete interacting experiments for specified constructions.
+Its quantum-Higgs neutral and charged experiments share one Hamiltonian,
+prepared sector ground and clock. Its gauge-coordinate field is a distinct
+declared program; their spectra are not pooled into one particle list.
+
+| Construction | Calculated output and error control | Physical domain |
+| --- | --- | --- |
+| [Quantum-Higgs transition](../../model/particle_observer_outputs/HIGGS_RECORDS.md) | The literal full-CAR vertex has a complete 307-state conserved sector with two bright and 305 dark states. The same vertex prepares its ground. Complete two-time occupation records recover `Delta=sqrt(d^2+16 Tr(Y^dagger Y))` on a stated unaliased window. | A finite gauge-invariant scalar/fermion transition. Spatial hopping and gauge transport are excluded from this local Hamiltonian. |
+| [Charged Higgs records](../../model/particle_observer_outputs/CHARGED_HIGGS_RECORDS.md) | The same ground has two addition lines per internal singular channel and one removal energy. All 1,650 addition and 36 removal states are retained, including 1,614 dark addition states. A compensating charged probe keeps its quantum reference and both original event probabilities. | Actual interacting charged response energies and residues. Their physical dispersion, spin and mass dictionary are not inferred from their internal labels. |
+| [Gauge-coordinate field](../../model/particle_observer_outputs/FIELD_ROUTE.md) | A gauge-covariant bounded overlap polynomial acts on the full Dirac Fock space of a finite three-dimensional lattice. The same Hamiltonian defines the local conserved current. A representation-word cutoff gives a rational Dyson-tail bound on complete histories, including references. | The coordinate completion, action and apparatus are permitted choices. Both chiralities are retained; a chiral interacting relativistic limit is a separate output claim. |
+| [Executed spinor/flux readout](../../model/particle_observer_outputs/FIELD_ROUTE.md#executed-common-state-spinor-and-quantum-flux-control) | The native `q=6Y=6` singlet on one periodic cell has exact initial flux, current and energy `3,6,11`. Two signed-flux reads retain all 1,369 or 3,721 outcomes at cutoffs 18 or 30. Exact rational Taylor weights enclose the complete finite record law; the cutoff-30 evolution half-L1 error is below `1.155e-35`. | One interacting quantum coordinate on the declared clock. These values are neither GeV masses nor a demonstration of three-dimensional propagation. |
+
+The [readout contract](../../model/particle_observer_outputs/READOUT_CONTRACT.md)
+gives full pointer unitaries and complete instruments, including dark,
+unused and outside-encoding outcomes. Their exact matrices may be primitive
+apparatus services. The alternative coherent-source compiler gives a finite
+resource and reference-stable approximation bound; its long tapes are not
+claimed as executed. One fixed evolution macro defines the program clock,
+with preparation and detector evolution paused or explicitly included.
+The finite Born theorem applies to the same effects and state. Consensus
+copies their orthogonal records and preserves the calculated weights.
+
+For the field cutoff, `q_m(H_W)` is bounded on every gauge configuration,
+including small Wilson gaps. Accuracy relative to the exact sign
+requires the stated gap domain or a bound on the state's weight outside it.
+The implementation compresses the polynomial of the parent operator,
+rather than evaluating a different polynomial after truncation. Its
+two-time rotor weights are exact nonnegative rationals without artificial
+renormalization. The comparison combines their Taylor remainder bounds
+with the separate infinite-flux cutoff allowance.
+
+The remaining common-theory statements concern interacting spatial
+propagation, controlled chiral complementary modes, uniform volume and
+refinement limits, and the physical detector dictionary. The atlas's
+[named-field meanings](../../model/particle_atlas_horizontal/FIELD_NATURE.md)
+distinguish matter occupation, gauge polarizations and scalar fluctuations;
+they do not identify the finite readout lines as those laboratory species.
+
 ## Source tests for the first five atlas inputs
 
 The [construction mission](../../model/CONSTRUCTION.md#what-is-being-built)
@@ -50,14 +108,15 @@ currents, family-band theorem and complete fermion/link construction.
 | Input | Derived result | Required physical connection |
 | --- | --- | --- |
 | Phase | The zero-momentum free sea is phase-flat; nonzero momentum can favor an interior phase. The tested complete finite Higgs sector favors zero phase. | A fixed program with an actual phase/interaction prescription, and computation of its observer output. A dynamical phase register is optional. |
-| Attenuation | The free sea and tested Higgs sector favor r=1 under energy minimization. | A retained loss process selected by the source; the fitted r is not recovered by those energy tests. |
+| Attenuation | The free sea and tested Higgs sector favor r=1 under energy minimization. | A declared retained-loss process and its complete output calculation. A fitted r remains a calibration input; those energy tests do not predict it. |
 | Capacity response | The exact C-duty coefficient at every attempt horizon has bounded ratios below the lepton targets under a linear mass attachment. | A physical capacity-to-program map and a justified effective observable. Increasing this archive budget alone cannot supply the missing hierarchy. |
 | Clock and units | Native record rates and logarithmic generator gaps have unit-free ratios; one shared positive scale cancels. | Common operational clock and state for the charged action; physical energy conversion for GeV values. |
 | Families and chirality | Per-event cost selects the smallest positive rank-three band without a dimension window. Complete gauge-invariant unitary dressing supplies canonical fermions. | A declared cooling/kinetic program, its matter-family output, spatial chirality and mirror decoupling in the interacting limit. |
 
-These are results on their named source domains, not a proof identifying
-them as one physical theory. The physical phase, attenuation and mass
-predictions are unselected. The atlas's ten cards include overlapping
+These results concern their named source domains and reference states.
+Calculating a configured phase or attenuation does not require a theorem
+selecting that input uniquely. Their physical mass consequences require
+the interacting detector and species attachment. The atlas's ten cards include overlapping
 program choices and physical identifications; they are not ten independent
 scalar parameters. The [endpoint illustration](OPH_PARTICLE_ATLAS_V2.html)
 separates primitive repair, protected-memory transport, supplied winding

@@ -15,7 +15,8 @@ SVG = ROOT/'docs/research/OPH_PARTICLE_ATLAS_V2.svg'
 HTML = ROOT/'docs/research/OPH_PARTICLE_ATLAS_V2.html'
 AUDIT = HERE/'audit.json'
 V1 = ROOT/'model/particle_candidate_atlas/audit.json'
-CONTENT = ('story.json','families.json','measurement_content.json','theorems.json')
+OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
+CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
 def canonical(value):
@@ -37,6 +38,9 @@ def load():
     data={'v1':json.loads(V1.read_text()),'measurement':measurement.certificate(),
           'endpoints':endpoints.certificate(), 'double_path':measurement.double_path_certificate()}
     for name in CONTENT:data[Path(name).stem]=json.loads((HERE/name).read_text())
+    data['observer_outputs']=json.loads(OUTPUTS.read_text())
+    for rel,expected in data['observer_outputs']['input_sha256'].items():
+        if sha(ROOT/rel)!=expected:raise ValueError('stale observer-output input: '+rel)
     pins=data['v1']['input_sha256']
     for rel,expected in pins.items():
         path=(ROOT/rel).resolve()
@@ -45,7 +49,7 @@ def load():
     if data['v1']['physical_mass_predictions'] or data['v1']['physical_particle_map']:
         raise ValueError('v1 physical scope changed; editorial review required')
     validate_content(data)
-    paths=set(pins)|{str(V1.relative_to(ROOT))}
+    paths=set(pins)|set(data['observer_outputs']['input_sha256'])|{str(V1.relative_to(ROOT)),str(OUTPUTS.relative_to(ROOT))}
     paths.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.is_file() and (p.suffix in ('.py','.md','.js') or p.name in CONTENT))
     for link in links([data[n.removesuffix('.json')] for n in CONTENT]):
@@ -64,6 +68,14 @@ def validate_content(data):
     expected={r['target'] for r in data['v1']['candidate_rows']}
     if len(ids)!=18 or len(set(ids))!=18 or set(ids)!=expected:
         raise ValueError('complete elementary target coverage failed')
+    named=data['field_nature']['families']
+    if len(named)!=18 or {r['target'] for r in named}!=expected:
+        raise ValueError('named-field coverage failed')
+    if data['field_nature']['physical_particle_assignments'] or any(
+            r['source_predicted_physical_mass'] is not None for r in named):
+        raise ValueError('named-field explanation promoted a physical prediction')
+    if data['observer_outputs']['physical_particle_assignments'] or data['observer_outputs']['source_predicted_GeV_masses']:
+        raise ValueError('finite output explanation promoted a physical prediction')
     expected_stages=('loop','charge','local_bridge','texture','mode','field','apparatus','record')
     if tuple(s['id'] for s in data['story']['stages'])!=expected_stages:
         raise ValueError('hero identity chain changed')
@@ -82,7 +94,13 @@ def validate_content(data):
 
 def reader(svg,data):
     full_links=[];seen=set()
-    for item in links([data[k] for k in ('story','families','measurement_content','theorems')]):
+    extra=[{'label':label,'path':'model/particle_observer_outputs/'+name} for name,label in (
+        ('HOLONOMY_TRANSPORT.md','Finite holonomy birth, work exchange and regional protection'),
+        ('CONSENSUS_RECORDS.md','Record copying, observer meanings and finite event gluing'),
+        ('BARE_EFFECTIVE_BOUNDARY.md','Same-clock spectral coefficient inverse'),
+        ('CONTROLLER_READOUT.md','Controller attenuation and phase-class readout'),
+        ('GAUGE_INPUT.md','Operational source couplings and conditional gauge ray'))]
+    for item in links([data[k] for k in ('story','families','measurement_content','theorems','field_nature')]+[extra]):
         href=item['path']+('#'+item['anchor'] if item.get('anchor') else '')
         if href in seen:continue
         seen.add(href)
@@ -91,14 +109,14 @@ def reader(svg,data):
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OPH particle atlas v2: illustrated reader</title>
 <style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
-<header><strong>From a loop to a detector</strong><button data-row="story">Source story</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
+<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
 <main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Full references behind the illustrated steps. Supplied hypotheses and unproved bridges are labeled in the spread.</p><ul>'''+''.join(full_links)+'''</ul></aside>
 <nav id="nav"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="out" aria-label="Zoom out">−</button><button id="in" aria-label="Zoom in">+</button><button id="zoom">100%</button></nav>
 <script>
 const viewport=document.querySelector('#viewport'),art=document.querySelector('#art');let scale=.25,x=0,y=0,drag=null;
 function draw(){art.style.transform=`translate(${x}px,${y}px) scale(${scale})`;document.querySelector('#zoom').textContent=Math.round(scale*100)+'%'}
 function zoom(f,cx=viewport.clientWidth/2,cy=viewport.clientHeight/2){const b=art.querySelector('svg').viewBox.baseVal;const floor=Math.min(.035,.97*viewport.clientWidth/b.width,.97*viewport.clientHeight/b.height);const next=Math.min(1.8,Math.max(floor,scale*f));x=cx-(cx-x)*next/scale;y=cy-(cy-y)*next/scale;scale=next;draw()}
-function row(name){const places={story:[320,680],experiment:[320,2320],theorems:[320,4500],families:[320,6150],calibrations:[22000,6150],endpoints:[320,11500]};scale=Math.min(.43,viewport.clientWidth/5600);x=35-places[name][0]*scale;y=35-places[name][1]*scale;draw()}
+function row(name){const places={origin:[0,0],observers:[38000,0],story:[10320,680],experiment:[10320,2320],theorems:[10320,4500],families:[10320,6150],particles:[26800,6150],calibrations:[32000,6150],endpoints:[10320,11500],fieldnature:[10320,13900]};scale=Math.min(.43,viewport.clientWidth/(['origin','observers'].includes(name)?9900:5600));x=35-places[name][0]*scale;y=35-places[name][1]*scale;draw()}
 viewport.addEventListener('wheel',e=>{e.preventDefault();const r=viewport.getBoundingClientRect();zoom(Math.exp(-e.deltaY*.0015),e.clientX-r.left,e.clientY-r.top)},{passive:false});
 viewport.addEventListener('pointerdown',e=>{if(e.target.closest('a'))return;drag={px:e.clientX,py:e.clientY,x,y};viewport.setPointerCapture(e.pointerId);viewport.style.cursor='grabbing'});
 viewport.addEventListener('pointermove',e=>{if(!drag)return;x=drag.x+e.clientX-drag.px;y=drag.y+e.clientY-drag.py;draw()});
@@ -106,7 +124,7 @@ function stop(){drag=null;viewport.style.cursor='grab'}viewport.addEventListener
 document.querySelectorAll('[data-row]').forEach(b=>b.onclick=()=>row(b.dataset.row));document.querySelector('#in').onclick=()=>zoom(1.3);document.querySelector('#out').onclick=()=>zoom(1/1.3);document.querySelector('#left').onclick=()=>{x+=viewport.clientWidth*.72;draw()};document.querySelector('#right').onclick=()=>{x-=viewport.clientWidth*.72;draw()};
 document.querySelector('#overview').onclick=()=>{const b=art.querySelector('svg').viewBox.baseVal;scale=Math.min(viewport.clientWidth/b.width,viewport.clientHeight/b.height)*.97;x=(viewport.clientWidth-b.width*scale)/2;y=8;draw()};
 document.querySelector('#references').onclick=()=>document.querySelector('#refs').style.display='block';document.querySelector('#closeRefs').onclick=()=>document.querySelector('#refs').style.display='none';
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){x-=viewport.clientWidth*.5;draw()}if(e.key==='ArrowLeft'){x+=viewport.clientWidth*.5;draw()}if(e.key==='Escape')document.querySelector('#refs').style.display='none'});row('story');
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){x-=viewport.clientWidth*.5;draw()}if(e.key==='ArrowLeft'){x+=viewport.clientWidth*.5;draw()}if(e.key==='Escape')document.querySelector('#refs').style.display='none'});row('origin');
 </script></html>\n'''
 
 
@@ -131,6 +149,8 @@ def build():
         'primitive_endpoint_illustration':data['endpoints'],
         'double_path_illustration':data['double_path'],
         'finite_theorem_roles':data['theorems'],
+        'named_field_meanings':data['field_nature'],
+        'finite_observer_output_connections':data['observer_outputs']['finite_output_connections'],
         'layout':{'width':parsed.get('width'),'height':parsed.get('height')},
         'svg_sha256':hashlib.sha256(svg.encode()).hexdigest(),
         'html_sha256':hashlib.sha256(html.encode()).hexdigest(),

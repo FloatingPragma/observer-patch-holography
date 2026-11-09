@@ -153,6 +153,18 @@
       "top"
     ]
   },
+  "finite_observer_output_connections": [
+    "same-source neutral and charged spectral response",
+    "complete scalar and energy instruments with coherent-control compile bounds",
+    "faithful Gibbs modular clock on the same interacting Hamiltonian",
+    "preparation-weight cancellation in a complete gap-readout protocol",
+    "gauge-coordinate cutoff and exact numerical complete-record error bounds",
+    "finite link-holonomy birth, work exchange and regional protection",
+    "complete record copying, meaning comparison and finite event-function gluing",
+    "reuse of operational native/scalar couplings and the conditional gauge-ray receipt",
+    "charged spectral coefficient inversion cancelling the charge-sector offset",
+    "controller attenuation and phase-class reconstruction with a retained source-normalization premise"
+  ],
   "finite_theorem_roles": {
     "no_unconditional_source_to_Standard_Model_claim": true,
     "roles": [
@@ -346,18 +358,24 @@
     "apparatus",
     "record"
   ],
-  "html_sha256": "bba03315e2a46615b7d018713486d1193b50f205b74e09cc0e093e2feb1abae7",
+  "html_sha256": "27fd7b974d1b922eab9f22292f5780d6dc3478036a37bec7a2a771de49e8980c",
   "input_sha256": {
     "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
+    "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
     "Lean/EventAlgebra/OperationalBornBridge.lean": "34d3f92fff2f7cc78ec0353005f379b6177dd7826f24365980a05d65ae7ffcdf",
+    "Lean/EventAlgebra/PublicRecordAlgebra.lean": "9301de8050611cac94a53b2d28b9b6c26d3019ede6b0c5034160696b7236fcc4",
     "Lean/EventAlgebra/Robertson.lean": "7b08a20ce5f865596fb34a1c969a7d27f5e5090ceb103eb223dd1c0b1c1c928e",
+    "Lean/Geometry/RecordGluingPrinciple.lean": "e87595ae0ca3c1378a04cfb5b0162fe71b0c61bd5b3515469ae2c3cc39bdffaa",
     "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean": "c67b38fdcdfba970814cace25dd938d71ea0d68491f233f5bc9083c53d22d426",
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "a724da9e9a5a9e90aa80adb2833353370d5991180b89f7a634cf27e43e10f631",
     "Lean/ObserverPatchHolography/KoideCirculant.lean": "e2afb770c07dae918a4dd77e00c5e2aee9f2e108cf0da4706406b537678dc577",
     "Lean/ObserverPatchHolography/RepairWordSchedule.lean": "7272e15fbea5a4c1239a76f135c025221ced393a3370df706433d90b0bc6b232",
     "Lean/QFT/ModularClockComparison.lean": "e9ea518b35bdd8ac09f87b90bfa27bdc8ef5b6d6a4f0583bea7f4541dd21644c",
+    "Lean/QFT/ObserverNetDescent.lean": "43c86c2be90d4db28c40bd1164746e42baa017e9f9c2efed17e33f03f47e2bbe",
+    "Lean/QFT/OperationalOverlapEvidence.lean": "78683a58dc6bd56bba8c1c47dddb10ab908534688eff047efc8a2936db556afe",
     "Lean/QFT/SectorInheritance.lean": "20c81f3aea240a5e96f41a8897c5b582d9bb874e197c02393a6199dd9d50e492",
     "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
+    "Lean/QFT/StructuralInheritance.lean": "25338daa1863afc8d523b38c2781c2895b3282514d56257cfa0c8b33c40745c2",
     "Lean/Screen/A2HolonomyBridge.lean": "4a83a4dfd2a8696b17b919548ec3ef8139e710c2c6d9ea6abf868885eb221555",
     "Lean/Screen/A5FamilyBand.lean": "da86f97b63a871bedc4a5418c4b7b154ab3d354b7fdb41e9184f4c3b343e1521",
     "Lean/Screen/A5PortAction.lean": "5efd9ea0ca2d12f8beb3f20111e80d748984ec0cbef484dd3d7cbb766954f9cc",
@@ -371,6 +389,7 @@
     "Lean/Screen/GaugeKineticInvariantForms.lean": "112f077dd6577847764cddb7711f043c1e316909896312d8315a9b2b0847e31b",
     "Lean/Screen/GaugeSectorBracketCompletion.lean": "5fc02cab7f7c5bbdd5186ddb8bc1094e7f08dcb3f67153123342c246b7dfe2da",
     "Lean/Screen/HolonomyInterference.lean": "78c5f5b334578103eee18888d82e07c341371164bdfbb75d83f9982c86e4d544",
+    "Lean/Screen/LocalFaceMaxwellAction.lean": "c54da8884d3a3d19ed73baab2218378795fa5f8f2681344d545f285a647cf763",
     "Lean/Screen/MatterGrammarIndexBridge.lean": "1f66250458e837de3f45f29a370ed4a4960ea55a4e3d9bdb8be2d1d7f74a4851",
     "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
     "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
@@ -379,7 +398,9 @@
     "Lean/Screen/SL2F5PortCover.lean": "3bf6a7f5f233ea6effda62f14a700eb49dcd54e40bf207e0693b7f11240641a3",
     "Lean/Screen/SMStructureAdequacySurface.lean": "8770dea6ff61fc042cadac60faae13c46a4c9518802abe428b1290102bad0d53",
     "Lean/Screen/SeamCurrentFreePhotonLift.lean": "5c816286127815938c7c391d1764a67c899ce544b0b2bbb6768388de4fb5699c",
+    "Lean/Screen/SeamCurrentPhysicalMetricAttachment.lean": "cc0ee55053cc3971945afe221f82f8062ab7ca8e4577200413a79eae8154143d",
     "Lean/Screen/SeamU1HolonomyClassification.lean": "97a216adff1432cdcc332a1895af066e8df158c98d481a6f4d4bc4016f5bcb8f",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "5e617c445abd94e87d2edcd7adf210eeff49fd9c161bc9a312eb49525750d647",
     "Lean/Screen/TrichotomyCases.lean": "34baf8cbaaf9613140978c68520914a86c3931119eccca23267cae21ba711cf7",
     "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
     "Lean/Screen/Z6Descent.lean": "3e5c9f8bb842271df9791547464a70bcf2a0071ea187a6254b7cf02309c184f3",
@@ -394,7 +415,11 @@
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
     "code/P_derivation/interval_contraction_certificate.py": "4c8191fce843fb3ef69e1a12b690682744c94c6669b68239ea3192fbff2a8493",
     "code/P_derivation/source_rg_frontier/build_rg_representation_frontier.py": "028f319eec4e38f38087716cecc085fa1df924f680781469af76ec3ed0067c06",
+    "code/a5_closure/family_band_attachment_certificate.py": "327a8913f2c725e123c98238c7a8a113f3913d89453d8d3e0e8c0162d733ce2e",
+    "code/a5_closure/flux_defect_criterion_certificate.py": "e3bfc362b525d6f7f0ee27497c077e49836cac67ea3536763cb369767ba50297",
     "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "code/a5_closure/native_defect_stability_gate.py": "e153c560aa7026c561e8a76129a309b12758c3683c63d070be3b715afa83ccbe",
+    "code/a5_closure/routed_seam_grammar_certificate.py": "690e9f10601a83424673fe35de4ebd7a7eb31f5ad86ae195696f5b09c3bf9c92",
     "code/capacity_readback/checkpoint_channels.py": "301c7ad3dc518ea11b61bcc0a758d8d6b64d7a5aa0bf671cbe1776afa4217bd5",
     "code/capacity_readback/correctable_public_record_capacity.py": "e6e4a233063869cb4e72b91805a2844b7cf7b2805ff46debb84f748ef68bd7f1",
     "code/capacity_readback/public_record_csp.py": "bf46e445f29153bd63bb2af04421f3077b8e9d95558af80e077aea978225a001",
@@ -673,7 +698,7 @@
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/universe_timeline_viewer.py": "e659adc51660960f4c6b556c206e9bc857074e675a08e444d86a6418d27228cb",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualization_schema.py": "6e3f1c1360cc3b94fe709220677cdaa9e4177fce0a52bd8c50d854e367e5b9e2",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualizer_pack.py": "321a54b79d4b89a895f4b8d21f9611d5d68239c9886c74aa4868ceb3977aaa84",
-    "flagship/from_observer_consensus_to_standard_physics.pdf": "cfb173f8f8c058ec2942c58147a1e035aeb50fb9de5551704990fd32a015a3a5",
+    "flagship/from_observer_consensus_to_standard_physics.pdf": "366f7f9f3e4f8bfc9757fe7700ff7b60cc457202c486a488093e36a644988d36",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -800,6 +825,8 @@
     "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
     "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
     "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/full_repair_response/coupling.py": "69c142d04604adf2327e0b199893b214f004e8265bd4f3577b26f7c0e51aa288",
+    "model/common_source/full_repair_response/results.json": "4b28d8af6485a90fa9eb1fc56e55ae5dd12757ed12d464d3578693d49c9eed2e",
     "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
     "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
     "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
@@ -1084,6 +1111,9 @@
     "model/interacting_extension/__init__.py": "73990c10fdb30b21031f7c09415cede4d0fc0e1cd4eb2cc3266e6d57ad90add7",
     "model/interacting_extension/_source.py": "22d8901b31df309ceb727de865cab9e59f88ce82a8ef8012f9b19459840e9b55",
     "model/interacting_extension/chiral_electric/PROOF.md": "d50ee6c8d7fe699e0a55962f1963b967447ec89d33fb9b63b040b33620d48a60",
+    "model/interacting_extension/chiral_lattice/PROOF.md": "6ebad18a35c53aa32dd32367f92e804bd5294ffe89824fcad5fc9d74934095b3",
+    "model/interacting_extension/chiral_lattice/rotor_response.py": "27bba224da65d275c44b4ff22a124d81d83bf0987b74f9a13d3c64ca7acded34",
+    "model/interacting_extension/chiral_lattice/source_data.py": "b09044e27b0f9c27612b82c07888f859bb4e6220ede9f58f60ecfffd2e770665",
     "model/interacting_extension/higgs_join/PROOF.md": "2347bab6e8a85852b46893968ce799c406fe3570ed1e91b5e79efebd702af552",
     "model/interacting_extension/higgs_join/__init__.py": "ad6f8a1ab3da9997433933a3ade7c7c23b1733ef2cdbedaf89871899420496de",
     "model/interacting_extension/higgs_join/interacting_carrier.py": "835a7f341b7f1dfd37ab673218fa51aa5aa680cb7560d94a76c33b831d553d60",
@@ -1136,6 +1166,7 @@
     "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
     "model/local_repair_family/record_clock_campaign.json": "b67b82ebfc34282a9281147ec45717de410e02a75610d32062153c2ff6be0fa3",
     "model/local_repair_family/record_clock_results.json": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+    "model/maxwell_local_selection/PROOF.md": "f3083d9c2a60e5a19a85ce510f1df5cc0fec3ee8b5a874b39915ddba65d1bb3c",
     "model/mcpr_native_memory_bridge/PROOF.md": "14727c45253a6b42f7ad7fb5ab9eba629e327a57747ab7a128c150a5f9a72856",
     "model/mcpr_native_memory_bridge/README.md": "ae3f927457b66db896bf970b5e7a511f15cadecc009c39f65caf1bf6219efe6d",
     "model/mcpr_native_memory_bridge/__init__.py": "34257435ab651f40063536b70e590f54945ab9bbb2f51062f0336b9b691c5479",
@@ -1231,6 +1262,7 @@
     "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
     "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
     "model/native_quantum_reconstruction/PROOF.md": "b89daf641232a3a7e696c870e4b0f282a0e723f9a7b607cf87e274f076e68f86",
+    "model/native_quantum_reconstruction/certificate.py": "ffc51c1ab3b09dee9d5a004896b80ec40747a893a2ef1e05ae67cf7e123bf75b",
     "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
     "model/native_relational_readout/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
     "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
@@ -1277,9 +1309,11 @@
     "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
     "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
     "model/observer_particles/__init__.py": "d4898cd7ac4037731af3851b8b4a9101c553ec0f95e471c8e63c494af3c9f4cc",
+    "model/observer_particles/coefficient_selection.py": "2152493962f485cc117a5c21c482650fb9d79dafe1e588141a642d6e118d716a",
     "model/observer_particles/gauge_particle_identification.py": "a335cddbc8a4f402c83b4d2412f0bda03eb37172dc81b6d5a255cadc37aca42c",
     "model/observer_particles/geometric_matter_join.py": "c13322ca350271efa70cba1a2822e7eac318c2875f6bef711c0448dbd103be54",
     "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/coefficient_selection.json": "869fdfb29f0a73eefc273012bf929afc225ea12da9b2ce83f509409a1a930161",
     "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
     "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
     "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
@@ -1292,26 +1326,44 @@
     "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
     "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
     "model/particle_atlas_horizontal/FAMILIES.md": "1a2f1b80d71cd691a35e87604c2210f5c24852d5966b3c76d0e0d4c871b74396",
+    "model/particle_atlas_horizontal/FIELD_NATURE.md": "7db9d1804f5800629ac125ffcca75f40ce4e79f70cc7d0752de602af22d04fbd",
     "model/particle_atlas_horizontal/MEASUREMENT.md": "cb0abdd3952b2fcd607f4612b787298ee571ca13b3bff4352171e97111b96814",
-    "model/particle_atlas_horizontal/README.md": "e4d932af21e197a4bde707f60ee05dda9ca14424bba28c7db485d6c5ebc99e93",
+    "model/particle_atlas_horizontal/README.md": "9993718fcbc1ef86461b8347df42297a32c5d6d44e670e1e4a29f66e4ae7a580",
     "model/particle_atlas_horizontal/STORY.md": "1eae4400513f7c40e25e7ab8eae5524404b18ed972aa36ae83dfeea91237a57c",
     "model/particle_atlas_horizontal/THEOREMS.md": "148e0ee284874c4cfa28403c63d54641af829c6e5744ff6bc8b852927a14a997",
     "model/particle_atlas_horizontal/__init__.py": "c461591d6dece1266c8689d6dde4800fb27009e6cb2f1ff214e87e4387336d2e",
-    "model/particle_atlas_horizontal/build.py": "2d7a988b390d1730e31f1d9aa57976d0f43e6e15e6db91e18daf6fea087cae4a",
-    "model/particle_atlas_horizontal/drawing.py": "2628e75b2ca8a0968cb5979c7c7465a4f89e18b05843231703f848aa5908616d",
+    "model/particle_atlas_horizontal/build.py": "9626936564e4d06d53cfb990247fa0f6341cdb8a1406c7bb672181c563657466",
+    "model/particle_atlas_horizontal/drawing.py": "bb5bf6c71fa96f6aeb47351fcbdd89ad0b9e023d1ba31cc6831598286224d0d1",
     "model/particle_atlas_horizontal/endpoints.py": "566104314a9495fb2269a7958f96e993fad39ee0bbccb46f444635d188655437",
-    "model/particle_atlas_horizontal/families.json": "51c9f9141c660fb382d22f69dd63c4a713ff5ad9fb599cbba87674390dfb6d1d",
+    "model/particle_atlas_horizontal/families.json": "0bf853957e00f1f5036e4378acc278f6351abe7dd0f7a4762b2d7f7f4b110716",
+    "model/particle_atlas_horizontal/field_nature.json": "30d0cc7d02aadcbed9f6fd18f21aef5e763eb1d3ae5977e54c20b33334bdc8b4",
+    "model/particle_atlas_horizontal/field_nature.py": "282c44d45ec6c62f164b3a3b24b624cd4b801210c0123d14a296642a8627c785",
     "model/particle_atlas_horizontal/measurement.py": "67f501bd459c38f9df17cab1d6d4c4100b8082861a2295b34786a64c5a962aab",
     "model/particle_atlas_horizontal/measurement_content.json": "0a2217120d8583c11b930846dd3444e2afde70651993c12c1d6e70675ee6492f",
-    "model/particle_atlas_horizontal/story.json": "7f6a88a4b44660bb84cff3bda0b0ef1772e51bdd5169cf77cde0adffcf8aeb73",
-    "model/particle_atlas_horizontal/test_build.py": "0b834b0f57be1edc21081f30d1be6401bcdc005c9df884fd92a01105734079c0",
+    "model/particle_atlas_horizontal/named_fields.py": "82d1465252668cf6ecfdbe738d9eeac2d440b4ed1b478e0b78626d7441741d61",
+    "model/particle_atlas_horizontal/observer_wings.py": "f14a493a10126c64efa2cc2bc2443db97691ed7638ee7bbcbf133c53537e5301",
+    "model/particle_atlas_horizontal/story.json": "d65cb2a87ccb024c3891534d3a17cf67a8b2f65aa204b6510aac740906de7b7a",
+    "model/particle_atlas_horizontal/test_build.py": "0bbbc6f310c6867d8c0c59ec880de55e4d95beae12a1966d76dbcca653977aee",
     "model/particle_atlas_horizontal/test_endpoints.py": "d788b8004bbe0126530958f35d8e55cf4e94cc7ef05ad9bd96e9a7da17a143cf",
+    "model/particle_atlas_horizontal/test_field_nature.py": "b052ce06b95517e86ade3f3778c5ab5f7903be6c6ebc531dca939763e2a73379",
     "model/particle_atlas_horizontal/test_measurement.py": "37e71aedcc2956530ecb4e68dda7833ce556825bea3e5a638836de14b49540fd",
     "model/particle_atlas_horizontal/theorems.json": "9506f36c230717979a9c0a7ff6501de17a9780a1e524d98a6270c5c4e3e08f41",
     "model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md": "2e5bb3d0e40eee2ba261568f8cf64e81ddcb650f153eb12f61559963587007c1",
     "model/particle_calibration_selection/PROOF_CLOCK_UNITS.md": "66e375091ff6ee1e6a73ab6d4abb9b96e0e79ebcf1716c2b654c7ef883b24dc3",
     "model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md": "ec4f0e6547e1eeca62793f443c0daff2cf4166a929478b0deac0a15e499b4ac8",
     "model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md": "b6813adb3369fc67982b7f8361993aad19b6d40a31449024081b6bca3d5feb7c",
+    "model/particle_calibration_selection/README.md": "f73f56529476c75f7081a7bb2eaed31fafc14ad318786f9e8c0f260f3b6c8b00",
+    "model/particle_calibration_selection/__init__.py": "88cbeb623c8a0e754d766749c2c79c7294f339cb0f4bce8a24c38250a828189e",
+    "model/particle_calibration_selection/capacity_response.py": "6fc634aebf24fcc8bc6d972eebb21774e5d805f4bc9dad82a8828e36ead9bb78",
+    "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
+    "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
+    "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
+    "model/particle_calibration_selection/results.json": "8f0a1ec2f6891048a6b7177f75ec03d2cd3135702359f4c7b046b8409032c2af",
+    "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
+    "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
+    "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
+    "model/particle_calibration_selection/test_families_chirality.py": "3e1859b38b59f0f7605cd40d4d8175aba6bb409acb2b7836033e6549e53fa7f8",
+    "model/particle_calibration_selection/test_phase_attenuation.py": "f64ce9a691ac269b56f4a80de1fb300668e8d3000ecc31cdc6c0420cbd5f8645",
     "model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md": "243afefb532214c293780979e2af0c64010891fac40f2bd6a9c5ac6478814dfb",
     "model/particle_candidate_atlas/CALIBRATED_TRIPLET.md": "0e30151498200e4a2682998c1c0ee1d05547357e677dba97dc0ec904517fea42",
     "model/particle_candidate_atlas/CAPACITY_NON_SELECTION.md": "52723adc0de346eed9e136bd0aa488007c91e0234d88f7b6ea422869684317a5",
@@ -1369,10 +1421,45 @@
     "model/particle_memory_response/PROOF.md": "ba363fff684f00303a97c1c46af15270ac283a1fb1a6681c2df22fcf201fb7f0",
     "model/particle_memory_response/__init__.py": "8c12cb3f3bab43d50e763484f6ba5575f90c3754b53453e19ceea4b98f2ff80b",
     "model/particle_memory_response/certificate.py": "0b3029364f50da21c8517da0da68d992b5c52c0f696661ed246b308bfad654c2",
+    "model/particle_observer_outputs/BARE_EFFECTIVE_BOUNDARY.md": "34043b8f38e0eb00b6e7b9907b8914a6a07bc25ec82d6ba07c560e18056cf290",
+    "model/particle_observer_outputs/CHARGED_HIGGS_RECORDS.md": "09c3c18ba9ea141e888bf08f0094b3c69313f65c25cd9117c7df2205d94f432d",
+    "model/particle_observer_outputs/CONSENSUS_RECORDS.md": "bb5a1aa890f329bfb3d35c844326c35c14aec1eeb66944ff4c6a847b74b15b78",
+    "model/particle_observer_outputs/CONTROLLER_READOUT.md": "58767e1dd6eae7f6685cae72d48f1409524cbda5f5fe1e36bb22ee7c575b61fa",
+    "model/particle_observer_outputs/FIELD_ROUTE.md": "cf9b4bb50f21819f9fbc17c53ec6cb38266df01b54f73f527c97b0b2ce3f2bfb",
+    "model/particle_observer_outputs/GAUGE_INPUT.md": "66c4f3b7c98a36dae1d3f3685be1bcb0c348fddf7e0a1071686cdd576e533ee2",
+    "model/particle_observer_outputs/HIGGS_RECORDS.md": "209a9d19ad8d89802b8cfa1fe90e0c370d14ce85e18afe4ecbc6ad973e62e703",
+    "model/particle_observer_outputs/HOLONOMY_TRANSPORT.md": "af3ad95a2bf9d18c07f1c94e0ce63640e7fa8cc2e2418ed1afb64d1f152e613f",
+    "model/particle_observer_outputs/README.md": "d97e8c4aae8edb7b220c9e5065cb5d337c19f14e4223694d5ee54f43a5c041a5",
+    "model/particle_observer_outputs/READOUT_CONTRACT.md": "a0db4183b1d4879533516386cda622c32be95b951c75256d43474c0e0a3f7747",
+    "model/particle_observer_outputs/THERMAL_CLOCK.md": "a1cc8e6a08c93699363191243023cedef8d1c688c1eb2dcd2f171d35947b730e",
+    "model/particle_observer_outputs/__init__.py": "278bde9206edaf6cd03954b70381bccd9e92e1edd0c8343763db995313df502d",
+    "model/particle_observer_outputs/bare_effective.py": "09f2cb35bf06ffa6b66a0f695e5e5881251a881c7d3b5dafc3fd75bb6ce63134",
+    "model/particle_observer_outputs/charged_higgs_records.py": "19316f636624cbb6e29771a54bf9e2cbd4ff2947e3717c8c26d1f27d1d741b0d",
+    "model/particle_observer_outputs/consensus_records.py": "32982f2d8a2fa92e7ddf1209f927d4c35b8cfa93af9102f57caa630dddf8123e",
+    "model/particle_observer_outputs/controller_readout.py": "a174b8891c4829b2cef14a53193cf43dd8e3ffa337b5cfb05f0280d777d52572",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698",
+    "model/particle_observer_outputs/gauge_input.py": "65590a7899ad19da93d893ea1f23e2b9f51d6c2d8d3281e9391524f76ef038f4",
+    "model/particle_observer_outputs/higgs_records.py": "8494d22a3d64cb3c7d88bccf4f23c80fb02b67a1924cc616f750cefecb0ea7b9",
+    "model/particle_observer_outputs/holonomy_transport.py": "57581d85afbb833a887e6db1c84f32e6d1e76650d97d6ec21866775ef3b84980",
+    "model/particle_observer_outputs/readout_contract.py": "33388e2c8572b3b227f504a74c6cb78ec3ed5933e9609328ba975ee8fb78451a",
+    "model/particle_observer_outputs/results.json": "83c4ed3dd6dfb543a9b2b45f6e64d6ca362e0cbb56b29f060fdfeef2c89c4511",
+    "model/particle_observer_outputs/run.py": "4558dff864b38c4f0be603f6e381367549625d0330b74d4ad14bff88ca171429",
+    "model/particle_observer_outputs/test_bare_effective.py": "328755076e593ef0473649d8f046b239ed44be179fb7e62d4492dbaf744542d5",
+    "model/particle_observer_outputs/test_charged_higgs_records.py": "76addf707a89bf1d5352ef4efc357865c4a40810d3fdca17afbefce65fdea9ed",
+    "model/particle_observer_outputs/test_consensus_records.py": "8eefc62155d8591d5b9acc163c0e0bd3c3f3900ef89b6d51ec2033e5f770a39e",
+    "model/particle_observer_outputs/test_controller_readout.py": "0ed77445361b8b4fdaa934f9459d2d6e35af4b29a4acd71d84e0c8ff2f72b108",
+    "model/particle_observer_outputs/test_field_route.py": "5800d9c7c5b33b486f553a71bc947eb1e5e8d03f03c449025ed012b4faa71eb6",
+    "model/particle_observer_outputs/test_gauge_input.py": "f84ba3ef90b274e240a1abce995d4985e6ae4dc013122a98cb24113d4865e45a",
+    "model/particle_observer_outputs/test_higgs_records.py": "52e9c8326143686b7fdb8651c90bc3d05ee6560f0a82ebdd7239d3d687c888e9",
+    "model/particle_observer_outputs/test_holonomy_transport.py": "b5a53edc2ac64dcc641ec9ebddad63637c2b20f2f6f560bb012029c47142b740",
+    "model/particle_observer_outputs/test_readout_contract.py": "595b89bc41c98fa9320274dbb2490b3d6135a15743f63d2dc8d1053b4f346b75",
+    "model/particle_observer_outputs/test_thermal_clock.py": "4fac3ddbc5d70004c1cf1c7f7c5aa15de3652fc213988da3ddee2ed336cc19e9",
+    "model/particle_observer_outputs/thermal_clock.py": "697c3f6aeb9d13e45e6745f098c9b098c7958f66d682503310dba8da4bb32783",
     "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
     "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
     "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
     "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8",
+    "model/particle_source_selection/PROOF.md": "5641a4ebab446a23246ede04ead724e430fd80338dd6e9021e773f5c62d26415",
     "model/particle_transport/README.md": "7ac07834d9e821dafc13bad40c8d50039bf0a60d663d062c96be3a945987118d",
     "model/particle_transport/__init__.py": "72d1d79cd783a3934c24027ba8082741ca60bee98013322b9ca3cca12b15f01a",
     "model/particle_transport/algebra.py": "3b3d4d77a4b8e7f9ac9bb6f700a52b1cb52e2c4f5f092752329223e9400ba4d9",
@@ -1712,6 +1799,7 @@
     "model/spin_joint_field_limit/uniform_spectral.py": "5c34d8cb9fbed3587940ee8882053ac25b9b89132e6ef9ce5e1fca483dab15e8",
     "model/spin_joint_field_limit/ward.py": "c9584b7a0269441632aa27c7064e7cc2a008efa72184ab23460abebb9264a2ef",
     "model/spin_operational_position/PROOF.md": "90562f5b7ade942b269ab3ab9e738ccac6f2a3ffb8a0f12347f61befa668887b",
+    "model/spin_operational_position/bounds.py": "0fa337dc1caa26bcbb6119e7860afb5cfe52a18d3b9264a3524e90df4bfae6c2",
     "model/spin_particle_scaling/README.md": "0878f0d1c13e9000a1cd7b26c16da92b1464671b77becfa351b4cf14e79ce336",
     "model/spin_relaxed_response/README.md": "82e902603fa1ab14893c5a9ca5a8cbb45da54ceef8404442442e302db7d0c51f",
     "model/spin_shell_diagnostic/README.md": "df04b9553dcbfbd197f12ed5bd697d4259dfee25010787040ab488381a113c15",
@@ -1775,7 +1863,8 @@
     "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
     "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "7f66825d059e17b6f5005313e51ea86d3217380cd24cb93f7a48a89b4a493c44",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "f3c07b6123df10c66b7fc62665d12f85dc6dfc94e315f6ca5d45d01c4c5fad07",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "40a28a992768adb33dafd70562fd8867bd3e462615871243ae87859af58a4dca",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "223ec8dbcce8f2e2ceb9f2b6a2a843e99f7ae047a603bd5ce366e96b2076fc56",
     "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077",
     "paper/tex_fragments/CHARGED_DEFECT_PROTECTED_ALGEBRA.tex": "47eda5d53e9ce9229918c8e159249e7fb07a74b55dce0051cfb5f4ba004d4eff",
     "paper/tex_fragments/COMMON_FIELD_SPIN_PROTECTION.tex": "a09c332b75fb725b95010aa432d93a6bd3a1ed65856a7bd351d18730484df142",
@@ -1800,8 +1889,8 @@
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "layout": {
-    "height": "14805",
-    "width": "28000"
+    "height": "26505",
+    "width": "48000"
   },
   "measurement_illustration": {
     "Born_probability_formula": "p(r)=Tr(rho K_r^dagger K_r)",
@@ -2363,6 +2452,1059 @@
       "1/4"
     ]
   },
+  "named_field_meanings": {
+    "bosonic_degrees": 28,
+    "dirac": {
+      "energy_squared": "c**2*(p_x**2 + p_y**2 + p_z**2) + mu**2",
+      "hamiltonian": [
+        [
+          "c*p_z",
+          "c*(p_x - I*p_y)",
+          "mu",
+          "0"
+        ],
+        [
+          "c*(p_x + I*p_y)",
+          "-c*p_z",
+          "0",
+          "mu"
+        ],
+        [
+          "mu",
+          "0",
+          "-c*p_z",
+          "c*(-p_x + I*p_y)"
+        ],
+        [
+          "0",
+          "mu",
+          "c*(-p_x - I*p_y)",
+          "c*p_z"
+        ]
+      ],
+      "inertial_mass": "mu/c**2",
+      "owner": {
+        "creation_pairing": "Delta=epsilon_spin tensor conjugate(K45)",
+        "dimension": "three spatial directions and one common evolution parameter",
+        "exact_square": "H(p)^2=diag(c^2|p|^2 I+Delta Delta^dagger,c^2|p|^2 I+Delta^dagger Delta)",
+        "free_energies": "plus/minus sqrt(c^2|p|^2+w_H^2 sigma_j(Y)^2) on the charged block",
+        "lower_Nambu_block": "-h(-p)^T",
+        "massive_Dirac_signature": "+---",
+        "massive_Dirac_spacetime_Clifford_checks": 16,
+        "spatial_Clifford_checks": 9,
+        "spin_pairing_cross_term_checks": 3
+      },
+      "rest_chirality_transition": "sin(mu*t)**2",
+      "rest_energy": "mu"
+    },
+    "empirical_mass_inputs": [],
+    "families": [
+      {
+        "antiparticle": "positron",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "The three family labels and numerical Yukawa matrix are program inputs unless computed from a declared source controller. Free action masses do not supply interacting measured masses.",
+        "charge": "-1",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "Two chiral arrows exchange through a Higgs node, then three normal-mode tracks reach charged detector records.",
+        "family": "charged_leptons",
+        "field_nature": "Each mode has left and right chiral components. A Yukawa interaction with the neutral Higgs background couples those components. Diagonalizing that coupling gives three rest frequencies.",
+        "links": [
+          {
+            "anchor": "",
+            "label": "Source weights and family attachment",
+            "path": "model/standard_model_source_map/PROOF.md"
+          },
+          {
+            "anchor": "exact-mass-shell-of-the-native-quadratic-action",
+            "label": "Same-coefficient Dirac dispersion",
+            "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md"
+          }
+        ],
+        "mass_reason": "The mass term mixes chirality even at zero momentum. In the free Lorentz action, E²=c²p²+μ² and μ=v σ(Y_e)/√2; inertial mass is μ/c².",
+        "numerical_mass_input": null,
+        "observable": "charged infrared threshold",
+        "readout": "Prepare a charged excitation, couple to a complete detector, and infer energy from its phase or inclusive spectrum. Electron thresholds and muon/tau decay resonances use different interacting observables.",
+        "source_operation": "Encode the lepton doublet and charged singlet-conjugate currents; the chosen family register supplies three coefficients.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "electron",
+        "title": "Electron, muon and tau: three charged matter modes",
+        "tree_mass": "v*sigma_1(Y_e)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_muon",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "The three family labels and numerical Yukawa matrix are program inputs unless computed from a declared source controller. Free action masses do not supply interacting measured masses.",
+        "charge": "-1",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "Two chiral arrows exchange through a Higgs node, then three normal-mode tracks reach charged detector records.",
+        "family": "charged_leptons",
+        "field_nature": "Each mode has left and right chiral components. A Yukawa interaction with the neutral Higgs background couples those components. Diagonalizing that coupling gives three rest frequencies.",
+        "links": [
+          {
+            "anchor": "",
+            "label": "Source weights and family attachment",
+            "path": "model/standard_model_source_map/PROOF.md"
+          },
+          {
+            "anchor": "exact-mass-shell-of-the-native-quadratic-action",
+            "label": "Same-coefficient Dirac dispersion",
+            "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md"
+          }
+        ],
+        "mass_reason": "The mass term mixes chirality even at zero momentum. In the free Lorentz action, E²=c²p²+μ² and μ=v σ(Y_e)/√2; inertial mass is μ/c².",
+        "numerical_mass_input": null,
+        "observable": "inclusive resonance mass and width",
+        "readout": "Prepare a charged excitation, couple to a complete detector, and infer energy from its phase or inclusive spectrum. Electron thresholds and muon/tau decay resonances use different interacting observables.",
+        "source_operation": "Encode the lepton doublet and charged singlet-conjugate currents; the chosen family register supplies three coefficients.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "muon",
+        "title": "Electron, muon and tau: three charged matter modes",
+        "tree_mass": "v*sigma_2(Y_e)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_tau",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "The three family labels and numerical Yukawa matrix are program inputs unless computed from a declared source controller. Free action masses do not supply interacting measured masses.",
+        "charge": "-1",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "Two chiral arrows exchange through a Higgs node, then three normal-mode tracks reach charged detector records.",
+        "family": "charged_leptons",
+        "field_nature": "Each mode has left and right chiral components. A Yukawa interaction with the neutral Higgs background couples those components. Diagonalizing that coupling gives three rest frequencies.",
+        "links": [
+          {
+            "anchor": "",
+            "label": "Source weights and family attachment",
+            "path": "model/standard_model_source_map/PROOF.md"
+          },
+          {
+            "anchor": "exact-mass-shell-of-the-native-quadratic-action",
+            "label": "Same-coefficient Dirac dispersion",
+            "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md"
+          }
+        ],
+        "mass_reason": "The mass term mixes chirality even at zero momentum. In the free Lorentz action, E²=c²p²+μ² and μ=v σ(Y_e)/√2; inertial mass is μ/c².",
+        "numerical_mass_input": null,
+        "observable": "inclusive resonance mass and width",
+        "readout": "Prepare a charged excitation, couple to a complete detector, and infer energy from its phase or inclusive spectrum. Electron thresholds and muon/tau decay resonances use different interacting observables.",
+        "source_operation": "Encode the lepton doublet and charged singlet-conjugate currents; the chosen family register supplies three coefficients.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "tau",
+        "title": "Electron, muon and tau: three charged matter modes",
+        "tree_mass": "v*sigma_3(Y_e)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_up",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "2/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "up",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_1(Y_u)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_charm",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "2/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "charm",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_2(Y_u)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_top",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "2/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "top",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_3(Y_u)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_down",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "-1/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "down",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_1(Y_d)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_strange",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "-1/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "strange",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_2(Y_d)/sqrt(2)"
+      },
+      {
+        "antiparticle": "anti_bottom",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "Matching the internal color and weak weights supplies candidates. The interacting continuum, confinement observables and numerical Yukawa matrices require their declared realization.",
+        "charge": "-1/3",
+        "color": "3",
+        "conditional_benchmark": true,
+        "diagram": "Three color strands enter a Higgs coupling, then feed a jet/hadron detector rather than a free-quark click.",
+        "family": "quarks",
+        "field_nature": "Up-type and down-type Yukawa matrices couple the chiral color-carrying fields to the Higgs background. Their singular values give the two sets of three action masses; their left-frame mismatch gives weak mixing.",
+        "links": [
+          {
+            "anchor": "one-representation-and-a-full-fock-gauss-identity",
+            "label": "Full-current gauge attachment",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "M_u=v Y_u/√2 and M_d=v Y_d/√2. The color field interacts with these modes, so a running quark mass requires a renormalization scheme and scale.",
+        "numerical_mass_input": null,
+        "observable": "renormalized mass in a stated scheme and scale; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons, jets and decay records constrain quark properties. An isolated quark is not a laboratory asymptotic particle.",
+        "source_operation": "The same internal current register supplies a color-triplet weak doublet and color-antitriplet weak singlets; attach their full fermion operators and gauge links.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "bottom",
+        "title": "Quarks: matter modes that also carry color",
+        "tree_mass": "v*sigma_3(Y_d)/sqrt(2)"
+      },
+      {
+        "antiparticle": "Dirac conjugate or Majorana helicity channel, according to the chosen extension",
+        "antiparticle_meaning": "Dirac neutrinos have distinct conjugate states. Majorana fields are self-conjugate, with distinct weak detection helicity channels.",
+        "caveat": "The minimal fifteen-state matter representation has no neutrino mass interaction. Assigning all three masses zero fails the oscillation target; flavor labels are not individual mass eigenstates.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A weak source splits into three mass-phase tracks that recombine at electron/muon/tau detector branches.",
+        "family": "neutrinos",
+        "field_nature": "The fields ν1, ν2 and ν3 propagate with their mass energies. Electron-, muon- and tau-neutrino labels describe weak production/detection combinations; different phases change the flavor probabilities.",
+        "links": [
+          {
+            "anchor": "neutrino-extension-and-the-complete-elementary-channels",
+            "label": "Neutrino completion and counts",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          }
+        ],
+        "mass_reason": "Dirac: M_ν=v Y_ν/√2. Majorana effective theory: M_ν=v²κ/(2Λ), diagonalized by Takagi factorization. Absolute masses and the extension are separate inputs.",
+        "numerical_mass_input": null,
+        "observable": "flavor production and detection; superposition of nu_1, nu_2, nu_3",
+        "readout": "A source prepares a flavor channel and a weak detector records a charged lepton after propagation. Keep all flavor, no-detection and failure outcomes.",
+        "source_operation": "The neutral member of each lepton doublet has Q=0. A chosen Dirac-singlet or Majorana effective interaction supplies a neutrino mass term.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "electron_neutrino",
+        "title": "Neutrinos: neutral weak-production and detection channels",
+        "tree_mass": null
+      },
+      {
+        "antiparticle": "Dirac conjugate or Majorana helicity channel, according to the chosen extension",
+        "antiparticle_meaning": "Dirac neutrinos have distinct conjugate states. Majorana fields are self-conjugate, with distinct weak detection helicity channels.",
+        "caveat": "The minimal fifteen-state matter representation has no neutrino mass interaction. Assigning all three masses zero fails the oscillation target; flavor labels are not individual mass eigenstates.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A weak source splits into three mass-phase tracks that recombine at electron/muon/tau detector branches.",
+        "family": "neutrinos",
+        "field_nature": "The fields ν1, ν2 and ν3 propagate with their mass energies. Electron-, muon- and tau-neutrino labels describe weak production/detection combinations; different phases change the flavor probabilities.",
+        "links": [
+          {
+            "anchor": "neutrino-extension-and-the-complete-elementary-channels",
+            "label": "Neutrino completion and counts",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          }
+        ],
+        "mass_reason": "Dirac: M_ν=v Y_ν/√2. Majorana effective theory: M_ν=v²κ/(2Λ), diagonalized by Takagi factorization. Absolute masses and the extension are separate inputs.",
+        "numerical_mass_input": null,
+        "observable": "flavor production and detection; superposition of nu_1, nu_2, nu_3",
+        "readout": "A source prepares a flavor channel and a weak detector records a charged lepton after propagation. Keep all flavor, no-detection and failure outcomes.",
+        "source_operation": "The neutral member of each lepton doublet has Q=0. A chosen Dirac-singlet or Majorana effective interaction supplies a neutrino mass term.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "muon_neutrino",
+        "title": "Neutrinos: neutral weak-production and detection channels",
+        "tree_mass": null
+      },
+      {
+        "antiparticle": "Dirac conjugate or Majorana helicity channel, according to the chosen extension",
+        "antiparticle_meaning": "Dirac neutrinos have distinct conjugate states. Majorana fields are self-conjugate, with distinct weak detection helicity channels.",
+        "caveat": "The minimal fifteen-state matter representation has no neutrino mass interaction. Assigning all three masses zero fails the oscillation target; flavor labels are not individual mass eigenstates.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A weak source splits into three mass-phase tracks that recombine at electron/muon/tau detector branches.",
+        "family": "neutrinos",
+        "field_nature": "The fields ν1, ν2 and ν3 propagate with their mass energies. Electron-, muon- and tau-neutrino labels describe weak production/detection combinations; different phases change the flavor probabilities.",
+        "links": [
+          {
+            "anchor": "neutrino-extension-and-the-complete-elementary-channels",
+            "label": "Neutrino completion and counts",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          }
+        ],
+        "mass_reason": "Dirac: M_ν=v Y_ν/√2. Majorana effective theory: M_ν=v²κ/(2Λ), diagonalized by Takagi factorization. Absolute masses and the extension are separate inputs.",
+        "numerical_mass_input": null,
+        "observable": "flavor production and detection; superposition of nu_1, nu_2, nu_3",
+        "readout": "A source prepares a flavor channel and a weak detector records a charged lepton after propagation. Keep all flavor, no-detection and failure outcomes.",
+        "source_operation": "The neutral member of each lepton doublet has Q=0. A chosen Dirac-singlet or Majorana effective interaction supplies a neutrino mass term.",
+        "source_predicted_physical_mass": null,
+        "spin": "1/2",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "tau_neutrino",
+        "title": "Neutrinos: neutral weak-production and detection channels",
+        "tree_mass": null
+      },
+      {
+        "antiparticle": "self",
+        "antiparticle_meaning": "The neutral real field is self-conjugate.",
+        "caveat": "The finite carrier has its own oscillator spectrum. Identifying its detector response with laboratory photons requires a spatial continuum, state, clock and electromagnetic coupling map. Finite-lattice group velocity need not equal c.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "Two neutral gauge arrows combine into a background-preserving direction, then a transverse wave reaches an absorber.",
+        "family": "photon",
+        "field_nature": "In the chosen electroweak phase, one mixture of the neutral weak field and hypercharge field leaves the Higgs background unchanged. This is the electromagnetic field A.",
+        "links": [
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          },
+          {
+            "anchor": "L188",
+            "label": "Finite face curvature and gauge invariance",
+            "path": "Lean/Screen/LocalFaceMaxwellAction.lean"
+          },
+          {
+            "anchor": "exhaustive-classification-of-the-local-quadratic-action",
+            "label": "Finite local action classification",
+            "path": "model/maxwell_local_selection/PROOF.md"
+          },
+          {
+            "anchor": "L430",
+            "label": "Finite wave law",
+            "path": "Lean/Screen/TemporalMaxwellEvolution.lean"
+          }
+        ],
+        "mass_reason": "A=(g′W3+gB)/√(g²+g′²) is the exact null direction of the Higgs gauge-mass form. It has no Higgs-generated rest-energy term; a moving photon carries E=c|p| in the Lorentz vacuum regime.",
+        "numerical_mass_input": null,
+        "observable": "massless unbroken electromagnetic gauge field; two helicities",
+        "readout": "Prepare an electromagnetic field excitation and couple its energy to an absorbing detector. The detector location is a measurement outcome; a universal sharp photon position operator is not assumed.",
+        "source_operation": "Read loop curvature from seam potentials. Gauge shifts change local coordinates while preserving that curvature; the finite Maxwell action and evolution govern the declared field response.",
+        "source_predicted_physical_mass": null,
+        "spin": "1",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "photon",
+        "title": "Photon: the unbroken electromagnetic wave",
+        "tree_mass": "0"
+      },
+      {
+        "antiparticle": "real adjoint multiplet",
+        "antiparticle_meaning": "The color adjoint is a real representation; individual color labels depend on the gauge basis.",
+        "caveat": "Eight current generators do not determine the strong coupling, confinement scale or complete scattering spectrum.",
+        "charge": "0",
+        "color": "8_adjoint",
+        "conditional_benchmark": true,
+        "diagram": "Noncommuting color-link transports meet at a three-way interaction node and terminate in color-singlet detector products.",
+        "family": "gluon",
+        "field_nature": "The color gauge field responds to color currents and to itself because its generators do not commute. The Higgs doublet is a color singlet, so its background gives no color gauge-boson mass term.",
+        "links": [
+          {
+            "anchor": "",
+            "label": "Actual native current and Higgs direction",
+            "path": "model/standard_model_source_map/PROOF.md"
+          },
+          {
+            "anchor": "",
+            "label": "Dynamical finite gauge links",
+            "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+          },
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "All eight Higgs-generated color mass entries are zero. Yang-Mills self-interaction and confinement can generate a physical energy scale without inserting a gluon mass into the gauge action.",
+        "numerical_mass_input": null,
+        "observable": "eight massless Lagrangian gauge fields; no isolated colored asymptotic particle",
+        "readout": "Color-singlet hadrons and jets carry the observable evidence. A zero gluon Lagrangian mass does not imply an isolated massless colored particle in the spectrum.",
+        "source_operation": "The native internal interface supplies eight independent noncommuting color currents. A declared gauge-link field transports those color coordinates between sites.",
+        "source_predicted_physical_mass": null,
+        "spin": "1",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "gluon",
+        "title": "Gluons: the interacting color connection",
+        "tree_mass": "0"
+      },
+      {
+        "antiparticle": "W_minus",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "The exact quadratic mass follows from the declared action and background. Loop corrections and resonance widths require the interacting calculation.",
+        "charge": "1",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A weak-current arrow tilts the Higgs background, then a charged vector resonance branches into decay records.",
+        "family": "W_plus",
+        "field_nature": "The W directions rotate the neutral Higgs background into a different weak direction. The background contributes a quadratic energy cost, giving the charged vector fields a rest frequency.",
+        "links": [
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          },
+          {
+            "anchor": "",
+            "label": "Source charged-current commutators",
+            "path": "model/standard_model_source_map/PROOF.md"
+          }
+        ],
+        "mass_reason": "W±=(W1∓iW2)/√2 and m_W²=g²v²/4 in natural units. Three scalar orbit directions supply the longitudinal components of W± and Z.",
+        "numerical_mass_input": null,
+        "observable": "massive vector resonance; three quadratic polarizations",
+        "readout": "Weak decay and scattering products reconstruct a charged vector resonance, with all competing decay and no-detection channels retained.",
+        "source_operation": "The source weak raising and lowering currents obey [Q,T±]=±T±. A declared weak gauge field couples to those currents.",
+        "source_predicted_physical_mass": null,
+        "spin": "1",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "W_plus",
+        "title": "W+ and W−: charged weak-field excitations",
+        "tree_mass": "g*v/2"
+      },
+      {
+        "antiparticle": "W_plus",
+        "antiparticle_meaning": "The conjugate excitation carries opposite additive gauge charges and the same mass in the declared CPT-compatible relativistic action.",
+        "caveat": "The exact quadratic mass follows from the declared action and background. Loop corrections and resonance widths require the interacting calculation.",
+        "charge": "-1",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A weak-current arrow tilts the Higgs background, then a charged vector resonance branches into decay records.",
+        "family": "W_plus",
+        "field_nature": "The W directions rotate the neutral Higgs background into a different weak direction. The background contributes a quadratic energy cost, giving the charged vector fields a rest frequency.",
+        "links": [
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          },
+          {
+            "anchor": "",
+            "label": "Source charged-current commutators",
+            "path": "model/standard_model_source_map/PROOF.md"
+          }
+        ],
+        "mass_reason": "W±=(W1∓iW2)/√2 and m_W²=g²v²/4 in natural units. Three scalar orbit directions supply the longitudinal components of W± and Z.",
+        "numerical_mass_input": null,
+        "observable": "massive vector resonance; three quadratic polarizations",
+        "readout": "Weak decay and scattering products reconstruct a charged vector resonance, with all competing decay and no-detection channels retained.",
+        "source_operation": "The source weak raising and lowering currents obey [Q,T±]=±T±. A declared weak gauge field couples to those currents.",
+        "source_predicted_physical_mass": null,
+        "spin": "1",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "W_minus",
+        "title": "W+ and W−: charged weak-field excitations",
+        "tree_mass": "g*v/2"
+      },
+      {
+        "antiparticle": "self",
+        "antiparticle_meaning": "The neutral real field is self-conjugate.",
+        "caveat": "The photon/Z mixing angle depends on the chosen gauge couplings; the action Hessian does not determine those couplings.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "Two neutral arrows split into a flat photon direction and a curved Z direction, with the Z branch ending in decay records.",
+        "family": "Z",
+        "field_nature": "The neutral combination orthogonal to the photon changes the Higgs background. It acquires a rest frequency while the photon direction stays massless in the quadratic action.",
+        "links": [
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          }
+        ],
+        "mass_reason": "Z=(gW3−g′B)/√(g²+g′²), with m_Z²=(g²+g′²)v²/4. Its charge is zero and it has three massive-vector polarizations.",
+        "numerical_mass_input": null,
+        "observable": "neutral massive vector resonance",
+        "readout": "Neutral-current scattering and the complete decay spectrum reconstruct the Z resonance.",
+        "source_operation": "Combine the neutral weak current and hypercharge current using the declared couplings.",
+        "source_predicted_physical_mass": null,
+        "spin": "1",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "Z",
+        "title": "Z: the neutral weak-field direction that feels the background",
+        "tree_mass": "v*sqrt(g**2+g_prime**2)/2"
+      },
+      {
+        "antiparticle": "self",
+        "antiparticle_meaning": "The neutral real field is self-conjugate.",
+        "caveat": "The 307-state finite quantum-Higgs block has its own computed transition gap and complete detector. Equating that gap to the continuum radial Higgs mass requires an explicit field/state/scaling map.",
+        "charge": "0",
+        "color": "1",
+        "conditional_benchmark": true,
+        "diagram": "A radial pulse moves in the curved Higgs potential, with side branches showing W/Z and left-right matter couplings.",
+        "family": "Higgs",
+        "field_nature": "The neutral background is a reference configuration. A Higgs excitation changes its radial size. The potential curves along that direction, producing a restoring frequency; its cubic and quartic terms also make it interact.",
+        "links": [
+          {
+            "anchor": "supplied-action-and-its-exact-quadratic-spectrum",
+            "label": "Chosen action, exact quadratic spectrum",
+            "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md"
+          },
+          {
+            "anchor": "L927",
+            "label": "Particle paper: conditional field completion",
+            "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+          },
+          {
+            "anchor": "L63",
+            "label": "Owning symbolic Hessian",
+            "path": "model/particle_candidate_atlas/conditional_standard_model.py"
+          },
+          {
+            "anchor": "one-actual-source-carrier-and-hamiltonian",
+            "label": "Finite interacting scalar records",
+            "path": "model/particle_observer_outputs/HIGGS_RECORDS.md"
+          },
+          {
+            "anchor": "",
+            "label": "Complete finite apparatus and common program clock",
+            "path": "model/particle_observer_outputs/READOUT_CONTRACT.md"
+          }
+        ],
+        "mass_reason": "V=−λv² H†H+λ(H†H)² gives m_h²=2λv². The same background enters |D H|² and Yukawa terms, producing W/Z and fermion masses. It does not act as friction.",
+        "numerical_mass_input": null,
+        "observable": "neutral scalar resonance",
+        "readout": "A scalar excitation is inferred from its complete decay products and resonance energy distribution. Its spin-zero transformation follows from the declared scalar field action.",
+        "source_operation": "A declared complex scalar doublet couples to the source matter currents through gauge-invariant pair creation and annihilation. In the continuum completion, choose its potential and phase.",
+        "source_predicted_physical_mass": null,
+        "spin": "0",
+        "status": "exact quadratic consequences of a declared action; physical identification requires its observer map",
+        "target": "Higgs",
+        "title": "Higgs: the radial fluctuation of the symmetry-breaking field",
+        "tree_mass": "sqrt(2*lambda_H)*v"
+      }
+    ],
+    "finite_Higgs_vs_continuum": {
+      "continuum": "A chosen color- and charge-preserving Higgs phase has radial Hessian 2 lambda_H v^2. This is the tree mass-squared coefficient in its canonical continuum action.",
+      "distinct_symbols": "g_pair is the finite pair-vertex strength; electroweak g is a gauge coupling. These are different operators and domains.",
+      "finite": "H in a conserved 307-state sector has two bright levels and 305 retained dark levels. Delta=sqrt(d^2+4g_pair^2), g_pair^2=4 Tr(Y^dagger Y); the gap is inferred from complete sequential records.",
+      "identified_with_measured_Higgs": false,
+      "required_join": "An explicit embedding, state and scaling map must transport the finite complete correlators and instruments into the continuum radial field before the gaps can be equated."
+    },
+    "inputs": [
+      "g and g_prime",
+      "Higgs norm v",
+      "positive lambda_H",
+      "Y_e, Y_u and Y_d",
+      "neutrino extension",
+      "canonical Lorentz kinetic terms and field domain"
+    ],
+    "native_color": {
+      "Higgs_generated_color_mass_squared": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "color_action_on_Higgs_zero": true,
+      "independent_color_currents": 8,
+      "noncommuting_unordered_pairs": 27
+    },
+    "panels": [
+      {
+        "boundary": "A protected defect can seed or carry such an excitation. Its topology alone does not fix a particle name or mass.",
+        "id": "what_a_particle_is",
+        "text": "A source register carries currents and interactions. With a declared spatial field action, its patterns propagate. A particle label names a stable or resonant excitation distinguished by its energy, charge, transformation and detector response.",
+        "title": "A particle is a mode seen through its records"
+      },
+      {
+        "boundary": "A massless wave has no rest gap and can carry nonzero energy. Generic repair effort becomes a particle mass only through a proved energy and spectral readout map.",
+        "id": "why_mass",
+        "text": "A massive mode evolves even when its momentum is zero. In a Lorentz field its rest energy μ gives E²=c²p²+μ². The Higgs background supplies some quadratic terms that create this frequency; interactions change the measurable spectral response.",
+        "title": "Mass is a rest frequency, not drag"
+      },
+      {
+        "boundary": "Lattice wavelengths and propagation through matter can have different group velocities. A finite carrier wave equation alone does not establish the laboratory speed of light.",
+        "id": "why_c",
+        "text": "For the massless electromagnetic mode in a Lorentz-invariant vacuum, E=c|p| and a wave packet travels at c. The parameter c belongs to the common spatial and temporal units of that action.",
+        "title": "The photon follows the light cone of its field action"
+      },
+      {
+        "boundary": "The quadratic field census is complete for the chosen Standard Model action and neutrino extension. A complete source-to-laboratory particle identification requires the same interacting observer output map.",
+        "id": "what_is_chosen",
+        "text": "The architecture may declare its fields, couplings, state preparation and apparatus. Its record probabilities and spectrum must follow from that program. Target masses used to choose a coupling are calibration inputs.",
+        "title": "Choose the program, calculate the response"
+      }
+    ],
+    "physical_particle_assignments": 0,
+    "quadratic": {
+      "Z_normalized": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "g/sqrt(g**2 + g_prime**2)"
+        ],
+        [
+          "-g_prime/sqrt(g**2 + g_prime**2)"
+        ]
+      ],
+      "charged_mass_squared": [
+        [
+          "g**2*v**2/4",
+          "0"
+        ],
+        [
+          "0",
+          "g**2*v**2/4"
+        ]
+      ],
+      "electric_coupling": "g*g_prime/sqrt(g**2 + g_prime**2)",
+      "gauge_basis": [
+        "W1",
+        "W2",
+        "W3",
+        "B"
+      ],
+      "gauge_mass_squared": [
+        [
+          "g**2*v**2/4",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "g**2*v**2/4",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "g**2*v**2/4",
+          "-g*g_prime*v**2/4"
+        ],
+        [
+          "0",
+          "0",
+          "-g*g_prime*v**2/4",
+          "g_prime**2*v**2/4"
+        ]
+      ],
+      "m_H_squared": "2*lambda_H*v**2",
+      "m_W_squared": "g**2*v**2/4",
+      "m_Z_squared": "v**2*(g**2 + g_prime**2)/4",
+      "neutral_mass_squared": [
+        [
+          "g**2*v**2/4",
+          "-g*g_prime*v**2/4"
+        ],
+        [
+          "-g*g_prime*v**2/4",
+          "g_prime**2*v**2/4"
+        ]
+      ],
+      "neutral_rank_for_positive_parameters": 1,
+      "photon_normalized": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "g_prime/sqrt(g**2 + g_prime**2)"
+        ],
+        [
+          "g/sqrt(g**2 + g_prime**2)"
+        ]
+      ],
+      "radial_potential_above_minimum": "h**2*lambda_H*(h**2 + 4*h*v + 4*v**2)/4",
+      "scalar_basis": [
+        "x1",
+        "x2",
+        "x3",
+        "h_radial"
+      ],
+      "scalar_mass_squared": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "2*lambda_H*v**2"
+        ]
+      ]
+    },
+    "schema": "oph.horizontal_atlas.field_nature.v1",
+    "scope": "A declared field action determines its quadratic modes. The native finite current and complete finite scalar records are separate computed source results.",
+    "source_inputs": [
+      "model/particle_candidate_atlas/conditional_standard_model.py",
+      "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+      "model/common_source/native_matter_attachment.py",
+      "model/standard_model_source_map/PROOF.md",
+      "model/charged_lepton_response/relativistic_mass.py",
+      "model/charged_lepton_response/RELATIVISTIC_MASS.md",
+      "model/maxwell_local_selection/PROOF.md",
+      "model/maxwell_weak_field/PROOF.md",
+      "model/particle_observer_outputs/HIGGS_RECORDS.md",
+      "model/particle_observer_outputs/READOUT_CONTRACT.md"
+    ],
+    "speed": {
+      "continuum_group_speed": "c",
+      "continuum_massless_energy": "c*p",
+      "lattice_ray_domain": "0 < a*p < pi/2",
+      "lattice_ray_energy": "c*sin(a*p)/a",
+      "lattice_ray_group_speed": "c*cos(a*p)",
+      "small_spacing_speed_limit": "c"
+    },
+    "units": "Quadratic Standard Model formulas use hbar=c=1. The Dirac panel writes c explicitly and mu is rest energy, so inertial mass=mu/c^2."
+  },
   "primitive_endpoint_illustration": {
     "CAR_excitation_creates_background_winding": false,
     "all_complete_branches_preserve_each_Q_eigenspace": true,
@@ -2503,5 +3645,5 @@
   "schema": "oph.horizontal_particle_atlas.v2",
   "source_physical_identifications": [],
   "source_scientific_experiments_replayed": false,
-  "svg_sha256": "9785ab1d6e1b4c0c6a0f344fe4ea9a4063afae957d21a82f6d010e082d664b1b"
+  "svg_sha256": "1556c35d5ca6c435bcca0b016b273957b5b22820cea894c4fd6d31b364acfe98"
 }

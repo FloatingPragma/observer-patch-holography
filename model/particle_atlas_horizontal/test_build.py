@@ -59,7 +59,7 @@ def test_render_uses_certified_complete_probabilities(data):
 def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     text=build.reader(drawing.render(data),data)
     assert '<svg ' in text and 'fetch(' not in text
-    assert 'calibrations:[22000,6150]' in text
+    assert 'calibrations:[32000,6150]' in text
     assert 'pointermove' in text and 'ArrowRight' in text
     assert 'ModularClockComparison.lean#L40' in text
     assert 'FiniteBuschGleason.lean#L1133' in text
