@@ -61,6 +61,7 @@ def build():
     from model.particle_spatial_modular_response import regional as spatial_modular
     from model.particle_link_cutoff_limit import cutoff
     from model.particle_physical_boundary_state import boundary as physical_boundary
+    from model.particle_primary_locality import locality as primary_locality
     from model.particle_yang_mills_gap_contract import transfer as gap_transfer
     inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
@@ -75,13 +76,14 @@ def build():
                    local_gauge,wilson_density,local_history,sign_boundary,smooth,joint_translation,
                    physical_cone,field_thermal,spatial_geometry,
                    spatial_ground,ground_records,gauge_characteristics,
-                   common_contract,gauss,residue,spatial_modular,cutoff,physical_boundary,gap_transfer):
+                   common_contract,gauss,residue,spatial_modular,cutoff,physical_boundary,primary_locality,gap_transfer):
         paths.update(getattr(module,'SOURCE_INPUTS',()))
         owner=Path(module.__file__).parent
         paths.update(str(p.relative_to(ROOT)) for p in owner.iterdir()
                      if p.is_file() and p.suffix in ('.py','.md'))
     paths.add('model/matched_einstein_limit/frame.py')
     paths.add('model/particle_common_contract/contract.json')
+    paths.add('model/particle_joint_reconstruction/dependencies.json')
     pins={p:sha(ROOT/p) for p in sorted(paths)}
     report={'schema':'oph.complete_finite_observer_outputs.v1',
             'input_sha256':pins,
@@ -121,14 +123,17 @@ def build():
             'spatial_regional_modular_response':capture_certificate(spatial_modular),
             'fixed_volume_link_cutoff_limit':capture_certificate(cutoff),
             'physical_boundary_state':capture_certificate(physical_boundary),
+            'primary_locality':capture_certificate(primary_locality),
             'continuum_gap_transfer':capture_certificate(gap_transfer),
             'common_construction_specification_resolved':True,
             'finite_physical_preparation_including_boundary_charges_resolved':True,
+            'finite_complete_boundary_records_and_locality_resolved':True,
             'empirical_mass_inputs':[],
             'physical_particle_assignments':[],
             'source_predicted_GeV_masses':[],
             'empirical_calibrations_eliminated':[],
-            'physical_requirement_status':[
+            'canonical_joint_dependency_map':'model/particle_joint_reconstruction/dependencies.json',
+            'comparison_requirement_domains':[
                 {'id':1,'name':'preparation and complete instruments','status':'selected finite Gauss-constrained polynomial preparation, physical boundary sectors and complete central-charge readout constructed; joint refinement compatibility and a physical particle detector dictionary are unproved'},
                 {'id':2,'name':'common operational position, momentum, time and energy','status':'selected Hamiltonian source clock and supported polynomial modular generator fixed; separate Gibbs, position and crystal-momentum controls retain their own states; physical particle observables and proper-time dictionary unproved'},
                 {'id':3,'name':'interacting relativistic field behavior','status':'fixed-positive-smoothing local records, refinement-uniform causal bounds and same-clock quadratic gauge-matter cone matching established on declared families; convergent physical states, interacting Lorentz transformations and chiral matter are unproved'},
@@ -177,11 +182,13 @@ def build():
         'fixed-volume electric cutoff removal with same-clock complete bounded-history subsequences, distinct from joint physical refinement']
     report['finite_output_connections'] += [
         'actual physical Wilson-loop boundary sectors and complete central-charge records on the selected Gauss polynomial state',
+        'same-state complete boundary and reference records under a remote plaquette intervention, with a rational refinement-uniform influence bound',
         'dense local Euclidean-decay criterion for a same-clock continuum gap, with noncollapse and mixed-state boundaries explicit']
     common_contract.validate_inventory(report)
     selected=report['common_source_contract']['fixed_primary_member']
     common_contract.verify_result(selected, report['spatial_regional_modular_response']['selected_common_state_consumer'])
     physical_boundary.verify_bound(selected,report['physical_boundary_state']['selected_state_boundary'])
+    primary_locality.verify_bound(selected,report['primary_locality']['selected_member'])
     if any(sha(ROOT/p)!=h for p,h in pins.items()):
         raise ValueError('input changed during complete-output replay')
     return json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+'\n'

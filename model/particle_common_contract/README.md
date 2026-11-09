@@ -7,6 +7,9 @@ mass inputs. Executable checks reject mixed preparations, reference clocks,
 regulators and unclassified comparison results. This resolves the choice
 of construction. Its [physical preparation and boundary detector](../particle_physical_boundary_state/PROOF.md)
 retain every charge outcome, with explicit nonzero Wilson-loop sectors.
+The [locality consumer](../particle_primary_locality/PROOF.md) bounds actual
+complete boundary/reference records under a remote plaquette intervention
+on this same state and clock.
 Joint physical refinement and particle identification are separate output
 requirements.
 

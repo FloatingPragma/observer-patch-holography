@@ -51,6 +51,13 @@ Comparison programs retain their stated domains until an explicit transfer
 proof connects them. Fixing this construction does not prove its physical
 continuum or observed particle dictionary.
 
+Use the [joint field and particle dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
+and its machine register as the common acceptance list. Component controls
+retain their source domains; their separate checklists do not add duplicate
+physical requirements. Pure Yang-Mills gap claims require a pure-gauge
+instance or a proved transfer. A photon-containing theory has no positive
+global vacuum gap under its physical massless-photon interpretation.
+
 Keep architecture choices distinct from empirical calibration. Settings
 chosen using target masses or other comparison data are calibration inputs;
 agreement with those inputs is not an independent prediction. Changes to the

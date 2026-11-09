@@ -2,6 +2,16 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
+are the single construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical state with boundary charges,
+and complete local-record influence bound. Joint refinement, an interacting
+relativistic field, physical species, the full observable spectrum and
+independent comparison belong to nodes 4-8. Node 9 is the separate pure
+Yang-Mills gap branch. The comparison results below retain their own sources;
+they do not constitute additional canonical dependency lists.
+
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
 interpretations. Agreed records support effective spacetime and field
@@ -30,6 +40,39 @@ not eleven particle species. The
 requires separate continuum, interaction and spectral estimates. The finite
 construction does not assign physical masses or a positive global gap to a
 theory containing a massless photon.
+
+## Selected locality and the assumed chiral extension
+
+The [selected-source locality theorem](../../model/particle_primary_locality/PROOF.md)
+uses the primary source's product link cutoff, full sixty-mode cell and
+physical Gauss state. Compression preserves bond and plaquette supports;
+the onsite electric term does not enter the spatial interaction-chain
+rate `5232/(7a)`. Its actual complete boundary pointer is compared with a
+remote interior plaquette phase on the same state and clock, retaining
+the canonical reference. This closes the finite locality premise of node 3.
+The cone estimate supplies no joint state/refinement theorem, Lorentz
+representation or measured light-speed assignment.
+
+The [joint candidate](../../model/particle_joint_reconstruction/CANDIDATE.md)
+selects a conditional comparison extension with three all-left families,
+two-component Weyl spin and a Higgs doublet. Its ninety static CAR
+coordinates differ from the primary's sixty modes. A source map, chiral
+regulator, mirror control, physical vacuum and interacting continuum are
+explicit premises; the internal representation alone supplies none of
+these maps. The allowed architecture choices include the action and
+apparatus, while empirically selected couplings retain calibration
+ancestry. The global gauge group, charge lattice and unselected theta
+parameters also retain their declared scope.
+
+The [reproducible action comparison](../../model/particle_joint_reconstruction/candidate_results.json)
+checks supplied quadratic coefficients, not interacting pole masses.
+Its minimal renormalizable neutrino sector is massless and fails nonzero
+oscillation splittings. The separate Weinberg-operator arm is calibrated
+and has its own lightest-mass, Majorana-phase, energy-window and
+running/matching assumptions. Agreement between action producers is not
+proof of physical matching. Nodes 4-8 specify that matching; the pure
+Yang-Mills gap branch is node 9, distinct from a full photon-containing
+theory with no positive global vacuum gap.
 
 ## Preparation and characteristic-speed choices
 
@@ -67,8 +110,8 @@ supply those output theorems.
 
 ## Outputs of a specified interacting field and apparatus
 
-The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)
-give the dependency map and exact source domains. A permitted declared
+The [unified dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+gives the dependency map and exact source domains. A permitted declared
 controller can make a protected label observable: the
 [finite attachment](../../model/particle_defect_attachment/PROOF.md) uses
 the same scalar vertex with strengths one and two, keeps every native
@@ -77,9 +120,11 @@ those coefficients. Birth work must include the coupled field; the
 uncoupled defect counter alone is insufficient.
 
 The [spatial parent](../../model/particle_field_causality/PROOF.md) has
-volume-independent graded locality bounds at fixed spacing. Its global
-representation-degree cutoff can destroy exact support commutation, so
-complete-record cutoff errors are added to parent locality estimates.
+volume-independent graded locality bounds at fixed spacing. Its separate
+total-degree comparison controls can lose exact support commutation and
+therefore add complete-record cutoff errors. The selected product-cutoff
+source instead satisfies the [direct local-support theorem](../../model/particle_primary_locality/PROOF.md)
+without that nonlocal-cutoff comparison.
 The [energy construction](../../model/particle_gravity_response/PROOF.md)
 derives currents from the selected action and supplies the finite
 coarse-energy theorem's premise. The declared coframe family below also
@@ -302,7 +347,7 @@ calculation and constructs exact canonical fermions on the full 240-state
 link/occupation carrier. The chosen near-rotation/cooling service is an admissible design input.
 Its execution on the common source, matter-family attachment and physical
 chiral regulator require their own construction proofs. No uniqueness of
-the service or architecture is required. The [first-five dependency table](OPH_FIELD_RECONSTRUCTION.md#source-tests-for-the-first-five-atlas-inputs)
+the service or architecture is required. The [declared-input comparison tests](OPH_FIELD_RECONSTRUCTION.md#finite-tests-of-declared-atlas-inputs)
 keeps these requirements separate from the calibrated mass benchmark.
 
 The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
@@ -325,10 +370,10 @@ Each construction retains its own action, preparation, instrument and clock
 hypotheses. A physical composition must realize those hypotheses on the same
 process and compare the same records.
 
-The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
-separate the eight required connections and their proof boundaries. This
-page details action selection and operational measurement premises; its
-finite constructions do not discharge the physical particle identification.
+The [unified dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+fixes the common acceptance conditions. The [native repair comparison inventory](OPH_FIELD_RECONSTRUCTION.md#native-repair-and-ordered-spin-comparison-domains)
+retains source-specific action and measurement results. These finite
+comparison constructions do not establish primary particle identification.
 
 The [kinetic winding map](../../model/source_family_compatibility/KINETIC_NODE_MAP.md)
 joins each zero of the literal Weyl symbol to a field of chirality
@@ -1261,9 +1306,10 @@ The compressed independent-pair threshold is at most `550/V`, below the
 isolated cell pole. The full-core Schur response at negative parameter has
 a capacity-uniform exterior-path bound and an actual complete E-record
 readout. This controls a source response, while the positive-energy pole's
-persistence and its particle interpretation remain unproved. The eight
-physical source-to-field requirements and 21 identification entries are
-not promoted by these finite operations.
+persistence and its particle interpretation are unproved. These finite
+operations do not discharge the physical-field or species conditions in
+the unified graph or establish the registry's source-specific identification
+entries.
 
 ## Born weights and the executable model
 

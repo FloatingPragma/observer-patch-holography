@@ -33,7 +33,7 @@ def test_render_has_real_measurement_links_and_all_derivation_paths(data):
     svg=drawing.render(data)
     root=ET.fromstring(svg)
     assert float(root.get('width'))>float(root.get('height'))
-    assert float(root.get('width'))>=20000
+    assert (float(root.get('width')),float(root.get('height'))) == (48000,47065)
     hrefs=[n.get('href') for n in root.iter('{http://www.w3.org/2000/svg}a')]
     assert any('OperationalBornBridge.lean#L214' in h for h in hrefs)
     assert any('PrimitivePortFrameQuotient.lean#L631' in h for h in hrefs)
@@ -63,6 +63,10 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     assert 'pointermove' in text and 'ArrowRight' in text
     assert 'ModularClockComparison.lean#L40' in text
     assert 'FiniteBuschGleason.lean#L1133' in text
+    assert '>Nine dependencies</button>' in text
+    assert 'model/particle_primary_locality/PROOF.md' in text
+    assert 'model/particle_joint_reconstruction/DEPENDENCIES.md' in text
+    assert 'model/particle_joint_reconstruction/CANDIDATE.md' in text
 
 
 def test_generated_outputs_match_their_exact_source_inventory():

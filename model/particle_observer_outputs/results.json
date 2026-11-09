@@ -1290,6 +1290,7 @@
     ],
     "target_fitted_phase_or_attenuator_derived": false
   },
+  "canonical_joint_dependency_map": "model/particle_joint_reconstruction/dependencies.json",
   "charged_scalar": {
     "Gram_identity": {
       "charged_singlet_each_spin": "g^2 I-2(Y^dagger Y)^T",
@@ -1621,10 +1622,10 @@
     "bound_consequences": {
       "common_quadratic_clock": {
         "claim": "gauge and matter principal characteristic match",
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
         "program": "oph.open_wilson_gauss_observer.v1",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
         "result": {
           "Dirac_principal_speed_squared": "1",
           "all_twelve_speed_squared": [
@@ -1677,15 +1678,259 @@
           "same_clock_gauge_Dirac_characteristic_match": true
         },
         "result_sha256": "8cdd5e84c177fdced586d8ac7da0e217c8edaa299c6eeba3e3d7d6f9de3b30fe",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
+      },
+      "complete_local_records": {
+        "claim": "complete local boundary records on the selected physical source",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+        "program": "oph.open_wilson_gauss_observer.v1",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+        "result": {
+          "Lorentz_covariance_or_measured_light_speed_proved": false,
+          "complete_boundary_record_comparison": {
+            "all_observer_records_and_quantum_reference_retained": true,
+            "assigned_physical_support_separation": "1",
+            "both_inputs_same_selected_canonical_purification": true,
+            "comparison_intervention": "identity",
+            "complete_output_half_trace_upper": {
+              "base": 2,
+              "exact_zero": false,
+              "negative_exponent": 2
+            },
+            "duration": "1/10000",
+            "finite_chain_short_time_upper": {
+              "base": 2,
+              "coefficient": "6011586850024268380366259262866971790033780299061976/18642095997357173065012148072128184139728546142578125",
+              "exponential_control": {
+                "Taylor_order": 12,
+                "argument": "654/4375",
+                "exp_minus_one_upper": "3005793425012134190183129631433485895016890149530988/18642095997357173065012148072128184139728546142578125",
+                "positive_sum": "15262715614699798362556596008189028720742346688/94660200964558072200816241092979907989501953125",
+                "tail_upper": "8045897624109020834293517119476/2663156571051024723573164010304026305675506591796875"
+              },
+              "negative_exponent": 1
+            },
+            "full_spatial_experiment_executed": false,
+            "graph_support_distance": 1,
+            "intermediate_local_intervention_count": 0,
+            "number_of_record_labels_multiplies_error_bound": false,
+            "observer_instrument": {
+              "all_nonabelian_center_labels_resolved": false,
+              "all_zero_probability_outcomes_retained": true,
+              "commutes_with_full_source_Gauss_constraints": true,
+              "effect_sum": "identity on the entire regional carrier",
+              "endpoint_count": 3,
+              "isometry": "V=sum_q E_q tensor |q>_record",
+              "outcome_count": 1331,
+              "outcome_menu": "Cartesian product of the three endpoint spectra",
+              "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+              "single_endpoint_spectrum": [
+                -6,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                6
+              ],
+              "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+              "vacuum_and_other_outcomes_retained": true
+            },
+            "observer_owner_support": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "observer_support_cell_count": 1,
+            "outcome_postselection": false,
+            "preparation_or_boundary_approximation_error_added": "0",
+            "rational_exponential_margin": "3067/8750",
+            "remote": {
+              "anchor": [
+                1,
+                0,
+                0
+              ],
+              "axes": [
+                1,
+                2
+              ],
+              "normalized_ReTr_operator_norm_upper": "1",
+              "oriented_links": [
+                [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  1,
+                  1
+                ],
+                [
+                  [
+                    1,
+                    1,
+                    0
+                  ],
+                  2,
+                  1
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    1
+                  ],
+                  1,
+                  -1
+                ],
+                [
+                  [
+                    1,
+                    0,
+                    0
+                  ],
+                  2,
+                  -1
+                ]
+              ],
+              "owner_support": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "remote_field_and_private_record_traced": true,
+            "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+            "remote_operation_even_and_Gauss_invariant": true,
+            "source_bound": {
+              "actual_member": {
+                "electric_coefficient": "105/2",
+                "electric_coefficient_enters_causal_rate": false,
+                "magnetic_coefficient": "1/7",
+                "rate_times_spacing_upper": "5232/7",
+                "spacing": "1",
+                "weighted_interaction_rate_upper": "5232/7"
+              },
+              "all_sixty_CAR_modes_per_cell_retained": true,
+              "ambient_bound_restricted_to_invariant_instruments": true,
+              "compression_norm_increases": false,
+              "electric_part_removed_by_onsite_interaction_picture": true,
+              "family": {
+                "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+                "fixed_delta": null,
+                "fixed_delta_source_is_discontinuous_sign": false,
+                "kind": "wilson",
+                "log_weight_rational_lower": "1/2",
+                "magnetic_scale_upper": "1/7",
+                "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+                "measured_light_speed_or_mass_input": false,
+                "onsite_electric_coefficient_restricted_by_bound": false,
+                "physical_speed_formula": "2 W_star / log(lambda)",
+                "physical_speed_rational_upper": "20928/7",
+                "spatial_weight": "2",
+                "weighted_rate_times_spacing_upper": "5232/7"
+              },
+              "global_Gauss_projection_used_as_local_Hamiltonian": false,
+              "per_link_word_cutoff_enters_propagation_rate": false,
+              "product_link_cutoff_preserves_term_support": true,
+              "reference_idle_H": 0,
+              "source_clock_changed": false
+            },
+            "source_unitary": "exp(-i t H)"
+          },
+          "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+          "joint_state_observable_refinement_proved": false,
+          "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+          "particle_mass_dispersion_or_scattering_identified": false,
+          "selected_source_locality": {
+            "actual_member": {
+              "electric_coefficient": "105/2",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "1/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1",
+              "weighted_interaction_rate_upper": "5232/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "uniform_conservative_cone_in_assigned_coordinates": true
+        },
+        "result_sha256": "03db77cd70bd0961161ffbaa3a47a60e11e1e2259fddc7a4c47a25b0d3d186e6",
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "physical_boundary_preparation": {
         "claim": "physical boundary-charge preparation and complete central readout",
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
         "program": "oph.open_wilson_gauss_observer.v1",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
         "result": {
           "complete_central_charge_measurement": {
             "all_nonabelian_center_labels_resolved": false,
@@ -2028,15 +2273,15 @@
           "witness_sectors_exhaust_physical_boundary_support": false
         },
         "result_sha256": "0dc2b6ea6c0f026c9d8eb7389d8e9b3381424871d63ac6a6477eeca18c499f54",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "physical_preparation": {
         "claim": "specified source-only Gauss polynomial preparation",
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
         "program": "oph.open_wilson_gauss_observer.v1",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
         "result": {
           "H_or_clock_changed_by_preparation": false,
           "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -2119,15 +2364,15 @@
           "state_supported_in_source_Gauss_kernel": true
         },
         "result_sha256": "44a2c4c7ce570f40d061de70a36f196552a0059610918964e124762a889af16d",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "physical_regional_support": {
         "claim": "faithful regional support of the selected source-Gauss polynomial state",
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
         "program": "oph.open_wilson_gauss_observer.v1",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
         "result": {
           "Taylor_order": 11,
           "beta": "22272",
@@ -2152,15 +2397,15 @@
           "warm_native_control_used_as_selected_state": false
         },
         "result_sha256": "767a15df6e813b185a7ab118e2e382aa278b98159ce8160a3e4f853941b26284",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "source_bounds": {
         "claim": "full-carrier source dimension and energy bounds",
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
         "program": "oph.open_wilson_gauss_observer.v1",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
         "result": {
           "CAR_modes": 480,
           "all_link_word_states_retained": true,
@@ -2195,8 +2440,8 @@
           "spectral_width_upper": "91524/7"
         },
         "result_sha256": "0ba3598a873eca5be34ca63c03b088380b5fa9ff9920d94f1318ae8579eb4c16",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       }
     },
     "comparison_certificate_domains": {
@@ -2250,13 +2495,13 @@
         "energy_unit": "source action units; hbar=1",
         "modular_equals_minus_beta_times_source_time": false,
         "modular_generator_on_support": "log(Tr Q^2) I - 2 log(Q)",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250"
       },
       "ids": {
-        "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-        "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+        "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "matched_characteristics": {
         "Dirac_principal_speed_squared": "1",
@@ -2309,7 +2554,7 @@
         "physical_interacting_limiting_speed_proved": false,
         "same_clock_gauge_Dirac_characteristic_match": true
       },
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "preparation_plan": {
         "H_or_clock_changed_by_preparation": false,
         "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -2398,8 +2643,8 @@
         "joint_purification_stationary_under_source_only_clock": false,
         "retained_in_complete_outputs": true,
         "separately_Gauss_invariant": true,
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-        "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+        "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
       },
       "source": {
         "CAR_modes_per_cell": 60,
@@ -3419,9 +3664,9 @@
           "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
           "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
           "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-          "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+          "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
           "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-          "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+          "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
           "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
           "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
           "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -3475,8 +3720,13 @@
           "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
           "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
           "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+          "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+          "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
           "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
           "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+          "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+          "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+          "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
           "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
           "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
           "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
@@ -3943,7 +4193,7 @@
         "preparation_primitive": "exact algebraic Householder map declared as a program service",
         "purification": "vec(Q)/sqrt(Tr(Q^2))",
         "seed": "empty Fock and constant-link blank, with conjugate blank",
-        "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
+        "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
         "source_only_Gauss_support": true,
         "source_stationary": true,
         "spectral_lower": "-20184/7",
@@ -3954,6 +4204,7 @@
     "full_spatial_matrix_or_gate_tape_executed": false,
     "item1_fixed_construction_specification": true,
     "item2_finite_physical_preparation_with_boundary_charges": true,
+    "item3_finite_complete_boundary_records_with_uniform_locality": true,
     "joint_physical_refinement_limit_proved": false,
     "narrow_native_repair_interpreter_equivalence_proved": false,
     "next_declared_member": {
@@ -3969,13 +4220,13 @@
         "energy_unit": "source action units; hbar=1",
         "modular_equals_minus_beta_times_source_time": false,
         "modular_generator_on_support": "log(Tr Q^2) I - 2 log(Q)",
-        "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6"
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5"
       },
       "ids": {
-        "clock_id": "60e3fd0e4d0a05cf1c74204fd9d868412ba32fe97ef87632f7d3988c68dc519d",
-        "reference_id": "010be7ac310e947cc95ccc8a785eec1e8bf7fe74896c795ea316d9c17df490f1",
-        "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
-        "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+        "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+        "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+        "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
       },
       "matched_characteristics": {
         "Dirac_principal_speed_squared": "1",
@@ -4028,7 +4279,7 @@
         "physical_interacting_limiting_speed_proved": false,
         "same_clock_gauge_Dirac_characteristic_match": true
       },
-      "member_id": "93d537ac70e8b9f097ba6be4058ca408edc5cc9acdc396e5abfd0d857ba3b260",
+      "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
       "preparation_plan": {
         "H_or_clock_changed_by_preparation": false,
         "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -4117,8 +4368,8 @@
         "joint_purification_stationary_under_source_only_clock": false,
         "retained_in_complete_outputs": true,
         "separately_Gauss_invariant": true,
-        "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
-        "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+        "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
       },
       "source": {
         "CAR_modes_per_cell": 60,
@@ -5138,9 +5389,9 @@
           "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
           "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
           "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-          "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+          "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
           "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-          "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+          "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
           "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
           "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
           "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -5194,8 +5445,13 @@
           "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
           "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
           "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+          "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+          "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
           "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
           "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+          "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+          "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+          "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
           "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
           "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
           "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
@@ -5662,7 +5918,7 @@
         "preparation_primitive": "exact algebraic Householder map declared as a program service",
         "purification": "vec(Q)/sqrt(Tr(Q^2))",
         "seed": "empty Fock and constant-link blank, with conjugate blank",
-        "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
         "source_only_Gauss_support": true,
         "source_stationary": true,
         "spectral_lower": "-2583552/7",
@@ -5672,7 +5928,8 @@
     },
     "observed_particle_or_Einstein_identification": false,
     "primary_certificate_domains": {
-      "physical_boundary_state": "selected_primary_member_physical_boundary_readout"
+      "physical_boundary_state": "selected_primary_member_physical_boundary_readout",
+      "primary_locality": "selected_primary_complete_boundary_records_and_local_influence"
     },
     "program": "oph.open_wilson_gauss_observer.v1",
     "schema": "oph.common_source_contract.v1",
@@ -6682,9 +6939,9 @@
       "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
       "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
       "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-      "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+      "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
       "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-      "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+      "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
       "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
       "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
       "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -6738,8 +6995,13 @@
       "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
       "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
       "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+      "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+      "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
       "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
       "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+      "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+      "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+      "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
       "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
       "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
       "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
@@ -7176,6 +7438,38 @@
       "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
     }
   },
+  "comparison_requirement_domains": [
+    {
+      "id": 1,
+      "name": "preparation and complete instruments",
+      "status": "selected finite Gauss-constrained polynomial preparation, physical boundary sectors and complete central-charge readout constructed; joint refinement compatibility and a physical particle detector dictionary are unproved"
+    },
+    {
+      "id": 2,
+      "name": "common operational position, momentum, time and energy",
+      "status": "selected Hamiltonian source clock and supported polynomial modular generator fixed; separate Gibbs, position and crystal-momentum controls retain their own states; physical particle observables and proper-time dictionary unproved"
+    },
+    {
+      "id": 3,
+      "name": "interacting relativistic field behavior",
+      "status": "fixed-positive-smoothing local records, refinement-uniform causal bounds and same-clock quadratic gauge-matter cone matching established on declared families; convergent physical states, interacting Lorentz transformations and chiral matter are unproved"
+    },
+    {
+      "id": 4,
+      "name": "physical masses, mixing, scattering and decays",
+      "status": "finite spectral responses and a conditional same-clock local-correlation gap criterion established; interacting four-dimensional Yang-Mills decay premises, physical mass and scattering matching unproved"
+    },
+    {
+      "id": 5,
+      "name": "defect-to-species attachment",
+      "status": "declared protected-label interaction established; physical species identification unproved"
+    },
+    {
+      "id": 6,
+      "name": "controlled errors and same-source gravity",
+      "status": "fixed-time regulator/volume/cutoff bounds, refinement-uniform influence tails, same-action energy and declared spatial strain responses established; observer-derived proper geometry, physical state refinement and Einstein regional premises unproved"
+    }
+  ],
   "complete_apparatus": {
     "architecture_uniqueness_required": false,
     "bare_occupation_repair_alone_compiles_detector": false,
@@ -9711,28 +10005,28 @@
       "ground_excess_target_is_a_gap_lower_bound": false,
       "members": [
         {
-          "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
+          "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
           "ground_excess_target": "1/16",
           "level": 0,
           "link_degree": 1,
-          "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
-          "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
           "side": 2,
-          "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
+          "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
           "spacing": "1",
-          "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+          "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
         },
         {
-          "clock_id": "60e3fd0e4d0a05cf1c74204fd9d868412ba32fe97ef87632f7d3988c68dc519d",
+          "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
           "ground_excess_target": "1/32",
           "level": 1,
           "link_degree": 2,
-          "member_id": "93d537ac70e8b9f097ba6be4058ca408edc5cc9acdc396e5abfd0d857ba3b260",
-          "reference_id": "010be7ac310e947cc95ccc8a785eec1e8bf7fe74896c795ea316d9c17df490f1",
+          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+          "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
           "side": 8,
-          "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
+          "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
           "spacing": "1/2",
-          "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+          "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
         }
       ],
       "pure_compact_simple_Yang_Mills_source": false,
@@ -9782,8 +10076,8 @@
       "Lean/Screen/KogutSusskindFiberRateComparison.lean": "7bde95c46fc1d23a0b22779769a8aaeeaec7a5055dff833c5540e78b2216e8c9",
       "extra/yang_mills_gap_clay_problem.tex": "8e6c2fe53b5458c3fff5d46010e0e612bfa4cf99cc919125763dce63434d0734",
       "model/observer_time_fields/REFINEMENT.md": "d46924cf0fd3fd7afe947de6fc8ce6c0028c94f8197e4f24808852d8a1348cd0",
-      "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
-      "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+      "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
+      "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
       "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
       "model/particle_yang_mills_gap_contract/PROOF.md": "f2984e894b6ef7ba87b85e76150eaa4369cd18f4530e4117f37d5b1d0db34884",
       "model/particle_yang_mills_gap_contract/transfer.py": "860b132bb33502e18d1e4c5dc7510927dc9d13a3a09c27fafdcd93dc8b0967f4",
@@ -63200,6 +63494,7 @@
     "strict_Hamiltonian_light_cone_claimed": false,
     "uniform_refinement_or_Lorentz_boost_claimed": false
   },
+  "finite_complete_boundary_records_and_locality_resolved": true,
   "finite_output_connections": [
     "same-source neutral and charged spectral response",
     "complete scalar and energy instruments with coherent-control compile bounds",
@@ -63240,6 +63535,7 @@
     "physical regional support floors on the selected polynomial state, with separately calculated warm internal modular controls",
     "fixed-volume electric cutoff removal with same-clock complete bounded-history subsequences, distinct from joint physical refinement",
     "actual physical Wilson-loop boundary sectors and complete central-charge records on the selected Gauss polynomial state",
+    "same-state complete boundary and reference records under a remote plaquette intervention, with a rational refinement-uniform influence bound",
     "dense local Euclidean-decay criterion for a same-clock continuum gap, with noncollapse and mixed-state boundaries explicit"
   ],
   "finite_physical_preparation_including_boundary_charges_resolved": true,
@@ -109889,12 +110185,12 @@
     "model/particle_charged_residue/residue.py": "f6948a44a7beb1eca2d311a6a1206f156c6de8c51e7e39588fc1cf5d17cec921",
     "model/particle_charged_residue/source_pins.json": "5195e91da66ed3d1bbca3e581e9d73f60abf834f6ccd54783a093a31869cf707",
     "model/particle_charged_residue/test_residue.py": "73f35e03f2d00139b5dad54cae4464fea6d01a3929f4cd0ae333e56502139554",
-    "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
-    "model/particle_common_contract/README.md": "353ce0788c95c92b266c0d239be72e95fda3221947633018fd088e5a1a34be43",
+    "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
+    "model/particle_common_contract/README.md": "bdb34376882e6975cfc7ed2c3ccbbe4036e7fdd2f5ee831a149eca046a3a00a4",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
     "model/particle_common_contract/__main__.py": "a3abbedd88c1d24e22d2f35821020818fe3ba8bcc7fb46e00156da4145d47b3d",
-    "model/particle_common_contract/contract.json": "aa24aa401038217382b4d2fadb30bf054b87dba3c20dc5381553128f779325b8",
-    "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+    "model/particle_common_contract/contract.json": "bb1387e2a94bf9efc6147ca3afe1b67cbee462e3add0b55ee1636a23df634242",
+    "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
     "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
     "model/particle_common_contract/test_contract_audit.py": "47d02ea6d6033a23d71f310178304b5e7162fef783336f5225bede08590a4ea2",
     "model/particle_defect_attachment/PROOF.md": "fc0fae94e7d981369de3ea4b1778622d921d6b59156f2515f3224c88c438efcf",
@@ -109964,6 +110260,7 @@
     "model/particle_identification/README.md": "49e5fc521ff20dba32ca580caa75faab63476f3fa39cb60cd83d89ac6169579c",
     "model/particle_identification/__init__.py": "823a83bed70c4eeefc4a0f25705906c0e678fc17ce2a89753368d23d66d6cd6f",
     "model/particle_identification/vacuum.py": "429c97bb37612bb1ab1ca48091cfd581967ae0516afcb84fcc9b65cee1fe3deb",
+    "model/particle_joint_reconstruction/dependencies.json": "1ab1be431a0fc21192baa609102880ef840c5e6b64aad8e063f94eecd71e0791",
     "model/particle_joint_translation_readout/PROOF.md": "9c06af860a5a4c177f1d27501d5ed891e222dbcea0d7748f4fead76713748f40",
     "model/particle_joint_translation_readout/README.md": "ae5b99ed4f66ef3ec253e55c50e79afce868b635d8b46a30b4a7358970e29063",
     "model/particle_joint_translation_readout/__init__.py": "45118100bb6caebf842a0a28371e379b54ab5e390687faa2f002ae9d387e3324",
@@ -110015,7 +110312,7 @@
     "model/particle_observer_outputs/HIGGS_RECORDS.md": "209a9d19ad8d89802b8cfa1fe90e0c370d14ce85e18afe4ecbc6ad973e62e703",
     "model/particle_observer_outputs/HOLONOMY_TRANSPORT.md": "af3ad95a2bf9d18c07f1c94e0ce63640e7fa8cc2e2418ed1afb64d1f152e613f",
     "model/particle_observer_outputs/PROOF.md": "31f6ba5f6a2cd1cee8ea254abcb85ec272dd018e5ea05cff2cadbdbf3e461bab",
-    "model/particle_observer_outputs/README.md": "25a43bf97dde554c583205bfc53bcdc45fb5eef8d5d623a53160a642f8a516f5",
+    "model/particle_observer_outputs/README.md": "b564f2d2865f91c0a9e7c0ddb8443f3a01dc43bad7a782ca7f5f47c9e5bcfb22",
     "model/particle_observer_outputs/READOUT_CONTRACT.md": "a0db4183b1d4879533516386cda622c32be95b951c75256d43474c0e0a3f7747",
     "model/particle_observer_outputs/THERMAL_CLOCK.md": "a1cc8e6a08c93699363191243023cedef8d1c688c1eb2dcd2f171d35947b730e",
     "model/particle_observer_outputs/__init__.py": "278bde9206edaf6cd03954b70381bccd9e92e1edd0c8343763db995313df502d",
@@ -110028,7 +110325,7 @@
     "model/particle_observer_outputs/higgs_records.py": "8494d22a3d64cb3c7d88bccf4f23c80fb02b67a1924cc616f750cefecb0ea7b9",
     "model/particle_observer_outputs/holonomy_transport.py": "57581d85afbb833a887e6db1c84f32e6d1e76650d97d6ec21866775ef3b84980",
     "model/particle_observer_outputs/readout_contract.py": "33388e2c8572b3b227f504a74c6cb78ec3ed5933e9609328ba975ee8fb78451a",
-    "model/particle_observer_outputs/run.py": "64cad50699950136e6bbfcc08d76d59b67cf006ec7f9bc2bca7bce27836d4e92",
+    "model/particle_observer_outputs/run.py": "29e01d2a310b256c7dac078a7c81cb3138deb580789588717863ead87f3de6fc",
     "model/particle_observer_outputs/test_bare_effective.py": "328755076e593ef0473649d8f046b239ed44be179fb7e62d4492dbaf744542d5",
     "model/particle_observer_outputs/test_charged_higgs_records.py": "76addf707a89bf1d5352ef4efc357865c4a40810d3fdca17afbefce65fdea9ed",
     "model/particle_observer_outputs/test_consensus_records.py": "8eefc62155d8591d5b9acc163c0e0bd3c3f3900ef89b6d51ec2033e5f770a39e",
@@ -110058,6 +110355,12 @@
     "model/particle_prepared_field_readout/__main__.py": "d651d7fb1796925d120756856f0c3eefb520e287e91b988b7be7a230daa613e1",
     "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
     "model/particle_prepared_field_readout/test_experiment.py": "da0ea620007f5e1a2f9b141fff138a75413c80c4e105cb160e92b8da6d7be738",
+    "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+    "model/particle_primary_locality/README.md": "1271f5958bf9bc7a46c69cb8e2fae2788f0db387b8d22e8eb0b22b71788e118a",
+    "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+    "model/particle_primary_locality/__main__.py": "648c2782962d6fcad0a4786bd587bb2d88f8648fcf85c03d062bb2e9b81d6d6a",
+    "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
+    "model/particle_primary_locality/test_locality.py": "83b0751d347f5e10fde33825faf931d1eefac5cb09e57c4dee21850dd902cb20",
     "model/particle_regional_geometry/PROOF.md": "3bc9445701ac834d748fe9154df48318505120be6174bcbec424ba3c5e5d4274",
     "model/particle_regional_geometry/README.md": "4a21db22bc4395adbcee38a6b134b59c994a250de2e7f200aaaf643098759d55",
     "model/particle_regional_geometry/__init__.py": "e4f6a10540027250a27027fd93edb4995b2445ce00872313fce775674ee9820b",
@@ -112267,9 +112570,9 @@
     "schema": "oph.physical_boundary_certificate.v1",
     "selected_full_spatial_run_executed": false,
     "selected_state_boundary": {
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "complete_central_charge_measurement": {
           "all_nonabelian_center_labels_resolved": false,
@@ -112613,43 +112916,11 @@
       },
       "result_sha256": "0dc2b6ea6c0f026c9d8eb7389d8e9b3381424871d63ac6a6477eeca18c499f54",
       "schema": "oph.physical_boundary_state.v1",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     }
   },
   "physical_particle_assignments": [],
-  "physical_requirement_status": [
-    {
-      "id": 1,
-      "name": "preparation and complete instruments",
-      "status": "selected finite Gauss-constrained polynomial preparation, physical boundary sectors and complete central-charge readout constructed; joint refinement compatibility and a physical particle detector dictionary are unproved"
-    },
-    {
-      "id": 2,
-      "name": "common operational position, momentum, time and energy",
-      "status": "selected Hamiltonian source clock and supported polynomial modular generator fixed; separate Gibbs, position and crystal-momentum controls retain their own states; physical particle observables and proper-time dictionary unproved"
-    },
-    {
-      "id": 3,
-      "name": "interacting relativistic field behavior",
-      "status": "fixed-positive-smoothing local records, refinement-uniform causal bounds and same-clock quadratic gauge-matter cone matching established on declared families; convergent physical states, interacting Lorentz transformations and chiral matter are unproved"
-    },
-    {
-      "id": 4,
-      "name": "physical masses, mixing, scattering and decays",
-      "status": "finite spectral responses and a conditional same-clock local-correlation gap criterion established; interacting four-dimensional Yang-Mills decay premises, physical mass and scattering matching unproved"
-    },
-    {
-      "id": 5,
-      "name": "defect-to-species attachment",
-      "status": "declared protected-label interaction established; physical species identification unproved"
-    },
-    {
-      "id": 6,
-      "name": "controlled errors and same-source gravity",
-      "status": "fixed-time regulator/volume/cutoff bounds, refinement-uniform influence tails, same-action energy and declared spatial strain responses established; observer-derived proper geometry, physical state refinement and Einstein regional premises unproved"
-    }
-  ],
   "prepared_spatial_field_records": {
     "complete_law": "p_n=Tr[(P_n tensor I) exp(-i T H_K) rho_box exp(+i T H_K)]",
     "experiment": {
@@ -113404,6 +113675,1385 @@
       "model/interacting_extension/chiral_lattice/source_data.py"
     ],
     "source_preparation_and_apparatus_may_be_declared_primitives": true
+  },
+  "primary_locality": {
+    "actual_native_bond_spectra": [
+      {
+        "all_internal_columns": 15,
+        "axis": 0,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      },
+      {
+        "all_internal_columns": 15,
+        "axis": 1,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      },
+      {
+        "all_internal_columns": 15,
+        "axis": 2,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      }
+    ],
+    "finite_members_with_separation": [
+      {
+        "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+        "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+        "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+        "result": {
+          "Lorentz_covariance_or_measured_light_speed_proved": false,
+          "complete_boundary_record_comparison": {
+            "all_observer_records_and_quantum_reference_retained": true,
+            "assigned_physical_support_separation": "7/2",
+            "both_inputs_same_selected_canonical_purification": true,
+            "comparison_intervention": "identity",
+            "complete_output_half_trace_upper": {
+              "base": 2,
+              "exact_zero": false,
+              "negative_exponent": 7
+            },
+            "duration": "1/10000",
+            "finite_chain_short_time_upper": {
+              "base": 2,
+              "coefficient": "25704476538534261843204028265732925902791709036579784/36881791480414009765098626303370110690593719482421875",
+              "exponential_control": {
+                "Taylor_order": 12,
+                "argument": "1308/4375",
+                "exp_minus_one_upper": "12852238269267130921602014132866462951395854518289892/36881791480414009765098626303370110690593719482421875",
+                "positive_sum": "32986343899788077189575839770883858262836031548/94660200964558072200816241092979907989501953125",
+                "tail_upper": "131823986673402197349064984485494784/5268827354344858537871232329052872955799102783203125"
+              },
+              "negative_exponent": 7
+            },
+            "full_spatial_experiment_executed": false,
+            "graph_support_distance": 7,
+            "intermediate_local_intervention_count": 0,
+            "number_of_record_labels_multiplies_error_bound": false,
+            "observer_instrument": {
+              "all_nonabelian_center_labels_resolved": false,
+              "all_zero_probability_outcomes_retained": true,
+              "commutes_with_full_source_Gauss_constraints": true,
+              "effect_sum": "identity on the entire regional carrier",
+              "endpoint_count": 3,
+              "isometry": "V=sum_q E_q tensor |q>_record",
+              "outcome_count": 12167,
+              "outcome_menu": "Cartesian product of the three endpoint spectra",
+              "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+              "single_endpoint_spectrum": [
+                -12,
+                -10,
+                -9,
+                -8,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                12
+              ],
+              "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+              "vacuum_and_other_outcomes_retained": true
+            },
+            "observer_owner_support": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "observer_support_cell_count": 1,
+            "outcome_postselection": false,
+            "preparation_or_boundary_approximation_error_added": "0",
+            "rational_exponential_margin": "28009/17500",
+            "remote": {
+              "anchor": [
+                7,
+                0,
+                0
+              ],
+              "axes": [
+                1,
+                2
+              ],
+              "normalized_ReTr_operator_norm_upper": "1",
+              "oriented_links": [
+                [
+                  [
+                    7,
+                    0,
+                    0
+                  ],
+                  1,
+                  1
+                ],
+                [
+                  [
+                    7,
+                    1,
+                    0
+                  ],
+                  2,
+                  1
+                ],
+                [
+                  [
+                    7,
+                    0,
+                    1
+                  ],
+                  1,
+                  -1
+                ],
+                [
+                  [
+                    7,
+                    0,
+                    0
+                  ],
+                  2,
+                  -1
+                ]
+              ],
+              "owner_support": [
+                [
+                  7,
+                  0,
+                  0
+                ],
+                [
+                  7,
+                  0,
+                  1
+                ],
+                [
+                  7,
+                  1,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  7,
+                  0,
+                  0
+                ],
+                [
+                  7,
+                  1,
+                  0
+                ],
+                [
+                  7,
+                  1,
+                  1
+                ],
+                [
+                  7,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "remote_field_and_private_record_traced": true,
+            "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+            "remote_operation_even_and_Gauss_invariant": true,
+            "source_bound": {
+              "actual_member": {
+                "electric_coefficient": "105",
+                "electric_coefficient_enters_causal_rate": false,
+                "magnetic_coefficient": "2/7",
+                "rate_times_spacing_upper": "5232/7",
+                "spacing": "1/2",
+                "weighted_interaction_rate_upper": "10464/7"
+              },
+              "all_sixty_CAR_modes_per_cell_retained": true,
+              "ambient_bound_restricted_to_invariant_instruments": true,
+              "compression_norm_increases": false,
+              "electric_part_removed_by_onsite_interaction_picture": true,
+              "family": {
+                "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+                "fixed_delta": null,
+                "fixed_delta_source_is_discontinuous_sign": false,
+                "kind": "wilson",
+                "log_weight_rational_lower": "1/2",
+                "magnetic_scale_upper": "1/7",
+                "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+                "measured_light_speed_or_mass_input": false,
+                "onsite_electric_coefficient_restricted_by_bound": false,
+                "physical_speed_formula": "2 W_star / log(lambda)",
+                "physical_speed_rational_upper": "20928/7",
+                "spatial_weight": "2",
+                "weighted_rate_times_spacing_upper": "5232/7"
+              },
+              "global_Gauss_projection_used_as_local_Hamiltonian": false,
+              "per_link_word_cutoff_enters_propagation_rate": false,
+              "product_link_cutoff_preserves_term_support": true,
+              "reference_idle_H": 0,
+              "source_clock_changed": false
+            },
+            "source_unitary": "exp(-i t H)"
+          },
+          "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+          "joint_state_observable_refinement_proved": false,
+          "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+          "particle_mass_dispersion_or_scattering_identified": false,
+          "selected_source_locality": {
+            "actual_member": {
+              "electric_coefficient": "105",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "2/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1/2",
+              "weighted_interaction_rate_upper": "10464/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "uniform_conservative_cone_in_assigned_coordinates": true
+        },
+        "result_sha256": "be9a288785c9480d1a1be8b8fdaebcc78eb73bf41297a4b81e45be13fa3c5db6",
+        "schema": "oph.primary_locality.v1",
+        "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+        "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
+      },
+      {
+        "clock_id": "0cdd69ea68ed4dd70ca85dea5291219f26a111100c178b2b6896321fbfebefe9",
+        "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
+        "reference_id": "b24dce7429f7770b86cc6c77566d2c0912551c6b377b108ca3d8dda1846b2bf5",
+        "result": {
+          "Lorentz_covariance_or_measured_light_speed_proved": false,
+          "complete_boundary_record_comparison": {
+            "all_observer_records_and_quantum_reference_retained": true,
+            "assigned_physical_support_separation": "31/4",
+            "both_inputs_same_selected_canonical_purification": true,
+            "comparison_intervention": "identity",
+            "complete_output_half_trace_upper": {
+              "base": 2,
+              "exact_zero": false,
+              "negative_exponent": 30
+            },
+            "duration": "1/10000",
+            "finite_chain_short_time_upper": {
+              "base": 2,
+              "coefficient": "59048963219368881547402866367743322243029350473680528/36076990451813337035247286621597595512866973876953125",
+              "exponential_control": {
+                "Taylor_order": 12,
+                "argument": "2616/4375",
+                "exp_minus_one_upper": "29524481609684440773701433183871661121514675236840264/36076990451813337035247286621597595512866973876953125",
+                "positive_sum": "77467475184198408009555058913748852304240225608/94660200964558072200816241092979907989501953125",
+                "tail_upper": "1079902098828510800683540352905173270528/5153855778830476719321040945942513644695281982421875"
+              },
+              "negative_exponent": 31
+            },
+            "full_spatial_experiment_executed": false,
+            "graph_support_distance": 31,
+            "intermediate_local_intervention_count": 0,
+            "number_of_record_labels_multiplies_error_bound": false,
+            "observer_instrument": {
+              "all_nonabelian_center_labels_resolved": false,
+              "all_zero_probability_outcomes_retained": true,
+              "commutes_with_full_source_Gauss_constraints": true,
+              "effect_sum": "identity on the entire regional carrier",
+              "endpoint_count": 3,
+              "isometry": "V=sum_q E_q tensor |q>_record",
+              "outcome_count": 42875,
+              "outcome_menu": "Cartesian product of the three endpoint spectra",
+              "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+              "single_endpoint_spectrum": [
+                -18,
+                -16,
+                -15,
+                -14,
+                -13,
+                -12,
+                -11,
+                -10,
+                -9,
+                -8,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                18
+              ],
+              "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+              "vacuum_and_other_outcomes_retained": true
+            },
+            "observer_owner_support": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "observer_support_cell_count": 1,
+            "outcome_postselection": false,
+            "preparation_or_boundary_approximation_error_added": "0",
+            "rational_exponential_margin": "130393/35000",
+            "remote": {
+              "anchor": [
+                31,
+                0,
+                0
+              ],
+              "axes": [
+                1,
+                2
+              ],
+              "normalized_ReTr_operator_norm_upper": "1",
+              "oriented_links": [
+                [
+                  [
+                    31,
+                    0,
+                    0
+                  ],
+                  1,
+                  1
+                ],
+                [
+                  [
+                    31,
+                    1,
+                    0
+                  ],
+                  2,
+                  1
+                ],
+                [
+                  [
+                    31,
+                    0,
+                    1
+                  ],
+                  1,
+                  -1
+                ],
+                [
+                  [
+                    31,
+                    0,
+                    0
+                  ],
+                  2,
+                  -1
+                ]
+              ],
+              "owner_support": [
+                [
+                  31,
+                  0,
+                  0
+                ],
+                [
+                  31,
+                  0,
+                  1
+                ],
+                [
+                  31,
+                  1,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  31,
+                  0,
+                  0
+                ],
+                [
+                  31,
+                  1,
+                  0
+                ],
+                [
+                  31,
+                  1,
+                  1
+                ],
+                [
+                  31,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "remote_field_and_private_record_traced": true,
+            "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+            "remote_operation_even_and_Gauss_invariant": true,
+            "source_bound": {
+              "actual_member": {
+                "electric_coefficient": "210",
+                "electric_coefficient_enters_causal_rate": false,
+                "magnetic_coefficient": "4/7",
+                "rate_times_spacing_upper": "5232/7",
+                "spacing": "1/4",
+                "weighted_interaction_rate_upper": "20928/7"
+              },
+              "all_sixty_CAR_modes_per_cell_retained": true,
+              "ambient_bound_restricted_to_invariant_instruments": true,
+              "compression_norm_increases": false,
+              "electric_part_removed_by_onsite_interaction_picture": true,
+              "family": {
+                "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+                "fixed_delta": null,
+                "fixed_delta_source_is_discontinuous_sign": false,
+                "kind": "wilson",
+                "log_weight_rational_lower": "1/2",
+                "magnetic_scale_upper": "1/7",
+                "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+                "measured_light_speed_or_mass_input": false,
+                "onsite_electric_coefficient_restricted_by_bound": false,
+                "physical_speed_formula": "2 W_star / log(lambda)",
+                "physical_speed_rational_upper": "20928/7",
+                "spatial_weight": "2",
+                "weighted_rate_times_spacing_upper": "5232/7"
+              },
+              "global_Gauss_projection_used_as_local_Hamiltonian": false,
+              "per_link_word_cutoff_enters_propagation_rate": false,
+              "product_link_cutoff_preserves_term_support": true,
+              "reference_idle_H": 0,
+              "source_clock_changed": false
+            },
+            "source_unitary": "exp(-i t H)"
+          },
+          "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+          "joint_state_observable_refinement_proved": false,
+          "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+          "particle_mass_dispersion_or_scattering_identified": false,
+          "selected_source_locality": {
+            "actual_member": {
+              "electric_coefficient": "210",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "4/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1/4",
+              "weighted_interaction_rate_upper": "20928/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "uniform_conservative_cone_in_assigned_coordinates": true
+        },
+        "result_sha256": "67c866a396b279bdd174cb5a5637bb04beb579e824ea86468b7e03e169ea9153",
+        "schema": "oph.primary_locality.v1",
+        "source_id": "b3e7dc349571ebf45ccdead1aa21028efea8b5367bbb40ca9a8aee7326e6761b",
+        "state_id": "c6840a4a82c54f11c740e14c9f6fa0a2ba109655278561f5709d072722d5568a"
+      },
+      {
+        "clock_id": "fccc62f9fcd83d05822cb6db92e5108089708dc52dcc7ea55848c41572acd924",
+        "member_id": "15a044ce04acf8ab1e674de7642aac0c531d44bc9da60a781681a5877acdae8e",
+        "reference_id": "e6596077ab5cb5ddf6e05fc4f4ab414b895bdf0c04e23f458f625902d4addcb3",
+        "result": {
+          "Lorentz_covariance_or_measured_light_speed_proved": false,
+          "complete_boundary_record_comparison": {
+            "all_observer_records_and_quantum_reference_retained": true,
+            "assigned_physical_support_separation": "127/8",
+            "both_inputs_same_selected_canonical_purification": true,
+            "comparison_intervention": "identity",
+            "complete_output_half_trace_upper": {
+              "base": 2,
+              "exact_zero": false,
+              "negative_exponent": 124
+            },
+            "duration": "1/10000",
+            "finite_chain_short_time_upper": {
+              "base": 2,
+              "coefficient": "158997033812804489220973131240121937025021709924025376/34467388394611991575544607258052565157413482666015625",
+              "exponential_control": {
+                "Taylor_order": 12,
+                "argument": "5232/4375",
+                "exp_minus_one_upper": "79498516906402244610486565620060968512510854962012688/34467388394611991575544607258052565157413482666015625",
+                "positive_sum": "218332340551186400676882546724443051314595580368/94660200964558072200816241092979907989501953125",
+                "tail_upper": "8846557993603160479199562570999179432165376/4923912627801713082220658179721795022487640380859375"
+              },
+              "negative_exponent": 127
+            },
+            "full_spatial_experiment_executed": false,
+            "graph_support_distance": 127,
+            "intermediate_local_intervention_count": 0,
+            "number_of_record_labels_multiplies_error_bound": false,
+            "observer_instrument": {
+              "all_nonabelian_center_labels_resolved": false,
+              "all_zero_probability_outcomes_retained": true,
+              "commutes_with_full_source_Gauss_constraints": true,
+              "effect_sum": "identity on the entire regional carrier",
+              "endpoint_count": 3,
+              "isometry": "V=sum_q E_q tensor |q>_record",
+              "outcome_count": 103823,
+              "outcome_menu": "Cartesian product of the three endpoint spectra",
+              "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+              "single_endpoint_spectrum": [
+                -24,
+                -22,
+                -21,
+                -20,
+                -19,
+                -18,
+                -17,
+                -16,
+                -15,
+                -14,
+                -13,
+                -12,
+                -11,
+                -10,
+                -9,
+                -8,
+                -7,
+                -6,
+                -5,
+                -4,
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                24
+              ],
+              "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+              "vacuum_and_other_outcomes_retained": true
+            },
+            "observer_owner_support": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "observer_support_cell_count": 1,
+            "outcome_postselection": false,
+            "preparation_or_boundary_approximation_error_added": "0",
+            "rational_exponential_margin": "545161/70000",
+            "remote": {
+              "anchor": [
+                127,
+                0,
+                0
+              ],
+              "axes": [
+                1,
+                2
+              ],
+              "normalized_ReTr_operator_norm_upper": "1",
+              "oriented_links": [
+                [
+                  [
+                    127,
+                    0,
+                    0
+                  ],
+                  1,
+                  1
+                ],
+                [
+                  [
+                    127,
+                    1,
+                    0
+                  ],
+                  2,
+                  1
+                ],
+                [
+                  [
+                    127,
+                    0,
+                    1
+                  ],
+                  1,
+                  -1
+                ],
+                [
+                  [
+                    127,
+                    0,
+                    0
+                  ],
+                  2,
+                  -1
+                ]
+              ],
+              "owner_support": [
+                [
+                  127,
+                  0,
+                  0
+                ],
+                [
+                  127,
+                  0,
+                  1
+                ],
+                [
+                  127,
+                  1,
+                  0
+                ]
+              ],
+              "vertices": [
+                [
+                  127,
+                  0,
+                  0
+                ],
+                [
+                  127,
+                  1,
+                  0
+                ],
+                [
+                  127,
+                  1,
+                  1
+                ],
+                [
+                  127,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "remote_field_and_private_record_traced": true,
+            "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+            "remote_operation_even_and_Gauss_invariant": true,
+            "source_bound": {
+              "actual_member": {
+                "electric_coefficient": "420",
+                "electric_coefficient_enters_causal_rate": false,
+                "magnetic_coefficient": "8/7",
+                "rate_times_spacing_upper": "5232/7",
+                "spacing": "1/8",
+                "weighted_interaction_rate_upper": "41856/7"
+              },
+              "all_sixty_CAR_modes_per_cell_retained": true,
+              "ambient_bound_restricted_to_invariant_instruments": true,
+              "compression_norm_increases": false,
+              "electric_part_removed_by_onsite_interaction_picture": true,
+              "family": {
+                "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+                "fixed_delta": null,
+                "fixed_delta_source_is_discontinuous_sign": false,
+                "kind": "wilson",
+                "log_weight_rational_lower": "1/2",
+                "magnetic_scale_upper": "1/7",
+                "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+                "measured_light_speed_or_mass_input": false,
+                "onsite_electric_coefficient_restricted_by_bound": false,
+                "physical_speed_formula": "2 W_star / log(lambda)",
+                "physical_speed_rational_upper": "20928/7",
+                "spatial_weight": "2",
+                "weighted_rate_times_spacing_upper": "5232/7"
+              },
+              "global_Gauss_projection_used_as_local_Hamiltonian": false,
+              "per_link_word_cutoff_enters_propagation_rate": false,
+              "product_link_cutoff_preserves_term_support": true,
+              "reference_idle_H": 0,
+              "source_clock_changed": false
+            },
+            "source_unitary": "exp(-i t H)"
+          },
+          "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+          "joint_state_observable_refinement_proved": false,
+          "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+          "particle_mass_dispersion_or_scattering_identified": false,
+          "selected_source_locality": {
+            "actual_member": {
+              "electric_coefficient": "420",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "8/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1/8",
+              "weighted_interaction_rate_upper": "41856/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "uniform_conservative_cone_in_assigned_coordinates": true
+        },
+        "result_sha256": "b3a155714f5b9816b263c599cffe9319d2d2affb7d740076de710d1252091f22",
+        "schema": "oph.primary_locality.v1",
+        "source_id": "e5ac738abfaef5397a9be1559024dc8dea332cd7e690a1c0adaca318c5a6613a",
+        "state_id": "691fe79b81cd0e88d47536781bb06492475d47decb1c42ee12488e2770dff017"
+      }
+    ],
+    "fixed_assigned_distance_one_comparison": {
+      "clock_id": "f94bfda8b3a319d308cf75d02c9153eb2e744ec0e08c881c1ce47535f9846b61",
+      "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
+      "reference_id": "e988a283c8c6d1d7f51ca6bfcd34fb650c6fbebf0417de15f5bf35389d033aae",
+      "result": {
+        "all_observer_records_and_quantum_reference_retained": true,
+        "assigned_physical_support_separation": "1",
+        "both_inputs_same_selected_canonical_purification": true,
+        "comparison_intervention": "identity",
+        "complete_output_half_trace_upper": {
+          "base": 2,
+          "exact_zero": false,
+          "negative_exponent": 21
+        },
+        "duration": "1/10000",
+        "finite_chain_short_time_upper": null,
+        "full_spatial_experiment_executed": false,
+        "graph_support_distance": 64,
+        "intermediate_local_intervention_count": 0,
+        "number_of_record_labels_multiplies_error_bound": false,
+        "observer_instrument": {
+          "all_nonabelian_center_labels_resolved": false,
+          "all_zero_probability_outcomes_retained": true,
+          "commutes_with_full_source_Gauss_constraints": true,
+          "effect_sum": "identity on the entire regional carrier",
+          "endpoint_count": 3,
+          "isometry": "V=sum_q E_q tensor |q>_record",
+          "outcome_count": 571787,
+          "outcome_menu": "Cartesian product of the three endpoint spectra",
+          "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+          "single_endpoint_spectrum": [
+            -42,
+            -40,
+            -39,
+            -38,
+            -37,
+            -36,
+            -35,
+            -34,
+            -33,
+            -32,
+            -31,
+            -30,
+            -29,
+            -28,
+            -27,
+            -26,
+            -25,
+            -24,
+            -23,
+            -22,
+            -21,
+            -20,
+            -19,
+            -18,
+            -17,
+            -16,
+            -15,
+            -14,
+            -13,
+            -12,
+            -11,
+            -10,
+            -9,
+            -8,
+            -7,
+            -6,
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            42
+          ],
+          "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+          "vacuum_and_other_outcomes_retained": true
+        },
+        "observer_owner_support": [
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "observer_support_cell_count": 1,
+        "outcome_postselection": false,
+        "preparation_or_boundary_approximation_error_added": "0",
+        "rational_exponential_margin": "3067/8750",
+        "remote": {
+          "anchor": [
+            64,
+            0,
+            0
+          ],
+          "axes": [
+            1,
+            2
+          ],
+          "normalized_ReTr_operator_norm_upper": "1",
+          "oriented_links": [
+            [
+              [
+                64,
+                0,
+                0
+              ],
+              1,
+              1
+            ],
+            [
+              [
+                64,
+                1,
+                0
+              ],
+              2,
+              1
+            ],
+            [
+              [
+                64,
+                0,
+                1
+              ],
+              1,
+              -1
+            ],
+            [
+              [
+                64,
+                0,
+                0
+              ],
+              2,
+              -1
+            ]
+          ],
+          "owner_support": [
+            [
+              64,
+              0,
+              0
+            ],
+            [
+              64,
+              0,
+              1
+            ],
+            [
+              64,
+              1,
+              0
+            ]
+          ],
+          "vertices": [
+            [
+              64,
+              0,
+              0
+            ],
+            [
+              64,
+              1,
+              0
+            ],
+            [
+              64,
+              1,
+              1
+            ],
+            [
+              64,
+              0,
+              1
+            ]
+          ]
+        },
+        "remote_field_and_private_record_traced": true,
+        "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+        "remote_operation_even_and_Gauss_invariant": true,
+        "source_bound": {
+          "actual_member": {
+            "electric_coefficient": "3360",
+            "electric_coefficient_enters_causal_rate": false,
+            "magnetic_coefficient": "64/7",
+            "rate_times_spacing_upper": "5232/7",
+            "spacing": "1/64",
+            "weighted_interaction_rate_upper": "334848/7"
+          },
+          "all_sixty_CAR_modes_per_cell_retained": true,
+          "ambient_bound_restricted_to_invariant_instruments": true,
+          "compression_norm_increases": false,
+          "electric_part_removed_by_onsite_interaction_picture": true,
+          "family": {
+            "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+            "fixed_delta": null,
+            "fixed_delta_source_is_discontinuous_sign": false,
+            "kind": "wilson",
+            "log_weight_rational_lower": "1/2",
+            "magnetic_scale_upper": "1/7",
+            "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+            "measured_light_speed_or_mass_input": false,
+            "onsite_electric_coefficient_restricted_by_bound": false,
+            "physical_speed_formula": "2 W_star / log(lambda)",
+            "physical_speed_rational_upper": "20928/7",
+            "spatial_weight": "2",
+            "weighted_rate_times_spacing_upper": "5232/7"
+          },
+          "global_Gauss_projection_used_as_local_Hamiltonian": false,
+          "per_link_word_cutoff_enters_propagation_rate": false,
+          "product_link_cutoff_preserves_term_support": true,
+          "reference_idle_H": 0,
+          "source_clock_changed": false
+        },
+        "source_unitary": "exp(-i t H)"
+      },
+      "source_id": "469569230a0d677f9ab059f1b3ddf23957f5363a727e96d68e90817654b85dc0",
+      "state_id": "afb0de7eaf486f8a34ab41c1ec62d3e415c72df996eab463c822150a34c582d6"
+    },
+    "full_spatial_field_run_executed": false,
+    "independent_incidence_controls": [
+      {
+        "actual_support_weighted_norm_bound_max": "2556/7",
+        "all_open_box_interactions_enumerated": true,
+        "bond_count": 12,
+        "onsite_terms_excluded_by_interaction_picture": true,
+        "plaquette_count": 6,
+        "reused_weighted_norm_envelope": "5232/7",
+        "side": 2
+      },
+      {
+        "actual_support_weighted_norm_bound_max": "5148/7",
+        "all_open_box_interactions_enumerated": true,
+        "bond_count": 54,
+        "onsite_terms_excluded_by_interaction_picture": true,
+        "plaquette_count": 36,
+        "reused_weighted_norm_envelope": "5232/7",
+        "side": 3
+      },
+      {
+        "actual_support_weighted_norm_bound_max": "5148/7",
+        "all_open_box_interactions_enumerated": true,
+        "bond_count": 144,
+        "onsite_terms_excluded_by_interaction_picture": true,
+        "plaquette_count": 108,
+        "reused_weighted_norm_envelope": "5232/7",
+        "side": 4
+      }
+    ],
+    "interacting_relativistic_continuum_proved": false,
+    "same_source_locality_premise_proved": true,
+    "schema": "oph.primary_locality_certificate.v1",
+    "selected_member": {
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+      "result": {
+        "Lorentz_covariance_or_measured_light_speed_proved": false,
+        "complete_boundary_record_comparison": {
+          "all_observer_records_and_quantum_reference_retained": true,
+          "assigned_physical_support_separation": "1",
+          "both_inputs_same_selected_canonical_purification": true,
+          "comparison_intervention": "identity",
+          "complete_output_half_trace_upper": {
+            "base": 2,
+            "exact_zero": false,
+            "negative_exponent": 2
+          },
+          "duration": "1/10000",
+          "finite_chain_short_time_upper": {
+            "base": 2,
+            "coefficient": "6011586850024268380366259262866971790033780299061976/18642095997357173065012148072128184139728546142578125",
+            "exponential_control": {
+              "Taylor_order": 12,
+              "argument": "654/4375",
+              "exp_minus_one_upper": "3005793425012134190183129631433485895016890149530988/18642095997357173065012148072128184139728546142578125",
+              "positive_sum": "15262715614699798362556596008189028720742346688/94660200964558072200816241092979907989501953125",
+              "tail_upper": "8045897624109020834293517119476/2663156571051024723573164010304026305675506591796875"
+            },
+            "negative_exponent": 1
+          },
+          "full_spatial_experiment_executed": false,
+          "graph_support_distance": 1,
+          "intermediate_local_intervention_count": 0,
+          "number_of_record_labels_multiplies_error_bound": false,
+          "observer_instrument": {
+            "all_nonabelian_center_labels_resolved": false,
+            "all_zero_probability_outcomes_retained": true,
+            "commutes_with_full_source_Gauss_constraints": true,
+            "effect_sum": "identity on the entire regional carrier",
+            "endpoint_count": 3,
+            "isometry": "V=sum_q E_q tensor |q>_record",
+            "outcome_count": 1331,
+            "outcome_menu": "Cartesian product of the three endpoint spectra",
+            "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+            "single_endpoint_spectrum": [
+              -6,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+            "vacuum_and_other_outcomes_retained": true
+          },
+          "observer_owner_support": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "observer_support_cell_count": 1,
+          "outcome_postselection": false,
+          "preparation_or_boundary_approximation_error_added": "0",
+          "rational_exponential_margin": "3067/8750",
+          "remote": {
+            "anchor": [
+              1,
+              0,
+              0
+            ],
+            "axes": [
+              1,
+              2
+            ],
+            "normalized_ReTr_operator_norm_upper": "1",
+            "oriented_links": [
+              [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                1,
+                1
+              ],
+              [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                2,
+                1
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                1,
+                -1
+              ],
+              [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                2,
+                -1
+              ]
+            ],
+            "owner_support": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            "vertices": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          "remote_field_and_private_record_traced": true,
+          "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+          "remote_operation_even_and_Gauss_invariant": true,
+          "source_bound": {
+            "actual_member": {
+              "electric_coefficient": "105/2",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "1/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1",
+              "weighted_interaction_rate_upper": "5232/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "source_unitary": "exp(-i t H)"
+        },
+        "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+        "joint_state_observable_refinement_proved": false,
+        "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+        "particle_mass_dispersion_or_scattering_identified": false,
+        "selected_source_locality": {
+          "actual_member": {
+            "electric_coefficient": "105/2",
+            "electric_coefficient_enters_causal_rate": false,
+            "magnetic_coefficient": "1/7",
+            "rate_times_spacing_upper": "5232/7",
+            "spacing": "1",
+            "weighted_interaction_rate_upper": "5232/7"
+          },
+          "all_sixty_CAR_modes_per_cell_retained": true,
+          "ambient_bound_restricted_to_invariant_instruments": true,
+          "compression_norm_increases": false,
+          "electric_part_removed_by_onsite_interaction_picture": true,
+          "family": {
+            "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+            "fixed_delta": null,
+            "fixed_delta_source_is_discontinuous_sign": false,
+            "kind": "wilson",
+            "log_weight_rational_lower": "1/2",
+            "magnetic_scale_upper": "1/7",
+            "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+            "measured_light_speed_or_mass_input": false,
+            "onsite_electric_coefficient_restricted_by_bound": false,
+            "physical_speed_formula": "2 W_star / log(lambda)",
+            "physical_speed_rational_upper": "20928/7",
+            "spatial_weight": "2",
+            "weighted_rate_times_spacing_upper": "5232/7"
+          },
+          "global_Gauss_projection_used_as_local_Hamiltonian": false,
+          "per_link_word_cutoff_enters_propagation_rate": false,
+          "product_link_cutoff_preserves_term_support": true,
+          "reference_idle_H": 0,
+          "source_clock_changed": false
+        },
+        "uniform_conservative_cone_in_assigned_coordinates": true
+      },
+      "result_sha256": "03db77cd70bd0961161ffbaa3a47a60e11e1e2259fddc7a4c47a25b0d3d186e6",
+      "schema": "oph.primary_locality.v1",
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
+    }
   },
   "refinement_uniform_causality": {
     "Lorentz_covariance_continuum_vacuum_or_chirality_proved": false,
@@ -114577,10 +116227,10 @@
     },
     "selected_common_state_consumer": {
       "claim": "faithful regional support of the selected source-Gauss polynomial state",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "Taylor_order": 11,
         "beta": "22272",
@@ -114605,16 +116255,16 @@
         "warm_native_control_used_as_selected_state": false
       },
       "result_sha256": "767a15df6e813b185a7ab118e2e382aa278b98159ce8160a3e4f853941b26284",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "source_sha256": {
       "Lean/QFT/CPRestrictionNet.lean": "b3ed269db07de2ca6e062cf54b86762ab8d35259268d0f987d49a3ed738af146",
       "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
       "Lean/Thermodynamics/EinsteinPremiseLink.lean": "e016fb5f8d4f069c8e946152b5bbf8ae9db099505a6e7bfa9d26107efcf6b751",
       "model/native_gravity_identification/entropy.py": "e4c0975b321f96f57dfe7a18982d8a6d4b564f168c219f7f3797bc21eafd0e8b",
-      "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
-      "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+      "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
+      "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
       "model/particle_field_state_response/PROOF.md": "7f96fbee77d0f5fc0b640f8e0e60f415fb3509a21021e9e1b7ba2169ce6dda18",
       "model/particle_field_state_response/state_response.py": "3dc00db2122f21533682cdbd14d104f4b35b990a4f390e5cba42a6351938b5e3",
       "model/particle_gauss_ground_state/PROOF.md": "b0c05a1c58e3d39fc7cbf74fbdf8965fc1d419f1a431512110848b9e36d84796",

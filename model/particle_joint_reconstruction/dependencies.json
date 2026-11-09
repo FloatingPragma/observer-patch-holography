@@ -1,0 +1,286 @@
+{
+  "schema": "oph.joint_reconstruction_dependencies.v1",
+  "target": "One source-derived interacting relativistic field theory in three spatial dimensions and time, with a complete observable particle spectrum and controlled production, scattering and decay records.",
+  "primary_program": "oph.open_wilson_gauss_observer.v1",
+  "conditional_candidate": {
+    "id": "oph.conditional_chiral_gauge_higgs_extension.v1",
+    "schema": "oph.joint_reconstruction.candidate.v1",
+    "producer": "model/particle_joint_reconstruction/candidate.py",
+    "proof": "model/particle_joint_reconstruction/CANDIDATE.md",
+    "status": "conditional_extension",
+    "purpose": "Calculate the consequences of a declared chiral gauge-Higgs target while keeping its continuum, vacuum, detector and matching assumptions explicit.",
+    "discharges_primary_physical_dependencies": false,
+    "calibrated_tree_coefficients_are_independent_predictions": false,
+    "full_theory_positive_global_gap_claimed": false
+  },
+  "instance_rule": "Every node is evaluated for one declared program, state, retained reference, clock and observation domain. Evidence for the primary finite member does not discharge the same node for a conditional extension, a free or spin control, or a pure-gauge comparison without its own construction or a proved comparison map.",
+  "status_meanings": {
+    "finite_constructed": "The stated finite acceptance condition is established on the primary program; no continuum identification is included.",
+    "evidence_pending": "An actual primary consumer must validate the stated finite result before it is admitted as evidence.",
+    "physical_proof_required": "The conditional candidate can assume this condition, but its acceptance condition is not established on the primary family.",
+    "conditional_criterion": "A theorem proves the implication from explicit hypotheses; the required physical source and estimates are not instantiated."
+  },
+  "nodes": [
+    {
+      "id": "fixed_program",
+      "number": 1,
+      "title": "Fix the program, reference and clock",
+      "depends_on": [],
+      "status": "finite_constructed",
+      "domain": "The selected open Wilson family, with sixty CAR modes per cell, product link-word cutoff and the original energy zero.",
+      "acceptance": [
+        "Specify every finite carrier, action, boundary condition, regulator, preparation algorithm, retained reference and Hamiltonian time convention by one reproducible member identifier.",
+        "Bind L_n=2^(2n+1), a_n=2^(-n), ell_n=n+1, electric coefficient 105 and magnetic coefficient 1/7, including the Gauss constraints at ghost endpoints.",
+        "Track architectural choices and empirical inputs separately; reject source, state or clock substitutions even if supplied hashes are recomputed.",
+        "An extension declares its changed fields and action. Claiming that it realizes the primary program requires a comparison of the actual operations and complete records. Architectural uniqueness and equivalence to a narrower repair grammar are not prerequisites for the declared construction."
+      ],
+      "evidence": [
+        {"path": "model/particle_common_contract/PROOF.md", "scope": "One exact finite source, polynomial state, reference and Hamiltonian clock at each level."},
+        {"path": "model/particle_common_contract/contract.py", "scope": "Reconstruction and typed consequence verification of the literal member."},
+        {"path": "model/particle_common_contract/contract.json", "scope": "Bound finite primary members and explicit false physical-refinement claims."}
+      ],
+      "conditional_assumptions": ["extension_carrier_and_action", "common_vacuum_reference_clock"],
+      "required_for": ["particle_target", "pure_gauge_branch"]
+    },
+    {
+      "id": "physical_preparation",
+      "number": 2,
+      "title": "Prepare the physical state with its boundary charges",
+      "depends_on": ["fixed_program"],
+      "status": "finite_constructed",
+      "domain": "The exact Gauss-polynomial state of each selected finite member and its retained canonical conjugate reference.",
+      "acceptance": [
+        "Construct Q=P_G[T_m(beta(U-H)/(2s))]^s, rho=Q^2/Tr(Q^2) and the deterministic physical preparation of vec(Q), with every finite parameter fixed by the member.",
+        "Preserve all Gauss constraints, the idle reference Hamiltonian and the original source clock. Source stationarity does not imply stationary purification or an exact Gibbs modular clock.",
+        "Retain the physical regional support and inside/outside boundary-charge pairing. Supply a complete charge instrument with all zero and failure outcomes, rather than conditioning on a preferred sector.",
+        "Keep exact finite specification separate from execution of the spatial matrix or compiled tape, and from compatibility or convergence between different refinement levels."
+      ],
+      "evidence": [
+        {"path": "model/particle_gauss_ground_state/PROOF.md", "scope": "Finite Gauss projection, physical polynomial preparation and energy-excess bound."},
+        {"path": "model/particle_physical_boundary_state/PROOF.md", "scope": "Actual Wilson-loop witnesses, eleven sectors with positive weight and the complete finite hypercharge PVM."},
+        {"path": "model/particle_physical_boundary_state/boundary.py", "scope": "Selected-state consumer, complete 119-state degree-one link control and exact charge projectors."},
+        {"path": "model/particle_spatial_modular_response/PROOF.md", "scope": "Faithfulness on the physical regional support, with boundary representations retained."}
+      ],
+      "conditional_assumptions": ["common_vacuum_reference_clock"],
+      "required_for": ["particle_target", "pure_gauge_branch"]
+    },
+    {
+      "id": "local_records",
+      "number": 3,
+      "title": "Control local dynamics and complete instruments",
+      "depends_on": ["physical_preparation"],
+      "status": "finite_constructed",
+      "domain": "The actual selected Wilson action and prepared state, the complete origin-cell boundary-charge instrument, and a remote physical plaquette phase on the same input and clock.",
+      "acceptance": [
+        "Instantiate local interaction and causal estimates on the selected product-word-cutoff Hamiltonian. Product compression preserves each term's support and norm; onsite electric evolution does not enter the propagation rate.",
+        "Specify actual even Gauss-invariant local instruments with all outcomes, the local field output and the untouched full canonical reference retained. Restrict the ambient theorem to physical inputs without declaring the global Gauss projection to be a local Hamiltonian term.",
+        "Compare a remote plaquette phase with identity on the same initial purification. At source duration 1/10000 the selected levels 0-3 have complete-output half-trace bounds 2^-2, 2^-7, 2^-30 and 2^-124; at zero duration their observer/reference outputs agree exactly.",
+        "Keep the uniform interaction coefficient 5232/7, support, duration and complete-output domain explicit. Approximate implementations add their own preparation, action, clock and detector errors; directly delivering a remote record is outside the comparison."
+      ],
+      "evidence": [
+        {"path": "model/particle_primary_locality/PROOF.md", "scope": "Actual selected-state complete boundary-record comparison and a conservative cone uniform in link degree and assigned spatial refinement."},
+        {"path": "model/particle_primary_locality/locality.py", "scope": "Typed selected-member consumer, exact plaquette geometry, interaction incidence and rational finite-time bounds."},
+        {"path": "model/particle_physical_causality/PROOF.md", "scope": "Parameterized refinement-uniform causal bound; actual primary instantiation must bind its inputs."},
+        {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Finite local factors and Wilson interaction bounds at fixed spacing and per-link cutoff."},
+        {"path": "model/particle_physical_boundary_state/PROOF.md", "scope": "One complete physical boundary-charge PVM on the exact selected state."}
+      ],
+      "boundary": "This establishes finite local records and a uniform influence estimate. It does not establish joint state/correlation convergence, the full physical particle-detector repertoire, Lorentz covariance or a measured light speed. Required spectrum instruments and their limiting errors are part of nodes 4-8.",
+      "conditional_assumptions": ["physical_current_spin_detector_dictionary"],
+      "required_for": ["particle_target", "pure_gauge_branch"]
+    },
+    {
+      "id": "joint_refinement",
+      "number": 4,
+      "title": "Take one state and correlation limit",
+      "depends_on": ["local_records"],
+      "status": "physical_proof_required",
+      "domain": "One declared simultaneous volume, spacing, link-cutoff and cooling trajectory, with one renormalization prescription.",
+      "acceptance": [
+        "Construct compatible local observable maps and states, or a specified common subsequence, preserving the admitted physical algebra, boundary sectors, retained references and complete instrument laws.",
+        "Prove convergence of the required multitime correlations and complete observer records on each declared finite physical region and time window, with effective error bounds wherever a computed prediction uses them.",
+        "Fix all field normalization, coupling trajectories and counterterms with their input ancestry. Any change from the selected finite sequence defines an explicitly declared extension or comparison.",
+        "Control the joint limits rather than composing fixed-volume link-cutoff removal with fixed-spacing thermodynamic limits without uniform estimates. Retain nonzero finite-energy observable weight and prevent loss of all observed fields to the cutoff."
+      ],
+      "evidence": [
+        {"path": "model/particle_link_cutoff_limit/PROOF.md", "scope": "Electric-cutoff and complete-history convergence at fixed finite spatial carrier and spacing."},
+        {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Ground-state subsequence and dynamics at fixed spacing and link cutoff, not the simultaneous primary limit."},
+        {"path": "model/particle_common_contract/PROOF.md", "scope": "Exact finite sequence; joint physical refinement is a separate output theorem."},
+        {"path": "model/particle_joint_reconstruction/POSITIVE_ENERGY.md", "scope": "Selected cooling gives nonnegative support under continuous stationary correlation convergence; fixed triangular time filtering supplies a continuous response subsequence, without noncollapse, a common field algebra or a gap."}
+      ],
+      "conditional_assumptions": ["common_vacuum_reference_clock", "renormalized_four_dimensional_correlations"],
+      "required_for": ["particle_target", "pure_gauge_branch"]
+    },
+    {
+      "id": "relativistic_field",
+      "number": 5,
+      "title": "Reconstruct a nontrivial interacting relativistic field",
+      "depends_on": ["joint_refinement"],
+      "status": "physical_proof_required",
+      "domain": "The same limiting state, local algebra, complete correlation hierarchy and Hamiltonian clock as node 4.",
+      "acceptance": [
+        "Establish three continuous spatial translations and one continuous time translation, a nonnegative physical Hamiltonian, a nontrivial finite-energy vacuum representation and the declared vacuum-sector conditions.",
+        "Prove Lorentz covariance, locality and the appropriate regularity of the same multitime fields. A Euclidean route additionally supplies reflection positivity and identifies its reconstructed time group with the declared Hamiltonian clock.",
+        "Attach position, momentum, energy and physical transformation observables to admitted detector records with controlled errors. A matched quadratic gauge/matter characteristic is insufficient to identify a Lorentz light cone.",
+        "Prove an interaction at fixed physical separations and times in a fixed renormalized generating-field/current dictionary that is incompatible with a free/Wick hierarchy under the admitted identifications, or supply an appropriate nonfree scattering criterion. Connected correlations of nonlinear composites of free fields, finite non-Gaussianity, canonical commutation relations and a fixed-spacing quartic term are insufficient."
+      ],
+      "evidence": [
+        {"path": "model/particle_gauge_characteristics/PROOF.md", "scope": "Matched quadratic principal gauge and matter speeds, without an interacting Lorentz theorem."},
+        {"path": "model/continuum_field_net/README.md", "scope": "Separate uncentered Weyl/contact continuum hierarchy with positive energy and a finite cone; no surviving interaction or Lorentz proof."},
+        {"path": "model/continuum_free_limit/README.md", "scope": "Separate centered bounded-contact branch is exactly free and massless."},
+        {"path": "model/spin_joint_field_limit/PROOF.md", "scope": "Separate positive-field spin history limit; no sharp relativistic particle or interaction identification."}
+      ],
+      "conditional_assumptions": ["renormalized_four_dimensional_correlations", "nonzero_connected_interaction", "physical_current_spin_detector_dictionary"],
+      "required_for": ["particle_target", "pure_gauge_branch"]
+    },
+    {
+      "id": "chiral_species_attachment",
+      "number": 6,
+      "title": "Attach chiral matter, species and any claimed defects",
+      "depends_on": ["relativistic_field"],
+      "status": "physical_proof_required",
+      "domain": "The complete physical field content of one admitted interacting continuum or controlled effective theory.",
+      "acceptance": [
+        "Identify the physical gauge currents, global gauge group, Lorentz spin, statistics, family multiplicity and anomaly conditions of the actual propagating fields.",
+        "Control mirror modes, regulator complements and every additional light or dark sector. Derive or explicitly admit the Higgs/family extension and its physical vacuum without treating the sixty-mode primary carrier as the same object as a three-family chiral action.",
+        "Specify a neutrino completion compatible with the claimed domain, including its mass operator, additional fields if any, running and retained calibration assumptions. The minimal massless neutrino target does not reproduce oscillations.",
+        "For a defect interpretation, prove local formation, protection under the admitted dynamics, field/current attachment and the same observable spin, charge and propagation. A winding label or boundary charge is neither a species count nor a mass. A defect construction is not required for a particle interpretation that makes no such claim."
+      ],
+      "evidence": [
+        {"path": "model/conditional_standard_model/PROOF.md", "scope": "Conditional three-family representation, anomaly and gauge-Higgs action theorem with supplied continuum and kinetic premises."},
+        {"path": "model/conditional_standard_model/FORMAL_BRIDGE.md", "scope": "Exact finite premise interfaces for the representation and family conclusions."},
+        {"path": "model/conditional_standard_model/DEFECTS.md", "scope": "Scoped protection conditions and interaction constraints on proposed defect assignments."},
+        {"path": "model/particle_joint_reconstruction/CANDIDATE.md", "scope": "Declared conditional chiral gauge-Higgs extension; no transfer of its assumptions to the primary finite program."}
+      ],
+      "conditional_assumptions": ["extension_carrier_and_action", "chiral_measure_and_mirror_control", "physical_current_spin_detector_dictionary", "neutrino_EFT_completion_and_running"],
+      "required_for": ["particle_target"]
+    },
+    {
+      "id": "particle_observables",
+      "number": 7,
+      "title": "Calculate the full spectrum and its interactions",
+      "depends_on": ["chiral_species_attachment"],
+      "status": "physical_proof_required",
+      "domain": "Stable particles, charged infrared sectors, unstable resonances and observable composites of the same theory and vacuum.",
+      "acceptance": [
+        "Extract masses and residues from the joint physical energy-momentum response using a stable branch, controlled resonance or infrared threshold with its appropriate detector definition. Retain original weights, continua and complementary sectors.",
+        "Calculate mixing, production, inclusive scattering and decay distributions with the same fields, vacuum and clock. Control the large-time, large-volume and resolution limits used by the observable; include hadronic structure for hadron or collider claims.",
+        "Specify radiative matching, renormalization schemes, widths and infrared conventions. Distinguish calibrated running or tree-action coefficients from pole or threshold observables.",
+        "Account for the complete claimed field/species catalogue, including neutrino sectors, missing or extra modes and composites. No positive global vacuum gap is required for the full theory containing a massless photon; pure Yang-Mills gap claims use node 9."
+      ],
+      "evidence": [
+        {"path": "model/conditional_standard_model/spectrum.py", "scope": "Exact conditional action mass matrices and multiplicities, not interacting physical pole predictions."},
+        {"path": "model/conditional_standard_model/matching.py", "scope": "Explicit parameter and observable matching boundaries."},
+        {"path": "model/particle_charged_residue/PROOF.md", "scope": "Original finite charged-threshold weights on a separate 208-state control."},
+        {"path": "model/particle_identification/SCATTERING.md", "scope": "Required inclusive and asymptotic observable conventions and error interfaces."}
+      ],
+      "conditional_assumptions": ["radiative_infrared_resonance_matching", "neutrino_EFT_completion_and_running"],
+      "required_for": ["particle_target"]
+    },
+    {
+      "id": "independent_comparison",
+      "number": 8,
+      "title": "Compare independent observable records",
+      "depends_on": ["particle_observables"],
+      "status": "physical_proof_required",
+      "domain": "Specified laboratory observables, observation conditions and a frozen physical dictionary.",
+      "acceptance": [
+        "Fix one physical time, energy and length convention with a same-generator calibration or declared empirical input. Capacity or a dimensionless source coefficient alone does not select seconds or GeV.",
+        "Compare joint detector distributions in the same preparation, current, mass, renormalization and resolution conventions, including sampling, apparatus and every applicable theoretical error.",
+        "Preserve all fitted-input ancestry. Agreement with a mass, coupling or mixing input used to set the candidate is calibration, while an independent test uses observables excluded from that fitting step.",
+        "For full-spectrum or collider claims, compare more than selected masses: include appropriate rates, initial beams, luminosity, hadronic inputs, correlations and decay observables. Admit empirical species identities only for sectors with the required preceding attachments."
+      ],
+      "evidence": [
+        {"path": "model/source_mass_shell/CALIBRATION_PROOF.md", "scope": "Same-generator physical-unit conversion and the unselected absolute time scale."},
+        {"path": "model/conditional_standard_model/README.md", "scope": "Empirical common-scale calibration, tree/running coefficient conventions and neutrino boundary."},
+        {"path": "model/conditional_standard_model/matching.py", "scope": "Explicit matching inputs rather than automatic pole-mass assignments."}
+      ],
+      "conditional_assumptions": ["radiative_infrared_resonance_matching", "neutrino_EFT_completion_and_running"],
+      "required_for": ["particle_target"]
+    },
+    {
+      "id": "pure_gauge_gap",
+      "number": 9,
+      "title": "Establish a pure Yang-Mills continuum gap on its own branch",
+      "depends_on": ["relativistic_field"],
+      "status": "conditional_criterion",
+      "domain": "An explicitly admitted pure compact-simple gauge theory, with the same source identification and time normalization used in its reconstruction.",
+      "required_shared_nodes": ["fixed_program", "physical_preparation", "local_records", "joint_refinement", "relativistic_field"],
+      "acceptance": [
+        "Instantiate nodes 1-5 for an actual pure-gauge source or prove a suitable reducing/decoupling map from the coupled primary construction. A Lie-algebra factor, a frozen link coordinate or a reused clock label is not that map.",
+        "Supply the required four-dimensional Yang-Mills interaction and short-distance behavior on the same renormalized correlations, with axiomatic reconstruction conditions and nontriviality. A claim covering every compact simple group must provide the corresponding family rather than one example.",
+        "Prove a common positive Euclidean decay rate on a dense family of centered local vectors, with fixed-time complete errors tending to zero. Take the regulator limit before the long-time spectral bound; do not assume equality of finite and continuum spectra.",
+        "Retain a nonzero limiting variance and uniformly bounded physical energy on one local test, using convergence also at times tending to zero or a proved form transfer. This yields a positive finite threshold rather than an empty or infinite-energy limit.",
+        "Keep dimensionless lattice gaps, Hamiltonian-clock gaps and repair rates distinct. Under H_n=Hhat_n/a_n, the uniform finite-gap/noncollapse route needs dimensionless thresholds of order a_n; vanishing-residue prelimit modes require the more general correlation criterion. Equality with a repair gap additionally requires the actual repair/physical intertwining theorem."
+      ],
+      "evidence": [
+        {"path": "model/particle_yang_mills_gap_contract/PROOF.md", "scope": "Conditional dense-correlation spectral exclusion and correlation-based finite-energy noncollapse, without assumed spectral equality."},
+        {"path": "model/particle_yang_mills_gap_contract/transfer.py", "scope": "Exact finite transfer controls, source-clock accounting and counterexamples; no four-dimensional existence claim."},
+        {"path": "extra/yang_mills_gap_clay_problem.tex", "scope": "Explicit continuum reconstruction conditions Y1-Y6 and conditional gap theorems."},
+        {"path": "Lean/Screen/KogutSusskindFiberRateComparison.lean", "scope": "Finite variable-rate Dirichlet domination under its stated quotient-law hypotheses."}
+      ],
+      "conditional_assumptions": ["pure_YM_source_and_sector_attachment", "pure_YM_dense_decay_and_noncollapse"],
+      "required_for": ["pure_gauge_branch"],
+      "required_for_full_particle_spectrum": false,
+      "implies_full_theory_positive_global_gap": false
+    }
+  ],
+  "requirement_maps": {
+    "field_common_theory_ten": {
+      "1": ["fixed_program"],
+      "2": ["physical_preparation"],
+      "3": ["local_records"],
+      "4": ["joint_refinement"],
+      "5": ["relativistic_field", "particle_observables"],
+      "6": ["relativistic_field"],
+      "7": ["chiral_species_attachment"],
+      "8": ["particle_observables"],
+      "9": ["outside_target:geometric_gravity"],
+      "10": ["independent_comparison"]
+    },
+    "native_full_spectrum_ten": {
+      "1": ["fixed_program", "joint_refinement"],
+      "2": ["physical_preparation", "local_records"],
+      "3": ["relativistic_field", "particle_observables"],
+      "4": ["fixed_program", "physical_preparation", "independent_comparison"],
+      "5": ["joint_refinement", "relativistic_field"],
+      "6": ["chiral_species_attachment"],
+      "7": ["local_records", "joint_refinement", "particle_observables"],
+      "8": ["chiral_species_attachment", "particle_observables"],
+      "9": ["particle_observables"],
+      "10": ["independent_comparison"]
+    },
+    "defect_identification_ten": {
+      "1": ["fixed_program", "physical_preparation", "joint_refinement"],
+      "2": ["chiral_species_attachment"],
+      "3": ["local_records", "chiral_species_attachment"],
+      "4": ["relativistic_field", "particle_observables"],
+      "5": ["relativistic_field"],
+      "6": ["particle_observables"],
+      "7": ["chiral_species_attachment"],
+      "8": ["relativistic_field", "chiral_species_attachment", "particle_observables"],
+      "9": ["local_records", "joint_refinement", "particle_observables"],
+      "10": ["independent_comparison"]
+    },
+    "yang_mills_Y1_Y6": {
+      "Y1": ["joint_refinement"],
+      "Y2": ["local_records", "relativistic_field"],
+      "Y3": ["relativistic_field"],
+      "Y4": ["joint_refinement", "relativistic_field"],
+      "Y5": ["joint_refinement", "relativistic_field", "pure_gauge_gap"],
+      "Y6": ["joint_refinement", "pure_gauge_gap"]
+    }
+  },
+  "outside_target": {
+    "geometric_gravity": {
+      "path": "model/matched_einstein_limit/PROOF.md",
+      "scope": "A separate same-state consumer for proper geometry, stress, modular/area response and controlled small-ball errors. It is not a prerequisite for the requested particle spectrum or pure Yang-Mills spectral theorem."
+    },
+    "public_document_and_ledger_consistency": "Maintaining consistent public claims is a deliverable, not an additional physical theorem."
+  },
+  "cross_domain_boundaries": [
+    "The free centered Weyl branch, positive-field spin branch, supplied massive one-body Dirac bands and finite 208-state thresholds are separate source/state/clock domains. Their results cannot be combined into one primary spectrum without explicit comparison maps.",
+    "The conditional chiral gauge-Higgs candidate supplies an action-level calculation under declared assumptions and empirical inputs. It does not prove that the primary Wilson/Gauss family realizes that continuum or its calibrated coefficients.",
+    "Eleven supported regional charge sectors are not eleven particle species. The 1331-outcome hypercharge menu applies at degree one; the complete menu depends on the selected link degree.",
+    "A theory with a massless photon has no strictly positive global vacuum gap. Massive-sector thresholds and pure Yang-Mills gaps have distinct claims and domains."
+  ]
+}

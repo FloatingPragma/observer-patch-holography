@@ -2,6 +2,16 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
+are the single construction map. Nodes 1-3 have finite selected-source
+constructions: the fixed program, physical state with boundary charges,
+and complete local-record influence bound. Joint refinement, an interacting
+relativistic field, physical species, the full observable spectrum and
+independent comparison belong to nodes 4-8. Node 9 is the separate pure
+Yang-Mills gap branch. The comparison results below retain their own sources;
+they do not constitute additional canonical dependency lists.
+
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
 field and spacetime descriptions organize the agreed events. A smooth
@@ -28,6 +38,37 @@ not eleven particle species. The
 requires separate continuum, interaction and spectral estimates. The finite
 construction does not assign physical masses or a positive global gap to a
 theory containing a massless photon.
+
+## Local records and the conditional species construction
+
+The [primary locality consumer](../../model/particle_primary_locality/PROOF.md)
+applies directly to the selected product-cutoff Wilson action. Its actual
+Gauss-invariant boundary pointer retains every outcome and the idle quantum
+reference. The complete comparison with a remote plaquette phase has
+weighted interaction rate at most `5232/(7a)` and a refinement-uniform
+conservative cone. Restriction to physical states preserves the ambient
+bound; it does not assume that a globally projected Hamiltonian is local.
+This establishes node 3 on the selected family, without identifying a
+particle, physical light speed or joint continuum state.
+
+The [conditional chiral construction](../../model/particle_joint_reconstruction/CANDIDATE.md)
+is a distinct extension. The primary has sixty CAR modes per cell;
+three all-left families with two Weyl components give the extension ninety
+static CAR coordinates and a Higgs doublet. The common internal current
+matrices do not establish an embedding of these carriers or equality of
+their states and clocks. The [action receipt](../../model/particle_joint_reconstruction/candidate_results.json)
+checks the same calibrated quadratic spectrum with two independent
+producers, preserving the chiral measure, mirror control, vacuum,
+interaction and detector assumptions.
+
+These are tree or running action coefficients, not physical poles and
+residues. The minimal arm's three massless neutrinos fail the oscillation
+target. The separate calibrated Weinberg arm retains its neutrino tensor,
+lightest mass and Majorana-phase choices, and unproved running/matching
+control; it does not overwrite the minimal catalogue. Physical species
+and full spectral records require nodes 4-8. Pure Yang-Mills uses the
+separate node 9; the photon-containing continuum has no positive global
+vacuum gap.
 
 ## The primary field and its readout domain
 
@@ -76,8 +117,8 @@ or observed-species entry follows from these finite controls alone.
 
 ## Complete neutral and charged observer records
 
-The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)
-separate complete finite records from physical particle identification.
+The [unified dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+separates complete finite records from physical particle identification.
 The [controlled defect attachment](../../model/particle_defect_attachment/PROOF.md)
 uses `H_Q=(3I-Q)V/2` on every native-memory/scalar input, preserving the
 original C/E records. Its two protected sectors give scalar occupied
@@ -200,7 +241,7 @@ event has positive probability of order `1e-303`. The total periodic
 exact-sign comparison error is at most `1.05065e-149`, so that parent
 event's lower bound remains zero. This analytic finite-program result
 does not transfer the scalar ground or charged residues to the spatial
-field. The physical conclusions in the six-output dependency map require
+field. The physical conclusions in the unified dependency graph require
 their own common-state bridges.
 Its side-21, order-zero construction differs from the separate one-cell,
 order-128, time-one all-time-gap example. Those gap estimates concern
@@ -320,7 +361,7 @@ outcomes per input. Complete occupation correlations have exact rates
 `-log((55+sqrt(5))/60)`, `-log(9/10)` and `-log((55-sqrt(5))/60)`.
 A common clock factor cancels from their ratios. This does not identify
 these carrier relaxation modes with charged leptons or implement a
-unitary physical clock. The [first-five dependency table](OPH_FIELD_RECONSTRUCTION.md#source-tests-for-the-first-five-atlas-inputs)
+unitary physical clock. The [declared-input comparison tests](OPH_FIELD_RECONSTRUCTION.md#finite-tests-of-declared-atlas-inputs)
 states the other source-selection requirements.
 
 The native loop preserves each sharp memory charge sector. Its sign
@@ -340,10 +381,10 @@ complete finite coefficient map and its physical boundaries. The
 [completion program](../COMPLETION_PROGRAM.md) separates these results from
 acceptance of a physical interacting theory.
 
-The maintained [source-to-field requirements and status](OPH_FIELD_RECONSTRUCTION.md#source-to-field-requirements-and-status)
-give the eight-step common derivation. This page supplies its state, clock
-and mass-operator details. None of its conditional matrix or transition
-ratios is identified with the final measured particle-mass ratios.
+The [unified dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
+fixes the common derivation. The [native repair comparison inventory](OPH_FIELD_RECONSTRUCTION.md#native-repair-and-ordered-spin-comparison-domains)
+retains the separate state, clock and mass-operator evidence. Its conditional
+matrix and transition ratios are not final measured particle-mass ratios.
 
 The [full identification requirements](../../model/particle_identification/ROADMAP.md#defect-to-particle-identification-requirements)
 keep defect-to-field attachment separate from spectral calculations. The
@@ -397,7 +438,7 @@ at fixed volume. The target pulse time excludes auxiliary-gate overhead;
 no physical clock or vacuum is selected by this limit. Action-mass ratios
 and their [Koide exclusion](../../model/standard_model_source_map/KOIDE_ATTACHMENT.md)
 therefore retain the physical comparison requirements of the
-[central dependency map](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies).
+[unified dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
 The [quantum-Higgs attachment](../../model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md)
 retains the charged scalar in every Gauss generator and uses its exact
 full-CAR rank-one vertex norm 2 in the same complete-history bound, with a

@@ -754,6 +754,70 @@ complete regional charge apparatus on the specified clock; it does not
 assert execution of the full spatial matrix or compatibility of states
 under simultaneous volume, spacing and cutoff refinement.
 
+\subsection{Locality of the complete physical boundary record}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_locality/PROOF.md}{local influence theorem}
+applies directly to this source and its selected state. Product link
+compression preserves every interaction's owner-cell support and cannot
+increase its norm. A full-Fock Wilson bond has norm $30/a$; a plaquette
+has norm at most $1/(7a)$. The electric term $105C/(2a)$ is onsite in
+the link-ownership convention. Its interaction picture preserves the
+supports and norms, even when its finite-cutoff norm grows. With spatial
+weight $2$, six bonds and at most twelve plaquettes incident on a cell give
+\[
+ \sup_x\sum_{Z\ni x}|Z|\|\Phi_Z\|2^{\operatorname{diam}Z}
+ \le\frac{W_*}{a},\qquad W_*=720+\frac{192}{7}=\frac{5232}{7}.
+\]
+This estimate is uniform in volume and word degree. The ambient
+commutator bound restricts to the source Gauss kernel because both the
+Hamiltonian and the admitted instruments preserve it. No tensor
+factorization of the physical Hilbert space is assumed.
+
+Compare the complete boundary detector above with and without a remote
+unitary $e^{iB_p}$, where
+$B_p=P_\ell\operatorname{ReTr}_{15}(U_p)P_\ell/15$ on an actual interior
+plaquette. The selected canonical purification, clock and elapsed time
+$T$ are identical in the two experiments. If its owner support has graph
+distance $D$ from the origin cell, the output half-trace distance obeys
+\[
+ D_{1/2}(\mathrm{out}_1,\mathrm{out}_0)
+ \le \min\!\left\{1,2^{1-D}
+       \bigl[e^{2W_*T/a}-1\bigr]\right\}.
+\]
+Every boundary-charge outcome and the unchanged full conjugate reference
+are included. The remote field is traced out; directly delivering a
+remote record defines a different experiment. At $T=0$ the outputs agree
+exactly, even for entangled input. At nonzero time this is a propagation
+bound with tails, not exact spacelike commutativity.
+
+For $T=1/10000$ and a plaquette anchored at $(L_n-1,0,0)$ in the second
+and third directions, rational bounds give respectively
+$2^{-2},2^{-7},2^{-30},2^{-124}$ at levels $0,1,2,3$. At level $6$, a
+plaquette anchored at $(64,0,0)$ instead fixes assigned separation $d=1$
+and gives $2^{-21}$. These are analytic bounds for complete finite
+experiments; the full spatial histories are not executed. The cone does
+not prove convergence of the states or records, Lorentz covariance, or
+an interacting particle spectrum.
+
+\paragraph{One reconstruction domain.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/DEPENDENCIES.md}{joint field and spectrum contract}
+uses this fixed source, physical preparation and complete local experiment
+as finite inputs. Its further hypotheses are compatible state and
+multitime-correlation refinement, a positive-energy relativistic
+reconstruction, chiral species attachment, physical spectral and
+scattering laws, and an independent calibrated comparison. A nonfree
+interaction witness must survive in a fixed generating-field and current
+dictionary; connected correlations of nonlinear composites of free fields
+are insufficient. The ninety-coordinate conditional gauge--Higgs action
+is an explicit extension of the sixty-mode primary, with no supplied
+state, operator or clock embedding. Shared internal currents do not
+transfer the primary preparation or its locality theorem to that action.
+The separate pure compact-simple gauge branch must instantiate the same
+source and reconstruction requirements, together with dense vacuum
+correlation decay and finite-energy noncollapse. A massless photon
+precludes a positive global gap in the full matter theory, and selecting
+a Lie-algebra factor does not prove an invariant strong-sector gap.
+
 \subsection{Gap-free low-energy preparation and signed detector records}
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_spatial_ground_state/PROOF.md}{full spatial preparation}
@@ -828,9 +892,39 @@ Every downward event requires $E_i-E_0\ge\delta$. Summing this inequality
 proves the bound for complete contraction instruments without a
 channel-count factor. The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/GroundRecordTail.lean}{finite Lean proof}
 retains raw weights rather than conditional success probabilities.
-Its zero-excess case has no negative-energy events. The physical
-spectrum condition also requires a common spatial state limit and
-energy-momentum translations.
+Its zero-excess case has no negative-energy events.
+
+For the selected primary family, the same inequality supplies a
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/POSITIVE_ENERGY.md}{conditional positive-energy limit}.
+Let $A_n$ preserve the physical source carrier, with $\|A_n\|\le C$, and
+use the stationary source density with excess $\epsilon_n\le2^{-n-4}$.
+Its original positive spectral measure satisfies
+\[
+ F_n(t)=\omega_n(A_n^*\alpha_t^{(n)}(A_n))
+       =\int e^{itE}\,d\mu_n(E),\qquad
+ \mu_n(({-\infty},-\delta])\le\frac{C^2\epsilon_n}{\delta}.
+\]
+If $F_n(t)$ converges at every fixed source time, including zero, and
+its limit is continuous at zero, the continuity theorem for positive
+measures gives $\mu_n\Rightarrow\mu$ with
+$\operatorname{supp}\mu\subset[0,\infty)$. For zero limiting total weight
+the conclusion is trivial; otherwise normalize by $F_n(0)$ and apply
+the probability-measure theorem. The negative-weight bound then excludes
+every fixed negative energy interval. The
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/positive_energy.py}{exact finite controls}
+reuse the weighted Lean inequality without filtering records. This
+implication concerns source-only stationary correlations, not the
+nonstationary joint idle purification. It proves neither correlation
+convergence nor nonzero limiting weight, Lorentz covariance, interaction
+or a positive gap. The full physical spectrum condition additionally
+requires compatible spatial translations and energy--momentum support.
+
+For fixed $T>0$ and triangular filter $f_T(s)=(1-|s|/T)_+/T$, the smeared probe
+$A_{n,f}=\int f_T(s)\alpha_s^{(n)}(A_n)\,ds$ has first absolute spectral
+moment at most $2C^2/T$. This gives a continuous response subsequence on
+compact time intervals, but changes the temporal domain and supplies
+neither nonzero energy weight nor a common field algebra or a local
+detector implementation.
 
 \subsection{Accessible charged thresholds and finite-volume cutoff removal}
 

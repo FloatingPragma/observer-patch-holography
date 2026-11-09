@@ -668,7 +668,22 @@
         "model/particle_physical_boundary_state/PROOF.md",
         "model/particle_yang_mills_gap_contract/transfer.py",
         "model/particle_yang_mills_gap_contract/PROOF.md",
-        "Lean/QFT/ElectricCutoffFloor.lean"
+        "Lean/QFT/ElectricCutoffFloor.lean",
+        "model/particle_primary_locality/locality.py",
+        "model/particle_primary_locality/PROOF.md",
+        "model/particle_primary_locality/test_locality.py",
+        "model/particle_joint_reconstruction/candidate.py",
+        "model/particle_joint_reconstruction/CANDIDATE.md",
+        "model/particle_joint_reconstruction/candidate_results.json",
+        "model/particle_joint_reconstruction/test_candidate.py",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "model/particle_joint_reconstruction/DEPENDENCIES.md",
+        "model/particle_joint_reconstruction/test_dependencies.py",
+        "model/particle_joint_reconstruction/run.py",
+        "model/particle_joint_reconstruction/results.json",
+        "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
+        "model/particle_joint_reconstruction/positive_energy.py",
+        "model/particle_joint_reconstruction/test_positive_energy.py"
       ],
       "legacy_issues": [
         1033,
@@ -1109,6 +1124,14 @@
           "independent_check": "model/particle_transport/test_packet.py",
           "scope": "The same charged dimer doublets admit source-prepared unknown-state transport, complete exchange reads and number-conserving reservoir spectroscopy with explicit resources. A twelve-dimer isometry intertwines every native negative-lift C/E branch and rotation on its 66-dimensional image. This formal 48-mode dictionary is not a 48-mode source run, native protection or physical electron/positron identification; the failed dispersion benchmark remains.",
           "campaign_id": "charged-particle-transport-20261031-v1"
+        },
+        {
+          "id": "joint_field_spectrum_dependency_contract",
+          "path": "model/particle_joint_reconstruction/dependencies.json",
+          "sha256": "1ab1be431a0fc21192baa609102880ef840c5e6b64aad8e063f94eecd71e0791",
+          "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
+          "scope": "A shared nine-node dependency graph joins fixed program, physical preparation, complete local records, joint refinement, interacting relativistic reconstruction, chiral species, observable spectrum and independent comparison, with a separate pure compact-simple Yang-Mills gap branch. Finite specification, preparation and locality are established only on their selected primary domain; all ten conditional candidate assumptions remain undischarged on that source. Nonfree interaction requires a surviving witness incompatible with a free/Wick theory in the fixed generating-field/current dictionary, not merely connected correlations of nonlinear composites. The graph is a premise map, not physical continuum or downstream gate acceptance.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -2284,7 +2307,19 @@
         "model/particle_physical_boundary_state/PROOF.md",
         "model/particle_yang_mills_gap_contract/transfer.py",
         "model/particle_yang_mills_gap_contract/PROOF.md",
-        "Lean/QFT/ElectricCutoffFloor.lean"
+        "Lean/QFT/ElectricCutoffFloor.lean",
+        "model/particle_joint_reconstruction/candidate.py",
+        "model/particle_joint_reconstruction/CANDIDATE.md",
+        "model/particle_joint_reconstruction/candidate_results.json",
+        "model/particle_joint_reconstruction/test_candidate.py",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "model/particle_joint_reconstruction/DEPENDENCIES.md",
+        "model/particle_joint_reconstruction/test_dependencies.py",
+        "model/particle_joint_reconstruction/run.py",
+        "model/particle_joint_reconstruction/results.json",
+        "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
+        "model/particle_joint_reconstruction/positive_energy.py",
+        "model/particle_joint_reconstruction/test_positive_energy.py"
       ],
       "legacy_issues": [
         1026,
@@ -2730,7 +2765,22 @@
         "model/particle_physical_boundary_state/PROOF.md",
         "model/particle_yang_mills_gap_contract/transfer.py",
         "model/particle_yang_mills_gap_contract/PROOF.md",
-        "Lean/QFT/ElectricCutoffFloor.lean"
+        "Lean/QFT/ElectricCutoffFloor.lean",
+        "model/particle_primary_locality/locality.py",
+        "model/particle_primary_locality/PROOF.md",
+        "model/particle_primary_locality/test_locality.py",
+        "model/particle_joint_reconstruction/candidate.py",
+        "model/particle_joint_reconstruction/CANDIDATE.md",
+        "model/particle_joint_reconstruction/candidate_results.json",
+        "model/particle_joint_reconstruction/test_candidate.py",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "model/particle_joint_reconstruction/DEPENDENCIES.md",
+        "model/particle_joint_reconstruction/test_dependencies.py",
+        "model/particle_joint_reconstruction/run.py",
+        "model/particle_joint_reconstruction/results.json",
+        "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
+        "model/particle_joint_reconstruction/positive_energy.py",
+        "model/particle_joint_reconstruction/test_positive_energy.py"
       ],
       "legacy_issues": [
         1026,
@@ -3021,6 +3071,14 @@
           "independent_check": "model/native_composite_probe/test_probe.py",
           "scope": "A 1008-pulse native coherent selection word implements the cubic success Kraus operator C_0/3 with complete arbitrary-reference operator error below 1.6e-13. The executed detector consumes the authenticated literal hidden-frame ground preparation and retains all 2097152 successful joint amplitudes, all 7776 raw native pointer records and 3492 first-export failure slots. Its success probability 0.08261623248916 agrees with the independently certified 138-line composite weight within the combined preparation/control bound. The native filter measures total composite response; no clock resolving the 138 individual energies is executed.",
           "campaign_id": "OPH-NATIVE-OBSERVATION-CLOSURE-2026-11-05"
+        },
+        {
+          "id": "conditional_joint_chiral_candidate",
+          "path": "model/particle_joint_reconstruction/candidate.py",
+          "sha256": "3727f55b3e691b535350a9c47fc8cb43c01aeedf081b11e54816896e0c90e10f",
+          "independent_check": "model/particle_joint_reconstruction/test_candidate.py",
+          "scope": "One explicit conditional candidate reuses the inherited calibrated gauge-Higgs action and its full rectangular spectral-transfer control. Its ninety static CAR coordinates are an extension of the sixty-mode primary, with no supplied source/state/reference/clock embedding. The common-scale tree coefficients are not measured poles; the minimal massless neutrino arm fails oscillations. A separate calibrated Weinberg arm exactly recovers its supplied splittings and preserves unmeasured choices, uncertified running and ultraviolet-completion premises. No complete numerical physical-spectrum matching or independent mass prediction is supplied. The photon-containing continuum scenario has no positive global gap; pure Yang-Mills needs a separate admitted source or reducing/decoupling map, continuum reconstruction and dense vacuum decay with finite-energy noncollapse.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -3168,7 +3226,22 @@
         "model/particle_physical_boundary_state/PROOF.md",
         "model/particle_yang_mills_gap_contract/transfer.py",
         "model/particle_yang_mills_gap_contract/PROOF.md",
-        "Lean/QFT/ElectricCutoffFloor.lean"
+        "Lean/QFT/ElectricCutoffFloor.lean",
+        "model/particle_primary_locality/locality.py",
+        "model/particle_primary_locality/PROOF.md",
+        "model/particle_primary_locality/test_locality.py",
+        "model/particle_joint_reconstruction/candidate.py",
+        "model/particle_joint_reconstruction/CANDIDATE.md",
+        "model/particle_joint_reconstruction/candidate_results.json",
+        "model/particle_joint_reconstruction/test_candidate.py",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "model/particle_joint_reconstruction/DEPENDENCIES.md",
+        "model/particle_joint_reconstruction/test_dependencies.py",
+        "model/particle_joint_reconstruction/run.py",
+        "model/particle_joint_reconstruction/results.json",
+        "model/particle_joint_reconstruction/POSITIVE_ENERGY.md",
+        "model/particle_joint_reconstruction/positive_energy.py",
+        "model/particle_joint_reconstruction/test_positive_energy.py"
       ],
       "legacy_issues": [
         1026,
@@ -3706,7 +3779,7 @@
           "path": "model/source_mass_shell/results.json",
           "sha256": "52cadfb2779236a9c7c629f7b7894094e759c92515d33890124c72290a74702c",
           "independent_check": "model/source_mass_shell/test_packet.py",
-          "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
+          "scope": "The exact period-two source has E_a,s,±(p)=±sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E²-v²|p|²=m² with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
         },
         {
@@ -3796,6 +3869,14 @@
           "independent_check": "model/interacting_observation_process/test_process.py",
           "scope": "Finite adaptive instruments interleaved with the specified interacting compact-core native-memory process obey a complete-output trace-error bound given by the sum of per-segment square-root record bounds. The comparison retains actual evolving memory correlations, all native and detector records and arbitrary untouched references, uniformly in exterior volume. Exact rational step schedules supply any declared positive finite error budget. A complete finite nonlinear source execution checks noncommuting intervening measurements and adaptive feedforward without resetting memory. The theorem covers a declared finite or suitably bounded growing intervention schedule; it does not justify unrestricted feedback at every microscopic step or uniform conditioning on rare histories.",
           "campaign_id": "OPH-NATIVE-OBSERVATION-CLOSURE-2026-11-05"
+        },
+        {
+          "id": "selected_primary_complete_record_locality",
+          "path": "model/particle_primary_locality/locality.py",
+          "sha256": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
+          "independent_check": "model/particle_primary_locality/test_locality.py",
+          "scope": "The selected sixty-mode Wilson/Gauss polynomial source has a uniform complete-record locality bound. Product link compression preserves ambient interaction supports and norms; the full-Fock bond norm is 30/a and the plaquette norm is at most 1/(7a), giving W*=5232/7. The actual origin-cell boundary-charge detector is compared after a remote interior plaquette phase using the same preparation, reference and Hamiltonian clock. Every charge outcome and the full unchanged conjugate reference are retained. Exact zero-time non-signalling and the finite all-state bound require no factorization of the Gauss physical space. This establishes finite selected-source locality, without executed full spatial histories, joint correlation convergence, a Lorentz theorem or physical species identification.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -4368,7 +4449,7 @@
           "path": "model/source_mass_shell/results.json",
           "sha256": "52cadfb2779236a9c7c629f7b7894094e759c92515d33890124c72290a74702c",
           "independent_check": "model/source_mass_shell/test_packet.py",
-          "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
+          "scope": "The exact period-two source has E_a,s,±(p)=±sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E²-v²|p|²=m² with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
         },
         {
@@ -4697,7 +4778,7 @@
           "path": "model/matter_geometry_response/results.json",
           "sha256": "43cc7092c24141ceff0648636464576d80935b1f507a1861cdb264c002ae61a7",
           "independent_check": "model/matter_geometry_response/test_response.py",
-          "scope": "Actual source histories give p1=1/50+(24/25)<E\u00b2> and M=I\u2212[L+theta(D_(0,1)\u2212D_(0,5))]/64 with theta=(3/25)(1\u22122<E\u00b2>). The rank-three band is separated from the next band by at least sqrt5+1/2, and its projector diagonals are at least 1/20. The exact normalized-Gram derivative is G01prime(0)=(-33+29sqrt5)/100>3/10; rational integer spectral enclosures prove G01(energy0)\u2212G01(energy1)>3/40. All 79,872 native histories and raw emitted quantum words are checked. The native kinetic quadratic form has energy derivative\u22123/800 times its two-edge contrast. A correlated-probe countercontrol invalidates product-marginal closure by an exact 3/800 load-mean discrepancy.",
+          "scope": "Actual source histories give p1=1/50+(24/25)<E²> and M=I−[L+theta(D_(0,1)−D_(0,5))]/64 with theta=(3/25)(1−2<E²>). The rank-three band is separated from the next band by at least sqrt5+1/2, and its projector diagonals are at least 1/20. The exact normalized-Gram derivative is G01prime(0)=(-33+29sqrt5)/100>3/10; rational integer spectral enclosures prove G01(energy0)−G01(energy1)>3/40. All 79,872 native histories and raw emitted quantum words are checked. The native kinetic quadratic form has energy derivative−3/800 times its two-edge contrast. A correlated-probe countercontrol invalidates product-marginal closure by an exact 3/800 load-mean discrepancy.",
           "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04"
         },
         {

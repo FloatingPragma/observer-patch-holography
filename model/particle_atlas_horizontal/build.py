@@ -7,7 +7,7 @@ from pathlib import Path
 from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 
-from . import drawing, measurement, endpoints
+from . import drawing, measurement, endpoints, source_connections
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
@@ -16,6 +16,7 @@ HTML = ROOT/'docs/research/OPH_PARTICLE_ATLAS_V2.html'
 AUDIT = HERE/'audit.json'
 V1 = ROOT/'model/particle_candidate_atlas/audit.json'
 OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
+DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -38,6 +39,7 @@ def load():
     data={'v1':json.loads(V1.read_text()),'measurement':measurement.certificate(),
           'endpoints':endpoints.certificate(), 'double_path':measurement.double_path_certificate()}
     for name in CONTENT:data[Path(name).stem]=json.loads((HERE/name).read_text())
+    data['joint_dependencies']=json.loads(DEPENDENCIES.read_text())
     data['observer_outputs']=json.loads(OUTPUTS.read_text())
     for rel,expected in data['observer_outputs']['input_sha256'].items():
         if sha(ROOT/rel)!=expected:raise ValueError('stale observer-output input: '+rel)
@@ -52,6 +54,17 @@ def load():
     paths=set(pins)|set(data['observer_outputs']['input_sha256'])|{str(V1.relative_to(ROOT)),str(OUTPUTS.relative_to(ROOT))}
     paths.update(str(p.relative_to(ROOT)) for p in HERE.iterdir()
                  if p.is_file() and (p.suffix in ('.py','.md','.js') or p.name in CONTENT))
+    paths.update({str(DEPENDENCIES.relative_to(ROOT)),
+                  'model/particle_joint_reconstruction/DEPENDENCIES.md',
+                  data['joint_dependencies']['conditional_candidate']['proof'],
+                  data['joint_dependencies']['conditional_candidate']['producer']})
+    for node in data['joint_dependencies']['nodes']:
+        for evidence in node['evidence']:
+            name=evidence['path']
+            path=(ROOT/name).resolve()
+            if not path.is_relative_to(ROOT) or not path.is_file():
+                raise ValueError('missing or escaped dependency evidence: '+name)
+            paths.add(name)
     for link in links([data[n.removesuffix('.json')] for n in CONTENT]):
         name=unquote(link['path'].split('#')[0])
         if name.startswith('https://'):continue
@@ -64,6 +77,7 @@ def load():
 
 
 def validate_content(data):
+    source_connections.validate(data['joint_dependencies'])
     ids=[t for lane in data['families']['lanes'] for t in lane['target_ids']]
     expected={r['target'] for r in data['v1']['candidate_rows']}
     if len(ids)!=18 or len(set(ids))!=18 or set(ids)!=expected:
@@ -128,7 +142,11 @@ def reader(svg,data):
         ('particle_spatial_modular_response','Physical regional support and modular response'),
         ('particle_link_cutoff_limit','Fixed-volume electric cutoff and complete-record convergence'),
         ('particle_physical_boundary_state','Physical preparation with boundary charges and complete records'),
+        ('particle_primary_locality','Complete local boundary records on the selected physical source'),
         ('particle_yang_mills_gap_contract','Same-clock local correlations and a continuum spectral-gap criterion'))]
+    extra += [{'label':label, 'path':'model/particle_joint_reconstruction/'+name} for name,label in (
+        ('DEPENDENCIES.md','One dependency graph for interacting fields, particles and the separate pure-gauge gap'),
+        ('CANDIDATE.md','Conditional chiral gauge-Higgs candidate and calibrated spectrum conventions'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
     for item in links([data[k] for k in ('story','families','measurement_content','theorems','field_nature')]+[extra]):
@@ -140,7 +158,7 @@ def reader(svg,data):
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OPH particle atlas v2: illustrated reader</title>
 <style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
-<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Six requirements</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
+<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Nine dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
 <main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Full references behind the illustrated steps. Supplied hypotheses and unproved bridges are labeled in the spread.</p><ul>'''+''.join(full_links)+'''</ul></aside>
 <nav id="nav"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="out" aria-label="Zoom out">−</button><button id="in" aria-label="Zoom in">+</button><button id="zoom">100%</button></nav>
 <script>
@@ -184,8 +202,14 @@ def build():
         'finite_observer_output_connections':data['observer_outputs']['finite_output_connections'],
         'common_construction_specification_resolved':True,
         'finite_physical_preparation_including_boundary_charges_resolved':True,
-        'six_physical_obligations_resolved':False,
-        'physical_requirement_status':data['observer_outputs']['physical_requirement_status'],
+        'finite_primary_local_records_and_uniform_influence_constructed':True,
+        'unified_dependency_status':{
+            node['id']:node['status'] for node in data['joint_dependencies']['nodes']},
+        'physical_continuum_and_spectrum_resolved':False,
+        'conditional_candidate_discharges_primary_physical_dependencies':False,
+        'full_theory_positive_global_gap_claimed':False,
+        'canonical_joint_dependency_map':str(DEPENDENCIES.relative_to(ROOT)),
+        'comparison_requirement_domains':data['observer_outputs']['comparison_requirement_domains'],
         'layout':{'width':parsed.get('width'),'height':parsed.get('height')},
         'svg_sha256':hashlib.sha256(svg.encode()).hexdigest(),
         'html_sha256':hashlib.sha256(html.encode()).hexdigest(),

@@ -3,10 +3,10 @@
   "bound_consequences": {
     "common_quadratic_clock": {
       "claim": "gauge and matter principal characteristic match",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "Dirac_principal_speed_squared": "1",
         "all_twelve_speed_squared": [
@@ -59,15 +59,259 @@
         "same_clock_gauge_Dirac_characteristic_match": true
       },
       "result_sha256": "8cdd5e84c177fdced586d8ac7da0e217c8edaa299c6eeba3e3d7d6f9de3b30fe",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
+    },
+    "complete_local_records": {
+      "claim": "complete local boundary records on the selected physical source",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+      "program": "oph.open_wilson_gauss_observer.v1",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+      "result": {
+        "Lorentz_covariance_or_measured_light_speed_proved": false,
+        "complete_boundary_record_comparison": {
+          "all_observer_records_and_quantum_reference_retained": true,
+          "assigned_physical_support_separation": "1",
+          "both_inputs_same_selected_canonical_purification": true,
+          "comparison_intervention": "identity",
+          "complete_output_half_trace_upper": {
+            "base": 2,
+            "exact_zero": false,
+            "negative_exponent": 2
+          },
+          "duration": "1/10000",
+          "finite_chain_short_time_upper": {
+            "base": 2,
+            "coefficient": "6011586850024268380366259262866971790033780299061976/18642095997357173065012148072128184139728546142578125",
+            "exponential_control": {
+              "Taylor_order": 12,
+              "argument": "654/4375",
+              "exp_minus_one_upper": "3005793425012134190183129631433485895016890149530988/18642095997357173065012148072128184139728546142578125",
+              "positive_sum": "15262715614699798362556596008189028720742346688/94660200964558072200816241092979907989501953125",
+              "tail_upper": "8045897624109020834293517119476/2663156571051024723573164010304026305675506591796875"
+            },
+            "negative_exponent": 1
+          },
+          "full_spatial_experiment_executed": false,
+          "graph_support_distance": 1,
+          "intermediate_local_intervention_count": 0,
+          "number_of_record_labels_multiplies_error_bound": false,
+          "observer_instrument": {
+            "all_nonabelian_center_labels_resolved": false,
+            "all_zero_probability_outcomes_retained": true,
+            "commutes_with_full_source_Gauss_constraints": true,
+            "effect_sum": "identity on the entire regional carrier",
+            "endpoint_count": 3,
+            "isometry": "V=sum_q E_q tensor |q>_record",
+            "outcome_count": 1331,
+            "outcome_menu": "Cartesian product of the three endpoint spectra",
+            "projector_formula": "E_q=product_j product_(r!=q_j) (Q_j-r I)/(q_j-r)",
+            "single_endpoint_spectrum": [
+              -6,
+              -4,
+              -3,
+              -2,
+              -1,
+              0,
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "unitary_extension": "U=sum_q E_q tensor S_q; S_q shifts the neutral record blank to q",
+            "vacuum_and_other_outcomes_retained": true
+          },
+          "observer_owner_support": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "observer_support_cell_count": 1,
+          "outcome_postselection": false,
+          "preparation_or_boundary_approximation_error_added": "0",
+          "rational_exponential_margin": "3067/8750",
+          "remote": {
+            "anchor": [
+              1,
+              0,
+              0
+            ],
+            "axes": [
+              1,
+              2
+            ],
+            "normalized_ReTr_operator_norm_upper": "1",
+            "oriented_links": [
+              [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                1,
+                1
+              ],
+              [
+                [
+                  1,
+                  1,
+                  0
+                ],
+                2,
+                1
+              ],
+              [
+                [
+                  1,
+                  0,
+                  1
+                ],
+                1,
+                -1
+              ],
+              [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                2,
+                -1
+              ]
+            ],
+            "owner_support": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                0
+              ]
+            ],
+            "vertices": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                0,
+                1
+              ]
+            ]
+          },
+          "remote_field_and_private_record_traced": true,
+          "remote_intervention": "exp(i B_p), B_p=compressed ReTr_M15(U_p)/15",
+          "remote_operation_even_and_Gauss_invariant": true,
+          "source_bound": {
+            "actual_member": {
+              "electric_coefficient": "105/2",
+              "electric_coefficient_enters_causal_rate": false,
+              "magnetic_coefficient": "1/7",
+              "rate_times_spacing_upper": "5232/7",
+              "spacing": "1",
+              "weighted_interaction_rate_upper": "5232/7"
+            },
+            "all_sixty_CAR_modes_per_cell_retained": true,
+            "ambient_bound_restricted_to_invariant_instruments": true,
+            "compression_norm_increases": false,
+            "electric_part_removed_by_onsite_interaction_picture": true,
+            "family": {
+              "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+              "fixed_delta": null,
+              "fixed_delta_source_is_discontinuous_sign": false,
+              "kind": "wilson",
+              "log_weight_rational_lower": "1/2",
+              "magnetic_scale_upper": "1/7",
+              "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+              "measured_light_speed_or_mass_input": false,
+              "onsite_electric_coefficient_restricted_by_bound": false,
+              "physical_speed_formula": "2 W_star / log(lambda)",
+              "physical_speed_rational_upper": "20928/7",
+              "spatial_weight": "2",
+              "weighted_rate_times_spacing_upper": "5232/7"
+            },
+            "global_Gauss_projection_used_as_local_Hamiltonian": false,
+            "per_link_word_cutoff_enters_propagation_rate": false,
+            "product_link_cutoff_preserves_term_support": true,
+            "reference_idle_H": 0,
+            "source_clock_changed": false
+          },
+          "source_unitary": "exp(-i t H)"
+        },
+        "conditional_limit_statement": "if compatible record laws converge, remote influence vanishes outside the conservative cone",
+        "joint_state_observable_refinement_proved": false,
+        "local_cutoff_and_Gauss_bound_proved_for_every_selected_member": true,
+        "particle_mass_dispersion_or_scattering_identified": false,
+        "selected_source_locality": {
+          "actual_member": {
+            "electric_coefficient": "105/2",
+            "electric_coefficient_enters_causal_rate": false,
+            "magnetic_coefficient": "1/7",
+            "rate_times_spacing_upper": "5232/7",
+            "spacing": "1",
+            "weighted_interaction_rate_upper": "5232/7"
+          },
+          "all_sixty_CAR_modes_per_cell_retained": true,
+          "ambient_bound_restricted_to_invariant_instruments": true,
+          "compression_norm_increases": false,
+          "electric_part_removed_by_onsite_interaction_picture": true,
+          "family": {
+            "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+            "fixed_delta": null,
+            "fixed_delta_source_is_discontinuous_sign": false,
+            "kind": "wilson",
+            "log_weight_rational_lower": "1/2",
+            "magnetic_scale_upper": "1/7",
+            "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+            "measured_light_speed_or_mass_input": false,
+            "onsite_electric_coefficient_restricted_by_bound": false,
+            "physical_speed_formula": "2 W_star / log(lambda)",
+            "physical_speed_rational_upper": "20928/7",
+            "spatial_weight": "2",
+            "weighted_rate_times_spacing_upper": "5232/7"
+          },
+          "global_Gauss_projection_used_as_local_Hamiltonian": false,
+          "per_link_word_cutoff_enters_propagation_rate": false,
+          "product_link_cutoff_preserves_term_support": true,
+          "reference_idle_H": 0,
+          "source_clock_changed": false
+        },
+        "uniform_conservative_cone_in_assigned_coordinates": true
+      },
+      "result_sha256": "03db77cd70bd0961161ffbaa3a47a60e11e1e2259fddc7a4c47a25b0d3d186e6",
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "physical_boundary_preparation": {
       "claim": "physical boundary-charge preparation and complete central readout",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "complete_central_charge_measurement": {
           "all_nonabelian_center_labels_resolved": false,
@@ -410,15 +654,15 @@
         "witness_sectors_exhaust_physical_boundary_support": false
       },
       "result_sha256": "0dc2b6ea6c0f026c9d8eb7389d8e9b3381424871d63ac6a6477eeca18c499f54",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "physical_preparation": {
       "claim": "specified source-only Gauss polynomial preparation",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "H_or_clock_changed_by_preparation": false,
         "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -501,15 +745,15 @@
         "state_supported_in_source_Gauss_kernel": true
       },
       "result_sha256": "44a2c4c7ce570f40d061de70a36f196552a0059610918964e124762a889af16d",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "physical_regional_support": {
       "claim": "faithful regional support of the selected source-Gauss polynomial state",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "Taylor_order": 11,
         "beta": "22272",
@@ -534,15 +778,15 @@
         "warm_native_control_used_as_selected_state": false
       },
       "result_sha256": "767a15df6e813b185a7ab118e2e382aa278b98159ce8160a3e4f853941b26284",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "source_bounds": {
       "claim": "full-carrier source dimension and energy bounds",
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
       "program": "oph.open_wilson_gauss_observer.v1",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
       "result": {
         "CAR_modes": 480,
         "all_link_word_states_retained": true,
@@ -577,8 +821,8 @@
         "spectral_width_upper": "91524/7"
       },
       "result_sha256": "0ba3598a873eca5be34ca63c03b088380b5fa9ff9920d94f1318ae8579eb4c16",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     }
   },
   "comparison_certificate_domains": {
@@ -632,13 +876,13 @@
       "energy_unit": "source action units; hbar=1",
       "modular_equals_minus_beta_times_source_time": false,
       "modular_generator_on_support": "log(Tr Q^2) I - 2 log(Q)",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250"
     },
     "ids": {
-      "clock_id": "7f53cb577ef01966affb7e5d83e5f495719c09142b3beeda45ffe36ccce838cd",
-      "reference_id": "8cd82f1d032e7196f76f8be3471429913f3e3c8182bc705aa333db6eb76d5807",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "matched_characteristics": {
       "Dirac_principal_speed_squared": "1",
@@ -691,7 +935,7 @@
       "physical_interacting_limiting_speed_proved": false,
       "same_clock_gauge_Dirac_characteristic_match": true
     },
-    "member_id": "ccc10b9e4388aab32756c61e0a751e4d0cb4d9d2f8b96f8f1dbe13d62131d065",
+    "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
     "preparation_plan": {
       "H_or_clock_changed_by_preparation": false,
       "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -780,8 +1024,8 @@
       "joint_purification_stationary_under_source_only_clock": false,
       "retained_in_complete_outputs": true,
       "separately_Gauss_invariant": true,
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
-      "state_id": "5426e4265493bae20dfd05e4f626a60fb2bfe42f6f7d8d59438d7a230992c852"
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
     },
     "source": {
       "CAR_modes_per_cell": 60,
@@ -1801,9 +2045,9 @@
         "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
         "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
         "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-        "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+        "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
         "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-        "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+        "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
         "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
         "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
         "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -1857,8 +2101,13 @@
         "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
         "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
         "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+        "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+        "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
         "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
         "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+        "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+        "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+        "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
         "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
         "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
         "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
@@ -2325,7 +2574,7 @@
       "preparation_primitive": "exact algebraic Householder map declared as a program service",
       "purification": "vec(Q)/sqrt(Tr(Q^2))",
       "seed": "empty Fock and constant-link blank, with conjugate blank",
-      "source_id": "aeb875d7675137f2cf3ce372b64c549fa5250543141b56666581f515c4ea18fa",
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
       "source_only_Gauss_support": true,
       "source_stationary": true,
       "spectral_lower": "-20184/7",
@@ -2336,6 +2585,7 @@
   "full_spatial_matrix_or_gate_tape_executed": false,
   "item1_fixed_construction_specification": true,
   "item2_finite_physical_preparation_with_boundary_charges": true,
+  "item3_finite_complete_boundary_records_with_uniform_locality": true,
   "joint_physical_refinement_limit_proved": false,
   "narrow_native_repair_interpreter_equivalence_proved": false,
   "next_declared_member": {
@@ -2351,13 +2601,13 @@
       "energy_unit": "source action units; hbar=1",
       "modular_equals_minus_beta_times_source_time": false,
       "modular_generator_on_support": "log(Tr Q^2) I - 2 log(Q)",
-      "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6"
+      "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5"
     },
     "ids": {
-      "clock_id": "60e3fd0e4d0a05cf1c74204fd9d868412ba32fe97ef87632f7d3988c68dc519d",
-      "reference_id": "010be7ac310e947cc95ccc8a785eec1e8bf7fe74896c795ea316d9c17df490f1",
-      "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
-      "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+      "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+      "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+      "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+      "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
     },
     "matched_characteristics": {
       "Dirac_principal_speed_squared": "1",
@@ -2410,7 +2660,7 @@
       "physical_interacting_limiting_speed_proved": false,
       "same_clock_gauge_Dirac_characteristic_match": true
     },
-    "member_id": "93d537ac70e8b9f097ba6be4058ca408edc5cc9acdc396e5abfd0d857ba3b260",
+    "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
     "preparation_plan": {
       "H_or_clock_changed_by_preparation": false,
       "boundary_condition": "zero_external_charge_at_all_link_endpoints",
@@ -2499,8 +2749,8 @@
       "joint_purification_stationary_under_source_only_clock": false,
       "retained_in_complete_outputs": true,
       "separately_Gauss_invariant": true,
-      "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
-      "state_id": "4e2de14558c2a06e99e8b5aca70b358a4a0e8f0dc328a0cad21c9533295392ca"
+      "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+      "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
     },
     "source": {
       "CAR_modes_per_cell": 60,
@@ -3520,9 +3770,9 @@
         "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
         "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
         "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-        "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+        "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
         "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-        "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+        "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
         "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
         "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
         "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -3576,8 +3826,13 @@
         "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
         "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
         "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+        "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+        "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
         "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
         "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+        "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+        "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+        "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
         "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
         "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
         "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",
@@ -4044,7 +4299,7 @@
       "preparation_primitive": "exact algebraic Householder map declared as a program service",
       "purification": "vec(Q)/sqrt(Tr(Q^2))",
       "seed": "empty Fock and constant-link blank, with conjugate blank",
-      "source_id": "7fdab3734c9624af9a98300b04d387bf7aadb0abfe1a4a2e9103c673374e23e6",
+      "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
       "source_only_Gauss_support": true,
       "source_stationary": true,
       "spectral_lower": "-2583552/7",
@@ -4054,7 +4309,8 @@
   },
   "observed_particle_or_Einstein_identification": false,
   "primary_certificate_domains": {
-    "physical_boundary_state": "selected_primary_member_physical_boundary_readout"
+    "physical_boundary_state": "selected_primary_member_physical_boundary_readout",
+    "primary_locality": "selected_primary_complete_boundary_records_and_local_influence"
   },
   "program": "oph.open_wilson_gauss_observer.v1",
   "schema": "oph.common_source_contract.v1",
@@ -5064,9 +5320,9 @@
     "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
     "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
     "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
-    "model/particle_common_contract/PROOF.md": "86c0d7d92d6021e18dd4b2d6dfdd6beb9a396e9aa44d785baa5f0aed20fb9033",
+    "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
-    "model/particle_common_contract/contract.py": "f5311e709ecc552eb25093c38b779b95c363568edb2c7d74ac78530b1d519c17",
+    "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
     "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
     "model/particle_field_causality/__init__.py": "37e5a339583059e13c5f0a5133c258fcba14f4f425192458b4112d3a3a8ea0f8",
     "model/particle_field_causality/bounds.py": "100d16044c13d1d4a355194c64b7dd1270a8768746f58100cf490166c23f7161",
@@ -5120,8 +5376,13 @@
     "model/particle_physical_boundary_state/PROOF.md": "90243a76124a194a203ec1b9aac925581a85f1b6233c492281f98c642b051208",
     "model/particle_physical_boundary_state/__init__.py": "51246d654525defb0df4b75635c07ba0edf3f0d396e10cef4e3d5fcd8c40d14a",
     "model/particle_physical_boundary_state/boundary.py": "8447dc03aa4d3b2fa76451f850b456aa3275ea17ff3d411546f7031ba0d49c08",
+    "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+    "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
     "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
     "model/particle_prepared_field_readout/experiment.py": "daa04abae682abe01124b79d07c19f2696b2fed0a7dbfc58563c6357240e2406",
+    "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
+    "model/particle_primary_locality/__init__.py": "4d53683b429fd64c4269e3c9635f8141867f44f6cafafdbf08ec86c75236ebbf",
+    "model/particle_primary_locality/locality.py": "37498a8d87858374659cb42ce09409921b9fd459170da2778d44bb7dc5744bd4",
     "model/particle_response/__init__.py": "f1cf379299cdf907ca9630ba34c8d38eae7e324416326dfd70aa5eeb00351b85",
     "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
     "model/particle_response/source.py": "b6c4a6a4ff105ed345c55ddc789241fbb456619e970fd03151cd643f8b232bb9",

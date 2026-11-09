@@ -28,6 +28,8 @@ SOURCE_INPUTS=(
     'model/particle_spatial_modular_response/PROOF.md',
     'model/particle_physical_boundary_state/boundary.py',
     'model/particle_physical_boundary_state/PROOF.md',
+    'model/particle_primary_locality/locality.py',
+    'model/particle_primary_locality/PROOF.md',
     'model/particle_observer_outputs/field_route.py',
     'model/particle_local_wilson_density/density.py',
     'model/interacting_extension/chiral_lattice/source_data.py',
@@ -134,6 +136,9 @@ def verify_member(value):
 def expected_result(value, claim):
     """Only registered, recomputed consumers can supply admitted results."""
     verified=verify_member(value)
+    if claim=='complete local boundary records on the selected physical source':
+        from model.particle_primary_locality import locality
+        return locality.common_contract_payload(verified)
     if claim=='physical boundary-charge preparation and complete central readout':
         from model.particle_physical_boundary_state import boundary
         return boundary.common_contract_payload(verified)
@@ -207,6 +212,7 @@ CONTROL_DOMAINS={
     'spatial_regional_modular_response':'parameterized_region_theorem_and_warm_internal_controls',
     'fixed_volume_link_cutoff_limit':'fixed_volume_parent_and_rotor_cutoff_comparisons',
     'physical_boundary_state':'selected_primary_member_physical_boundary_readout',
+    'primary_locality':'selected_primary_complete_boundary_records_and_local_influence',
     'continuum_gap_transfer':'conditional_same_clock_decay_and_finite_transfer_controls',
 }
 
@@ -222,6 +228,7 @@ def validate_inventory(report):
 def certificate():
     from model.particle_spatial_modular_response import regional
     from model.particle_physical_boundary_state import boundary
+    from model.particle_primary_locality import locality
     selected=member(0); next_member=member(1)
     bounds=selected['preparation_plan']['source']
     checks={
@@ -230,16 +237,18 @@ def certificate():
         'common_quadratic_clock':bind_result(selected,'gauge and matter principal characteristic match',selected['matched_characteristics']),
         'physical_regional_support':regional.common_contract_bound(selected),
         'physical_boundary_preparation':boundary.common_contract_bound(selected),
+        'complete_local_records':locality.common_contract_bound(selected),
     }
     for receipt in checks.values():verify_result(selected,receipt)
     return {'schema':'oph.common_source_contract.v1','program':PROGRAM,
         'source_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_INPUTS},
         'fixed_primary_member':selected,'next_declared_member':next_member,
         'bound_consequences':checks,
-        'comparison_certificate_domains':{k:v for k,v in CONTROL_DOMAINS.items() if k!='physical_boundary_state'},
-        'primary_certificate_domains':{'physical_boundary_state':CONTROL_DOMAINS['physical_boundary_state']},
+        'comparison_certificate_domains':{k:v for k,v in CONTROL_DOMAINS.items() if k not in ('physical_boundary_state','primary_locality')},
+        'primary_certificate_domains':{k:CONTROL_DOMAINS[k] for k in ('physical_boundary_state','primary_locality')},
         'item1_fixed_construction_specification':True,
         'item2_finite_physical_preparation_with_boundary_charges':True,
+        'item3_finite_complete_boundary_records_with_uniform_locality':True,
         'architecture_uniqueness_required':False,
         'narrow_native_repair_interpreter_equivalence_proved':False,
         'full_spatial_matrix_or_gate_tape_executed':False,

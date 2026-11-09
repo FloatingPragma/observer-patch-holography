@@ -115,13 +115,26 @@ recomputed hashes. This checks common-object compatibility, rather than
 arbitrary mathematical truth. Each consequence also needs its owning proof.
 
 The generated receipt attaches the actual source dimension/energy bounds,
-Gauss preparation plan, quadratic clock calculation, regional support floor
-and [complete boundary-charge construction](../particle_physical_boundary_state/PROOF.md).
-The last consumer exhibits actual Wilson-loop vectors in eleven charge
+Gauss preparation plan, quadratic clock calculation, regional support floor,
+[complete boundary-charge construction](../particle_physical_boundary_state/PROOF.md)
+and [complete local record comparison](../particle_primary_locality/PROOF.md).
+The boundary consumer exhibits actual Wilson-loop vectors in eleven charge
 sectors of this physical state and retains its full finite charge menu.
 It resolves finite preparation including boundary charges; it supplies no
 refinement-uniform sector weight or joint state limit. Other aggregate
-certificates have an exhaustive, separate domain inventory. In particular:
+certificates have an exhaustive, separate domain inventory.
+
+The locality consumer instantiates the ambient Wilson influence bound on
+the same physical preparation and Hamiltonian, with product link compression
+preserving every interaction support. Its remote plaquette intervention
+and complete local boundary detector are Gauss invariant; the untouched
+canonical reference is retained. At source duration `1/10000`, the complete
+output half-trace bounds for levels 0 through 3 are `2^-2`, `2^-7`, `2^-30`
+and `2^-124`. These are within-member comparisons, not convergence of
+states or records between levels. The electric evolution is onsite and
+does not enter the propagation rate. The global Gauss projector is not
+inserted as a local interaction. This supplies the finite locality premise
+without a Lorentz or interacting continuum conclusion. In particular:
 
 - scalar Q*=0 and Q*=6 have distinct states and charge responses;
 - warm full208, cold full208, Gauss-projected78 and a pure ground trial
