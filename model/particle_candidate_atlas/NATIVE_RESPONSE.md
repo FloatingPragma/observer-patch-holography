@@ -1,0 +1,187 @@
+# Effective response of the complete C-duty memory
+
+The native feedback process supplies an effective action in its weak-pulse
+limit and a finite-step open response. The two statements concern the same
+specified process, stationary memory and pulse clock. At a nontrivial
+finite pulse angle the unread working-register channel cannot be replaced
+exactly by a unitary mass-only evolution. This is a restriction on that
+replacement, not on unitary dilations, the retained quantum/classical
+archive or interacting field theory in general.
+
+## Original probabilities and a finite-state witness
+
+Use the [complete native C-duty source](../mcpr_native_memory_bridge/PROOF.md#exact-inverse-of-the-complete-memory-coefficient).
+For declared independent event factors 0<p,q<1, let
+
+```math
+a=p(1-q),\quad b=pq,\quad Delta=1-a^2+ab.
+```
+
+Its stationary enabled-pulse weights on the three actual projector rays
+P2,P3,P10 and its disabled weight are
+
+```math
+w_0=1-p,\quad w_2=[(1-a)(b+a^2)+ab^2]/Delta,
+w_3=a(1-a)/Delta,\quad w_10=ab/Delta.
+```
+
+All four weights are positive and sum to one. They are original
+probabilities, without division by p. Every fine record and every old
+memory input is retained in the source; the four groups collect identical
+work pulses. The native rates p=1/12,q=1/6 are reconstructed from all 128
+raw records. Other values are declared controller parameters, with their
+instrument ancestry required separately. Both admitted inverse branches
+of the P-dependent source satisfy this strict domain.
+
+For pulse angle theta=g h, the working Hamiltonians are g X tensor P_i.
+Prepare the actual six-row logical working register in
+|+><+|_X tensor P2 and memory in its stationary state. This is a finite
+source preparation, without identifying it as a physical particle vacuum.
+The X-plus block has four unitaries
+
+```math
+U_0=I,\qquad U_i=I+(e^{-i theta}-1)P_i.
+```
+
+The literal native projectors obey Tr(P2 P3)=1/5. Consequently
+
+```math
+|<v2,U_3 v2>|^2=1-(16/25) sin^2(theta/2).
+```
+
+The complete unread output rho is the weighted sum of the four pure
+outputs. Its purity loss is a sum of nonnegative terms. Retaining just
+the two ordered pairs involving the disabled and P3 records proves
+
+```math
+1-Tr(rho^2) >= (32/25)(1-p) a(1-a)/Delta sin^2(theta/2) > 0       (1)
+```
+
+when theta is not in 2*pi*Z. The exact helper uses rational
+xi=tan(theta/2), so sin^2(theta/2)=xi^2/(1+xi^2), and evaluates all four
+subnormalized output densities. It also checks their complete effect sum.
+
+Every unitary channel sends this pure input to a pure output sigma.
+Writing lambda_max for rho's largest eigenvalue gives
+
+```math
+||rho-sigma||_1 >= 2(1-lambda_max) >= 1-Tr(rho^2).
+```
+
+The second inequality follows from Tr(rho^2)>=lambda_max^2. Thus (1)
+is an unhalved trace-distance lower bound against every unitary channel
+on the retained working register, independent of a family basis choice.
+It is also a lower bound on their unhalved diamond distance. It does not
+discard or prohibit the source's full flagged dilation.
+
+### A full-CAR vacuum witness
+
+The configured physical pairing service in the
+[full-Fock feedback theorem](../standard_model_source_map/FEEDBACK_LIMIT.md)
+has a second witness independent of a logical X-qubit identification.
+For a rank-one family projector P3, the unit charged-Higgs pairing V(P3)
+has two disjoint unit-strength spin-pair generators. They commute, and
+each sends its two-mode vacuum to a superposition with vacuum amplitude
+cos(theta). Number-preserving changes of family basis leave the fermionic
+vacuum unchanged. Hence the actual full-Fock pairing has
+
+```math
+<Omega, exp(-i theta V(P3)) Omega>=cos^2(theta).
+```
+
+The disabled and P3 records give the original full-CAR purity-loss floor
+
+```math
+1-Tr(rho_CAR^2) >= 2 w_0 w_3 [1-cos^4(theta)]>0                 (1a)
+```
+
+for sin(theta)!=0. The other record pairs contribute nonnegative terms;
+they are retained, without conditioning. Equation (1a) is also an unhalved
+distance floor against every unitary working-register channel. The code
+checks the two-pair generator and all sixteen Fock input columns of its
+exact four-mode unitary. The full ninety-mode implication uses the proved
+rank-one Higgs normalization and its dark complement; it is not a dense
+ninety-mode execution or a ground-state selection.
+
+Here theta=g |w_H| h is the pure pairing-kick angle. A common free unitary
+after the kick preserves purity; one before the kick is absorbed into the
+specified input. An arbitrary simultaneous H0+V pulse requires its own
+finite-step calculation. Neither (1) nor (1a) silently uses that timing
+convention. The common-H0 weak-limit theorem below has its separate scope.
+
+## Common kinetic propagation and the weak-pulse limit
+
+The [finite-volume feedback theorem](../standard_model_source_map/FEEDBACK_LIMIT.md)
+allows a specified common Hamiltonian H0 in every step. The limit at fixed
+target time with h tending to zero is generated by
+
+```math
+H_eff=H0+g X tensor Z_C,\qquad Z_C=w_2 P2+w_3 P3+w_10 P10.
+```
+
+The common kinetic H0 is unchanged within this protocol. The theorem
+computes no family-dependent kinetic whitening. The P-dependent inverse
+chooses rates and gain for which this Z_C has the stipulated P-dependent
+spectrum. It does not take the balanced coherent coefficient as an input
+and derive its correction. A common kinetic term at a sine node is zero,
+so the finite-step witness (1) also applies to that zero-momentum slice.
+
+For stationary product preparation, the
+[all-lag theorem](../particle_memory_response/PROOF.md) gives the reduced
+generator G0+h G1 with a controlled O(h^2) error at fixed target time.
+At unit gain, its Hamiltonian correction is I tensor A, and its diffusion
+is the nonzero positive coefficient examined in
+[COMPATIBILITY.md](COMPATIBILITY.md#the-fixed-native-diffusion).
+A common H0 adds only its commutator to G0 at this order. In the exact
+slow-block Taylor formula, the H0 cross terms in the second derivative
+cancel those in G0^2/2. Its group-inverse terms vanish because the fast
+inverse annihilates the stationary injection and memory summation.
+The diffusion and ordering term therefore keep their source values.
+
+## The ordering potential is not a scalar mass correction
+
+An additional spectral check applies even if only the Hamiltonian part of
+that corrected generator is inspected. On one helicity of the canonical
+free kinetic attachment, put
+
+```math
+H(k)=k Z tensor I_3+X tensor Y+h I_2 tensor A,\qquad Y=Z_C.
+```
+
+Y and A are the actual native C-duty matrices; A is Hermitian and nonzero.
+For any Hermitian Y,A, exact Pauli algebra gives
+
+```math
+Tr H(k)^2 = 6k^2+Tr H(0)^2,
+Tr H(k)^4-6k^4-2k^2 Tr H(0)^2-Tr H(0)^4
+             =8 h^2 k^2 Tr A^2.                                (2)
+```
+
+To verify the second identity, write
+H(k)^2=k^2 I+F+2hk Z tensor A, where
+F=I tensor (Y^2+h^2 A^2)+h X tensor {Y,A}. The spin traces of the
+odd-k cross terms vanish; the remaining additional term is
+4h^2 k^2 Tr(I_2 tensor A^2).
+
+Three same-speed relativistic free branches would have
+energies squared k^2+m_j^2, each twice. Their quadratic trace fixes the
+common speed to the supplied kinetic speed, and their quartic trace
+would make the left side of (2) zero. The strictly positive right side
+therefore excludes this exact free mass-shell form for h>0,k!=0, even
+after an isospectral family change. Restoring spin degeneracy doubles
+both sides. Restoring gain gives Y=g Z_C and A=g^2 A_native.
+
+The defect is of order h^2. Higher-order Hamiltonian terms omitted from
+G0+h G1 can contribute at that order; the reduced-channel approximation
+does not exclude their cancellation in an exact underlying dispersion.
+Equation (2) is an exact restriction on the displayed Hamiltonian, whereas
+the finite-step purity bounds (1) and (1a) apply to their stated complete
+source instruments without a generator truncation.
+
+This diagnostic does not identify the Hamiltonian-only evolution as the
+source: the compulsory diffusion is present at the same order. Nor does
+it exclude an interacting relativistic theory through a reduced-channel
+argument. The finite source realizes its configured weak-limit mass
+coefficient and its open finite-step correction. These results supply no
+bare-to-effective relation with chi=u^2/[512(1-u/77)], no physical vacuum,
+and no measured threshold or resonance correction.

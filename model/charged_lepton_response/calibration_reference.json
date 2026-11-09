@@ -1,0 +1,9 @@
+{
+  "edition": "2022 CODATA adjustment",
+  "source": "https://physics.nist.gov/cuu/pdf/all.pdf",
+  "role": "explicit calibration and held-out comparison, not source-derived inputs",
+  "muon_electron_ratio": {"value": "206.7682827", "standard_uncertainty": "0.0000046", "use": "phase calibration"},
+  "electron_MeV": {"value": "0.51099895069", "standard_uncertainty": "0.00000000016", "use": "optional common energy calibration"},
+  "tau_electron_ratio": {"value": "3477.23", "standard_uncertainty": "0.23", "use": "held-out conditional comparison"},
+  "tau_MeV": {"value": "1776.86", "standard_uncertainty": "0.12", "use": "held-out conditional comparison"}
+}

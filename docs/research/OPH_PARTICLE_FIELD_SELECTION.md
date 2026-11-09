@@ -81,6 +81,25 @@ the high-field theorem supplies no such saturation or mass assignment.
 
 ## Candidate assignments from the existing catalogues
 
+The [conditional Standard Model benchmark](../../model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md)
+gives the full elementary comparison conditional on a specified renormalized
+chiral action and physical matching map. It fixes representation, spin and
+quadratic-mass conventions while keeping source predictions separate from
+supplied parameters. Its neutrino mass fields are symbolic and require a
+Dirac or Majorana extension; antiparticle mass equality requires physical
+CPT assumptions. Selection from the source requires a common vacuum/clock,
+current-preserving mirror control, a dynamical defect/charge dictionary
+where a defect is proposed, and measured response kernels. Agreement with
+a conditional parameter table does not select those ingredients.
+
+The [three-mass controller](../../model/particle_candidate_atlas/CALIBRATED_TRIPLET.md)
+constructs an explicit complete attenuator from all three supplied
+charged-lepton central masses. It verifies that the amplitude, phase and
+common scale can reproduce that triplet; it supplies no held-out test or
+source selection. Its attenuation differs from the exactly balanced
+one-ratio Koide comparison. The source question is an independent
+derivation of those inputs or their effective response.
+
 The [protected-object catalogue](../../model/protected_defect_catalog/CATALOG.md)
 records the protecting law, preparation, observable response and classification
 domain of each entry. Its complete bare-source commutants, ordered-cover
@@ -107,7 +126,7 @@ The most informative candidates are constrained by several source signatures:
 
 | Source result | Informed candidate interpretation | Decisive missing test |
 | --- | --- | --- |
-| Exact fifteen-state internal weights, including color Cartan weights, weak multiplets and hypercharge | The internal quantum-number template of one Standard Model fermion family | The finite CAR/current and kinetic attachments exist on a configured 90-mode field. Their interacting state and chiral continuum still need a common physical realization; three generations are not supplied by repeating internal rows. |
+| Exact fifteen-state weights and their full-Fock current, Weyl-kinetic and quantum-link Gauss attachments | The internal quantum-number template of one Standard Model fermion family | The configured 90-mode field has declared spatial-spin and three-family factors. Its interacting state, mirror removal and chiral continuum require a common physical realization; repeating internal rows does not select generations or masses. |
 | Conditional rank-three family band and the specified memory family's three singular directions | Three generation directions sharing a gauge representation | Realize the conditional family-band premises and their source isometry, then obtain the same interacting poles and mixing. The current real-projector family class has zero charged-current CP invariant and fails that observed feature. |
 | Eight signed kinetic windings with the proved weak-contact free Weyl-field map | Massless chiral fermionic field candidates | Identify their physical currents and survive a justified interacting trajectory. Eight kinetic nodes do not select the observed flavor or family labels. |
 | Complete odd-CAR addition/removal response on the interacting centered ground | Interacting fermionic matter candidates | Prove the relevant relativistic spectral response and attach color/electromagnetic currents on that same ground. Hidden internal spin does not determine physical spin. |
@@ -121,18 +140,94 @@ The repository uses `Q=T3+Y`; its Y is half the PDG review's hypercharge
 in `Q=T3+Y_PDG/2`. The comparison uses that conversion.
 These target signatures are comparison data, not additional OPH source results.
 
+The [operator crosswalk](../../model/standard_model_source_map/FERMION_ATTACHMENT.md)
+transfers the exact source charges to odd CAR creation operators, rather
+than inferring statistics from the even auxiliary register. Its
+[kinetic test](../../model/standard_model_source_map/KINETIC_ATTACHMENT.md)
+provides a falsifier for a chiral assignment: the eight-valley regulator
+retains positive original weight in whole mirror valley cells, and its
+same-M15 opposite winding
+cannot be renamed an antiparticle. A one-valley filter does not commute with
+the full local gauge algebra. The [quantum-link Gauss construction](../../model/standard_model_source_map/GAUGE_ATTACHMENT.md)
+provides the finite gauge coupling and complete dressed records, with no
+identification of its finite link state as the interacting vacuum.
+The [quantum-Higgs join](../../model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md)
+preserves all twelve Gauss currents and complete feedback records with the
+scalar operator retained. Its common interacting Hamiltonian does not
+remove mirror species. The exact quantum-link sign/projector controls
+separate a finite Ginsparg--Wilson identity from a canonical many-body
+chiral field and a selected vacuum.
+
 The family candidate has two precise owning constructions: the
 [conditional three-dimensional band](../../model/conditional_standard_model/PROOF.md)
 and the [native flavor orbit](../../model/native_flavor_orbit/PROOF.md).
-The latter uses a specified static mean-feedback service; it does not identify
-its singular coefficients with the correlated-memory experiment's physical
-poles. Its real-projector class has `Tr[H_u,H_d]^3=0` under every admitted
+The [complete-archive feedback limit](../../model/standard_model_source_map/FEEDBACK_LIMIT.md)
+realizes its static action as weak pulses at fixed finite volume, with the
+same four unconditional duty coefficients. This supplied controller does
+not identify pulse time with fixed-gate execution time, or its singular
+coefficients with physical poles. Its real-projector class has
+`Tr[H_u,H_d]^3=0` under every admitted
 family basis change, incompatible with the nonzero quark CP violation
 reviewed in the [PDG CKM account](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-ckm-matrix.pdf).
 The conditional construction also excludes separately conserved additive
 generation windings with its fully connected charged-current interactions.
-These tests constrain the family mechanism before a mass fit; they do not
-exclude every complex source family or metastable internal excitation.
+The [same-action Koide diagnostic](../../model/standard_model_source_map/KOIDE_ATTACHMENT.md)
+also excludes the balanced value for all four specified lepton policies.
+These tests constrain that family mechanism before a mass fit; they do not
+exclude the [distinct coherent family source](../../model/standard_model_source_map/KOIDE_SOURCE.md),
+which supplies balanced coefficients with a specified phase, or
+metastable internal excitations. The coherent source has a
+[complete physical-CAR feedback construction](../../model/charged_lepton_response/CAR_KOIDE.md)
+and a [free Dirac limit](../../model/charged_lepton_response/RELATIVISTIC_MASS.md)
+on its chosen Gaussian reference. Their three charged-family branches
+retain all regulator valleys; they are not three thresholds of the full
+electric-charge sector or a proof of an interacting chiral theory.
+
+The default phase gives two equal lower coefficients. Reading a configured
+phase is allowed, and the [complete coherent score](../../model/charged_lepton_response/PHASE_AND_PREMISES.md)
+can recover its unordered spectrum. Classical repair records do not choose
+that phase. The [calibrated sanity comparison](../../model/charged_lepton_response/CALIBRATED_SANITY.md)
+uses the muon/electron ratio to select a phase and compares the held-out
+tau/electron ratio. Agreement within one quoted standard uncertainty is
+conditional evidence for that mass-map hypothesis, with calibration
+provenance retained. The [mass-response bound](../../model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md)
+keeps kinetic corrections and charged threshold/resonance matching explicit;
+source currents and Koide balance alone do not fix them.
+
+The [capacity-dependent source](../../model/charged_lepton_response/P_DEPENDENCE.md)
+also has an exact C-duty realization, with two complete inverse controllers
+for each of its four retained branches. The
+[branch comparison](OPH_FIELD_RECONSTRUCTION.md#capacity-dependent-charged-candidates)
+places only the measured-alpha endpoint inside both quoted individual
+CODATA2022 ratio intervals. Its inherited alpha input, target-informed law
+and chosen response/scale premises are explicit. A unique root in a stated
+closure interval and an exact inverse implementation establish a configured
+source, without selecting it from the bare finite repair assumptions.
+Pixel P is not an identified total-cell or hardware-memory capacity.
+
+The [compatibility condition](../../model/particle_candidate_atlas/COMPATIBILITY.md)
+allows Koide balance at the bare-action level and a P-deformed response,
+provided one source supplies the intervening family-dependent correction.
+The [complete attenuator](../../model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md)
+realizes the supplied amplitude with sixteen flags and full-CAR feedback.
+The declared chi law selects its setting; it is not inferred from that
+implementation. The [unchanged native channel](../../model/particle_candidate_atlas/NATIVE_RESPONSE.md)
+does not supply the literal unitary mass-only or scalar-attenuation shortcut.
+Independent physical kinetic and mass responses must use the same state,
+clock and phase; common units or passive field relabeling preserve Koide Q.
+
+The [source-phase theorem](../../model/charged_lepton_response/SOURCE_PHASE_SELECTION.md)
+separates orientation from duty. Reversing EC to CE preserves unordered
+masses; imposing both half-turn symmetries gives a repeated eigenvalue.
+The actual ordering generator `I tensor i kappa(R-R^-1)` has a simultaneous
+noise term and commutes with the coherent coefficient, so conjugation by
+its evolution does not select the phase. MCPR instead specifies both phase
+and amplitude, with `Q<2/3`. The [eighteen-target candidate map](../../model/charged_lepton_response/CANDIDATE_MAP.md)
+preserves these separate actions and the eleven-entry defect inventory.
+It proposes charged sorted-mode comparisons without assigning physical
+spin, mass, lifetime, topology or any defect-species correspondence.
+The [particle atlas](OPH_PARTICLE_CANDIDATE_ATLAS.svg)
+displays the same candidate coverage and the required identification steps.
 
 The useful order is charges and allowed transitions, then statistics and
 spatial transformations, then the spectral response, and finally masses or

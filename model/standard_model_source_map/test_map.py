@@ -57,7 +57,8 @@ def test_export_separates_family_and_physical_identification():
     assert next(r for r in rows if r['target'] == 'gluon')['color_components'] == 8
 
 
-@pytest.mark.parametrize('kind', ['mass', 'physical', 'defect', 'family', 'source_pin'])
+@pytest.mark.parametrize('kind', ['mass', 'physical', 'defect', 'family', 'source_pin',
+                                 'mirror', 'Koide', 'coherent_phase', 'clock'])
 def test_unsupported_export_promotions_rejected(kind):
     value = deepcopy(built())
     row = value['rows'][0]
@@ -65,13 +66,38 @@ def test_unsupported_export_promotions_rejected(kind):
     elif kind == 'physical': row['physical_particle_identified'] = True
     elif kind == 'defect': row['identified_topological_defect'] = 'hedgehog'
     elif kind == 'family': row['source_family_index'] = 1
-    else: value['source_bindings'].pop(next(iter(value['source_bindings'])))
+    elif kind == 'source_pin': value['source_bindings'].pop(next(iter(value['source_bindings'])))
+    elif kind == 'mirror':
+        value['finite_source_attachments']['kinetic_and_mirror_attachment']['local_sine_regulator']['mirror_removal_or_weight_suppression_proved'] = True
+    elif kind == 'Koide':
+        value['finite_source_attachments']['source_action_masses']['policies'][0]['channels'][2]['Koide_diagnostic']['balanced_value_two_thirds_excluded'] = False
+    elif kind == 'coherent_phase':
+        value['finite_source_attachments']['coherent_Koide_source']['scope']['phase_or_mass_ratio_selected'] = True
+    else:
+        value['finite_source_attachments']['complete_feedback_limit']['physical_clock_or_vacuum_selected'] = True
     with pytest.raises(ValueError): packet.validate(value)
 
 
 def test_generated_artifacts_match_computation():
     assert packet.OUTPUT.read_text() == packet.canonical(built())
     assert packet.MARKDOWN.read_text() == packet.render(built())
+    assert packet.MASS_MARKDOWN.read_text() == packet.render_masses(built())
+
+
+def test_export_preserves_all_source_duties_and_distinct_koide_program():
+    value = built()
+    assert value['configured_family_copies'] == 3
+    source = value['finite_source_attachments']
+    assert [p['policy'] for p in source['source_action_masses']['policies']] == ['always', 'C', 'E', 'CE']
+    assert source['coherent_Koide_source']['scope']['different_configured_source_from_current_gated_Z_D'] is True
+    assert source['source_action_masses']['physical_pole_mass_table'] == []
+    assert source['fermion_operator_attachment']['physical_CAR_modes'] == 90
+
+
+def test_scientific_cache_does_not_share_mutable_export_state():
+    value = packet.build()
+    value['finite_source_attachments']['source_action_masses']['policies'].clear()
+    assert len(packet.build()['finite_source_attachments']['source_action_masses']['policies']) == 4
 
 
 def test_fresh_complete_export_binds_its_runtime_source_imports():

@@ -4,7 +4,8 @@
 
 The table compares exact internal source representations with Standard Model target channels.
 It assigns no observed mass, topological defect or physical particle identity.
-Repeated fermion rows share one internal block; a source family or mass eigenbasis is not selected.
+The configured field has three family coordinates. Their measured-species assignment is unproved.
+The source action coefficients and four complete duty policies are exported in [SOURCE_MASSES.md](SOURCE_MASSES.md).
 Neutrino rows are flavor channels, not identified mass eigenstates. Gluons retain eight color components.
 
 | Target | Computed source interface | Physical source | Predicted mass |
@@ -29,7 +30,8 @@ Neutrino rows are flavor channels, not identified mass eigenstates. Gluons retai
 | Higgs | radial mode conditional on a selected neutral doublet vacuum | Unidentified | Underived |
 
 The right-handed comparison components are charge-conjugated left-Weyl internal weights.
-The internal register has even occupation parity; physical fermionic statistics and chirality require their own field map.
+The even internal register has an exact current intertwiner into a separately configured odd CAR field.
+Free Weyl propagation and finite dynamical gauge identities are checked; the interacting chiral continuum is unproved.
 A conserved symmetry label, a topological invariant, an internal multiplet and a particle pole are distinct objects.
 
 Target conventions: [Particle Data Group electroweak review](https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf).

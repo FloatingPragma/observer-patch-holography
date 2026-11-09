@@ -24,6 +24,114 @@ internal weights match the comparison representations, including conjugate
 right-handed components. It supplies no source-selected family indices, physical
 mass eigenstates or topological assignments; those fields are explicitly empty.
 
+The [conditional Standard Model completion](../../model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md)
+specifies the comparison action separately: canonical chiral kinetic terms,
+a Higgs phase, renormalized gauge/Yukawa inputs and an observable matching
+scheme. Its exact quadratic spectrum covers charged fermions, gauge bosons
+and the scalar, including conjugate antiparticles under the stated CPT
+hypotheses. Neutrino flavor channels are mixtures of three symbolic mass
+fields; a Dirac-singlet or Weinberg interaction must be supplied. Connecting
+this benchmark to the native source requires common-state inverse two-point
+kernels, gauge-covariant mirror control, the physical clock and vacuum, and
+mass-scheme or resonance matching. The finite CAR dictionary alone does
+not supply these estimates.
+
+An exact [three-input attenuator calibration](../../model/particle_candidate_atlas/CALIBRATED_TRIPLET.md)
+fits the supplied electron, muon and PDG2026 tau central masses as action
+coefficients, with `r=0.99999669509849` and all sixteen records retained.
+Its phase and common GeV factor are calibrated too. The rational realization
+error below `10^-36 GeV` is not a physical uncertainty, and tau is not held
+out. This differs from the balanced one-ratio comparison and does not
+replace source selection or interacting observable matching.
+
+The [full-Fock current attachment](../../model/standard_model_source_map/FERMION_ATTACHMENT.md)
+uses the existing `P90=I2 tensor P15 tensor I3` map, retaining all fifteen
+weights and all ninety field indices. Its odd creation operators transform
+under the exact twelve currents on every occupation sector. This configured
+field is distinct from the auxiliary even register and from the default
+two-flavour centered ground. The [kinetic frames](../../model/standard_model_source_map/KINETIC_ATTACHMENT.md)
+preserve those currents; opposite-winding M15 copies are mirrors, whereas
+holes transform in the conjugate representation.
+
+The [spatial gauge join](../../model/standard_model_source_map/GAUGE_ATTACHMENT.md)
+adds Weyl hopping to the declared sixty-state quantum links with exact
+full-Fock Gauss conservation. The finite dressed reference experiment
+retains original block probabilities `d/15`, for `d=6,3,3,2,1`, all twenty
+position/spin outcomes and the other-occupation complement. Its transport
+frequencies are not rest masses. The [correlated feedback theorem](../../model/standard_model_source_map/FEEDBACK_LIMIT.md)
+retains its complete archive while approaching the same static mass action
+at fixed volume. The target pulse time excludes auxiliary-gate overhead;
+no physical clock or vacuum is selected by this limit. Action-mass ratios
+and their [Koide exclusion](../../model/standard_model_source_map/KOIDE_ATTACHMENT.md)
+therefore retain the physical comparison requirements of the
+[central dependency map](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies).
+The [quantum-Higgs attachment](../../model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md)
+retains the charged scalar in every Gauss generator and uses its exact
+full-CAR rank-one vertex norm 2 in the same complete-history bound, with a
+common interacting gauge/Higgs Hamiltonian. This finite action construction
+does not select a scalar expectation, interacting vacuum or chiral regulator.
+The distinct [coherent Koide source](../../model/standard_model_source_map/KOIDE_SOURCE.md)
+retains eight analyzer records and obtains a balanced coefficient without
+postselection. Its [full-CAR weak-feedback realization](../../model/charged_lepton_response/CAR_KOIDE.md)
+implements the charged Higgs pairing on all physical occupations, with a
+complete charged quantum archive and error `108 |v_H|^2 t^2/N` in unhalved
+trace norm. The fresh ancillary modes, pulse clock and overhead are supplied.
+The [same-coefficient free field](../../model/charged_lepton_response/RELATIVISTIC_MASS.md)
+has three charged Dirac family branches with rest energies
+`|v_H| sigma_j(Y)` in the specified Gaussian reference, with all eight
+valleys retained. These branch energies are not three lower thresholds of
+the entire electric-charge sector.
+
+The [complete phase score](../../model/charged_lepton_response/PHASE_AND_PREMISES.md)
+reads the action spectrum; it does not select the phase from classical
+repair records. The zero-phase default has a repeated lower coefficient.
+A [one-ratio calibration](../../model/charged_lepton_response/CALIBRATED_SANITY.md)
+fits the supplied muon/electron ratio and tests the held-out tau/electron
+ratio, which lies within one quoted standard uncertainty. This comparison
+assumes a common action-to-mass map. The
+[response theorem](../../model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md)
+gives conditional error bars when kinetic and self-energy bounds and the
+physical observable matching are supplied. It computes none of those
+interacting corrections, and permits the electron's infrared threshold
+and unstable-lepton resonance definitions rather than requiring three
+isolated real poles.
+
+The [P-dependent spectrum](../../model/charged_lepton_response/P_DEPENDENCE.md)
+has a separate exact native-memory realization: two admissible C-duty
+controllers satisfy `spec(g Z_C)={m_j/v}` with complete records. The
+four [source-branch ratios](OPH_FIELD_RECONSTRUCTION.md#capacity-dependent-charged-candidates)
+retain the forward coordinates, measured-alpha endpoint and two conditional
+closure roots. Only the measured-alpha endpoint lies inside both quoted
+individual CODATA2022 ratio intervals. This is a conditional comparison,
+with measured-alpha ancestry and a target-informed action architecture;
+the finite inverse does not select that architecture or a physical unit.
+Its amplitude changes with u as well as its phase with P, giving
+`Q=(1+exp(-2chi))/3<2/3` rather than exact balanced Koide.
+
+The [common-source compatibility test](../../model/particle_candidate_atlas/COMPATIBILITY.md)
+permits these as bare and effective coefficients. The
+[configured attenuator](../../model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md)
+implements the amplitude `r=exp(-chi)` with all sixteen analyzer flags and
+a full-CAR weak limit. This supplies a complete controller realization,
+not a derivation of chi from passive memory or physical self-energy. The
+unchanged native channel and its all-lag diffusion fail the literal
+mass-only replacement described in the [response control](../../model/particle_candidate_atlas/NATIVE_RESPONSE.md).
+A physical bridge requires independent response data; passive field
+coordinates preserve normalized masses. The comparison also retains the
+distinction between delta(P,u) and the fitted phase.
+
+The [phase audit](../../model/charged_lepton_response/SOURCE_PHASE_SELECTION.md)
+identifies the all-lag ordering potential with the C3 orientation generator,
+in the identity Nambu block and with a compulsory dissipative correction.
+Its conjugation fixes the coherent mass coefficient. A phase attachment
+therefore requires more than reading an event frequency or reversing C/E
+order. The [candidate dictionary](../../model/charged_lepton_response/CANDIDATE_MAP.md)
+lists all eighteen target interfaces and keeps the eleven protected objects
+unlinked. The charged mass modes are eigenvectors of the complete family
+operator; P2, P3 and P10 are nonorthogonal constituents, not three species.
+The [particle atlas](OPH_PARTICLE_CANDIDATE_ATLAS.svg)
+separates these finite constructions from the physical comparison for each target.
+
 ## Spectral results to reuse
 
 The [minimum comparison dependencies](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies)

@@ -1,0 +1,1185 @@
+{
+  "all_eighteen_targets_physically_identified": false,
+  "charged_source_branches": [
+    {
+      "ascending_action_coefficients": [
+        [
+          "5157393179667170816181333465737780976569819336932565649088476339635885966169212060012098316095500446570930213188716586767557479357625102453624406562614075459049/68421875406512792248976062479561930186743806100047995714499970118267000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "2086144911602651926462084661557069453898585642585766764799679261011823081241106676233241478546646071788874835544949472126751126863941015225736324593860535121813389401/27676374914432798413541821368732882512817122592245014074532379912958528432000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        [
+          "9597467978716261716264772561157123943061257285371318826825654102109393822959932508395497748992237071535708590191395548067520093298470068828116390159063526679131441/615796878658615130240784562316057371680694254900431961430499731064403000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "15975874105015691354659405110690584388775746201288558312774989533347056729085058991609766455685683781728736560745781968289116523383677467155440353578513353152659755163/1025050922756770311612660050693810463437671207120185706464162218998464016000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ],
+        [
+          "453402948433046938662042772347085976739480645020152164208413391313129062767682868884865498119334544108947279778260995367748948975370438748148004763357927330088704876449/1729773432152049900846363835545805157051070162015313379658273744559908027000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "453402948433046938662042772347085976739480645020488840220490672718404141108407483069431561387285579215117064982538421930178497336673938748148004763357927330088704876449/1729773432152049900846363835545805157051070162015313379658273744559908027000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        ]
+      ],
+      "ascending_action_ratios": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "431348600835423666575803937988645778496945147433728553352852197965204595979111206657327250830707102943100886877562081512346623073206438773410863039308951143066883484304/2086144911602651926462084661557069453898585642585766764799679261011823081241106676233241478546646071788874835544949472126751126863941015225736324593860535121813389401",
+          "47927622315047074063978215332071753166327238603865674938324968600041170187255176974829299367057051345186209682237345904867349570151032401466321060735540059457979265489/231793879066961325162453851284118828210953960279097230532632480608595258863509066825183746718596172070683887501553678275681103352249102604675695328550127007431498256"
+        ],
+        [
+          "7254447174928751018592684357553375627831690320322434627334614261010065004282925902157847969909352705743156476452175925883983183605927019970368076213726837281419278023184/2086144911602651926462084661557069453898585642585766764799679261011823081241106676233241478546646071788874835544949472126751126863941015225736324593860535121813389401",
+          "453402948433046938662042772347085976739480645020488840220490672718404141108407483069431561387285579215117064982538421930178497336673938748148004763357927330088704876449/130384056975165745403880291347316840868661602656992192174605770342334833110723850089165857529210346789759686719623944030070620635640120215130078622309446441680217769"
+        ]
+      ],
+      "coefficient_unit": "dimensionless Y; free energies use |v_H| times its singular values",
+      "exact_positive_root_Koide_ratio": "2/3",
+      "free_branch_theorem_owner": "model/charged_lepton_response/RELATIVISTIC_MASS.md",
+      "full_CAR_owner": "model/charged_lepton_response/CAR_KOIDE.md",
+      "input_ancestry": "muon/electron ratio selects z; electron scale is optional; tau is held out",
+      "kind": "calibrated_coherent",
+      "phase": {
+        "calibration_input_muon_electron_ratio": "2067682827/10000000",
+        "half_angle_tangent": "55785269584552807/500000000000000000",
+        "imaginary": "55785269584552807000000000000000000/253111996302621232508102150171579249",
+        "real": "246888003697378767491897849828420751/253111996302621232508102150171579249"
+      },
+      "physical_particle_assignment_proved": false,
+      "source_clock": "declared weak-pulse and quadratic field clock; native overhead comparison separate",
+      "source_operator": "Y=C(z)^2/3",
+      "source_phase_derived": false,
+      "source_state": "specified filled-negative-energy Gaussian reference for the free field"
+    },
+    {
+      "capacity_owner": "model/pixel_mass_closure/PROOF.md",
+      "coefficient_scale": "t_j=s_j*(exp(3*kappa)/(2*6^14*product(s)))^(1/3); kappa=(u/50)/(1+u/31+u^2/310)",
+      "individual_projector_is_a_mass_eigenmode": false,
+      "input_ancestry": "declared historically target-informed MCPR law and separately specified capacity branch",
+      "kind": "P_MCPR",
+      "native_memory_owner": "model/mcpr_native_memory_bridge/PROOF.md",
+      "physical_particle_assignment_proved": false,
+      "same_as_calibrated_coherent_action": false,
+      "shape_square_is_absolute_mass_coefficient": false,
+      "source_clock": "declared correlated weak-pulse clock; physical clock unproved",
+      "source_operator": "g Z_C, a positive sum of P2,P3,P10 in the complete reset2 memory",
+      "source_projector_components": [
+        "P2",
+        "P3",
+        "P10"
+      ],
+      "source_state": "stationary complete twelve-state memory for the coefficient realization",
+      "variants": [
+        {
+          "ancestry": "supplied forward decimal coordinates; no complete endpoint selection theorem",
+          "ascending_action_ratios": [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "206768300595180971740336217487/1000000000000000000000000000",
+              "516920751487952429350840702651/2500000000000000000000000000"
+            ],
+            [
+              "17386827682980112956253143648643/5000000000000000000000000000",
+              "8693413841490056478126573965309/2500000000000000000000000000"
+            ]
+          ],
+          "ascending_shape_squares": [
+            [
+              "8140790044215212085917391/5000000000000000000000000000",
+              "8140790044215212085917393/5000000000000000000000000000"
+            ],
+            [
+              "841628661472273783197328931/2500000000000000000000000000",
+              "841628661472273783197328983/2500000000000000000000000000"
+            ],
+            [
+              "14154251370208994725740142249/2500000000000000000000000000",
+              "5661700548083597890296056903/1000000000000000000000000000"
+            ]
+          ],
+          "branch": "forward",
+          "complete_inverse_memory_branch_count": 2,
+          "positive_root_Koide_ratio": [
+            "53333157072723115075485973/80000000000000000000000000",
+            "3333322317045194692217873313/5000000000000000000000000000"
+          ],
+          "source_coordinates": {
+            "P": [
+              "40774302396472434424112847587673890711978156370973817121629/25000000000000000000000000000000000000000000000000000000000",
+              "40774302396472434424112847587673890711978156370973817121629/25000000000000000000000000000000000000000000000000000000000"
+            ],
+            "chi": [
+              "33048973639148558661753/10000000000000000000000000000",
+              "16524486819574279330877/5000000000000000000000000000"
+            ],
+            "delta": [
+              "88889905371009768119743511/400000000000000000000000000",
+              "2222247634275244202993587777/10000000000000000000000000000"
+            ],
+            "rho": [
+              "14142088885501440061515118787/10000000000000000000000000000",
+              "14142088885501440061515118791/10000000000000000000000000000"
+            ],
+            "u": [
+              "4112424744181668514088993388965971943770774203135879/100000000000000000000000000000000000000000000000000000",
+              "4112424744181668514088993388965971943770774203135879/100000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        },
+        {
+          "ancestry": "supplied endpoint inferred from measured alpha; no charged masses fitted here",
+          "ascending_action_ratios": [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "129230176711951901822297399841/625000000000000000000000000",
+              "2067682827391230429156758906809/10000000000000000000000000000"
+            ],
+            [
+              "17386826311344682750756326207667/5000000000000000000000000000",
+              "34773652622689365501512658846587/10000000000000000000000000000"
+            ]
+          ],
+          "ascending_shape_squares": [
+            [
+              "16281581379115569400302129/10000000000000000000000000000",
+              "4070395344778892350075533/2500000000000000000000000000"
+            ],
+            [
+              "3366514622037008936763347741/10000000000000000000000000000",
+              "67330292440740178735266959/200000000000000000000000000"
+            ],
+            [
+              "56617005502541245643067226747/10000000000000000000000000000",
+              "28308502751270622821533613393/5000000000000000000000000000"
+            ]
+          ],
+          "branch": "measured_endpoint",
+          "complete_inverse_memory_branch_count": 2,
+          "positive_root_Koide_ratio": [
+            "6666644633995263349914541859/10000000000000000000000000000",
+            "333332231699763167495727093/500000000000000000000000000"
+          ],
+          "source_coordinates": {
+            "P": [
+              "2038710261754949156099099809728311176669978564534906325832688441738474174866679/1250000000000000000000000000000000000000000000000000000000000000000000000000000",
+              "2038710261754949156099099809728311176669978564534906325832688441738474174866679/1250000000000000000000000000000000000000000000000000000000000000000000000000000"
+            ],
+            "chi": [
+              "33049116329143490964137/10000000000000000000000000000",
+              "16524558164571745482069/5000000000000000000000000000"
+            ],
+            "delta": [
+              "111112380950532977761439689/500000000000000000000000000",
+              "1111123809505329777614396891/5000000000000000000000000000"
+            ],
+            "rho": [
+              "14142088885299646602376121449/10000000000000000000000000000",
+              "14142088885299646602376121453/10000000000000000000000000000"
+            ],
+            "u": [
+              "8224867239126099/200000000000000000",
+              "8224867239126099/200000000000000000"
+            ]
+          }
+        },
+        {
+          "ancestry": "unique root within the admitted interval of the declared census, scale and response law",
+          "ascending_action_ratios": [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "2067682979222621775108313428501/10000000000000000000000000000",
+              "1033841489611311052140818492603/5000000000000000000000000000"
+            ],
+            [
+              "34773654955313087733289636699329/10000000000000000000000000000",
+              "8693413738828273131987627696261/2500000000000000000000000000"
+            ]
+          ],
+          "ascending_shape_squares": [
+            [
+              "8140790140818165948219797/5000000000000000000000000000",
+              "3256316056327266820322959/2000000000000000000000000000"
+            ],
+            [
+              "1683257321159305429686628121/5000000000000000000000000000",
+              "3366514642318610939359122717/10000000000000000000000000000"
+            ],
+            [
+              "2830850274204255839527017771/500000000000000000000000000",
+              "28308502742042558464402897163/5000000000000000000000000000"
+            ]
+          ],
+          "branch": "mssm_beta4_proxy",
+          "complete_inverse_memory_branch_count": 2,
+          "positive_root_Koide_ratio": [
+            "6666644634076151558840352741/10000000000000000000000000000",
+            "416665289629759473295232003/625000000000000000000000000"
+          ],
+          "source_coordinates": {
+            "P": [
+              "407742878539828944831277788933936182986085709303563157/250000000000000000000000000000000000000000000000000000",
+              "163097151415931603932223259909009568956606136971888647/100000000000000000000000000000000000000000000000000000"
+            ],
+            "chi": [
+              "16524497498003645441299/5000000000000000000000000000",
+              "33048994996028115783909/10000000000000000000000000000"
+            ],
+            "delta": [
+              "2222247631990247510607092217/10000000000000000000000000000",
+              "2222247631990247511640789591/10000000000000000000000000000"
+            ],
+            "rho": [
+              "14142088885471236972613676693/10000000000000000000000000000",
+              "1767761110683904625258078987/1250000000000000000000000000"
+            ],
+            "u": [
+              "4112426072589035166124395295154479868099680409151261569/100000000000000000000000000000000000000000000000000000000",
+              "1028106518147582621315545813285158733538528139734753699/25000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        },
+        {
+          "ancestry": "unique root within the admitted interval of the declared census, scale and response law",
+          "ascending_action_ratios": [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "2067826213103984981391248488957/10000000000000000000000000000",
+              "64619569159499535526865030791/312500000000000000000000000"
+            ],
+            [
+              "8694111099859115774980521358751/2500000000000000000000000000",
+              "17388222199718232567012044662207/5000000000000000000000000000"
+            ]
+          ],
+          "ascending_shape_squares": [
+            [
+              "1628032634680901508417203/1000000000000000000000000000",
+              "8140163173404508012326287/5000000000000000000000000000"
+            ],
+            [
+              "841622139445478041818250869/2500000000000000000000000000",
+              "3366488557781912225905653063/10000000000000000000000000000"
+            ],
+            [
+              "5661718640044842985583017167/1000000000000000000000000000",
+              "11323437280089685979351536311/2000000000000000000000000000"
+            ]
+          ],
+          "branch": "sm_color_beta7",
+          "complete_inverse_memory_branch_count": 2,
+          "positive_root_Koide_ratio": [
+            "416666356142896882432651487/625000000000000000000000000",
+            "83333271228579376536907667/125000000000000000000000000"
+          ],
+          "source_coordinates": {
+            "P": [
+              "1628533369611832927986299843750615925943235065607582341/1000000000000000000000000000000000000000000000000000000",
+              "325706673922366637039174600376468199942578276786729727/200000000000000000000000000000000000000000000000000000"
+            ],
+            "chi": [
+              "3726288014450879130717/5000000000000000000000000000",
+              "7452576028907803536773/10000000000000000000000000000"
+            ],
+            "delta": [
+              "444447788732762657621093761/2000000000000000000000000000",
+              "277779867957976661116210779/1250000000000000000000000000"
+            ],
+            "rho": [
+              "441941408881274472592491547/312500000000000000000000000",
+              "11313700067360626505207237/8000000000000000000000000"
+            ],
+            "u": [
+              "1953138769508584739534196145446334765223263200088141083/100000000000000000000000000000000000000000000000000000000",
+              "1953138769509376798811263780611212181899489442072046721/100000000000000000000000000000000000000000000000000000000"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "chosen_action_candidates_exhaust_all_OPH_sources": false,
+  "parent_scientific_experiments_replayed_by_projection": false,
+  "physical_mass_predictions": [],
+  "physical_particle_map": [],
+  "rows": [
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": 0,
+      "charged_source_branch_kinds": [
+        "calibrated_coherent",
+        "P_MCPR"
+      ],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "charged_lepton_left": {
+          "Q": "-1",
+          "T3": "-1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            23
+          ]
+        },
+        "charged_lepton_right_conjugate": {
+          "Q": "1",
+          "T3": "0",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "6",
+          "source_masks": [
+            24
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "source/phase/controller selection or explicit calibration ancestry",
+        "selected interacting vacuum and chiral/mirror treatment",
+        "common physical clock and controlled kinetic/mass corrections",
+        "infrared threshold and observable match",
+        "independent test of this sorted-family species hypothesis"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": "branch-specific intervals and common scales in charged_source_branches; never a physical mass",
+      "source_object": "jth ascending spectral subspace of the selected charged-family action",
+      "source_operator_interface": "odd CAR creator in the charged left/right-conjugate components, with the Higgs-line pairing",
+      "status": "candidate interface; physical identity unproved",
+      "target": "electron",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": 1,
+      "charged_source_branch_kinds": [
+        "calibrated_coherent",
+        "P_MCPR"
+      ],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "charged_lepton_left": {
+          "Q": "-1",
+          "T3": "-1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            23
+          ]
+        },
+        "charged_lepton_right_conjugate": {
+          "Q": "1",
+          "T3": "0",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "6",
+          "source_masks": [
+            24
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "source/phase/controller selection or explicit calibration ancestry",
+        "selected interacting vacuum and chiral/mirror treatment",
+        "common physical clock and controlled kinetic/mass corrections",
+        "unstable-particle resonance, width and observable match",
+        "independent test of this sorted-family species hypothesis"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": "branch-specific intervals and common scales in charged_source_branches; never a physical mass",
+      "source_object": "jth ascending spectral subspace of the selected charged-family action",
+      "source_operator_interface": "odd CAR creator in the charged left/right-conjugate components, with the Higgs-line pairing",
+      "status": "candidate interface; physical identity unproved",
+      "target": "muon",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": 2,
+      "charged_source_branch_kinds": [
+        "calibrated_coherent",
+        "P_MCPR"
+      ],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "charged_lepton_left": {
+          "Q": "-1",
+          "T3": "-1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            23
+          ]
+        },
+        "charged_lepton_right_conjugate": {
+          "Q": "1",
+          "T3": "0",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "6",
+          "source_masks": [
+            24
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "source/phase/controller selection or explicit calibration ancestry",
+        "selected interacting vacuum and chiral/mirror treatment",
+        "common physical clock and controlled kinetic/mass corrections",
+        "unstable-particle resonance, width and observable match",
+        "independent test of this sorted-family species hypothesis"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": "branch-specific intervals and common scales in charged_source_branches; never a physical mass",
+      "source_object": "jth ascending spectral subspace of the selected charged-family action",
+      "source_operator_interface": "odd CAR creator in the charged left/right-conjugate components, with the Higgs-line pairing",
+      "status": "candidate interface; physical identity unproved",
+      "target": "tau",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "up_left": {
+          "Q": "2/3",
+          "T3": "1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            9,
+            10,
+            12
+          ]
+        },
+        "up_right_conjugate": {
+          "Q": "-2/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-4",
+          "source_masks": [
+            3,
+            5,
+            6
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "up",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "up_left": {
+          "Q": "2/3",
+          "T3": "1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            9,
+            10,
+            12
+          ]
+        },
+        "up_right_conjugate": {
+          "Q": "-2/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-4",
+          "source_masks": [
+            3,
+            5,
+            6
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "charm",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "up_left": {
+          "Q": "2/3",
+          "T3": "1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            9,
+            10,
+            12
+          ]
+        },
+        "up_right_conjugate": {
+          "Q": "-2/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-4",
+          "source_masks": [
+            3,
+            5,
+            6
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "top",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "down_left": {
+          "Q": "-1/3",
+          "T3": "-1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            17,
+            18,
+            20
+          ]
+        },
+        "down_right_conjugate": {
+          "Q": "1/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "2",
+          "source_masks": [
+            27,
+            29,
+            30
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "down",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "down_left": {
+          "Q": "-1/3",
+          "T3": "-1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            17,
+            18,
+            20
+          ]
+        },
+        "down_right_conjugate": {
+          "Q": "1/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "2",
+          "source_masks": [
+            27,
+            29,
+            30
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "strange",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "down_left": {
+          "Q": "-1/3",
+          "T3": "-1/2",
+          "color_representation": "3",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "1",
+          "source_masks": [
+            17,
+            18,
+            20
+          ]
+        },
+        "down_right_conjugate": {
+          "Q": "1/3",
+          "T3": "0",
+          "color_representation": "3bar",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "2",
+          "source_masks": [
+            27,
+            29,
+            30
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "choose and justify one family action and mass/mixing basis",
+        "interacting gauge vacuum, chiral regulator and physical clock",
+        "interacting color-sector treatment and the matching convention for a quark mass",
+        "gauge-invariant hadronic or short-distance observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured color-triplet and conjugate internal CAR component; family coordinate unspecified",
+      "source_operator_interface": "same-current odd CAR creators and supplied Weyl/Yukawa menu",
+      "status": "candidate interface; physical identity unproved",
+      "target": "bottom",
+      "target_kind": "fermion_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "neutrino_left": {
+          "Q": "0",
+          "T3": "1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            15
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "neutrino mass mechanism and Majorana/Dirac assignment",
+        "flavor-to-mass mixing and oscillation response",
+        "common source state, clock and physical observable map"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured neutral component of the left weak doublet",
+      "source_operator_interface": "odd CAR flavor channel; no right-neutrino mode in M15",
+      "status": "candidate interface; physical identity unproved",
+      "target": "electron_neutrino",
+      "target_kind": "neutrino_flavor_channel",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "neutrino_left": {
+          "Q": "0",
+          "T3": "1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            15
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "neutrino mass mechanism and Majorana/Dirac assignment",
+        "flavor-to-mass mixing and oscillation response",
+        "common source state, clock and physical observable map"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured neutral component of the left weak doublet",
+      "source_operator_interface": "odd CAR flavor channel; no right-neutrino mode in M15",
+      "status": "candidate interface; physical identity unproved",
+      "target": "muon_neutrino",
+      "target_kind": "neutrino_flavor_channel",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {
+        "neutrino_left": {
+          "Q": "0",
+          "T3": "1/2",
+          "color_representation": "1",
+          "comparison_convention": "all-left-Weyl internal representation",
+          "physical_chirality_derived": false,
+          "q6Y": "-3",
+          "source_masks": [
+            15
+          ]
+        }
+      },
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "neutrino mass mechanism and Majorana/Dirac assignment",
+        "flavor-to-mass mixing and oscillation response",
+        "common source state, clock and physical observable map"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "configured neutral component of the left weak doublet",
+      "source_operator_interface": "odd CAR flavor channel; no right-neutrino mode in M15",
+      "status": "candidate interface; physical identity unproved",
+      "target": "tau_neutrino",
+      "target_kind": "neutrino_flavor_channel",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 1,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "selected neutral Higgs/gauge vacuum and unbroken physical Q",
+        "massless transverse radiation sector and physical clock",
+        "gauge-invariant electromagnetic observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "Q=T3+Y direction conditional on a selected neutral Higgs vacuum",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "photon",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 8,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "dynamical color gauge action and interacting vacuum",
+        "gauge-invariant color-sector observables; no colored free pole inferred",
+        "physical clock and independent strong-interaction comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "eight exact color-current directions; one adjoint target channel",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "gluon",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 1,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "selected broken-phase gauge action and Higgs vacuum",
+        "physical polarizations, charged resonance and decay width",
+        "common clock, current normalization and independent comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "weak raising current T+ with [Q,T+]=T+",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "W_plus",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 1,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "selected broken-phase gauge action and Higgs vacuum",
+        "physical polarizations, conjugate charged resonance and decay width",
+        "common clock, current normalization and independent comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "weak lowering current T- with [Q,T-]=-T-",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "W_minus",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 1,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "selected neutral mixing, broken-phase action and vacuum",
+        "physical polarizations, neutral resonance and decay width",
+        "common clock and independent neutral-current comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "neutral span(T3,Y), with a mixing coefficient to be selected",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "Z",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    },
+    {
+      "candidate_name_is_a_hypothesis": true,
+      "candidate_sorted_charged_mode_index": null,
+      "charged_source_branch_kinds": [],
+      "color_components": 1,
+      "defect_creation_map": null,
+      "identified_topological_defect": null,
+      "internal_components": {},
+      "missing_defect_bridge": "No source topology invariant, creation map and spectral-sector map connect this channel to a defect.",
+      "missing_physical_links": [
+        "selected stable vacuum and radial scalar kinetic response",
+        "scalar resonance, interactions and decay width",
+        "common clock and independent scalar-observable comparison"
+      ],
+      "physical_lifetime": null,
+      "physical_mass": null,
+      "physical_particle_identified": false,
+      "physical_particle_or_resonance_map": null,
+      "physical_spin": null,
+      "physical_width": null,
+      "source_mass_coefficient": null,
+      "source_object": "radial response of a supplied neutral Higgs doublet direction",
+      "source_operator_interface": "finite current/doublet interface; propagation and physical spin are not inferred",
+      "status": "candidate interface; physical identity unproved",
+      "target": "Higgs",
+      "target_kind": "boson_species",
+      "topological_invariant": null
+    }
+  ],
+  "schema": "oph.charged_lepton_response.candidate_map.v1",
+  "separate_defect_inventory": {
+    "entries": [
+      {
+        "id": "bare_native_source",
+        "kind": "exhaustive_exclusion",
+        "protected_object": "only scalar branch-commuting charges",
+        "source": "complete all-seam C/E on H66 or H78; source-only charges",
+        "topology": "no protected source-only reducing charge in this domain"
+      },
+      {
+        "id": "ordered_exchange_charge",
+        "kind": "protected_memory_charge",
+        "protected_object": "Q=I66 tensor X, two sharp eigenvalue sectors",
+        "source": "H66 with a coherent orientation bit; complete ordered-cover repair",
+        "topology": "Z2 character of the ordered exchange cover"
+      },
+      {
+        "id": "selected_spin_charge",
+        "kind": "conserved_symmetry_charge",
+        "protected_object": "integer U1 spin charge Q; global X parity is exp(i pi Q); local Z creates two sharp Q=+/-1 channels",
+        "source": "actual eight-site selected spin cube, J=1, B=1/4; inherited two-flavor repair",
+        "topology": "global internal U1 symmetry, not a winding number or identified electric charge"
+      },
+      {
+        "id": "single_occupancy_spin_memory",
+        "kind": "repair_protected_algebra",
+        "protected_object": "full M256 operator algebra under repair alone",
+        "source": "eight-site one-particle-per-site spin code with complete C/E repair",
+        "topology": "no topological label supplied by identity repair"
+      },
+      {
+        "id": "joint_positive_field_canonical_sector",
+        "kind": "constructive_field_family",
+        "protected_object": "two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories",
+        "source": "protected spin interaction H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1; supplied p=n^-2 and B=J n^-5; positive-B ground and retained H_B clock",
+        "topology": "internal source spin rotation, no spatial winding or identified electromagnetic charge"
+      },
+      {
+        "id": "common_hidden_spin_factor",
+        "kind": "joint_noiseless_subsystem",
+        "protected_object": "at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315",
+        "source": "same six-site Weyl/contact field and complete charged-block repair",
+        "topology": "internal spin factor, no topological boundary invariant"
+      },
+      {
+        "id": "cube_eta_range",
+        "kind": "joint_protected_sector",
+        "protected_object": "rank1820 image of eta+ from N4 to N6; eta>=2 sector",
+        "source": "original eight-site Weyl/contact field with the stated four-dimer repair",
+        "topology": "eta symmetry representation, no spatial winding invariant"
+      },
+      {
+        "id": "compact_opposite_texture_cores",
+        "kind": "specified_topological_background",
+        "protected_object": "opposite shell degrees +1 and -1, constant exterior, four localized band modes",
+        "source": "prescribed two-core texture in the declared cubic two-spin field",
+        "topology": "genuine shell winding of the prescribed order-parameter field"
+      },
+      {
+        "id": "one_hole_spin_readout",
+        "kind": "scoped_repair_sector",
+        "protected_object": "hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1)",
+        "source": "full two-flavour CAR repair on H_h: one empty site and one fermion at every other site; dimension V 2^(V-1)",
+        "topology": "one-unit occupation deficit, without a topological invariant or physical particle assignment"
+      },
+      {
+        "id": "centered_full_CAR_charge_response",
+        "kind": "scoped_interacting_response_family",
+        "protected_object": "odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair",
+        "source": "fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance",
+        "topology": "source U1 charge grading, without an assigned winding invariant or Standard Model charge"
+      },
+      {
+        "id": "kinetic_Weyl_nodes_and_free_fields",
+        "kind": "kinetic_topology_and_conditional_field_map",
+        "protected_object": "eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields",
+        "source": "original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))",
+        "topology": "momentum-space kinetic winding with explicit boundary-gap stability; period-two onsite mass channels couple opposite winding sectors"
+      }
+    ],
+    "exhaustive_over_all_possible_sources_or_defects": false,
+    "species_links": [],
+    "supplied": true
+  },
+  "source_internal_weight_count": 15,
+  "target_count": 18,
+  "target_dictionary_reference": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-standard-model.pdf",
+  "target_names_enter_source_weight_calculation": false,
+  "topological_defect_species_assignment_derived": false
+}

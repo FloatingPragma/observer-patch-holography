@@ -12,8 +12,11 @@ value = packet.build()
 if args.write:
     packet.OUTPUT.write_text(packet.canonical(value))
     packet.MARKDOWN.write_text(packet.render(value))
+    packet.MASS_MARKDOWN.write_text(packet.render_masses(value))
 else:
     packet.validate(strict_json.load(args.check))
     if packet.MARKDOWN.read_text() != packet.render(value):
         raise ValueError('rendered particle map differs')
+    if packet.MASS_MARKDOWN.read_text() != packet.render_masses(value):
+        raise ValueError('rendered source masses differ')
 print('18 target channels; 15 exact source components; 0 physical particle identifications')

@@ -90,10 +90,155 @@ construction and validation gates; the evidence below supplies components
 and exclusions, without declaring those gates complete.
 
 The [Standard Model source correspondence](../../model/standard_model_source_map/PARTICLE_MAP.md)
-exports all target channels beside exact internal source weights. Family
-indices, physical sources, topological assignments and predicted masses are
+exports all target channels beside exact internal source weights. Physical
+family assignments, sources, topological assignments and predicted masses are
 empty unless an identification is proved. A single representation shared
 by three comparison rows does not generate a family hierarchy.
+
+The [conditional Standard Model spectrum](../../model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md)
+derives the tree-level Higgs, vector and charged-fermion mass formulas from
+a supplied canonical renormalized action. This defines the comparison
+benchmark, with three symbolic neutrino mass fields and an explicit
+neutrino extension. Physical comparisons use charged infrared thresholds,
+unstable-particle resonance conventions and scale-dependent quark masses;
+the measured table is not inverted wholesale into exact tree parameters.
+The source task is to compute its common-state kinetic/self-energy kernels
+and bound the matching correction on that state and clock. Its free
+singular values, Koide balance and P-law coefficients do not compute those
+interacting corrections or establish particle identities.
+
+The [complete three-input fit](../../model/particle_candidate_atlas/CALIBRATED_TRIPLET.md)
+uses electron, muon and PDG2026 tau central values to determine attenuator
+amplitude `r=0.99999669509849`, phase `0.22222476189459` and a common action
+scale `6.7791801525 GeV`. Its exact inverse-Fourier identity and rational
+controller enclosure reproduce all three action energies within
+`10^-36 GeV`. That bound measures realization accuracy only; all three
+targets are calibration inputs, with no held-out prediction, experimental
+covariance fit or computed self-energy. The balanced one-ratio example
+retains its separate held-out tau comparison.
+
+The [configured action readout](../../model/standard_model_source_map/source_mass_readout.py)
+authenticates the native flavor receipt and retains all three singular values,
+zeros and multiplicities in each up, down and charged-lepton channel, for
+all four duty policies. With canonical kinetic form and common Higgs norm,
+its mass coefficients are `m_f=|v_H| sigma_f(Y)`, not squared singular values.
+Ratios have propagated rational intervals; a ratio to an exactly zero
+smallest coefficient is undefined. No GeV conversion, interacting pole or
+physical family eigenstate is inferred.
+
+The [same-action Koide test](../../model/standard_model_source_map/KOIDE_ATTACHMENT.md)
+gives lepton `Q=sum m/(sum sqrt(m))^2` in `[0.7675,0.7677]`,
+`[0.5797,0.5799]`, `[0.9502,0.9503]` and `[0.7754,0.7755]` for
+always, C, E and CE duty. Each excludes `2/3`; current-preserving unitary
+embeddings and a common Higgs or clock scale cannot change that conclusion.
+The positive square-root-mass response is `(Y^dagger Y)^(1/4)`.
+The separate finite tracial-GNS balance has admission probability `2/3`
+and needs its own attachment to that response. Conditional physical Koide
+and two measured masses determine a heavy third mass without a separate
+phase law; neither premise is a source-derived mass prediction. The
+[coherent alternative](../../model/standard_model_source_map/KOIDE_SOURCE.md)
+supplies `Y=C_ex^2/3` and an unconditioned logical limit with complete-output
+error at most `9t^2/(4N)`. It is a different configured action. The
+[full-CAR realization](../../model/charged_lepton_response/CAR_KOIDE.md)
+implements its charged Higgs pairing on every physical occupation sector,
+with fresh vacuum ancillas and every charged quantum output retained.
+The complete vacuum/nonvacuum instrument has unhalved error at most
+`108 |v_H|^2 t^2/N`. Its [free relativistic limit](../../model/charged_lepton_response/RELATIVISTIC_MASS.md)
+proves `E_j(p)^2=c^2|p|^2+|v_H|^2 sigma_j(Y)^2` on a specified Gaussian
+reference, with all eight valleys. These are specified family branches,
+not three thresholds of the whole electric-charge sector. No interacting
+vacuum, mirror removal or physical scheduling clock is inferred.
+
+The [phase score](../../model/charged_lepton_response/PHASE_AND_PREMISES.md)
+uses complete original eight-flag probabilities. Its zero-phase default
+has ratios `1:1:(34+24sqrt(2))`. The distinct
+[calibrated comparison](../../model/charged_lepton_response/CALIBRATED_SANITY.md)
+sets `tan(theta/2)=55785269584552807/500000000000000000` from the supplied
+muon/electron ratio `206.7682827` alone. The resulting source ratios are
+`1:206.768282700000011:3477.441636283848796`.
+The held-out CODATA 2022 tau/electron reference is `3477.23 +/- 0.23`;
+the discrepancy is about `0.92` quoted standard uncertainties. With the
+additional electron unit `0.51099895069 MeV`, the conditional tau value is
+`1776.9690272267634 MeV`, about `0.91` of the reference uncertainty in
+`1776.86 +/- 0.12 MeV`. These correlated presentations are not independent
+statistical tests, and neither equals the reference central value exactly.
+The phase and common mass unit are calibrated inputs; the default is
+unchanged and no source-selected phase or measured mass is claimed.
+
+The [capacity-dependent calculation](../../model/charged_lepton_response/P_DEPENDENCE.md)
+uses the distinct MCPR action, realized by the complete C-duty coefficient
+`g Z_C`. Its common determinant factor cancels from the following rounded ratios;
+the certificate retains full rational enclosures and performs no fit.
+
+| Retained source branch | m2/m1 | m3/m1 | Q |
+|---|---:|---:|---:|
+| Forward coordinates | 206.768300595181 | 3477.365536596023 | 0.666664463409039 |
+| Measured-alpha endpoint | 206.768282739123 | 3477.365262268937 | 0.666664463399526 |
+| Supersymmetric proxy, beta=4 | 206.768297922262 | 3477.365495531309 | 0.666664463407615 |
+| Minimal census, beta=7 | 206.782621310399 | 3477.644439943646 | 0.666666169828635 |
+
+Against the same CODATA2022 reference, the mu/e residuals divided by its
+quoted uncertainty are approximately 3.89, 0.0085, 3.31 and 3117; the tau/e
+values are 0.589, 0.588, 0.589 and 1.802. Only the measured-alpha endpoint
+fits inside both individual intervals. This supplies neither a joint
+significance test nor a bound on physical matching errors. That endpoint
+inherits measured alpha; the forward decimals and the two closure designs
+have their separate conditional ancestry. The latter retain
+`v/E_*` near `2.01984e-17` and `8.61719e-21`, with E_* a declared unit.
+Choosing an electron unit is an additional calibration.
+
+MCPR changes `rho=sqrt(2) exp(-chi)` as well as `delta=2/9+zeta`, so its
+`Q=(1+exp(-2chi))/3<2/3` is not the balanced coherent action. Its inverse
+memory theorem proves the configured operator, not selection of the law
+or its clock. The [phase obstruction](../../model/charged_lepton_response/SOURCE_PHASE_SELECTION.md)
+also prevents identifying a record frequency or the all-lag ordering
+potential with a mass-root phase without a specified control map. The
+[candidate export](../../model/charged_lepton_response/CANDIDATE_MAP.md)
+keeps all eighteen interfaces and eleven defects separate; it fills no
+physical mass, spin, width or defect assignment from these numbers.
+The [particle atlas](OPH_PARTICLE_CANDIDATE_ATLAS.svg)
+places these conditional ratios beside the source and measurement dependencies.
+
+The [exact compatibility map](../../model/particle_candidate_atlas/COMPATIBILITY.md)
+makes a possible bare/effective interpretation explicit. At a common phase,
+write `B=(I+T)^2` and `D=(I+exp(-chi)T)^2`. For strictly positive B,D,
+the supplied kinetic choice `Z_L=Z_R=B D^(-1)` whitens B to D exactly.
+This inverse construction computes no source correction: chi is stipulated
+by the response architecture. The [complete attenuator](../../model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md)
+instead implements `C_r=aI+r b(zR+conjugate(z)R^2)` and its squared effect
+using a supplied r, sixteen retained flags and full-CAR feedback. It
+realizes the chosen action without deriving r from native diffusion or
+physical self-energy. A physical matching test must independently extract
+Z_L,R and E, including phase and normalization. Passive field changes
+transform kinetics and mass together and preserve the canonical spectrum.
+
+The [mass-response theorem](../../model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md)
+handles a nonnormal mass correction and independent kinetic forms. If
+`||Z_L-I||<=epsilon_L<1`, `||Z_R-I||<=epsilon_R<1`, and
+`||E||<=eta sigma_min(M0)` with `eta<1`, the singular values of
+`Z_L^(-1/2)(M0+E)Z_R^(-1/2)` lie between those of `M0` times
+`a=(1-eta)/sqrt((1+epsilon_L)(1+epsilon_R))` and
+`b=(1+eta)/sqrt((1-epsilon_L)(1-epsilon_R))`.
+Every mass ratio and Koide quotient therefore changes by at most the
+multiplicative interval `[a/b,b/a]`; a separate physical matching error
+must also be charged. Exact allowed corrections to the native coefficient
+violate Koide. No actual self-energy is computed. A stable charged
+infraparticle may have a lower spectral boundary without an isolated pole;
+unstable muon/tau masses require a resonance prescription and cannot be
+read as lower thresholds of the same total electric-charge sector.
+
+The [feedback action limit](../../model/standard_model_source_map/FEEDBACK_LIMIT.md)
+keeps every path and approaches the same static coefficients at finite
+volume. The declared weak-pulse time excludes fixed-angle current-gate
+and repair overhead. This theorem supplies neither a common physical clock
+nor an identification with interacting poles; it does not alter the Koide
+or zero-CP exclusions of that fixed action.
+The [quantum-Higgs extension](../../model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md)
+retains the scalar operator and all local Gauss currents while allowing a
+common gauge/Higgs Hamiltonian in this finite bound. Its exact rank-one
+vertex norm 2 controls the complete archive; it supplies no scalar vacuum
+expectation or interacting charged-mass value. The [finite native response](../../model/particle_candidate_atlas/NATIVE_RESPONSE.md)
+also distinguishes its noisy channel from a unitary mass-only evolution.
 
 The [local spin response](../../model/defect_localization_readout/PROOF.md)
 has positive energy and repair-preserved parity on its specified finite
@@ -900,7 +1045,7 @@ physical dispersion and the common Einstein premises require further maps.
 
 | Result | What is established | Additional attachment |
 | --- | --- | --- |
-| Gauge and matter structure | A specified closed twelve-current law, a spin/exterior lift, the fifteen internal states of one Standard Model generation, and three invariant charged-fermion Higgs lines | Complete physical current selection, physical spin/statistics, and an interacting field |
+| Gauge and matter structure | Exact fifteen-state weights, full-Fock odd-CAR/current intertwiners, Weyl kinetic frames, quantum-link Gauss identities and three invariant Higgs lines | Physical current/state identification, mirror removal and one interacting chiral field |
 | Family structure | A source-executed protected rank-three band and several explicit symmetry-breaking memories | Identification with three physical generations and selection of their couplings |
 | Calibrated realization | Supplied running Yukawas and mixing parameters enter the finite action and are recovered from simulated records | Derivation of those inputs and a physical pole/threshold comparison |
 | Fixed uncalibrated coefficients | Complete record laws determine the specified feedback coefficients; blind inverses recover them | The particular fixed laws fail their stated comparisons; this is not an exclusion of all memory designs |
@@ -1098,10 +1243,15 @@ Source-computed charges and Casimirs identify
 $Q,u^c,d^c,L,e^c$ and the compatible central quotient
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 The spin cover, exterior-sector choice and physical CAR field are separate
-attachments. Even auxiliary exterior parity does not establish physical
-fermion statistics. The localized construction below attaches this representation
-to bound modes of a prescribed winding texture. It does not prove that fermion
-creation creates a topological defect.
+architecture choices. The [full-Fock attachment](../../model/standard_model_source_map/FERMION_ATTACHMENT.md)
+intertwines their actual currents on the configured ninety-mode field;
+even auxiliary parity is not its fermion grading. The
+[kinetic](../../model/standard_model_source_map/KINETIC_ATTACHMENT.md) and
+[quantum-link](../../model/standard_model_source_map/GAUGE_ATTACHMENT.md)
+identities preserve the same M15 and distinguish mirror fields from holes.
+The localized construction below uses bound modes of a prescribed winding
+texture. None of these identities makes fermion creation a topological
+creation event or selects an interacting physical vacuum.
 
 Both components of each invariant Higgs tensor are checked against all twelve
 currents. The allowed lines are $Qu^cH$, $Qd^cH^*$ and $Le^cH^*$.

@@ -20,9 +20,19 @@ rows partition all fifteen source records, with each record used once.
 In an all-left-Weyl comparison these are the up-type singlet conjugate,
 lepton doublet, quark doublet, down-type singlet conjugate and charged-lepton
 singlet conjugate. This comparison does not identify the source's even
-internal occupation parity with physical fermionic statistics. A spacetime
-Weyl field, its Lorentz transformation and its exchange law need an explicit
-field attachment.
+internal occupation parity with physical fermionic statistics. The
+[operator attachment](FERMION_ATTACHMENT.md) gives an explicit finite map
+into the configured ninety-mode CAR field, on every occupation sector.
+Its three family coordinates are readable source architecture. They are not
+derived by repeating the internal weight list or identified with measured
+families. The [kinetic attachment](KINETIC_ATTACHMENT.md) intertwines every
+source current with all Weyl axes and valley frames. The sine regulator has
+eight valleys with positive original whole mirror-cell weights on the free
+reference. These weights do not bound a shrinking physical-energy window.
+Its mirror representation has
+`Tr(Y^5)=5/9`, whereas the hole representation has `-5/9`. Discarding a
+single-valley complement fails local hypercharge covariance. These finite
+results supply no interacting chiral continuum.
 
 The source's actual weak generators give `T+=T1+iT2`, `T-=T+*` and
 `[Q,T+]=T+`, `[Q,T-]=-T-`. Both have rank four on the fifteen-state register.
@@ -34,9 +44,10 @@ weak mixing angle or propagating gauge bosons.
 
 The target names and family labels belong to the comparison dictionary and
 are attached after this calculation. The single internal register does not
-distinguish electron from muon or tau, or select quark generations. Repeating
-a source block beside three target names does not produce three source
-families. Neutrino flavor channels also require a mass/mixing map; the export
+distinguish electron from muon or tau, or select quark generations. The
+separate configured family factor has dimension three; its identification
+with measured families requires the same interacting action and observable
+dictionary. Neutrino flavor channels also require a mass/mixing map; the export
 does not replace them by three predicted zero masses. Charged antiparticle
 weights are conjugate representations, with a separate physical attachment.
 The target conventions follow the [Particle Data Group electroweak review,
@@ -50,9 +61,28 @@ also requires a defined configuration/deformation space, a source-preserved
 invariant or quantified lifetime, and a map of that invariant into the same
 field sector. None follows from a representation label or a finite gap.
 
+The [dynamical gauge attachment](GAUGE_ATTACHMENT.md) uses the same fifteen
+components with sixty-state operator links. Exact local Ward identities hold
+on full CAR, all 364 symmetric cubic anomaly components and twelve linear
+traces vanish, and complete dressed finite controls retain the complementary
+occupation outcome. Nilpotent quantum links cannot be substituted for unitary
+background links when importing a free dispersion relation.
+
+The [weak feedback theorem](FEEDBACK_LIMIT.md) bounds the complete correlated
+record instrument and its mean-action limit in the stated pulse clock.
+The [mass readout](MASS_READOUT.md) exports every duty's singular coefficients
+and exact ratio intervals. The [Koide attachment test](KOIDE_ATTACHMENT.md)
+identifies the balance condition these coefficients fail. A separate
+[coherent Koide program](KOIDE_SOURCE.md) produces a balanced family generator
+with all flags retained; its phase and physical mass attachment are explicit
+premises. A configured finite construction is sufficient to compute a model
+observable without proving uniqueness across all possible architectures.
+Identification with nature requires the physical correspondence above.
+
 The export authenticates the source bindings of the native matter, mass
-admission and color readout parents. It recomputes the internal weights and
-current identities; it does not repeat all ancestral scientific experiments.
+admission, color, flavor and quantum-link parents. It replays the finite
+attachments and authenticates the flavor producer's receipt; it does not repeat every
+ancestral scientific experiment.
 The physical mass admission parent has an empty physical table and the color
 readout has no physical coupling prediction. A change in either admission
 rejects this export until its correspondence is explicitly revised. The
