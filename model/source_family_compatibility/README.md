@@ -138,9 +138,21 @@ bounded spectral score with explicit time, boundary, marginal and service
 errors. A single local pressure perturbation certifies the score uniformly
 over invariant ground states when a strict margin holds. The fixed-scale
 instance has a proved terminating search; its large program was not run.
-The exact full-dimer calculation retains all 66 records. Neither this access theorem
+The [native dimer execution](NATIVE_LORENTZIAN_READOUT.md) retains 8194
+proper outcomes and all failure records, with certified original spectral
+weight above 0.595 in `[0,1]`. Neither this finite experiment
 nor fixed-frequency momentum continuity supplies a shrinking-energy window
 or a preparation modulus for the selected infinite ground.
+
+[Higher nodal moments](NODAL_NEXT_MOMENTS.md) have exact local observables
+on the same cubic source. Their selected-ground expectations require
+certified evaluation. A [two-time collision inverse](SOURCE_ACTION_IDENTIFICATION.md)
+identifies the configured positive contact ratio on a known preparation
+and clock; it supplies no physical capacity law or mass assignment.
+The [cubic inverse](BULK_ACTION_IDENTIFICATION.md) derives its different
+local coefficient and volume-uniform error from actual signed paths.
+A finite empty collar permits arbitrary exterior matter for the collision
+statistic, while retaining its preparation and sampling requirements.
 
 The [fixed-source scaling theorem](MASS_SCALE_SELECTION.md) also tests a
 massive interpretation. Exact homogeneity fixes the joint measure dilation

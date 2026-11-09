@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1296,
+  "surface_count": 1300,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4556,6 +4556,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4626,6 +4631,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/NODAL_CHANNELS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4646,6 +4656,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/NODAL_NEXT_MOMENTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4657,6 +4672,11 @@
     },
     {
       "path": "model/source_family_compatibility/REPAIR_TRAJECTORY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

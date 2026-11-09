@@ -230,9 +230,25 @@ score over all relevant ground states; a strict common margin gives a
 stopping criterion without selecting an isolated-cut vacuum. The default
 local second moment gives the analytic bound `nu([0,1])>=93/128`.
 The unexecuted 8194-record protocol certifies the operational bound
-`>15/32`, and an exact 66-record dimer control checks its complete score.
+`>15/32`. A separate [executed native dimer protocol](../../model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md)
+retains 8194 proper terminal records and every first-failure record,
+certifying original weight above 0.595 in `[0,1]` with complete-channel
+error below `1/100000`. Its finite prepared ground supplies no infinite
+collar or pressure search.
 Neither fixed-source bound establishes a positive original probability
 in shrinking unit-hopping energy windows.
+
+Exact [local source observables for M6 and M8](../../model/source_family_compatibility/NODAL_NEXT_MOMENTS.md)
+reduce to 493 and 27965 Hermitian words on the specified invariant ground.
+Their expectations, the zero-energy atom and a surviving dispersion are
+undetermined. The [two-time collision inverse](../../model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md)
+reads the configured positive contact ratio `U/c`; it does not select
+the capacity law, vacuum, gauge coupling or particle identity.
+Its [cubic extension](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+has volume-independent Taylor bounds and a finite collar for arbitrary
+exterior matter. Actual signed paths change the quartic coefficient from
+the dimer's `U^2+4c^2` to `U^2+25c^2`; a dimer fit cannot be applied
+unchanged to the bulk source.
 
 The [strong-contact theorem](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 loses all finite-energy original odd response for ballistic c=v/a and

@@ -2660,26 +2660,28 @@ $(-13-\sqrt{577})/4$ and $(-11-\sqrt{673})/4$. Thus
 $G(k)\leq\Gamma c^2I$, $\Gamma=(31+\sqrt{577})/4$.
 At $U/c=8$, the nodal atom and every packet's ballistic fixed-window
 limsup are at most $\Gamma/(16+\Gamma)$.
+The same source has exact local sixth and eighth moment observables,
+reduced by its state symmetries to 493 and 27965 Hermitian Majorana words.
+In units $c=1$, write $A=16$, $H=A+s$, $s=\|R\|^2$, $t=\|L_\perp R\|^2$ and
+$u=\|L_\perp^2R\|^2$, their moments are
+$M_6=A(H^2+t)$ and $M_8=A(H^3+2Ht+u)$.
+For $u>0$ the atom is at most $(su-t^2)/(Hu-t^2)$.
+The selected-ground moment values are undetermined
+(\path{model/source_family_compatibility/NODAL_NEXT_MOMENTS.md}, \cite{ophrepo}).
 
-Fix this normalized ground under $c=v/a$. For packets supported within
-$\|k-k_*\|_1\leq aK$, positive nodal atom is equivalent to positive
-original weight in some bounded physical-energy window: weak continuity
-gives necessity; source locality and matrix Bernstein give sufficiency.
-The window includes zero and supplies no dispersion. Fixed-source
-subcontact bands do not decide atom positivity. For $U/c\to\infty$
-with $c=v/a$, original fixed-energy weight vanishes
+On this fixed normalized ground under $c=v/a$, positive nodal atom
+is equivalent to positive original weight in a bounded physical-energy
+window for packets with $\|k-k_*\|_1\leq aK$. The window includes zero;
+no dispersion follows. For $U/c\to\infty$ with $c=v/a$, original fixed-energy weight vanishes
 (\path{model/source_family_compatibility}, \cite{ophrepo}).
 
-A separate constraint concerns the full limit. With this fixed reference,
-write $F_a(p,B)=\nu_{k_*+ap}(aB/v)$. Exact homogeneity gives
+With this fixed reference, $F_a(p,B)=\nu_{k_*+ap}(aB/v)$ obeys
 $F_a(\lambda p,\lambda B)=F_{\lambda a}(p,B)$. Set
 $d\mu_a=dp\,\mathrm{tr}(dF_a)/16$. A full joint limit has
-$\mu(\lambda A)=\lambda^3\mu(A)$. A positive-weight nonzero mass
-shell would generate infinitely many disjoint dilates inside one compact
-set, contradicting local finiteness. This excludes such shells in that
-limit, not every resonance or a different source trajectory. On a
-convergent whole geometric refinement, such a shell forces all its discrete
-mass dilates.
+$\mu(\lambda A)=\lambda^3\mu(A)$. Local finiteness excludes positive-weight
+nonzero mass shells in that limit. Whole geometric-refinement convergence
+only forces discrete mass dilates. Resonances and different source
+trajectories require separate analysis.
 
 The default cube has $3I_{16}/80<R^*R<61I_{16}/1000$, without a
 species assignment. On the separate weak-contact path $c=v/a$,
@@ -2688,7 +2690,9 @@ winding $-(-1)^{|b|}$ and opposite conjugate helicities. Period-two
 masses require supplied coefficients
 (\path{model/source_family_compatibility/KINETIC_NODE_MAP.md}, \cite{ophrepo}).
 Complete interference instruments read Lorentzian scores with explicit
-errors; pressure certificates require a strict ground margin \cite{ophmodel}.
+errors. A native 8194-record dimer execution retains original spectral
+weight above $0.595$ in $[0,1]$; infinite-ground pressure certificates
+require a strict ground margin \cite{ophmodel}.
 The cube's 256 clock records resolve profiles
 $f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$; Table~\ref{tab:cube-complete-windows}
 gives original addition weights. Conjugation maps removal to addition at

@@ -262,9 +262,25 @@ when all relevant ground states have a strict common margin. At default
 c=1/8,U=1, the all-input local identity `M2=35/128` gives
 `nu([0,1])>=93/128` analytically. A specified 8194-record protocol gives
 the operational bound `>15/32`; its large tape and pressure search are
-unexecuted. The actual dimer's 66 complete records yield a certified
-original-window floor above 1/3. These are combined-charge probabilities,
+unexecuted. A separate [native dimer execution](../../model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md)
+retains 8194 proper outcomes and every first-failure record, yielding a
+certified original-window floor above 0.595 with complete-channel error
+below `1/100000`. These are combined-charge probabilities,
 without conditional renormalization or a scaling-uniform infrared claim.
+
+The [complete collision inverse](../../model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md)
+identifies the configured positive `U/c` from two source-clock times with
+explicit Taylor and record-error bounds. It supplies no laboratory energy
+conversion, QCD coupling or particle mass. The cubic source's [sixth and
+eighth nodal moment observables](../../model/source_family_compatibility/NODAL_NEXT_MOMENTS.md)
+are exact local polynomials; their selected-ground expectations require
+certified evaluation. A tracial coefficient or finite-control eigenvalue
+does not substitute for those expectations.
+The [bulk collision inverse](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+retains the actual cubic coefficient `U^2+25c^2`, volume-uniform errors
+and a finite empty-collar preparation bound. It calibrates the supplied
+action using complete records; it supplies no interacting vacuum or
+physical particle identification.
 
 The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 excludes finite-energy original odd response when c=v/a and U/c tends

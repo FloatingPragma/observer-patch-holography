@@ -51,7 +51,11 @@ is unproved and the window includes zero. The [full-CAR paired-star bound](../so
 bounds the original atom and every packet's ballistic fixed-window limsup by
 `(31+sqrt(577))/(95+sqrt(577))`. Neither bound identifies a particle pole. The [complete spectral instrument](../source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
 provides a measurable score with explicit errors and a ground-pressure
-certificate. On the separate prepared collective family, [directed caps](../spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
+certificate. An [executed native dimer](../source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md)
+retains complete energy records. [Higher local moments](../source_family_compatibility/NODAL_NEXT_MOMENTS.md)
+and a [configured-action inverse](../source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md)
+supply additional readouts with explicit state and clock premises.
+On the separate prepared collective family, [directed caps](../spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
 retain positive original weight in each charge and momentum direction.
 The [source dilation identity](../source_family_compatibility/MASS_SCALE_SELECTION.md)
 excludes positive-weight nonzero mass shells from a full fixed-reference

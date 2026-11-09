@@ -14,6 +14,8 @@ from model.source_family_compatibility import momentum_response, charge_escape, 
 from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 from model.source_family_compatibility import nodal_channels, spectral_residue, spectral_window_access
 from model.source_family_compatibility import nodal_locality, nodal_moment_bounds, mass_scale_selection
+from model.source_family_compatibility import source_action_identification, nodal_next_moments, native_lorentzian
+from model.source_family_compatibility import bulk_action_identification
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -170,7 +172,11 @@ def rows():
                                      'model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md',
                                      'model/source_family_compatibility/NODAL_LOCALITY.md',
                                      'model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md',
-                                     'model/source_family_compatibility/MASS_SCALE_SELECTION.md']},
+                                     'model/source_family_compatibility/MASS_SCALE_SELECTION.md',
+                                     'model/source_family_compatibility/NODAL_NEXT_MOMENTS.md',
+                                     'model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md',
+                                     'model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md',
+                                     'model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md']},
         {'id':'kinetic_Weyl_nodes_and_free_fields', 'kind':'kinetic_topology_and_conditional_field_map',
          'source':'original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))',
          'protected_object':'eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields',
@@ -361,7 +367,11 @@ def centered_matter_attachment():
         'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate()),
         'actual_nodal_locality_and_window_survival':serialize(nodal_locality.certificate()),
         'uniform_full_CAR_star_force_bound':serialize(nodal_moment_bounds.certificate()),
-        'fixed_source_scaling_and_mass_shell_scope':serialize(mass_scale_selection.certificate())}
+        'fixed_source_scaling_and_mass_shell_scope':serialize(mass_scale_selection.certificate()),
+        'complete_source_action_identification':serialize(source_action_identification.certificate()),
+        'actual_local_nodal_higher_moments':serialize(nodal_next_moments.certificate()),
+        'executed_native_dimer_Lorentzian_readout':serialize(native_lorentzian.certificate()),
+        'volume_uniform_cubic_action_identification':serialize(bulk_action_identification.certificate())}
     if any(canonical(value)!=canonical(parent[key]) for key,value in local_energy.items()):
         raise ValueError('centered-matter local energy or momentum receipt differs from the replay')
     if (local_energy['actual_cubic_momentum_response']['continuum_poles_or_physical_species_derived']is not False
@@ -435,6 +445,56 @@ def centered_matter_attachment():
             or dilation['actual_default_source_homogeneity']['finite_dimer_is_continuum_momentum_mode']is not False
             or dilation['actual_default_source_homogeneity']['conditional_probability_renormalization_applied']is not False):
         raise ValueError('centered-matter dilation exceeds its fixed-source conditional scope')
+    identification=local_energy['complete_source_action_identification']
+    if (identification['source']['complete_record_count']!=64
+            or identification['source']['postselection_used']is not False
+            or identification['source_clock_and_known_initial_preparation_required']is not True
+            or any(identification[name]is not False for name in (
+                'coherent_clock_pulse_tape_executed_here',
+                'physical_strong_coupling_or_QCD_alpha_selected',
+                'capacity_selects_action_or_physical_clock',
+                'thermodynamic_ground_selected_by_this_readout',
+                'physical_particle_or_mass_identified'))):
+        raise ValueError('source action identification exceeds its finite observation scope')
+    moments=local_energy['actual_local_nodal_higher_moments']
+    if (moments['physical_species_identified']!=[] or moments['physical_masses']!=[]
+            or any(moments[name]is not False for name in (
+                'source_selected_ground_moments_evaluated','actual_zero_atom_decided'))
+            or moments['actual_source_memory_bound']['zero_frequency_atom_inferred']is not False
+            or any(row['selected_ground_moment']is not None
+                   for row in moments['actual_local_nodal_moment_readouts'])):
+        raise ValueError('local moment observables exceed their selected-ground scope')
+    native=local_energy['executed_native_dimer_Lorentzian_readout']
+    if (native['source_sites']!=2 or native['full_CAR_rows']!=16
+            or native['proper_terminal_record_count']!=8194
+            or native['raw_pointer_terminal_record_count']!=36*native['time_count']+6
+            or native['physical_first_failure_records']!=17449226
+            or any(native[name]is not True for name in (
+                'same_centered_source_excitation_clock',
+                'all_native_pulses_on_potentially_nonzero_prefixes_executed',
+                'all_source_rows_and_charge_columns_retained','dummy_clock_environment_retained',
+                'zero_charge_prefixes_follow_same_declared_controller','selector_blanks_are_supplied'))
+            or any(native[name]is not False for name in (
+                'floating_contraction_diagnostics_used_as_interval_premise',
+                'postselection_or_output_renormalization_used',
+                'large_infinite_ground_collar_executed','hardware_shots_sampled',
+                'physical_species_or_mass_assigned'))):
+        raise ValueError('native energy experiment exceeds its complete finite-source scope')
+    bulk=local_energy['volume_uniform_cubic_action_identification']
+    if (bulk['known_local_calibration_preparation_consumed']is not True
+            or bulk['physical_particles']!=[] or bulk['physical_masses']!=[]
+            or any(bulk[name]is not False for name in (
+                'complete_history_or_reference_error_from_marginal_inferred',
+                'interacting_ground_preparation_inferred','capacity_selects_action_or_clock',
+                'large_native_experiment_executed'))
+            or any(row['is_probability_of_the_larger_collar_plan']is not False
+                   for row in bulk['finite_time_ratio_witnesses'])
+            or bulk['separate_arbitrary_exterior_collar_plan']['pure_two_CAR_collar_input_required']is not True
+            or bulk['separate_arbitrary_exterior_collar_plan']['reset_pulse_tape_executed']is not False
+            or bulk['complete_collision_detector']['full_fine_instrument_covariance_asserted']is not False
+            or bulk['uniform_global_attempt_example']['uniform_seam_selector_required']is not True
+            or bulk['uniform_global_attempt_example']['other_seam_records_discarded_or_postselected']is not False):
+        raise ValueError('cubic action inverse exceeds its local calibration scope')
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
             or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])

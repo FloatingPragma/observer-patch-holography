@@ -186,9 +186,20 @@ effective growing-marginal modulus. At default c=1/8,U=1 the local
 all-input second-moment identity `M2=35/128` gives the stronger analytic
 bound `nu([0,1])>=93/128`. A specified 8194-record readout and pressure
 search certify the operational lower bound `>15/32`; that large native
-tape and search are not executed. The exact dimer control retains all
-66 records. These fixed-source statements do not give a positive
+tape and search are not executed. The separate [native dimer execution](../../model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md)
+retains 8194 proper outcomes and all raw-pointer and first-failure
+records. Exact spectral intervals and a complete-channel bound below
+`1/100000` certify original weight above 0.595 in `[0,1]` on its full
+16-state source. These fixed-source statements do not give a positive
 scaling-uniform low-energy probability.
+
+The same cubic reference has [local sixth and eighth nodal moment observables](../../model/source_family_compatibility/NODAL_NEXT_MOMENTS.md),
+with 493 and 27965 Hermitian words after its actual state symmetries.
+Their selected-ground expectations are undetermined. Complete weighted
+word instruments retain both signs; ground-marginal and native-service
+errors multiply the observable's coefficient norm and cannot be omitted.
+The resulting degree-four Christoffel bound uses those actual moments.
+The onsite force identity alone gives no ground-norm equality or charge gap.
 
 The [strong-contact bound](../../model/source_family_compatibility/STRONG_CHARGE_SCALING.md)
 excludes every finite-energy original odd response on ballistic c=v/a
@@ -1022,6 +1033,19 @@ capacity dependence of its source, state, clock and readout from the
 implementation, rather than choosing them to match a target mass.
 
 ## Source-to-field requirements and status
+
+The [finite action identification](../../model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md)
+recovers the configured positive `U/c` from complete two-time collision
+records on a known dimer preparation and clock. It supplies no law selecting
+the extension, its capacity trajectory or the interacting ground. Source
+specification access permits reading these inputs; a physical derivation
+must connect that specification to the common reconstructed observations.
+The [volume-uniform cubic inverse](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+derives the local collision coefficient `c^2(U^2+25c^2)` from exact signed
+paths on every interior edge. Its finite empty-collar estimate allows
+arbitrary exterior matter for that statistic. It consumes a known local
+calibration preparation, with quantitative marginal and clock errors;
+it does not substitute that preparation for the interacting ground.
 
 The decisive spectral estimates differ between the two prepared source
 families. For the default centered CAR family, write `K=c K(1,8)` and

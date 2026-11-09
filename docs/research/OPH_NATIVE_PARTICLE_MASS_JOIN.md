@@ -119,8 +119,12 @@ finite-volume pressure secants over all relevant ground states; a strict
 common score margin makes the search terminate without assuming a unique
 vacuum. The default local moment gives `nu([0,1])>=93/128`; the specified
 8194-record operational construction certifies `>15/32` but its large
-tape and pressure search are unexecuted. The exact dimer calculation keeps
-all 66 records. This is direct access to fixed-source spectral scores,
+tape and pressure search are unexecuted. A separate [native dimer execution](../../model/source_family_compatibility/NATIVE_LORENTZIAN_READOUT.md)
+retains 8194 proper terminal records, all raw pointer addresses and every
+first-failure record. Its certified original weight in `[0,1]` exceeds
+0.595, with complete-channel error below `1/100000`. Rational spectral
+enclosures certify the score independently of floating contraction
+diagnostics. This is direct access to fixed-source spectral scores,
 not an effective infinite-ground preparation or a physical mass readout.
 
 The [exact full-source energy current](../../model/source_family_compatibility/ENERGY_DIPOLE.md)
@@ -176,7 +180,7 @@ reconstruction. A proposed massive identification must derive the actual
 capacity dependence of its source, state, clock and readout from the
 implementation, rather than choosing them to match a target mass.
 
-## Next calculation on the centered full ground
+## Selected-ground spectral requirements
 
 First establish the implemented capacity dependence of the action, reference,
 clock and field dictionary. The fixed-source theorem above tests that choice;
@@ -192,10 +196,37 @@ A concrete local-moment target is the Christoffel upper bound
 `lambda_n=inf integral |p(E)|^2 dmu`, over even polynomials of degree at
 most 2n with `p(0)=1`; it bounds `mu({0})` from above.
 The first is `lambda_1=r2/(16+r2)`, where `R*R(k_*)=r2 I`;
-the next even degree requires the actual eighth moment M8.
+the next even degree uses M6 and M8. Their [exact local source observables](../../model/source_family_compatibility/NODAL_NEXT_MOMENTS.md)
+have 493 and 27965 Hermitian Majorana words after the same reference's
+magnetic and spatial symmetries. The selected-ground expectations are
+undetermined; the identity coefficients 8326 and 278062 are tracial
+controls only. Writing `s=||R||^2`, `t=||L_perp R||^2`,
+`u=||L_perp^2 R||^2`, and `H=16+s` gives
+`M6=16(H^2+t)`, `M8=16(H^3+2Ht+u)` and, for `u>0`,
+`lambda_2=(s u-t^2)/(H u-t^2)`. Exact coefficient bounds imply
+`t<=17082` and `u<=33378201/4`; their memory lower bound is of order
+eta squared and decides neither a positive atom nor its absence.
 Use rigorous moment enclosures or an explicit trial-polynomial pressure
 bound. All-ground pressure bounds need not isolate a selected state's
 moments, and a positive finite upper bound does not prove a positive atom.
+
+The [complete action readout](../../model/source_family_compatibility/SOURCE_ACTION_IDENTIFICATION.md)
+identifies the configured positive `U/c` from two-time collision records
+of a prepared opposite-spin dimer, with Taylor and probability-error
+bounds. It requires the same coherent clock and known preparation.
+Memory/archive resegmentation does not select this action, a physical
+capacity dependence or the interacting ground. The inferred contact
+ratio is not QCD's strong coupling or a particle mass ratio.
+The [growing cubic calibration](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+uses the actual signed paths, giving
+`p(t)=c^2 t^2/2-c^2(U^2+25c^2)t^4/24+O(t^6)` on each interior edge.
+Its remainder is uniform in volume. A known two-fermion preparation in a
+finite empty collar suffices for the collision statistic with arbitrary
+exterior matter. The local marginal, clock-service and sampling errors
+must decrease faster than `t^4`; a supplied reset tape is unexecuted.
+Uniform seam selection retains all other seam records and its increased
+sampling cost. The finite 125-site numerical witnesses and the larger
+arbitrary-exterior collar plan are separate experiments.
 
 The locality theorem supplies the conditional momentum/frequency comparison.
 For c=v/a, set

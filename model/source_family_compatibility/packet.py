@@ -13,6 +13,8 @@ from . import momentum_response, charge_escape, uv_tail, local_spectral
 from . import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 from . import nodal_channels, spectral_residue, spectral_window_access
 from . import nodal_locality, nodal_moment_bounds, mass_scale_selection
+from . import source_action_identification, nodal_next_moments, native_lorentzian
+from . import bulk_action_identification
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -86,7 +88,11 @@ def bindings():
                   ROOT/'model/native_mass_channels/README.md',ROOT/'model/source_mass_shell/README.md',
                   HERE/'NODAL_MEMORY.md',HERE/'GROUND_MARGINALS.md',HERE/'CUBE_MEMORY.md',
                   HERE/'NODAL_CHANNELS.md',HERE/'SPECTRAL_RESIDUE.md',HERE/'SPECTRAL_WINDOW_ACCESS.md',
-                  HERE/'NODAL_LOCALITY.md',HERE/'NODAL_MOMENT_BOUNDS.md',HERE/'MASS_SCALE_SELECTION.md'))
+                  HERE/'NODAL_LOCALITY.md',HERE/'NODAL_MOMENT_BOUNDS.md',HERE/'MASS_SCALE_SELECTION.md',
+                  HERE/'NODAL_NEXT_MOMENTS.md',HERE/'NATIVE_LORENTZIAN_READOUT.md',
+                  HERE/'BULK_ACTION_IDENTIFICATION.md',
+                  HERE/'SOURCE_ACTION_IDENTIFICATION.md',
+                  ROOT/'model/particle_identification/NATIVE_CAPACITY.md'))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()for p in sorted(paths)}
 
 
@@ -190,6 +196,10 @@ def build():
         'actual_nodal_locality_and_window_survival':serialize(nodal_locality.certificate()),
         'uniform_full_CAR_star_force_bound':serialize(nodal_moment_bounds.certificate()),
         'fixed_source_scaling_and_mass_shell_scope':serialize(mass_scale_selection.certificate()),
+        'complete_source_action_identification':serialize(source_action_identification.certificate()),
+        'actual_local_nodal_higher_moments':serialize(nodal_next_moments.certificate()),
+        'executed_native_dimer_Lorentzian_readout':serialize(native_lorentzian.certificate()),
+        'volume_uniform_cubic_action_identification':serialize(bulk_action_identification.certificate()),
         'aligned_hole_position_dispersion_and_continuum':serialize(hole_dispersion.certificate()),
         'claims':claims(),
         'replay_scope':{'actual_finite_graph_bound_producer_called':True,
