@@ -16,10 +16,12 @@ unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
 results retain their own sources and do not add canonical dependency lists.
 
 The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
-prioritizes uniform original response weight, same-state momentum and
-rest-energy attachment. SI length or time units may be declared immediately;
-the declaration supplies no missing spectrum or species identification.
-Pure Yang-Mills and gravity are deferred for this mass calculation.
+prioritizes a resolved interacting branch on a specified finite capacity,
+same-state momentum and controlled finite-domain rest-energy errors. A
+continuum claim adds uniform response and refinement estimates. SI length
+or time units may be declared immediately; the declaration supplies no
+missing spectrum or species identification. Pure Yang-Mills and gravity
+are deferred for this mass calculation.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -49,6 +51,45 @@ not eleven particle species. The
 requires separate continuum, interaction and spectral estimates. The finite
 construction does not assign physical masses or a positive global gap to a
 theory containing a massless photon.
+
+The [native channel proof](../../model/particle_primary_channel_labels/PROOF.md)
+uses the actual central projectors rather than assigning labels by visual
+similarity. Its five occupations have `Q6=(-4,-3,1,2,6)` with dimensions
+`(3,2,6,3,1)` and obey `sum_q q N_q=0` on the physical carrier. Every
+plaquette response preserves these labels. Proper cube rotations act on
+the physical open source after its dangling zero-charge links are reduced
+to constants. The distinct 24-plaquette A1 average has positive finite
+response, but neither that operator label nor the source's mixed rotational
+invariance identifies a continuum scalar particle. The
+[finite Fourier detector](../../model/particle_primary_momentum/PROOF.md)
+and [actual-source expansion](../../model/particle_primary_spectral_scale/PROOF.md)
+supply operational and spectral inputs without a particle assignment.
+
+## Protected-object catalogue and the primary source
+
+The [protected-object catalogue](../../model/protected_defect_catalog/CATALOG.md)
+and its [machine export](../../model/protected_defect_catalog/catalog.json)
+contain eleven categories across specified source architectures. They
+separate branch-commuting memory charges, conserved spin and occupation
+sectors, prescribed winding textures and kinetic nodes. Several entries
+exhaust their explicit finite classification domain; no exhaustive census
+over unspecified architectures or the primary Wilson source is claimed.
+The bare all-seam source has only scalar source-only branch commutants,
+whereas adding an ordered coherent memory gives a nontrivial protected
+charge. The preparation and permitted dynamics therefore matter to what
+counts as protection.
+
+For the primary source, the five occupation labels are conserved by its
+Hamiltonian and the specified neutral detectors. They are not thereby
+topological defects or invariants of every allowed preparation service.
+Classifying repair protection requires the relevant complete branch maps;
+classifying topology requires its configuration and deformation space.
+An entry's physical map then uses its source-created response, original
+probability, propagation, transformations and spectral branch. Entries
+from the separate spin, texture and Weyl constructions retain their own
+source/state/clock domains until a transfer proof is supplied. A first
+particle calculation can target one admitted channel without waiting for
+an exhaustive classification of every source excitation.
 
 ## Selected locality and the assumed chiral extension
 

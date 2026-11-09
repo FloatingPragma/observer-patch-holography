@@ -78,3 +78,14 @@ finite filtered response with four outcomes and two neutral qubits. Its
 success maps agree with the selector apparatus; its failure maps differ.
 The exact direct-service allocation excludes operator description,
 precision, controller workspace and accumulated records.
+
+The [spatial Fourier instrument](../particle_primary_momentum/PROOF.md)
+records phase-dependent responses on the same finite source, with complete
+failure records and explicit aperture edges. The
+[channel calculation](../particle_primary_channel_labels/PROOF.md) gives
+five conserved occupation labels and a distinct cubic-scalar plaquette
+response. The [spectral expansion](../particle_primary_spectral_scale/PROOF.md)
+computes exact local costs around a decoupled physical ground. Its gap of
+six is not the interacting endpoint gap. A first finite-capacity mass
+comparison needs a resolved branch and controlled dispersion errors;
+uniform refinement is an additional continuum claim.

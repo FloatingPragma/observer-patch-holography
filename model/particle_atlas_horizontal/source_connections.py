@@ -18,17 +18,17 @@ SUMMARIES = {
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
-        'The selected physical source has complete boundary records and uniform influence bounds. A coherent finite time-filter apparatus retains every failure outcome and the idle reference. Its original Ramsey scores measure filtered responses without success normalization.',
+        'The same source supplies complete boundary and time-filter records with uniform influence bounds. A coherent spatial Fourier aperture retains all 2M outcomes and the idle reference; its one-step open-edge error is at most 2/M. Wavevector bins are not conserved-momentum projectors.',
     'joint_refinement':
-        'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; canonical momentum and uniform nonzero finite-energy weight require proof.',
+        'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; a same-representation spatial implementation, momentum origin and nonzero finite-energy weight require proof.',
     'relativistic_field':
-        'The bounded filtered algebra has nonnegative energy and a conservative cone. Prove a nontrivial Lorentz-covariant field on the same source. Establish an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary, or controlled nonfree scattering.',
+        'The filtered algebra has nonnegative energy and a cone. A decoupled source Hamiltonian has dimensionless physical gap 6 and exact perturbative coefficients; continuation to the primary endpoint is unproved. A nontrivial Lorentz field and an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary require proof.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
-        'The neutral, even, matter-number-preserving plaquette channel has a proved finite contrast and excitation band. Its times shrink and its weight floor vanishes. Fixed-band survival, momentum, Lorentz spin and species attachment are required; no single charged lepton is identified.',
+        'Five conserved occupation labels obey one physical hypercharge relation. A 24-plaquette cubic A1 average has positive finite excitation weight. No continuum spin or species is assigned. Its times shrink and its weight floor vanishes; massless weight is not excluded.',
     'independent_comparison':
-        'Declare SI length or time units immediately, with their ancestry. Transfer-to-excitation bounds preserve original weights. A unit choice supplies no missing rest branch: the primary physical-mass table in GeV is empty, and calibrated coefficients are comparison inputs.',
+        'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
@@ -118,9 +118,15 @@ def render(c, data, y):
             'fixed_program': ('Source capacity', 'model/particle_primary_capacity/PROOF.md'),
             'local_records': ('Local influence', 'model/particle_primary_locality/PROOF.md'),
             'joint_refinement': ('Spatial action', 'model/particle_primary_spatial_algebra/PROOF.md'),
+            'relativistic_field': ('Spectral scale', 'model/particle_primary_spectral_scale/PROOF.md'),
             'particle_observables': ('Positive window', 'model/particle_positive_window/PROOF.md'),
         }.get(node['id'])
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
+        fourth = {
+            'local_records': ('Fourier', 'model/particle_primary_momentum/PROOF.md'),
+            'particle_observables': ('Channels', 'model/particle_primary_channel_labels/PROOF.md'),
+        }.get(node['id'])
+        if fourth: c.link(x+width*.9, top+660, fourth[0], fourth[1], 49)
     gravity = nodes[9]; top = y+2720
     c.rect(M, top, W-2*M-70, 530, '#fffdf7', LINE, 26)
     c.text(M+90, top+110, 'DEFERRED · PHYSICAL PROOF REQUIRED · after 5', 57, ORANGE, 700)

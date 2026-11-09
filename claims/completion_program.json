@@ -3358,7 +3358,10 @@
         "model/particle_primary_survival/__main__.py",
         "model/particle_primary_survival/results.json",
         "model/particle_primary_survival/survival.py",
-        "model/particle_primary_survival/test_survival.py"
+        "model/particle_primary_survival/test_survival.py",
+        "model/particle_primary_momentum/PROOF.md",
+        "model/particle_primary_momentum/test_momentum.py",
+        "model/particle_primary_momentum/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4018,6 +4021,14 @@
           "independent_check": "model/particle_primary_spatial_algebra/test_spatial.py",
           "scope": "A regular physical observable algebra admits continuous spatial translations commuting with the unchanged source time. Central local Gauss ideals define the infinite comparison algebra; the actual finite Gauss state extends with invariant blanks, and an explicit bulk boundary estimate identifies limiting regular-probe word moments without an isometric finite-algebra embedding. A common subsequence retains positive canonical time energy. Spatial invariance of the selected limiting state, canonical momentum, noncollapse and Lorentz covariance remain unproved; no homogeneous state average or periodic primary source is substituted.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_finite_spatial_Fourier_instrument",
+          "path": "model/particle_primary_momentum/PROOF.md",
+          "sha256": "3826a1cb7eeda3927415ee95b81e244f5ea3ed77d6815250c2eeddbee9f31e7f",
+          "independent_check": "model/particle_primary_momentum/test_momentum.py",
+          "scope": "A complete eight-outcome Fourier instrument acts on four actual primary physical probes and retains the reference. Each unfiltered blank Fourier label has original weight at least 2^-N/360; finite filters have a separate complete error bound. The exact aperture edge is bounded by2/M. These are operational wavevector records, without an established conserved particle momentum or initial momentum concentration.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -4123,7 +4134,13 @@
         "model/particle_primary_capacity/__main__.py",
         "model/particle_primary_capacity/capacity.py",
         "model/particle_primary_capacity/results.json",
-        "model/particle_primary_capacity/test_capacity.py"
+        "model/particle_primary_capacity/test_capacity.py",
+        "model/particle_primary_channel_labels/PROOF.md",
+        "model/particle_primary_channel_labels/test_channels.py",
+        "model/particle_primary_channel_labels/results.json",
+        "model/particle_primary_spectral_scale/PROOF.md",
+        "model/particle_primary_spectral_scale/test_scale.py",
+        "model/particle_primary_spectral_scale/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4752,6 +4769,22 @@
           "sha256": "daed8fddef27b42f626cbf1d22b7290615952faf8bf543ee6f3d92626fa71978",
           "independent_check": "model/particle_primary_mass_readout/test_readout.py",
           "scope": "A positive coupling of original stationary transfer and final ground-relative excitation laws has transport cost at most C^2 epsilon_n. Fixed-filter limiting laws agree; explicit finite windows retain original probability and cooling allowances, and the actual primary finite-filter band transfers without extra loss. Conditional rest intervals additionally require same-source momentum, vacuum and spectral-shell premises. A declared absolute metre or tick scale supplies immediate SI/GeV comparison arithmetic using the existing exact unit theorem; no cesium-atom derivation is required for a declared convention. The primary physical mass table remains empty because its mass spectrum and species are unproved, independently of the permitted unit choice.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_occupation_and_cubic_response_channels",
+          "path": "model/particle_primary_channel_labels/PROOF.md",
+          "sha256": "1520ea9f040a473a549cea7f92d90361be07bd32759b10891725e01385d5b270",
+          "independent_check": "model/particle_primary_channel_labels/test_channels.py",
+          "scope": "The full primary action preserves five native occupation labels with Q6=(-4,-3,1,2,6), subject to sum_q q N_q=0 on the physical carrier. A justified physical cube action supplies a distinct24-plaquette A1 average with squared blank commutator norm4949/(480a^2) and positive original finite-filter weight. Neither a scalar operator nor a mixed invariant state establishes a scalar vacuum, Lorentz spin or a particle identity.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_decoupled_expansion_and_endpoint_scale",
+          "path": "model/particle_primary_spectral_scale/PROOF.md",
+          "sha256": "3264d7231cea098d4fd80381c6e96d51317c5335b3f7ed73bf95981e3364fd2d",
+          "independent_check": "model/particle_primary_spectral_scale/test_scale.py",
+          "scope": "The actual onsite/electric reference has physical gap6, ground energy-90V and exact local hopping/loop perturbation coefficients. Only lambda=1 is the primary action; its remainder and endpoint gap are unproved. A supplied uniform actual dimensionless gap g would suppress fixed-band original weight below g/a by C^2 a epsilon/g. A finite-capacity mass comparison can instead use a resolved branch and controlled finite-domain dispersion errors, without a full continuum theorem. No physical GeV mass is supplied.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

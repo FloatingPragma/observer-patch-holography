@@ -204,3 +204,32 @@ bounds. The source has `H_n=Hhat_n/a_n`; a numerical mass-capacity law
 requires the actual dimensionless spectrum and one tracked unit policy.
 The near-ground preparation is a particle-spectroscopy setup, not a
 calculation of early-universe temperatures or particle abundances.
+
+The [complete spatial Fourier instrument](../particle_primary_momentum/PROOF.md)
+uses the same physical source probes, source state and retained reference.
+Its finite aperture carries a calculable edge term; its Fourier labels
+are not automatically the spectral values of a conserved momentum.
+The [channel calculation](../particle_primary_channel_labels/PROOF.md)
+proves five conserved native occupation labels, subject to the physical
+relation `sum_q q N_q=0`. It constructs a cubic A1 average with positive
+finite original response. Neither a cubic scalar nor an internal charge
+pattern identifies a relativistic particle.
+
+The [spectral-scale calculation](../particle_primary_spectral_scale/PROOF.md)
+splits the actual action into its decoupled onsite/electric part and
+the actual hopping/magnetic perturbation. The physical decoupled gap is
+exactly six in dimensionless units, with exact local second-order energy
+and first-order state coefficients. Their global state norm grows with
+volume; the elementary gap estimate does not reach the actual interacting
+endpoint. Controlling that endpoint is a concrete spectral calculation.
+If a uniform positive dimensionless gap were proved there, the selected
+cooling law would suppress every bounded-probe fixed physical band below
+the rescaled gap. That is a conditional obstruction, not a proved failure
+of the primary action.
+
+A finite-capacity mass comparison may instead use one admitted physical
+branch with errors over a declared measurement range. It does not require
+an exact infinite-volume continuum theorem. The claim of a nontrivial
+continuum family requires the additional uniform spectral and refinement
+estimates in nodes4-5. Both routes keep the original weights, source,
+state, reference, clock and unit ancestry.

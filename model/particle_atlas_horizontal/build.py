@@ -22,7 +22,8 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_stress', 'particle_positive_window',
     'particle_primary_survival', 'particle_primary_mass_readout',
     'particle_primary_spatial_algebra', 'particle_primary_capacity',
-    'particle_compact_mass_probe'))
+    'particle_compact_mass_probe', 'particle_primary_momentum',
+    'particle_primary_channel_labels', 'particle_primary_spectral_scale'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -156,6 +157,9 @@ def reader(svg,data):
         ('particle_primary_spatial_algebra','Continuous regular spatial action; selected-state invariance and momentum conditions'),
         ('particle_primary_capacity','Source capacity in nats: ambient and physical bounds, references and execution cost'),
         ('particle_compact_mass_probe','Four-outcome readout of the same finite filter; two apparatus qubits and explicit service costs'),
+        ('particle_primary_momentum','Complete spatial Fourier records, open-aperture error and the conserved-momentum conditions'),
+        ('particle_primary_channel_labels','Five conserved occupation labels and a finite cubic scalar response with original weight'),
+        ('particle_primary_spectral_scale','Exact decoupled source and local perturbative coefficients; no primary endpoint gap inference'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),

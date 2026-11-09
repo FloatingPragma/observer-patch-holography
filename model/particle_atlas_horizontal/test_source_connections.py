@@ -19,7 +19,7 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     canvas = drawing.Canvas()
     end = source_connections.render(canvas, {'joint_dependencies': graph}, 100)
     root = ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg">'+''.join(canvas.items)+'</svg>')
-    text = ' '.join(''.join(root.itertext()).split())
+    text = ' '.join(' '.join(root.itertext()).split())
     assert end == 3730
     assert root.find('{http://www.w3.org/2000/svg}g').get('id') == 'joint-field-particle-dependencies'
     for node in graph['nodes']:
@@ -43,11 +43,18 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert '../../model/particle_filtered_probe/PROOF.md' in hrefs
     assert '../../model/particle_primary_stress/PROOF.md' in hrefs
     assert '../../model/particle_positive_window/PROOF.md' in hrefs
+    for owner in ('particle_primary_momentum', 'particle_primary_channel_labels',
+                  'particle_primary_spectral_scale'):
+        assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert 'convergent finite pointer histories' in text
     assert 'coin and reference remain in the complete output' in text
     assert 'primary physical-mass table in GeV is empty' in text
     assert 'times shrink and its weight floor vanishes' in text
     assert 'not proved spatially invariant' in text
+    assert 'one physical hypercharge relation' in text
+    assert 'Wavevector bins are not conserved-momentum projectors' in text
+    assert 'continuation to the primary endpoint is unproved' in text
+    assert 'Finite mass comparison needs a resolved branch' in text
 
 
 @pytest.mark.parametrize('mutation', [

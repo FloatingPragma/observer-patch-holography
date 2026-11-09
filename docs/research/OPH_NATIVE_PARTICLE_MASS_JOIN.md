@@ -16,10 +16,12 @@ unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
 results retain their own sources and do not add canonical dependency lists.
 
 The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
-prioritizes uniform original response weight, same-state momentum and
-rest-energy attachment. SI length or time units may be declared immediately;
-the declaration supplies no missing spectrum or species identification.
-Pure Yang-Mills and gravity are deferred for this mass calculation.
+prioritizes a resolved interacting branch on a specified finite capacity,
+same-state momentum and controlled finite-domain rest-energy errors. A
+continuum claim adds uniform response and refinement estimates. SI length
+or time units may be declared immediately; the declaration supplies no
+missing spectrum or species identification. Pure Yang-Mills and gravity
+are deferred for this mass calculation.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -108,6 +110,19 @@ blank extension. This does not assume an isometric finite-carrier map.
 Spatial invariance of the selected state and canonical GNS momentum are
 unproved. An internal current label or Fourier probe coordinate is not a
 physical excitation momentum.
+
+The [complete spatial aperture](../../model/particle_primary_momentum/PROOF.md)
+provides actual same-source Fourier records without translating the source
+or reference. Its finite original-weight law and aperture-edge identity
+are proved; identifying a conserved particle momentum requires the
+corresponding operational attachment. The
+[exact channel labels](../../model/particle_primary_channel_labels/PROOF.md)
+sharpen matter-number conservation to five native block occupations with
+one physical hypercharge relation, and give a distinct cubic-scalar
+plaquette probe. The [spectral expansion](../../model/particle_primary_spectral_scale/PROOF.md)
+computes physical product-vacuum packets of the decoupled part; its gap
+six is not an interacting particle mass. The finite mass join consumes a
+resolved interacting branch with certified errors in a stated domain.
 
 The [mass-readout construction](../../model/particle_primary_mass_readout/PROOF.md)
 transports original transfer weights to final ground-relative excitation

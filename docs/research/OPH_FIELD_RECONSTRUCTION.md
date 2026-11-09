@@ -72,6 +72,37 @@ match a measured ratio must first be localized to that chain; it does not
 justify modifying coefficients using the target and relabelling the fit
 as a derivation.
 
+## Finite spectral and spatial inputs
+
+The [complete spatial Fourier detector](../../model/particle_primary_momentum/PROOF.md)
+coherently addresses actual physical plaquette probes and records all eight
+outcomes for a four-position aperture. Its unfiltered original probability
+at each blank Fourier label is at least `2^(-b_n)/360`, using the selected
+state's faithful floor. Filtered records have their own complete error
+bound. The finite aperture has an explicit edge term; these labels are
+spatial wavevectors without a proved conserved-particle momentum assignment.
+Energy cooling alone does not establish momentum concentration.
+
+The [channel calculation](../../model/particle_primary_channel_labels/PROOF.md)
+proves conservation of the five native occupation labels with
+`Q6=(-4,-3,1,2,6)` and block dimensions `(3,2,6,3,1)`. Full physical Gauss
+invariance imposes `sum_q q N_q=0`. The plaquette and its filter preserve
+every count. A distinct average over its 24 cube rotations is a cubic A1
+observable with a positive original finite response. A mixed rotation-invariant
+state is not a scalar vacuum, and A1 does not determine continuum spin or
+a particle name.
+
+The [actual-source spectral expansion](../../model/particle_primary_spectral_scale/PROOF.md)
+uses `Hhat(lambda)=H0+lambda Vpert`, with only `lambda=1` the primary
+action. The decoupled physical ground has energy `-90V` and gap six.
+One hopping packet in native block r has squared norm `d_r` and cost
+`Delta_r=6+(105/2)C_r`. Exact local coefficients give
+`Ehat(lambda)=-90V-lambda²(B b1+P p1)+O(lambda³)`, where
+`b1=117266225/340570896` and `p1=463/233377200`. Here B and P count
+actual bonds and plaquettes. The remainder and interacting endpoint gap
+are unproved; the reference gap is not a particle mass. This makes
+endpoint spectral control a concrete calculation on the specified action.
+
 ## One specified source, state, reference and clock
 
 The [primary construction contract](../../model/particle_common_contract/PROOF.md)

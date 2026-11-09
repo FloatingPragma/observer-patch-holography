@@ -16,10 +16,12 @@ unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
 results retain their own sources and do not add canonical dependency lists.
 
 The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
-prioritizes uniform original response weight, same-state momentum and
-rest-energy attachment. SI length or time units may be declared immediately;
-the declaration supplies no missing spectrum or species identification.
-Pure Yang-Mills and gravity are deferred for this mass calculation.
+prioritizes a resolved interacting branch on a specified finite capacity,
+same-state momentum and controlled finite-domain rest-energy errors. A
+continuum claim adds uniform response and refinement estimates. SI length
+or time units may be declared immediately; the declaration supplies no
+missing spectrum or species identification. Pure Yang-Mills and gravity
+are deferred for this mass calculation.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -72,6 +74,26 @@ not eleven particle species. The
 requires separate continuum, interaction and spectral estimates. The finite
 construction does not assign physical masses or a positive global gap to a
 theory containing a massless photon.
+
+The [primary spectral expansion](../../model/particle_primary_spectral_scale/PROOF.md)
+computes exact packets around the decoupled part of the actual Wilson
+Hamiltonian. Its physical reference gap is six in dimensionless units.
+The source is the interacting endpoint `lambda=1`, where no perturbative
+remainder or gap bound is inferred from that reference. The exact
+second-order energy coefficient and extensive first-order dressing norm
+identify what requires control. A hypothetical uniform positive endpoint
+gap g would suppress every bounded-probe fixed band below `g/a` by
+`C² a epsilon/g`; the existence of such a gap is unproved. Changing the
+unit policy to keep that gap finite can keep the physical lattice spacing
+constant, so it does not establish cutoff removal.
+
+The [same-source Fourier records](../../model/particle_primary_momentum/PROOF.md)
+and [occupation/cubic channel labels](../../model/particle_primary_channel_labels/PROOF.md)
+are finite inputs to a branch calculation. A finite-capacity mass comparison
+needs its actual interacting response and controlled dispersion over the
+claimed range; no exact infinite continuum theorem is required for that
+scoped comparison. Its rest-energy interval and source capacity must
+accompany the declared GeV conversion.
 
 ## Conditional action spectrum and physical mass definitions
 

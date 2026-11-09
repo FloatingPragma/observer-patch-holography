@@ -17,6 +17,9 @@ from model.particle_primary_mass_readout import readout as mass_readout
 from model.particle_primary_spatial_algebra import spatial
 from model.particle_primary_capacity import capacity
 from model.particle_compact_mass_probe import compact
+from model.particle_primary_momentum import momentum
+from model.particle_primary_channel_labels import channels
+from model.particle_primary_spectral_scale import scale
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -121,7 +124,7 @@ def build():
     paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
     for module in (algebra, stress, window, filtered_probe, survival,
-                   mass_readout, spatial, capacity, compact):
+                   mass_readout, spatial, capacity, compact, momentum, channels, scale):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -187,6 +190,12 @@ def build():
     compact_probe = compact.certificate()
     for level, receipt in zip((1, 2), compact_probe['selected_members'], strict=True):
         compact.verify_bound(contract.member(level), receipt)
+    spatial_readout = momentum.certificate()
+    momentum.verify_bound(contract.member(2), spatial_readout['selected_aperture'])
+    channel_labels = channels.certificate()
+    for level, receipt in zip((1, 2), channel_labels['finite_members'], strict=True):
+        channels.verify_bound(contract.member(level), receipt)
+    spectral_scale = scale.certificate()
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -206,11 +215,17 @@ def build():
         'primary_excitation_to_mass_readout': mass,
         'primary_capacity_family_in_nats': capacities,
         'primary_compact_four_outcome_probe': compact_probe,
+        'primary_complete_spatial_Fourier_readout': spatial_readout,
+        'primary_conserved_occupations_and_cubic_channel': channel_labels,
+        'primary_decoupled_expansion_and_spectral_scale': spectral_scale,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
         'primary_spatial_action_on_regular_algebra_proved': True,
         'primary_selected_state_spatial_invariance_proved': False,
+        'primary_finite_aperture_Fourier_instrument_proved': True,
+        'primary_conserved_particle_momentum_proved': False,
+        'primary_interacting_endpoint_gap_proved': False,
         'declared_SI_and_GeV_comparison_conversion_available': True,
         'source_derived_particle_mass_table_GeV': [],
         'primary_proper_geometry_or_Einstein_limit_proved': False,
