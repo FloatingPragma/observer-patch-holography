@@ -29,6 +29,10 @@ from model.particle_primary_response_moments import model as pair_response
 from model.particle_primary_pair_channels import model as pair_channels
 from model.particle_primary_refinement_response import model as refinement_response
 from model.particle_primary_gravity_premises import model as gravity_premises
+from model.particle_primary_branch_resolution import model as branch_resolution
+from model.particle_primary_origin_momentum import model as origin_momentum
+from model.particle_primary_energy_tightness import model as energy_tightness
+from model.particle_primary_open_coframe import model as open_coframe
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -135,7 +139,8 @@ def build():
     for module in (algebra, stress, window, filtered_probe, survival,
                    mass_readout, spatial, capacity, compact, momentum, channels, scale,
                    endpoint, variational, spectroscopy, occupation, local_residual,
-                   pair_response, pair_channels, refinement_response, gravity_premises):
+                   pair_response, pair_channels, refinement_response, gravity_premises,
+                   branch_resolution, origin_momentum, energy_tightness, open_coframe):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -229,6 +234,19 @@ def build():
         refinement_response.verify_bound(contract.member(level), receipt)
     modular_work = gravity_premises.certificate()
     gravity_premises.verify_bound(contract.member(0), modular_work['selected_member_bound'])
+    concentrated_response = branch_resolution.certificate()
+    branch_resolution.verify_bound(member, concentrated_response['selected_member_bound'])
+    relative_momentum = origin_momentum.certificate()
+    origin_momentum.verify_bound(member, relative_momentum['selected_member_bound'])
+    for level, receipt in zip((6, 13, 16), relative_momentum['refinement_members'], strict=True):
+        origin_momentum.verify_bound(contract.member(level), receipt)
+    sharper_response = energy_tightness.certificate()
+    for level, receipt in zip((0, 1, 2), sharper_response['members'], strict=True):
+        energy_tightness.verify_bound(contract.member(level), receipt)
+    energy_tightness.verify_bound(contract.member(7), sharper_response['retained_origin_member'])
+    matched_strain = open_coframe.certificate()
+    for level, receipt in zip((0, 1, 2), matched_strain['members'], strict=True):
+        open_coframe.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -260,11 +278,18 @@ def build():
         'primary_populated_cubic_parity_pair_channels': neutral_channels,
         'primary_scalable_collective_response': scalable_response,
         'primary_modular_work_and_geometric_premises': modular_work,
+        'primary_concentrated_pair_response_and_odd_trial': concentrated_response,
+        'primary_retained_origin_relative_momentum': relative_momentum,
+        'primary_sharper_capacity_dependent_energy_windows': sharper_response,
+        'primary_boundary_completed_spatial_strain': matched_strain,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
         'primary_spatial_action_on_regular_algebra_proved': True,
         'primary_selected_state_spatial_invariance_proved': False,
+        'relative_observation_state_spatial_invariance_proved': True,
+        'relative_observation_commuting_positive_energy_and_momentum_proved': True,
+        'relative_observation_nonzero_momentum_response_proved': False,
         'primary_finite_aperture_Fourier_instrument_proved': True,
         'primary_conserved_particle_momentum_proved': False,
         'primary_interacting_endpoint_gap_proved': False,

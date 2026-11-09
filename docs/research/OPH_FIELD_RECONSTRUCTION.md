@@ -8,10 +8,12 @@ are the single ten-node construction map. The active target is source-derived
 particle masses in declared SI/GeV comparison units, with capacity dependence
 explicit. Nodes 1-3 establish the finite program, physical preparation and
 complete local apparatus. Nodes 4-8 include a positive-energy filtered
-algebra, a regular continuous spatial action, finite primary positive
-response bounds and original transfer-to-excitation transport. Uniform
-survival, same-state momentum, physical species and mass branches are
-unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+algebra, finite original-weight energy bands and transfer-to-excitation
+transport. A retained observation origin gives a translation-invariant
+relative-observation limit with commuting energy and momentum generators.
+Nonzero momentum response, dispersion, species and mass identification
+require further spectral control. The primary physical-mass table in GeV
+is empty. Pure Yang-Mills
 (node 9) and geometric gravity (node 10) are deferred branches. Comparison
 results retain their own sources and do not add canonical dependency lists.
 
@@ -45,8 +47,8 @@ filtered algebra are available. The following work order expands nodes
 
 | Order | Required mass-readout connection | Existing result and remaining condition |
 | --- | --- | --- |
-| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | On member zero, a local neutral pair instrument has original transfer weight at least 1/2 in [2,10] source units and final excitation weight at least 3/8 in [2,21/2], before finite clock errors. This is a broad channel band; branch isolation and dispersion require further calculation. A continuum claim additionally needs uniform survival and refinement control. |
-| 2 | Attach momentum to the same source, state and clock. | The regular physical algebra has a continuous R3 action commuting with time. Its implementation on the selected representation, the operational momentum dictionary and preparation momentum control require proofs. State invariance suffices for the canonical vacuum-fixing implementation; it is not a necessary premise for every operational momentum readout. |
+| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | On member zero, local neutral pair records have original transfer weight at least 3/20 in [4,8] source units and final excitation weight at least 7/80 in [4,9]. Complete clocks report [63/16,129/16] with weight at least 9/64. Branch isolation and dispersion require further calculation; a continuum claim also needs uniform survival. |
+| 2 | Attach momentum to the same source, state and clock. | One retained random observation origin gives a translation-invariant relative-observation limit with commuting H>=0 and P and a zero-momentum cyclic vector. It preserves the finite source input and clock, but changes the declared observation domain. Nonzero response and convergence of finite Fourier records to this momentum require proof; fixed-origin invariance is unproved. |
 | 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
 | 4 | Identify the propagating particle channel. | The proved plaquette and pair channels are gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
 | 5 | Bound the complete prediction error and capacity dependence. | Finite preparation, filtering, clock and detector bounds are constructed. Joint volume, spacing, link-cutoff and observable-matching errors require control. The chosen sequence changes these together, so capacity alone does not determine a mass law. |
@@ -103,12 +105,34 @@ plaquettes vanish by Haar integration over crossing links. On every
 primary member the selected total beta-defect density is below 97/10.
 In the native dimension-six block, a normalized collective pair has
 `[C†,C]=(12-D1)/42`, so its averaged commutator is at least 1/20.
-The resulting original transfer weight is at least 3/100 in
-`[1/(100 beta_n),1446/a_n]`, and final excitation weight is at least 1/50
-in `[1/(100 beta_n),1446/a_n+100 epsilon_n]`, before clock errors.
-Here D1 denotes defects in the Q6=1 block, not a physical quark count.
+The [exact collective moment calculation](../../model/particle_primary_energy_tightness/PROOF.md)
+bounds the dimensionless centered second moment by `3141/224` uniformly.
+Original transfer weight is at least3/100 in `[1/(100 beta_n),46/a_n]`,
+and final excitation weight is at least1/50 in
+`[1/(100 beta_n),46/a_n+100 epsilon_n]`. Complete finite clocks retain
+at least1/50 in their widened reported interval. Here D1 denotes defects
+in the Q6=1 block, not a physical quark count. At member one, the separate
+charge-six scalar has original weight above1/20 in a band with upper
+endpoint48 source units. The source's physical product anchor rules out
+removing the inverse-spacing scale by an operator-norm bound on these
+unsmeared probes; it supplies no lower bound on their selected-state
+weighted residual.
 
-This supplies scalable finite populated responses. A continuum field needs
+The [selected-state density sum rule](../../model/particle_primary_energy_tightness/PROOF.md)
+also gives `-a <H_hop>/V>0.03459` on every primary member, using the actual
+prepared state. Its exact number-density double commutator determines the
+signed first energy moment of a complete cosine/sine/failure instrument.
+For its declared normalization `Lambda=30V`, that moment is at most
+`a/(6V)`; cooling bounds the original downward absolute first moment by
+`epsilon`. Consequently its original weight above any fixed positive
+energy delta is at most `(a/(6V)+epsilon)/delta`, which tends to zero.
+This is a limitation of this volume-normalized density apparatus, not of
+the collective-pair channel or every source observable. It gives a concrete
+test for the mass route: a candidate's state-weighted moments and original
+response must support its probe normalization and energy window together.
+
+The collective-pair bounds supply populated finite responses at every level.
+A continuum field needs
 weight in a fixed nonzero physical energy interval, which the moving
 endpoints do not establish. A finite-capacity mass can be tested first:
 resolve an energy branch in these channels, attach the corresponding
@@ -173,38 +197,44 @@ calculation device and does not replace the selected polynomial state.
 
 ## A detected finite neutral excitation band
 
-The [local response calculation](../../model/particle_primary_response_moments/PROOF.md)
-uses the actual member-zero state, reference and clock. Retaining two
-fifths of the onsite defect penalty bounds the selected mean total beta
-defect count by5. Here a beta defect means an occupied positive-beta mode
-or an empty negative-beta mode; it is not a topological-defect species.
-For a uniform choice of the two matched neutral pair probes per cell,
-`B=c_positive† c_negative` in the one-dimensional native Q6=6 block,
-the original success weight is at least11/16. This operator has zero
-gauge charge despite the label of its constituent native block.
+The [concentrated pair calculation](../../model/particle_primary_branch_resolution/PROOF.md)
+retains four fifths of the native charge-six onsite penalty in the actual
+member-zero Hamiltonian. The full-occupation electric estimate bounds the
+selected charge-six beta-defect count below1.840. A beta defect is an
+occupied positive-beta mode or an empty negative-beta mode; it is not a
+protected topological object or a particle species.
 
-Its exact onsite frequency is6 and the full interacting commutator obeys
-`||[H,B]-6B||² <=3` on every corner of this eight-cell member. The original
-second moment therefore places at least1/2 of the complete spectral
-weight in transfers `[2,10]`. The selected energy excess is at most1/16;
-the established transfer-to-excitation bound gives final ground-relative
-excitation in `[2,21/2]` with original weight at least3/8. No conditioning
-on successful detection, replacement of the selected state, or empirical
-mass input enters these inequalities. A complete seventeen-outcome probe
-followed and preceded by finite energy clocks reports transfer in
-`[15/8,81/8]` with original probability at least15/32 after clock tails
-and clock implementation errors. Its sufficient clock size is `J=2^30`;
-all `17 J²` fine records are retained. This is an analytic apparatus and
-probability certificate, not an executed full-source histogram. An
-additional probe-compilation or sampling error requires its own allowance.
+For the uniform average of sixteen local matched probes
+`B=c_positive† c_negative`, the original success weight exceeds113/128.
+The all-occupation source commutator obeys
+`||[H,B]-6B||² <=3/2+sqrt(2)<102/35`. These exact local bounds place at
+least3/20 original transfer weight in `[4,8]`. Cooling by at most1/16
+then gives final ground-relative excitation weight at least7/80 in
+`[4,9]`. A complete seventeen-outcome probe and two finite clocks report
+`[63/16,129/16]` with original probability at least9/64. All failures,
+energy records and the idle reference are retained. Additional compilation,
+preparation or sampling errors need their own allowances; the large source
+histogram is not executed. The broader [local response bound](../../model/particle_primary_response_moments/PROOF.md)
+also retains at least1/2 in `[2,10]`.
 
-This result supplies a broad observable energy band with substantial
-original weight on one finite member. Its interpretation requires a
-resolved energy-momentum branch, physical channel identification and
-controlled errors in the claimed domain. It gives no rest mass or
-Standard Model assignment. The retained-penalty admission used for this
-weight fails on the next larger member; a refinement-uniform bound is
-not established by the small-box result.
+The same original correlation satisfies `Re F(1/2)<-3/8` at a fixed source
+time. A complete34-outcome Ramsey apparatus retains a negative signed
+score with its stated finite evolution error. This is a resolved finite
+time contrast, not proof of a single spectral line or a threshold onset.
+Its experiment averages local addresses; the weight is not assigned to
+an individual coherent A1u component.
+
+A separate twelve-vector physical A1u trial has odd-sector energy upper
+bound about-717.8547. Its difference5.913111 from the ground trial's upper
+bound is a difference of upper bounds, not an excitation energy. The full
+omitted-space residual is about104.806 and isolates no level. A mass
+requires an original-weight spectral branch, its momentum/dispersion and
+physical channel assignment, with errors on the claimed finite domain.
+The same proof excludes isolation certification by optimizing the retained
+onsite/electric fractions in its Schur-bound family against the authenticated
+ground upper: its complement floor is always below-724 and that upper is
+above-724; other resolvents, sharper ground uppers and the physical gap are
+outside this bound-method limitation.
 
 The [complete joint spectrometer](../../model/particle_primary_joint_spectroscopy/PROOF.md)
 records an initial source energy, all spatial Fourier outcomes, and a final
@@ -421,10 +451,28 @@ blank extends the actual finite Gauss state; a bulk locality comparison
 controls its infinite-lattice time evolution. Rounded lattice shifts define
 an exact point-norm continuous R3 action on the regular asymptotic quotient,
 commuting with source time. Equality of limiting word moments does not
-assert an isometric finite-carrier embedding. Spatial invariance of the
-selected limiting state is unproved, so canonical GNS momentum and a vacuum
-momentum assignment do not follow. Fourier test-function labels alone are
-not measured excitation momenta.
+assert an isometric finite-carrier embedding. The fixed-origin limiting
+state is not proved spatially invariant.
+
+The [retained-origin observation domain](../../model/particle_primary_origin_momentum/PROOF.md)
+adds an independent recorded origin, uniform over a bulk cube. The same
+origin controls every step of each complete history. This block-diagonal
+translation preserves products, whereas an arithmetic observable average
+or a fresh origin per step does not. Its collar has vanishing volume
+fraction and diverging physical width. The actual locality bound makes
+all fixed-history boundary errors vanish, including origin-conditioned
+quantum references, without changing the source clock or preparation.
+
+A common subsequence gives a translation-invariant relative-observation
+state. Its canonical generators strongly commute, with `H>=0` and
+`H Omega=P Omega=0`. They can be trivial; no nonzero field or dispersion
+is implied. The fixed-origin state is not replaced or proved invariant.
+Only fixed pointer histories and relative-algebra moments take limits,
+not the growing complete origin/reference density. The same recorded-origin
+collective probe has positive finite original weight from member seven
+by its selected occupation bound. Nonzero fixed spatial/time-smear response
+and the convergence of finite Fourier readouts to these spectral momenta
+require separate estimates.
 
 The [mass-readout theorem](../../model/particle_primary_mass_readout/PROOF.md)
 couples original transfer `omega=E_j-E_i` to final excitation `z=E_j-E0`
@@ -490,9 +538,13 @@ between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
 unitaries it bounds the regional marginal response by the same source work.
 Its global modular clock has an explicit error relative to the source
 clock. The complete retained-reference entropy is a different functional.
-An exact open-boundary term prevents unmodified transfer of the periodic
-coframe action. Proper geometry and the Einstein area/diamond premises
-are separate from the finite mass calculation.
+The [boundary-completed coframe](../../model/particle_primary_open_coframe/PROOF.md)
+fixes a declared spatial strain coupling with `H(I)=H_primary` exactly.
+Six strain derivatives have complete two-record mean detectors and
+full-carrier bounds, using the unchanged flat input. The response can
+disturb that input. This source coupling supplies no proper metric,
+Lorentz stress, diamond kernel or area law. Gravity is separate from the
+finite mass calculation.
 
 
 Gravity node 10 is deferred from the active mass target. Its finite
@@ -1637,7 +1689,7 @@ outside `|X-c|<epsilon` is at most `(c+epsilon)D_c/epsilon^2` without an
 upper energy cutoff. An actual preparation `psi/Lambda` contributes the
 known factor `1/Lambda^2`; no observed success probability is divided out.
 The complete joint energy/momentum score and the positive-B gap give finite
-chi intervals. The source static inputs and chi still need growing-family
+chi intervals. The source static inputs and chi require growing-family
 enclosures; the test does not establish `D_c/w->0`. A nonzero full-response
 defect does not exclude a sharp component with a continuum beside it.
 These results leave the canonical premise classifications unchanged.
@@ -1998,7 +2050,7 @@ Two exact interfaces reduce the remaining calculations. The
 express the optimal two-force defects as `h_Q-c^2/chi_P` and
 `h_P-c^2/chi_Q`, using source first and inverse energy moments.
 On a fixed positive energy window these give original-weight tube bounds.
-Their saturation is a source estimate still to be proved. The actual
+Their saturation is an unproved source estimate. The actual
 uniform finite-spin Ward relation fixes one susceptibility exactly, but
 does not by itself imply a sharp energy distribution. Filtered cross
 moments and unfiltered order commutators remain distinct.

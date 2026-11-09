@@ -45,7 +45,7 @@ the coupled matter source merely by sharing those node names.
 | 2. Physical preparation | The [physical Gauss preparation](../particle_gauss_ground_state/PROOF.md) and [boundary-state theorem](../particle_physical_boundary_state/PROOF.md) construct the actual selected state, deterministic preparation and complete boundary-charge measurement. Eleven Wilson-loop/blank witnesses have strictly positive weight; all charge outcomes are retained. | Finite construction established. Full spatial execution and compatibility between refinement levels are separate claims. |
 | 3. Local records | The [complete filtered apparatus](../particle_filtered_probe/PROOF.md) supplies distinct LCU/Ramsey and square-root effect instruments with error bounds. The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. Fixed finite effect histories converge on the common subsequence below; growing reference outputs and the full particle-detector repertoire are separate requirements. |
 | 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md), stationary subsequential state, positive-energy GNS and fixed finite pointer-history limits are constructed. Noncollapse, charge tightness, effective errors and a full field dictionary remain unproved; fixed-regulator results are not silently composed. |
-| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. Spatial invariance of that state, canonical momentum, Lorentz covariance and a surviving interaction remain unproved. |
+| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. The [retained-origin domain](../particle_primary_origin_momentum/PROOF.md) supplies a translation-invariant relative state with strongly commuting canonical H>=0 and P. Nonzero momentum response, Fourier-detector attachment, Lorentz covariance and a surviving interaction are unproved; fixed-origin invariance is not asserted. |
 | 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | Conditional finite representation and action results are available. Their physical chiral continuum, vacuum and source attachment are unproved. |
 | 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | The [source energy transport theorem](../particle_primary_mass_readout/PROOF.md) connects original transition weights to final ground-relative excitation and supplies conditional rest intervals. Actual momentum-resolved shells, species and a full physical spectrum remain unproved. |
 | 8. Independent comparison | Fix physical units and a frozen observable dictionary; compare joint records in the same schemes, initial conditions and resolution, with propagated errors. Preserve fitted-input ancestry and distinguish independent tests from calibration. | Declared SI/GeV comparison conversion is available immediately. Candidate fits retain their calibration ancestry; actual particle masses need the preceding physical attachments. |
@@ -180,8 +180,10 @@ are a fixed-band excitation with uniform original weight, operational
 momentum on the selected representation, and a same-branch
 relativistic spectral relation. Spin/current/statistics and interaction
 matching then determine whether that branch is a named particle.
-Spatial invariance is sufficient for canonical vacuum-fixing GNS momentum;
-a different implementation requires its own same-representation proof.
+The retained-origin construction supplies canonical vacuum-fixing GNS momentum
+on its explicit relative-observation algebra. The fixed-origin source state
+is unchanged and is not proved spatially invariant. A populated momentum
+branch and controlled detector transfer to those generators require proof.
 
 The finite-survival proof also rules out one shortcut on this preparation:
 the empty and completely filled Fock sectors are exact pure-gauge reducing
@@ -271,7 +273,8 @@ resolves all ten isotypic channels and all 32 Walsh/component records on
 member zero with positive original spectral-band weight. Its exact polynomial
 population bound uses the selected preparation. The
 [scalable collective response](../particle_primary_refinement_response/PROOF.md)
-has original weight at least3/100 in `[1/(100 beta_n),1446/a_n]` on every
+with the [exact collective CAR moment](../particle_primary_energy_tightness/PROOF.md)
+has original weight at least3/100 in `[1/(100 beta_n),46/a_n]` on every
 finite member, with selected defect density below97/10. The final-excitation
 floor is1/50 after cooling and before clock errors. These bands move toward
 zero and infinity; fixed physical energy survival, dispersion, particle
@@ -285,6 +288,40 @@ unitaries, regional restriction bounds the supported marginal response
 by the same source work. The member-zero beta
 flip supplies work greater than18 source units. A direct periodic-coframe
 substitution on the open primary changes its flat action by a physical
-boundary operator of norm `45 L²/a`. The finite Einstein theorem retains
+boundary operator of norm `45 L²/a`. The
+[boundary-completed coupling](../particle_primary_open_coframe/PROOF.md)
+fixes that mismatch, with exact flat action and six complete spatial-strain
+mean instruments. This is a declared coupling, not recovered proper geometry.
+The finite Einstein theorem retains
 its proper metric, diamond kernel, area and common limiting-error premises.
 Gravity is separate from the first finite mass comparison.
+
+The [concentrated member-zero pair response](../particle_primary_branch_resolution/PROOF.md)
+has original weight at least3/20 in [4,8], fixed-time real correlation below
+-3/8 at time1/2, and complete recorded weight at least9/64 in
+[63/16,129/16]. The physical scalar-odd twelve-packet trial gives a sector
+energy upper bound; its complement estimate does not isolate a line. A
+difference of two trial energy uppers is not an excitation bound.
+
+For refinement, the exact physical anchor identity in the
+[energy-window proof](../particle_primary_energy_tightness/PROOF.md)
+shows that the bare local probe's operator-norm residual grows as1/a.
+A smaller norm constant cannot supply fixed-energy survival. The useful
+next construction is a dressed or spatially smeared selected-state
+response with nonzero original overlap and controlled weighted energy,
+or a direct positive fixed-window estimate. Its finite energy--momentum
+branch must then meet the rest-readout theorem's actual hypotheses.
+
+The same selected preparation has hopping density
+`-a <H_hop>/V >0.0345`. The exact density double commutator gives a
+positive original cosine/sine first moment, with all three probe outcomes
+retained. At physical wavevector pi, its volume normalization instead
+implies `mu((delta,infinity)) <= (a/(6V)+epsilon)/delta ->0`. This
+particular density apparatus cannot supply fixed positive-energy survival;
+its failure does not transfer to all dressed or local source observables.
+
+Within the retained onsite/electric Schur family, two exact rational
+cases bound every complementary penalty floor below -724. The current
+authenticated ground upper is greater than -724. Optimizing those
+fractions cannot certify isolation against that upper; a different
+resolvent estimate or a materially sharper trial upper has its own test.

@@ -28,7 +28,12 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_joint_spectroscopy', 'particle_primary_occupation_bound',
     'particle_primary_residual_refinement', 'particle_primary_response_moments',
     'particle_primary_pair_channels', 'particle_primary_refinement_response',
-    'particle_primary_gravity_premises'))
+    'particle_primary_gravity_premises', 'particle_primary_branch_resolution',
+    'particle_primary_energy_tightness', 'particle_primary_origin_momentum',
+    'particle_primary_open_coframe'))
+PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
+    'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
+    'particle_primary_origin_momentum', 'particle_primary_open_coframe'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -47,12 +52,44 @@ def links(value):
         for v in value:yield from links(v)
 
 
+def scientific_receipt_records():
+    """Authenticate frozen consequence receipts without replaying their experiments."""
+    records=[];paths=set(PRIMARY_RESPONSE_RECEIPTS)
+    def bindings(value):
+        if isinstance(value,dict):
+            if 'result_sha256' in value and isinstance(value.get('result'),dict):
+                result=value['result']
+                digest=hashlib.sha256(json.dumps(result,sort_keys=True,
+                    separators=(',',':'),allow_nan=False).encode()).hexdigest()
+                if digest!=value['result_sha256'] or not result.get('member_id'):
+                    raise ValueError('primary response result binding differs')
+                yield {'member_id':result.get('member_id'),
+                       'result_sha256':value['result_sha256']}
+            for child in value.values():yield from bindings(child)
+        elif isinstance(value,list):
+            for child in value:yield from bindings(child)
+    for name in PRIMARY_RESPONSE_RECEIPTS:
+        value=json.loads((ROOT/name).read_text())
+        pins=value['source_sha256']
+        for path,expected in pins.items():
+            resolved=(ROOT/path).resolve()
+            if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
+                raise ValueError('stale primary response input: '+path)
+        paths.update(pins)
+        records.append({'path':name,'schema':value['schema'],
+                        'receipt_sha256':sha(ROOT/name),'source_pin_count':len(pins),
+                        'member_result_bindings':list(bindings(value)),
+                        'scientific_experiments_replayed_by_atlas':False})
+    return records,paths
+
+
 def load():
     data={'v1':json.loads(V1.read_text()),'measurement':measurement.certificate(),
           'endpoints':endpoints.certificate(), 'double_path':measurement.double_path_certificate()}
     for name in CONTENT:data[Path(name).stem]=json.loads((HERE/name).read_text())
     data['joint_dependencies']=json.loads(DEPENDENCIES.read_text())
     data['observer_outputs']=json.loads(OUTPUTS.read_text())
+    data['primary_response_receipt_records'],response_paths=scientific_receipt_records()
     for rel,expected in data['observer_outputs']['input_sha256'].items():
         if sha(ROOT/rel)!=expected:raise ValueError('stale observer-output input: '+rel)
     pins=data['v1']['input_sha256']
@@ -71,6 +108,7 @@ def load():
                   data['joint_dependencies']['conditional_candidate']['proof'],
                   data['joint_dependencies']['conditional_candidate']['producer']})
     paths.update(PRIMARY_PROOFS)
+    paths.update(response_paths)
     for node in data['joint_dependencies']['nodes']:
         for evidence in node['evidence']:
             name=evidence['path']
@@ -174,6 +212,10 @@ def reader(svg,data):
         ('particle_primary_pair_channels','Populated cubic/parity channels and complete spatial pair records; no particle-spin assignment'),
         ('particle_primary_refinement_response','Scalable populated collective response and controlled finite-source defect density'),
         ('particle_primary_gravity_premises','Polynomial modular work, source-clock comparison and explicit geometric premises'),
+        ('particle_primary_branch_resolution','Concentrated original pair bands, fixed-time correlation sign and the unresolved odd-sector trial'),
+        ('particle_primary_energy_tightness','Exact collective moments and narrower finite energy bands; fixed-energy survival unproved'),
+        ('particle_primary_origin_momentum','Retained common origins and commuting energy/momentum on the relative-observation domain'),
+        ('particle_primary_open_coframe','Boundary-completed spatial strain with exact flat primary action and complete mean records'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),
@@ -234,6 +276,7 @@ def build():
         'finite_theorem_roles':data['theorems'],
         'named_field_meanings':data['field_nature'],
         'finite_observer_output_connections':data['observer_outputs']['finite_output_connections'],
+        'primary_response_receipt_records':data['primary_response_receipt_records'],
         'common_construction_specification_resolved':True,
         'finite_physical_preparation_including_boundary_charges_resolved':True,
         'finite_primary_local_records_and_uniform_influence_constructed':True,

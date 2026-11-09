@@ -8,10 +8,12 @@ are the single ten-node construction map. The active target is source-derived
 particle masses in declared SI/GeV comparison units, with capacity dependence
 explicit. Nodes 1-3 establish the finite program, physical preparation and
 complete local apparatus. Nodes 4-8 include a positive-energy filtered
-algebra, a regular continuous spatial action, finite primary positive
-response bounds and original transfer-to-excitation transport. Uniform
-survival, same-state momentum, physical species and mass branches are
-unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+algebra, finite original-weight energy bands and transfer-to-excitation
+transport. A retained observation origin gives a translation-invariant
+relative-observation limit with commuting energy and momentum generators.
+Nonzero momentum response, dispersion, species and mass identification
+require further spectral control. The primary physical-mass table in GeV
+is empty. Pure Yang-Mills
 (node 9) and geometric gravity (node 10) are deferred branches. Comparison
 results retain their own sources and do not add canonical dependency lists.
 
@@ -28,12 +30,15 @@ encloses member zero's full interacting ground energy in
 `[-727.498195,-723.7678199]` source units. Occupation-sensitive electric
 bounds and exact Haar/CAR moments retain the full quantum source and
 bound the trial residual by5.231016. The
-[neutral excitation result](OPH_FIELD_RECONSTRUCTION.md#a-detected-finite-neutral-excitation-band)
-places at least1/2 original transfer weight in `[2,10]` and at least3/8
-final excitation weight in `[2,21/2]`, before finite clock errors. These
-are proved broad energy bands on the selected small-box state. A resolved
-branch, its physical momentum/dispersion and species assignment, and
-capacity/refinement control are required for a defensible GeV rest mass.
+[concentrated neutral response](../../model/particle_primary_branch_resolution/PROOF.md)
+places at least3/20 original transfer weight in `[4,8]`, and at least7/80
+final excitation weight in `[4,9]`, on that selected state. Complete finite
+clocks report `[63/16,129/16]` with probability at least9/64. Its real
+original autocorrelation is below-3/8 at source time1/2. These local-address
+records are distinct from the coherent A1u trial, whose twelve-vector
+energy upper bound and broad residual do not isolate an excitation.
+Momentum/dispersion, species and controlled errors are required for a GeV
+rest mass; a difference of two variational upper bounds is not that mass.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -113,14 +118,27 @@ records and all ten cubic/parity isotypic channels on member zero. These
 are gauge-neutral, fermion-parity-even operator channels, including the
 inversion-odd scalar A1u channel;
 their labels do not assign continuum spin, physical momentum or a named
-particle. The [scalable collective bound](../../model/particle_primary_refinement_response/PROOF.md)
-gives selected defect density below 97/10 and original transfer weight at
-least 3/100 in `[1/(100 beta_n),1446/a_n]` on every finite primary member.
-Final excitation weight is at least 1/50 after the stated cooling allowance,
-before clock errors. The lower endpoint shrinks and the upper grows, so
-these probability bounds do not establish a fixed finite-energy continuum
-response. The mass calculation requires resolving the channel's energy
-branch, its momentum and dispersion, with errors and one declared unit scale.
+particle. The [collective moment bound](../../model/particle_primary_energy_tightness/PROOF.md)
+uses the selected defect density below97/10 and exact full-Fock neighbour
+columns to give original weight at least3/100 in
+`[1/(100 beta_n),46/a_n]` on every finite primary member. Final excitation
+and finite reported transfer weights are at least1/50 in their explicitly
+widened intervals. At member one the separate charge-six scalar has
+original weight above1/20 in a band ending at48 source units. The moving endpoints do
+not establish a fixed finite-energy response. An actual physical anchor
+shows why a uniform operator-norm estimate for these unsmeared probes
+cannot remove the inverse-spacing scale; it is not a selected-state
+weighted lower bound or a no-go theorem for other probes.
+
+The [retained-origin construction](../../model/particle_primary_origin_momentum/PROOF.md)
+uses one recorded random origin throughout each complete history, retaining
+all failures and the quantum reference. Its relative-observation limit has
+a translation-invariant cyclic state with strongly commuting `H>=0` and
+`P`, and `H Omega=P Omega=0`. The fixed-origin state is not proved invariant;
+the representation can be trivial. The same-origin collective experiment
+has positive finite weight from member seven, without proving nonzero
+fixed-smear survival or a map from finite Fourier labels to spectral
+momentum. The mass route requires that map and the same channel's dispersion.
 
 
 The [same-source modular-work comparison](../../model/particle_primary_gravity_premises/PROOF.md)
@@ -129,9 +147,13 @@ between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
 unitaries it bounds the regional marginal response by the same source work.
 Its global modular clock has an explicit error relative to the source
 clock. The complete retained-reference entropy is a different functional.
-An exact open-boundary term prevents unmodified transfer of the periodic
-coframe action. Proper geometry and the Einstein area/diamond premises
-are separate from the finite mass calculation.
+The [boundary-completed coframe](../../model/particle_primary_open_coframe/PROOF.md)
+fixes a declared spatial strain coupling with `H(I)=H_primary` exactly.
+Six strain derivatives have complete two-record mean detectors and
+full-carrier bounds, using the unchanged flat input. The response can
+disturb that input. This source coupling supplies no proper metric,
+Lorentz stress, diamond kernel or area law. Gravity is separate from the
+finite mass calculation.
 
 
 ## Conditional action spectrum and physical mass definitions
@@ -208,9 +230,10 @@ implies final ground-relative weight at least `max(0,w-C² epsilon_n/r)`
 in `[l,u+r]`; the broad primary interval `[delta_n,W_n]` incurs no
 additional loss. A generic mixed-state transition is not a rest energy.
 The [regular spatial algebra](../../model/particle_primary_spatial_algebra/PROOF.md)
-has a continuous R3 action, without a proof that the selected limiting
-state is invariant. Canonical momentum, vacuum momentum control and a
-common physical spectral branch are therefore additional premises.
+has a continuous R3 action, without proving invariance of its fixed-origin
+state. The retained-origin observation domain supplies commuting canonical
+energy and momentum and a zero-momentum cyclic vector. A nonzero spectral
+response, its finite-readout map and a common physical branch require proof.
 
 Declared SI comparison units are supported directly. A source tick of T
 seconds gives `hbar_GeV_s/T` GeV per source energy; a declared length and
@@ -1481,7 +1504,7 @@ actual compressed independent-pair threshold obeys
 trial. This is not an argument from the vanishing lower bound `2*gamma_1`.
 The finite isolated pole above five is above the connected comparison
 bottom at every level. A bound band at fixed momentum or a dressed
-resonance is not excluded, but requires a separate construction and test.
+resonance requires a separate construction and test; this result does not exclude either.
 
 For a cell's 66 pair configurations, actual exits give
 `A=G_cell+N_boundary` and `B^*B=N_boundary<=2I`; the exterior compression
@@ -1840,7 +1863,7 @@ realizes its hypotheses.
 | --- | --- | --- |
 | [Port dimension and Lie selection](../../Lean/Screen/A5OPH.lean), [dimension cases](../../Lean/Screen/TrichotomyCases.lean) | An injective twelve-port response has dimension twelve; supplied center and compact-simple dimension conditions select the stated Lie type | A complete physical twelve-current response, the action on its center, a nonzero center, and the classification/exclusion inputs; the native preserving response has dimension 17 |
 | [Concrete compact algebra](../../Lean/Screen/Compact12.lean) | The displayed compact product has dimension twelve | This dimension lemma does not classify every compact algebra or supply a carrier action |
-| [Family band](../../Lean/Screen/A5FamilyBand.lean), [adequacy surface](../../Lean/Screen/SMStructureAdequacySurface.lean) | Faithfulness and the declared cost distinguish the rank-three band in the supplied finite table | Physical generations as one complete faithful band, its realization and cost principle, and the stated dimension window; in this table the singlet already fails faithfulness, so removing the window alone does not change the selected candidate |
+| [Family band](../../Lean/Screen/A5FamilyBand.lean), [adequacy surface](../../Lean/Screen/SMStructureAdequacySurface.lean) | Faithfulness and the declared cost distinguish the rank-three band in the supplied finite table | Physical generations as one complete faithful band, its realization and cost principle, and the stated dimension window; in this table the singlet fails faithfulness, so removing the window alone does not change the selected candidate |
 | [Exterior components](../../Lean/Screen/ExteriorComponentBridge.lean) | Component/charge and finite mask identities on supplied five-mode weights | The spin lift, central trace redistribution, exterior grammar and removal of neutral singlets; anomaly identities do not independently select all these inputs |
 | [Weyl conventions](../../Lean/Screen/WeylYukawaConventions.lean) | Charge identities for the declared chiral table | The actual Higgs intertwiners are checked by the executable matter/Yukawa producers, not by these charge identities alone |
 | [Global form](../../model/observer_particles/DERIVATION.md) | The declared matter kernel is compatible with the usual central quotient | Compatibility does not select a unique global form from all admissible alternatives |
@@ -2211,7 +2234,7 @@ Under a direct pole-ratio identification, the broad charged-lepton windows
 would require the left ratio to be at least 3470, while this bound gives at
 most $207\phi^2+\phi<544$. Under an identification with the supplied
 MS-bar(M_Z) packet, the approximate middle/light ratio 210.7 instead gives
-an upper bound about 553.3, still far below the packet's heavy/light ratio
+an upper bound about 553.3, far below the packet's heavy/light ratio
 about 3578. These are two conditional comparisons; the native coefficients
 have no derived pole or running matching map. The affine obstruction concerns
 the two ratios together. It is not a universal heavy/light bound below 544:
@@ -2282,10 +2305,10 @@ does supply a finite electric/matter Gauss sector. Most transport comparisons
 use background links, and no common dynamical nonabelian chiral gauge field
 has been established. The [regulator routes](../../model/common_source/chiral_candidate/REGULATOR_ROUTES.md)
 retain the naive lattice's eight balanced Weyl nodes and the staggered field's
-two Dirac tastes. The Euclidean overlap calculation also tests nonconstant
-nonabelian backgrounds and a locality domain; it is not merely a free symbol.
+two Dirac tastes. The Euclidean overlap calculation tests nonconstant
+nonabelian backgrounds and a locality domain.
 Its interacting chiral measure, physical continuation and same-process field
-identification remain open. Dropping unwanted modes is not a decoupling proof,
+identification are unproved. Dropping unwanted modes is not a decoupling proof,
 and a failed regulator trial does not exclude every regulator on this matter
 representation. The scalar construction's Weyl displacement operators obey
 bosonic CCR; their name does not supply chiral fermions.

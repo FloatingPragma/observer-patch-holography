@@ -1,5 +1,6 @@
 """Scope, complete coverage and reference/rendering regressions for the spread."""
 from copy import deepcopy
+import hashlib
 import json
 import xml.etree.ElementTree as ET
 import pytest
@@ -73,8 +74,31 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_channel_labels', 'particle_primary_spectral_scale',
                   'particle_primary_endpoint_bounds', 'particle_primary_variational_readout',
                   'particle_primary_joint_spectroscopy', 'particle_primary_occupation_bound',
-                  'particle_primary_residual_refinement', 'particle_primary_response_moments'):
+                  'particle_primary_residual_refinement', 'particle_primary_response_moments',
+                  'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
+                  'particle_primary_origin_momentum', 'particle_primary_open_coframe'):
         assert 'model/'+owner+'/PROOF.md' in text
+
+
+def test_primary_response_audit_authenticates_receipt_and_source_bytes(tmp_path,monkeypatch):
+    source=tmp_path/'source.py';source.write_text('exact declared source\n')
+    result={'member_id':'control-member','physical_mass_table_GeV':[]}
+    digest=hashlib.sha256(json.dumps(result,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+    receipt={'schema':'test.source-bound.v1','source_sha256':{'source.py':build.sha(source)},
+             'selected_member_bound':{'result':result,'result_sha256':digest}}
+    path=tmp_path/'receipt.json';path.write_text(json.dumps(receipt))
+    monkeypatch.setattr(build,'ROOT',tmp_path)
+    monkeypatch.setattr(build,'PRIMARY_RESPONSE_RECEIPTS',('receipt.json',))
+    rows,paths=build.scientific_receipt_records()
+    assert paths=={'source.py','receipt.json'}
+    assert rows[0]['member_result_bindings']==[{'member_id':'control-member','result_sha256':digest}]
+    assert rows[0]['scientific_experiments_replayed_by_atlas'] is False
+    receipt['selected_member_bound']['result']['physical_mass_table_GeV']=[1]
+    path.write_text(json.dumps(receipt))
+    with pytest.raises(ValueError,match='binding differs'):build.scientific_receipt_records()
+    receipt['selected_member_bound']['result']['physical_mass_table_GeV']=[]
+    path.write_text(json.dumps(receipt));source.write_text('different source\n')
+    with pytest.raises(ValueError,match='stale primary response input'):build.scientific_receipt_records()
 
 
 def test_generated_outputs_match_their_exact_source_inventory():

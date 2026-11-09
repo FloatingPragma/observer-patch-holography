@@ -8,10 +8,12 @@ are the single ten-node construction map. The active target is source-derived
 particle masses in declared SI/GeV comparison units, with capacity dependence
 explicit. Nodes 1-3 establish the finite program, physical preparation and
 complete local apparatus. Nodes 4-8 include a positive-energy filtered
-algebra, a regular continuous spatial action, finite primary positive
-response bounds and original transfer-to-excitation transport. Uniform
-survival, same-state momentum, physical species and mass branches are
-unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+algebra, finite original-weight energy bands and transfer-to-excitation
+transport. A retained observation origin gives a translation-invariant
+relative-observation limit with commuting energy and momentum generators.
+Nonzero momentum response, dispersion, species and mass identification
+require further spectral control. The primary physical-mass table in GeV
+is empty. Pure Yang-Mills
 (node 9) and geometric gravity (node 10) are deferred branches. Comparison
 results retain their own sources and do not add canonical dependency lists.
 
@@ -28,12 +30,15 @@ encloses member zero's full interacting ground energy in
 `[-727.498195,-723.7678199]` source units. Occupation-sensitive electric
 bounds and exact Haar/CAR moments retain the full quantum source and
 bound the trial residual by5.231016. The
-[neutral excitation result](OPH_FIELD_RECONSTRUCTION.md#a-detected-finite-neutral-excitation-band)
-places at least1/2 original transfer weight in `[2,10]` and at least3/8
-final excitation weight in `[2,21/2]`, before finite clock errors. These
-are proved broad energy bands on the selected small-box state. A resolved
-branch, its physical momentum/dispersion and species assignment, and
-capacity/refinement control are required for a defensible GeV rest mass.
+[concentrated neutral response](../../model/particle_primary_branch_resolution/PROOF.md)
+places at least3/20 original transfer weight in `[4,8]`, and at least7/80
+final excitation weight in `[4,9]`, on that selected state. Complete finite
+clocks report `[63/16,129/16]` with probability at least9/64. Its real
+original autocorrelation is below-3/8 at source time1/2. These local-address
+records are distinct from the coherent A1u trial, whose twelve-vector
+energy upper bound and broad residual do not isolate an excitation.
+Momentum/dispersion, species and controlled errors are required for a GeV
+rest mass; a difference of two variational upper bounds is not that mass.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -83,14 +88,27 @@ records and all ten cubic/parity isotypic channels on member zero. These
 are gauge-neutral, fermion-parity-even operator channels, including the
 inversion-odd scalar A1u channel;
 their labels do not assign continuum spin, physical momentum or a named
-particle. The [scalable collective bound](../../model/particle_primary_refinement_response/PROOF.md)
-gives selected defect density below 97/10 and original transfer weight at
-least 3/100 in `[1/(100 beta_n),1446/a_n]` on every finite primary member.
-Final excitation weight is at least 1/50 after the stated cooling allowance,
-before clock errors. The lower endpoint shrinks and the upper grows, so
-these probability bounds do not establish a fixed finite-energy continuum
-response. The mass calculation requires resolving the channel's energy
-branch, its momentum and dispersion, with errors and one declared unit scale.
+particle. The [collective moment bound](../../model/particle_primary_energy_tightness/PROOF.md)
+uses the selected defect density below97/10 and exact full-Fock neighbour
+columns to give original weight at least3/100 in
+`[1/(100 beta_n),46/a_n]` on every finite primary member. Final excitation
+and finite reported transfer weights are at least1/50 in their explicitly
+widened intervals. At member one the separate charge-six scalar has
+original weight above1/20 in a band ending at48 source units. The moving endpoints do
+not establish a fixed finite-energy response. An actual physical anchor
+shows why a uniform operator-norm estimate for these unsmeared probes
+cannot remove the inverse-spacing scale; it is not a selected-state
+weighted lower bound or a no-go theorem for other probes.
+
+The [retained-origin construction](../../model/particle_primary_origin_momentum/PROOF.md)
+uses one recorded random origin throughout each complete history, retaining
+all failures and the quantum reference. Its relative-observation limit has
+a translation-invariant cyclic state with strongly commuting `H>=0` and
+`P`, and `H Omega=P Omega=0`. The fixed-origin state is not proved invariant;
+the representation can be trivial. The same-origin collective experiment
+has positive finite weight from member seven, without proving nonzero
+fixed-smear survival or a map from finite Fourier labels to spectral
+momentum. The mass route requires that map and the same channel's dispersion.
 
 
 The [same-source modular-work comparison](../../model/particle_primary_gravity_premises/PROOF.md)
@@ -99,9 +117,13 @@ between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
 unitaries it bounds the regional marginal response by the same source work.
 Its global modular clock has an explicit error relative to the source
 clock. The complete retained-reference entropy is a different functional.
-An exact open-boundary term prevents unmodified transfer of the periodic
-coframe action. Proper geometry and the Einstein area/diamond premises
-are separate from the finite mass calculation.
+The [boundary-completed coframe](../../model/particle_primary_open_coframe/PROOF.md)
+fixes a declared spatial strain coupling with `H(I)=H_primary` exactly.
+Six strain derivatives have complete two-record mean detectors and
+full-carrier bounds, using the unchanged flat input. The response can
+disturb that input. This source coupling supplies no proper metric,
+Lorentz stress, diamond kernel or area law. Gravity is separate from the
+finite mass calculation.
 
 
 ## Protected-object catalogue and the primary source
@@ -191,8 +213,9 @@ The [regular spatial construction](../../model/particle_primary_spatial_algebra/
 adds a continuous R3 action commuting with time on the smeared asymptotic
 algebra. Its physical exterior extension and bulk estimate preserve the
 actual finite-source moments in the limit, without a finite physical
-norm embedding. The selected state is not proved spatially invariant,
-so canonical momentum is not supplied. The
+norm embedding. That fixed-origin state is not proved spatially invariant.
+The retained-origin extension above has canonical momentum on its relative
+observation domain, with nonzero response and its readout dictionary unproved. The
 [mass-readout theorem](../../model/particle_primary_mass_readout/PROOF.md)
 controls original transfer-to-excitation weights; rest masses require a
 same-source momentum branch and species attachment. SI comparison units
@@ -889,7 +912,7 @@ atomic contact scale is proved for a fixed unit-hopping nodal window;
 zero is included and the window does not shrink under ballistic scaling.
 
 The [actual locality estimate](../../model/source_family_compatibility/NODAL_LOCALITY.md)
-now supplies an explicit Lorentzian comparison of nearby momenta:
+supplies an explicit Lorentzian comparison of nearby momenta:
 `||Q_eta(k)-Q_eta(k_*)||<=C d[1+log(1/d)+c/eta]`, `d=||k-k_*||_1<=1`.
 Together with the necessary-atom theorem, a positive nodal atom is
 equivalent to original bounded-energy window survival on the fixed
@@ -1307,8 +1330,8 @@ This finite menu also does not implement every complex effect or every
 coexistent pair required by the universal operational Born bridge.
 
 The [eleven-attempt configuration detector](../../model/native_effect_coverage/PROOF.md)
-uses all incoming contrasts on a spanning tree, corrected by previously
-recorded currents. It determines the initial configuration on the full
+uses all incoming contrasts on a spanning tree, corrected by currents
+recorded at preceding steps. It determines the initial configuration on the full
 66-state sector and gives rank-one complete history maps. Existing coherent
 routing then produces ideal basis Lueders readout or a fixed pure basis
 preparation. The rounded maps have bounded normalization error, and their

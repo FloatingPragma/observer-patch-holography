@@ -1182,7 +1182,7 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "f6c16984377d3241e2454738f8a73874645172bf909256271d87c789c8c61d36",
+          "sha256": "f827e2dad8968f3be9cdea5c1fb329ce28d969a37568fabe9e0bceb014ce150a",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
           "scope": "One ten-node map retains three completed finite source domains and explicit physical premises. The active target is source-derived particle masses with allowed declared SI/GeV comparison units and explicit capacity dependence; pure Yang-Mills and gravity are deferred branches. The same-source filtered algebra, positive time energy, regular spatial action, finite complete histories, exact energy currents, finite plaquette excitation and transfer-to-final-excitation estimates discharge scoped prerequisites. Uniform finite-energy survival, selected-state spatial invariance/canonical momentum, interacting Lorentz shells, physical species and Einstein dynamics remain unproved. Candidate calibrations and different comparison sources retain their domains; no downstream physical stage is promoted.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
@@ -4164,7 +4164,16 @@
         "model/particle_primary_pair_channels/results.json",
         "model/particle_primary_refinement_response/PROOF.md",
         "model/particle_primary_refinement_response/test_model.py",
-        "model/particle_primary_refinement_response/results.json"
+        "model/particle_primary_refinement_response/results.json",
+        "model/particle_primary_branch_resolution/PROOF.md",
+        "model/particle_primary_branch_resolution/test_model.py",
+        "model/particle_primary_branch_resolution/results.json",
+        "model/particle_primary_origin_momentum/PROOF.md",
+        "model/particle_primary_origin_momentum/test_model.py",
+        "model/particle_primary_origin_momentum/results.json",
+        "model/particle_primary_energy_tightness/PROOF.md",
+        "model/particle_primary_energy_tightness/test_model.py",
+        "model/particle_primary_energy_tightness/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4874,6 +4883,30 @@
           "independent_check": "model/particle_primary_refinement_response/test_model.py",
           "scope": "A physical eight-cell trial tiled through larger primary carriers gives an extensive ground-energy upper bound without changing the selected preparation. Native-dependent onsite retention and exact rational full 256-state local CAR inequalities give selected total beta-defect density below 97/10 throughout the finite family. A gauge-neutral CAR-even pair in the native dimension-six Q6=1 block has original transfer weight at least 3/100 in [1/(100 beta_n),1446/a_n] and final-excitation weight at least 1/50 after cooling, before clock errors. Complete clocks retain original reported transfer weight at least 1/50. A separate Q6=6 scalar response at level one has original transfer weight above 0.07028 in its stated band. The variable endpoints do not prove fixed finite-energy continuum survival, a pole, dispersion, particle identity or a GeV rest mass.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_concentrated_pair_response_and_odd_trial",
+          "path": "model/particle_primary_branch_resolution/PROOF.md",
+          "sha256": "ad3fe6359da14726e95c836d60c07751660b38e97c48cc742c69d7d75d4485b9",
+          "independent_check": "model/particle_primary_branch_resolution/test_model.py",
+          "scope": "The unchanged member-zero selected state has charge-six beta-defect expectation below1.840, original pair transfer weight at least3/20 in [4,8], and Re F(1/2)<-3/8. Final-excitation weight is at least7/80 in [4,9]; complete clocks retain at least9/64 in [63/16,129/16]. A twelve-vector physical scalar-odd Rayleigh calculation retains distinct electric denominators and its full omitted complement. Its error fails branch isolation; subtracting ground and excited trial upper bounds is not a mass calculation. Two exact rational cases also show every allocation in the retained-penalty Schur family has complement floor below -724, while the current authenticated ground upper is above -724. Optimizing those fractions cannot certify isolation against that upper; a different estimate or sharper upper is not excluded. The GeV rest-mass table remains empty.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_retained_origin_relative_momentum",
+          "path": "model/particle_primary_origin_momentum/PROOF.md",
+          "sha256": "ce11106d035d89d0c2aa74cf9935897f97cdedda73fd1a44ee6e45819187a021",
+          "independent_check": "model/particle_primary_origin_momentum/test_model.py",
+          "scope": "One independent retained classical origin controls the entire complete history on the unchanged source density, conjugate reference and clock. A vanishing-volume, diverging-physical collar and exact cube symmetric-difference bound give a stationary translation-invariant relative-observation limit with strongly commuting H>=0 and P. The generators annihilate the cyclic vector and may have trivial field response. The fixed-origin state is not proved invariant; finite Fourier labels, nonzero momentum response, dispersion and rest mass still require attachment.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_sharper_capacity_dependent_energy_windows",
+          "path": "model/particle_primary_energy_tightness/PROOF.md",
+          "sha256": "0d35d0b520f0a988fa4f117c701c86b70b2cb88da8800ae710d9f4a17821a3e3",
+          "independent_check": "model/particle_primary_energy_tightness/test_model.py",
+          "scope": "Actual Clifford neighbor Grams and the full CAR raising algebra sharpen the collective centered moment to M(L)/a^2 with M(L)<=3141/224. The original family-wide band [1/(100 beta_n),46/a_n] has weight at least3/100; complete reported records retain at least1/50. The level-one charge-six scalar has weight above1/20 below48. A direct selected occupation bound also populates the retained-origin protocol at levelseven. An actual physical anchor proves the unfiltered operator-norm residual scales as1/a, without claiming a selected-state weighted lower bound or a no-go theorem for dressed fields. The selected hopping density is strictly nonzero and gives an exact total-number density f-sum. The tested volume-normalized cosine/sine instrument has original weight above any fixed positive energy bounded by (a/(6V)+epsilon)/delta, so that specific normalization cannot supply continuum particle weight.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -5202,7 +5235,10 @@
         "model/particle_primary_stress/test_stress.py",
         "model/particle_primary_gravity_premises/PROOF.md",
         "model/particle_primary_gravity_premises/test_model.py",
-        "model/particle_primary_gravity_premises/results.json"
+        "model/particle_primary_gravity_premises/results.json",
+        "model/particle_primary_open_coframe/PROOF.md",
+        "model/particle_primary_open_coframe/test_model.py",
+        "model/particle_primary_open_coframe/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5570,6 +5606,14 @@
           "sha256": "7ae2e47878e03317918408c726cd8d34cea82468fabf77de9f4c62ecf757d54a",
           "independent_check": "model/particle_primary_gravity_premises/test_model.py",
           "scope": "For physical source unitaries on the actual polynomial Gauss state, finite rearrangement gives beta(1-delta)W<=D(U rho Udagger||rho)<=beta W. Gauss-preserving ambient tensor-local unitaries inherit a regional marginal entropy-work bound. The global modular/source-clock comparison retains arbitrary idle references, with complete-output half-trace coefficient below 1.624e-6 per modular parameter on member zero. A native charge-six beta flip has source work above 18.05293; its full retained-purifier relative entropy is infinite, unlike the finite source-marginal cost. Direct periodic-coframe substitution on the open primary has flat-action mismatch of physical norm 45L^2/a, equal 180 at member zero. Proper geometry, diamond modular kernel, fixed-volume area and matched Einstein limiting estimates remain explicit hypotheses. Gravity is not a prerequisite for the finite mass comparison.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_boundary_completed_spatial_strain",
+          "path": "model/particle_primary_open_coframe/PROOF.md",
+          "sha256": "d6a2b959f017fff36b91e7ec596e33480f5fa72eede6038107fb3717e720a733",
+          "independent_check": "model/particle_primary_open_coframe/test_model.py",
+          "scope": "A declared coframe includes the open partial-shift boundary projections and present-plane magnetic subtraction, giving H(I)=H_primary with the original energy zero and all Gauss constraints. Six physical spatial strains have full-carrier norm bounds and complete two-record mean instruments on the same selected state and reference. Dilation gives K_I=-H-H_W. This closes the periodic-to-open flat-action mismatch for the declared coupling; proper geometry, symmetric Lorentz stress, diamond kernel, area response and Einstein limits remain unproved. No uniqueness requirement is introduced.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
