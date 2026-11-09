@@ -1,5 +1,7 @@
 # Particle construction: source laws, mass operators and physical matching
 
+The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+
 ## Minimum empirical mass target
 
 The [high-field spin sector](../../model/high_field_particle/PROOF.md)

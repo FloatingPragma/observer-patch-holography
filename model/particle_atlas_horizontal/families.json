@@ -1,0 +1,1515 @@
+{
+  "schema": "oph.horizontal_particle_families.v1",
+  "reference_values": "model/particle_candidate_atlas/reference_values.json",
+  "frozen_atlas_input": "model/particle_candidate_atlas/audit.json",
+  "target_count": 18,
+  "lane_count": 9,
+  "source_identified_physical_particles": [],
+  "global_reading_rule": "Every lane is a complete map of the required implications. A conditional or owed arrow is not a completed source derivation. No individual protected defect is assigned to a Standard Model species.",
+  "status_legend": {
+    "finite_proved": "Exact result on the specified finite construction.",
+    "conditional_field": "Additional field, state, locality or Lorentz assumptions are supplied.",
+    "conditional_SM": "Exact consequence of the supplied Standard Model effective action; not a source-selected parameter.",
+    "conditional_calibrated": "An explicit source action is realized with declared calibration inputs.",
+    "conditional_extension": "A specified extension supplies data absent from the minimal matter module.",
+    "physical_match_owed": "The physical source/state/clock or detector-matching implication is unproved."
+  },
+  "shared_assumptions": [
+    "Weak SU(2) indices and physical Lorentz spin are different structures.",
+    "Fermionic CAR is proved on the configured field architecture; physical spin-statistics additionally needs the stated local Lorentzian physical completion.",
+    "Conjugate internal charges do not alone prove equal measured particle/antiparticle masses; the benchmark uses the stated CPT/vacuum hypotheses.",
+    "All quoted GeV values and their uncertainties/schemes are read from the frozen reference table, not recomputed source predictions.",
+    "Neutrino flavor channels have no individual mass eigenvalue; the three mass fields and their mixing are separate.",
+    "Photons require specified detection measurements; quarks/gluons and unstable fields require their appropriate inclusive or resonance observables.",
+    "A graviton and composite hadrons lie outside this elementary Standard Model census."
+  ],
+  "lanes": [
+    {
+      "id": "charged_leptons",
+      "title": "Charged leptons: electron, muon, tau",
+      "target_ids": [
+        "electron",
+        "muon",
+        "tau"
+      ],
+      "targets": [
+        {
+          "id": "electron",
+          "symbol": "e−",
+          "spin": "1/2",
+          "charge": "−1",
+          "color": "singlet",
+          "antiparticle": "e+ (positron)",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "electron"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "muon",
+          "symbol": "μ−",
+          "spin": "1/2",
+          "charge": "−1",
+          "color": "singlet",
+          "antiparticle": "μ+",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "muon"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "tau",
+          "symbol": "τ−",
+          "spin": "1/2",
+          "charge": "−1",
+          "color": "singlet",
+          "antiparticle": "τ+",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "tau"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "The same charge, three configured family slots",
+          "status": "finite_proved",
+          "text": "The internal lepton doublet and conjugate singlet carry the right charge weights. Their currents act on complete fermionic occupation states. Three family copies are supplied; they are not three defect types.",
+          "formula": "L: (1,2,−1/2); eᶜ: (1,1,+1)",
+          "links": [
+            {
+              "label": "Full-Fock current intertwiner",
+              "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md",
+              "anchor": "charge-labels-of-the-field-operators"
+            },
+            {
+              "label": "Particle paper §2.2: matter module",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=4"
+            },
+            {
+              "label": "Gauge paper §6: conditional matter",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=13"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Attach a propagating spinor",
+          "status": "conditional_field",
+          "text": "Left and right charged components pair through a Higgs interaction. Anticommuting creation operators give finite fermionic statistics. Physical spin one-half uses the supplied Lorentz spinor action.",
+          "formula": "Mₑ = vYₑ/√2; Q = −1",
+          "links": [
+            {
+              "label": "Native Weyl action and eight valleys",
+              "path": "model/standard_model_source_map/KINETIC_ATTACHMENT.md"
+            },
+            {
+              "label": "Particle paper §2.4: regulator boundary",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=6"
+            },
+            {
+              "label": "Conditional SM: representations and statistics",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "representations-charges-and-statistics"
+            },
+            {
+              "label": "Finite quantum Higgs with the same Gauss law",
+              "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Diagonalize the complete response",
+          "status": "conditional_calibrated",
+          "text": "A coherent three-cycle gives Y=C²/3 and exact Koide balance in its positive chamber. A retained loss flag changes the amplitude. One-ratio and all-three-mass calibrations are distinct constructions.",
+          "formula": "Eⱼ² = c²p² + mⱼ²c⁴; mⱼ ∝ σⱼ(Y)",
+          "links": [
+            {
+              "label": "Free charged Dirac theorem",
+              "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md"
+            },
+            {
+              "label": "Koide: exact positive-chamber algebra",
+              "path": "Lean/ObserverPatchHolography/KoideCirculant.lean"
+            },
+            {
+              "label": "Three-input controller fit",
+              "path": "model/particle_candidate_atlas/CALIBRATED_TRIPLET.md"
+            },
+            {
+              "label": "Particle paper §4.5: charged action",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=14"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Record a charged threshold or decay resonance",
+          "status": "physical_match_owed",
+          "text": "Electron energy needs a charged infrared threshold or inclusive dressing prescription. Muon and tau masses and lifetimes come from unstable resonance and decay records. A free action frequency supplies neither their widths nor their detector identity.",
+          "formula": "e: threshold; μ, τ: mass + width",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.3: leptons",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=61"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Derive the family controller and its interactions from the same source, state and clock; compute kinetic/self-energy matching and an actual defect creation map."
+    },
+    {
+      "id": "up_quarks",
+      "title": "Up-type quarks: up, charm, top",
+      "target_ids": [
+        "up",
+        "charm",
+        "top"
+      ],
+      "targets": [
+        {
+          "id": "up",
+          "symbol": "u",
+          "spin": "1/2",
+          "charge": "+2/3",
+          "color": "3",
+          "antiparticle": "anti-u: −2/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "up"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "charm",
+          "symbol": "c",
+          "spin": "1/2",
+          "charge": "+2/3",
+          "color": "3",
+          "antiparticle": "anti-c: −2/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "charm"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "top",
+          "symbol": "t",
+          "spin": "1/2",
+          "charge": "+2/3",
+          "color": "3",
+          "antiparticle": "anti-t: −2/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "top"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "Color triplets in the internal dictionary",
+          "status": "finite_proved",
+          "text": "The upper weak-doublet component and conjugate up singlet have the correct internal current weights. The source dictionary fixes these weights before target names are assigned.",
+          "formula": "Q_L: (3,2,1/6); uᶜ: (3̄,1,−2/3)",
+          "links": [
+            {
+              "label": "Full-Fock current intertwiner",
+              "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md",
+              "anchor": "charge-labels-of-the-field-operators"
+            },
+            {
+              "label": "Particle paper §2.2: matter module",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=4"
+            },
+            {
+              "label": "Gauge paper §6: conditional matter",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=13"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Supply chiral colored spinors",
+          "status": "conditional_field",
+          "text": "The full fermionic field carries the same color and weak currents. The conditional SM action supplies Lorentz spinors and a complex family Yukawa matrix. The eight lattice valleys need a gauge-compatible chiral treatment.",
+          "formula": "Q_L H uᶜ is gauge invariant",
+          "links": [
+            {
+              "label": "Native Weyl action and eight valleys",
+              "path": "model/standard_model_source_map/KINETIC_ATTACHMENT.md"
+            },
+            {
+              "label": "Particle paper §2.4: regulator boundary",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=6"
+            },
+            {
+              "label": "Conditional SM: representations and statistics",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "representations-charges-and-statistics"
+            },
+            {
+              "label": "Conditional Yukawa action",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Up-sector eigenvalues and flavor mixing",
+          "status": "conditional_SM",
+          "text": "The singular values of the canonically normalized up matrix define quadratic masses. Its left family rotation combines with the down rotation to give CKM mixing. These matrices are inputs in the conditional benchmark.",
+          "formula": "Mᵤ = vYᵤ/√2; V_CKM = UᵤL†U_dL",
+          "links": [
+            {
+              "label": "Yukawa singular values and kinetic normalization",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Finite mass-response error bounds",
+              "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Infer parameters from hadrons, jets and top decays",
+          "status": "physical_match_owed",
+          "text": "Color confinement prevents an isolated free-quark detector pole. Up and charm reference masses use stated running schemes. The displayed top value is an event-kinematic extraction, distinct from a pole-mass convention.",
+          "formula": "m_q(μ) needs a scheme; top needs a reconstruction convention",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.4–6.5: quarks and top",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Derive complex up/down family kernels and the interacting color sector. The rejected light-quark texture cannot be repaired by one energy rescaling."
+    },
+    {
+      "id": "down_quarks",
+      "title": "Down-type quarks: down, strange, bottom",
+      "target_ids": [
+        "down",
+        "strange",
+        "bottom"
+      ],
+      "targets": [
+        {
+          "id": "down",
+          "symbol": "d",
+          "spin": "1/2",
+          "charge": "−1/3",
+          "color": "3",
+          "antiparticle": "anti-d: +1/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "down"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "strange",
+          "symbol": "s",
+          "spin": "1/2",
+          "charge": "−1/3",
+          "color": "3",
+          "antiparticle": "anti-s: +1/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "strange"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "bottom",
+          "symbol": "b",
+          "spin": "1/2",
+          "charge": "−1/3",
+          "color": "3",
+          "antiparticle": "anti-b: +1/3, conjugate 3",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "bottom"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "The other component of the same weak doublet",
+          "status": "finite_proved",
+          "text": "The lower weak-doublet component has electric charge −1/3. Its conjugate singlet carries +1/3. The same finite color-current action distinguishes triplet and conjugate triplet.",
+          "formula": "Q_L: (3,2,1/6); dᶜ: (3̄,1,+1/3)",
+          "links": [
+            {
+              "label": "Full-Fock current intertwiner",
+              "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md",
+              "anchor": "charge-labels-of-the-field-operators"
+            },
+            {
+              "label": "Particle paper §2.2: matter module",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=4"
+            },
+            {
+              "label": "Gauge paper §6: conditional matter",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=13"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Couple the down spinor to the conjugate Higgs",
+          "status": "conditional_field",
+          "text": "The gauge-invariant down Yukawa channel preserves color and couples the charged components through the selected Higgs phase. Physical spin and chiral propagation use the stated field assumptions.",
+          "formula": "Q_L H† dᶜ is gauge invariant",
+          "links": [
+            {
+              "label": "Native Weyl action and eight valleys",
+              "path": "model/standard_model_source_map/KINETIC_ATTACHMENT.md"
+            },
+            {
+              "label": "Particle paper §2.4: regulator boundary",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=6"
+            },
+            {
+              "label": "Conditional SM: representations and statistics",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "representations-charges-and-statistics"
+            },
+            {
+              "label": "Conditional Yukawa action",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "One family matrix, three singular values",
+          "status": "conditional_SM",
+          "text": "A complex Y_d and its kinetic normalization determine the down-sector action spectrum. The benchmark supplies them independently; an internal charge count does not set their magnitudes.",
+          "formula": "M_d = vY_d/√2",
+          "links": [
+            {
+              "label": "Conditional mass matrices",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Physical response bounds",
+              "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Use color-singlet and jet observables",
+          "status": "physical_match_owed",
+          "text": "Down and strange values are running parameters at 2 GeV. Bottom is quoted at its own running-mass scale. Their uncertainty conventions must accompany a comparison; none is the mass of a freely detected quark.",
+          "formula": "d,s: MSbar at 2 GeV; b: MSbar at μ=m_b(μ)",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.4: excluded light-quark shape",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Compute the same-source chiral gauge theory, its complex Yukawas and QCD matching. Supply measured-observable predictions rather than renaming source coefficients."
+    },
+    {
+      "id": "neutrinos",
+      "title": "Neutrinos: flavor records and mass eigenfields",
+      "target_ids": [
+        "electron_neutrino",
+        "muon_neutrino",
+        "tau_neutrino"
+      ],
+      "targets": [
+        {
+          "id": "electron_neutrino",
+          "symbol": "νe",
+          "spin": "1/2",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Antineutrino channel; Dirac/Majorana choice explicit",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "electron_neutrino"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "muon_neutrino",
+          "symbol": "νμ",
+          "spin": "1/2",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Antineutrino channel; Dirac/Majorana choice explicit",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "muon_neutrino"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "tau_neutrino",
+          "symbol": "ντ",
+          "spin": "1/2",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Antineutrino channel; Dirac/Majorana choice explicit",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "tau_neutrino"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "A neutral component, no sterile singlet",
+          "status": "finite_proved",
+          "text": "The upper component of L has Q=0. The fifteen-state module contains no right-handed neutrino singlet. Three configured copies give three neutral components without deriving neutrino masses.",
+          "formula": "L: (1,2,−1/2); νᶜ absent",
+          "links": [
+            {
+              "label": "Full-Fock current intertwiner",
+              "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md",
+              "anchor": "charge-labels-of-the-field-operators"
+            },
+            {
+              "label": "Particle paper §2.2: matter module",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=4"
+            },
+            {
+              "label": "Gauge paper §6: conditional matter",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=13"
+            },
+            {
+              "label": "Particle paper §2.5: neutral scope",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=7"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Choose an explicit neutrino extension",
+          "status": "conditional_extension",
+          "text": "Dirac masses require three added neutral singlets. A Weinberg operator instead supplies Majorana masses within the low-energy field census. These are different physical completions.",
+          "formula": "Dirac: Mν=vYν/√2; Majorana EFT: Mν=v²κ/(2Λ)",
+          "links": [
+            {
+              "label": "Neutrino extension and its field count",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "neutrino-extension-and-the-complete-elementary-channels"
+            },
+            {
+              "label": "Particle paper §6.6: massless-neutrino failure",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Mass fields mix into flavor amplitudes",
+          "status": "conditional_SM",
+          "text": "Diagonalization gives ν1, ν2 and ν3. Their mass values are not individually assigned to the νe, νμ and ντ labels. Propagation phases depend on the mass eigenvalues and travel time.",
+          "formula": "να,L = Σᵢ Uαᵢ νᵢ,L",
+          "links": [
+            {
+              "label": "Flavor and mass eigenfields",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "neutrino-extension-and-the-complete-elementary-channels"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Prepare one flavor and detect another",
+          "status": "physical_match_owed",
+          "text": "Production and detection tag flavor through charged-current partners. Oscillations constrain mass-squared differences and mixing. Absolute masses and Dirac/Majorana character remain undetermined input data in this atlas.",
+          "formula": "Oscillations: Δm² and mixing; no mass for a flavor label",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Neutrino measurement distinctions",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "neutrino-extension-and-the-complete-elementary-channels"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Select the neutral interaction and family mixing from source records, then derive oscillation probabilities with the same propagation and detector clock."
+    },
+    {
+      "id": "photon",
+      "title": "Photon: the unbroken electromagnetic channel",
+      "target_ids": [
+        "photon"
+      ],
+      "targets": [
+        {
+          "id": "photon",
+          "symbol": "γ",
+          "spin": "1",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Self-conjugate in the conditional field theory",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "photon"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "One unbroken current combination",
+          "status": "finite_proved",
+          "text": "The internal relation Q=T3+Y annihilates a supplied neutral Higgs direction. This identifies a current combination. A separate finite construction has a two-dimensional transverse oscillator fiber.",
+          "formula": "Q H₀=0; transverse rank=2",
+          "links": [
+            {
+              "label": "Unbroken direction from the gauge Hessian",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Finite transverse-rank theorem",
+              "path": "Lean/Screen/SeamCurrentFreePhotonLift.lean",
+              "anchor": "L98"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Attach a transverse gauge field",
+          "status": "conditional_field",
+          "text": "The benchmark supplies a local gauge action and its quantization. The vector A combines W3 and B along the neutral null direction. Gauge constraints leave two physical helicities.",
+          "formula": "A ∝ g′W3 + gB",
+          "links": [
+            {
+              "label": "Gauge-field quadratic action",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Finite photon_massless theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L544"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "No rest-energy term in the unbroken phase",
+          "status": "conditional_SM",
+          "text": "The neutral gauge Hessian has an exact zero eigenvalue under its stated Higgs and gauge assumptions. A wavepacket nevertheless carries energy and momentum. The massless field is not an energy-free record.",
+          "formula": "mγ=0; E=c|p|",
+          "links": [
+            {
+              "label": "Conditional massless spectrum",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Particle paper §6.6: zero-coefficient scope",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Detect a photon through its interaction",
+          "status": "physical_match_owed",
+          "text": "Localized absorption records implement a detector measurement. Polarization, arrival position and energy distributions require a specified state and detector. A universal sharp particle-position operator is not assumed.",
+          "formula": "Position: detector POVM; momentum/energy: detector response",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Conditional oscillator boundary",
+              "path": "Lean/Screen/SeamCurrentFreePhotonLift.lean"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Derive Maxwell dynamics, the physical gauge quotient, selected state/clock and detector coupling on the same source; prove the transverse candidate is the measured photon."
+    },
+    {
+      "id": "gluons",
+      "title": "Gluons: eight directions of an interacting color field",
+      "target_ids": [
+        "gluon"
+      ],
+      "targets": [
+        {
+          "id": "gluon",
+          "symbol": "g",
+          "spin": "1",
+          "charge": "0",
+          "color": "8 adjoint",
+          "antiparticle": "Real adjoint multiplet; eight color directions",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "gluon"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "Eight exact color-current directions",
+          "status": "finite_proved",
+          "text": "The admitted current algebra supplies non-Abelian color brackets and their action on matter. Counting eight directions alone would not identify a Lie algebra; the commutators are part of the finite result.",
+          "formula": "[Tᵃ,Tᵇ] = i fᵃᵇᶜ Tᶜ",
+          "links": [
+            {
+              "label": "Finite-current Lie-type theorem",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=7"
+            },
+            {
+              "label": "Finite Gauss/current attachment",
+              "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Supply a dynamical color gauge connection",
+          "status": "conditional_field",
+          "text": "A Yang–Mills connection transports color and interacts with colored matter. The finite quantum-link construction preserves Gauss identities, while its continuum gauge dynamics and physical state require an additional construction.",
+          "formula": "Gᵃμν includes g_s fᵃᵇᶜ Aᵇμ Aᶜν",
+          "links": [
+            {
+              "label": "Finite quantum-link/Higgs scope",
+              "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
+            },
+            {
+              "label": "Conditional gauge action",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Unbroken gauge coefficients, interacting infrared physics",
+          "status": "conditional_SM",
+          "text": "The supplied color-preserving phase gives zero gluon mass parameters. Confinement and color-singlet mass scales concern interacting spectra; a zero gauge coefficient does not imply eight observable free zero-mass particles.",
+          "formula": "m_gluon,Lagrangian=0; g_s(μ) supplied",
+          "links": [
+            {
+              "label": "Color and QCD matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.6: massless coefficient scope",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Infer color dynamics from jets and hadrons",
+          "status": "physical_match_owed",
+          "text": "Scattering and hadronization produce color-singlet records. A gluon contribution is reconstructed through these observables; no free isolated gluon rest-mass measurement is assigned.",
+          "formula": "Measure jet, hadron and inclusive scattering distributions",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Derive the source gauge kinetic coefficient and running coupling, an interacting physical state, confinement-sensitive observables and controlled detector matching."
+    },
+    {
+      "id": "charged_weak",
+      "title": "Charged weak bosons: W+ and W−",
+      "target_ids": [
+        "W_plus",
+        "W_minus"
+      ],
+      "targets": [
+        {
+          "id": "W_plus",
+          "symbol": "W+",
+          "spin": "1",
+          "charge": "+1",
+          "color": "singlet",
+          "antiparticle": "W−",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "W_plus"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        },
+        {
+          "id": "W_minus",
+          "symbol": "W−",
+          "spin": "1",
+          "charge": "−1",
+          "color": "singlet",
+          "antiparticle": "W+",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "W_minus"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "Weak raising and lowering currents",
+          "status": "finite_proved",
+          "text": "The weak-current algebra contains T+ and T− with opposite electric charges. These operator weights are exact; a propagating vector field is an additional attachment.",
+          "formula": "[Q,T±]=±T±",
+          "links": [
+            {
+              "label": "Finite source currents",
+              "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md"
+            },
+            {
+              "label": "Gauge theorem and matter action",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=13"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Mix vector fields with Higgs directions",
+          "status": "conditional_field",
+          "text": "The supplied Higgs phase gives W±=(W1∓iW2)/√2. Two Goldstone directions become their longitudinal polarizations. The benchmark vectors have spin one and three massive polarizations each.",
+          "formula": "W±=(W1∓iW2)/√2",
+          "links": [
+            {
+              "label": "Higgs and vector Hessians",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Broken directions theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L420"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "The charged gauge direction costs rest energy",
+          "status": "conditional_SM",
+          "text": "The quadratic Higgs kinetic term gives equal W masses for the chosen coupling and vacuum scale. Physical particle/antiparticle equality uses the local Lorentz/CPT hypotheses, not electric-charge conjugacy alone.",
+          "formula": "m_W²=g²v²/4",
+          "links": [
+            {
+              "label": "Finite wMass_value theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L519"
+            },
+            {
+              "label": "Conditional vector spectrum",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Reconstruct an unstable charged resonance",
+          "status": "physical_match_owed",
+          "text": "W bosons decay before an asymptotic stable-particle measurement. Their mass and width come from decay and scattering distributions with a stated line-shape convention. The reference average excludes CDF2022.",
+          "formula": "Detector records → resonance mass and width",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.5: weak-vector conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Select the Higgs phase, normalize g and v in the common source clock, compute self-energy and decay vertices, and match complete detector distributions."
+    },
+    {
+      "id": "neutral_weak",
+      "title": "Z boson: the orthogonal neutral gauge direction",
+      "target_ids": [
+        "Z"
+      ],
+      "targets": [
+        {
+          "id": "Z",
+          "symbol": "Z",
+          "spin": "1",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Self-conjugate in the conditional field theory",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "Z"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "A second direction in the neutral-current plane",
+          "status": "finite_proved",
+          "text": "The same T3 and Y currents define a two-dimensional neutral plane. Internal algebra alone leaves the physical mixing angle and the relative kinetic normalization unspecified.",
+          "formula": "Neutral span(T3,Y)",
+          "links": [
+            {
+              "label": "Current kinetic forms and free coefficients",
+              "path": "Lean/Screen/GaugeKineticInvariantForms.lean"
+            },
+            {
+              "label": "Finite-current theorem",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=7"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Separate the photon and massive neutral vector",
+          "status": "conditional_field",
+          "text": "With supplied canonical gauge kinetics and Higgs phase, the Z direction is orthogonal to the photon in the vector mass matrix. One Goldstone direction supplies its longitudinal mode.",
+          "formula": "Z ∝ gW3 − g′B",
+          "links": [
+            {
+              "label": "Neutral Hessian diagonalization",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Finite z_photon_orthogonal theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L512"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Both weak and hypercharge couplings contribute",
+          "status": "conditional_SM",
+          "text": "The nonzero neutral Hessian eigenvalue fixes the quadratic Z mass once g, g′ and v are supplied. This is an exact conditional formula, not a source selection of those parameters.",
+          "formula": "m_Z²=(g²+g′²)v²/4",
+          "links": [
+            {
+              "label": "Finite zMass_normalized theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L535"
+            },
+            {
+              "label": "Conditional neutral spectrum",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Fit the neutral resonance line shape",
+          "status": "physical_match_owed",
+          "text": "The displayed Z reference uses a Breit–Wigner convention. A pole definition is a different matched quantity. Its branching fractions and width require the interacting detector response.",
+          "formula": "Line shape + stated mass convention",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.5: Z matching",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Compute source gauge normalization, electroweak mixing, the selected phase and the full neutral self-energy before identifying the measured resonance."
+    },
+    {
+      "id": "higgs",
+      "title": "Higgs: the radial fluctuation of the selected scalar phase",
+      "target_ids": [
+        "Higgs"
+      ],
+      "targets": [
+        {
+          "id": "Higgs",
+          "symbol": "h",
+          "spin": "0",
+          "charge": "0",
+          "color": "singlet",
+          "antiparticle": "Self-conjugate radial scalar in the conditional field theory",
+          "reference": {
+            "path": "model/particle_candidate_atlas/reference_values.json",
+            "target": "Higgs"
+          },
+          "properties_status": "conditional_SM_benchmark",
+          "source_physical_identification": false
+        }
+      ],
+      "stages": [
+        {
+          "id": "source",
+          "title": "An allowed charged scalar coupling",
+          "status": "finite_proved",
+          "text": "The matter grammar admits a weak doublet with hypercharge +1/2. A finite quantum-scalar vertex preserves the same Gauss law. Its three-state carrier is not a selected continuum Higgs vacuum.",
+          "formula": "H: (1,2,+1/2)",
+          "links": [
+            {
+              "label": "Finite quantum Higgs construction",
+              "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
+            },
+            {
+              "label": "Gauge paper: conditional Yukawa charge",
+              "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+              "anchor": "page=14"
+            }
+          ]
+        },
+        {
+          "id": "field",
+          "title": "Supply a scalar field and a broken phase",
+          "status": "conditional_field",
+          "text": "The effective action has a positive quartic and a chosen broken-phase vacuum. A gauge-fixed neutral direction describes this phase; it is not a gauge-invariant expectation of a charged local operator.",
+          "formula": "V(H)=−μ_H²H†H+λ(H†H)²",
+          "links": [
+            {
+              "label": "Scalar action and phase convention",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Finite scalar Hessian theorem",
+              "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+              "anchor": "L392"
+            }
+          ]
+        },
+        {
+          "id": "mass",
+          "title": "Curvature sets the radial oscillation frequency",
+          "status": "conditional_SM",
+          "text": "Three angular directions join the massive gauge fields. One radial mode is left, with spin zero. Its quadratic rest-energy scale is set by the curvature of the normalized scalar potential.",
+          "formula": "m_h²=2λv²",
+          "links": [
+            {
+              "label": "Exact scalar Hessian",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+            },
+            {
+              "label": "Particle paper §2.3: quadratic field spectrum",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=5"
+            }
+          ]
+        },
+        {
+          "id": "measurement",
+          "title": "Reconstruct the scalar from its decay products",
+          "status": "physical_match_owed",
+          "text": "The Higgs mass is a resonance observable. Decay channels, production rates and widths depend on its interacting couplings and matching; the finite scalar carrier alone supplies none of these laboratory values.",
+          "formula": "Production and decay records → scalar resonance",
+          "links": [
+            {
+              "label": "Mass schemes and matching",
+              "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+              "anchor": "matching-physical-observables"
+            },
+            {
+              "label": "Particle paper §6.1: observable conventions",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=60"
+            },
+            {
+              "label": "Particle paper §6.5: Higgs comparison",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+              "anchor": "page=62"
+            }
+          ]
+        }
+      ],
+      "missing_bridge": "Derive the phase and scalar effective potential from common-source correlations, normalize its kinetic term and compute physical production/decay response."
+    }
+  ],
+  "calibration_paths": [
+    {
+      "id": "one_ratio_phase",
+      "title": "One-ratio phase calibration",
+      "input": "Measured muon/electron ratio chooses the balanced coherent phase; electron mass may set one energy unit.",
+      "what_it_buys": "A charged action with a held-out tau comparison. Exact Koide balance is retained.",
+      "removal_strategy": "Derive the coherent relative phase from the source Hamiltonian or selected state, then evaluate all three charged ratios without reading a mass target.",
+      "success_condition": "One source-selected phase and common kinetic normalization; held-out masses remain within stated observable-matching errors.",
+      "links": [
+        {
+          "label": "One-ratio calibration",
+          "path": "model/charged_lepton_response/CALIBRATED_SANITY.md"
+        },
+        {
+          "label": "Source phase audit",
+          "path": "model/charged_lepton_response/SOURCE_PHASE_SELECTION.md"
+        },
+        {
+          "label": "Exact Koide algebra",
+          "path": "Lean/ObserverPatchHolography/KoideCirculant.lean"
+        }
+      ]
+    },
+    {
+      "id": "three_mass_controller",
+      "title": "Three-input attenuator calibration",
+      "input": "Electron, muon and tau central masses choose attenuation, phase and one common energy factor.",
+      "what_it_buys": "The complete sixteen-outcome controller realizes the chosen charged triplet. Zero held-out mass predictions.",
+      "removal_strategy": "Calculate the retained loss process and coherent family kernel from the same native dynamics; derive the energy conversion from an independent clock rather than these three masses.",
+      "success_condition": "The computed r, phase and common normalization agree with the physical matching calculation before target masses are read.",
+      "links": [
+        {
+          "label": "Inverse Fourier realization",
+          "path": "model/particle_candidate_atlas/CALIBRATED_TRIPLET.md"
+        },
+        {
+          "label": "Complete retained-loss controller",
+          "path": "model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md"
+        }
+      ]
+    },
+    {
+      "id": "capacity_response",
+      "title": "Capacity law and closure choices",
+      "input": "The P-law phase baseline, attenuation function, normalization, source coordinates and running-field census are stipulated; one endpoint inherits measured alpha.",
+      "what_it_buys": "Four certified conditional action spectra and complete C-duty inverse realizations.",
+      "removal_strategy": "Derive the actual memory/controller response and its capacity dependence, including the running census, from source records. Use self-consistency after that law is fixed.",
+      "success_condition": "No target-selected architecture or measured endpoint enters the prediction; the derived response is stable under the stated capacity/refinement limit.",
+      "links": [
+        {
+          "label": "P-law ancestry",
+          "path": "model/charged_lepton_response/P_DEPENDENCE.md"
+        },
+        {
+          "label": "Capacity does not select the response law",
+          "path": "model/particle_candidate_atlas/CAPACITY_NON_SELECTION.md"
+        },
+        {
+          "label": "Actual memory response",
+          "path": "model/particle_candidate_atlas/NATIVE_RESPONSE.md"
+        }
+      ]
+    },
+    {
+      "id": "clock_and_units",
+      "title": "A common clock and energy unit",
+      "input": "Weak-kick time, preparation/reference choice and conversion to GeV are supplied.",
+      "what_it_buys": "Comparable source frequencies and optional laboratory-unit tables.",
+      "removal_strategy": "Tie the time-translation generator and detector timestamps to one operational clock, retain compilation overhead, and derive a reference energy relation independent of the fitted particle.",
+      "success_condition": "Every sector and detector uses the same clock, with bounded conversion and finite-capacity errors.",
+      "links": [
+        {
+          "label": "Full-Fock clock boundary",
+          "path": "model/charged_lepton_response/CAR_KOIDE.md"
+        },
+        {
+          "label": "Matching observables",
+          "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+          "anchor": "matching-physical-observables"
+        },
+        {
+          "label": "Particle paper §8.2: required attachments",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=66"
+        }
+      ]
+    },
+    {
+      "id": "families_and_chirality",
+      "title": "Three families and a chiral regulator",
+      "input": "Three copies of the fifteen-component module and a naive Weyl kinetic action are configured.",
+      "what_it_buys": "The finite internal representation and controlled free branches, including all eight valleys.",
+      "removal_strategy": "Derive family multiplicity and construct a gauge-covariant chiral low-energy sector with canonical CAR, controlled mirror removal and a suitable physical state.",
+      "success_condition": "Exactly the intended light representations propagate; anomaly and Ward identities survive the same controlled limit.",
+      "links": [
+        {
+          "label": "Eight-valley boundary",
+          "path": "model/standard_model_source_map/KINETIC_ATTACHMENT.md"
+        },
+        {
+          "label": "Gauge paper §7: family premises",
+          "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+          "anchor": "page=16"
+        },
+        {
+          "label": "Quantum chiral join",
+          "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
+        }
+      ]
+    },
+    {
+      "id": "gauge_higgs",
+      "title": "Gauge couplings and Higgs phase",
+      "input": "Renormalized g_s, g, g′, scalar potential and the broken-phase scale are supplied.",
+      "what_it_buys": "Conditional photon/gluon zeros and W, Z and Higgs mass formulas.",
+      "removal_strategy": "Extract gauge and scalar two-point kernels plus higher vertices from the selected common-source state; demonstrate the phase and its kinetic normalization.",
+      "success_condition": "Couplings, symmetry breaking and scalar curvature follow from those correlators with scale/scheme and error control, without measured mass substitutions.",
+      "links": [
+        {
+          "label": "Conditional action and Hessians",
+          "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+          "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+        },
+        {
+          "label": "Invariant forms leave coefficients",
+          "path": "Lean/Screen/GaugeKineticInvariantForms.lean"
+        },
+        {
+          "label": "Finite electroweak composition",
+          "path": "Lean/Screen/ElectroweakBreakingComposition.lean"
+        }
+      ]
+    },
+    {
+      "id": "quark_flavor",
+      "title": "Quark Yukawas, mixing and CP phases",
+      "input": "Independent complex up/down family matrices and renormalized flavor parameters are supplied.",
+      "what_it_buys": "A conditional quark census and the algebraic CKM construction.",
+      "removal_strategy": "Compute complex family-changing kernels and their covariant kinetic forms from the source; propagate the result through QCD and electroweak matching.",
+      "success_condition": "Mass ratios, mixing and CP-sensitive observables share one independently derived action. A common multiplier cannot rescue an excluded light-quark shape.",
+      "links": [
+        {
+          "label": "Canonical family response",
+          "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+          "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+        },
+        {
+          "label": "Particle paper §6.4: rejected texture",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=62"
+        },
+        {
+          "label": "Finite mass matching bounds",
+          "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
+        }
+      ]
+    },
+    {
+      "id": "neutrino_extension",
+      "title": "Neutrino mechanism and mixing",
+      "input": "Dirac singlets or a Majorana Weinberg operator, its family coefficient and mixing are additional choices.",
+      "what_it_buys": "A complete conditional neutral sector with symbolic mass eigenvalues.",
+      "removal_strategy": "Identify and implement the allowed source neutral interaction and flavor-current intertwiner, then derive its propagator and detector oscillation records.",
+      "success_condition": "Nonzero observed mass-squared differences and flavor probabilities arise in the same clock, with a declared absolute-scale and Dirac/Majorana prediction or unresolved parameter.",
+      "links": [
+        {
+          "label": "Neutral field alternatives",
+          "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+          "anchor": "neutrino-extension-and-the-complete-elementary-channels"
+        },
+        {
+          "label": "Particle paper §6.6: massless-neutrino obstruction",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=62"
+        }
+      ]
+    },
+    {
+      "id": "bare_effective",
+      "title": "From an action coefficient to a measured mass",
+      "input": "Physical kinetic matrices, self-energy, infrared dressing and resonance conventions require additional matching.",
+      "what_it_buys": "Necessary correction budgets and exact conditional whitening bounds, without a calculated interaction correction.",
+      "removal_strategy": "Measure complete connected correlators in one selected interacting state, extract their temporal/spatial kernels and self-energy, and propagate actual errors to the named detector observable.",
+      "success_condition": "A charged threshold, resonance or running parameter is obtained in its stated scheme with a controlled uncertainty; no adjustable matrix is chosen solely to improve agreement.",
+      "links": [
+        {
+          "label": "Whitening and matching theorem",
+          "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
+        },
+        {
+          "label": "Necessary correction floors",
+          "path": "model/particle_candidate_atlas/MEASURED_MASS_JOIN.md"
+        },
+        {
+          "label": "Compatibility of the two action families",
+          "path": "model/particle_candidate_atlas/COMPATIBILITY.md"
+        }
+      ]
+    },
+    {
+      "id": "defect_species",
+      "title": "From a protected label to a species",
+      "input": "A source current or protected winding does not by itself identify a natural particle.",
+      "what_it_buys": "Finite charge records, compact localized modes and supplied field attachments.",
+      "removal_strategy": "Construct creation, transport, fusion and decay operators for the defect in the same state and Gauss sector. Compare their charge transformations, spectral weight and scattering records with the candidate field.",
+      "success_condition": "One operational intertwiner preserves charge, dynamics, statistics and complete measurements; fixed-texture bound frequencies are not relabeled as relativistic rest masses.",
+      "links": [
+        {
+          "label": "Exact compact defect-field join",
+          "path": "model/particle_candidate_atlas/DEFECT_FIELD_JOIN.md"
+        },
+        {
+          "label": "Particle paper §5.1: topology and total energy",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=19"
+        },
+        {
+          "label": "Particle paper §8.2: physical attachments",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=66"
+        }
+      ]
+    }
+  ],
+  "mass_explainer": {
+    "title": "A rest-energy scale, once the clock and dynamics are fixed",
+    "text": "A massive field branch has an energy cost even at zero momentum, measured above its chosen vacuum. In the supplied Higgs action that rest-energy scale comes from the normalized coupling to the chosen phase. Calling repair effort energy requires an independent source-to-clock and generator calibration. A static defect can also carry background and binding energy, so its trapped-mode frequency is not automatically a particle rest mass.",
+    "formula": "E²=c²p²+m²c⁴; at rest E=mc²",
+    "links": [
+      {
+        "label": "Same-action free Dirac proof",
+        "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md"
+      },
+      {
+        "label": "Static defect versus moving particle",
+        "path": "model/particle_candidate_atlas/DEFECT_FIELD_JOIN.md",
+        "anchor": "which-identification-is-excluded"
+      },
+      {
+        "label": "Physical matching obligations",
+        "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+        "anchor": "concrete-source-to-benchmark-obligations"
+      }
+    ]
+  },
+  "gauge_theorems": [
+    {
+      "id": "finite_lie_type",
+      "title": "Why the gauge algebra has the Standard Model type",
+      "premises": "A faithful complete reversible twelve-port response closes under commutators in u(H). Proper carrier rotations act by inner automorphisms on that same response. The compact-Lie classification and fixed-space hypotheses apply.",
+      "result": "The transitive A5 action has one fixed line. The centre has dimension one; the centreless su(2)^4 alternative is excluded. The remaining compact semisimple part is su(2)⊕su(3). Hence g≅u(1)⊕su(2)⊕su(3).",
+      "formula": "12 = 1 + 3 + 8, with compactness, brackets and the inner-action exclusion",
+      "boundary": "Twelve ports alone do not imply this algebra. Lean proves finite dimension/fixed-space arithmetic under explicit centre/classification adapters; the paper supplies the Lie argument. Executable current selection and physical gauge-field attachment are separate.",
+      "links": [
+        {
+          "label": "Gauge paper Theorem3.1: fixed-space Lie-type proof",
+          "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+          "anchor": "page=7"
+        },
+        {
+          "label": "Faithful response and compact_product_dimensions_of_fixed_space",
+          "path": "Lean/Screen/A2HolonomyBridge.lean",
+          "anchor": "L313"
+        },
+        {
+          "label": "Inner-action finite selector",
+          "path": "Lean/Screen/TrichotomyCases.lean",
+          "anchor": "L123"
+        }
+      ]
+    },
+    {
+      "id": "matter_and_global_image",
+      "title": "Which charges and interaction channels fit that algebra",
+      "premises": "The declared current matrix, spin lift and finite exterior-sector menu are supplied. Anomaly cancellation selects a conjugate projector pair within that menu; tensor descent is checked on the realized matter tensors.",
+      "result": "The fifteen weights form Q,uᶜ,dᶜ,L,eᶜ, with the Standard Model hypercharges. A Higgs doublet admits up, down and charged-lepton Yukawa channels. The maximal faithful local matter image has diagonal Z6 kernel.",
+      "formula": "G_packet = [SU(3)×SU(2)×U(1)] / Z6",
+      "boundary": "The local tensor data admit the cover and its Z2,Z3,Z6 quotients. They do not select the physical global gauge group, three generations, fermion statistics or any Yukawa magnitude. The spin/exterior attachments are explicit premises.",
+      "links": [
+        {
+          "label": "Gauge paper Proposition6.2 and hypercharge theorem",
+          "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+          "anchor": "page=14"
+        },
+        {
+          "label": "Gauge paper §6.2: global-form boundary",
+          "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+          "anchor": "page=15"
+        },
+        {
+          "label": "Exact exterior selection_unique",
+          "path": "Lean/Screen/ExteriorSelection.lean",
+          "anchor": "L101"
+        },
+        {
+          "label": "Four admissible global forms",
+          "path": "Lean/Screen/Z6Descent.lean",
+          "anchor": "L79"
+        },
+        {
+          "label": "Full-Fock current attachment",
+          "path": "model/standard_model_source_map/FERMION_ATTACHMENT.md"
+        }
+      ]
+    },
+    {
+      "id": "gauge_invariant_interactions",
+      "title": "The same currents admit actual finite interactions",
+      "premises": "Use the configured full fermionic occupation space, the native finite quantum links, a quantum-scalar carrier and declared hopping/Yukawa coefficients. The gauge action includes every original sector.",
+      "result": "Local Gauss generators have the same Lie brackets, and their commutators with the finite hopping and quantum-Higgs Hamiltonian vanish. Complete record feedback realizes its specified mean interaction without discarding failures or dividing by duty probability.",
+      "formula": "[G_x^a,H]=0 on every occupation sector",
+      "boundary": "This proves a finite interacting gauge system. It selects no numerical gauge/Yukawa coupling, physical Higgs phase, common laboratory clock or interacting chiral continuum. A finite invariant vertex is stronger than a count of field labels.",
+      "links": [
+        {
+          "label": "Full-Fock Gauss proof",
+          "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md",
+          "anchor": "one-representation-and-a-full-fock-gauss-identity"
+        },
+        {
+          "label": "Finite interacting quantum Higgs",
+          "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
+        },
+        {
+          "label": "Conditional interaction action and parameters",
+          "path": "model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md",
+          "anchor": "supplied-action-and-its-exact-quadratic-spectrum"
+        }
+      ]
+    }
+  ],
+  "family_cost_selector": {
+    "title": "A finite shortcut toward the family count",
+    "premises": "Restrict to faithful carrier bands in the declared dimension window[3,5]; identify the physical multiplicity object with such a band and compare it by the operational seam-cost order.",
+    "formula": "5−√5 < 6 < 5+√5",
+    "result": "The exact spectral table selects the rank-three band as the unique cost minimum among those candidates.",
+    "boundary": "The multiplicity-object and operational-cost identifications are extra premises. The unrestricted table selects the trivial band. The result neither makes the spatial rank-three band automatically three generations nor removes the eight kinetic valleys.",
+    "links": [
+      {
+        "label": "family_band_selected and cost_order_strict",
+        "path": "Lean/Screen/A5FamilyBand.lean",
+        "anchor": "L357"
+      },
+      {
+        "label": "Gauge paper §7: family window and attachment",
+        "path": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+        "anchor": "page=16"
+      }
+    ]
+  }
+}

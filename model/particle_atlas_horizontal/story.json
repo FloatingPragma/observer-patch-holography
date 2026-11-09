@@ -1,0 +1,426 @@
+{
+  "schema": "oph.horizontal_particle_story.v1",
+  "hero_contract": "A highlighted candidate links exact finite constructions through explicitly unproved bridges. It is not an identified electron or a proved single-source end-to-end trajectory.",
+  "hero_labels": {
+    "memory": "χ = −1",
+    "geometric_core": "deg(n) = +1",
+    "conditional_lepton": "Q_em = −1"
+  },
+  "stages": [
+    {
+      "id": "loop",
+      "title": "A round trip leaves a sign",
+      "status": "exact",
+      "status_label": "Exact native loop; coherent memory supplied",
+      "plain_explanation": "Two named tokens move around three ports. Their unordered positions return to the start, but their ordering is exchanged. The memory receives X. Its two coherent characters acquire signs +1 and −1. This is a concrete loop action that port counts alone miss.",
+      "formula": "{0,11} → {5,11} → {0,5} → {0,11}; U_loop = X",
+      "diagram_spec": {
+        "kind": "three_port_exchange",
+        "ports": [
+          0,
+          5,
+          11
+        ],
+        "states": [
+          [
+            0,
+            11
+          ],
+          [
+            5,
+            11
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            11
+          ]
+        ],
+        "seams": [
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            11
+          ],
+          [
+            5,
+            11
+          ]
+        ],
+        "named_tokens": [
+          "A",
+          "B"
+        ],
+        "end_order": "exchanged",
+        "selected_history_probability": "1/8",
+        "retain_other_histories": true,
+        "coherent_signs": [
+          1,
+          -1
+        ]
+      },
+      "proof_links": [
+        {
+          "label": "Native exchange loop and all outcomes",
+          "path": "model/defect_protection/README.md",
+          "anchor": ""
+        },
+        {
+          "label": "Exact exchange_loop construction",
+          "path": "model/defect_protection/protection.py",
+          "anchor": ""
+        },
+        {
+          "label": "Particle paper §5.15: protected charge",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=44"
+        }
+      ],
+      "missing_bridge": "The persistent orientation bit and coherent comparison are specified services; this loop is not a source-localized particle."
+    },
+    {
+      "id": "charge",
+      "title": "Repair preserves a distinction",
+      "status": "exact",
+      "status_label": "Exact protection under the stated memory law",
+      "plain_explanation": "Every retained repair outcome preserves the memory charge χ. Even an adaptive schedule cannot switch its two sharp sectors. Protection means persistence under these allowed operations. A memory reset or an incompatible dephasing operation can remove it.",
+      "formula": "[K_h,Q] = 0 for every record h; Q = I₆₆ ⊗ X; χ = ±1",
+      "diagram_spec": {
+        "kind": "protected_memory_sector",
+        "highlight": "χ = −1",
+        "other_sector": "χ = +1",
+        "repair_branches": [
+          "C: move",
+          "C: hold",
+          "E: move",
+          "E: hold"
+        ],
+        "all_branches_preserve_charge": true,
+        "reset_crosses_protection_boundary": true
+      },
+      "proof_links": [
+        {
+          "label": "Kraus-level protection and memory boundary",
+          "path": "model/defect_protection/README.md",
+          "anchor": "what-the-memory-law-must-supply"
+        },
+        {
+          "label": "Same protected state and modular clock",
+          "path": "model/protected_reference/PROOF.md",
+          "anchor": ""
+        },
+        {
+          "label": "Particle paper §5.15",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=44"
+        }
+      ],
+      "missing_bridge": "χ is a quantum source/memory label. No spatial winding, electric charge, Lorentz spin or rest mass follows from it alone."
+    },
+    {
+      "id": "local_bridge",
+      "title": "Where does the distinction live?",
+      "status": "open",
+      "status_label": "Source-localization bridge to derive",
+      "plain_explanation": "A particle candidate needs a local realization of the persistent difference and a law for creating and moving it. The illustrated next step supplies a compact texture. Relating that geometric core to the native memory charge is a missing map, shown by a dashed arrow.",
+      "formula": "protected memory sector  ⇢  local source core  [map unproved]",
+      "diagram_spec": {
+        "kind": "dashed_localization_bridge",
+        "left_label": "χ = −1 in coherent memory",
+        "right_label": "deg(n) = +1 on a shell",
+        "equivalence_claimed": false,
+        "design_boundary": "declared texture and guarded local updates"
+      },
+      "proof_links": [
+        {
+          "label": "Finite frustration and topology boundaries",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=19"
+        },
+        {
+          "label": "Actual local symmetry excitation, a separate construction",
+          "path": "model/defect_localization_readout/PROOF.md",
+          "anchor": "2-local-creation-on-the-actual-prepared-cube-reference"
+        },
+        {
+          "label": "Compact texture design",
+          "path": "model/compact_defect_pair/PROOF.md",
+          "anchor": "chosen-finite-energy-geometry"
+        }
+      ],
+      "missing_bridge": "Derive a local embedding, a formation law and the same physical clock from the original complete repair/memory process."
+    },
+    {
+      "id": "texture",
+      "title": "A winding that allowed repairs cannot erase",
+      "status": "conditional",
+      "status_label": "Protected geometric example; source design supplied",
+      "plain_explanation": "Follow the +1 core. Its surrounding direction field wraps the sphere once. A −1 companion permits a constant exterior. The guarded repair rule preserves both shell degrees, retaining rejected moves as holds. These two winding signs are not identified particle and antiparticle charges.",
+      "formula": "f = (x,y,z²−1); deg(n)|upper = +1; deg(n)|lower = −1",
+      "diagram_spec": {
+        "kind": "compact_opposite_winding_pair",
+        "highlight_core": [
+          0,
+          0,
+          1
+        ],
+        "companion_core": [
+          0,
+          0,
+          -1
+        ],
+        "degrees": [
+          1,
+          -1
+        ],
+        "outside_direction": [
+          0,
+          0,
+          1
+        ],
+        "draw_shell_arrows": true,
+        "protected_by": "nonzero shell homotopy and fixed core/exterior guards",
+        "particle_antiparticle_identification": false
+      },
+      "proof_links": [
+        {
+          "label": "Guarded winding and uniform isolated band",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=23"
+        },
+        {
+          "label": "Every-record winding proof",
+          "path": "model/compact_defect_transport/PROOF.md",
+          "anchor": "exact-winding-preservation-on-every-record"
+        },
+        {
+          "label": "Compact degrees and finite-energy bounds",
+          "path": "model/compact_defect_pair/PROOF.md",
+          "anchor": "chosen-finite-energy-geometry"
+        }
+      ],
+      "missing_bridge": "The reference texture, local guard, zero cores and exterior are designed inputs; their selection by bare repair is unproved."
+    },
+    {
+      "id": "mode",
+      "title": "The core carries field modes",
+      "status": "exact",
+      "status_label": "Exact mode/current map on that supplied texture",
+      "plain_explanation": "The same compact operator has four isolated spatial modes. A mode is a coherent amplitude pattern, not a little classical bead. Its exact field inclusion preserves the native internal currents. Creating a fermionic excitation occupies a mode; it does not create the background winding.",
+      "formula": "hW = WA; b†_{j,α} = Σ_x W_{xj} a†_{x,α}",
+      "diagram_spec": {
+        "kind": "localized_four_mode_band",
+        "mode_count": 4,
+        "highlight_mode": 0,
+        "show_complement": true,
+        "currents": "fifteen internal weights; three family copies supplied",
+        "background_winding_unchanged_by_occupation": true,
+        "label": "one highlighted candidate; full band retained"
+      },
+      "proof_links": [
+        {
+          "label": "Localized fields and exact time evolution",
+          "path": "model/particle_candidate_atlas/DEFECT_FIELD_JOIN.md",
+          "anchor": "same-current-car-fields-and-exact-time-evolution"
+        },
+        {
+          "label": "Four isolated modes and exterior error",
+          "path": "model/compact_defect_pair/PROOF.md",
+          "anchor": "four-isolated-modes-with-no-assumed-zero-mode-index"
+        },
+        {
+          "label": "Particle paper: compact source and mode inclusion",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=20"
+        }
+      ],
+      "missing_bridge": "The same band supports all internal components. Neither its four modes nor their winding labels select an observed species."
+    },
+    {
+      "id": "field",
+      "title": "A moving wave needs its own dynamics",
+      "status": "conditional",
+      "status_label": "Free relativistic attachment; moving-defect bridge unproved",
+      "plain_explanation": "In the supplied homogeneous field action, phase amplitudes spread and interfere. Its charged branches have a controlled free Dirac limit. Nonzero energy at zero momentum is the mass term. The fixed core’s bound frequencies are different quantities; an autonomous moving-defect bridge is required.",
+      "formula": "E_j(p)² = c²p² + |v_H|²σ_j(Y)²; E_j(0) = m_j c²",
+      "diagram_spec": {
+        "kind": "wavepacket_and_dispersion",
+        "packet": "complex amplitude envelope",
+        "massive_dispersion": "positive intercept",
+        "massless_dispersion": "zero intercept",
+        "fixed_texture_frequencies": "E_bound ± σ(K), not Dirac quadrature",
+        "retained_valleys": 8,
+        "incoming_arrow": "dashed physical moving-field bridge"
+      },
+      "proof_links": [
+        {
+          "label": "Exact mass shell and controlled free limit",
+          "path": "model/charged_lepton_response/RELATIVISTIC_MASS.md",
+          "anchor": "exact-mass-shell-of-the-native-quadratic-action"
+        },
+        {
+          "label": "Static texture mass/translation boundary",
+          "path": "model/particle_candidate_atlas/DEFECT_FIELD_JOIN.md",
+          "anchor": "which-identification-is-excluded"
+        },
+        {
+          "label": "Particle paper: free charged Dirac branches",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=15"
+        },
+        {
+          "label": "Repair count is insufficient for action",
+          "path": "model/defect_energy/README.md",
+          "anchor": "a-matched-repair-cost-experiment"
+        }
+      ],
+      "missing_bridge": "Derive moving defects, the chiral interacting action, selected vacuum and physical clock; all eight free lattice valleys are retained by the existing theorem."
+    },
+    {
+      "id": "apparatus",
+      "title": "Choose a question the detector can ask",
+      "status": "conditional",
+      "status_label": "Specified complete quantum instruments",
+      "plain_explanation": "A position detector reads where the field couples locally. A momentum detector compares translation phases. Each setting has its own outcome probabilities and back-action. Narrow position support generally broadens momentum; the momentum distribution remains defined.",
+      "formula": "p(r) = Tr(K_r ρ K_r†); Σ_r K_r†K_r = I",
+      "diagram_spec": {
+        "kind": "position_momentum_fork",
+        "position_branch": "local detector bins",
+        "momentum_branch": "translation-phase analyzer",
+        "show_distributions": true,
+        "show_back_action": true,
+        "undefined_other_observable": false,
+        "all_outcomes_retained": true
+      },
+      "proof_links": [
+        {
+          "label": "Source-position operational instruments",
+          "path": "model/spin_operational_position/PROOF.md",
+          "anchor": ""
+        },
+        {
+          "label": "Complete energy effects",
+          "path": "model/spectral_readout/README.md",
+          "anchor": ""
+        },
+        {
+          "label": "Native measurement synthesis and its premises",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=43"
+        },
+        {
+          "label": "Operational Born theorem",
+          "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+          "anchor": "L203"
+        }
+      ],
+      "missing_bridge": "Use the same physical state, position readout and translation generator. Finite matrices do not obey a universal exact canonical commutator."
+    },
+    {
+      "id": "record",
+      "title": "One result becomes a shared record",
+      "status": "conditional",
+      "status_label": "Born weights and conditional state update",
+      "plain_explanation": "A detector interaction correlates the field with an outcome record. Conditioning on that record gives the state used for later questions; forgetting the result sums every branch. Comparing records fixes a shared description of the event. It does not let consensus choose an outcome or fix incompatible observables together.",
+      "formula": "ρ_r = K_r ρ K_r† / p(r), p(r)>0; unread output = Σ_r K_r ρ K_r†",
+      "diagram_spec": {
+        "kind": "detector_record_consensus",
+        "outputs": [
+          "record r",
+          "conditional field",
+          "untouched reference"
+        ],
+        "compare_observers": [
+          "A",
+          "B"
+        ],
+        "same_record_agreement": true,
+        "selects_outcome_by_belief": false,
+        "coherent_before_readout": true
+      },
+      "proof_links": [
+        {
+          "label": "Unique Born representation of complete record laws",
+          "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+          "anchor": "L214"
+        },
+        {
+          "label": "Finite effect coverage and limitations",
+          "path": "model/native_effect_coverage/PROOF.md",
+          "anchor": ""
+        },
+        {
+          "label": "Complete coexistent instruments",
+          "path": "model/native_coexistent_effects/PROOF.md",
+          "anchor": ""
+        },
+        {
+          "label": "Native closed-history positive density functional",
+          "path": "model/native_quantum_reconstruction/PROOF.md",
+          "anchor": "native-count-moments-and-their-positive-density-representation"
+        }
+      ],
+      "missing_bridge": "The operational Born theorem requires implementation-independent effects and universal coexistent refinement. A finite executed measurement menu does not prove those universal premises."
+    }
+  ],
+  "edges": [
+    {
+      "from": "loop",
+      "to": "charge",
+      "status": "exact"
+    },
+    {
+      "from": "charge",
+      "to": "local_bridge",
+      "status": "open"
+    },
+    {
+      "from": "local_bridge",
+      "to": "texture",
+      "status": "open"
+    },
+    {
+      "from": "texture",
+      "to": "mode",
+      "status": "exact"
+    },
+    {
+      "from": "mode",
+      "to": "field",
+      "status": "open"
+    },
+    {
+      "from": "field",
+      "to": "apparatus",
+      "status": "conditional"
+    },
+    {
+      "from": "apparatus",
+      "to": "record",
+      "status": "conditional"
+    }
+  ],
+  "cautions": [
+    "Nontrivial holonomy is not itself a proof of dynamical protection, localization or mass.",
+    "The native memory charge, geometric winding and electric charge are different labels; their proposed maps are explicit obligations.",
+    "The −1 winding companion is not an identified antiparticle. Negative Nambu rows are not extra particle species.",
+    "Position and momentum have probability distributions; a sharp result in one setting does not erase the other distribution.",
+    "Consensus compares record descriptions; it does not select a Born outcome by agreement.",
+    "Finite operation counts do not alone determine a Hamiltonian or a physical mass.",
+    "The homogeneous free Dirac action is distinct from the fixed compact texture operator."
+  ],
+  "holonomy_shortcut": {
+    "label": "Finite U(1) seam classification",
+    "path": "Lean/Screen/SeamU1HolonomyClassification.lean",
+    "theorem": "seam_u1_holonomy_classification",
+    "anchor": "L574",
+    "statement": "Connections modulo port gauges have nineteen independent U(1) chord holonomies on the specified graph.",
+    "boundary": "No dynamics, protection, electromagnetic identification or continuum limit follows from this kinematic classification."
+  }
+}

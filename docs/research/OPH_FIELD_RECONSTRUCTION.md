@@ -1,5 +1,7 @@
 # Field response and particle identification from observer records
 
+The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+
 The [common executable hypothesis](../OPH_EXECUTABLE_HYPOTHESIS.md) and
 [completion DAG](../COMPLETION_PROGRAM.md) place this work inside one target:
 the same source must supply observer clocks, defect identity and energy,

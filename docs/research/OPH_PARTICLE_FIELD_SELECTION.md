@@ -1,5 +1,7 @@
 # Particle response and field-action selection
 
+The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+
 The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
 separates bounded-window survival from a massive spectrum. For the original
 CAR readout on one fixed normalized reference and coupling ratio, with

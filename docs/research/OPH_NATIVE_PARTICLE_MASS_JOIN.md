@@ -1,5 +1,7 @@
 # Native particles, currents and mass operators
 
+The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+
 The [particle-mass response audit](OPH_PARTICLE_MASS_RESPONSE.md) retains the
 source-bound evidence and its tested mass prescriptions. The
 [source particle map](../../model/completion/SOURCE_PARTICLE_MAP.md) gives the

@@ -1,0 +1,37 @@
+# From a loop to a detector
+
+The [horizontal atlas](../../docs/research/OPH_PARTICLE_ATLAS_V2.svg) explains
+the particle constructions through one illustrated candidate and all elementary
+families. The [pan-and-zoom reader](../../docs/research/OPH_PARTICLE_ATLAS_V2.html)
+keeps the complete spread navigable and exposes its paper and theorem links.
+Solid arrows are proved steps under their premises; dashed arrows identify
+physical connections to derive. The scientific classifications and numerical
+reference values are inherited from the authenticated vertical atlas.
+
+The exact native exchange loop protects a coherent memory sector. Its
+localization as a spatial winding defect is an explicit unproved bridge.
+The supplied compact texture supports localized modes; their conversion to
+moving relativistic particles is another explicit bridge. A drawing does not
+identify these distinct source objects.
+
+The [measurement construction](MEASUREMENT.md) checks a supplied four-bin
+Fourier experiment, with all outcomes and both sequential measurement laws.
+It is an intuitive illustration of quantum instruments, not a derivation of
+the source's laboratory position or every complex detector effect. The
+[theorem roles](THEOREMS.md) distinguish rank-three carrier coordinates,
+same-field position and momentum, reference-dependent modular flow and the
+additional physical clock identification. The [family chains](FAMILIES.md)
+include every target, conjugate convention and calibration-removal criterion.
+
+```sh
+python -m model.particle_atlas_horizontal.build --write
+python -m model.particle_atlas_horizontal.build --check
+python -m pytest -q model/particle_atlas_horizontal
+```
+
+The builder authenticates the retained atlas and its complete input hashes,
+runs the bounded illustrative calculation and checks all local destinations.
+It replays no large source simulation, changes no physical claims, and keeps
+all measured parameters explicitly labeled. Its audit binds the source
+narratives, renderer and references. Rendering needs no external images or
+web service; the SVG and HTML reader are standalone vector artifacts.

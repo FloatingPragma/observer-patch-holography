@@ -1,0 +1,86 @@
+{
+  "pipeline": [
+    {
+      "id": "preparation",
+      "title": "Prepare a repeatable state",
+      "meaning": "A recorded procedure sets the state used to predict the next detector records. Here it prepares equal, same-phase amplitudes in two bins.",
+      "graphic": "Two neighbouring bins glow; their phase arrows point together. A preparation record labels this setting.",
+      "status": "supplied illustrative preparation"
+    },
+    {
+      "id": "apparatus",
+      "title": "Choose which question the apparatus asks",
+      "meaning": "The apparatus couples an observable to output ports. Direct routing reads spatial bins; a Fourier analyser combines phases to read momentum bins.",
+      "graphic": "One packet splits into two alternative apparatus drawings, a direct channel and a four-path phase analyser. These are alternative experiments.",
+      "status": "exact supplied instruments"
+    },
+    {
+      "id": "detector",
+      "title": "A detector leaves a record",
+      "meaning": "Each port has a Born weight. One retained outcome conditions subsequent predictions. Show all ports, including the zero-weight port; show no-click or failure outcomes when the physical instrument has them.",
+      "graphic": "Four detector cells, a highlighted example click and a histogram of the complete outcome weights.",
+      "status": "exact complete-instrument example"
+    },
+    {
+      "id": "consensus",
+      "title": "Compare and share the record",
+      "meaning": "Observers verify and copy a distinguishable record label. Agreement keeps its probability law; it does not vote an outcome into existence or create the mass.",
+      "graphic": "Two ledgers carry the same verified label, joined by a compare/check line; the unselected branches remain in the complete probability diagram.",
+      "status": "classical record-sharing illustration"
+    }
+  ],
+  "captions": {
+    "wave": "Amplitudes spread and acquire relative phase. At an output they add before their squared magnitude becomes a probability. A missing count can be destructive interference.",
+    "uncertainty": "A sharp position record gives this state a broad momentum distribution. Momentum has a probability law, not a single sharp value. A sharp momentum mode spreads position.",
+    "Born": "For a complete instrument, p(r)=Tr(rho K_r†K_r). The chosen state and instrument determine the weights; keeping every outcome makes them sum to one.",
+    "conditioning": "After a positive-weight record r, predictions use K_r rho K_r†/p(r). In this projective example that is the Lüders update; Born weights alone do not select the update.",
+    "consensus": "A record fixes the shared outcome of this experiment. It does not assign sharp values to every incompatible observable.",
+    "source_scope": "Native closed histories derive a positive Born-form functional. Implementing arbitrary complex effects as native detector events requires an additional operational bridge.",
+    "continuum_scope": "A specified ordered-spin field constructs position and its own translation momentum with Delta X Delta P >= hbar/2 on the stated domain. The particle, source clock and laboratory-unit identifications are separate."
+  },
+  "proof_links": [
+    {
+      "label": "Finite Born representation: finite_busch_gleason",
+      "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+      "anchor": "L1133"
+    },
+    {
+      "label": "Operational record-to-Born theorem",
+      "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+      "anchor": "L214"
+    },
+    {
+      "label": "Finite Robertson commutator theorem",
+      "path": "Lean/EventAlgebra/Robertson.lean",
+      "anchor": "L295"
+    },
+    {
+      "label": "Native closed-history Born functional",
+      "path": "model/native_quantum_reconstruction/PROOF.md",
+      "anchor": "native-count-moments-and-their-positive-density-representation"
+    },
+    {
+      "label": "Same-source position and momentum",
+      "path": "model/spin_covariant_localization/CONTINUUM_POSITION.md",
+      "anchor": "exact-covariance-and-the-uncertainty-relation-on-this-subspace"
+    },
+    {
+      "label": "Complete finite source detector compiler",
+      "path": "model/spin_operational_position/PROOF.md",
+      "anchor": "3-every-computable-finite-instrument-has-an-explicit-source-word"
+    },
+    {
+      "label": "Flagship section 4.3, finite public-record identities",
+      "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+      "anchor": "page=14"
+    },
+    {
+      "label": "Particle paper section 5.19, position and probe uncertainty",
+      "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+      "anchor": "page=59"
+    }
+  ],
+  "illustration_scope": "Four-bin supplied state and Fourier projective instruments. No universal position PVM for all species, physical momentum calibration, native particle identity or chiral continuum is inferred.",
+  "all_outcomes_retained": true,
+  "physical_hbar_value_derived": false
+}

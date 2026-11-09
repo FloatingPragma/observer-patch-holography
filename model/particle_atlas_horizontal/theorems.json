@@ -1,0 +1,183 @@
+{
+  "schema": "oph.horizontal_atlas.theorem_bridges.v1",
+  "roles": [
+    {
+      "id": "carrier_rank_three",
+      "rail": "space",
+      "title": "Three slow directions supply a carrier frame",
+      "status": "exact finite carrier result with its declared readout",
+      "input": "The twelve-port icosahedral carrier, uniform native seam repair and the record-recovered slow-band Gram.",
+      "output": "The smallest nonzero Laplacian band has rank3. The signed record/control Gram quotient completes to three-dimensional Euclidean coordinates.",
+      "formula": "lambda_slow=5-sqrt(5); G=4 P_slow; x(n)=sum_a n_a u_a; Delta x=j(u_b-u_a)",
+      "intuition": "A repair record says which seam carried a signed load. The slow directions turn those records into three coordinate components, up to a common rigid frame.",
+      "not_implied": "This local load coordinate is not automatically a particle detector or an inter-carrier 3+1-dimensional spacetime. In the protected one-per-site spin sector, total-load coordinates are scalar.",
+      "diagram_spec": "A twelve-point carrier fades into three coloured slow axes, then a recorded seam current becomes a three-component displacement arrow.",
+      "links": [
+        {
+          "label": "Real frame quotient: dimension3",
+          "path": "Lean/Screen/PrimitivePortFrameQuotient.lean",
+          "anchor": "L631"
+        },
+        {
+          "label": "Record-recovered carrier geometry",
+          "path": "model/relative_observer_geometry/README.md",
+          "anchor": ""
+        },
+        {
+          "label": "Exact branch displacement and its boundary",
+          "path": "model/carrier_position_translation/PROOF.md",
+          "anchor": "2-exact-operator-covariance-on-the-branch-support"
+        },
+        {
+          "label": "Flagship: carrier coordinates",
+          "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+          "anchor": "page=16"
+        }
+      ]
+    },
+    {
+      "id": "field_position_momentum",
+      "rail": "space",
+      "title": "The same field supplies position and translation momentum",
+      "status": "proved for the specified ordered-spin source, state and field domain",
+      "input": "One selected ordered-spin continuum, its spatial translations, field-vector map T and positive source Gram T* T.",
+      "output": "The polar map V=T(T* T)^(-1/2) transports the existing translation generator and a conjugate position onto the same field-response subspace.",
+      "formula": "X_i=V i partial_i V*; P_j=V hbar k_j V*; [X_i,P_j]=i hbar delta_ij I on V Schwartz; Delta X_i Delta P_i >= hbar/2",
+      "intuition": "Momentum measures how a field pattern changes its phase under translation. Localizing that pattern requires a spread of such phases and momenta.",
+      "not_implied": "The action unit hbar is declared, the vacuum has a retained no-position outcome, and this response space is not automatically an isolated Standard Model particle sector.",
+      "diagram_spec": "A wavepacket passes through a source-Gram normalizer into two linked rulers: location bins and translation-phase bins; retain a dark/no-position channel.",
+      "links": [
+        {
+          "label": "Same-field position/translation construction",
+          "path": "model/spin_covariant_localization/CONTINUUM_POSITION.md",
+          "anchor": "exact-covariance-and-the-uncertainty-relation-on-this-subspace"
+        },
+        {
+          "label": "Dynamical response-space position measure",
+          "path": "model/spin_dynamical_localization/PROOF.md",
+          "anchor": ""
+        },
+        {
+          "label": "Finite Robertson theorem",
+          "path": "Lean/EventAlgebra/Robertson.lean",
+          "anchor": "L295"
+        },
+        {
+          "label": "Particle paper: position and uncertainty",
+          "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+          "anchor": "page=59"
+        }
+      ]
+    },
+    {
+      "id": "source_clocks",
+      "rail": "time",
+      "title": "Repair counts and modular flow are connected clocks, with a stated dictionary",
+      "status": "exact reconstructed reference family; physical clock matching is a separate premise",
+      "input": "The binary total-two source with uniform seam/coin law, complete-attempt transfer P, all no-movement attempts, and supplied closed-history length L.",
+      "output": "Native counts reconstruct H=-log P and rho_L=P^L/Tr(P^L). Their modular flows share H, with an exact reference-dependent parameter conversion.",
+      "formula": "sigma_s^L(A)=rho_L^(is) A rho_L^(-is)=P^(iLs) A P^(-iLs); conventional Heisenberg time tau=-Ls",
+      "intuition": "A repair counter counts events. A faithful reconstructed state defines an internal modular flow. The source theorem relates their statistical generator; a clock dictionary must identify what a detector calls elapsed time.",
+      "not_implied": "Native stochastic P is not its unitary analytic continuation. Modular parameter, repair count, weak-pulse time Nh, host runtime and physical duration are not interchangeable. A tracial state has trivial modular flow.",
+      "diagram_spec": "Parallel tracks labelled attempts n, reconstructed modular s, controlled pulses Nh and physical duration; connect n to H and rho, connect rho to s, use a dashed calibrated join to duration, never add the tracks.",
+      "links": [
+        {
+          "label": "Native modular normalization and sign",
+          "path": "model/native_modular_dynamics/PROOF.md",
+          "anchor": "the-continuing-reference-and-its-modular-normalization"
+        },
+        {
+          "label": "Exact modular comparison/cocycle",
+          "path": "Lean/QFT/ModularClockComparison.lean",
+          "anchor": "L40"
+        },
+        {
+          "label": "A native readout separating two clock identifications",
+          "path": "model/native_clock_comparison/PROOF.md",
+          "anchor": "an-actual-measurement-separates-the-two-proposals"
+        },
+        {
+          "label": "Conditional common-weight count-clock cancellation",
+          "path": "Lean/Time/SourceCountClock.lean",
+          "anchor": "L32"
+        },
+        {
+          "label": "Flagship: reconstructed generator",
+          "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+          "anchor": "page=14"
+        }
+      ]
+    },
+    {
+      "id": "born_records",
+      "rail": "measurement",
+      "title": "Complete effect weights have a Born representation",
+      "status": "finite theorem plus a native reconstructed-functional attachment",
+      "input": "Nonnegative normalized weights additive on every coexistent complex matrix-effect pair. For operational records: equal effects have equal probabilities and coexistent effects have disjoint common implementations.",
+      "output": "One unique density rho represents every effect weight as Tr(rho E). Complete native closed-history moments supply such a positive reconstructed functional.",
+      "formula": "p(r)=Tr(rho E_r), E_r=K_r* K_r, sum_r E_r=I; rho_r=K_r rho K_r*/p(r) for p(r)>0 in the chosen instrument",
+      "intuition": "The state and the detector effect determine each record weight. Comparing records makes the outcome shareable; it does not change those weights or make all incompatible properties sharp.",
+      "not_implied": "Born probabilities alone do not choose the state-update instrument. Bare definite-record effects are diagonal; a universal complex native detector bridge is an additional obligation.",
+      "diagram_spec": "A normalized tree of every detector record merges into the trace-weight formula; a separate pointer-update arrow follows the selected instrument, then two agreeing ledgers copy the record.",
+      "links": [
+        {
+          "label": "Finite Busch-Gleason representation",
+          "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+          "anchor": "L1133"
+        },
+        {
+          "label": "Operational record-to-Born theorem",
+          "path": "Lean/EventAlgebra/OperationalBornBridge.lean",
+          "anchor": "L214"
+        },
+        {
+          "label": "Native positive closed-history functional",
+          "path": "model/native_quantum_reconstruction/PROOF.md",
+          "anchor": "native-count-moments-and-their-positive-density-representation"
+        },
+        {
+          "label": "Flagship section4.3: finite public-record identities",
+          "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+          "anchor": "page=14"
+        }
+      ]
+    },
+    {
+      "id": "gauge_interaction",
+      "rail": "interaction",
+      "title": "Gauge theorems constrain the allowed interactions",
+      "status": "conditional Lie-type theorem; exact finite current and interaction constructions",
+      "input": "An injective commutator-closed twelve-port current response, positive trace pairing and internally implemented proper carrier rotations; a specified exterior matter module and gauge/Higgs action.",
+      "output": "The response Lie type is u(1)+su(2)+su(3). The fifteen-state matter image has one-family Standard Model weights. Actual finite gauge/Higgs vertices commute with the full local Gauss generators.",
+      "formula": "g = u(1) + su(2) + su(3); Lambda^2 V + Lambda^4 V -> Q,u^c,d^c,L,e^c; [G_x,V_x(Y)]=0",
+      "intuition": "Charge labels tell which field components can couple while preserving the record symmetry. The gauge algebra constrains the interaction grammar; an action and state determine its strength and response.",
+      "not_implied": "The number12 alone does not force a Lie algebra. One-family weights do not prove three propagating generations, source-selected couplings, a Higgs vacuum or an interacting chiral continuum.",
+      "diagram_spec": "The carrier response splits into one Abelian, three weak and eight colour current directions; arrows to a matter vertex close under a local charge-balance loop.",
+      "links": [
+        {
+          "label": "Conditional inner-action classification bridge",
+          "path": "Lean/Screen/A2HolonomyBridge.lean",
+          "anchor": "L417"
+        },
+        {
+          "label": "Flagship: gauge forcing and finite matter image",
+          "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+          "anchor": "page=22"
+        },
+        {
+          "label": "Full-Fock currents and Gauss attachment",
+          "path": "model/standard_model_source_map/GAUGE_ATTACHMENT.md",
+          "anchor": ""
+        },
+        {
+          "label": "Finite interacting quantum-Higgs vertex",
+          "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md",
+          "anchor": "local-gauss-law-and-a-common-interacting-hamiltonian"
+        }
+      ]
+    }
+  ],
+  "no_unconditional_source_to_Standard_Model_claim": true,
+  "time_warning": "Repair steps plus modular flow is not an addition law for physical time. Match one source, reference, observable algebra and calibrated clock.",
+  "source_scope": "These records are a reading map of existing exact/conditional results. The 66-state clock and ordered-spin field use different declared sources; no common generator, particle identification or additional physical theorem is inferred."
+}
