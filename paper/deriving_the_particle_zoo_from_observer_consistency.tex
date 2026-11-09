@@ -2645,21 +2645,14 @@ $L_{\rm ret}V_0=V_0h+(U/2)V_1$. Three local ground correlations determine
 \]
 Here $h=c\sum_j\cos k_j\Gamma_j$ and
 $\{\Gamma_i,\Gamma_j\}=2\delta_{ij}I$.
-Exact local algebra gives $0\leq G\leq18c^2I$ and
-$R^*R\geq18c^2/125$ on $S=\sum_j\cos^2k_j\leq3/250$.
+The same algebra gives $R^*R\geq18c^2/125$ on $S=\sum_j\cos^2k_j\leq3/250$.
 Finite-range moments and their uniform exponential bounds define a unique
 spectral measure at every momentum, weakly continuous in local Bloch charts.
-At $k_*=(\pi/2)^3$, magnetic and proper-cubic symmetries give
-\[
- \nu_{k_*}=(\nu_+P_++\nu_-P_-)\otimes I_2,\qquad
- P_\pm=\tfrac12(I\pm i\Gamma_1\Gamma_2\Gamma_3),\quad
- \nu_-(F)=\nu_+(-F).
-\]
-The symmetric-box ground prescription also preserves inversion, which
-exchanges the projectors at the same energy. Hence $\nu_+=\nu_-$ is one
-even probability measure. Original valley b transports to channel
-$-(-1)^{|b|}$; all eight share that measure. With $D=L_\perp$, its zero residue is
-$m_0/(\alpha^2+m_0)$, where $m_0I=R^*1_{\{0\}}(D)R$, $\alpha=U/2$.
+At $k_*=(\pi/2)^3$, magnetic and proper-cubic symmetries,
+inherited site inversion and particle-hole symmetry give one even scalar
+measure on all sixteen components. All eight transported valley probes
+share it. Its zero residue is $m_0/(\alpha^2+m_0)$, with
+$m_0I=R^*1_{\{0\}}(L_\perp)R$ and $\alpha=U/2$.
 Write $Q_{xy}=S_x\cdot S_y+\eta_x\cdot\eta_y$ and
 $r=6^{-1/2}\sum_{|y|_1=1}a_y$. The full-CAR stars
 $12Q_{0r}\pm\sum_{j,\epsilon=\pm1}Q_{0,2\epsilon e_j}$ have minima
@@ -2677,26 +2670,32 @@ subcontact bands do not decide atom positivity. For $U/c\to\infty$
 with $c=v/a$, original fixed-energy weight vanishes
 (\path{model/source_family_compatibility}, \cite{ophrepo}).
 
-The cube at $c=1/8,U=1$ has $3I_{16}/80<R^*R<61I_{16}/1000$;
-its three response levels span 48 dimensions without adding species.
-The eight kinetic nodes separately have winding $-(-1)^{|b|}$,
-$b\in\{0,1\}^3$. On the proved centered free family
-$c=v/a$, $0\leq U=o(c^{2/7})$, their Weyl fields have helicities
-$-(-1)^{|b|}/2$ and conjugate holes of opposite helicity. Period-two
-source masses pair opposite windings with supplied coefficients.
-Neither construction identifies measured particles
-(\path{model/source_family_compatibility/KINETIC_NODE_MAP.md}, \cite{ophrepo}).
+A separate constraint concerns the full limit. With this fixed reference,
+write $F_a(p,B)=\nu_{k_*+ap}(aB/v)$. Exact homogeneity gives
+$F_a(\lambda p,\lambda B)=F_{\lambda a}(p,B)$. Set
+$d\mu_a=dp\,\mathrm{tr}(dF_a)/16$. A full joint limit has
+$\mu(\lambda A)=\lambda^3\mu(A)$. A positive-weight nonzero mass
+shell would generate infinitely many disjoint dilates inside one compact
+set, contradicting local finiteness. This excludes such shells in that
+limit, not every resonance or a different source trajectory. On a
+convergent whole geometric refinement, such a shell forces all its discrete
+mass dilates.
 
-Complete interference records give controlled Lorentzian scores; pressure
-certificates require a uniform strict margin, without supplying its scaling
-uniformity or a preparation modulus \cite{ophmodel}. Cube records resolve
-$a(f_{k,s})$, where $f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$ and
-$k\in\{0,1\}^3$. Table~\ref{tab:cube-complete-windows} gives original
-addition weights and certified excitation windows for either spin.
-Particle-hole conjugation maps removal to addition at
-$k\mathbin{\oplus}(1,1,1)$. All $256$ clock records and complements remain.
-Probe labels are not momentum eigenvalues; conditional means are not rest masses
+The default cube has $3I_{16}/80<R^*R<61I_{16}/1000$, without a
+species assignment. On the separate weak-contact path $c=v/a$,
+$0\leq U=o(c^{2/7})$, eight kinetic nodes yield free Weyl fields with
+winding $-(-1)^{|b|}$ and opposite conjugate helicities. Period-two
+masses require supplied coefficients
+(\path{model/source_family_compatibility/KINETIC_NODE_MAP.md}, \cite{ophrepo}).
+Complete interference instruments read Lorentzian scores with explicit
+errors; pressure certificates require a strict ground margin \cite{ophmodel}.
+The cube's 256 clock records resolve profiles
+$f_{k,s}(x)=(-1)^{k\cdot x}/\sqrt8$; Table~\ref{tab:cube-complete-windows}
+gives original addition weights. Conjugation maps removal to addition at
+$k\mathbin{\oplus}(1,1,1)$. All complements remain; profile labels and
+conditional means do not identify momentum or rest mass
 (\path{model/source_family_compatibility/CUBE_SPECTRUM.md}, \cite{ophrepo}).
+
 \begin{table}[ht]
 \centering\small
 \begin{tabular}{c c c c}

@@ -53,6 +53,13 @@ bounds the original atom and every packet's ballistic fixed-window limsup by
 provides a measurable score with explicit errors and a ground-pressure
 certificate. On the separate prepared collective family, [directed caps](../spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
 retain positive original weight in each charge and momentum direction.
+The [source dilation identity](../source_family_compatibility/MASS_SCALE_SELECTION.md)
+excludes positive-weight nonzero mass shells from a full fixed-reference
+ballistic limit of the original CAR readout. Geometric refinement only
+forces a discrete mass orbit if a massive shell is present. This separates
+the required source-family selection from the conditional window test;
+other controlled dictionaries and finite-cutoff descriptions require their
+own source proof.
 These entries explain specific source-to-observer responses; none supplies
 a measured mass or completes the Standard Model identification.
 

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1295,
+  "surface_count": 1296,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4612,6 +4612,11 @@
     },
     {
       "path": "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/MASS_SCALE_SELECTION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

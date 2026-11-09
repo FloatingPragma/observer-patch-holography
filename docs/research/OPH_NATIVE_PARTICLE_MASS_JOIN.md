@@ -164,10 +164,25 @@ comparison to every stated symmetric thermodynamic ground is below `13/50`.
 This coarse one-site bound is insufficient for small spectral windows;
 multisite marginal convergence with the required accuracy is unproved.
 
+The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
+separates bounded-window survival from a massive spectrum. For the original
+CAR readout on one fixed normalized reference and coupling ratio, with
+the stated clock and observable dictionary, a full ballistic joint limit is dilation covariant. It assigns zero original
+weight to every nonzero relativistic mass shell. Convergence along the
+whole geometric refinement gives discrete covariance: any positive-mass shell forces all
+its discrete mass dilates. Neither statement supplies that limit or excludes
+every resonance, changing observable dictionary, or controlled finite-cutoff
+reconstruction. A proposed massive identification must derive the actual
+capacity dependence of its source, state, clock and readout from the
+implementation, rather than choosing them to match a target mass.
+
 ## Next calculation on the centered full ground
 
-Fix the same selected c=1,U=8 reference. The [scalar nodal reduction](../../model/source_family_compatibility/NODAL_CHANNELS.md)
-makes the first target `m_eta I=R* eta^2(L_perp^2+eta^2)^-1 R` and
+First establish the implemented capacity dependence of the action, reference,
+clock and field dictionary. The fixed-source theorem above tests that choice;
+a freely fitted running parameter does not supply it. For the narrower
+bounded-window question, fix the same selected c=1,U=8 reference. The [scalar nodal reduction](../../model/source_family_compatibility/NODAL_CHANNELS.md)
+makes the bounded-window survival target `m_eta I=R* eta^2(L_perp^2+eta^2)^-1 R` and
 `q_eta=(eta^2+m_eta)/(16+eta^2+m_eta)`. Prove either an actual upper
 bound `m_eta<=epsilon(eta)->0`, which excludes the fixed-reference
 ballistic packet route, or a uniform positive floor down to eta=0.

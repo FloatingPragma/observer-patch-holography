@@ -141,3 +141,14 @@ instance has a proved terminating search; its large program was not run.
 The exact full-dimer calculation retains all 66 records. Neither this access theorem
 nor fixed-frequency momentum continuity supplies a shrinking-energy window
 or a preparation modulus for the selected infinite ground.
+
+The [fixed-source scaling theorem](MASS_SCALE_SELECTION.md) also tests a
+massive interpretation. Exact homogeneity fixes the joint measure dilation
+law. A full ballistic limit of the original readout on the fixed normalized
+reference has zero weight on every nonzero relativistic mass shell. A
+convergent geometric refinement has discrete covariance and would require
+a whole mass orbit if any positive-mass shell had positive weight. These
+are conditional restrictions, without a proof of the actual limit or a
+physical particle assignment. The actual capacity dependence of the action,
+state, clock and accessible field dictionary must select the reconstruction;
+a running coefficient fitted to a target mass does not supply that proof.

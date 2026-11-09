@@ -1,5 +1,18 @@
 # Particle construction: source laws, mass operators and physical matching
 
+The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
+separates bounded-window survival from a massive spectrum. For the original
+CAR readout on one fixed normalized reference and coupling ratio, with
+the stated clock and observable dictionary, a full ballistic joint limit is dilation covariant. It assigns zero original
+weight to every nonzero relativistic mass shell. Convergence along the
+whole geometric refinement gives discrete covariance: any positive-mass shell forces all
+its discrete mass dilates. Neither statement supplies that limit or excludes
+every resonance, changing observable dictionary, or controlled finite-cutoff
+reconstruction. A proposed massive identification must derive the actual
+capacity dependence of its source, state, clock and readout from the
+implementation, rather than choosing them to match a target mass.
+
+
 The [common executable hypothesis](../OPH_EXECUTABLE_HYPOTHESIS.md) fixes the
 particle/maintenance-energy target within the same clocked process that must
 realize gravity. The [completion DAG](../COMPLETION_PROGRAM.md) orders the

@@ -21109,6 +21109,235 @@
     },
     "unfiltered_unit_mass_regular_limit_excluded_on_stated_cubic_family": true
   },
+  "fixed_source_scaling_and_mass_shell_scope": {
+    "actual_default_source_homogeneity": {
+      "U_over_c": "8",
+      "complete_charge_energy_records": [
+        {
+          "charge": "addition",
+          "original_probability": "0",
+          "signed_scaled_energy": "3/4 + 3*sqrt(17)/16",
+          "signed_source_energy": "1/2 + sqrt(17)/8"
+        },
+        {
+          "charge": "addition",
+          "original_probability": "1/4 - sqrt(17)/68",
+          "signed_scaled_energy": "3/32 + 3*sqrt(17)/16",
+          "signed_source_energy": "1/16 + sqrt(17)/8"
+        },
+        {
+          "charge": "addition",
+          "original_probability": "sqrt(17)/68 + 1/4",
+          "signed_scaled_energy": "-3/32 + 3*sqrt(17)/16",
+          "signed_source_energy": "-1/16 + sqrt(17)/8"
+        },
+        {
+          "charge": "addition",
+          "original_probability": "0",
+          "signed_scaled_energy": "0",
+          "signed_source_energy": "0"
+        },
+        {
+          "charge": "addition",
+          "original_probability": "0",
+          "signed_scaled_energy": "3*sqrt(17)/8",
+          "signed_source_energy": "sqrt(17)/4"
+        },
+        {
+          "charge": "addition",
+          "original_probability": "0",
+          "signed_scaled_energy": "-3/4 + 3*sqrt(17)/16",
+          "signed_source_energy": "-1/2 + sqrt(17)/8"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "0",
+          "signed_scaled_energy": "-3*sqrt(17)/16 - 3/4",
+          "signed_source_energy": "-sqrt(17)/8 - 1/2"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "1/4 - sqrt(17)/68",
+          "signed_scaled_energy": "-3*sqrt(17)/16 - 3/32",
+          "signed_source_energy": "-sqrt(17)/8 - 1/16"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "sqrt(17)/68 + 1/4",
+          "signed_scaled_energy": "3/32 - 3*sqrt(17)/16",
+          "signed_source_energy": "1/16 - sqrt(17)/8"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "0",
+          "signed_scaled_energy": "0",
+          "signed_source_energy": "0"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "0",
+          "signed_scaled_energy": "-3*sqrt(17)/8",
+          "signed_source_energy": "-sqrt(17)/4"
+        },
+        {
+          "charge": "removal",
+          "original_probability": "0",
+          "signed_scaled_energy": "3/4 - 3*sqrt(17)/16",
+          "signed_source_energy": "1/2 - sqrt(17)/8"
+        }
+      ],
+      "conditional_probability_renormalization_applied": false,
+      "finite_dimer_is_continuum_momentum_mode": false,
+      "full_Fock_dimension": 16,
+      "native_large_detector_tape_executed": false,
+      "positive_clock_factor": "3/2",
+      "same_energy_projectors": true,
+      "same_full_ground_projector": true,
+      "source_U": "1",
+      "source_c": "1/8",
+      "total_original_probability": "1",
+      "zero_probability_records_retained": true
+    },
+    "actual_full_continuum_limit_proved": false,
+    "actual_nodal_atom_positivity_proved": false,
+    "arbitrary_sparse_subsequence_excluded_by_theorem": false,
+    "continuous_timelike_response_excluded": false,
+    "dense_refinement_examples": [
+      {
+        "a_n": "1/14",
+        "a_next": "1/15",
+        "inverse_test_dilation": "50/49",
+        "jacobian": "125000/117649",
+        "lambda": "49/50",
+        "lambda_lower": "14/15",
+        "n": 14,
+        "power": 1,
+        "spacing": "7/100"
+      },
+      {
+        "a_n": "1/9",
+        "a_next": "1/16",
+        "inverse_test_dilation": "100/63",
+        "jacobian": "1000000/250047",
+        "lambda": "63/100",
+        "lambda_lower": "9/16",
+        "n": 3,
+        "power": 2,
+        "spacing": "7/100"
+      }
+    ],
+    "dense_refinement_ratio_tending_to_one_suffices": true,
+    "every_unstable_resonance_excluded": false,
+    "fixed_reference_and_dimensionless_couplings_required": true,
+    "full_joint_vague_limit_required": true,
+    "future_cone_threshold_control": {
+      "actual_source_causal_cone_proved": false,
+      "channel_support_dilation_invariance_required": true,
+      "energy": "1/200",
+      "factor": "1/400",
+      "invariant_mass_squared": "3/160000",
+      "momentum": [
+        "1/400",
+        "0",
+        "0"
+      ],
+      "target": "1/100"
+    },
+    "geometric_limit_has_continuous_dilation_covariance": false,
+    "geometric_positive_shell_requires_entire_mass_orbit": true,
+    "geometric_refinement_control": {
+      "a_n": "1/16",
+      "a_next": "1/32",
+      "continuous_dilation_covariance_inferred": false,
+      "discrete_covariance_requires_whole_sequence_limit": true,
+      "jacobian": "8",
+      "ratio": "1/2"
+    },
+    "geometric_whole_limit_has_discrete_dilation_covariance": true,
+    "physical_mass_assigned": null,
+    "physical_source_example": {
+      "U": "128",
+      "U_over_c": "8",
+      "a_dependent_reference_selected": false,
+      "c": "16",
+      "literal_hopping_magnitude": "8",
+      "physical_energy_per_normalized_energy": "16",
+      "spacing": "1/16",
+      "speed": "1"
+    },
+    "physical_species_assigned": 0,
+    "positive_full_channel_mass_threshold_excluded_if_future_cone_and_invariant_support": true,
+    "positive_original_weight_positive_mass_shell_excluded_if_premises": true,
+    "retained_rational_ground_controls": [
+      {
+        "charge_energy_pushforward_checked": true,
+        "first_c": "3",
+        "fixed_ratio_volume_uniform_gap_inferred": false,
+        "graph_or_ground_subsequence_changed": false,
+        "lambda": "5/6",
+        "n": 3,
+        "positive_clock_factor": "3",
+        "residual_Gram_scales_quadratically": true,
+        "same_complete_ground_projector": true,
+        "same_original_charge_weights": true,
+        "second_c": "9"
+      },
+      {
+        "charge_energy_pushforward_checked": true,
+        "first_c": "4",
+        "fixed_ratio_volume_uniform_gap_inferred": false,
+        "graph_or_ground_subsequence_changed": false,
+        "lambda": "3/2",
+        "n": 4,
+        "positive_clock_factor": "3",
+        "residual_Gram_scales_quadratically": true,
+        "same_complete_ground_projector": true,
+        "same_original_charge_weights": true,
+        "second_c": "12"
+      }
+    ],
+    "running_reference_or_observable_dictionary_excluded": false,
+    "shell_geometry_control": {
+      "actual_source_shell_proved": false,
+      "dilates": [
+        {
+          "energy": "2",
+          "factor": "1",
+          "invariant_mass_squared": "3",
+          "joint_measure_weight_factor": "1",
+          "momentum": [
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "energy": "3",
+          "factor": "3/2",
+          "invariant_mass_squared": "27/4",
+          "joint_measure_weight_factor": "27/8",
+          "momentum": [
+            "3/2",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "energy": "4",
+          "factor": "2",
+          "invariant_mass_squared": "12",
+          "joint_measure_weight_factor": "8",
+          "momentum": [
+            "2",
+            "0",
+            "0"
+          ]
+        }
+      ],
+      "hypothetical_shell_geometry_only": true,
+      "original_invariant_mass_squared": "3"
+    }
+  },
   "full_cube_frequency_dependent_memory": {
     "all_failure_complements_retained": true,
     "arbitrary_reference_channel_for_retarded_columns_claimed": false,
@@ -23662,13 +23891,14 @@
     "model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md": "2cbf59249ce5326d50a76e541219d2a67bad9acb8102a3e55f4ac9a55082552a",
     "model/source_family_compatibility/LOCAL_MATTER_READOUT.md": "f75965f77281fd46c4e195dfad6c99356fba6c605dd115efecf72081eadac96e",
     "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md": "ca427ef06bc7abd9238adff5fa138a1d990dc25b33f4731f451d673d41972c9f",
+    "model/source_family_compatibility/MASS_SCALE_SELECTION.md": "05a10efce8fb375b3f565b6cfbf2c39bec9ea4f48c50aa3f1558dbd5656e6cdb",
     "model/source_family_compatibility/MOMENTUM_RESPONSE.md": "453c79f46fcb24f0d50847a677e0b06eec4c554fdb6e849d9acd5ef12e7e9ab9",
     "model/source_family_compatibility/NODAL_CHANNELS.md": "c71135f3d8c3d0cb7eb534b0bf7c08e56024c61cc6ea65244a4154844821094c",
     "model/source_family_compatibility/NODAL_LOCALITY.md": "7ebb9e331242c809f046c81d387f5c09243fd3de2950c6994412a6d6a4eb9706",
     "model/source_family_compatibility/NODAL_MEMORY.md": "16bac0b0fc8a6ac47e2f8ee51a09f8f2f97e6b18572a705db88a7a2ac3458bc1",
     "model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md": "0150f6b1f0b0ff6b8ed0594bbc28f0b7cae0ea5ac5793c8d7c1880b5d4e55050",
     "model/source_family_compatibility/PROOF.md": "d90854378288c8dff532da487774bc843f393cba2d501246ab57e6241f8d90d6",
-    "model/source_family_compatibility/README.md": "eb89d27f8dd88f2e5dc73b49011d0cb84868bb3cd814a9371f1561eeed9c3f1c",
+    "model/source_family_compatibility/README.md": "1b46d93fa838802a55e99a5da1dd3e3cf7bc31872cd9814ba5c5fa99c405bb2c",
     "model/source_family_compatibility/REPAIR_TRAJECTORY.md": "fb1f62c74eda428210fadbd042ec144c77b5380ac50442111982a2d56499b3bb",
     "model/source_family_compatibility/SPECTRAL_RESIDUE.md": "7f263003fcf390bc7712ecca0b2b7afc18a863d2ca0ad25d9ed7ea097e7be0ca",
     "model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md": "66c480466d24f3fb290377f42f733f55177083297b8c456b52a79e112364f2d6",
@@ -23693,12 +23923,13 @@
     "model/source_family_compatibility/kinetic_nodes.py": "7a08cd15234b85761ec3f3cc3b61852f517ac24ca7f8f5572b2e43e35fb5de07",
     "model/source_family_compatibility/local_matter.py": "02afbeb2cb3ecd00a6276188475562e6ca0d2594251986139222c065cfc887e9",
     "model/source_family_compatibility/local_spectral.py": "baee9177327c20d4a12502688bf2586b93ada7ac599c9690ff1f09c696eece8c",
+    "model/source_family_compatibility/mass_scale_selection.py": "a3f2c5d9028429d8486c7503eab646fd9ef7a1d23de7d5a8a96015d50ecb44a8",
     "model/source_family_compatibility/momentum_response.py": "437aef14234046d62dee5da408ccd481eb679670158a0427a8b0ddac097d086c",
     "model/source_family_compatibility/nodal_channels.py": "96875c9074104def82962a6d7c872e3a9a54562754f6668dd522a30bdd85edac",
     "model/source_family_compatibility/nodal_locality.py": "60863444eeb10bb2e7ce802337e492bfe73e120fa449d3f658bce65406ed1eb9",
     "model/source_family_compatibility/nodal_memory.py": "134993841061aa64a352864a8aa7ce9f62ec7ce63e73fce0a0093b4b39132833",
     "model/source_family_compatibility/nodal_moment_bounds.py": "6ea2e2b438ac3321090f356f05148376de3d64800a4a1e5c234af1ca7a4b34dd",
-    "model/source_family_compatibility/packet.py": "034d8fe13a55dd4058c35f06258fc454faf4e54b1fcbc6c1485cf5086be06bf9",
+    "model/source_family_compatibility/packet.py": "cdf86951e40c685849ac8d365036068d1b18862791dd9dfba95024c0c88b06a2",
     "model/source_family_compatibility/program_selection.py": "2ccdd7d1ac7b86ad70426102cb35434881fe670910d6234bfd8a70cb24552e2e",
     "model/source_family_compatibility/rotations.py": "a1c77d93b5bb95cc32b8878dfc65308f60c31e9031abb61d9ecb0a8253da854e",
     "model/source_family_compatibility/spectral_residue.py": "e2d32a43dfcd6cd964516b779fa7e6b0bfcb2915aca0a3bc287aecd6aa282dc8",
@@ -23719,6 +23950,7 @@
     "model/source_family_compatibility/test_kinetic_nodes.py": "26a13faa0ade7783f8375ad893506c8e5ff7681a78adf7c2a4608d9f57aa9999",
     "model/source_family_compatibility/test_local_matter.py": "230ee9353e5e24663d44049f40aae5162d9d56cf8de3575b5ddfbb54255b18de",
     "model/source_family_compatibility/test_local_spectral.py": "b6e70a5639d27ee09877b8d10931eea186f2938dbe9bad4fa63f18231fc1bb59",
+    "model/source_family_compatibility/test_mass_scale_selection.py": "5a100b509347652d4257386ed48aa2d5b5ff82c7f8e96d1ff2cfe15cad5d0ac2",
     "model/source_family_compatibility/test_momentum_response.py": "0c8f5655b1830042153ecd32ec78d8a9d65852f4be5c687ff6bcbb9e75a4c657",
     "model/source_family_compatibility/test_nodal_channels.py": "05ddd225c279d9e5c17b8c3d0dd189ab5ffbe0dd7e6058b2166919173ee4317e",
     "model/source_family_compatibility/test_nodal_locality.py": "c43b54732d3fcd5d3fef997b0d0ae8b0b8dfbc15a20169a29e2d649fd5aa4886",

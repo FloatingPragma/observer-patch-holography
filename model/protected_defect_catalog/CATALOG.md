@@ -190,7 +190,7 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 
-**Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established.
+**Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; any full fixed-reference original-field ballistic limit has zero weight on nonzero relativistic mass shells; convergent geometric refinement only enforces a discrete shell tower if a positive-mass shell exists; no actual field limit, physical spin or measured mass is established.
 
 [Owning proof or construction](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md).
 

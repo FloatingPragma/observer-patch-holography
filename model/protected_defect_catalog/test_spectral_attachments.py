@@ -113,6 +113,7 @@ _CENTERED_PRODUCERS = {
     'spectral_window_access': 'complete_Lorentzian_window_access',
     'nodal_locality': 'actual_nodal_locality_and_window_survival',
     'nodal_moment_bounds': 'uniform_full_CAR_star_force_bound',
+    'mass_scale_selection': 'fixed_source_scaling_and_mass_shell_scope',
 }
 
 
@@ -140,6 +141,20 @@ def test_centered_consumer_accepts_original_records_without_thermodynamic_promot
 
 
 @pytest.mark.parametrize('key,path,value,error', [
+    ('fixed_source_scaling_and_mass_shell_scope', ('arbitrary_sparse_subsequence_excluded_by_theorem',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('geometric_limit_has_continuous_dilation_covariance',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('every_unstable_resonance_excluded',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('continuous_timelike_response_excluded',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('actual_full_continuum_limit_proved',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('actual_nodal_atom_positivity_proved',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('running_reference_or_observable_dictionary_excluded',), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('fixed_reference_and_dimensionless_couplings_required',), False, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('full_joint_vague_limit_required',), False, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('physical_species_assigned',), 1, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('physical_mass_assigned',), 'electron', 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('actual_default_source_homogeneity', 'native_large_detector_tape_executed'), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('actual_default_source_homogeneity', 'finite_dimer_is_continuum_momentum_mode'), True, 'dilation exceeds'),
+    ('fixed_source_scaling_and_mass_shell_scope', ('actual_default_source_homogeneity', 'conditional_probability_renormalization_applied'), True, 'dilation exceeds'),
     ('actual_nodal_response_memory', ('physical_species_identified',), ['electron'], 'energy readout promotes'),
     ('actual_nodal_response_memory', ('default_source_result', 'zero_frequency_residue_inferred'), True, 'energy readout promotes'),
     ('ground_marginal_preparation_and_native_records', ('thermodynamic_local_marginal_convergence_modulus_proved',), True, 'finite preparation promotes'),

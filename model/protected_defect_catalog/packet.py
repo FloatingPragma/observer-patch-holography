@@ -13,7 +13,7 @@ from model.source_family_compatibility import hole_records, hole_dispersion, loc
 from model.source_family_compatibility import momentum_response, charge_escape, uv_tail, local_spectral
 from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 from model.source_family_compatibility import nodal_channels, spectral_residue, spectral_window_access
-from model.source_family_compatibility import nodal_locality, nodal_moment_bounds
+from model.source_family_compatibility import nodal_locality, nodal_moment_bounds, mass_scale_selection
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -150,7 +150,7 @@ def rows():
          'preparation_readout':'local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin',
          'propagation_energy':'same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; locality makes positive nodal atom equivalent to bounded physical-window survival for packets supported within O(a) of a node on one fixed normalized reference, but actual atom positivity remains unproved',
          'topology':'source U1 charge grading, without an assigned winding invariant or Standard Model charge',
-         'boundary':'the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established',
+         'boundary':'the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; any full fixed-reference original-field ballistic limit has zero weight on nonzero relativistic mass shells; convergent geometric refinement only enforces a discrete shell tower if a positive-mass shell exists; no actual field limit, physical spin or measured mass is established',
          'evidence':'model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md',
          'same_object_realizations':['model/source_family_compatibility/LOCAL_MATTER_READOUT.md',
                                      'model/source_family_compatibility/COMPOSITE_CAR.md',
@@ -169,7 +169,8 @@ def rows():
                                      'model/source_family_compatibility/SPECTRAL_RESIDUE.md',
                                      'model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md',
                                      'model/source_family_compatibility/NODAL_LOCALITY.md',
-                                     'model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md']},
+                                     'model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md',
+                                     'model/source_family_compatibility/MASS_SCALE_SELECTION.md']},
         {'id':'kinetic_Weyl_nodes_and_free_fields', 'kind':'kinetic_topology_and_conditional_field_map',
          'source':'original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))',
          'protected_object':'eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields',
@@ -359,7 +360,8 @@ def centered_matter_attachment():
         'actual_spectral_residue_and_subcontact_band':serialize(spectral_residue.certificate()),
         'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate()),
         'actual_nodal_locality_and_window_survival':serialize(nodal_locality.certificate()),
-        'uniform_full_CAR_star_force_bound':serialize(nodal_moment_bounds.certificate())}
+        'uniform_full_CAR_star_force_bound':serialize(nodal_moment_bounds.certificate()),
+        'fixed_source_scaling_and_mass_shell_scope':serialize(mass_scale_selection.certificate())}
     if any(canonical(value)!=canonical(parent[key]) for key,value in local_energy.items()):
         raise ValueError('centered-matter local energy or momentum receipt differs from the replay')
     if (local_energy['actual_cubic_momentum_response']['continuum_poles_or_physical_species_derived']is not False
@@ -418,6 +420,21 @@ def centered_matter_attachment():
             or any(budget[name]is not False for name in (
                 'actual_zero_atom_positive_proved','source_eighth_moment_computed'))):
         raise ValueError('centered-matter star bounds promote their one-sided source scope')
+    dilation=local_energy['fixed_source_scaling_and_mass_shell_scope']
+    if (dilation['physical_species_assigned']!=0 or dilation['physical_mass_assigned']is not None
+            or any(dilation[name]is not True for name in (
+                'fixed_reference_and_dimensionless_couplings_required',
+                'full_joint_vague_limit_required'))
+            or any(dilation[name]is not False for name in (
+                'arbitrary_sparse_subsequence_excluded_by_theorem',
+                'geometric_limit_has_continuous_dilation_covariance',
+                'every_unstable_resonance_excluded','continuous_timelike_response_excluded',
+                'actual_full_continuum_limit_proved','actual_nodal_atom_positivity_proved',
+                'running_reference_or_observable_dictionary_excluded'))
+            or dilation['actual_default_source_homogeneity']['native_large_detector_tape_executed']is not False
+            or dilation['actual_default_source_homogeneity']['finite_dimer_is_continuum_momentum_mode']is not False
+            or dilation['actual_default_source_homogeneity']['conditional_probability_renormalization_applied']is not False):
+        raise ValueError('centered-matter dilation exceeds its fixed-source conditional scope')
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
             or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])
