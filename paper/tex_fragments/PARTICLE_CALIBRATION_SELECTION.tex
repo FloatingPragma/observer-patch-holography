@@ -1185,9 +1185,61 @@ Selected cooling with excess $1/16$ and initial-excitation cutoff $1/2$
 gives final excitation in $[2,21/2]$ with weight at least $3/8$.
 Complete finite clocks incur their stated tails and implementation errors.
 No successful-record normalization or exact-ground substitution enters
-the bound. Its retained-penalty admission fails on the next larger
-member. A resolved energy--momentum branch and physical channel
-attachment are required for a rest mass or refinement claim.
+the bound. The common retained fraction used for this local estimate
+fails the next member's admission. A separate block-sensitive bound below
+controls larger sources. A resolved energy--momentum branch and physical
+channel attachment are required for a rest mass.
+
+\paragraph{Symmetry-resolved neutral records.}
+In the actual beta chart define
+\[
+ C_{x,a}=\frac1{\sqrt2}\sum_{u,v}(\sigma_a)_{uv}
+                         c^\dagger_{x,+u}c_{x,-v},
+\]
+where $\sigma_0=I$ and the other three matrices transform as the source
+spin vector. Each is a full-Fock contraction satisfying
+$C_{x,a}^\dagger C_{x,a}-C_{x,a}C_{x,a}^\dagger=I-D_{6,x}/2$.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_pair_channels/PROOF.md}{physical cubic action and beta inversion}
+give local operator types $A_{1u}\oplus T_{1u}$. On all eight cells the
+32 coefficients decompose, in each parity, as
+$A_1\oplus A_2\oplus E\oplus2T_1\oplus2T_2$.
+A complete coherent channel instrument retains 32 successes and 32
+failures. An isotypic projector of rank $d$ has aggregate original
+commutator at least $11d/512$. For the actual selected polynomial,
+$0<-\partial_E\log p(E)\le\beta$; this controls positive frequencies
+near zero without replacing the state by a Gibbs density. Together with
+the centered second-moment cap six it gives original transfer weight
+at least $11d/1024$ in $[11/(2048\beta),40]$. These are operator
+channels; neither a mixed invariant preparation nor a cubic irrep fixes
+the spin of an outgoing particle. A Walsh label is not a conserved
+momentum eigenvalue of the open source.
+
+\paragraph{Populated responses across the finite family.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_refinement_response/PROOF.md}{block-sensitive electric estimate}
+uses an exact full-occupation charge-six two-site bound and a tiled
+physical eight-cell variational vector. Cross-tile hopping and plaquette
+expectations vanish by fixed tile occupations and Haar integration.
+The selected state is unchanged; the tiled vector supplies an energy
+upper bound. The resulting total defect density obeys
+$\langle D\rangle/V<97/10$ on every primary member. In the native
+dimension-six $Q_6=1$ block, the neutral collective probe
+\[
+ C_x=\frac1{\sqrt{42}}\sum_{u=1}^2\sum_{i=1}^6
+            c^\dagger_{x,+u i}c_{x,-u i}
+\]
+is a contraction and has
+$[C_x^\dagger,C_x]=(12-D_{1,x})/42$, with $D_{1,x}$ counting
+that block's beta defects.
+Its averaged commutator is at least $1/20$. Polynomial population
+monotonicity and a full hopping-commutator bound imply original transfer
+weight at least $3/100$ in $[1/(100\beta_n),1446/a_n]$.
+Cooling with cut $100\epsilon_n$ gives final excitation weight at least
+$1/50$ in $[1/(100\beta_n),1446/a_n+100\epsilon_n]$.
+These bounds precede finite-clock implementation errors. Their probability
+floors are uniform, while their bands approach zero and infinity. They
+do not establish an isolated mass or a fixed finite-energy continuum
+response. GeV conversion uses a declared tick; identifying rest energy
+requires the same channel's controlled dispersion.
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_joint_spectroscopy/PROOF.md}{complete joint instrument}
 records initial energy, a spatial Fourier outcome, and final energy on
@@ -1347,7 +1399,7 @@ a running coupling or chiral spectrum.
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_geometric_response/PROOF.md}{coframe response}
 declares a constant spatial matrix $V$ with $\det V>0$,
-$G=V^TV$ and $v=\det V$. On the finite-range Wilson source, the
+$G=V^TV$ and $v=\det V$. On its periodic finite-range Wilson source, the
 Dirac coefficient is $V^{-T}$, the Wilson Laplacian coefficient is
 $G^{-1}$, and electric and based-plaquette Gram coefficients are
 $G/v$. The magnetic subtraction retains the original flat potential
@@ -1355,6 +1407,32 @@ and energy zero. Products are formed before coordinate-word
 compression. Every term is gauge invariant; the six symmetric strain
 derivatives retain the complete Fock space. Constant frame rotations
 have their explicit Dirac spin lift, without an inferred Lorentz boost.
+
+For the open primary, a shift is a partial isometry and
+$(I-T_i)^\dagger(I-T_i)=2I-T_i-T_i^\dagger-\Pi_i$,
+where $\Pi_i=I-T_i^\dagger T_i$. Direct substitution into the periodic
+coframe gives $H_{\rm primary}-H_{\rm naive}
+=d\Gamma(\beta_D\sum_i\Pi_i)/(2a)$, of physical norm $45L^2/a$.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_gravity_premises/PROOF.md}{same-source modular comparison}
+instead uses the actual polynomial density, whose modular slope lies
+between $\beta(1-\delta)$ and $\beta$, with $\delta<1.116\,10^{-14}$
+on member zero. For a unitary $U$ on the physical Gauss carrier, finite
+passivity gives
+\[
+ \beta(1-\delta)W(U)\le D(U\rho U^\dagger\|\rho)
+                         \le\beta W(U).
+\]
+Writing $K=\beta H+cI+R$ gives an oscillation bound
+$\operatorname{osc}R\le\beta\delta(E_{\max}-E_{\min})$.
+Modular flow at parameter $s$ and source flow at time $-\beta s$ have
+complete-output half-trace error at most
+$|s|\beta\delta(E_{\max}-E_{\min})/2$, with an idle reference retained.
+For a Gauss-preserving tensor-local unitary, regional restriction bounds
+the corresponding marginal entropy response by the same work. The
+charge-six beta flip has $18<W\le144$ source units on member zero.
+These are source-marginal statements; the relative entropy of distinct
+pure retained-reference states is infinite. Proper geometry, the diamond
+modular kernel and fixed-volume area response are separate hypotheses.
 
 These constant coframes retain a uniform causal estimate. The three
 outgoing link factors belong to their tail cell, so the positive electric

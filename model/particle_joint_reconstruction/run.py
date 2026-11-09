@@ -26,6 +26,9 @@ from model.particle_primary_joint_spectroscopy import spectroscopy
 from model.particle_primary_occupation_bound import model as occupation
 from model.particle_primary_residual_refinement import model as local_residual
 from model.particle_primary_response_moments import model as pair_response
+from model.particle_primary_pair_channels import model as pair_channels
+from model.particle_primary_refinement_response import model as refinement_response
+from model.particle_primary_gravity_premises import model as gravity_premises
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -132,7 +135,7 @@ def build():
     for module in (algebra, stress, window, filtered_probe, survival,
                    mass_readout, spatial, capacity, compact, momentum, channels, scale,
                    endpoint, variational, spectroscopy, occupation, local_residual,
-                   pair_response):
+                   pair_response, pair_channels, refinement_response, gravity_premises):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -219,6 +222,13 @@ def build():
         local_residual.verify_bound(contract.member(level), receipt)
     neutral_response = pair_response.certificate()
     pair_response.verify_bound(contract.member(0), neutral_response['selected_member_bound'])
+    neutral_channels = pair_channels.certificate()
+    pair_channels.verify_bound(contract.member(0), neutral_channels['selected_member'])
+    scalable_response = refinement_response.certificate()
+    for level, receipt in zip((0, 1, 2), scalable_response['members'], strict=True):
+        refinement_response.verify_bound(contract.member(level), receipt)
+    modular_work = gravity_premises.certificate()
+    gravity_premises.verify_bound(contract.member(0), modular_work['selected_member_bound'])
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -247,6 +257,9 @@ def build():
         'primary_occupation_sensitive_ground_and_state_bound': occupation_bounds,
         'primary_exact_local_moment_residual': exact_residual,
         'primary_original_weight_neutral_pair_response': neutral_response,
+        'primary_populated_cubic_parity_pair_channels': neutral_channels,
+        'primary_scalable_collective_response': scalable_response,
+        'primary_modular_work_and_geometric_premises': modular_work,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,

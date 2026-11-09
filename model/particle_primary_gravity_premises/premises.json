@@ -1,0 +1,81 @@
+{
+  "schema": "oph.primary_gravity_theorem_input_audit.v1",
+  "map_kind": "theorem-input audit, not a second physical dependency graph",
+  "canonical_target_node": "geometric_gravity",
+  "gravity_required_for_finite_mass_readout": false,
+  "theorem_inputs": [
+    {
+      "input": "same-source finite energy and flux",
+      "status": "proved_on_primary",
+      "supplied": "Exact physical cell partition, complete crossing flux, stationary source clock and finite readout errors.",
+      "not_implied": "A symmetric Lorentz stress or covariant spacetime Ward identity.",
+      "evidence": [
+        {"path": "model/particle_primary_stress/PROOF.md", "symbol": "sum_x h_x=H"},
+        {"path": "Lean/QFT/CoarseEnergyWard.lean", "symbol": "coarse_continuity"}
+      ]
+    },
+    {
+      "input": "supported regional first law and source-work bound",
+      "status": "proved_on_primary",
+      "supplied": "Actual boundary-center support, marginal entropy first law, polynomial modular-work sandwich and regional data-processing bound.",
+      "not_implied": "Full retained-reference relative entropy, a diamond energy kernel or generalized gravitational entropy.",
+      "evidence": [
+        {"path": "model/particle_spatial_modular_response/PROOF.md", "symbol": "K_R=-log sigma_R"},
+        {"path": "model/particle_primary_gravity_premises/PROOF.md", "symbol": "Relative-entropy monotonicity"},
+        {"path": "Lean/Thermodynamics/EinsteinPremiseLink.lean", "symbol": "thermoFirstLawData_passes"}
+      ]
+    },
+    {
+      "input": "proper metric, clock, event and regional localization",
+      "status": "not_supplied_on_primary",
+      "required": "An observer-defined proper metric and clock attached to the same Wilson source, with regional geodesic balls on the admitted observer slices.",
+      "existing_domain": "Finite source Gram and event-frame interfaces or declared geometry; no primary physical soldering or metric refinement.",
+      "evidence": [
+        {"path": "Lean/Geometry/EventFrameSoldering.lean", "symbol": "EventFrameSoldering"},
+        {"path": "Lean/Geometry/SourceOrderEinsteinComposition.lean", "symbol": "conditional finite-carrier algebraic theorem"},
+        {"path": "model/matched_einstein_limit/PROOF.md", "symbol": "proper-clock normalization"}
+      ]
+    },
+    {
+      "input": "same-action symmetric spacetime stress",
+      "status": "finite_energy_proved_full_stress_not_supplied",
+      "required": "A specified proper-metric coupling on the actual open action, all stress components, and its same-state covariant Ward identity.",
+      "existing_domain": "Periodic constant-coframe response has a distinct boundary domain. Direct open substitution changes the flat action by an exactly quantified term.",
+      "evidence": [
+        {"path": "model/particle_geometric_response/PROOF.md", "symbol": "periodic parent carrier"},
+        {"path": "model/particle_primary_gravity_premises/PROOF.md", "symbol": "boundary obstruction"}
+      ]
+    },
+    {
+      "input": "geometrically normalized diamond modular kernel",
+      "status": "not_supplied_on_primary",
+      "required": "The actual regional entropy contrast equals the 2pi-normalized diamond integral of the same physical stress, with a controlled error.",
+      "existing_domain": "The finite first law and modular-work inequality supply a pairing and bounds; beta is a preparation parameter.",
+      "evidence": [
+        {"path": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean", "symbol": "continuumKernel"},
+        {"path": "model/matched_einstein_limit/PROOF.md", "symbol": "2 pi C_ell"}
+      ]
+    },
+    {
+      "input": "area response and generalized-entropy balance",
+      "status": "not_supplied_on_primary",
+      "required": "Fixed-proper-volume area contrasts, a positive observer-independent area coefficient and balanced generalized entropy including boundary terms and retained-record convention.",
+      "existing_domain": "Boundary representation multiplicities and source marginal entropy have no proved geometric area identification.",
+      "evidence": [
+        {"path": "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean", "symbol": "fixedVolumeArea"},
+        {"path": "model/matched_einstein_limit/PROOF.md", "symbol": "generalized-entropy balance"}
+      ]
+    },
+    {
+      "input": "common regional limit and nonlinear geometric equation",
+      "status": "conditional_theorem_without_primary_instance",
+      "required": "A common shrinking proper radius, all three errors o(radius^4), matched curvature and stress limits, positive spacetime-constant area coefficient, Ward/Bianchi identities and vacuum-reference scale.",
+      "existing_domain": "Exact finite tensor decoding and conditional scaling/Einstein composition; first variations alone give only a linearized relation.",
+      "evidence": [
+        {"path": "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean", "symbol": "normalized_error_tendsto"},
+        {"path": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean", "symbol": "ContinuumEinsteinPremises"},
+        {"path": "model/matched_einstein_limit/PROOF.md", "symbol": "first variations at one vacuum"}
+      ]
+    }
+  ]
+}

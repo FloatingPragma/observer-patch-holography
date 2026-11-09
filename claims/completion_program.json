@@ -4158,7 +4158,13 @@
         "model/particle_primary_residual_refinement/results.json",
         "model/particle_primary_response_moments/PROOF.md",
         "model/particle_primary_response_moments/test_model.py",
-        "model/particle_primary_response_moments/results.json"
+        "model/particle_primary_response_moments/results.json",
+        "model/particle_primary_pair_channels/PROOF.md",
+        "model/particle_primary_pair_channels/test_model.py",
+        "model/particle_primary_pair_channels/results.json",
+        "model/particle_primary_refinement_response/PROOF.md",
+        "model/particle_primary_refinement_response/test_model.py",
+        "model/particle_primary_refinement_response/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -4852,6 +4858,22 @@
           "independent_check": "model/particle_primary_response_moments/test_model.py",
           "scope": "On actual member zero, gauge-neutral even pair probes in the native one-dimensional charge-six block have frequency-six commutator residual squared at most3, including nonorthogonal neighbor modes and every Fock occupation. The authenticated selected-state defect bound gives at least1/2 original transfer weight in [2,10] and at least3/8 final excitation weight in [2,21/2]. A complete17-outcome probe and two source-energy clocks retain every failure and the idle reference; after clock tails and implementation errors, the reported transfer interval [15/8,81/8] has probability at least15/32. The huge primary histogram is not executed. A resolved branch, physical momentum, dispersion, species and capacity transfer are unproved; no GeV rest mass is supplied.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_populated_cubic_parity_channels",
+          "path": "model/particle_primary_pair_channels/PROOF.md",
+          "sha256": "a5553d882083087705dd13b77515dddbc164b0da4161a251b9090a0656aee0dc",
+          "independent_check": "model/particle_primary_pair_channels/test_model.py",
+          "scope": "On the unchanged member-zero primary, four full-Fock local pair components transform as A1u plus T1u, with CAR-even grading and odd spatial inversion. The complete 32-dimensional site/component space has ten cubic/parity isotypic channels. Exact CAR projector contractions and the actual polynomial population slope give original transfer weight at least 11d/1024 in [11/(2048 beta),40] for each isotypic rank d and at least 11/1024 for each of 32 coherent Walsh/component records. Complete 64-outcome probe and two energy clocks retain failures and the idle reference. The labels are operator irreps and finite aperture wavevectors, not particle spin or conserved momentum. The primary mass table in GeV is empty.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_scalable_original_collective_response",
+          "path": "model/particle_primary_refinement_response/PROOF.md",
+          "sha256": "99ca58503c92afb83c83741cdb0330142f16be43580fa75d476d70aac70bba61",
+          "independent_check": "model/particle_primary_refinement_response/test_model.py",
+          "scope": "A physical eight-cell trial tiled through larger primary carriers gives an extensive ground-energy upper bound without changing the selected preparation. Native-dependent onsite retention and exact rational full 256-state local CAR inequalities give selected total beta-defect density below 97/10 throughout the finite family. A gauge-neutral CAR-even pair in the native dimension-six Q6=1 block has original transfer weight at least 3/100 in [1/(100 beta_n),1446/a_n] and final-excitation weight at least 1/50 after cooling, before clock errors. Complete clocks retain original reported transfer weight at least 1/50. A separate Q6=6 scalar response at level one has original transfer weight above 0.07028 in its stated band. The variable endpoints do not prove fixed finite-energy continuum survival, a pole, dispersion, particle identity or a GeV rest mass.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -5177,7 +5199,10 @@
         "model/particle_primary_stress/__main__.py",
         "model/particle_primary_stress/results.json",
         "model/particle_primary_stress/stress.py",
-        "model/particle_primary_stress/test_stress.py"
+        "model/particle_primary_stress/test_stress.py",
+        "model/particle_primary_gravity_premises/PROOF.md",
+        "model/particle_primary_gravity_premises/test_model.py",
+        "model/particle_primary_gravity_premises/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5537,6 +5562,14 @@
           "sha256": "763e27a30d59679b389ca56e4340ca62c75ac54c88f78e8d3a5afcb60eaf0ddd",
           "independent_check": "model/particle_primary_stress/test_stress.py",
           "scope": "On the unchanged sixty-mode Wilson/Gauss primary, onsite and owned electric terms plus half bonds and one-third owner plaquettes sum exactly to H. The physical even cell energies obey J_xy=i[h_x,h_y], antisymmetric local continuity and complete unbiased two-outcome current readouts. Explicit finite errors use separately prepared copies; sequential apparatus requires its disturbance and work. The same supported polynomial-state marginal has a finite entropy first law, with a distinct retained-coin entropy. Neither finite conservation nor this marginal entropy supplies a proper metric, a symmetric Lorentz stress, a geometric modular/area law, uniform continuum stress bounds or Einstein dynamics. A separate 48-state quantum-link control executes the operator and detector identities.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_polynomial_modular_work_and_clock",
+          "path": "model/particle_primary_gravity_premises/PROOF.md",
+          "sha256": "7ae2e47878e03317918408c726cd8d34cea82468fabf77de9f4c62ecf757d54a",
+          "independent_check": "model/particle_primary_gravity_premises/test_model.py",
+          "scope": "For physical source unitaries on the actual polynomial Gauss state, finite rearrangement gives beta(1-delta)W<=D(U rho Udagger||rho)<=beta W. Gauss-preserving ambient tensor-local unitaries inherit a regional marginal entropy-work bound. The global modular/source-clock comparison retains arbitrary idle references, with complete-output half-trace coefficient below 1.624e-6 per modular parameter on member zero. A native charge-six beta flip has source work above 18.05293; its full retained-purifier relative entropy is infinite, unlike the finite source-marginal cost. Direct periodic-coframe substitution on the open primary has flat-action mismatch of physical norm 45L^2/a, equal 180 at member zero. Proper geometry, diamond modular kernel, fixed-volume area and matched Einstein limiting estimates remain explicit hypotheses. Gravity is not a prerequisite for the finite mass comparison.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

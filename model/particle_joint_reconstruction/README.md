@@ -101,3 +101,26 @@ has at least1/2 original transfer weight in `[2,10]`, and at least3/8
 final excitation weight in `[2,21/2]`, before finite clock errors.
 Resolving the branch, momentum and dispersion on that same state is the
 remaining connection to a finite-domain rest mass.
+
+The [complete cubic/parity pair apparatus](../particle_primary_pair_channels/PROOF.md)
+resolves all ten isotypic channels and all 32 Walsh/component records on
+member zero with positive original spectral-band weight. Its exact polynomial
+population bound uses the selected preparation. The
+[scalable collective response](../particle_primary_refinement_response/PROOF.md)
+has original weight at least3/100 in `[1/(100 beta_n),1446/a_n]` on every
+finite member, with selected defect density below97/10. The final-excitation
+floor is1/50 after cooling and before clock errors. These bands move toward
+zero and infinity; fixed physical energy survival, dispersion, particle
+identity and a rest mass are unproved. Neither operator cubic parity nor
+an aperture wavevector substitutes for those attachments.
+
+The [polynomial modular-work theorem](../particle_primary_gravity_premises/PROOF.md)
+bounds source-marginal relative entropy for physical source unitaries
+between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
+unitaries, regional restriction bounds the supported marginal response
+by the same source work. The member-zero beta
+flip supplies work greater than18 source units. A direct periodic-coframe
+substitution on the open primary changes its flat action by a physical
+boundary operator of norm `45 L²/a`. The finite Einstein theorem retains
+its proper metric, diamond kernel, area and common limiting-error premises.
+Gravity is separate from the first finite mass comparison.

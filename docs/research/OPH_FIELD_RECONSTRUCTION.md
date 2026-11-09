@@ -48,7 +48,7 @@ filtered algebra are available. The following work order expands nodes
 | 1 | Resolve an original-weight excitation in a declared physical measurement domain. | On member zero, a local neutral pair instrument has original transfer weight at least 1/2 in [2,10] source units and final excitation weight at least 3/8 in [2,21/2], before finite clock errors. This is a broad channel band; branch isolation and dispersion require further calculation. A continuum claim additionally needs uniform survival and refinement control. |
 | 2 | Attach momentum to the same source, state and clock. | The regular physical algebra has a continuous R3 action commuting with time. Its implementation on the selected representation, the operational momentum dictionary and preparation momentum control require proofs. State invariance suffices for the canonical vacuum-fixing implementation; it is not a necessary premise for every operational momentum readout. |
 | 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
-| 4 | Identify the propagating particle channel. | The proved plaquette channel is gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
+| 4 | Identify the propagating particle channel. | The proved plaquette and pair channels are gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
 | 5 | Bound the complete prediction error and capacity dependence. | Finite preparation, filtering, clock and detector bounds are constructed. Joint volume, spacing, link-cutoff and observable-matching errors require control. The chosen sequence changes these together, so capacity alone does not determine a mass law. |
 | 6 | Apply one explicit SI/GeV comparison scale. | Available immediately through a declared absolute length or clock unit. Keep that scale fixed or explicitly tracked across refinement; deriving a cesium atom is not a prerequisite for this convention. A scale fitted from a measured mass retains that calibration ancestry. |
 | 7 | Compare independent observable masses and ratios. | The primary physical-mass table in GeV is empty. Stable masses, charged infrared thresholds and unstable resonances require their respective experimental definitions. Inputs used to fit a scale or coefficient are not independent predictions. |
@@ -71,6 +71,50 @@ results on the same source. A failure to
 match a measured ratio must first be localized to that chain; it does not
 justify modifying coefficients using the target and relabelling the fit
 as a derivation.
+
+## Populated channels across the finite source family
+
+The [pair-channel construction](../../model/particle_primary_pair_channels/PROOF.md)
+uses four Pauli components in the native dimension-one charge-six block.
+Each local contraction obeys `[C†,C]=I-D6/2`. The physical cube action and
+beta inversion give local operator types `A1u + T1u`; the 32 site/component
+coefficients decompose in each parity as `A1 + A2 + E + 2T1 + 2T2`.
+All 32 coherent Walsh/component records have positive original transfer
+weight. In the alternate cubic/parity apparatus, each isotypic component
+of rank d has original weight at least `11d/1024` in
+`[11/(2048 beta),40]` source units. The complete instrument retains 32
+successes, 32 failures and both finite energy registers. The source marginal
+is stationary; the initial energy readout changes its purification coherences.
+The source matrix and complete spatial histogram are not executed.
+
+These are actual source operator channels. The rank-one A1u mode is the
+zero-Walsh scalar, while zero-Walsh vector components occupy only part of
+the rank-six T1u space. Cubic scalar and vector labels do not fix continuum
+spin, and a zero Walsh label does not establish a rest frame. The source's
+exact polynomial population slope bounds low frequencies; no Gibbs state
+or measured mass is substituted to obtain the positive windows.
+
+The [refinement response](../../model/particle_primary_refinement_response/PROOF.md)
+uses a physical eight-cell trial tiled through larger sources and an exact
+full-occupation local electric estimate. The trial gives a ground-energy
+upper bound without changing the selected polynomial preparation.
+Cross-tile hopping vanishes by fixed tile occupations; cross-tile
+plaquettes vanish by Haar integration over crossing links. On every
+primary member the selected total beta-defect density is below 97/10.
+In the native dimension-six block, a normalized collective pair has
+`[C†,C]=(12-D1)/42`, so its averaged commutator is at least 1/20.
+The resulting original transfer weight is at least 3/100 in
+`[1/(100 beta_n),1446/a_n]`, and final excitation weight is at least 1/50
+in `[1/(100 beta_n),1446/a_n+100 epsilon_n]`, before clock errors.
+Here D1 denotes defects in the Q6=1 block, not a physical quark count.
+
+This supplies scalable finite populated responses. A continuum field needs
+weight in a fixed nonzero physical energy interval, which the moving
+endpoints do not establish. A finite-capacity mass can be tested first:
+resolve an energy branch in these channels, attach the corresponding
+physical momentum and controlled dispersion, then apply the admitted
+SI/GeV scale. The physical-mass table remains empty until that spectral
+identification is proved.
 
 ## Finite spectral and spatial inputs
 
@@ -439,6 +483,17 @@ excitation to scale like a_n and retain original weight. Neither a
 mass-capacity law nor an isolated branch follows from the capacity count.
 
 ## Primary energy transport and the gravity branch
+
+The [same-source modular-work comparison](../../model/particle_primary_gravity_premises/PROOF.md)
+bounds source-marginal relative entropy for physical source unitaries
+between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
+unitaries it bounds the regional marginal response by the same source work.
+Its global modular clock has an explicit error relative to the source
+clock. The complete retained-reference entropy is a different functional.
+An exact open-boundary term prevents unmodified transfer of the periodic
+coframe action. Proper geometry and the Einstein area/diamond premises
+are separate from the finite mass calculation.
+
 
 Gravity node 10 is deferred from the active mass target. Its finite
 source-energy and entropy results retain the following domain.
@@ -1014,7 +1069,14 @@ arbitrary joint operations using that reference are not source-passive.
 
 The [coframe response](../../model/particle_geometric_response/PROOF.md)
 declares a constant spatial coframe V, metric `G=V^T V` and volume
-`v=det V`. Dirac differences couple through `V^(-T)`, Wilson differences
+`v=det V` on its periodic parent carrier. Its shifts are unitary. Direct
+substitution of the primary open shifts instead gives
+`H_primary-H_naive=dGamma(beta_D sum_i Pi_i)/(2a)`, where
+`Pi_i=I-T_i†T_i`; the physical operator norm is `45 L²/a`.
+The [boundary calculation](../../model/particle_primary_gravity_premises/PROOF.md)
+therefore requires an explicit boundary-completed coupling before any
+same-action transfer to the open primary. Dirac differences couple through
+`V^(-T)`, Wilson differences
 through `G^(-1)`, and electric and based-plaquette Gram forms through
 `G/v`. The magnetic Gram form includes its subtraction
 `Q_ij=Re Tr[(I-R(P_i))^dagger(I-R(P_j))]/30-delta_ij`, so at V=I it

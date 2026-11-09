@@ -107,6 +107,33 @@ claimed range; no exact infinite continuum theorem is required for that
 scoped comparison. Its rest-energy interval and source capacity must
 accompany the declared GeV conversion.
 
+The [symmetry-resolved pair apparatus](../../model/particle_primary_pair_channels/PROOF.md)
+has positive original transfer weight in all 32 coherent spatial/internal
+records and all ten cubic/parity isotypic channels on member zero. These
+are gauge-neutral, fermion-parity-even operator channels, including the
+inversion-odd scalar A1u channel;
+their labels do not assign continuum spin, physical momentum or a named
+particle. The [scalable collective bound](../../model/particle_primary_refinement_response/PROOF.md)
+gives selected defect density below 97/10 and original transfer weight at
+least 3/100 in `[1/(100 beta_n),1446/a_n]` on every finite primary member.
+Final excitation weight is at least 1/50 after the stated cooling allowance,
+before clock errors. The lower endpoint shrinks and the upper grows, so
+these probability bounds do not establish a fixed finite-energy continuum
+response. The mass calculation requires resolving the channel's energy
+branch, its momentum and dispersion, with errors and one declared unit scale.
+
+
+The [same-source modular-work comparison](../../model/particle_primary_gravity_premises/PROOF.md)
+bounds source-marginal relative entropy for physical source unitaries
+between `beta(1-delta) W` and `beta W`. For Gauss-preserving tensor-local
+unitaries it bounds the regional marginal response by the same source work.
+Its global modular clock has an explicit error relative to the source
+clock. The complete retained-reference entropy is a different functional.
+An exact open-boundary term prevents unmodified transfer of the periodic
+coframe action. Proper geometry and the Einstein area/diamond premises
+are separate from the finite mass calculation.
+
+
 ## Conditional action spectrum and physical mass definitions
 
 The [conditional chiral gauge-Higgs candidate](../../model/particle_joint_reconstruction/CANDIDATE.md)

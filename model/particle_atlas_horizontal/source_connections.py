@@ -20,19 +20,19 @@ SUMMARIES = {
     'local_records':
         'Boundary records have uniform influence bounds. Two energy readouts and a Fourier aperture retain the initial pointer, all failures and the idle reference, with controlled clock/aperture errors. The first measurement preserves the source marginal and changes purification coherences. No conserved momentum is inferred.',
     'joint_refinement':
-        'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; a same-representation spatial implementation, momentum origin and nonzero finite-energy weight require proof.',
+        'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Collective original response weight is ≥3/100 on every finite member in [1/(100β),1446/a]. Before clock errors; the band expands toward zero and infinity. Fixed physical-energy survival and same-state momentum require proof; the state is not proved spatially invariant.',
     'relativistic_field':
         'On the eight-cell source, occupation-sensitive bounds give ground energy [−727.498195, −723.7678199]; exact local moments bound the full-space trial residual by 5.231016. No level is isolated. A resolved energy–momentum branch and controlled relativistic dispersion require proof.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
-        'Actual eight-cell neutral pair probes: original transfer weight ≥1/2 in [2,10], final excitation weight ≥3/8 in [2,10.5] source units, before clock errors. All outcomes survive. This broad, even, gauge-neutral response has no assigned particle name, spin or rest mass. Larger-capacity transfer requires proof.',
+        'Actual eight-cell pair records populate all 10 cubic/parity channels and all 32 coherent spatial/internal outcomes. An isotypic channel of rank d has original transfer weight ≥11d/1024 in [11/(2048β),40]. The inversion-odd A1u response is broad, CAR-even and gauge-neutral, with no assigned particle name, spin or rest mass. Dispersion requires proof.',
     'independent_comparison':
         'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
-        'The primary source has exact local energy currents and a finite regional source-marginal entropy first law. The coin and reference remain in the complete output; their entropy is a different functional. Proper geometry, Lorentz stress, modular diamond and area responses, and controlled Einstein small-ball limits require proof.',
+        'For physical source unitaries, the polynomial state bounds modular cost between β(1−δ)W and βW; a neutral flip has work >18 source units. Global modular and source clocks have a controlled comparison. The coin and reference remain in the complete output; the entropy bound concerns marginals. Proper geometry, diamond/area response and Einstein limits require proof.',
 }
 
 
@@ -125,9 +125,9 @@ def render(c, data, y):
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
         fourth = {
             'local_records': ('Fourier', 'model/particle_primary_momentum/PROOF.md'),
-            'joint_refinement': ('Filters', 'model/particle_filtered_probe/PROOF.md'),
+            'joint_refinement': ('Scalable', 'model/particle_primary_refinement_response/PROOF.md'),
             'relativistic_field': ('Rayleigh', 'model/particle_primary_variational_readout/PROOF.md'),
-            'particle_observables': ('Channels', 'model/particle_primary_channel_labels/PROOF.md'),
+            'particle_observables': ('Pair channels', 'model/particle_primary_pair_channels/PROOF.md'),
         }.get(node['id'])
         if fourth: c.link(x+width*.9, top+660, fourth[0], fourth[1], 49)
     gravity = nodes[9]; top = y+2720
@@ -139,6 +139,8 @@ def render(c, data, y):
            gravity['evidence'][0]['path'], 49)
     c.link(M+14700, top+480, 'Conditional Einstein theorem and proper-geometry hypotheses',
            'model/matched_einstein_limit/PROOF.md', 49)
+    c.link(M+23000, top+480, 'Source work and modular clock bound',
+           'model/particle_primary_gravity_premises/PROOF.md', 49)
     c.para(M, y+3360, W-2*M,
            'Conditional candidate: a declared chiral gauge-Higgs action supplies calibrated tree/running coefficients, with a separately calibrated neutrino extension. These coefficients are not physical pole masses, full radiative matching or independent predictions. The massless photon excludes a positive global vacuum gap for the full theory.',
            60, BLUE, max_y=y+3470)

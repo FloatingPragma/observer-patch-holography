@@ -26,7 +26,9 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_channel_labels', 'particle_primary_spectral_scale',
     'particle_primary_endpoint_bounds', 'particle_primary_variational_readout',
     'particle_primary_joint_spectroscopy', 'particle_primary_occupation_bound',
-    'particle_primary_residual_refinement', 'particle_primary_response_moments'))
+    'particle_primary_residual_refinement', 'particle_primary_response_moments',
+    'particle_primary_pair_channels', 'particle_primary_refinement_response',
+    'particle_primary_gravity_premises'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -169,6 +171,9 @@ def reader(svg,data):
         ('particle_primary_occupation_bound','Occupation-sensitive electric bound and substantial original neutral probe weight'),
         ('particle_primary_residual_refinement','Exact local Haar and CAR moments control the full omitted-space residual'),
         ('particle_primary_response_moments','Actual neutral pair energy band with original probability and complete finite clocks'),
+        ('particle_primary_pair_channels','Populated cubic/parity channels and complete spatial pair records; no particle-spin assignment'),
+        ('particle_primary_refinement_response','Scalable populated collective response and controlled finite-source defect density'),
+        ('particle_primary_gravity_premises','Polynomial modular work, source-clock comparison and explicit geometric premises'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),
