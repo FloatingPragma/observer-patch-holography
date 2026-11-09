@@ -1,4 +1,5 @@
 from fractions import Fraction as F
+import pytest
 import sympy as s
 from model.particle_atlas_horizontal import measurement as m
 
@@ -70,3 +71,55 @@ def test_finite_bound_does_not_masquerade_as_canonical_ccr():
     assert zero['canonical_CCR_claimed'] is False
     assert c['physical_lengths_momenta_or_hbar_calibrated'] is False
     assert c['native_physical_detector_derived'] is False
+
+
+def test_double_path_marker_changes_interference_without_a_human_reader():
+    c = m.double_path_certificate()
+    assert c['unmarked']['screen_probabilities'] == ['1/2', '1/4', '0', '1/4']
+    assert c['orthogonal_path_tags']['screen_probabilities'] == ['1/4']*4
+    assert c['unmarked_phase_pi_screen_probabilities'] == ['0', '1/4', '1/2', '1/4']
+    records = c['orthogonal_path_tags']['path_screen_records']
+    assert len(records) == 8
+    assert all(F(row['probability']) == F(1, 8) for row in records)
+    assert sum(F(row['probability']) for row in records) == 1
+    assert c['orthogonal_path_tags']['unread_path_record_suffices']
+    assert not c['orthogonal_path_tags']['human_observation_required']
+    assert not c['postselection_used']
+    assert not c['source_selected_apparatus_or_particle_identity']
+
+
+def test_double_path_isometry_and_partial_trace_retain_complete_inputs():
+    for overlap in (0, 1, s.Rational(1, 2), (1+s.I)/2):
+        c = m.double_path_construction(0, overlap)
+        assert m.clean(c['marker_isometry'].H*c['marker_isometry']) == s.eye(4)
+        assert len(c['joint_marker_screen_records']) == 8
+        rho = c['path_density_after_unread_marker']
+        assert s.trace(rho) == 1
+        assert rho[0, 1] == s.conjugate(overlap)/2
+        assert m.clean(rho[1, 0]-s.sympify(overlap)/2) == 0
+        f, _, _, _ = m.construction()
+        screen = m.clean(f*rho*f.H)
+        assert tuple(screen[k, k] for k in range(4)) == c['screen_probabilities']
+    assert m.double_path_construction(0, 0)['path_density_after_unread_marker'] == s.diag(s.Rational(1, 2), s.Rational(1, 2), 0, 0)
+
+
+def test_double_path_complex_overlap_fixes_the_fringe_phase_convention():
+    c = m.double_path_construction(0, s.I/2)
+    assert c['screen_probabilities'] == (s.Rational(1, 4), s.Rational(3, 8), s.Rational(1, 4), s.Rational(1, 8))
+    assert c['phase_scan_visibility'] == s.Rational(1, 2)
+    zero_phase = m.double_path_construction(0, s.Rational(1, 2))
+    opposite_phase = m.double_path_construction(s.pi, s.Rational(1, 2))
+    hi, lo = zero_phase['screen_probabilities'][0], opposite_phase['screen_probabilities'][0]
+    assert (hi-lo)/(hi+lo) == s.Rational(1, 2)
+    # A common phase changes both marker-overlap and path conventions only
+    # through gamma exp(i phi); swapping its sign would move these fringes.
+    assert m.double_path_construction(s.pi/2, s.Rational(1, 2))['screen_probabilities'] == c['screen_probabilities']
+
+
+def test_double_path_rejects_nonphysical_or_inexact_marker_inputs():
+    for overlap in (2, 1+s.I, 0.5):
+        with pytest.raises(ValueError):
+            m.double_path_construction(0, overlap)
+    for phase in (s.I, 0.1):
+        with pytest.raises(ValueError):
+            m.double_path_construction(phase, 1)

@@ -64,6 +64,86 @@ Finite matrices have `Tr[X,P]=0`, so they cannot satisfy
 `[X,P]=i hbar I` with nonzero `hbar`. The continuum `hbar/2` bound requires
 the appropriate common operators, domains and states.
 
+## A double-path experiment with an actual readout
+
+The same four-bin model gives a small, exact double-slit-style experiment.
+The preparation supplies equal coherent alternatives at two apertures,
+`psi=(|0>+exp(i phi)|1>)/sqrt(2)`. The supplied Fourier apparatus carries
+those amplitudes to four screen detectors D0 through D3. Each run records
+one screen port. Repeated preparations give a histogram of the four ports.
+The diagram is an illustration with a specified apparatus, rather than a
+derivation of a laboratory double slit from native repair.
+
+Without a path marker, amplitudes from the two apertures arrive in the same
+output channel and add before their squared magnitude is taken. At phase
+zero, they reinforce at D0 and cancel at D2. The complete screen law is
+`(1/2,1/4,0,1/4)`. D2 is a retained zero-weight detector outcome. Changing
+the preparation phase to pi interchanges the bright and dark ports,
+giving `(0,1/4,1/2,1/4)`.
+
+A path marker is an additional physical coupling. It correlates aperture0
+with one distinguishable marker state and aperture1 with another. The
+joint state keeps the two path/marker alternatives, while the unread screen
+law sums over the marker. With orthogonal markers the alternatives cannot
+interfere in that screen marginal: its distribution is uniform. A person
+does not have to inspect the marker. The retained path correlation is
+sufficient. The complete joint law retains all eight records `(path,Dk)`,
+each with probability `1/8`. Conditioning on either path, whose probability
+is `1/2`, gives a uniform screen distribution. No path or detector record
+is selected away.
+
+For partial path marking, use normalized marker states d0 and d1 and define
+`gamma=<d0|d1>`, with `|gamma|<=1`. The exact specified output state at port k
+is proportional to `d0+exp(i phi)(-i)^k d1`. Thus
+
+```math
+p_k(\phi,\gamma)={1+\operatorname{Re}[\gamma e^{i\phi}(-i)^k]\over4}.
+```
+
+The full marker coupling is an isometry on all four input paths, including
+the two paths with zero preparation weight. Taking its partial trace gives
+the same four probabilities. Scanning phi at a fixed screen port gives
+`p_max=(1+|gamma|)/4`, `p_min=(1-|gamma|)/4`, and visibility
+`(p_max-p_min)/(p_max+p_min)=|gamma|`. This visibility is defined by a phase
+scan; four sampled screen bins at one arbitrary phase need not attain both
+extrema. At phase zero and gamma=1/2 the screen law is
+`(3/8,1/4,1/8,1/4)`. Complex gamma shifts the fringe phase, with the
+convention tested explicitly in the code.
+
+The example separates a particle-like record from wave-like propagation:
+each detector event has one classical label, while amplitudes for
+indistinguishable alternatives interfere in the probabilities of those
+labels. A path record changes the joint state and its reduced interference
+law. Consensus shares the detector outcome after that physical process; it
+does not choose the outcome, supply an amplitude, or require consciousness.
+
+## What the final ledger means
+
+The record starts with a known preparation procedure and apparatus setting.
+The screen detector supplies the observed label. These fields define what
+was measured and make repeated runs comparable:
+
+| Field | Meaning |
+| --- | --- |
+| Run | A label distinguishing this preparation-and-detection attempt |
+| Preparation phase | The supplied relative aperture phase phi |
+| Apparatus setting | Unmarked paths, orthogonal path marker, or a specified partial marker |
+| Path record | Aperture0 or aperture1 only when the apparatus supplies that record |
+| Screen record | One of D0, D1, D2 or D3 |
+
+For example, `(run42, phi=0, unmarked, no path record, D0)` is one possible
+record, with probability `1/2` under that complete experiment. Its shared
+copies have the same fields. It does not establish a sharp aperture value
+that the apparatus did not record. In the marked experiment,
+`(run43, phi=0, orthogonal marker, path1, D0)` is one possible joint record,
+with probability `1/8`. These are illustrative ledger entries, not selected
+simulation results. The certificate supplies every endpoint probability.
+
+The screen label names an actual detector port within this specified model.
+Calling it a physical momentum or position measurement requires the
+apparatus-to-field dictionary. The Fourier-mode interpretation used here
+does not supply a universal position detector for every particle family.
+
 ## The source theorem connections
 
 The [native reconstructed functional](../native_quantum_reconstruction/PROOF.md#native-count-moments-and-their-positive-density-representation)

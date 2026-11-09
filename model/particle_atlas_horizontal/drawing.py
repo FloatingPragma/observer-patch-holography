@@ -227,8 +227,9 @@ def render(data):
     theorem_rails(c,data,4530)
     family_lanes(c,data,6220)
     end=calibration_map(c,data,6220)
-    footer(c,data,end+100)
-    height=end+1030
+    endpoint_closeup(c,data,end+100)
+    footer(c,data,end+2460)
+    height=end+3390
     defs='<defs><marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>'
     # Explicit titles and descriptive text support screen readers and text search.
     head=f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{W}" height="{height}" viewBox="0 0 {W} {height}" role="img" aria-labelledby="title desc">'
@@ -431,8 +432,8 @@ def family_lanes(c,data,y):
 
 def calibration_map(c,data,y):
     start=22100;width=W-start-M
-    c.para(start,y,width,'CALIBRATIONS: THE ROUTE TO SOURCE SELECTION',67,INK,700,max_y=y+170)
-    c.para(start,y+210,width,'A fit demonstrates realizability. Source selection must recover the controller and physical readout without reading the target masses.',43,MUTED,max_y=y+340)
+    c.para(start,y,width,'CALIBRATIONS & DECLARED DESIGN CHOICES',67,INK,700,max_y=y+170)
+    c.para(start,y+210,width,'Choose the hardware and program; compute every observer record. Architecture need not be unique or forced. A setting chosen from a measured target calibrates that comparison; a held-out output tests the construction.',43,MUTED,max_y=y+340)
     items=data['families'].get('calibration_paths',[])
     cols=2;cw=width/cols
     for i,item in enumerate(items):
@@ -440,7 +441,9 @@ def calibration_map(c,data,y):
         c.rect(xx+15,yy,cw-50,780,'#e9edf6',radius=25)
         title=item.get('title',item.get('name',item.get('id','Input')))
         c.para(xx+65,yy+70,cw-160,title,45,BLUE,700,max_y=yy+150)
-        c.label(xx+65,yy+200,'SUPPLIED')
+        if item.get('tested_result'):
+            c.text(xx+65,yy+167,item['tested_result'],28,ORANGE,700)
+        c.label(xx+65,yy+200,item.get('input_classification','SUPPLIED'))
         c.para(xx+65,yy+260,cw-160,item['input'],36,INK,max_y=yy+365)
         c.label(xx+65,yy+410,'DERIVE / TEST',ORANGE)
         c.para(xx+65,yy+465,cw-160,item['removal_strategy'],36,INK,max_y=yy+615)
@@ -461,6 +464,85 @@ def calibration_map(c,data,y):
     c.para(start,table_y+470,width,'CODATA2022: μ/e = 206.7682827 ± 0.0000046; τ/e = 3477.23 ± 0.23. No physical correction error budget is supplied. Three-input attenuation fits all three masses; it has no held-out prediction.',33,MUTED)
     c.link(start,table_y+615,'Exact intervals, fitted phase and GeV comparison','docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg',34)
     return max(table_y+680,11400)
+
+
+def endpoint_closeup(c,data,y):
+    c.items.append('<g id="endpoints">')
+    c.text(M,y,'ZOOM IN: WHERE THE STORY STARTS AND ENDS',80,INK,700,serif=True)
+    c.para(M,y+100,W-2*M,'A primitive observer is a process that reads a record and changes its next operation. An apparatus is a controlled interaction that turns a property of a prepared state into a stable, comparable record.',48,MUTED)
+    left=M;right=14300
+    c.rect(left,y+230,13300,2010,'#f1eee5',radius=22)
+    c.rect(right,y+230,W-right-M,2010,'#eaf0ee',radius=22)
+    c.text(left+60,y+330,'THE START: REPAIR, MEMORY, AND A CREATION BOUNDARY',56,INK,700)
+    c.para(left+60,y+430,13100,'The example begins with two occupied ports and a declared memory. The local repair conserves total load. The controller sees the current record and chooses its next seam; it does not need a spatial picture.',42,INK)
+    # Literal first native repair: seam (0,1), spectator at port 11.
+    xx=left+80;yy=y+760
+    c.label(xx,yy-140,'1. READ / REPAIR')
+    c.circle(xx+140,yy,85,ORANGE);c.circle(xx+700,yy,85,'white',TEAL)
+    c.text(xx+140,yy+15,'1',50,'white',700,anchor='middle')
+    c.text(xx+700,yy+15,'0',50,INK,700,anchor='middle')
+    c.line(xx+260,yy,xx+570,yy,TEAL,6,arrow=True)
+    c.text(xx+90,yy+140,'port 0',37,INK);c.text(xx+650,yy+140,'port 1',37,INK)
+    c.para(xx,yy+250,2100,'Balance the chosen endpoints. An odd total has two placements; each complete branch is kept.',40,INK)
+    c.text(xx,yy+475,'j = n₀ − n′₀',51,TEAL,700)
+    c.text(xx,yy+565,'record = (coin, current j)',38,MUTED)
+    xx=left+2500
+    c.label(xx,yy-140,'2. KEEP BOTH RECORDS')
+    for i,row in enumerate(data['endpoints']['primitive_branches']):
+        cy=yy-20+i*260
+        c.rect(xx,cy-70,2670,205,'white',radius=15)
+        c.text(xx+50,cy,f"coin {row['record'][0]}: (1,0) → ({','.join(map(str,row['output_seam_loads']))})",47,INK,700)
+        c.text(xx+50,cy+80,f"record ({','.join(map(str,row['record']))}); probability {row['weight']}",38,TEAL)
+    c.para(xx,yy+540,2670,'Positive current selects seam (0,5); a hold selects (0,1). This is the literal two-event policy.',39,INK)
+    xx=left+5600
+    c.label(xx,yy-140,'3. TRANSPORT A MEMORY')
+    c.rect(xx,yy-70,2750,470,'#fffaf1',radius=16)
+    c.text(xx+70,yy+40,'moving loop history → X',52,TEAL,700)
+    c.text(xx+70,yy+150,'|+⟩ → |+⟩',55,TEAL)
+    c.text(xx+70,yy+255,'|−⟩ → −|−⟩',55,BLUE)
+    c.text(xx+70,yy+355,'weight 1/8; other outcomes retained',36,ORANGE)
+    c.para(xx,yy+490,2770,'The illustrated three-seam loop uses a separate supplied schedule. It exposes a sign of the coherent memory; every repair preserves its Q sector.',40,INK)
+    xx=left+8900
+    c.label(xx,yy-140,'4. LOCALIZE / CREATE?',ORANGE)
+    c.line(xx,yy+130,xx+520,yy+130,ORANGE,8,True,True)
+    c.circle(xx+1150,yy+130,165,'#f6ddba',ORANGE)
+    c.text(xx+1150,yy+148,'+1',65,ORANGE,700,anchor='middle')
+    c.circle(xx+1950,yy+130,165,'#e1e8f6',BLUE)
+    c.text(xx+1950,yy+148,'−1',65,BLUE,700,anchor='middle')
+    c.para(xx,yy+420,3500,'The localized winding pair is a supplied field background. A source process that creates this pair from the prepared native state has no proof here.',43,ORANGE)
+    c.para(left+80,y+1600,12950,'Protection says what cannot be erased by the allowed updates. It does not show how a spatial core was born. Creating a fermion in a bound mode fills that mode; it does not create the background winding. A drawing cannot identify these two operations.',46,INK,max_y=y+1820)
+    c.text(left+80,y+1905,'[K_record,Q] = 0  ⇒  no transition between sharp Q sectors',57,TEAL,700)
+    c.link(left+80,y+2070,'Actual primitive observer and record controller','model/observer/native.py',37)
+    c.link(left+6600,y+2070,'Memory loop, protection and spatial boundary','model/defect_protection/README.md',37)
+    c.link(left+80,y+2160,'Why occupying a field mode does not create the winding','model/particle_atlas_horizontal/STORY.md',37)
+    # A supplied two-path / four-screen-port analogue of a double slit.
+    c.text(right+70,y+330,'THE END: TWO PATHS, ONE SCREEN RECORD',57,INK,700)
+    c.para(right+70,y+430,W-right-M-150,'A double-slit-style analogue uses two coherent paths and four screen bins. Both settings prepare (|0⟩+|1⟩)/√2. The apparatus can leave the paths indistinguishable or attach a distinct memory tag to each.',42,INK)
+    x=right+100;cy=y+1120
+    c.circle(x+140,cy,80,TEAL);c.text(x,cy+180,'prepare',38,INK)
+    c.path(f'M{x+250},{cy} Q{x+650},{cy-300} {x+1200},{cy-300}',TEAL,7,arrow=True)
+    c.path(f'M{x+250},{cy} Q{x+650},{cy+300} {x+1200},{cy+300}',TEAL,7,arrow=True)
+    c.rect(x+1270,cy-530,80,180,INK,radius=0)
+    c.rect(x+1270,cy-240,80,480,INK,radius=0)
+    c.rect(x+1270,cy+350,80,180,INK,radius=0)
+    c.text(x+1480,cy-285,'path 0',38,INK);c.text(x+1480,cy+315,'path 1',38,INK)
+    c.wave(x+2100,cy-300,1600,65,4,TEAL)
+    c.wave(x+2100,cy+300,1600,65,4,TEAL)
+    c.rect(x+4050,cy-400,1900,800,'white',BLUE,22)
+    c.text(x+5000,cy-155,'PATH MARKER',46,BLUE,700,anchor='middle')
+    c.text(x+5000,cy-30,'same tag / distinct tags',40,INK,anchor='middle')
+    c.text(x+5000,cy+135,'then Fourier mixer F₄',43,BLUE,anchor='middle')
+    c.line(x+6100,cy,x+6630,cy,TEAL,7,arrow=True)
+    h=data['double_path'];labels=h['screen_labels']
+    c.text(x+6950,cy-330,'No path record: amplitudes interfere',42,TEAL,700)
+    c.bars(x+6950,cy+20,4400,520,h['unmarked']['screen_probabilities'],labels,TEAL)
+    c.text(x+6950,cy+320,'Distinct path tags: paths add as probabilities',40,ORANGE,700)
+    c.bars(x+6950,cy+670,4400,520,h['orthogonal_path_tags']['screen_probabilities'],labels,ORANGE)
+    c.para(x,y+1770,6250,'An unread tag is enough. The particle and marker become correlated. Ignoring that marker removes the cross term, so the screen pattern changes without a person looking.',44,INK,max_y=y+1900)
+    c.para(right+70,y+1940,W-right-M-150,'The detector couples a screen bin to a pointer and writes a record: run, preparation, apparatus setting, path tag if present, and screen bin. With tags, all eight (path, screen) records have probability 1/8. A particular run stores one outcome; repeated runs test the Born distribution.',43,INK,max_y=y+2110)
+    c.text(right+70,y+2140,'Supplied four-bin apparatus; no laboratory particle identity is inferred.',36,ORANGE,700)
+    c.link(right+7200,y+2140,'Exact states, record laws and partial which-path information','model/particle_atlas_horizontal/MEASUREMENT.md',32)
+    c.items.append('</g>')
 
 
 def footer(c,data,y):

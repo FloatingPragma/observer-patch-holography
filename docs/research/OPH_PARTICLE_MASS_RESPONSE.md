@@ -2,6 +2,27 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+## Capacity, attenuation and unit-free comparisons
+
+The [all-horizon capacity calculation](../../model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md)
+derives the literal reset C-duty response from all 1,536 old-memory/raw
+rows. Its first-order coefficient has rank two at n=1. For every n>=2,
+`lambda_2/lambda_1<1171058/6633` and
+`lambda_3/lambda_1<8616/11`. Those upper bounds lie below measured lepton
+ratios under the stated linear coefficient-to-mass dictionary. Finite
+archive capacity alone cannot correct that particular branch. The exact
+retained archive has 24^n positive histories; identifying its n ln24 budget
+with cosmological capacity is a separate premise.
+
+The [phase/attenuation calculation](../../model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md)
+shows that the tested free-sea and finite Higgs energy criteria select
+r=1, so they do not select the three-input attenuator fit. The
+[native rate calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
+eliminates a common clock/energy conversion from same-source rate ratios,
+without producing particle masses in GeV. The
+[first-five dependency table](OPH_FIELD_RECONSTRUCTION.md#source-tests-for-the-first-five-atlas-inputs)
+connects these results to the physical mass requirements.
+
 ## Minimum empirical mass target
 
 The [high-field spin sector](../../model/high_field_particle/PROOF.md)

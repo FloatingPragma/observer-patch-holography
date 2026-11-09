@@ -88,15 +88,35 @@ An observer is a finite tape of such records together with a controller that
 chooses the next operation from the tape alone. Everything an observer can
 report is a probability computed from these maps.
 
-The working method has four steps. Build the simplest instance that meets the
-stated requirements. Derive its consequences exactly. Keep every supplied
-input visible. Find the observations that distinguish it from the
-alternatives the requirements leave open. A finite implementation is complete
-when its declared observation, record and feedback contract runs and passes
-its checks. Proving that self-consistency uniquely selects that
-implementation is a separate question and is not a prerequisite for
-constructing it. A complete physical model additionally needs compatible
-physical identifications and tests on the same process.
+The carrier, code, scheduler, preparations and observer apparatus are
+legitimate design choices. A component may be a primitive of this declared
+architecture; an assertion that a narrower repair source implements it
+requires an implementation proof. Neither choice requires a proof that OPH
+forces that architecture. Finite theorems constrain the construction under
+their stated hypotheses. Once those hypotheses are verified on an instance,
+their conclusions apply on the corresponding domain; necessity or uniqueness
+claims require the separate premises of any theorem asserting them.
+
+The working method has four steps. Build and freeze the simplest instance
+that meets the stated requirements. Derive its complete native observer
+outputs, including joint and conditional consensus statistics, failures and
+retained quantum references. Keep every supplied input visible. Find the
+observations that distinguish it from the alternatives the requirements
+leave open. A finite implementation is complete when its declared
+observation, record and feedback contract runs and passes its checks.
+Proving that self-consistency uniquely selects that implementation is a
+separate question and is not a prerequisite for constructing it or
+calculating its observable consequences. A complete physical model
+additionally needs compatible physical identifications and tests on the
+same process.
+
+Architectural choice and empirical calibration have different roles. A
+setting chosen using a target mass, coupling or other comparison datum must
+retain that calibration ancestry. Reproducing the datum used to choose it
+does not provide an independent prediction. This does not prohibit the
+choice: it determines what the complete calculation tests. Derivation from
+a frozen construction and proof that nature uniquely requires that
+construction are separate assertions.
 
 ## Completion target and acceptance criteria
 

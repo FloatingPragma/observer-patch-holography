@@ -3,6 +3,36 @@
 Research results belong in the papers, the Lean library and the code. The
 [writing style guide](docs/policies/STYLE_GUIDE.md) binds all prose.
 
+## Construction before uniqueness
+
+The mission is: **Build an executable realization of the OPH observer algebra
+whose compatible inter-observer measurements reproduce the observed Universe.**
+Fields, particles and spacetime are effective descriptions of those records.
+OPH does not claim to prove its own uniqueness or force its architectural
+choices. Verify self-reference and the observable consequences on the same
+declared construction.
+
+Use the [construction contract](model/CONSTRUCTION.md#what-is-being-built)
+and [executable-model hypothesis](docs/OPH_EXECUTABLE_HYPOTHESIS.md).
+The carrier, code, repair law, scheduler, preparation and observer apparatus
+may be declared design choices. Do not make proof that these choices are
+unique or forced by OPH a prerequisite for building the model or calculating
+its consequences. A component may be a primitive of the declared architecture;
+claiming that a narrower source implements it requires an implementation proof.
+Conditional finite theorems retain their stated hypotheses and domains.
+
+Freeze the declared construction and observation domain, then derive its
+complete native observer outputs and consensus statistics, including retained
+failures, no-operation records and quantum references. Establish the mappings
+between actual preparations, interventions and shared records. Deriving a
+consequence of a specified construction does not require deriving that
+construction's uniqueness.
+
+Keep architecture choices distinct from empirical calibration. Settings
+chosen using target masses or other comparison data are calibration inputs;
+agreement with those inputs is not an independent prediction. Changes to the
+construction or interpretation must preserve that input ancestry.
+
 ## The `docs/` directory
 
 The full rules are in the [docs index](docs/README.md#rules-for-this-directory).

@@ -1169,9 +1169,13 @@
       "title": "One-ratio phase calibration",
       "input": "Measured muon/electron ratio chooses the balanced coherent phase; electron mass may set one energy unit.",
       "what_it_buys": "A charged action with a held-out tau comparison. Exact Koide balance is retained.",
-      "removal_strategy": "Derive the coherent relative phase from the source Hamiltonian or selected state, then evaluate all three charged ratios without reading a mass target.",
-      "success_condition": "One source-selected phase and common kinetic normalization; held-out masses remain within stated observable-matching errors.",
+      "removal_strategy": "Fix an independently specified program and calculate its effective phase and complete mass readout, or explicitly keep the muon/electron calibration. An autonomous phase register is one option; architecture uniqueness is unnecessary.",
+      "success_condition": "The chosen program yields the observable ratio with controlled errors; data used to choose its phase are marked as calibration.",
       "links": [
+        {
+          "label": "Source test and exact selection boundary",
+          "path": "model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md"
+        },
         {
           "label": "One-ratio calibration",
           "path": "model/charged_lepton_response/CALIBRATED_SANITY.md"
@@ -1184,16 +1188,22 @@
           "label": "Exact Koide algebra",
           "path": "Lean/ObserverPatchHolography/KoideCirculant.lean"
         }
-      ]
+      ],
+      "tested_result": "Tested vacuum routes do not select the fitted phase.",
+      "input_classification": "Calibrated setting in this benchmark"
     },
     {
       "id": "three_mass_controller",
       "title": "Three-input attenuator calibration",
       "input": "Electron, muon and tau central masses choose attenuation, phase and one common energy factor.",
       "what_it_buys": "The complete sixteen-outcome controller realizes the chosen charged triplet. Zero held-out mass predictions.",
-      "removal_strategy": "Calculate the retained loss process and coherent family kernel from the same native dynamics; derive the energy conversion from an independent clock rather than these three masses.",
-      "success_condition": "The computed r, phase and common normalization agree with the physical matching calculation before target masses are read.",
+      "removal_strategy": "Choose and execute a complete loss/controller program, retaining every flag. Derive its mass readout. Removing the three-mass fit requires a setting fixed independently of those masses or a calculated effective response.",
+      "success_condition": "The output follows from the fixed program, and any independent comparison is separated from the three calibration inputs.",
       "links": [
+        {
+          "label": "Source test and exact selection boundary",
+          "path": "model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md"
+        },
         {
           "label": "Inverse Fourier realization",
           "path": "model/particle_candidate_atlas/CALIBRATED_TRIPLET.md"
@@ -1202,16 +1212,22 @@
           "label": "Complete retained-loss controller",
           "path": "model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md"
         }
-      ]
+      ],
+      "tested_result": "Free/Higgs minimization favors r = 1.",
+      "input_classification": "Calibrated controller in this benchmark"
     },
     {
       "id": "capacity_response",
       "title": "Capacity law and closure choices",
       "input": "The P-law phase baseline, attenuation function, normalization, source coordinates and running-field census are stipulated; one endpoint inherits measured alpha.",
       "what_it_buys": "Four certified conditional action spectra and complete C-duty inverse realizations.",
-      "removal_strategy": "Derive the actual memory/controller response and its capacity dependence, including the running census, from source records. Use self-consistency after that law is fixed.",
-      "success_condition": "No target-selected architecture or measured endpoint enters the prediction; the derived response is stable under the stated capacity/refinement limit.",
+      "removal_strategy": "Specify the capacity-dependent program, state and schedule, then compute their response and errors. The literal finite-budget C-duty result cannot reproduce lepton ratios under the linear mass dictionary.",
+      "success_condition": "The actual program has the claimed capacity dependence; no unrelated formula is substituted for its observer output.",
       "links": [
+        {
+          "label": "Source test and exact selection boundary",
+          "path": "model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md"
+        },
         {
           "label": "P-law ancestry",
           "path": "model/charged_lepton_response/P_DEPENDENCE.md"
@@ -1224,16 +1240,22 @@
           "label": "Actual memory response",
           "path": "model/particle_candidate_atlas/NATIVE_RESPONSE.md"
         }
-      ]
+      ],
+      "tested_result": "All finite attempt budgets fail the linear lepton ratios.",
+      "input_classification": "Design law; capacity response is an output"
     },
     {
       "id": "clock_and_units",
       "title": "A common clock and energy unit",
       "input": "Weak-kick time, preparation/reference choice and conversion to GeV are supplied.",
       "what_it_buys": "Comparable source frequencies and optional laboratory-unit tables.",
-      "removal_strategy": "Tie the time-translation generator and detector timestamps to one operational clock, retain compilation overhead, and derive a reference energy relation independent of the fitted particle.",
-      "success_condition": "Every sector and detector uses the same clock, with bounded conversion and finite-capacity errors.",
+      "removal_strategy": "Choose a clock convention and compute how detector timestamps and translation generators realize it. Common units cancel from ratios; absolute GeV comparisons require a shared energy reference.",
+      "success_condition": "All compared observables use the stated operational clock and normalization, with bounded conversion errors.",
       "links": [
+        {
+          "label": "Source test and exact selection boundary",
+          "path": "model/particle_calibration_selection/PROOF_CLOCK_UNITS.md"
+        },
         {
           "label": "Full-Fock clock boundary",
           "path": "model/charged_lepton_response/CAR_KOIDE.md"
@@ -1248,16 +1270,22 @@
           "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
           "anchor": "page=66"
         }
-      ]
+      ],
+      "tested_result": "Common units cancel from same-source gap ratios.",
+      "input_classification": "Units are conventional; common readout must be proved"
     },
     {
       "id": "families_and_chirality",
       "title": "Three families and a chiral regulator",
       "input": "Three copies of the fifteen-component module and a naive Weyl kinetic action are configured.",
       "what_it_buys": "The finite internal representation and controlled free branches, including all eight valleys.",
-      "removal_strategy": "Derive family multiplicity and construct a gauge-covariant chiral low-energy sector with canonical CAR, controlled mirror removal and a suitable physical state.",
-      "success_condition": "Exactly the intended light representations propagate; anomaly and Ward identities survive the same controlled limit.",
+      "removal_strategy": "Specify the cooling, family and regulator program. Derive the light field content and complete current/readout laws, including extra modes. Prove spacetime chirality and mirror decoupling where claimed.",
+      "success_condition": "The fixed program produces its advertised light sectors and chiral observations; no extra mode is silently removed.",
       "links": [
+        {
+          "label": "Source test and exact selection boundary",
+          "path": "model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md"
+        },
         {
           "label": "Eight-valley boundary",
           "path": "model/standard_model_source_map/KINETIC_ATTACHMENT.md"
@@ -1271,15 +1299,17 @@
           "label": "Quantum chiral join",
           "path": "model/particle_candidate_atlas/INTERACTING_CHIRAL_JOIN.md"
         }
-      ]
+      ],
+      "tested_result": "Finite rank-three cost and canonical dressing proved.",
+      "input_classification": "Family/regulator choices are allowed inputs"
     },
     {
       "id": "gauge_higgs",
       "title": "Gauge couplings and Higgs phase",
       "input": "Renormalized g_s, g, g′, scalar potential and the broken-phase scale are supplied.",
       "what_it_buys": "Conditional photon/gluon zeros and W, Z and Higgs mass formulas.",
-      "removal_strategy": "Extract gauge and scalar two-point kernels plus higher vertices from the selected common-source state; demonstrate the phase and its kinetic normalization.",
-      "success_condition": "Couplings, symmetry breaking and scalar curvature follow from those correlators with scale/scheme and error control, without measured mass substitutions.",
+      "removal_strategy": "Fix the gauge/scalar action, preparation and clock. Compute the realized phase, correlations and detector response. Supplied couplings are design inputs; fitted values retain their empirical ancestry.",
+      "success_condition": "The claimed interacting phase and response follow from that program. A supplied Higgs number is not substituted for an uncomputed state.",
       "links": [
         {
           "label": "Conditional action and Hessians",
@@ -1294,15 +1324,16 @@
           "label": "Finite electroweak composition",
           "path": "Lean/Screen/ElectroweakBreakingComposition.lean"
         }
-      ]
+      ],
+      "input_classification": "Couplings/action may be specified or calibrated"
     },
     {
       "id": "quark_flavor",
       "title": "Quark Yukawas, mixing and CP phases",
       "input": "Independent complex up/down family matrices and renormalized flavor parameters are supplied.",
       "what_it_buys": "A conditional quark census and the algebraic CKM construction.",
-      "removal_strategy": "Compute complex family-changing kernels and their covariant kinetic forms from the source; propagate the result through QCD and electroweak matching.",
-      "success_condition": "Mass ratios, mixing and CP-sensitive observables share one independently derived action. A common multiplier cannot rescue an excluded light-quark shape.",
+      "removal_strategy": "Fix the flavor program, then derive kinetic normalization, effective masses, mixing and interaction records with the stated scale/scheme. Keep fitted data distinct from independent comparisons.",
+      "success_condition": "The complete output follows from one action and state; mass and mixing definitions agree with the compared measurements.",
       "links": [
         {
           "label": "Canonical family response",
@@ -1318,15 +1349,16 @@
           "label": "Finite mass matching bounds",
           "path": "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md"
         }
-      ]
+      ],
+      "input_classification": "Flavor matrices may be specified or calibrated"
     },
     {
       "id": "neutrino_extension",
       "title": "Neutrino mechanism and mixing",
       "input": "Dirac singlets or a Majorana Weinberg operator, its family coefficient and mixing are additional choices.",
       "what_it_buys": "A complete conditional neutral sector with symbolic mass eigenvalues.",
-      "removal_strategy": "Identify and implement the allowed source neutral interaction and flavor-current intertwiner, then derive its propagator and detector oscillation records.",
-      "success_condition": "Nonzero observed mass-squared differences and flavor probabilities arise in the same clock, with a declared absolute-scale and Dirac/Majorana prediction or unresolved parameter.",
+      "removal_strategy": "Choose and implement the neutral field extension. Compute its propagation, flavor-current readout and oscillation records. No theorem uniquely choosing that architecture is required.",
+      "success_condition": "All predicted oscillation and mass observables follow from the chosen source, with each fitted input identified.",
       "links": [
         {
           "label": "Neutral field alternatives",
@@ -1338,15 +1370,16 @@
           "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
           "anchor": "page=62"
         }
-      ]
+      ],
+      "input_classification": "Dirac/Majorana model is a design choice"
     },
     {
       "id": "bare_effective",
       "title": "From an action coefficient to a measured mass",
       "input": "Physical kinetic matrices, self-energy, infrared dressing and resonance conventions require additional matching.",
       "what_it_buys": "Necessary correction budgets and exact conditional whitening bounds, without a calculated interaction correction.",
-      "removal_strategy": "Measure complete connected correlators in one selected interacting state, extract their temporal/spatial kernels and self-energy, and propagate actual errors to the named detector observable.",
-      "success_condition": "A charged threshold, resonance or running parameter is obtained in its stated scheme with a controlled uncertainty; no adjustable matrix is chosen solely to improve agreement.",
+      "removal_strategy": "Calculate complete interacting correlators and detector responses on the specified state and clock. Extract the measured mass observable with kinetic normalization, dressing and controlled errors.",
+      "success_condition": "The observed mass is computed from the source, rather than assigned to an action coefficient without the required matching.",
       "links": [
         {
           "label": "Whitening and matching theorem",
@@ -1360,15 +1393,16 @@
           "label": "Compatibility of the two action families",
           "path": "model/particle_candidate_atlas/COMPATIBILITY.md"
         }
-      ]
+      ],
+      "input_classification": "Genuine output derivation"
     },
     {
       "id": "defect_species",
       "title": "From a protected label to a species",
       "input": "A source current or protected winding does not by itself identify a natural particle.",
       "what_it_buys": "Finite charge records, compact localized modes and supplied field attachments.",
-      "removal_strategy": "Construct creation, transport, fusion and decay operators for the defect in the same state and Gauss sector. Compare their charge transformations, spectral weight and scattering records with the candidate field.",
-      "success_condition": "One operational intertwiner preserves charge, dynamics, statistics and complete measurements; fixed-texture bound frequencies are not relabeled as relativistic rest masses.",
+      "removal_strategy": "Compute creation, transport, fusion and decay under the chosen program. Show that its defect/excitation records have the claimed charge, spin, statistics, dispersion and interactions.",
+      "success_condition": "One operational map preserves those properties and complete measurements; neither a name nor a shared internal dimension establishes species identity.",
       "links": [
         {
           "label": "Exact compact defect-field join",
@@ -1384,7 +1418,8 @@
           "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
           "anchor": "page=66"
         }
-      ]
+      ],
+      "input_classification": "Genuine output identification"
     }
   ],
   "mass_explainer": {

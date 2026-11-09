@@ -1,0 +1,93 @@
+\section{Finite selection tests for particle readout}
+\label{sec:finite-particle-selection-tests}
+
+Several supplied field controls admit exact tests against the finite source.
+The following calculations retain the stated source, complete records and
+operator domains. They determine which coefficients follow from those data
+and which require an additional selection law. No measured particle mass
+enters their construction. Transport to another carrier requires an
+identification preserving its state, currents and clock; equality of
+spectra alone supplies no such identification.
+
+For the coherent three-cycle $R$, write
+$C=aI+rb(e^{i\theta}R+e^{-i\theta}R^2)$ and $Y=C^2/3$, where
+$a=\sqrt5/6$, $b=a/\sqrt2$ and $0\le r\le1$.
+The positive-root chamber is $|\theta|\le\pi/12$.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md}{exact source calculation}
+gives
+\[
+ \operatorname{Tr}Y=\frac5{36}(1+r^2),\qquad
+ \operatorname{Tr}Y^2=\frac{25}{3888}+\frac{25r^2}{648}
+ +\frac{25r^4}{2592}+\frac{25\sqrt2\,r^3}{1944}\cos3\theta.
+\]
+With a declared neutral Higgs number $h>0$, the charged free-CAR sea energy
+at kinetic norm $p$ is $-2\sum_j\sqrt{p^2+h^2y_j^2}$, where $y_j$ are the
+eigenvalues of $Y$. At $p=0$ it equals $-2h\operatorname{Tr}Y$, independent
+of phase. Convexity in each root proves that external energy minimization
+sets $r=1$ for every positive-weighted finite momentum set. Rational bounds
+at $p=1/256$, $h=1$ prove an interior phase minimum exists; changing $p$
+can reverse a phase comparison. The momentum prescription is supplied.
+
+The actual finite quantum scalar has vacuum and two doublet states.
+For its gauge-invariant pair-creation vertex $W(Y)$, the conserved
+$N_F-2N_H=0$ sector has dimension $1+2\binom{18}{2}=307$.
+The vacuum and $W(Y)$ applied to it span an invariant two-dimensional
+subspace; the scalar cutoff forbids another creation step.
+With common number energies and $d=2\epsilon_F+\epsilon_H$, its levels are
+\[
+ E_\pm=\frac{d\pm\sqrt{d^2+16\operatorname{Tr}Y^2}}2;
+ \qquad 305\text{ retained dark levels have energy }d.
+\]
+The lower level is the whole-sector ground. Minimization selects
+$\theta=0,r=1$, whose action ratios are $1:1:(34+24\sqrt2)$.
+This sector calculation excludes spatial hopping and supplies neither the
+global interacting ground nor a Higgs expectation value. A dynamical
+phase register requires its own mixing or preparation law and common
+energy reference.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md}{finite record-budget response}
+uses the literal reset memory, event probabilities $p_C=1/12,p_E=1/6$
+and declared C-enabled coherent pulses. Its first-derivative coefficient
+$Y_n$ has trace $1/12$, rank two at one attempt and rank three at every
+$n\ge2$. Exact invariant bounds give, for ordered positive eigenvalues,
+\[
+ \frac{\lambda_2(Y_n)}{\lambda_1(Y_n)}<\frac{1171058}{6633}<177,
+ \qquad
+ \frac{\lambda_3(Y_n)}{\lambda_1(Y_n)}<\frac{8616}{11}<784.
+\]
+The complete direct archive has $24^n$ positive histories and capacity
+$n\log24$ nats. Varying this budget cannot reproduce observed lepton ratios
+by a common linear mass conversion. These coefficients are derivatives of
+a noisy finite response; no interacting mass identification follows.
+Pixel capacity and archive capacity require a separate attachment.
+
+An independent \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_calibration_selection/PROOF_CLOCK_UNITS.md}{record-clock calculation}
+uses all sixty seam/coin outcomes on the binary total-two carrier.
+Its transition $\mathsf P$, occupation matrix $B$ and graph Laplacian $L$
+satisfy $\mathsf PB=B(I-L/60)$. Consequently the occupation correlations
+decay at exact rates $e_\lambda=-\log(1-\lambda/60)$ for
+$\lambda=5-\sqrt5,6,5+\sqrt5$. Common attempt blocking and common energy
+conversion cancel from their ratios. These are record-relaxation rates
+and reconstructed $-\log\mathsf P$ gaps; the charged action has no proved
+identification with them, and GeV units require an energy reference.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md}{finite band and canonical dressing}
+give two further operator connections. Uniform sampling of the twelve
+incidence-defined near rotations has displacement cost $2I-\sum_gR_g/6$
+on the full 36-state pair. Its strictly least positive eigenvalue is
+$(5-\sqrt5)/3$, of rank three, with both zero-cost states retained.
+This identifies the declared cooling band without a dimension window;
+selection of that controller and its physical family attachment are extra
+premises.
+
+For two CAR modes and every level of the 60-state quantum link, let
+$S=c_x^\dagger Uc_y+c_y^\dagger U^\dagger c_x$ and
+$W=e^{i\pi S/4}$. The operators $b_i=Wc_iW^\dagger$ satisfy exact CAR
+and retain all endpoint gauge transformations. Their canonical
+one-particle projector has rank 60, including 59 dark directions beyond the
+rank-one edge projector. Its sign construction satisfies the
+Ginsparg--Wilson identity but has 118 dark zero columns; it supplies no
+relativistic kinetic regulator. A local interacting chiral limit requires
+a selected kinetic and complement Hamiltonian, compatible quantum electric
+transport, uniform locality bounds and a positive physical state on the
+same clock.

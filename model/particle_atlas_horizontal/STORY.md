@@ -134,3 +134,23 @@ held-out mass prediction. Deriving the controls from same-state complete
 correlators, kinetic kernels and self-energies is an explicit route to
 source selection. The source-selected chiral vacuum, physical clock,
 observable matching and autonomous defect map are separate dependencies.
+
+## Construction choices and computed outputs
+
+The carrier, software, memory, scheduler and observer actions are declared
+construction choices. The mission requires no proof that they are uniquely
+forced or that OPH is the only possible theory. The complete output of
+that program, including the observers' joint records and all failures,
+is the object to derive. Conditional theorems apply when their stated
+premises are realized by the chosen construction. A target-informed
+setting is a calibration for that comparison; a different output can be
+compared with an independent measurement.
+
+The primitive load-conserving repair does not generate nonzero load from
+a zero-load state. The illustrated memory loop has supplied initial
+occupations, a coherent orientation bit and a three-seam schedule. Its
+selected moving history has weight 1/8, and preserves each Q eigenspace.
+A microscopic state may carry nontrivial holonomy without containing a
+proved localized particle core. A source creation law for a compact
+winding pair must be supplied and its outcomes computed; occupying its
+CAR mode is a distinct operation.

@@ -2,6 +2,26 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+## Finite selection tests and their physical domain
+
+The [phase and attenuation test](../../model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md)
+computes a complete 307-state conserved sector of the actual finite Higgs
+vertex. Its ground energy is `(d-sqrt(d^2+16 Tr(Y^dagger Y)))/2`;
+305 dark states are retained. External minimization favors theta=0 and r=1,
+with a repeated charged action pair. The full spatial interacting ground
+and an autonomous phase register are different requirements. A nonzero
+momentum free-field example proves an interior phase minimum is possible,
+while changing its kinetic scale reverses a phase comparison.
+
+The [event-cost and canonical-dressing proof](../../model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md)
+removes the dimension window from the smallest-positive finite band
+calculation and constructs exact canonical fermions on the full 240-state
+link/occupation carrier. The chosen near-rotation/cooling service is an admissible design input.
+Its execution on the common source, matter-family attachment and physical
+chiral regulator require their own construction proofs. No uniqueness of
+the service or architecture is required. The [first-five dependency table](OPH_FIELD_RECONSTRUCTION.md#source-tests-for-the-first-five-atlas-inputs)
+keeps these requirements separate from the calibrated mass benchmark.
+
 The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
 separates bounded-window survival from a massive spectrum. For the original
 CAR readout on one fixed normalized reference and coupling ratio, with

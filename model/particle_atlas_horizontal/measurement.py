@@ -75,6 +75,100 @@ def finite_robertson(rho, x, p):
             'canonical_CCR_claimed': False}
 
 
+def double_path_construction(phase=0, overlap=1):
+    """Exact supplied two-path input, optional marker, and four-port screen.
+
+    The marker convention is gamma=<d0|d1>. Its normalized states are
+    d0=(1,0), d1=(gamma,sqrt(1-|gamma|^2)). The unused input paths retain
+    complete isometric action, although this preparation gives them zero
+    weight. A screen is a Fourier-output detector in this finite illustration.
+    """
+    phase, overlap = s.sympify(phase), s.sympify(overlap)
+    if phase.has(s.Float) or overlap.has(s.Float):
+        raise ValueError('exact phase and marker overlap are required')
+    if phase.is_real is not True:
+        raise ValueError('a real relative phase is required')
+    modulus_squared = clean(overlap*s.conjugate(overlap))
+    if clean(1-modulus_squared).is_nonnegative is not True:
+        raise ValueError('marker overlap must lie in the closed unit disk')
+    f, _, _, _ = construction()
+    d0 = s.ImmutableMatrix([1, 0])
+    d1 = s.ImmutableMatrix([overlap, s.sqrt(1-modulus_squared)])
+    marker = s.zeros(8, 4)
+    for path, tag in enumerate((d0, d1, d0, d0)):
+        marker[2*path:2*path+2, path] = tag
+    marker = clean(marker)
+    if clean(marker.H*marker) != s.eye(4):
+        raise ArithmeticError('the full marker coupling is not an isometry')
+    psi = s.ImmutableMatrix([1, s.exp(s.I*phase), 0, 0])/s.sqrt(2)
+    state_before_screen = clean(marker*psi)
+    state_at_screen = clean(s.kronecker_product(f, s.eye(2))*state_before_screen)
+    density = clean(state_before_screen*state_before_screen.H)
+    path_density = clean(s.Matrix(4, 4, lambda j, k:
+        sum(density[2*j+r, 2*k+r] for r in range(2))))
+    screen = tuple(clean(sum(state_at_screen[2*k+r]*s.conjugate(state_at_screen[2*k+r])
+                             for r in range(2))) for k in range(4))
+    formula = tuple(clean((1+s.re(overlap*s.exp(s.I*phase)*(-s.I)**k))/4)
+                    for k in range(4))
+    if any(clean(actual-expected) != 0 for actual, expected in zip(screen, formula)):
+        raise ArithmeticError('the marker-overlap interference formula differs')
+    if clean(sum(screen)) != 1:
+        raise ArithmeticError('screen outcomes are incomplete')
+    joint = tuple({'marker_basis_outcome': r, 'screen_outcome': k,
+                   'probability': clean(state_at_screen[2*k+r]*s.conjugate(state_at_screen[2*k+r]))}
+                  for r in range(2) for k in range(4))
+    return {'phase': phase, 'overlap': overlap, 'marker_isometry': marker,
+            'input_state': psi, 'path_density_after_unread_marker': path_density,
+            'joint_pure_state_at_screen': state_at_screen,
+            'screen_probabilities': screen, 'joint_marker_screen_records': joint,
+            'phase_scan_visibility': s.sqrt(modulus_squared)}
+
+
+def double_path_certificate():
+    """Complete graphical records for alternative marked/untagged experiments."""
+    unmarked = double_path_construction(0, 1)
+    marked = double_path_construction(0, 0)
+    shifted = double_path_construction(s.pi, 1)
+    partial = double_path_construction(0, s.Rational(1, 2))
+    return {
+        'schema': 'oph.horizontal_atlas.double_path.v1',
+        'scope': 'supplied finite two-path interference apparatus; not an emergent laboratory double slit',
+        'input_state': '(|0>+exp(i phi)|1>)/sqrt(2)',
+        'same_preparation_in_both_apparatus_branches': True,
+        'fourier_convention': 'F4[k,j]=(-i)^(k*j)/2',
+        'screen_labels': ['D0', 'D1', 'D2', 'D3'],
+        'marker_overlap_convention': 'gamma=<d0|d1>',
+        'screen_formula': 'p_k(phi,gamma)=[1+Re(gamma exp(i phi)(-i)^k)]/4',
+        'visibility': '(max_phi p_k-min_phi p_k)/(max_phi p_k+min_phi p_k)=|gamma|',
+        'visibility_requires_phase_scan_at_fixed_screen_bin': True,
+        'unmarked': {
+            'phase': '0', 'marker_overlap': '1',
+            'screen_probabilities': list(map(str, unmarked['screen_probabilities'])),
+            'path_record_exists': False,
+            'zero_weight_screen_outcomes_retained': [2]},
+        'orthogonal_path_tags': {
+            'phase': '0', 'marker_overlap': '0',
+            'screen_probabilities': list(map(str, marked['screen_probabilities'])),
+            'path_screen_records': [{'path_record': row['marker_basis_outcome'],
+                                     'screen_record': row['screen_outcome'],
+                                     'probability': str(row['probability'])}
+                                    for row in marked['joint_marker_screen_records']],
+            'screen_given_each_path_record': ['1/4']*4,
+            'each_path_record_probability': '1/2',
+            'unread_path_record_suffices': True,
+            'human_observation_required': False,
+            'all_joint_records_retained': True},
+        'unmarked_phase_pi_screen_probabilities': list(map(str, shifted['screen_probabilities'])),
+        'partial_overlap_one_half_screen_probabilities': list(map(str, partial['screen_probabilities'])),
+        'partial_overlap_one_half_phase_scan_visibility': '1/2',
+        'endpoint_record_fields': ['run', 'preparation_phase', 'apparatus_setting',
+                                   'path_record_if_available', 'screen_record'],
+        'consensus_action': 'copy and compare the realized record; preserve its original probability',
+        'source_selected_apparatus_or_particle_identity': False,
+        'postselection_used': False,
+    }
+
+
 def certificate():
     f, psi, px, pk = construction()
     rho = clean(psi*psi.H)
@@ -143,4 +237,5 @@ def certificate():
         'complete_outcomes_retained': True,
         'all_results_are_exact': True,
         'physical_lengths_momenta_or_hbar_calibrated': False,
+        'double_path': double_path_certificate(),
     }

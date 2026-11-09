@@ -2,6 +2,24 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+## Source normalization and protected-sector readout
+
+The [native clock calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
+derives `P B=B(I-L/60)` from all 66 source inputs and sixty seam/coin
+outcomes per input. Complete occupation correlations have exact rates
+`-log((55+sqrt(5))/60)`, `-log(9/10)` and `-log((55-sqrt(5))/60)`.
+A common clock factor cancels from their ratios. This does not identify
+these carrier relaxation modes with charged leptons or implement a
+unitary physical clock. The [first-five dependency table](OPH_FIELD_RECONSTRUCTION.md#source-tests-for-the-first-five-atlas-inputs)
+states the other source-selection requirements.
+
+The native loop preserves each sharp memory charge sector. Its sign
+arises from a selected moving history; every other outcome is retained.
+A localized winding core and a fermion occupying its bound mode are
+separate objects. The [endpoint close-up](OPH_PARTICLE_ATLAS_V2.html)
+shows the literal record-adaptive repair and an exact, supplied double-path
+apparatus. It supplies no source defect-creation law or physical species map.
+
 The [particle-mass response audit](OPH_PARTICLE_MASS_RESPONSE.md) retains the
 source-bound evidence and its tested mass prescriptions. The
 [source particle map](../../model/completion/SOURCE_PARTICLE_MAP.md) gives the

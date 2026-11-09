@@ -2,6 +2,67 @@
 
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
+## Required outputs of a declared construction
+
+The atlas cards distinguish design choices from output derivations.
+Carrier architecture, program, controller, scheduler, preparation, units,
+family multiplicity, regulator and action parameters may be specified.
+A parameter chosen using measured data is calibrated for that comparison;
+this does not invalidate the construction or establish an independent
+prediction. The following output obligations do not require architectural
+uniqueness:
+
+1. Complete preparation, apparatus and detector laws, including all records,
+   failures and retained quantum references, for the same declared program.
+2. Compatible operational position, momentum, time and energy readouts on
+   its actual state, with the hypotheses of the finite theorems verified.
+3. Its interacting field behavior, including the claimed dimension,
+   relativistic regime, chirality and all additional regulator modes.
+4. Observable masses, mixing, scattering and decay laws from that action
+   and state, with physical matching and comparison-data ancestry.
+5. Defect creation and evolution, and a species map preserving charge,
+   spin, statistics, propagation and complete detector responses.
+6. Controlled volume, cutoff, capacity and numerical errors, plus realization
+   of the gravity premises on the same matter/clock construction when claiming
+   the full physical model.
+
+Self-reference is a consistency condition on this construction and its
+records. A realized fixed point must be exhibited where used; closure does
+not substitute for calculating these observable consequences. Conversely,
+a complete calculation for one fixed construction needs no proof that all
+other constructions are impossible.
+
+## Source tests for the first five atlas inputs
+
+The [construction mission](../../model/CONSTRUCTION.md#what-is-being-built)
+allows a declared carrier, software, scheduler, memory and observer actions.
+OPH does not require proof of its own uniqueness or that these construction
+choices are forced. Source-derived output means the complete observer laws
+computed from this fixed instance. Conditional theorems constrain its
+consequences; matching nature tests those consequences. A setting chosen
+using a measured target is labeled as calibration for that comparison.
+
+The [source-selection calculations](../../model/particle_calibration_selection/README.md)
+separate a common unit convention from selection of a physical spectrum.
+Their exact results reuse the configured native memories, finite gauge
+currents, family-band theorem and complete fermion/link construction.
+
+| Input | Derived result | Required physical connection |
+| --- | --- | --- |
+| Phase | The zero-momentum free sea is phase-flat; nonzero momentum can favor an interior phase. The tested complete finite Higgs sector favors zero phase. | A fixed program with an actual phase/interaction prescription, and computation of its observer output. A dynamical phase register is optional. |
+| Attenuation | The free sea and tested Higgs sector favor r=1 under energy minimization. | A retained loss process selected by the source; the fitted r is not recovered by those energy tests. |
+| Capacity response | The exact C-duty coefficient at every attempt horizon has bounded ratios below the lepton targets under a linear mass attachment. | A physical capacity-to-program map and a justified effective observable. Increasing this archive budget alone cannot supply the missing hierarchy. |
+| Clock and units | Native record rates and logarithmic generator gaps have unit-free ratios; one shared positive scale cancels. | Common operational clock and state for the charged action; physical energy conversion for GeV values. |
+| Families and chirality | Per-event cost selects the smallest positive rank-three band without a dimension window. Complete gauge-invariant unitary dressing supplies canonical fermions. | A declared cooling/kinetic program, its matter-family output, spatial chirality and mirror decoupling in the interacting limit. |
+
+These are results on their named source domains, not a proof identifying
+them as one physical theory. The physical phase, attenuation and mass
+predictions are unselected. The atlas's ten cards include overlapping
+program choices and physical identifications; they are not ten independent
+scalar parameters. The [endpoint illustration](OPH_PARTICLE_ATLAS_V2.html)
+separates primitive repair, protected-memory transport, supplied winding
+creation and the complete detector record law.
+
 The [common executable hypothesis](../OPH_EXECUTABLE_HYPOTHESIS.md) and
 [completion DAG](../COMPLETION_PROGRAM.md) place this work inside one target:
 the same source must supply observer clocks, defect identity and energy,

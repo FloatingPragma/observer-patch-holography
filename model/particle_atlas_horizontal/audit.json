@@ -1,4 +1,120 @@
 {
+  "double_path_illustration": {
+    "consensus_action": "copy and compare the realized record; preserve its original probability",
+    "endpoint_record_fields": [
+      "run",
+      "preparation_phase",
+      "apparatus_setting",
+      "path_record_if_available",
+      "screen_record"
+    ],
+    "fourier_convention": "F4[k,j]=(-i)^(k*j)/2",
+    "input_state": "(|0>+exp(i phi)|1>)/sqrt(2)",
+    "marker_overlap_convention": "gamma=<d0|d1>",
+    "orthogonal_path_tags": {
+      "all_joint_records_retained": true,
+      "each_path_record_probability": "1/2",
+      "human_observation_required": false,
+      "marker_overlap": "0",
+      "path_screen_records": [
+        {
+          "path_record": 0,
+          "probability": "1/8",
+          "screen_record": 0
+        },
+        {
+          "path_record": 0,
+          "probability": "1/8",
+          "screen_record": 1
+        },
+        {
+          "path_record": 0,
+          "probability": "1/8",
+          "screen_record": 2
+        },
+        {
+          "path_record": 0,
+          "probability": "1/8",
+          "screen_record": 3
+        },
+        {
+          "path_record": 1,
+          "probability": "1/8",
+          "screen_record": 0
+        },
+        {
+          "path_record": 1,
+          "probability": "1/8",
+          "screen_record": 1
+        },
+        {
+          "path_record": 1,
+          "probability": "1/8",
+          "screen_record": 2
+        },
+        {
+          "path_record": 1,
+          "probability": "1/8",
+          "screen_record": 3
+        }
+      ],
+      "phase": "0",
+      "screen_given_each_path_record": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "screen_probabilities": [
+        "1/4",
+        "1/4",
+        "1/4",
+        "1/4"
+      ],
+      "unread_path_record_suffices": true
+    },
+    "partial_overlap_one_half_phase_scan_visibility": "1/2",
+    "partial_overlap_one_half_screen_probabilities": [
+      "3/8",
+      "1/4",
+      "1/8",
+      "1/4"
+    ],
+    "postselection_used": false,
+    "same_preparation_in_both_apparatus_branches": true,
+    "schema": "oph.horizontal_atlas.double_path.v1",
+    "scope": "supplied finite two-path interference apparatus; not an emergent laboratory double slit",
+    "screen_formula": "p_k(phi,gamma)=[1+Re(gamma exp(i phi)(-i)^k)]/4",
+    "screen_labels": [
+      "D0",
+      "D1",
+      "D2",
+      "D3"
+    ],
+    "source_selected_apparatus_or_particle_identity": false,
+    "unmarked": {
+      "marker_overlap": "1",
+      "path_record_exists": false,
+      "phase": "0",
+      "screen_probabilities": [
+        "1/2",
+        "1/4",
+        "0",
+        "1/4"
+      ],
+      "zero_weight_screen_outcomes_retained": [
+        2
+      ]
+    },
+    "unmarked_phase_pi_screen_probabilities": [
+      "0",
+      "1/4",
+      "1/2",
+      "1/4"
+    ],
+    "visibility": "(max_phi p_k-min_phi p_k)/(max_phi p_k+min_phi p_k)=|gamma|",
+    "visibility_requires_phase_scan_at_fixed_screen_bin": true
+  },
   "family_targets": {
     "charged_leptons": [
       "electron",
@@ -230,7 +346,7 @@
     "apparatus",
     "record"
   ],
-  "html_sha256": "d8fc867f0df65c0a74aa57a256b00f5054fd26851ce4cb4430b9fe5bf46bb8b5",
+  "html_sha256": "bba03315e2a46615b7d018713486d1193b50f205b74e09cc0e093e2feb1abae7",
   "input_sha256": {
     "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
     "Lean/EventAlgebra/OperationalBornBridge.lean": "34d3f92fff2f7cc78ec0353005f379b6177dd7826f24365980a05d65ae7ffcdf",
@@ -557,7 +673,7 @@
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/universe_timeline_viewer.py": "e659adc51660960f4c6b556c206e9bc857074e675a08e444d86a6418d27228cb",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualization_schema.py": "6e3f1c1360cc3b94fe709220677cdaa9e4177fce0a52bd8c50d854e367e5b9e2",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualizer_pack.py": "321a54b79d4b89a895f4b8d21f9611d5d68239c9886c74aa4868ceb3977aaa84",
-    "flagship/from_observer_consensus_to_standard_physics.pdf": "72548ec770a564567768cb787206a97c3734336f08a704ce67136048f5a37bbb",
+    "flagship/from_observer_consensus_to_standard_physics.pdf": "cfb173f8f8c058ec2942c58147a1e035aeb50fb9de5551704990fd32a015a3a5",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -1176,20 +1292,26 @@
     "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
     "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
     "model/particle_atlas_horizontal/FAMILIES.md": "1a2f1b80d71cd691a35e87604c2210f5c24852d5966b3c76d0e0d4c871b74396",
-    "model/particle_atlas_horizontal/MEASUREMENT.md": "1630f3650cab416ab1964483c09fde21e38a94c95501d21aac6cae91c7cd0a97",
+    "model/particle_atlas_horizontal/MEASUREMENT.md": "cb0abdd3952b2fcd607f4612b787298ee571ca13b3bff4352171e97111b96814",
     "model/particle_atlas_horizontal/README.md": "e4d932af21e197a4bde707f60ee05dda9ca14424bba28c7db485d6c5ebc99e93",
-    "model/particle_atlas_horizontal/STORY.md": "377598f94fd43fceffb5e01dc33ba72b2dc28c1932c26e65d2eb18c9093a76f6",
+    "model/particle_atlas_horizontal/STORY.md": "1eae4400513f7c40e25e7ab8eae5524404b18ed972aa36ae83dfeea91237a57c",
     "model/particle_atlas_horizontal/THEOREMS.md": "148e0ee284874c4cfa28403c63d54641af829c6e5744ff6bc8b852927a14a997",
     "model/particle_atlas_horizontal/__init__.py": "c461591d6dece1266c8689d6dde4800fb27009e6cb2f1ff214e87e4387336d2e",
-    "model/particle_atlas_horizontal/build.py": "e665bf0fe6e639a2fe166df85d4b631078c01a25c19b5e7bb0fae8000d8f4589",
-    "model/particle_atlas_horizontal/drawing.py": "aef4a4048bc0ab14c48b4469c676b00c38bcd254b3b0632a2d6a4a79003efbb3",
-    "model/particle_atlas_horizontal/families.json": "b0b77aeed232eb123ba8ff5a40bd0c7d7505590723590aaf87895ffff1f11d56",
-    "model/particle_atlas_horizontal/measurement.py": "8893f0531f662dd2767451dc705bcc376f96178596d050414216c6e580d61005",
+    "model/particle_atlas_horizontal/build.py": "2d7a988b390d1730e31f1d9aa57976d0f43e6e15e6db91e18daf6fea087cae4a",
+    "model/particle_atlas_horizontal/drawing.py": "2628e75b2ca8a0968cb5979c7c7465a4f89e18b05843231703f848aa5908616d",
+    "model/particle_atlas_horizontal/endpoints.py": "566104314a9495fb2269a7958f96e993fad39ee0bbccb46f444635d188655437",
+    "model/particle_atlas_horizontal/families.json": "51c9f9141c660fb382d22f69dd63c4a713ff5ad9fb599cbba87674390dfb6d1d",
+    "model/particle_atlas_horizontal/measurement.py": "67f501bd459c38f9df17cab1d6d4c4100b8082861a2295b34786a64c5a962aab",
     "model/particle_atlas_horizontal/measurement_content.json": "0a2217120d8583c11b930846dd3444e2afde70651993c12c1d6e70675ee6492f",
     "model/particle_atlas_horizontal/story.json": "7f6a88a4b44660bb84cff3bda0b0ef1772e51bdd5169cf77cde0adffcf8aeb73",
     "model/particle_atlas_horizontal/test_build.py": "0b834b0f57be1edc21081f30d1be6401bcdc005c9df884fd92a01105734079c0",
-    "model/particle_atlas_horizontal/test_measurement.py": "b8ef2cfc690f5c3aef16eb8d6ff4b0870f7c31c40cc1f90c6b09f86803c1a48c",
+    "model/particle_atlas_horizontal/test_endpoints.py": "d788b8004bbe0126530958f35d8e55cf4e94cc7ef05ad9bd96e9a7da17a143cf",
+    "model/particle_atlas_horizontal/test_measurement.py": "37e71aedcc2956530ecb4e68dda7833ce556825bea3e5a638836de14b49540fd",
     "model/particle_atlas_horizontal/theorems.json": "9506f36c230717979a9c0a7ff6501de17a9780a1e524d98a6270c5c4e3e08f41",
+    "model/particle_calibration_selection/PROOF_CAPACITY_RESPONSE.md": "2e5bb3d0e40eee2ba261568f8cf64e81ddcb650f153eb12f61559963587007c1",
+    "model/particle_calibration_selection/PROOF_CLOCK_UNITS.md": "66e375091ff6ee1e6a73ab6d4abb9b96e0e79ebcf1716c2b654c7ef883b24dc3",
+    "model/particle_calibration_selection/PROOF_FAMILIES_CHIRALITY.md": "ec4f0e6547e1eeca62793f443c0daff2cf4166a929478b0deac0a15e499b4ac8",
+    "model/particle_calibration_selection/PROOF_PHASE_ATTENUATION.md": "b6813adb3369fc67982b7f8361993aad19b6d40a31449024081b6bca3d5feb7c",
     "model/particle_candidate_atlas/BARE_EFFECTIVE_CONTROLLER.md": "243afefb532214c293780979e2af0c64010891fac40f2bd6a9c5ac6478814dfb",
     "model/particle_candidate_atlas/CALIBRATED_TRIPLET.md": "0e30151498200e4a2682998c1c0ee1d05547357e677dba97dc0ec904517fea42",
     "model/particle_candidate_atlas/CAPACITY_NON_SELECTION.md": "52723adc0de346eed9e136bd0aa488007c91e0234d88f7b6ea422869684317a5",
@@ -1653,7 +1775,7 @@
     "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
     "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "7f66825d059e17b6f5005313e51ea86d3217380cd24cb93f7a48a89b4a493c44",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "ae66a37b8e285d95ec6743aa44acc7a3f6e560a446c221fb01209de573573e5b",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "f3c07b6123df10c66b7fc62665d12f85dc6dfc94e315f6ca5d45d01c4c5fad07",
     "paper/tex_fragments/CENTERED_SOURCE_GROUND.tex": "23458a614872d6384b512b4bc847acc972e616601cb17fb0a266151483326077",
     "paper/tex_fragments/CHARGED_DEFECT_PROTECTED_ALGEBRA.tex": "47eda5d53e9ce9229918c8e159249e7fb07a74b55dce0051cfb5f4ba004d4eff",
     "paper/tex_fragments/COMMON_FIELD_SPIN_PROTECTION.tex": "a09c332b75fb725b95010aa432d93a6bd3a1ed65856a7bd351d18730484df142",
@@ -1678,7 +1800,7 @@
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
   },
   "layout": {
-    "height": "12445",
+    "height": "14805",
     "width": "28000"
   },
   "measurement_illustration": {
@@ -1808,6 +1930,122 @@
     "all_results_are_exact": true,
     "complete_outcomes_retained": true,
     "conditional_state_formula": "rho_r=K_r rho K_r^dagger/p(r), only when p(r)>0",
+    "double_path": {
+      "consensus_action": "copy and compare the realized record; preserve its original probability",
+      "endpoint_record_fields": [
+        "run",
+        "preparation_phase",
+        "apparatus_setting",
+        "path_record_if_available",
+        "screen_record"
+      ],
+      "fourier_convention": "F4[k,j]=(-i)^(k*j)/2",
+      "input_state": "(|0>+exp(i phi)|1>)/sqrt(2)",
+      "marker_overlap_convention": "gamma=<d0|d1>",
+      "orthogonal_path_tags": {
+        "all_joint_records_retained": true,
+        "each_path_record_probability": "1/2",
+        "human_observation_required": false,
+        "marker_overlap": "0",
+        "path_screen_records": [
+          {
+            "path_record": 0,
+            "probability": "1/8",
+            "screen_record": 0
+          },
+          {
+            "path_record": 0,
+            "probability": "1/8",
+            "screen_record": 1
+          },
+          {
+            "path_record": 0,
+            "probability": "1/8",
+            "screen_record": 2
+          },
+          {
+            "path_record": 0,
+            "probability": "1/8",
+            "screen_record": 3
+          },
+          {
+            "path_record": 1,
+            "probability": "1/8",
+            "screen_record": 0
+          },
+          {
+            "path_record": 1,
+            "probability": "1/8",
+            "screen_record": 1
+          },
+          {
+            "path_record": 1,
+            "probability": "1/8",
+            "screen_record": 2
+          },
+          {
+            "path_record": 1,
+            "probability": "1/8",
+            "screen_record": 3
+          }
+        ],
+        "phase": "0",
+        "screen_given_each_path_record": [
+          "1/4",
+          "1/4",
+          "1/4",
+          "1/4"
+        ],
+        "screen_probabilities": [
+          "1/4",
+          "1/4",
+          "1/4",
+          "1/4"
+        ],
+        "unread_path_record_suffices": true
+      },
+      "partial_overlap_one_half_phase_scan_visibility": "1/2",
+      "partial_overlap_one_half_screen_probabilities": [
+        "3/8",
+        "1/4",
+        "1/8",
+        "1/4"
+      ],
+      "postselection_used": false,
+      "same_preparation_in_both_apparatus_branches": true,
+      "schema": "oph.horizontal_atlas.double_path.v1",
+      "scope": "supplied finite two-path interference apparatus; not an emergent laboratory double slit",
+      "screen_formula": "p_k(phi,gamma)=[1+Re(gamma exp(i phi)(-i)^k)]/4",
+      "screen_labels": [
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "source_selected_apparatus_or_particle_identity": false,
+      "unmarked": {
+        "marker_overlap": "1",
+        "path_record_exists": false,
+        "phase": "0",
+        "screen_probabilities": [
+          "1/2",
+          "1/4",
+          "0",
+          "1/4"
+        ],
+        "zero_weight_screen_outcomes_retained": [
+          2
+        ]
+      },
+      "unmarked_phase_pi_screen_probabilities": [
+        "0",
+        "1/4",
+        "1/2",
+        "1/4"
+      ],
+      "visibility": "(max_phi p_k-min_phi p_k)/(max_phi p_k+min_phi p_k)=|gamma|",
+      "visibility_requires_phase_scan_at_fixed_screen_bin": true
+    },
     "finite_position_eigenstate_uncertainty": {
       "Robertson_rhs_squared": "0",
       "canonical_CCR_claimed": false,
@@ -2125,9 +2363,145 @@
       "1/4"
     ]
   },
+  "primitive_endpoint_illustration": {
+    "CAR_excitation_creates_background_winding": false,
+    "all_complete_branches_preserve_each_Q_eigenspace": true,
+    "charge_commutation_columns_checked": 15840,
+    "controller_reads": "phase and previous committed current only",
+    "example_initial_occupied_ports": [
+      0,
+      11
+    ],
+    "initial_state_supplied": true,
+    "loop_C": {
+      "character_on_X_minus": -1,
+      "character_on_X_plus": 1,
+      "history": [
+        [
+          "C",
+          [
+            0,
+            5
+          ],
+          0,
+          1
+        ],
+        [
+          "C",
+          [
+            0,
+            11
+          ],
+          1,
+          2
+        ],
+        [
+          "C",
+          [
+            5,
+            11
+          ],
+          0,
+          1
+        ]
+      ],
+      "initial_pair": [
+        0,
+        11
+      ],
+      "orientation_action": "X",
+      "probability_on_initial_pair": "1/8",
+      "source_history_rank": 1
+    },
+    "loop_E": {
+      "character_on_X_minus": -1,
+      "character_on_X_plus": 1,
+      "history": [
+        [
+          "E",
+          [
+            0,
+            5
+          ],
+          0,
+          5
+        ],
+        [
+          "E",
+          [
+            0,
+            11
+          ],
+          1,
+          6
+        ],
+        [
+          "E",
+          [
+            5,
+            11
+          ],
+          0,
+          5
+        ]
+      ],
+      "initial_pair": [
+        0,
+        11
+      ],
+      "orientation_action": "X",
+      "probability_on_initial_pair": "1/8",
+      "source_history_rank": 1
+    },
+    "loop_is_the_literal_two_event_policy": false,
+    "loop_seam_word_is_supplied": true,
+    "primitive_branches": [
+      {
+        "input_seam_loads": [
+          1,
+          0
+        ],
+        "next_seam": [
+          0,
+          5
+        ],
+        "output_seam_loads": [
+          0,
+          1
+        ],
+        "record": [
+          0,
+          1
+        ],
+        "weight": "1/2"
+      },
+      {
+        "input_seam_loads": [
+          1,
+          0
+        ],
+        "next_seam": [
+          0,
+          1
+        ],
+        "output_seam_loads": [
+          1,
+          0
+        ],
+        "record": [
+          1,
+          0
+        ],
+        "weight": "1/2"
+      }
+    ],
+    "primitive_creates_nonzero_load_from_zero": false,
+    "scope": "literal two-event observer and separate ordered-cover loop",
+    "spatial_topological_defect_creation_derived": false
+  },
   "reference_data_changed": false,
   "schema": "oph.horizontal_particle_atlas.v2",
   "source_physical_identifications": [],
   "source_scientific_experiments_replayed": false,
-  "svg_sha256": "39c8d7c8095e3d3b8650e47c9bef47b1184c2b3bfd6ed5a9a465e5a150626fd2"
+  "svg_sha256": "9785ab1d6e1b4c0c6a0f344fe4ea9a4063afae957d21a82f6d010e082d664b1b"
 }
