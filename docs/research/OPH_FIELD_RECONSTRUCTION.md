@@ -13,6 +13,99 @@ numerical constructions and hierarchy exclusions; the
 [construction contract](../../model/CONSTRUCTION.md#completion-target-and-acceptance-criteria)
 sets the larger observational target.
 
+## Minimum particle comparison dependencies
+
+A comparison of one particle observable requires a narrower construction
+than the full common-theory target. A specified source can supply a
+prediction without a theorem selecting it uniquely among all architectures.
+Its action, reference, clock and continuation must be explicit, and the
+compared observable cannot also set the parameter being tested. The
+Einstein construction and the complete Standard Model are not prerequisites
+for this restricted comparison.
+
+| Step | Depends on | Required result |
+| --- | --- | --- |
+| Source, state and clock | Configured source specifications and admitted preparation | One action and reference, an operational time convention, and any volume or cutoff family used in the claim. Reading configured parameters is allowed. |
+| Symmetry-resolved complete correlators | Source, state and clock | Creators and detectors with stated charge and spatial transformation laws; original probabilities for every success, failure and zero record; controlled correlation and Gram errors. |
+| Spectral sector and dispersion | Complete correlators | A stable pole with nonzero original residue, or the appropriate threshold or resonance observable, together with finite-volume and cutoff errors and the claimed energy-momentum relation. A finite level or positive broad band alone does not supply these conclusions. |
+| Common-clock ratio | Two identified spectral observables on that clock | A ratio with propagated uncertainty. The common time conversion cancels; different references or generators cannot be combined by that cancellation. |
+| Physical comparison | Spectral observable or ratio and its symmetry assignment | A justified species/observable dictionary and an independent measured quantity with matching conventions and uncertainty. A source energy ratio is not a species assignment. |
+
+The dependency chain is `source/state/clock -> complete correlators ->
+spectral sector/dispersion -> common-clock ratio -> physical comparison`.
+A single calibrated energy observable can bypass the ratio step. Connected
+higher-point functions or scattering enter when the claim concerns an
+interaction, width or coupling; a mass ratio does not require a complete
+scattering theory. Electrically charged sectors with an unscreened gauge
+field can have an infrared threshold rather than an isolated mass pole,
+as in [Buchholz's Gauss-law result](https://doi.org/10.1016/0370-2693(86)91110-X).
+A stable neutral sector avoids that particular infrared requirement.
+
+The source constructions supply distinct parts of this chain:
+
+| Construction | Available input to a comparison | Scope of the identification |
+| --- | --- | --- |
+| [Native reflected-record transfer](../../model/native_record_response/TRANSFER.md) and [short-record reconstruction](../../model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md) | Positive finite spectral weights, exact recovery of selective maps, and Gram/insertion error bounds from complete records. | Transfer energies use the reconstructed record clock. The [native clock comparison](../../model/native_clock_comparison/PROOF.md) prevents silently identifying it with the working carrier generator. |
+| [Cubic free field](../../model/continuum_free_limit/README.md) and [ordered-spin field](../../model/spin_canonical_field/README.md) | A controlled free relativistic limit on its specified scaling; a positive-energy canonical spin field with finite propagation on its own reference and clock. | The free construction does not establish a surviving interaction; the ordered-spin result does not establish a sharp relativistic branch. |
+| [Bound pair](../../model/bound_pair/SPECTRUM.md) and [moving pair limit](../../model/moving_bound_pair/README.md) | An isolated two-body upper pole with original contact weight; a separate specified scaling gives a moving quadratic continuum sector. | The fixed-spacing pair's energy/curvature ratio disagrees with the proposed relativistic relation. The two-body reference and shifted, reversed edge clock are explicit in the continuum construction. |
+| [One-dimensional charge gap](../../model/mass_generation_audit/README.md) and [relativistic charge scaling](../../model/hubbard_relativistic_sector/README.md) | An exact source-frame Hubbard join, interaction-generated charge threshold and controlled massive dispersion on a supplied running family. | The half-filled reference, centered charge clock and one-dimensional trajectory are specified. This does not supply a three-dimensional particle identification or a local-CAR pole. |
+
+### Correlation-matrix spectroscopy and a high-field sector
+
+For one positive ground generator, write the connected Euclidean matrix as
+`C_ij(t)=sum_n exp(-E_n t) z_in conjugate(z_jn)`. A positive metric
+`C(t0)` and independent overlaps with the first N states define the
+generalized eigenvalue problem
+
+```
+C(t) u_n = lambda_n(t,t0) C(t0) u_n.
+```
+
+[Blossier et al., sections 2 and 3](https://arxiv.org/abs/0902.1265)
+give effective-energy errors `O(exp[-(E_(N+1)-E_n)t])` for `t0>=t/2`,
+under their separated-level and overlap hypotheses. The finite source
+transfer and [bounded response hierarchy](../../model/spin_dynamical_memory/SPECTRAL_BRANCH.md)
+supply correlation and Gram constructions to which this method applies.
+A certified numerical interval also needs the overlap conditioning,
+tail constants and measurement errors. Large-time exponential decay can
+locate a threshold without proving a pole. Volume and cutoff control are
+separate from finite-matrix eigenvalue convergence.
+
+[Yarotsky's Theorem 4](https://arxiv.org/abs/math-ph/0411042) supplies an
+isolated analytic lattice quasiparticle band for sufficiently small
+finite-range perturbations of a product Hamiltonian with a unique gapped
+ground and a simple onsite excitation outside all multiparticle sums.
+The [declared spin source](../../model/spin_twist_closure/FINITE_FIELD_GAP.md)
+has, after its Marshall and Hadamard changes of frame, the finite-volume form
+
+```
+H_tilde/B + |Lambda| I/2 = sum_x (I-Z_x)/2 + sum_x phi_(x,Lambda),
+phi_x = (J/(4B)) sum_(j=1)^3 (XX-YY-ZZ-I)_(x,x+e_j),
+||phi_x|| <= 3J/B.
+```
+
+Here phi_(x,Lambda) omits bonds exiting Lambda; the bulk grouping counts
+each bond once. The onsite excitation is
+1 and the positive multiparticle sums are 2,3,... . Thus the theorem gives
+a concrete high-field route when `J/B` satisfies its smallness condition;
+no numerical threshold for that condition is asserted. Grouped-star and
+ordinary open-box truncations differ at the boundary, so their ground
+limits require the weak-coupling uniqueness identification. The band uses
+the ground-subtracted generator, with excitation energies multiplied by B
+on returning to source units. Odd lattice translations pull back with an
+internal twist; ordinary even translations are preserved. Analyticity
+does not establish nonflat dispersion or nontrivial scattering. This
+declared high-field family is distinct from the proved joint family
+`B/J=n^-5`, and supplies neither a relativistic mass nor primitive-repair
+selection of its field and reference.
+
+For a claimed lattice scattering sector,
+[Bachmann, Dybalski and Naaijkens, section 4](https://arxiv.org/abs/1412.2970)
+reuse locality and an isolated smooth shell to construct scattering states.
+Their shell and velocity hypotheses are inputs; finite propagation alone
+does not discharge them. These reuse statements leave the canonical
+premise classifications unchanged.
+
 ## The three field constructions and their source boundaries
 
 The sphere occupation field, the relativistic free field and the ordered-spin

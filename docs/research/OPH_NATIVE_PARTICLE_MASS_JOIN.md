@@ -24,6 +24,31 @@ internal weights match the comparison representations, including conjugate
 right-handed components. It supplies no source-selected family indices, physical
 mass eigenstates or topological assignments; those fields are explicitly empty.
 
+## Spectral results to reuse
+
+The [minimum comparison dependencies](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies)
+separate a bounded empirical result from completion of the full particle
+theory. The following order ranks the additional experimental attachment,
+not resemblance to a measured mass spectrum.
+
+| Target | Proved source result | Additional identification needed |
+|---|---|---|
+| Native record relaxation | Two positive-weight poles give the dimensionless logarithmic decay-rate ratio about `2.20334203`; four lag covariances recover the poles in the [exact native calculation](../../model/native_effective_fields/README.md) | A physical realization of the stated stationary preparation, fair scheduler and record detector. The quantity is a relaxation ratio, not a mass ratio. |
+| A moving bound excitation | The [Weyl-contact pair](../../model/bound_pair/README.md) has an isolated pole, positive residue and certified curvature. The [moving continuum construction](../../model/moving_bound_pair/README.md) supplies a reducing isometry, quadratic dispersion and controlled propagation on its separately tuned trajectory | Match the action, preparation, momentum and clock to an experiment. The fixed-spacing pair fails the proposed relativistic rest/kinetic identity; the tuned pair is nonrelativistic. |
+| A physical mass ratio | The [finite charged-core response](../../model/defect_core_response/PROOF.md) has conjugate poles with positive residues, and the [centered cube](../../model/centered_particle_spectrum/README.md) has a complete charged spectrum | Identify two physical branches or controlled thresholds on one reference and clock, with nonvanishing original detector weight and controlled volume/spacing errors. Finite gaps alone do not supply their relativistic masses. |
+
+The Weyl-contact pair carries two units of the supplied CAR number and even
+fermion parity; its disjoint local creators commute, as proved in
+[the same-pair identity calculation](../../model/bound_pair/IDENTITY.md).
+These positive signatures constrain its interpretation without assigning
+electric charge or physical Lorentz spin. The
+[action readout](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+can determine the configured positive `U/c` independently of a proposed
+spectral fit. It supplies neither a capacity-to-action selection law nor
+laboratory units. A bounded comparison of an identified source does not
+require the complete Einstein derivation; identifying that source with
+fundamental matter requires its own physical evidence.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 uses the full 65,536-state centered source at c=1/8,U=1 and proves
 `3/80 I<R*R<61/1000 I` on all sixteen original mode directions. Its

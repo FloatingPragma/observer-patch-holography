@@ -1,5 +1,55 @@
 # Particle construction: source laws, mass operators and physical matching
 
+## Minimum empirical mass target
+
+The [minimum comparison dependencies](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies)
+give the common source-to-observable map. A dimensionless ratio of two
+identified spectral energies avoids an absolute SI energy calibration.
+Calling it a particle-mass ratio additionally requires the appropriate
+energy--momentum interpretation on the same reference and clock. Two stable
+neutral branches offer a narrower target than an entire interacting
+particle catalogue: their source parameters, original spectral weights,
+detector map and volume/spacing errors must be controlled, but a complete
+interacting continuum theory and an Einstein derivation are not prerequisites
+for every bounded flat-space comparison. Parameters or branch labels chosen
+from the target masses do not provide an independent prediction.
+
+The closest constructed bound-particle benchmark is the
+[isolated Weyl-contact pair](../../model/bound_pair/README.md#curvature-and-what-its-mass-means).
+At its band minimum, `E_eta=U`, its contact residue is one and its curvature
+is `kappa=d^2 E/dK_j^2`. Exact rational bounds give
+`R=U kappa/c^2` near `1.06904777858`, with the simpler enclosure
+`17/16<=R<=14/13`. A relativistic branch with this rest energy and limiting
+speed c would require `E(K)^2=U^2+c^2|K-K_eta|^2`, hence `R=1`.
+The proved discrepancy excludes that rest/kinetic identification and
+survives a common change of length and time units. Measuring R after an
+independent action calibration would test the specified lattice excitation;
+agreement would not identify an elementary relativistic particle.
+
+Interaction-generated mass calculations also have an exact result to reuse.
+The [unchanged one-dimensional Weyl chain](../../model/mass_generation_audit/README.md)
+has a positive thermodynamic charge gap at half filling. The
+[relativistic charge construction](../../model/hubbard_relativistic_sector/README.md)
+proves uniform dispersion convergence to
+`E=M cosh(theta)`, `vp=M sinh(theta)` on its stated running family.
+It also constructs different families through the same finite source point
+with any positive limiting M. Thus the shell calculation is available;
+selection of the trajectory, its prepared reference and its physical
+readout is not supplied by that calculation. This one-dimensional theorem
+does not determine a three-dimensional mass spectrum.
+
+Charged targets require an infrared qualification. Under the hypotheses of
+[Buchholz's Gauss-law theorem](https://doi.org/10.1016/0370-2693(86)91110-X),
+an electrically charged state cannot be a mass eigenstate. A controlled
+spectral threshold with inclusive or dressed detectors can therefore be
+the relevant target instead of an isolated pole. The
+[complete-record threshold theorem](../../model/spin_shell_readout/THRESHOLD_READOUT.md)
+retains this option and states the required near-edge weight modulus.
+Neither the theorem's electromagnetic premises nor that continuum modulus
+is inferred from the model's internal charge label. Finite positive gaps,
+conjugate spectral equality and internal multiplet counts remain distinct
+from a physical mass assignment.
+
 The [fixed-source scaling theorem](../../model/source_family_compatibility/MASS_SCALE_SELECTION.md)
 separates bounded-window survival from a massive spectrum. For the original
 CAR readout on one fixed normalized reference and coupling ratio, with

@@ -34,6 +34,34 @@ that kinetic family, without a Standard Model assignment. The default
 interacting source has [nonzero nodal memory](../../model/source_family_compatibility/NODAL_MEMORY.md),
 so its one-body winding does not determine its interacting particle poles.
 
+## Reuse and the comparison contract
+
+Configured simulator parameters are admissible source data. Reading the
+declared action, preparation, scheduler and clock fixes which model is
+being tested. The [collision response](../../model/source_family_compatibility/BULK_ACTION_IDENTIFICATION.md)
+independently reads its configured contact ratio from complete records.
+Such reconstruction verifies an operational parameter map; a capacity law
+requires the implementation's rule for how the action, state and clock
+depend on capacity. A calibrated coefficient is identified as an input,
+with comparison data kept separate from outputs claimed as predictions.
+
+The [minimum particle-comparison dependencies](OPH_FIELD_RECONSTRUCTION.md#minimum-particle-comparison-dependencies)
+concern one selected sector on a common source, state and clock, with an
+observable map from complete source records to the compared spectral
+quantity. A dimensionless mass or energy ratio is a compact target: its
+meaning requires the stated particle or sector attachment and controlled
+readout errors, while a common absolute unit cancels. This comparison does
+not require a unique choice among all admissible architectures, a full
+Standard Model spectrum, or a gravitational scale derivation.
+
+Reuse preserves each theorem's actual source and observation domain. A
+finite transfer spectrum, a spatial stiffness spectrum and a charged
+Hamiltonian response support different comparison maps; matching their
+dimensions does not identify their states or clocks. The linked owning
+proofs supply public evidence. Private calculations without an imported,
+checked source attachment supply candidate methods rather than additional
+public conclusions.
+
 ## Position selection from the same field
 
 The [position construction](../../model/spin_covariant_localization/CONTINUUM_POSITION.md)
