@@ -120,6 +120,19 @@ controlled by the unresolved memory kernel. A positive subcontact-band bound
 is derived on the actual source; its fixed source-energy window does not
 become a bounded physical-energy window under ballistic scaling.
 
+The [actual locality comparison](NODAL_LOCALITY.md) turns a positive nodal
+atom into positive original weight in a bounded physical-energy window
+for packets supported within O(a) of a node on the fixed-reference ballistic family. A certified atom floor supplies
+computable spacing and score-error budgets. The converse follows from the
+necessary-atom theorem; actual atom positivity and dispersion remain open.
+The [full-CAR spin/eta star](NODAL_MOMENT_BOUNDS.md) uses eight mutually
+canonical orbitals and retains every occupation sector. The two signs of
+the weak couplings bound both endpoints of the affine force Gram, giving
+`G(k)<=c^2(31+sqrt(577))/4` everywhere. The original atom ceiling and every
+packet's ballistic fixed-window limsup are therefore at most
+`(31+sqrt(577))/(95+sqrt(577))` at U/c=8, without assuming a gap or fitting
+a mass.
+
 The [complete Lorentzian instrument](SPECTRAL_WINDOW_ACCESS.md) reads a
 bounded spectral score with explicit time, boundary, marginal and service
 errors. A single local pressure perturbation certifies the score uniformly

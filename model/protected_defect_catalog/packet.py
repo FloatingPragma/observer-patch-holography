@@ -13,6 +13,7 @@ from model.source_family_compatibility import hole_records, hole_dispersion, loc
 from model.source_family_compatibility import momentum_response, charge_escape, uv_tail, local_spectral
 from model.source_family_compatibility import kinetic_nodes, nodal_memory, ground_marginals, cube_memory
 from model.source_family_compatibility import nodal_channels, spectral_residue, spectral_window_access
+from model.source_family_compatibility import nodal_locality, nodal_moment_bounds
 from . import pauli, charge, field, mechanism
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -147,9 +148,9 @@ def rows():
          'protected_object':'odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair',
          'completeness':'complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive',
          'preparation_readout':'local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin',
-         'propagation_energy':'same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; no shrinking physical-energy window is supplied',
+         'propagation_energy':'same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; locality makes positive nodal atom equivalent to bounded physical-window survival for packets supported within O(a) of a node on one fixed normalized reference, but actual atom positivity remains unproved',
          'topology':'source U1 charge grading, without an assigned winding invariant or Standard Model charge',
-         'boundary':'the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established',
+         'boundary':'the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established',
          'evidence':'model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md',
          'same_object_realizations':['model/source_family_compatibility/LOCAL_MATTER_READOUT.md',
                                      'model/source_family_compatibility/COMPOSITE_CAR.md',
@@ -166,7 +167,9 @@ def rows():
                                      'model/source_family_compatibility/CUBE_MEMORY.md',
                                      'model/source_family_compatibility/NODAL_CHANNELS.md',
                                      'model/source_family_compatibility/SPECTRAL_RESIDUE.md',
-                                     'model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md']},
+                                     'model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md',
+                                     'model/source_family_compatibility/NODAL_LOCALITY.md',
+                                     'model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md']},
         {'id':'kinetic_Weyl_nodes_and_free_fields', 'kind':'kinetic_topology_and_conditional_field_map',
          'source':'original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))',
          'protected_object':'eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields',
@@ -354,7 +357,9 @@ def centered_matter_attachment():
         'full_cube_frequency_dependent_memory':serialize(cube_memory.certificate()),
         'actual_nodal_scalar_channels':serialize(nodal_channels.certificate()),
         'actual_spectral_residue_and_subcontact_band':serialize(spectral_residue.certificate()),
-        'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate())}
+        'complete_Lorentzian_window_access':serialize(spectral_window_access.certificate()),
+        'actual_nodal_locality_and_window_survival':serialize(nodal_locality.certificate()),
+        'uniform_full_CAR_star_force_bound':serialize(nodal_moment_bounds.certificate())}
     if any(canonical(value)!=canonical(parent[key]) for key,value in local_energy.items()):
         raise ValueError('centered-matter local energy or momentum receipt differs from the replay')
     if (local_energy['actual_cubic_momentum_response']['continuum_poles_or_physical_species_derived']is not False
@@ -390,6 +395,29 @@ def centered_matter_attachment():
             or access['uniform_shrinking_window_weight_proved']is not False
             or access['effective_growing_ground_marginal_modulus_proved']is not False):
         raise ValueError('centered-matter spectral access exceeds its preparation scope')
+    locality=local_energy['actual_nodal_locality_and_window_survival']
+    plan=locality['conditional_example']
+    if (locality['physical_mass_assigned']is not None
+            or any(locality[name]is not False for name in (
+                'actual_nodal_atom_positivity_proved','sharp_dispersion_proved',
+                'growing_native_instrument_executed'))
+            or any(plan[name]is not False for name in (
+                'actual_nodal_atom_lower_proved','native_growing_readout_error_met',
+                'positive_energy_annulus_proved','dispersion_or_particle_identification_proved'))
+            or plan['same_normalized_reference_at_every_spacing_required']is not True
+            or plan['zero_energy_included']is not True):
+        raise ValueError('centered-matter locality promotes its conditional window scope')
+    star=local_energy['uniform_full_CAR_star_force_bound']
+    budget=star['source_moment_budget']
+    if (star['physical_species_identified']!=[] or star['physical_mass_prediction']is not None
+            or budget['physical_species_identified']!=[] or budget['physical_mass_prediction']is not None
+            or any(star[name]is not False for name in (
+                'spin_only_ground_or_antiferromagnetic_order_assumed',
+                'universal_local_bound_attained_in_the_actual_infinite_ground',
+                'native_large_tape_executed'))
+            or any(budget[name]is not False for name in (
+                'actual_zero_atom_positive_proved','source_eighth_moment_computed'))):
+        raise ValueError('centered-matter star bounds promote their one-sided source scope')
     if (canonical(local)!=canonical(parent['local_interacting_matter_history'])
             or canonical(bands)!=canonical(parent['centered_original_charged_bands'])
             or canonical(dressed)!=canonical(parent['source_generated_composite_CAR_response'])

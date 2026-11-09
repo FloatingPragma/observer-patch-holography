@@ -125,10 +125,18 @@ an [original-weight necessity test](../../model/source_family_compatibility/SPEC
 Under c=v/a, normalized packets supported within `aK` of the actual magnetic
 node have limsup weight in any bounded physical-energy window at most
 `mu({0})=m0/(16+m0)`. Vanishing packet weight outside that cap is allowed.
-If m0=0, their finite-energy original CAR response vanishes. Positive m0 is
-necessary, not sufficient, for a surviving branch: dispersion and uniform
-momentum/frequency control remain required. This statement fixes the
-c-normalized reference; it does not transfer to arbitrary a-dependent
+If m0=0, their finite-energy original CAR response vanishes. The
+[source locality and Bernstein bound](../../model/source_family_compatibility/NODAL_LOCALITY.md)
+gives the converse for bounded-window weight: a positive nodal atom
+retains uniformly positive original weight in some bounded physical-energy
+window. A certified atom floor gives an explicit spacing and score-error
+budget. This does not supply positive-energy dispersion or a particle.
+The [full-CAR spin/eta star](../../model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md)
+also gives the all-momentum bound `G(k)<=c^2(31+sqrt(577))/4`. At U/c=8,
+the nodal atom and every original packet's ballistic fixed-window limsup
+are at most `(31+sqrt(577))/(95+sqrt(577))`. The atom's positivity remains
+unproved. These statements fix the
+c-normalized reference; they do not transfer to arbitrary a-dependent
 ground choices without an additional uniform estimate.
 
 The [default-cube certificate](../../model/source_family_compatibility/CUBE_RESPONSE.md)

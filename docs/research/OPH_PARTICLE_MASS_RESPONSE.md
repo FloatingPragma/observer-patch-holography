@@ -189,6 +189,18 @@ zero broadening. For c=1,U=8 and packets with
 fixed-source event includes zero; multiplying the window by c does not
 produce a finite ballistic mass scale.
 
+The [nodal locality comparison](../../model/source_family_compatibility/NODAL_LOCALITY.md)
+makes positive original bounded-window survival equivalent to a positive
+actual node atom on one fixed normalized ground. A certified lower atom
+bound gives explicit spacing and score-error budgets; none is supplied
+by a finite positive memory value alone. The [full-CAR star inequality](../../model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md)
+gives `G(k)<=c^2(31+sqrt(577))/4` on all momenta. The resulting upper
+atom bound `(31+sqrt(577))/(95+sqrt(577))` also bounds every original
+packet's ballistic fixed-window limsup at U/c=8.
+Both statements concern original spectral probability. They assign no rest
+mass, positive-energy pole or physical particle; a surviving window may
+include only zero energy.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 uses the full 65,536-state centered source at c=1/8,U=1. Its certified
 composite residual satisfies `3/80 I<R*R<61/1000 I` on all sixteen mode

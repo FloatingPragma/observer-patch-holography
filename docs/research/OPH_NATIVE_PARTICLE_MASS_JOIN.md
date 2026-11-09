@@ -39,7 +39,8 @@ On the specified proper-cubic average of the invariant full ground, the
 reduces the first composite block to `C(k)=kappa h(k)`. Three local
 spin/eta correlations determine kappa, g0 and g2, with force Gram
 `G(k)=[g0+2g2 sum_j cos(2k_j)] I` and residual `R*R=G-C^2`.
-The same source proves `G<=18c^2 I`. The momentum is that of actual
+The full-CAR paired-star bound below gives
+`G<=c^2(31+sqrt(577))/4 I`. The momentum is that of actual
 two-step magnetic translations, while the cube sign patterns are finite
 preparation profiles. Neither the three correlations nor this Gram
 specifies the full frequency-dependent memory.
@@ -70,8 +71,21 @@ joint frequency/momentum scaling modulus or shrinking-window weight.
 For one fixed selected c=1,U=8 ground under c=v/a, any normalized packet
 concentrating within `aK` of the magnetic node has limsup original weight
 in a bounded physical-energy window at most `m0/(16+m0)`. Thus m0=0
-excludes that original-CAR branch, while m0>0 alone supplies neither
-finite-energy dispersion nor a particle. This necessity theorem uses the
+excludes that original-CAR branch. The [locality comparison](../../model/source_family_compatibility/NODAL_LOCALITY.md)
+proves sufficiency for bounded-window survival when m0>0: the actual
+retarded kernel is a contraction, its Fourier tail follows from the
+existing odd-field cut estimate, and matrix Bernstein bounds control
+momentum and imaginary frequency together. A known atom floor gives
+computable spacing, energy-window and complete-score error budgets.
+This supplies neither a nonzero-energy dispersion law nor a particle.
+The [source spin/eta star bound](../../model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md)
+uses eight mutually canonical orbitals without excluding occupation sectors.
+The two signs of its weak couplings bound both endpoints of the affine
+symbol, giving `G(k)<=rho c^2` everywhere, `rho=(31+sqrt(577))/4`.
+Thus `r2=R*R(k_*)/c^2<=rho`; the nodal atom and every original packet's
+ballistic fixed-window limsup are at most
+`rho/(16+rho)=(31+sqrt(577))/(95+sqrt(577))` at U/c=8. This is an upper
+bound and proves no surviving atom. These results use the
 same c-normalized reference at every a; arbitrary a-dependent state choices
 require their own uniform control.
 
@@ -128,8 +142,10 @@ therefore needs a controlled branch on this shrinking dimensionless
 scale, with nonvanishing weight and appropriate momentum dependence.
 The theorem neither selects U/c nor proves a volume-uniform charged gap.
 At the literal ratio U/c=8, the
-[original-response escape bound](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md)
-bounds the limsup low-energy weight by `9/17` under ballistic scaling
+[original-response escape argument](../../model/source_family_compatibility/LOCAL_CHARGE_ESCAPE.md),
+with the [paired-star estimate](../../model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md),
+bounds the limsup low-energy weight by
+`(31+sqrt(577))/(95+sqrt(577))` under ballistic scaling
 on the cubic-invariant
 reference, uniformly over normalized spatial packets. The unfiltered
 unit-normalized response cannot have a ballistic clock limit continuous
@@ -166,7 +182,8 @@ Use rigorous moment enclosures or an explicit trial-polynomial pressure
 bound. All-ground pressure bounds need not isolate a selected state's
 moments, and a positive finite upper bound does not prove a positive atom.
 
-The next target keeps momentum and frequency together. For c=v/a, set
+The locality theorem supplies the conditional momentum/frequency comparison.
+For c=v/a, set
 `eta_a=a tau/v` and
 `Q_a(tau,p)=-eta_a Im G_unit(i eta_a,k_*+a p)`.
 Test the chosen normalized coefficient or packet direction, retaining
@@ -175,6 +192,11 @@ all original outcomes. A uniform bound `Q_a>=q_*>t`,
 `(q_*-t)/(1-t)` in `[0,N tau]`. The bound and its total error must hold
 on the requested momentum region as a decreases; fixed-eta continuity
 is insufficient. This event can include zero energy.
+
+Once a certified positive atom floor is supplied, the locality theorem
+constructs such a bounded-window margin for sufficiently large fixed tau.
+The next unresolved spectral target excludes zero or narrows the energy
+tube; the source atom itself has not yet been proved positive.
 
 To exclude zero, use two [complete Lorentzian scores](../../model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md):
 `D_a=Q_a(tau,p)-Q_a(epsilon tau,p)`, `0<epsilon<1`.

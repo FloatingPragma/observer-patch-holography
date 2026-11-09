@@ -43,8 +43,13 @@ contain a particle branch.
 On the interacting centered source, [actual nodal symmetries](../source_family_compatibility/NODAL_CHANNELS.md)
 map all eight original valley probes to one even scalar nodal measure,
 using the actual preparation's inversion symmetry. The spectral measure
-is defined at every momentum, but its
-low-energy scaling remains unresolved. The [complete spectral instrument](../source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
+is defined at every momentum. The [actual locality estimate](../source_family_compatibility/NODAL_LOCALITY.md)
+makes positive nodal atom equivalent to survival in some bounded physical
+energy window for packets supported within O(a) of a node on one fixed normalized reference. A certified positive
+atom floor gives a computable conditional window budget; actual positivity
+is unproved and the window includes zero. The [full-CAR paired-star bound](../source_family_compatibility/NODAL_MOMENT_BOUNDS.md)
+bounds the original atom and every packet's ballistic fixed-window limsup by
+`(31+sqrt(577))/(95+sqrt(577))`. Neither bound identifies a particle pole. The [complete spectral instrument](../source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md)
 provides a measurable score with explicit errors and a ground-pressure
 certificate. On the separate prepared collective family, [directed caps](../spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md)
 retain positive original weight in each charge and momentum direction.

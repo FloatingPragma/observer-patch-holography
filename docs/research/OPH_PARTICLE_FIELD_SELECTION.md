@@ -177,6 +177,19 @@ zero-energy component, not its total Gram. A positive bound below the
 atomic contact scale is proved for a fixed unit-hopping nodal window;
 zero is included and the window does not shrink under ballistic scaling.
 
+The [actual locality estimate](../../model/source_family_compatibility/NODAL_LOCALITY.md)
+now supplies an explicit Lorentzian comparison of nearby momenta:
+`||Q_eta(k)-Q_eta(k_*)||<=C d[1+log(1/d)+c/eta]`, `d=||k-k_*||_1<=1`.
+Together with the necessary-atom theorem, a positive nodal atom is
+equivalent to original bounded-energy window survival on the fixed
+normalized ground family. This is not a dispersion or a source selection
+principle. A [full-CAR weighted spin/eta star](../../model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md)
+bounds the full momentum Gram and the atom by
+`G(k)<=c^2(31+sqrt(577))/4` and `(31+sqrt(577))/(95+sqrt(577))`, respectively.
+The latter also bounds every original packet's ballistic fixed-window
+limsup at U/c=8. The actual atom value and
+the interacting relativistic limit remain unproved.
+
 The [default-cube response](../../model/source_family_compatibility/CUBE_RESPONSE.md)
 proves `3/80 I<R*R<61/1000 I` on all sixteen mode directions of the full
 65,536-state source. The [complete finite clock](../../model/source_family_compatibility/CUBE_SPECTRUM.md)

@@ -186,11 +186,11 @@ The [Standard Model comparison table](../standard_model_source_map/PARTICLE_MAP.
 
 **Preparation and readout:** local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin.
 
-**Propagation and energy:** same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; no shrinking physical-energy window is supplied.
+**Propagation and energy:** same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; locality makes positive nodal atom equivalent to bounded physical-window survival for packets supported within O(a) of a node on one fixed normalized reference, but actual atom positivity remains unproved.
 
 **Topology:** source U1 charge grading, without an assigned winding invariant or Standard Model charge.
 
-**Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established.
+**Boundary:** the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established.
 
 [Owning proof or construction](../../model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md).
 

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1293,
+  "surface_count": 1295,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4626,7 +4626,17 @@
       "allowlisted": false
     },
     {
+      "path": "model/source_family_compatibility/NODAL_LOCALITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/source_family_compatibility/NODAL_MEMORY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

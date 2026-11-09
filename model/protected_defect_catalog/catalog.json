@@ -4665,6 +4665,73 @@
       },
       "uniform_Y_Gram_over_c_squared_upper": "18"
     },
+    "actual_nodal_locality_and_window_survival": {
+      "Fourier_tail_constant": 6709248,
+      "actual_nodal_atom_positivity_proved": false,
+      "actual_source_control": {
+        "actual_CAR_modes": 4,
+        "actual_Fock_dimension": 16,
+        "both_signed_charge_measures_retained": true,
+        "each_local_addition_and_removal_weight": "1/2",
+        "eta": "1",
+        "finite_dimer_replaces_thermodynamic_reference": false,
+        "native_tape_executed": false,
+        "original_Lorentzian_interval": [
+          "7994456731/10000000000",
+          "1998614183/2500000000"
+        ],
+        "retarded_response_is_not_assumed_unitary": true,
+        "retarded_second_moment_minus_first_square": "1/4",
+        "retarded_total_matrix_mass_identity": true,
+        "source_U": "1",
+        "source_c": "1/8"
+      },
+      "atom_positivity_equivalent_to_bounded_window_survival_on_fixed_reference": true,
+      "conditional_example": {
+        "actual_nodal_atom_lower_proved": false,
+        "admitted_atom_ceiling_exact": "(31+sqrt(577))/(95+sqrt(577))",
+        "assumed_nodal_atom_lower": "1/100",
+        "complete_score_error_allowance": "1/800",
+        "dispersion_or_particle_identification_proved": false,
+        "dyadic_distance_power": 18,
+        "fixed_normalized_source_U": "8",
+        "fixed_normalized_source_c": "1",
+        "inferred_original_window_weight_lower": "101337/32768000",
+        "joint_frequency_momentum_error_upper": "787/409600",
+        "measured_score_lower_if_allowance_met": "2797/409600",
+        "native_growing_readout_error_met": false,
+        "original_Lorentzian_score_lower": "3309/409600",
+        "original_window_weight_lower": "917309/163840000",
+        "packet_radius_l1_coefficient": "1",
+        "physical_Lorentzian_scale": "235200",
+        "physical_energy_window": [
+          "0",
+          "4704000"
+        ],
+        "physical_velocity_scale": "1",
+        "positive_energy_annulus_proved": false,
+        "same_normalized_reference_at_every_spacing_required": true,
+        "spacing_upper": "1/262144",
+        "window_multiplier": 20,
+        "zero_energy_included": true
+      },
+      "cutoff_example": {
+        "cell_radius": 52,
+        "ground_clustering_assumed": false,
+        "matrix_components": 16,
+        "original_response_tail_upper": "819/1048576",
+        "requested_accuracy": "1/1000",
+        "source_coupling": "1",
+        "source_duration": "1/4"
+      },
+      "growing_native_instrument_executed": false,
+      "joint_modulus_example": "781000779/500000000000",
+      "natural_log_2_lower_bound": "2/3",
+      "periodic_cell_matrix_components": 16,
+      "physical_mass_assigned": null,
+      "sharp_dispersion_proved": false,
+      "source": "same centered full CAR source, fixed c=1,U=8 selected reference"
+    },
     "actual_nodal_response_memory": {
       "Gram_range_ball_sites": 129,
       "complete_source_force_preparation": {
@@ -21871,6 +21938,5513 @@
     },
     "state": "particle-hole and hidden-spin invariant centered thermodynamic ground subsequence",
     "topological_invariant_assigned": false,
+    "uniform_full_CAR_star_force_bound": {
+      "exact_complete_spin_stars": [
+        {
+          "all_65536_states_diagonalized_as_one_dense_matrix": false,
+          "all_active_spin_dimension": 256,
+          "all_active_spin_minimum_energy_multiplicity": 7,
+          "coupled_blocks": [
+            {
+              "F_equals_j_minus1_energy": "2",
+              "F_equals_j_plus1_energy": "7/2",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                26,
+                -368
+              ],
+              "weak_spin_multiplicity": 9,
+              "weak_total_spin": 1
+            },
+            {
+              "F_equals_j_minus1_energy": "3/2",
+              "F_equals_j_plus1_energy": "4",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                26,
+                -384
+              ],
+              "weak_spin_multiplicity": 5,
+              "weak_total_spin": 2
+            },
+            {
+              "F_equals_j_minus1_energy": "1",
+              "F_equals_j_plus1_energy": "9/2",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                26,
+                -408
+              ],
+              "weak_spin_multiplicity": 1,
+              "weak_total_spin": 3
+            }
+          ],
+          "exact_characteristic_factors_for_4H": [
+            {
+              "coefficients": [
+                1,
+                -18
+              ],
+              "multiplicity": 9
+            },
+            {
+              "coefficients": [
+                1,
+                -16
+              ],
+              "multiplicity": 35
+            },
+            {
+              "coefficients": [
+                1,
+                -14
+              ],
+              "multiplicity": 45
+            },
+            {
+              "coefficients": [
+                1,
+                -12
+              ],
+              "multiplicity": 15
+            },
+            {
+              "coefficients": [
+                1,
+                -8
+              ],
+              "multiplicity": 9
+            },
+            {
+              "coefficients": [
+                1,
+                -6
+              ],
+              "multiplicity": 15
+            },
+            {
+              "coefficients": [
+                1,
+                -4
+              ],
+              "multiplicity": 5
+            },
+            {
+              "coefficients": [
+                1,
+                26,
+                -408
+              ],
+              "multiplicity": 7
+            },
+            {
+              "coefficients": [
+                1,
+                26,
+                -384
+              ],
+              "multiplicity": 25
+            },
+            {
+              "coefficients": [
+                1,
+                26,
+                -368
+              ],
+              "multiplicity": 27
+            },
+            {
+              "coefficients": [
+                1,
+                36
+              ],
+              "multiplicity": 5
+            }
+          ],
+          "full_CAR_bound_uses_type_blocks_and_maximally_mixed_extension": true,
+          "full_eight_orbital_CAR_dimension": 65536,
+          "magnetization_block_dimensions": [
+            1,
+            8,
+            28,
+            56,
+            70,
+            56,
+            28,
+            8,
+            1
+          ],
+          "minimum_energy_exact": "(-13-sqrt(577))/4",
+          "weak_coupling_sign": 1,
+          "weak_spin_zero_actual_energies": [
+            "-9",
+            "3"
+          ],
+          "weak_spin_zero_multiplicity": 5
+        },
+        {
+          "all_65536_states_diagonalized_as_one_dense_matrix": false,
+          "all_active_spin_dimension": 256,
+          "all_active_spin_minimum_energy_multiplicity": 7,
+          "coupled_blocks": [
+            {
+              "F_equals_j_minus1_energy": "4",
+              "F_equals_j_plus1_energy": "5/2",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                22,
+                -512
+              ],
+              "weak_spin_multiplicity": 9,
+              "weak_total_spin": 1
+            },
+            {
+              "F_equals_j_minus1_energy": "9/2",
+              "F_equals_j_plus1_energy": "2",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                22,
+                -528
+              ],
+              "weak_spin_multiplicity": 5,
+              "weak_total_spin": 2
+            },
+            {
+              "F_equals_j_minus1_energy": "5",
+              "F_equals_j_plus1_energy": "3/2",
+              "F_equals_j_scaled4_characteristic_coefficients": [
+                1,
+                22,
+                -552
+              ],
+              "weak_spin_multiplicity": 1,
+              "weak_total_spin": 3
+            }
+          ],
+          "exact_characteristic_factors_for_4H": [
+            {
+              "coefficients": [
+                1,
+                -20
+              ],
+              "multiplicity": 5
+            },
+            {
+              "coefficients": [
+                1,
+                -18
+              ],
+              "multiplicity": 15
+            },
+            {
+              "coefficients": [
+                1,
+                -16
+              ],
+              "multiplicity": 9
+            },
+            {
+              "coefficients": [
+                1,
+                -12
+              ],
+              "multiplicity": 15
+            },
+            {
+              "coefficients": [
+                1,
+                -10
+              ],
+              "multiplicity": 45
+            },
+            {
+              "coefficients": [
+                1,
+                -8
+              ],
+              "multiplicity": 35
+            },
+            {
+              "coefficients": [
+                1,
+                -6
+              ],
+              "multiplicity": 9
+            },
+            {
+              "coefficients": [
+                1,
+                22,
+                -552
+              ],
+              "multiplicity": 7
+            },
+            {
+              "coefficients": [
+                1,
+                22,
+                -528
+              ],
+              "multiplicity": 25
+            },
+            {
+              "coefficients": [
+                1,
+                22,
+                -512
+              ],
+              "multiplicity": 27
+            },
+            {
+              "coefficients": [
+                1,
+                36
+              ],
+              "multiplicity": 5
+            }
+          ],
+          "full_CAR_bound_uses_type_blocks_and_maximally_mixed_extension": true,
+          "full_eight_orbital_CAR_dimension": 65536,
+          "magnetization_block_dimensions": [
+            1,
+            8,
+            28,
+            56,
+            70,
+            56,
+            28,
+            8,
+            1
+          ],
+          "minimum_energy_exact": "(-11-sqrt(673))/4",
+          "weak_coupling_sign": -1,
+          "weak_spin_zero_actual_energies": [
+            "-9",
+            "3"
+          ],
+          "weak_spin_zero_multiplicity": 5
+        }
+      ],
+      "full_CAR_sign_and_inactive_leaf_controls": [
+        {
+          "complete_local_type_blocks_checked": 8,
+          "full_Fock_dimension": 64,
+          "inactive_leaf_multiplicities_retained": true,
+          "two_leaf_minimum_exact": "-(3+2sqrt(3))/4",
+          "weak_coupling_sign": 1
+        },
+        {
+          "complete_local_type_blocks_checked": 8,
+          "full_Fock_dimension": 64,
+          "inactive_leaf_multiplicities_retained": true,
+          "two_leaf_minimum_exact": "-(1+2sqrt(7))/4",
+          "weak_coupling_sign": -1
+        }
+      ],
+      "global_default_escape_liminf_strict_lower": "8/15",
+      "global_default_fixed_window_limsup_strict_upper": "7/15",
+      "local_spin_eta_doublets": {
+        "both_staggered_eta_signs_checked": true,
+        "eta_doublet_rank": 2,
+        "local_Fock_dimension": 4,
+        "occupation_sectors_discarded": false,
+        "spin_doublet_rank": 2
+      },
+      "minus_endpoint_upper_exact": "(29+sqrt(673))/4",
+      "native_large_tape_executed": false,
+      "physical_mass_prediction": null,
+      "physical_species_identified": [],
+      "plus_endpoint_upper_exact": "(31+sqrt(577))/4",
+      "same_centered_cubic_full_CAR_source": true,
+      "source_Hplus_Hminus_complete_Pauli_score_plans": [
+        {
+          "all_plus_minus_outcomes_retained": true,
+          "score_absolute_bound": "117/2",
+          "setting_probabilities": [
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468"
+          ],
+          "terms": [
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                5
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                8
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                9
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                10
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                21,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                22,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                23,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                22,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                23,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                24,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                23,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                24,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                25,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                24,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                25,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                26,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                28,
+                29
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                28,
+                30
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                29,
+                30
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                28,
+                31
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                29,
+                31
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                30,
+                31
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                32,
+                33
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                32,
+                34
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                33,
+                34
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                32,
+                35
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                33,
+                35
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                34,
+                35
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                36,
+                37
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                36,
+                38
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                37,
+                38
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                36,
+                39
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                37,
+                39
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                38,
+                39
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                40,
+                41
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                40,
+                42
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                41,
+                42
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                40,
+                43
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                41,
+                43
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                42,
+                43
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                44,
+                45
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                44,
+                46
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                45,
+                46
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                44,
+                47
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                45,
+                47
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                46,
+                47
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                1,
+                48,
+                49
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                2,
+                48,
+                50
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                2,
+                49,
+                50
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                0,
+                3,
+                48,
+                51
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                1,
+                3,
+                49,
+                51
+              ]
+            },
+            {
+              "coefficient": "1/8",
+              "majorana_indices": [
+                2,
+                3,
+                50,
+                51
+              ]
+            }
+          ],
+          "zero_observable_identity_record": false
+        },
+        {
+          "all_plus_minus_outcomes_retained": true,
+          "score_absolute_bound": "117/2",
+          "setting_probabilities": [
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/234",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468",
+            "1/468"
+          ],
+          "terms": [
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                5
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                6
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                7
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                7
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                8
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                8
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                9
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                10
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                10
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                11
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                11
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                12
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                12
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                13
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                13
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                14
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                14
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                15
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                15
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                16
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                16
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                17
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                17
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                18
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                18
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                19
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                19
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                20
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                20
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                21
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                21
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                22
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                22
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                23
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                23
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                5,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                6,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                7,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                9,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                10,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                11,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                13,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                14,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                15,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                17,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                18,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                19,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                1,
+                21,
+                24
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                3,
+                22,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                2,
+                23,
+                24
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                4,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                6,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                7,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                8,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                10,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                11,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                12,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                14,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                15,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                16,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                18,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                19,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                20,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                3,
+                22,
+                25
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                2,
+                23,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                1,
+                24,
+                25
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                4,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                5,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                7,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                8,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                9,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                11,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                12,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                13,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                15,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                16,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                17,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                19,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                20,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                21,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                2,
+                3,
+                23,
+                26
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                1,
+                3,
+                24,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                0,
+                3,
+                25,
+                26
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                4,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                5,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                6,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                8,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                9,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                10,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                12,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                13,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                14,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                16,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                17,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                18,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                20,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                21,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                22,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/4",
+              "majorana_indices": [
+                1,
+                2,
+                24,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                0,
+                2,
+                25,
+                27
+              ]
+            },
+            {
+              "coefficient": "1/4",
+              "majorana_indices": [
+                2,
+                3,
+                26,
+                27
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                28,
+                29
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                28,
+                30
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                29,
+                30
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                28,
+                31
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                29,
+                31
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                30,
+                31
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                32,
+                33
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                32,
+                34
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                33,
+                34
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                32,
+                35
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                33,
+                35
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                34,
+                35
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                36,
+                37
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                36,
+                38
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                37,
+                38
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                36,
+                39
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                37,
+                39
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                38,
+                39
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                40,
+                41
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                40,
+                42
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                41,
+                42
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                40,
+                43
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                41,
+                43
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                42,
+                43
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                44,
+                45
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                44,
+                46
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                45,
+                46
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                44,
+                47
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                45,
+                47
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                46,
+                47
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                1,
+                48,
+                49
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                2,
+                48,
+                50
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                2,
+                49,
+                50
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                0,
+                3,
+                48,
+                51
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                1,
+                3,
+                49,
+                51
+              ]
+            },
+            {
+              "coefficient": "-1/8",
+              "majorana_indices": [
+                2,
+                3,
+                50,
+                51
+              ]
+            }
+          ],
+          "zero_observable_identity_record": false
+        }
+      ],
+      "source_cubic_average_consumed": true,
+      "source_endpoint_expectation_identities": [
+        "G(S=0)/c_squared=9/2-omega(Hplus)",
+        "G(S=3)/c_squared=9/2-omega(Hminus)"
+      ],
+      "source_global_Y_Gram_over_c_squared_strict_upper": "14",
+      "source_moment_budget": {
+        "U": "8",
+        "actual_zero_atom_positive_proved": false,
+        "all_momentum_Y_Gram_upper": "60496036086493/4398046511104",
+        "all_momentum_residual_Gram_upper": "60496036086493/4398046511104",
+        "c": "1",
+        "default_U_over_c_8_atom_upper_exact": "(31+sqrt(577))/(95+sqrt(577))",
+        "default_ballistic_all_packet_escaping_weight_liminf_lower": "70368744177664/130864780264157",
+        "default_ballistic_all_packet_fixed_energy_limsup_upper": "60496036086493/130864780264157",
+        "degree_two_Christoffel_bound_used": true,
+        "nodal_residual_Gram_over_c_squared_upper_exact": "(31+sqrt(577))/4",
+        "nodal_residual_Gram_upper": "60496036086493/4398046511104",
+        "nodal_residual_Gram_upper_constant_enclosure": [
+          "15124009021623/1099511627776",
+          "60496036086493/4398046511104"
+        ],
+        "original_zero_atom_upper": "60496036086493/130864780264157",
+        "physical_mass_prediction": null,
+        "physical_species_identified": [],
+        "source_eighth_moment_computed": false,
+        "sqrt577_interval": [
+          "6602793906359/274877906944",
+          "26411175625437/1099511627776"
+        ],
+        "zero_atom_to_shrinking_nodal_window_uses_fixed_reference_and_homogeneity": true
+      },
+      "source_orbitals": {
+        "all_six_axial_correlations_equal_requires_stated_cubic_average": true,
+        "canonical_orbital_count": 8,
+        "neighbour_orbital_is_supplied_extra_mode": false,
+        "orbital_eta_signs": [
+          1,
+          -1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "orbital_integer_norm_squares": [
+          1,
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "physical_site_count": 13,
+        "physical_sites": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            -1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            -2,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            -2,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            -2
+          ],
+          [
+            0,
+            0,
+            2
+          ]
+        ],
+        "proper_cubic_lifts_checked": 24
+      },
+      "spin_only_ground_or_antiferromagnetic_order_assumed": false,
+      "universal_local_bound_attained_in_the_actual_infinite_ground": false
+    },
     "uniform_original_energy_tails": {
       "default_exponential_moment_half_strip": "169/8",
       "default_original_charge_tails": [
@@ -22780,7 +28354,7 @@
       "topology": "one-unit occupation deficit, without a topological invariant or physical particle assignment"
     },
     {
-      "boundary": "the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, ballistic scaling sends at least 8/17 of every normalized original packet weight above every fixed energy window; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established",
+      "boundary": "the invariant ground subsequence has no effective preparation modulus; on its specified cubic average at U/c=8, the full-CAR paired-star bound gives liminf escaping weight at least 64/(95+sqrt(577)) above every fixed energy window for every normalized original packet under ballistic scaling; this excludes the entire unfiltered regular unit-mass limit but not filtered branches; no particle pole, physical spin or measured mass is established",
       "completeness": "complete local observer records for the specified accessible algebra, not a census of all source excitations or the full repair archive",
       "evidence": "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md",
       "id": "centered_full_CAR_charge_response",
@@ -22788,7 +28362,7 @@
       "kind": "scoped_interacting_response_family",
       "physical_mass": null,
       "preparation_readout": "local addition and removal each have original weight 1/2; complete local phase and Lorentzian instruments retain all charge, time and complement records with boundary, marginal and service errors; one pressure diagnostic certifies a local score when all invariant grounds have a strict margin",
-      "propagation_energy": "same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; no shrinking physical-energy window is supplied",
+      "propagation_energy": "same positive centered ground clock, interacting local histories and positive original charged bands; source moments define every magnetic momentum; the actual preparation inversion and source symmetries reduce all 16 nodal components to one even scalar measure; composite memory and a positive fixed-source subcontact band are retained; locality makes positive nodal atom equivalent to bounded physical-window survival for packets supported within O(a) of a node on one fixed normalized reference, but actual atom positivity remains unproved",
       "protected_object": "odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair",
       "same_object_realizations": [
         "model/source_family_compatibility/LOCAL_MATTER_READOUT.md",
@@ -22806,7 +28380,9 @@
         "model/source_family_compatibility/CUBE_MEMORY.md",
         "model/source_family_compatibility/NODAL_CHANNELS.md",
         "model/source_family_compatibility/SPECTRAL_RESIDUE.md",
-        "model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md"
+        "model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md",
+        "model/source_family_compatibility/NODAL_LOCALITY.md",
+        "model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md"
       ],
       "same_source_relativistic_particle_attachment_proved": false,
       "source": "fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance",
@@ -24465,20 +30041,20 @@
     "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
     "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
     "model/protected_defect_catalog/PROOF.md": "7160c1ea101f7dc9d2be6703fa9ccb37c5c2f4d92bfb8a9dca5b0025dbc66813",
-    "model/protected_defect_catalog/README.md": "d1970341a375b5c0b8e2737bf1ac55415175ecfb3da593147193920ae6f919f9",
+    "model/protected_defect_catalog/README.md": "de9d1590afd390fbe9805a76bf817b5cdab479374b0b70a87b48a83f8b63592e",
     "model/protected_defect_catalog/__init__.py": "53f25646e289f3cd86b18d4fe4e625794015f9cc3460ddd352de7649218d184b",
     "model/protected_defect_catalog/__main__.py": "383d8c2214442ee3d02e745065abe93d9ee4b3fa6ea9084b5ed2564958dbdf6c",
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
     "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
-    "model/protected_defect_catalog/packet.py": "3a91d24d098915723b94185910e40ad250f42ab666d77b585ea158e39d4e0370",
+    "model/protected_defect_catalog/packet.py": "f3c00b98ba9f58718a512ddd7fcf7e5e229105c682fe205401ec3be9ab5a95d8",
     "model/protected_defect_catalog/pauli.py": "20b0c6af00fc4e214e75e08845094da8513cbe0bf35db89c744bfe46a29b6a53",
     "model/protected_defect_catalog/test_charge.py": "8a3b7ba6f51f6025aca2eb273b8bae08dfa3d780dc57412e1eab4a29c400ec2e",
     "model/protected_defect_catalog/test_field.py": "abf03cfdec765d17a1ee7471173f18867cfcf78eaa78cac5a90ed1be5c8aa602",
     "model/protected_defect_catalog/test_mechanism.py": "7d5db4331edaced485bdf10524f3d77ef21436ebd52a4b8abc15004af7a9759b",
     "model/protected_defect_catalog/test_packet.py": "807b763057da2daee08647bae8eb2b4c205b5bffed3d61f27948bfe173339cb8",
     "model/protected_defect_catalog/test_pauli.py": "fb1ce88125e8022a0bdd5f28e11f26428cf2b3006b58710bbf42125ba9b516a4",
-    "model/protected_defect_catalog/test_spectral_attachments.py": "311f7b4c2d12e029abd9d5fbbf0d2894348dfe8f8478c731b0aae9aec67cf55f",
+    "model/protected_defect_catalog/test_spectral_attachments.py": "f87ffeaac4263843c9c8563743562951df8ac8e0ba4a7b0333d40ad080f38a45",
     "model/protected_particle_readout/__init__.py": "ab534209428d3f76755fe46750df47fdcdfbcc88542acb03602059438a95adce",
     "model/protected_particle_readout/execute.py": "e5cb9ccf2ed7f19f01d330656ecd633c9e0958945767d75e08b5eda5539a5fc7",
     "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
@@ -24545,9 +30121,11 @@
     "model/source_family_compatibility/LOCAL_SPECTRAL_READOUT.md": "ca427ef06bc7abd9238adff5fa138a1d990dc25b33f4731f451d673d41972c9f",
     "model/source_family_compatibility/MOMENTUM_RESPONSE.md": "453c79f46fcb24f0d50847a677e0b06eec4c554fdb6e849d9acd5ef12e7e9ab9",
     "model/source_family_compatibility/NODAL_CHANNELS.md": "c71135f3d8c3d0cb7eb534b0bf7c08e56024c61cc6ea65244a4154844821094c",
+    "model/source_family_compatibility/NODAL_LOCALITY.md": "7ebb9e331242c809f046c81d387f5c09243fd3de2950c6994412a6d6a4eb9706",
     "model/source_family_compatibility/NODAL_MEMORY.md": "16bac0b0fc8a6ac47e2f8ee51a09f8f2f97e6b18572a705db88a7a2ac3458bc1",
+    "model/source_family_compatibility/NODAL_MOMENT_BOUNDS.md": "0150f6b1f0b0ff6b8ed0594bbc28f0b7cae0ea5ac5793c8d7c1880b5d4e55050",
     "model/source_family_compatibility/PROOF.md": "d90854378288c8dff532da487774bc843f393cba2d501246ab57e6241f8d90d6",
-    "model/source_family_compatibility/README.md": "1134462dc5b39888164610a2d783e81ad3cb540d29f7fe50b2485306a861ec06",
+    "model/source_family_compatibility/README.md": "eb89d27f8dd88f2e5dc73b49011d0cb84868bb3cd814a9371f1561eeed9c3f1c",
     "model/source_family_compatibility/REPAIR_TRAJECTORY.md": "fb1f62c74eda428210fadbd042ec144c77b5380ac50442111982a2d56499b3bb",
     "model/source_family_compatibility/SPECTRAL_RESIDUE.md": "7f263003fcf390bc7712ecca0b2b7afc18a863d2ca0ad25d9ed7ea097e7be0ca",
     "model/source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md": "66c480466d24f3fb290377f42f733f55177083297b8c456b52a79e112364f2d6",
@@ -24574,10 +30152,12 @@
     "model/source_family_compatibility/local_spectral.py": "baee9177327c20d4a12502688bf2586b93ada7ac599c9690ff1f09c696eece8c",
     "model/source_family_compatibility/momentum_response.py": "437aef14234046d62dee5da408ccd481eb679670158a0427a8b0ddac097d086c",
     "model/source_family_compatibility/nodal_channels.py": "96875c9074104def82962a6d7c872e3a9a54562754f6668dd522a30bdd85edac",
+    "model/source_family_compatibility/nodal_locality.py": "60863444eeb10bb2e7ce802337e492bfe73e120fa449d3f658bce65406ed1eb9",
     "model/source_family_compatibility/nodal_memory.py": "134993841061aa64a352864a8aa7ce9f62ec7ce63e73fce0a0093b4b39132833",
-    "model/source_family_compatibility/packet.py": "a1af85c82c4ad2d323fffbcec5ff03796485a3992cab15cdfabfc035228af98e",
+    "model/source_family_compatibility/nodal_moment_bounds.py": "6ea2e2b438ac3321090f356f05148376de3d64800a4a1e5c234af1ca7a4b34dd",
+    "model/source_family_compatibility/packet.py": "034d8fe13a55dd4058c35f06258fc454faf4e54b1fcbc6c1485cf5086be06bf9",
     "model/source_family_compatibility/program_selection.py": "2ccdd7d1ac7b86ad70426102cb35434881fe670910d6234bfd8a70cb24552e2e",
-    "model/source_family_compatibility/results.json": "282c1685319f17929765c635bd49b686fb24b022a4487e971c4c3c3572ee79b2",
+    "model/source_family_compatibility/results.json": "e86e5260604d107523ef3c0c5c7eea441edeed48b6ed03d67f9eb50b2b00a31e",
     "model/source_family_compatibility/rotations.py": "a1c77d93b5bb95cc32b8878dfc65308f60c31e9031abb61d9ecb0a8253da854e",
     "model/source_family_compatibility/spectral_residue.py": "e2d32a43dfcd6cd964516b779fa7e6b0bfcb2915aca0a3bc287aecd6aa282dc8",
     "model/source_family_compatibility/spectral_window_access.py": "f0f5951c0f7ebb43242ead7876e31e2e87384c61ab022652f131f8c38a9a0304",
@@ -24599,7 +30179,9 @@
     "model/source_family_compatibility/test_local_spectral.py": "b6e70a5639d27ee09877b8d10931eea186f2938dbe9bad4fa63f18231fc1bb59",
     "model/source_family_compatibility/test_momentum_response.py": "0c8f5655b1830042153ecd32ec78d8a9d65852f4be5c687ff6bcbb9e75a4c657",
     "model/source_family_compatibility/test_nodal_channels.py": "05ddd225c279d9e5c17b8c3d0dd189ab5ffbe0dd7e6058b2166919173ee4317e",
+    "model/source_family_compatibility/test_nodal_locality.py": "c43b54732d3fcd5d3fef997b0d0ae8b0b8dfbc15a20169a29e2d649fd5aa4886",
     "model/source_family_compatibility/test_nodal_memory.py": "ef089dccf98901f579226084f6eff6c30ceeb73f664a33a15cfaf6e47e881b50",
+    "model/source_family_compatibility/test_nodal_moment_bounds.py": "288601f624e8040d9a8711fda46d22ec01a6783567948523ca9d516bdb8fe72e",
     "model/source_family_compatibility/test_spectral_residue.py": "e81aeb550f89878fc5d2587dd3248abd4d2694456f08bed128315131aefb18ff",
     "model/source_family_compatibility/test_spectral_window_access.py": "7bb774bb6720f61462b9a330f4c106ddcaa6c7f3fc6f514d5cf59fb7b1379667",
     "model/source_family_compatibility/test_uv_tail.py": "570002cf2c86ac78f22730a8a49fd3ffeb96c3964891f05710c72191d7333580",
