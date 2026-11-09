@@ -14,6 +14,10 @@ transferring its physical conclusions needs a proved map.
 | [Spectral window access](../source_family_compatibility/SPECTRAL_WINDOW_ACCESS.md) | Complete Ramsey scores, original spectral weights, finite coherent services and explicit approximation errors. | Its charged CAR experiment has its own source and ground. A window containing zero does not certify an excitation above zero. |
 | [Energy/work identities](../particle_gravity_response/PROOF.md), [regional modular support](../particle_spatial_modular_response/PROOF.md) | Operator continuity, physical support and finite marginal entropy response. | Marginal entropy differs from the entropy of the complete apparatus/record output; geometric modular kernels are separate. |
 | [Matched Einstein limit](../matched_einstein_limit/PROOF.md) | Ten-probe tensor inversion and an explicit Einstein residual from matched regional entropy, area and stress estimates. | Proper geometry and common errors small relative to the fourth power of the radius are hypotheses. |
+| [Actual finite survival](../particle_primary_survival/PROOF.md) | A nonzero primary plaquette response and finite-filter positive band, using the actual polynomial passivity. | Times and bands depend on level and the lower weight vanishes; rare pure-gauge sectors cannot be normalized into a surviving source spectrum. |
+| [Regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) | Continuous spatial translations commuting with source time, with actual finite-state bulk word transfer. | The chosen state's spatial invariance and canonical GNS momentum are unproved. |
+| [Excitation transport](../particle_primary_mass_readout/PROOF.md) | Original transfer and final excitation laws have transport cost at most C² epsilon; declared SI conversion is immediate. | Physical rest shells, particle identities and an independent mass prediction require their own inputs. |
+| [Primary capacity](../particle_primary_capacity/PROOF.md) | Exact degree-one ambient capacity and physical dimension bounds from local singlets. | Prepared entropy, correctable records, apparatus resources and cosmological capacity are different quantities. |
 | [Conditional particle action](../conditional_standard_model/PROOF.md), [candidate](CANDIDATE.md) | Exact representations, invariant couplings and calibrated quadratic spectrum. | Chiral source attachment, physical poles, neutrino matching and independent predictions have their stated premises. |
 | [Dense-correlation gap criterion](../particle_yang_mills_gap_contract/PROOF.md) | A continuum spectral exclusion from dense vacuum correlation decay and finite-energy noncollapse. | The photon-containing full theory and a pure compact-simple Yang-Mills source are different domains. |
 
@@ -38,5 +42,5 @@ corresponding identification and limiting estimates.
 The productive order follows the shared algebra and its actual apparatus:
 construct complete filtered records; take one state on all their words;
 test nonzero positive-energy response with original weights; then attach
-spatial covariance, interactions and species. Conserved source currents
-can be derived in parallel and supplied to the separate geometric tests.
+spatial covariance, interactions and species. Conserved source currents retain their finite theorem; gravity is deferred
+while the active work resolves physical mass outputs and capacity dependence.

@@ -12,6 +12,11 @@ from model.particle_primary_field_algebra import algebra
 from model.particle_primary_stress import stress
 from model.particle_positive_window import window
 from model.particle_filtered_probe import filter as filtered_probe
+from model.particle_primary_survival import survival
+from model.particle_primary_mass_readout import readout as mass_readout
+from model.particle_primary_spatial_algebra import spatial
+from model.particle_primary_capacity import capacity
+from model.particle_compact_mass_probe import compact
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -115,7 +120,8 @@ def build():
     stored_candidate = strict_json.load(candidate.OUTPUT)
     paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
-    for module in (algebra, stress, window, filtered_probe):
+    for module in (algebra, stress, window, filtered_probe, survival,
+                   mass_readout, spatial, capacity, compact):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -168,6 +174,19 @@ def build():
     spectral_window = window.certificate()
     if spectral_window['selected_requirements_without_a_positive_contrast_witness'] != window.selected_requirement(contract.member(2), 0, 0):
         raise ValueError('the spectral diagnostic substituted its primary source or contrast')
+    finite_survival = survival.certificate()
+    for level, receipt in zip((1, 2), finite_survival['finite_primary_witnesses'], strict=True):
+        survival.verify_bound(contract.member(level), receipt)
+    spatial_algebra = spatial.certificate()
+    for level, receipt in zip((2, 4, 6), spatial_algebra['selected_members'], strict=True):
+        spatial.verify_bound(contract.member(level), receipt)
+    mass = mass_readout.certificate()
+    for level, receipt in zip((0, 2, 4), mass['selected_members'], strict=True):
+        mass_readout.verify_bound(contract.member(level), receipt)
+    capacities = capacity.certificate()
+    compact_probe = compact.certificate()
+    for level, receipt in zip((1, 2), compact_probe['selected_members'], strict=True):
+        compact.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -182,8 +201,18 @@ def build():
         'primary_complete_filtered_apparatus': filtered,
         'primary_finite_energy_and_regional_response': source_stress,
         'original_weight_positive_window_diagnostic': spectral_window,
+        'primary_finite_excitation_and_extreme_sector_weight': finite_survival,
+        'primary_regular_spatial_algebra': spatial_algebra,
+        'primary_excitation_to_mass_readout': mass,
+        'primary_capacity_family_in_nats': capacities,
+        'primary_compact_four_outcome_probe': compact_probe,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
-        'primary_nonzero_positive_energy_weight_proved': False,
+        'primary_finite_positive_energy_weight_proved': True,
+        'primary_uniform_fixed_band_positive_energy_weight_proved': False,
+        'primary_spatial_action_on_regular_algebra_proved': True,
+        'primary_selected_state_spatial_invariance_proved': False,
+        'declared_SI_and_GeV_comparison_conversion_available': True,
+        'source_derived_particle_mass_table_GeV': [],
         'primary_proper_geometry_or_Einstein_limit_proved': False,
         'conditional_candidate_calibration': 'inherited common-scale action coefficients; no physical pole matching supplied',
         'full_particle_spectrum_derived': False,

@@ -4,20 +4,22 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single ten-node construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical boundary state, complete local
-records and controlled filtered apparatus. Node 4 includes a common
-subsequential filtered observable algebra with positive energy and finite
-pointer-history limits; its nonzero physical field content is unproved.
-The interacting relativistic field, species, spectrum and independent
-comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
-node 10 is proper geometry and Einstein dynamics. The comparison results
-below retain their own sources and do not add canonical dependency lists.
+are the single ten-node construction map. The active target is source-derived
+particle masses in declared SI/GeV comparison units, with capacity dependence
+explicit. Nodes 1-3 establish the finite program, physical preparation and
+complete local apparatus. Nodes 4-8 include a positive-energy filtered
+algebra, a regular continuous spatial action, finite primary positive
+response bounds and original transfer-to-excitation transport. Uniform
+survival, same-state momentum, physical species and mass branches are
+unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+(node 9) and geometric gravity (node 10) are deferred branches. Comparison
+results retain their own sources and do not add canonical dependency lists.
 
 The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
-prioritizes primary spectral response, momentum and rest-energy attachment,
-then physical GeV conversion. Gravity is a separate target and is deferred
-for this particle-mass calculation.
+prioritizes uniform original response weight, same-state momentum and
+rest-energy attachment. SI length or time units may be declared immediately;
+the declaration supplies no missing spectrum or species identification.
+Pure Yang-Mills and gravity are deferred for this mass calculation.
 
 The executable outputs finite simulation-generated observables. Observers
 interpret apparatus records and compare those meanings; effective particle,
@@ -123,15 +125,54 @@ energy response, so positive energy alone is not a mass or particle theorem.
 The [complete filtered apparatus](../../model/particle_filtered_probe/PROOF.md)
 measures original norm and Ramsey scores with explicit finite clock and
 compiler errors, retaining failures and the idle quantum reference.
-Its [positive-window criterion](../../model/particle_positive_window/PROOF.md)
-requires an actual positive contrast after all error and spectral-tail
-allowances. No primary mass or noncollapse witness is inserted into it.
+The [primary survival calculation](../../model/particle_primary_survival/PROOF.md)
+proves a positive plaquette contrast and positive original transfer-band
+weight on the actual full source, including the finite implemented filter.
+It uses `T_n=t_n=1/W_n`, and its tiny state-floor factor vanishes with
+refinement. The band extends towards zero and infinite energy. This
+certified finite response does not prove uniform weight in the fixed band
+required by the [positive-window criterion](../../model/particle_positive_window/PROOF.md).
+Its source-specific invariant empty and fully filled Fock sectors have
+combined original probability at most `7/(627*2^(8n+7))`; conditioning
+them cannot supply surviving primary particle weights.
+The actual plaquette channel is neutral, gauge invariant and even, with
+`Delta N_F=0`. Its unsmeared operator acts on links, and the number-preserving
+source evolution preserves these labels under filtering. Lorentz spin and
+possible particle, composite or pair content are unidentified. The result
+does not identify a single charged lepton or three generations.
+
+The [transfer-to-excitation theorem](../../model/particle_primary_mass_readout/PROOF.md)
+keeps these original weights. A transfer interval `[l,u]` of weight w
+implies final ground-relative weight at least `max(0,w-C² epsilon_n/r)`
+in `[l,u+r]`; the broad primary interval `[delta_n,W_n]` incurs no
+additional loss. A generic mixed-state transition is not a rest energy.
+The [regular spatial algebra](../../model/particle_primary_spatial_algebra/PROOF.md)
+has a continuous R3 action, without a proof that the selected limiting
+state is invariant. Canonical momentum, vacuum momentum control and a
+common physical spectral branch are therefore additional premises.
+
+Declared SI comparison units are supported directly. A source tick of T
+seconds gives `hbar_GeV_s/T` GeV per source energy; a declared length and
+source speed can equivalently determine T. The absolute scale is an input,
+and matching c alone fixes only a length/time ratio. The physical-mass
+table in GeV is empty: no primary Standard Model species or mass branch
+has been identified.
+
+The [capacity bounds](../../model/particle_primary_capacity/PROOF.md)
+give ambient member zero 447.4096... nats and
+`4V ln2<=N_phys<=N_ambient`. The level-five ambient upper bound is about
+`1.302e12` nats, before reference, apparatus, program, controller precision,
+record archive and workspace are counted.
+Such a source has more than eight billion cells and is not claimed to
+admit a tractable dense simulation. `H_n=Hhat_n/a_n` makes both the
+refinement and fixed-unit policy relevant to mass outputs; capacity
+alone does not determine a mass law.
 
 The [same-primary energy construction](../../model/particle_primary_stress/PROOF.md)
 conserves the unchanged source Hamiltonian through local interaction
 currents. Its entropy first law concerns the supported source marginal,
-not the full retained coin/reference output. Gravity node 10 needs proper
-geometry, physical stress and controlled regional area/entropy matching;
+not the full retained coin/reference output. Gravity node 10 is deferred
+and needs proper geometry, physical stress and controlled regional area/entropy matching;
 these finite source-energy records do not supply those identifications.
 
 ## Fixed construction and admissible mass comparisons
@@ -153,8 +194,9 @@ The primary polynomial modular flow is not exactly Hamiltonian time
 rescaled by inverse temperature. Exact Gibbs controls have that separate
 identity. Source energy, modular energy and proper geometric stress
 therefore have distinct definitions until their operational attachment
-is proved. A GeV mass needs a physical energy convention and a relativistic
-spatial dispersion calculation on the specified state.
+is proved. A GeV conversion may use a declared comparison scale. Calling
+its output a physical mass also needs the specified state's rest-energy
+branch and species identification.
 
 ## Cooled source thresholds and physical mass interpretation
 
@@ -2220,6 +2262,13 @@ law. A proposed fix must identify the violated equation or hypothesis.
 
 ## Open challenges and research tasks
 
+The canonical mass work order and its proved finite steps are specified in
+the [field guide](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target).
+The following hierarchy and defect diagnostics retain their comparison
+source domains. They do not reopen the resolved primary source,
+preparation or apparatus specifications. Gravity and pure Yang-Mills are
+deferred from the active mass target.
+
 A physical particle identification requires one continuing source process
 with a **charged chiral inverse propagator**. It must determine the kinetic derivatives/residues,
 Higgs response and mass terms together. Selecting a different Gram matrix or
@@ -2255,7 +2304,7 @@ derive its maintenance action/energy and mass response on the same object.
 
 | Priority | Concrete calculation | Acceptance condition |
 | --- | --- | --- |
-| 1. Select the physical response domain | Specify carrier/code, actual C/E/coherent implementation, state, scheduler, observer access and complete current family. Test the 17/18-direction and rank-fifteen obstructions in that exact domain | A same-object finite theorem map with every additional control and source service accounted for |
+| 1. Attach the proposed charged response | Bind its currents, spin, reference and complete detector to the specified primary source, or declare its comparison source. Apply the 17/18-direction and rank-fifteen obstructions only in their tested domains | A same-object physical channel and explicit source/control map; the primary finite construction is retained |
 | 2. Derive mass and kinetic terms jointly | Extract the charged two-point response and vertices from that continuing law, with one clock and several spatial momenta. Include complementary modes and family symmetry breaking | Nonzero residues and distinct stable gaps or a stated interacting alternative; shared quark kinetic form and consistent Higgs normalization |
 | 3. Resolve sector strength and family hierarchy | Test an explicitly derived mechanism outside the excluded affine/trace-one classes, or supply the physical reason their hypotheses fail | One fixed source program determines the full matrices without empirical mass inputs; all extra modes and zero directions retained |
 | 4. Establish field and vacuum limits | Supply chiral measure/anomaly control, locality, state/vacuum and controlled spatial/volume/occupation limits on the same regime | A common interacting chiral field, rather than only a finite symbol, a taste-doubled free limit or a selected background |

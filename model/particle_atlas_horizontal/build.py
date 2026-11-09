@@ -19,7 +19,10 @@ OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
 DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
 PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_field_algebra', 'particle_filtered_probe',
-    'particle_primary_stress', 'particle_positive_window'))
+    'particle_primary_stress', 'particle_positive_window',
+    'particle_primary_survival', 'particle_primary_mass_readout',
+    'particle_primary_spatial_algebra', 'particle_primary_capacity',
+    'particle_compact_mass_probe'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -148,12 +151,17 @@ def reader(svg,data):
         ('particle_physical_boundary_state','Physical preparation with boundary charges and complete records'),
         ('particle_primary_locality','Complete local boundary records on the selected physical source'),
         ('particle_primary_field_algebra','Common filtered observable algebra, positive energy and finite pointer limits'),
+        ('particle_primary_survival','Actual primary finite contrast and band; shrinking times and nonuniform weight'),
+        ('particle_primary_mass_readout','Original transfer-to-excitation weights, rest-energy conditions and declared SI units'),
+        ('particle_primary_spatial_algebra','Continuous regular spatial action; selected-state invariance and momentum conditions'),
+        ('particle_primary_capacity','Source capacity in nats: ambient and physical bounds, references and execution cost'),
+        ('particle_compact_mass_probe','Four-outcome readout of the same finite filter; two apparatus qubits and explicit service costs'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),
         ('particle_yang_mills_gap_contract','Same-clock local correlations and a continuum spectral-gap criterion'))]
     extra += [{'label':label, 'path':'model/particle_joint_reconstruction/'+name} for name,label in (
-        ('DEPENDENCIES.md','One dependency graph for fields, particles, the pure-gauge gap and gravity'),
+        ('DEPENDENCIES.md','Mass-first dependency graph with deferred pure-gauge and gravity branches'),
         ('CANDIDATE.md','Conditional chiral gauge-Higgs candidate and calibrated spectrum conventions'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
@@ -217,6 +225,8 @@ def build():
         'conditional_candidate_discharges_primary_physical_dependencies':False,
         'full_theory_positive_global_gap_claimed':False,
         'canonical_joint_dependency_map':str(DEPENDENCIES.relative_to(ROOT)),
+        'active_target':data['joint_dependencies']['active_target'],
+        'deferred_branches':data['joint_dependencies']['deferred_branches'],
         'comparison_requirement_domains':data['observer_outputs']['comparison_requirement_domains'],
         'layout':{'width':parsed.get('width'),'height':parsed.get('height')},
         'svg_sha256':hashlib.sha256(svg.encode()).hexdigest(),

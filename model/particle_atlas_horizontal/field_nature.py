@@ -158,7 +158,7 @@ ACTION_LINKS = (
          'model/particle_candidate_atlas/CONDITIONAL_STANDARD_MODEL.md',
          'supplied-action-and-its-exact-quadratic-spectrum'),
     link('Particle paper: conditional field completion',
-         'paper/deriving_the_particle_zoo_from_observer_consistency.tex', 'L927'),
+         'paper/deriving_the_particle_zoo_from_observer_consistency.tex', 'L931'),
     link('Owning symbolic Hessian',
          'model/particle_candidate_atlas/conditional_standard_model.py', 'L63'),
 )

@@ -2,6 +2,8 @@
   "schema": "oph.joint_reconstruction_dependencies.v1",
   "target": "One source-derived interacting relativistic field theory in three spatial dimensions and time, with a complete observable particle spectrum, controlled production, scattering and decay records, and same-source Einstein dynamics under coarse-graining.",
   "primary_program": "oph.open_wilson_gauss_observer.v1",
+  "active_target": "Source-derived particle rest energies and masses, with declared SI/GeV comparison units and explicit capacity dependence.",
+  "deferred_branches": ["pure_gauge_gap", "geometric_gravity"],
   "conditional_candidate": {
     "id": "oph.conditional_chiral_gauge_higgs_extension.v1",
     "schema": "oph.joint_reconstruction.candidate.v1",
@@ -103,8 +105,10 @@
         "Control the joint limits rather than composing fixed-volume link-cutoff removal with fixed-spacing thermodynamic limits without uniform estimates. Retain nonzero finite-energy observable weight and prevent loss of all observed fields to the cutoff."
       ],
       "evidence": [
+        {"path": "model/particle_primary_survival/PROOF.md", "scope": "A source-derived nonzero finite plaquette response, positive original finite band and complete finite filtering; level-dependent scales and vanishing lower weight do not establish uniform noncollapse. Exact extreme-Fock sectors have vanishing selected weight."},
+        {"path": "model/particle_primary_capacity/PROOF.md", "scope": "Ambient capacity, physical-dimension bounds and exact source-spacing energy scaling; no physical mass-capacity law or cosmic capacity identification."},
         {"path": "model/particle_primary_field_algebra/PROOF.md", "scope": "One common bounded physical sequence algebra, stationary subsequential state, continuous time group, nonnegative canonical GNS energy and convergence of fixed finite complete effect histories; no noncollapse or effective subsequence claimed."},
-        {"path": "model/particle_positive_window/PROOF.md", "scope": "An original-weight positive-energy window bound from complete response contrast; an actual primary contrast witness remains uncomputed."},
+        {"path": "model/particle_positive_window/PROOF.md", "scope": "An original-weight positive-energy window bound from complete response contrast; a refinement-uniform fixed-band primary witness remains unproved."},
         {"path": "model/particle_link_cutoff_limit/PROOF.md", "scope": "Electric-cutoff and complete-history convergence at fixed finite spatial carrier and spacing."},
         {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Ground-state subsequence and dynamics at fixed spacing and link cutoff, not the simultaneous primary limit."},
         {"path": "model/particle_common_contract/PROOF.md", "scope": "Exact finite sequence; joint physical refinement is a separate output theorem."},
@@ -127,6 +131,7 @@
         "Prove an interaction at fixed physical separations and times in a fixed renormalized generating-field/current dictionary that is incompatible with a free/Wick hierarchy under the admitted identifications, or supply an appropriate nonfree scattering criterion. Connected correlations of nonlinear composites of free fields, finite non-Gaussianity, canonical commutation relations and a fixed-spacing quartic term are insufficient."
       ],
       "evidence": [
+        {"path": "model/particle_primary_spatial_algebra/PROOF.md", "scope": "Continuous spatial translations on a regular physical observable algebra with source-time commutation and controlled finite-box word transfer; selected-state spatial invariance and canonical momentum remain unproved."},
         {"path": "model/particle_primary_field_algebra/PROOF.md", "scope": "Same-source point-norm continuous time automorphisms, canonical positive-energy GNS and filtered spatial commutation; no spatial translation, boost, nontriviality or interaction theorem."},
         {"path": "model/particle_gauge_characteristics/PROOF.md", "scope": "Matched quadratic principal gauge and matter speeds, without an interacting Lorentz theorem."},
         {"path": "model/continuum_field_net/README.md", "scope": "Separate uncentered Weyl/contact continuum hierarchy with positive energy and a finite cone; no surviving interaction or Lorentz proof."},
@@ -172,6 +177,7 @@
         "Account for the complete claimed field/species catalogue, including neutrino sectors, missing or extra modes and composites. No positive global vacuum gap is required for the full theory containing a massless photon; pure Yang-Mills gap claims use node 9."
       ],
       "evidence": [
+        {"path": "model/particle_primary_mass_readout/PROOF.md", "scope": "Same-source original spectral-transfer to ground-relative excitation transport, finite positive-band inheritance and conditional rest intervals; no actual momentum-resolved rest shell or physical species assignment."},
         {"path": "model/conditional_standard_model/spectrum.py", "scope": "Exact conditional action mass matrices and multiplicities, not interacting physical pole predictions."},
         {"path": "model/conditional_standard_model/matching.py", "scope": "Explicit parameter and observable matching boundaries."},
         {"path": "model/particle_charged_residue/PROOF.md", "scope": "Original finite charged-threshold weights on a separate 208-state control."},
@@ -188,12 +194,13 @@
       "status": "physical_proof_required",
       "domain": "Specified laboratory observables, observation conditions and a frozen physical dictionary.",
       "acceptance": [
-        "Fix one physical time, energy and length convention with a same-generator calibration or declared empirical input. Capacity or a dimensionless source coefficient alone does not select seconds or GeV.",
+        "Fix one time, energy and length convention with an explicit declared comparison scale or a same-generator physical clock calibration. Capacity or a dimensionless source coefficient alone does not select seconds or GeV.",
         "Compare joint detector distributions in the same preparation, current, mass, renormalization and resolution conventions, including sampling, apparatus and every applicable theoretical error.",
         "Preserve all fitted-input ancestry. Agreement with a mass, coupling or mixing input used to set the candidate is calibration, while an independent test uses observables excluded from that fitting step.",
         "For full-spectrum or collider claims, compare more than selected masses: include appropriate rates, initial beams, luminosity, hadronic inputs, correlations and decay observables. Admit empirical species identities only for sectors with the required preceding attachments."
       ],
       "evidence": [
+        {"path": "model/particle_primary_mass_readout/PROOF.md", "scope": "Immediate declared SI/GeV comparison conversion, distinct from empirical clock identification and from the unresolved source mass spectrum."},
         {"path": "model/source_mass_shell/CALIBRATION_PROOF.md", "scope": "Same-generator physical-unit conversion and the unselected absolute time scale."},
         {"path": "model/conditional_standard_model/README.md", "scope": "Empirical common-scale calibration, tree/running coefficient conventions and neutrino boundary."},
         {"path": "model/conditional_standard_model/matching.py", "scope": "Explicit matching inputs rather than automatic pole-mass assignments."}

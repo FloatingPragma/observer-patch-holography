@@ -4,15 +4,16 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single ten-node construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical boundary state, complete local
-records and controlled filtered apparatus. Node 4 includes a common
-subsequential filtered observable algebra with positive energy and finite
-pointer-history limits; its nonzero physical field content is unproved.
-The interacting relativistic field, species, spectrum and independent
-comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
-node 10 is proper geometry and Einstein dynamics. The comparison results
-below retain their own sources and do not add canonical dependency lists.
+are the single ten-node construction map. The active target is source-derived
+particle masses in declared SI/GeV comparison units, with capacity dependence
+explicit. Nodes 1-3 establish the finite program, physical preparation and
+complete local apparatus. Nodes 4-8 include a positive-energy filtered
+algebra, a regular continuous spatial action, finite primary positive
+response bounds and original transfer-to-excitation transport. Uniform
+survival, same-state momentum, physical species and mass branches are
+unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+(node 9) and geometric gravity (node 10) are deferred branches. Comparison
+results retain their own sources and do not add canonical dependency lists.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -44,20 +45,29 @@ filtered algebra are available. The following work order expands nodes
 
 | Order | Required mass-readout connection | Existing result and remaining condition |
 | --- | --- | --- |
-| 1 | Select a primary physical channel and complete detector. | Centered charge and plaquette probes and their complete apparatus are specified; select the actual channel used for the claimed mass. |
-| 2 | Calculate its original-weight time response. | The apparatus and error bounds are constructed. A calculation must use the selected spatial state, not a separate small control. |
-| 3 | Retain nonzero finite-energy response under refinement. | Positive GNS energy and a quantitative positive-window test are available; a uniform positive primary witness is required. |
-| 4 | Attach spatial momentum on the same state and clock. | Assigned coordinates and a finite cone do not supply continuous spatial translations or a translation-invariant state. |
-| 5 | Extract a rest threshold, stable branch or resonance. | An energy-transfer window is not a rest mass. The vacuum, momentum and species domain must be identified. |
-| 6 | Control the complete prediction errors. | Volume, cutoff, preparation, filtering, time and detector errors must accompany the same observable. |
-| 7 | Identify spin, gauge currents and statistics. | Internal gauge weights constrain candidates; the propagating physical representation must carry them. |
-| 8 | Apply interaction and observable matching. | Running/action coefficients, stable poles, charged infrared thresholds and unstable resonances have different conventions. |
-| 9 | Establish the source-clock conversion to GeV. | The primary contract specifies no GeV/proper-time conversion. A declared unit and an empirically identified physical clock have distinct ancestry. |
-| 10 | Compare independent masses or ratios. | Values used to set a scale or coefficient are inputs, not independent predictions. |
+| 1 | Resolve an original-weight excitation in a declared physical measurement domain. | The centered primary plaquette has positive original contrast and a finite implemented-filter band. A finite-capacity comparison needs a resolved branch and adequate original probability with controlled errors. A continuum claim additionally needs a uniform fixed-energy-band witness; the proved widening band and vanishing weight floor do not supply it. |
+| 2 | Attach momentum to the same source, state and clock. | The regular physical algebra has a continuous R3 action commuting with time. Its implementation on the selected representation, the operational momentum dictionary and preparation momentum control require proofs. State invariance suffices for the canonical vacuum-fixing implementation; it is not a necessary premise for every operational momentum readout. |
+| 3 | Extract a relativistic rest threshold, stable branch or resonance. | Original transfer-to-final-excitation transport and conditional rest intervals are proved. The same momentum-resolved excitation needs a controlled energy-momentum relation and retained spectral weight over the claimed measurement domain. A finite comparison may bound deviations directly; an exact continuum claim requires its limiting theorem. |
+| 4 | Identify the propagating particle channel. | The proved plaquette channel is gauge invariant, even and matter-number preserving. Internal gauge weights constrain other candidates; physical spin, statistics, currents and interactions must attach to the same propagating sector before assigning a Standard Model name. |
+| 5 | Bound the complete prediction error and capacity dependence. | Finite preparation, filtering, clock and detector bounds are constructed. Joint volume, spacing, link-cutoff and observable-matching errors require control. The chosen sequence changes these together, so capacity alone does not determine a mass law. |
+| 6 | Apply one explicit SI/GeV comparison scale. | Available immediately through a declared absolute length or clock unit. Keep that scale fixed or explicitly tracked across refinement; deriving a cesium atom is not a prerequisite for this convention. A scale fitted from a measured mass retains that calibration ancestry. |
+| 7 | Compare independent observable masses and ratios. | The primary physical-mass table in GeV is empty. Stable masses, charged infrared thresholds and unstable resonances require their respective experimental definitions. Inputs used to fit a scale or coefficient are not independent predictions. |
 
-The efficient parallel lanes are actual primary response/noncollapse,
-spatial-momentum attachment, and rest-energy/unit conversion. Downstream
-mass identification joins their results on the same source. A failure to
+Spectral response (1), operational momentum (2) and channel labels (4)
+admit independent calculations on the fixed construction. Each carries its
+own finite error bounds into (5). Their common branch is the input to the
+rest-energy calculation (3). Unit conversion (6) is available independently;
+the comparison (7) consumes the identified branch, its errors and that
+declared conversion. No particle name or measured mass is used to certify
+the preceding connections.
+
+The required physical joins are a resolved primary response, same-state
+momentum and spectral branch identification, with errors on the stated
+domain. A first finite-capacity comparison does not require an exact
+infinite-volume continuum theorem. The broader continuum claim requires
+the corresponding uniform response and refinement proofs. Unit declarations
+can accompany either calculation directly. Mass identification joins their
+results on the same source. A failure to
 match a measured ratio must first be localized to that chain; it does not
 justify modifying coefficients using the target and relabelling the fit
 as a derivation.
@@ -204,15 +214,130 @@ error is at most `delta`, its complete Stinespring error is at most
 compose over each fixed finite history, including arbitrary references.
 
 The [positive-window criterion](../../model/particle_positive_window/PROOF.md)
-uses a lower original correlation contrast together with slow-response,
-negative-transfer and ultraviolet allowances to bound weight in a fixed
-positive energy band. A uniform positive bound would establish finite-energy
-survival on this same family. The primary contrast is not supplied by the
-criterion or by the apparatus specification. Broad positive-band weight
-would require dispersion, spin and scattering attachments before a
-particle or mass interpretation.
+uses a lower original contrast and explicit low-frequency, negative-transfer
+and ultraviolet allowances. A uniform positive bound in a fixed band would
+establish finite-energy survival. The finite primary witness below proves
+positivity in a different, level-dependent experiment; it does not discharge
+that uniform condition or identify a particle.
+
+## A finite primary response and its nonuniform weight
+
+The [primary survival theorem](../../model/particle_primary_survival/PROOF.md)
+uses the actual normalized plaquette and the selected state's faithful
+floor `rho>=2^-N_floor P_G`. A physical blank/loop matrix element gives
+`||[H,A]b||²=4949/(20a²)` on the full sixty-mode Wilson source. The matter
+commutator annihilates this witness, and the magnetic cancellation uses
+the common final compression; compressed multiplication operators are not
+assumed to commute generally. The blank is a matrix-element witness,
+not a replacement preparation.
+
+The proved channel has the following exact source labels. Gauge-matter
+evolution can spread the filtered operator into matter factors, while
+preserving these commutators.
+
+| Property of the actual plaquette channel | Established identification |
+| --- | --- |
+| Unsmeared operator | Normalized real plaquette trace, acting on link factors |
+| Local gauge transformations | Gauge invariant and neutral |
+| Matter number and fermion parity | `Delta N_F=0`; even, for both the original operator and its time filter |
+| Physical Lorentz spin and particle content | Unidentified; no single charged-lepton or other Standard Model species assignment |
+
+Number preservation and even parity permit neutral composite or pair
+responses; they do not select that content or a physical boson species.
+The [survival proof](../../model/particle_primary_survival/PROOF.md) retains
+the full matter carrier and the number-preserving Hamiltonian in this
+classification.
+
+For certified source width W, choose `T_n=t_n=1/W_n` and
+`r=(23/24)^4`. The original contrast obeys
+`D_n>=(11/24)r(4949/20)2^-N_floor/(a²W²)>0`. An explicit finite
+quadrature/Cayley apparatus retains at least half that contrast. Polynomial
+passivity also gives positive original band weight in
+`[(8/a)2^-ceil(N_floor/2),W]`, for both the ideal and implemented filter.
+At level 1, `T=t=7/31358976` and `N_floor=33469453062583`. The full spatial
+matrix is not executed. The weight floor and lower endpoint tend to zero,
+the upper endpoint diverges, and the times shrink; fixed-filter noncollapse
+does not follow. `N_floor` is distinct from capacity `N=ln D`.
+
+Empty and fully occupied Fock sectors reduce the actual Hamiltonian to its
+full product-group gauge action. Their combined original selected weight
+is at most `7/(627*2^(8n+7))`. Conditioning their spectra discards this cost
+and does not produce surviving primary masses. Selecting a compact-simple
+group factor requires its own source or a proved reducing map.
+
+## Spatial action, excitation transport and declared units
+
+The [regular spatial algebra](../../model/particle_primary_spatial_algebra/PROOF.md)
+adds bounded L1 spatial smears on the same source. An invariant exterior
+blank extends the actual finite Gauss state; a bulk locality comparison
+controls its infinite-lattice time evolution. Rounded lattice shifts define
+an exact point-norm continuous R3 action on the regular asymptotic quotient,
+commuting with source time. Equality of limiting word moments does not
+assert an isometric finite-carrier embedding. Spatial invariance of the
+selected limiting state is unproved, so canonical GNS momentum and a vacuum
+momentum assignment do not follow. Fourier test-function labels alone are
+not measured excitation momenta.
+
+The [mass-readout theorem](../../model/particle_primary_mass_readout/PROOF.md)
+couples original transfer `omega=E_j-E_i` to final excitation `z=E_j-E0`
+with mean discrepancy at most `C² epsilon_n` for probe norm at most C.
+A transfer window `[l,u]` of original weight w gives final weight at least
+`max(0,w-C² epsilon_n/r0)` in `[l,u+r0]`. The full-width primary band above
+transfers without additional loss, including its finite implemented filter.
+These are excitation weights; a rest-mass interval additionally requires
+the same source's momentum, initial/vacuum momentum control and spectral
+branch with controlled shell error.
+
+An absolute source length or tick duration may be declared immediately for
+comparison. For T seconds per source time unit,
+`GeV/source-energy=hbar_GeV_s/T`; matching a declared source speed v to c
+gives `metres/source-coordinate=cT/v`. Specifying c alone leaves the
+absolute scale free. The declaration and any calibration retain their
+ancestry. Neither the declaration nor a broad excitation band supplies a
+missing mass pole, and the primary physical-mass table in GeV is empty.
+
+## Source capacity and execution cost
+
+The [capacity calculation](../../model/particle_primary_capacity/PROOF.md)
+uses `N=ln D` in nats. The smallest ambient source has
+`N_ambient,0=8(60 ln2+3 ln119)=447.4096105...` nats. Physical Gauss
+constraints give `4V ln2<=N_phys<=N_ambient`; the lower bound counts actual
+local singlet occupation vectors, without asserting an invariant hopping
+subspace. Selected-state entropy is a different quantity.
+
+The level-five ambient upper bound is approximately `1.302193221e12` nats
+for more than eight billion cells. This is neither an exact physical
+capacity nor the capacity of the complete experiment: the full conjugate
+reference doubles the allocated ambient log dimension. Apparatus, program
+storage, controller precision, record archives and workspace add resources.
+A generic carrier of capacity `10^12` nats has
+`exp(10^12)` complex amplitudes. These bounds do not claim tractable dense
+simulation or a cosmological capacity identification. They do not make
+`10^12` nats necessary or sufficient for every implementation.
+
+The [compact response apparatus](../../model/particle_compact_mass_probe/PROOF.md)
+directly dilates the identical finite Hermitian filter `B_tilde`. Two neutral
+apparatus qubits give four complete Ramsey outcomes, retaining the same
+original successful scores and band weights. Its complete failure
+instrument differs from the selector construction. Source, full reference
+and these qubits have ambient capacity `2N_ambient+2 ln2`; this is a
+one-invocation carrier count for the declared direct service. Its algebraic
+root and controlled operations have no supplied bound on computation,
+controller precision, compilation, extra compiler flags, workspace or
+repeated record archives. Autonomous repair implementation and efficiency
+are unproved. A smaller detector register supplies no rest-mass
+identification or total machine budget.
+
+Refinement changes volume, spacing, link cutoff and cooling together.
+`H_n=Hhat_n/a_n` gives `E_n=2^n Ehat_n`; at a fixed declared time unit,
+a finite nonzero rest-energy limit needs the relevant dimensionless
+excitation to scale like a_n and retain original weight. Neither a
+mass-capacity law nor an isolated branch follows from the capacity count.
 
 ## Primary energy transport and the gravity branch
+
+Gravity node 10 is deferred from the active mass target. Its finite
+source-energy and entropy results retain the following domain.
 
 The [primary energy consumer](../../model/particle_primary_stress/PROOF.md)
 partitions the unchanged Wilson action into local cell energies, including
@@ -983,7 +1108,9 @@ the same source must supply observer clocks, defect identity and energy,
 an interacting chiral field description and the realized Einstein premises.
 In particular, the photon-containing full theory is gapless, and stationary
 repair or record entropy is not the geometric entropy variation needed for
-gravity. The distinctions below are acceptance tests for that common target.
+gravity. Einstein dynamics and the pure-gauge gap are deferred branches of
+the broader target; they are not prerequisites for the active mass comparison.
+The distinctions below retain those separate domains.
 
 The [particle mass response](OPH_PARTICLE_MASS_RESPONSE.md) records the
 numerical constructions and hierarchy exclusions; the

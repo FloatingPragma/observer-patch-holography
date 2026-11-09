@@ -1,4 +1,6 @@
-"""One dependency graph for physical fields, particles and gravity."""
+"""Mass-first display of the common graph, with deferred gauge/gravity branches."""
+
+ACTIVE_TARGET = 'Source-derived particle rest energies and masses, with declared SI/GeV comparison units and explicit capacity dependence.'
 
 
 NODE_IDS = (
@@ -12,21 +14,21 @@ NODE_IDS = (
 # from the canonical dependency document rather than a second requirement list.
 SUMMARIES = {
     'fixed_program':
-        'One open Wilson program fixes the carrier, action, cutoff and energy zero. Every consequence uses its selected state, retained conjugate reference and Hamiltonian clock. A changed action declares an extension.',
+        'One open Wilson program fixes the action, cutoff, state, reference and clock. Capacity N=ln D distinguishes ambient and physical carriers from execution cost. A changed action declares an extension; measured mass inputs retain their ancestry.',
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
         'The selected physical source has complete boundary records and uniform influence bounds. A coherent finite time-filter apparatus retains every failure outcome and the idle reference. Its original Ramsey scores measure filtered responses without success normalization.',
     'joint_refinement':
-        'One filtered observable algebra has a common subsequential state, continuous time, nonnegative GNS energy and convergent finite pointer histories. Its fields can become zero or scalar. Nonzero finite-energy weight, a physical field dictionary and controlled joint refinement require further proof.',
+        'Fixed-filter words have one stationary positive-energy limit and convergent finite pointer histories. Spatial smearing supplies a continuous R3 action. The selected state is not proved spatially invariant; canonical momentum and uniform nonzero finite-energy weight require proof.',
     'relativistic_field':
         'The bounded filtered algebra has nonnegative energy and a conservative cone. Prove a nontrivial Lorentz-covariant field on the same source. Establish an interaction incompatible with free/Wick reconstruction in a fixed physical field dictionary, or controlled nonfree scattering.',
     'chiral_species_attachment':
         'Identify physical currents, spin, statistics and families. Control mirror and extra modes, the Higgs vacuum and neutrino completion. Any claimed defect origin needs an actual field attachment. The declared chiral extension is distinct from the primary 60-mode carrier.',
     'particle_observables':
-        'Calculate masses, mixing, production, scattering and decays with original spectral weights. Specify stable branches, charged infrared thresholds, resonances and composites. Radiative matching connects action coefficients to measured particle observables.',
+        'The neutral, even, matter-number-preserving plaquette channel has a proved finite contrast and excitation band. Its times shrink and its weight floor vanishes. Fixed-band survival, momentum, Lorentz spin and species attachment are required; no single charged lepton is identified.',
     'independent_comparison':
-        'Fix physical units and compare complete detector distributions with controlled errors. Keep the ancestry of each fitted mass, coupling and mixing input. Agreement with a calibration input does not provide an independent spectrum prediction.',
+        'Declare SI length or time units immediately, with their ancestry. Transfer-to-excitation bounds preserve original weights. A unit choice supplies no missing rest branch: the primary physical-mass table in GeV is empty, and calibrated coefficients are comparison inputs.',
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
@@ -38,6 +40,9 @@ def validate(graph):
     """Reject a changed graph or scope until its presentation is reviewed."""
     if graph.get('schema') != 'oph.joint_reconstruction_dependencies.v1':
         raise ValueError('unsupported joint dependency schema')
+    if (graph.get('active_target') != ACTIVE_TARGET
+            or graph.get('deferred_branches') != ['pure_gauge_gap','geometric_gravity']):
+        raise ValueError('mass-first target and deferred branches require explicit review')
     nodes = graph['nodes']
     if tuple(node['id'] for node in nodes) != NODE_IDS:
         raise ValueError('the ten canonical dependencies must be retained')
@@ -74,22 +79,22 @@ def render(c, data, y):
     nodes = validate(graph)
     numbers = {node['id']: node['number'] for node in nodes}
     c.items.append('<g id="joint-field-particle-dependencies">')
-    c.text(M, y, 'ONE DEPENDENCY GRAPH: FIELDS, PARTICLES AND GRAVITY',
+    c.text(M, y, 'MASS FIRST: ONE SOURCE, ORIGINAL WEIGHTS AND DECLARED UNITS',
            80, INK, 700, serif=True)
     c.para(M, y+115, W-2*M,
-           'Nodes 1–3 are finite constructions on the selected program. Nodes 4–8 retain physical proof conditions beyond the constructed filtered algebra. Node 9 is pure Yang–Mills; node 10 is proper geometry and Einstein dynamics. Every branch retains its declared state, reference and clock.',
+           'Nodes 1–3 are finite constructions. Nodes 4–8 contain proved finite response, spatial-action and readout results, with physical mass conditions explicit. Pure Yang–Mills and gravity are deferred branches. No Standard Model species or primary mass in GeV is identified.',
            56, INK, max_y=y+240)
     chain = ' → '.join(str(node['number']) for node in nodes[:8])
     c.text(M, y+315, 'Shared particle route:  '+chain, 64, TEAL, 700)
-    c.text(M+12300, y+315, 'Pure-gauge branch:  5 → 9', 64, BLUE, 700)
-    c.text(M+21000, y+315, 'Gravity branch:  5 → 10', 64, ORANGE, 700)
+    c.text(M+12300, y+315, 'Deferred pure gauge:  5 → 9', 64, BLUE, 700)
+    c.text(M+21000, y+315, 'Deferred gravity:  5 → 10', 64, ORANGE, 700)
     width = (W-2*M)/3
     for index, node in enumerate(nodes[:9]):
         x = M+(index % 3)*width
         top = y+400+(index//3)*760
         color = TEAL if index < 3 else BLUE if index == 8 else ORANGE
         status = ('FINITE CONSTRUCTED' if index < 3 else
-                  'CONDITIONAL GAP CRITERION' if index == 8 else 'PHYSICAL PROOF REQUIRED')
+                  'DEFERRED · CONDITIONAL GAP CRITERION' if index == 8 else 'PHYSICAL PROOF REQUIRED')
         after = ', '.join(str(numbers[key]) for key in node['depends_on'])
         tag = status+(' · after '+after if after else ' · declared program')
         c.rect(x, top, width-70, 720, '#fffdf7', LINE, 26)
@@ -103,19 +108,22 @@ def render(c, data, y):
         c.link(x+80, top+660, 'Acceptance conditions and exact evidence',
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
         theorem = {'local_records': 'model/particle_filtered_probe/PROOF.md',
-                   'joint_refinement': 'model/particle_primary_field_algebra/PROOF.md'}.get(
+                   'joint_refinement': 'model/particle_primary_field_algebra/PROOF.md',
+                   'particle_observables': 'model/particle_primary_survival/PROOF.md',
+                   'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
         c.link(x+width/2, top+660, 'Scoped construction or theorem',
                theorem, 49)
         extra = {
+            'fixed_program': ('Source capacity', 'model/particle_primary_capacity/PROOF.md'),
             'local_records': ('Local influence', 'model/particle_primary_locality/PROOF.md'),
-            'joint_refinement': ('Energy sign', 'model/particle_joint_reconstruction/POSITIVE_ENERGY.md'),
+            'joint_refinement': ('Spatial action', 'model/particle_primary_spatial_algebra/PROOF.md'),
             'particle_observables': ('Positive window', 'model/particle_positive_window/PROOF.md'),
         }.get(node['id'])
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
     gravity = nodes[9]; top = y+2720
     c.rect(M, top, W-2*M-70, 530, '#fffdf7', LINE, 26)
-    c.text(M+90, top+110, 'PHYSICAL PROOF REQUIRED · after 5', 57, ORANGE, 700)
+    c.text(M+90, top+110, 'DEFERRED · PHYSICAL PROOF REQUIRED · after 5', 57, ORANGE, 700)
     c.text(M+90, top+230, '10  '+gravity['title'], 72, INK, 700)
     c.para(M+90, top+345, W-2*M-250, SUMMARIES[gravity['id']], 64, ORANGE, max_y=top+420)
     c.link(M+90, top+480, 'Actual source energy, complete records and marginal entropy',

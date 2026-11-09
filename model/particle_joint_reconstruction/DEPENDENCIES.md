@@ -45,10 +45,10 @@ the coupled matter source merely by sharing those node names.
 | 2. Physical preparation | The [physical Gauss preparation](../particle_gauss_ground_state/PROOF.md) and [boundary-state theorem](../particle_physical_boundary_state/PROOF.md) construct the actual selected state, deterministic preparation and complete boundary-charge measurement. Eleven Wilson-loop/blank witnesses have strictly positive weight; all charge outcomes are retained. | Finite construction established. Full spatial execution and compatibility between refinement levels are separate claims. |
 | 3. Local records | The [complete filtered apparatus](../particle_filtered_probe/PROOF.md) supplies distinct LCU/Ramsey and square-root effect instruments with error bounds. The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. Fixed finite effect histories converge on the common subsequence below; growing reference outputs and the full particle-detector repertoire are separate requirements. |
 | 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md), stationary subsequential state, positive-energy GNS and fixed finite pointer-history limits are constructed. Noncollapse, charge tightness, effective errors and a full field dictionary remain unproved; fixed-regulator results are not silently composed. |
-| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The matched gauge/matter quadratic cone is finite evidence. It does not prove Lorentz covariance or a continuum interaction. |
+| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. Spatial invariance of that state, canonical momentum, Lorentz covariance and a surviving interaction remain unproved. |
 | 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | Conditional finite representation and action results are available. Their physical chiral continuum, vacuum and source attachment are unproved. |
-| 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | Action-level coefficients and separate finite spectral controls are available. A full physical spectrum on the primary family is unproved. |
-| 8. Independent comparison | Fix physical units and a frozen observable dictionary; compare joint records in the same schemes, initial conditions and resolution, with propagated errors. Preserve fitted-input ancestry and distinguish independent tests from calibration. | Calibrated candidate comparisons have their declared scope. Empirical particle assignments require the preceding physical attachments. |
+| 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | The [source energy transport theorem](../particle_primary_mass_readout/PROOF.md) connects original transition weights to final ground-relative excitation and supplies conditional rest intervals. Actual momentum-resolved shells, species and a full physical spectrum remain unproved. |
+| 8. Independent comparison | Fix physical units and a frozen observable dictionary; compare joint records in the same schemes, initial conditions and resolution, with propagated errors. Preserve fitted-input ancestry and distinguish independent tests from calibration. | Declared SI/GeV comparison conversion is available immediately. Candidate fits retain their calibration ancestry; actual particle masses need the preceding physical attachments. |
 | 9. Pure Yang-Mills branch | Admit a pure compact-simple source or prove a reducing/decoupling map, instantiate 1-5 for that source, establish Yang-Mills short-distance behavior, and prove dense local Euclidean decay with finite-energy noncollapse in its reconstructed clock. | The [spectral criterion](../particle_yang_mills_gap_contract/PROOF.md) is proved conditionally. Its pure-gauge source, continuum correlation estimates and positive physical gap are not supplied by the primary finite construction. |
 | 10. Geometric gravity | Attach the selected local energy currents and regional responses to physical stress, proper geometry, the geometric modular kernel and fixed-volume area law. Meet the matched small-ball error estimates on the same state and clock. | The [primary energy and regional response](../particle_primary_stress/PROOF.md) supplies finite prerequisites. Proper geometry and the hypotheses of the [Einstein reconstruction](../matched_einstein_limit/PROOF.md) require physical proofs. |
 
@@ -137,10 +137,13 @@ for an effect E is a separate construction. Neither discards failed flags.
 The [positive-window bound](../particle_positive_window/PROOF.md) converts
 an original-weight contrast F(0)-Re F(t), its error and the source-derived
 moment bounds into a lower bound on weight in a fixed interval [delta,R].
-An actual primary contrast that stays above the allowances is the shortest
-next test of a surviving excitation. Positive results on the separate
-small matrix control do not supply that primary contrast, a mass pole,
-physical species or a surviving interaction.
+A primary contrast that stays above the fixed-band allowances is the
+shortest next test of a surviving excitation. The
+[actual plaquette witness](../particle_primary_survival/PROOF.md) supplies
+positive finite contrast and original band weight, including a specified
+finite filter. Its times shrink, its band spreads towards zero and infinity,
+and its lower weight vanishes. This is a genuine finite-source result,
+without uniform noncollapse, a mass pole, species or surviving interaction.
 
 No second observer-preparation checklist is introduced for that branch.
 Its source must instantiate the same nodes 1-5 or be connected by a proved
@@ -167,3 +170,37 @@ The retained coin-plus-region entropy differs from the regional marginal
 entropy. Neither is silently identified with geometric generalized entropy.
 See the [reuse map](REUSE.md) for the finite theorems and comparison
 constructions used at each step.
+
+## Mass-first interpretation of the graph
+
+The active target is an actual source-derived mass output, with permitted
+declared SI conversion. Nodes9 and10 are separate deferred branches.
+For the current primary family the unresolved shared physical questions
+are a fixed-band excitation with uniform original weight, operational
+momentum on the selected representation, and a same-branch
+relativistic spectral relation. Spin/current/statistics and interaction
+matching then determine whether that branch is a named particle.
+Spatial invariance is sufficient for canonical vacuum-fixing GNS momentum;
+a different implementation requires its own same-representation proof.
+
+The finite-survival proof also rules out one shortcut on this preparation:
+the empty and completely filled Fock sectors are exact pure-gauge reducing
+sectors, but their combined selected weight is at most
+`7/(627*2^(8n+7))`. A conditional spectrum obtained by normalizing those
+sectors is not a surviving original-weight primary particle spectrum.
+
+For every bounded physical probe the mass-readout theorem couples transfer
+energy to final ground-relative energy with cost at most `C² epsilon_n`.
+Its finite excitation band is therefore meaningful without numerically
+computing the primary ground energy. A rest mass additionally requires
+momentum/vacuum and spectral-shell attachment. Specifying SI units does
+not supply that absent spectral information; deriving a cesium atom is
+not a prerequisite for using a declared comparison unit.
+
+The [capacity consumer](../particle_primary_capacity/PROOF.md) gives
+`4 V ln2 <= ln rank(P_G) <= ln D_ambient`. At degree one the ambient
+capacity is exactly `V*(60ln2+3ln119)`. Other link degrees retain explicit
+bounds. The source has `H_n=Hhat_n/a_n`; a numerical mass-capacity law
+requires the actual dimensionless spectrum and one tracked unit policy.
+The near-ground preparation is a particle-spectroscopy setup, not a
+calculation of early-universe temperatures or particle abundances.

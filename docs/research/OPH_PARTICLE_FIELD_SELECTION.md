@@ -4,20 +4,22 @@ The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
-are the single ten-node construction map. Nodes 1-3 have finite selected-source
-constructions: the fixed program, physical boundary state, complete local
-records and controlled filtered apparatus. Node 4 includes a common
-subsequential filtered observable algebra with positive energy and finite
-pointer-history limits; its nonzero physical field content is unproved.
-The interacting relativistic field, species, spectrum and independent
-comparison occupy nodes 5-8. Node 9 is the pure Yang-Mills gap branch;
-node 10 is proper geometry and Einstein dynamics. The comparison results
-below retain their own sources and do not add canonical dependency lists.
+are the single ten-node construction map. The active target is source-derived
+particle masses in declared SI/GeV comparison units, with capacity dependence
+explicit. Nodes 1-3 establish the finite program, physical preparation and
+complete local apparatus. Nodes 4-8 include a positive-energy filtered
+algebra, a regular continuous spatial action, finite primary positive
+response bounds and original transfer-to-excitation transport. Uniform
+survival, same-state momentum, physical species and mass branches are
+unproved. The primary physical-mass table in GeV is empty. Pure Yang-Mills
+(node 9) and geometric gravity (node 10) are deferred branches. Comparison
+results retain their own sources and do not add canonical dependency lists.
 
 The [mass-output route](OPH_FIELD_RECONSTRUCTION.md#mass-outputs-and-the-immediate-physical-target)
-prioritizes primary spectral response, momentum and rest-energy attachment,
-then physical GeV conversion. Gravity is a separate target and is deferred
-for this particle-mass calculation.
+prioritizes uniform original response weight, same-state momentum and
+rest-energy attachment. SI length or time units may be declared immediately;
+the declaration supplies no missing spectrum or species identification.
+Pure Yang-Mills and gravity are deferred for this mass calculation.
 
 The objects produced by the executable are finite simulation-generated
 observables: events, apparatus records and observer comparisons of their
@@ -92,14 +94,48 @@ Lorentz representation, interaction or physical renormalization trajectory.
 
 The [finite filtering apparatus](../../model/particle_filtered_probe/PROOF.md)
 implements original correlation scores with every failure and the idle
-reference retained. A [positive-energy window](../../model/particle_positive_window/PROOF.md)
-requires an actual contrast beyond the supplied finite error and tail
-bounds; the primary witness is not computed. The
-[primary energy consumer](../../model/particle_primary_stress/PROOF.md)
+reference retained. The [primary finite witness](../../model/particle_primary_survival/PROOF.md)
+proves a positive plaquette contrast and original band weight on this
+selected state, including the implemented filter. Its filter and readout
+times shrink, its certified weight floor vanishes, and its band expands
+towards zero and infinite energy. A uniform fixed-band witness for the
+[positive-window criterion](../../model/particle_positive_window/PROOF.md)
+is unproved. The invariant empty/full Fock sectors have vanishing combined
+selected weight; their normalized spectra cannot replace the primary law.
+The proved plaquette channel is gauge invariant, neutral, even and
+matter-number preserving. The unsmeared operator acts on links; its time
+filter can spread through the coupled action. These labels establish no
+Lorentz spin, single charged-lepton identity or family multiplicity.
+
+The [regular spatial construction](../../model/particle_primary_spatial_algebra/PROOF.md)
+adds a continuous R3 action commuting with time on the smeared asymptotic
+algebra. Its physical exterior extension and bulk estimate preserve the
+actual finite-source moments in the limit, without a finite physical
+norm embedding. The selected state is not proved spatially invariant,
+so canonical momentum is not supplied. The
+[mass-readout theorem](../../model/particle_primary_mass_readout/PROOF.md)
+controls original transfer-to-excitation weights; rest masses require a
+same-source momentum branch and species attachment. SI comparison units
+are permitted declarations, with their absolute scale recorded as an input.
+The physical-mass table in GeV is empty.
+
+The [capacity calculation](../../model/particle_primary_capacity/PROOF.md)
+gives ambient member-zero capacity 447.4096... nats and
+`4V ln2<=N_phys<=N_ambient`. The level-five ambient upper bound near
+`1.302e12` nats is a source allocation bound, without the full reference,
+apparatus, program, controller precision, record archive or workspace.
+It is not a dense-simulation feasibility result or a universal capacity
+requirement for implementations.
+Refinement changes volume, spacing, cutoff and cooling together; capacity
+alone is not a derived control of masses. A unit policy must distinguish
+shrinking lattice spacing in fixed coordinates from declaring each level's
+spacing to represent the same length in metres.
+
+The [primary energy consumer](../../model/particle_primary_stress/PROOF.md)
 adds exact interaction currents and a supported source-marginal entropy
 first law. Coin-plus-region entropy is a separate functional. Its finite
-premises support gravity node 10 without identifying proper geometry or
-establishing Einstein dynamics.
+premises support the deferred gravity node 10 without identifying proper
+geometry or establishing Einstein dynamics.
 
 ## Preparation and characteristic-speed choices
 

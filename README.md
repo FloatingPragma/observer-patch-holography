@@ -133,7 +133,8 @@ proof shows that the whole class of laws cannot work.
 - **One source, state, reference and clock.** The selected Wilson construction
   has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
   a stationary limiting state, positive energy and convergent finite detector
-  histories on one subsequence. Its
+  histories on one subsequence. An [actual finite excitation](model/particle_primary_survival/PROOF.md)
+  has positive original weight, with no uniform particle-survival bound. Its
   [local energy currents](model/particle_primary_stress/PROOF.md) obey exact
   conservation on the same finite source. These results do not show
   that excitations survive the limit or identify physical particles,
