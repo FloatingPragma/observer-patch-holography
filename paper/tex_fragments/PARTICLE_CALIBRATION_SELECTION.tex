@@ -652,6 +652,114 @@ by $750V/(17a)$. The mixed state is not a finite ground; the comparison
 neither proves that this Slater alternative is the interacting ground
 nor excludes every continuum interpretation of the mixed family.
 
+\subsection{Gap-free low-energy preparation and signed detector records}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_spatial_ground_state/PROOF.md}{full spatial preparation}
+retains sixty CAR modes per cell and a tensor product of native coordinate-word
+spaces, each of degree at most $\ell$ on one link. This cutoff differs from
+a single total-degree restriction. For $V$ cells,
+$D\le 2^{60V}451^{3V\ell}$. Compressing the declared Wilson action gives
+an explicit finite Hamiltonian with certified spectral interval $[L,U]$.
+The finite Gibbs entropy identity and its log-dimension bound imply
+\[
+ \operatorname{Tr}(\rho_bH)-E_0\le\frac{\log D}{b},\qquad b>0.
+\]
+Indeed $S=\log Z+b\langle H\rangle\le\log D$ and
+$Z\ge e^{-bE_0}$. No positive gap or ground-energy oracle is required.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Thermodynamics/GapFreeCooling.lean}{finite Lean bound}
+reuses the existing entropy normalization and cardinality theorems.
+
+A scaled positive Taylor polynomial in $b(U-H)/2$ prepares a canonical
+purification with half-trace error at most $\eta$. Its source density is
+stationary and has mean ground-energy excess
+\[
+ \epsilon\le\frac{\log D}{b}+(U-L)\eta.
+\]
+Temperature and polynomial order are chosen from a finite tolerance.
+The joint preparation retains the conjugate gauge reference and selects
+no success branch. Its resources can be exponentially large. Gauge
+invariance of this full-carrier density does not put it entirely in a
+source-only Gauss-singlet sector. Exact Wilson matrix entries and
+controlled smooth-action approximations have their separate compilation
+bounds; stationarity refers to the Hamiltonian actually used to prepare
+the polynomial state.
+
+For every bounded probe $A$, stationarity and excess at most $\epsilon$
+give the approximate ground inequality
+\[
+ \omega(A^*[H,A])\ge-\|A\|^2\epsilon.
+\]
+The positive term is $\operatorname{Tr}\rho A^*(H-E_0)A$; the other term
+is bounded using $[\rho,H]=0$. This finite premise supplies no convergence
+of states across physical spacings.
+
+At fixed spacing and fixed per-link cutoff, the Wilson interaction has
+finite local factors and a volume-independent incident norm bound $J$.
+For a probe supported on $s_0$ cells,
+$\|\operatorname{ad}_H^n A\|\le\|A\|(2J)^n
+\prod_{j=0}^{n-1}(s_0+3j)$, giving uniform local dynamics for small time
+and then all finite times by composition. Cooling growing cubes to excess
+$1/R$ and taking a local-state subsequence passes stationarity and the
+ground inequality to the quasi-local limit. Spatial averaging can give
+a translation-invariant ground state. This is a ground construction for
+the Wilson quantum-link action at fixed regulators; it selects no
+computable subsequence and proves no spacing or link-cutoff continuum
+limit.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_ground_spectral_records/PROOF.md}{208-state spectral control}
+retains the unchanged charge-six Hamiltonian and its complete compensated
+CAR addition/removal instrument. An exact charge conjugation preserves
+$H$ and reverses the source charge, pairing the $N=1$ and $N=3$ spectra.
+Rational inertia comparisons bound its $N=2$ ground and the conjugate
+charged thresholds. These finite source energies have no physical
+particle or GeV assignment.
+
+Write $p_i$ for the stationary preparation weights and $w_{ij}$ for
+original spectral-event weights, with $w_{ij}\ge0$ and
+$\sum_jw_{ij}\le p_i$. For every $\delta>0$,
+\[
+ \sum_{E_j-E_i\le-\delta}w_{ij}
+ \le\frac{\sum_i p_i(E_i-E_0)}{\delta}
+ \le\frac{\epsilon}{\delta}.
+\]
+Every downward event requires $E_i-E_0\ge\delta$. Summing this inequality
+proves the bound for complete contraction instruments without a
+channel-count factor. The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/GroundRecordTail.lean}{finite Lean proof}
+retains raw weights rather than conditional success probabilities.
+Its zero-excess case has no negative-energy events. The physical
+spectrum condition also requires a common spatial state limit and
+energy-momentum translations.
+
+\subsection{The common quadratic gauge characteristic}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_gauge_characteristics/PROOF.md}{native gauge calculation}
+uses the full fifteen-state representation with Hermitian generators,
+$\operatorname{Tr}(T_aT_b)=I_a\delta_{ab}$,
+$I_a=2$ for weak and color generators, and $I_Y=10/3$ for $Y=q_6/6$.
+The inherited electric Casimir uses the inverse trace metric. With
+$H_E=e_0C_{\rm tr}/(2a)$ and
+$H_B=-\kappa_0\sum_p\operatorname{ReTr}U_p/(15a)$, the ordered
+plaquette expansion gives, with dimensionless momentum $k_i=a p_i$,
+\[
+ H_B^{(2)}=\frac{\kappa_0}{30a}\sum_{p,a}I_a F_{p,a}^2,
+ \qquad \omega_g^2(k)=\frac{e_0\kappa_0}{15a^2}
+                         4\sum_i\sin^2(k_i/2).
+\]
+The electric inverse metric cancels $I_a$ in Hamilton's equations.
+All twelve gauge directions share this quadratic speed. The lattice
+curl retains one longitudinal null and two transverse modes at nonzero
+momentum, with its zero-momentum flat coordinates treated separately.
+
+The Wilson matter symbol has unit principal speed. The declared relation
+$e_0\kappa_0=15$ matches the gauge characteristic on the same clock;
+$e_0=1$, $\kappa_0=1/7$ instead gives squared gauge speed $1/105$.
+This is an allowed architecture choice without measured-mass calibration.
+Rescaling the hypercharge coordinate changes electric and magnetic
+coefficients inversely and leaves the characteristic unchanged.
+A common quadratic cone does not establish Lorentz covariance of the
+interacting state, identify physical photon or gluon states, or derive
+a running coupling or chiral spectrum.
+
 \subsection{Spatial strain and pressure from the chosen action}
 
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_geometric_response/PROOF.md}{coframe response}

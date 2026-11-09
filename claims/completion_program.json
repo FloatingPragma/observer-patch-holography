@@ -644,7 +644,15 @@
         "model/particle_transport/algebra.py",
         "model/particle_transport/source.py",
         "model/particle_transport/detector.py",
-        "model/particle_transport/results.json"
+        "model/particle_transport/results.json",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1033,
@@ -1173,7 +1181,10 @@
         "model/particle_local_wilson_density/PROOF.md",
         "model/particle_local_history_family/PROOF.md",
         "model/particle_field_state_response/state_response.py",
-        "model/particle_field_state_response/PROOF.md"
+        "model/particle_field_state_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean"
       ],
       "legacy_issues": [
         1077,
@@ -2233,7 +2244,15 @@
         "model/particle_field_state_response/state_response.py",
         "model/particle_field_state_response/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -2658,7 +2677,12 @@
         "model/particle_physical_causality/cone.py",
         "model/particle_physical_causality/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -3075,7 +3099,12 @@
         "model/particle_physical_causality/cone.py",
         "model/particle_physical_causality/PROOF.md",
         "model/particle_field_state_response/state_response.py",
-        "model/particle_field_state_response/PROOF.md"
+        "model/particle_field_state_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -3772,7 +3801,10 @@
         "model/particle_local_history_family/PROOF.md",
         "model/particle_joint_translation_readout/PROOF.md",
         "model/particle_joint_translation_readout/readout.py",
-        "model/particle_joint_translation_readout/test_readout.py"
+        "model/particle_joint_translation_readout/test_readout.py",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean"
       ],
       "legacy_issues": [
         1026,
@@ -4405,7 +4437,9 @@
         "model/particle_physical_causality/cone.py",
         "model/particle_physical_causality/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -4667,7 +4701,10 @@
         "model/particle_field_state_response/state_response.py",
         "model/particle_field_state_response/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean"
       ],
       "legacy_issues": [
         1026,
@@ -5159,7 +5196,15 @@
         "model/particle_field_state_response/state_response.py",
         "model/particle_field_state_response/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "legacy_issues": [
         1078,

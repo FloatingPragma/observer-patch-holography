@@ -171,6 +171,23 @@ records and pressure for its declared volume coupling. This finite
 response does not identify the supplied coframe with observer-derived
 proper geometry or supply the Einstein regional entropy/area premises.
 
+The [full spatial low-energy construction](../particle_spatial_ground_state/PROOF.md)
+uses every CAR occupation and a product of per-link native word cutoffs.
+Scaled positive polynomials prepare stationary states with an explicit
+mean ground-energy budget, without a spectral-gap oracle. The
+[208-state charged control](../particle_ground_spectral_records/PROOF.md)
+has exact conjugate-charge symmetry, certified source thresholds and
+complete addition/removal records. Its gap-free energy-tail inequality
+is checked by a finite Lean consumer. These finite energies need spatial
+dispersion and a physical clock before a mass interpretation.
+
+The [actual gauge Hessian](../particle_gauge_characteristics/PROOF.md)
+reuses the source's trace-dual electric metric. All twelve quadratic gauge
+speeds coincide; the declared relation `e0*kappa0=15` matches them to the
+unit matter principal speed. This calculation retains the source's
+longitudinal null directions and distinguishes a quadratic characteristic
+from an interacting Lorentz limit.
+
 The physical output requirements are the common spatial and relativistic
 limit, controlled chiral matter content, interacting spectral/detector
 identification and energy matching. Defect creation and transport must

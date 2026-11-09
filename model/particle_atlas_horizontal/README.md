@@ -50,6 +50,15 @@ spatial deformations to the causal estimate. Its input guard rejects
 incompatible actions, temperatures, preparation errors and physical
 interpretations before rendering a shared-state claim.
 
+The ground-state panel connects finite low-energy preparation, complete
+charged records and the common quadratic gauge characteristic. It displays
+certified opposite-charge sector thresholds in source units and keeps them
+distinct from accessible spectral residues or physical masses. Its guard
+checks the common 208-state preparation and clock, retained references,
+complete branch count and the matched electric/magnetic coefficients.
+The plotted straight lines are principal, small-momentum characteristics;
+physical interacting Lorentz covariance is a separate conclusion.
+
 ```sh
 python -m model.particle_atlas_horizontal.build --write
 python -m model.particle_atlas_horizontal.build --check

@@ -196,3 +196,32 @@ identification with proper geometry, the spatial-diamond modular
 kernel, area response and controlled Einstein limit require their
 same-state premises. No measured parameter
 is removed merely by adding these finite constructions to the report.
+
+
+## Low-energy preparation and signed records on the declared clock
+
+The [spatial construction](../particle_spatial_ground_state/PROOF.md)
+uses full CAR and a tensor product of gauge-invariant per-link word spaces.
+For each compressed source, the finite entropy identity gives
+`U_beta-E0 <= log(D)/beta`. A canonical polynomial purification adds at
+most the spectral width times its half-trace error to this energy budget.
+The resulting density is stationary; its bounded-probe ground inequality
+has the same excess as its error allowance. Product and total-degree
+cutoffs are distinct source objects with separate comparisons.
+
+The [charged control](../particle_ground_spectral_records/PROOF.md)
+uses the unchanged 208-state source. Its compensated CAR instrument is
+complete, its charge conjugation preserves H, and exact rational inertia
+comparisons certify the ground and conjugate charged thresholds.
+[GroundRecordTail](../../Lean/QFT/GroundRecordTail.lean) consumes the
+original spectral weights: total transfers below `-delta` have weight
+at most `epsilon/delta` for ground-energy excess `epsilon`. It proves
+neither a spatial spectrum condition nor a physical species assignment.
+
+The [native gauge characteristics](../particle_gauge_characteristics/PROOF.md)
+follow from the actual ordered plaquette Hessian and inverse M15 trace
+metric. All twelve gauge directions have squared speed `e0*kappa0/15`;
+`e0*kappa0=15` matches the unit matter principal speed. The declared
+matching family and the unchanged mismatched controls are distinguished.
+This is a weak-field, same-clock calculation; no nonperturbative Lorentz
+limit, measured gauge coupling or chiral spectrum follows from it alone.

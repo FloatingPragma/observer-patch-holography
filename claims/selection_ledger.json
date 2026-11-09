@@ -589,12 +589,28 @@
         "model/particle_field_state_response/state_response.py",
         "model/particle_field_state_response/PROOF.md",
         "model/particle_geometric_response/geometry.py",
-        "model/particle_geometric_response/PROOF.md"
+        "model/particle_geometric_response/PROOF.md",
+        "model/particle_spatial_ground_state/ground.py",
+        "model/particle_spatial_ground_state/PROOF.md",
+        "Lean/Thermodynamics/GapFreeCooling.lean",
+        "model/particle_ground_spectral_records/records.py",
+        "model/particle_ground_spectral_records/PROOF.md",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_gauge_characteristics/characteristics.py",
+        "model/particle_gauge_characteristics/PROOF.md"
       ],
       "lean": [
         {
           "module": "Lean/Screen/A5FamilyBand.lean",
           "declaration": "family_band_selected"
+        },
+        {
+          "module": "Lean/Thermodynamics/GapFreeCooling.lean",
+          "declaration": "gibbs_excess_sum_le_log_card_div"
+        },
+        {
+          "module": "Lean/QFT/GroundRecordTail.lean",
+          "declaration": "downwardWeight_le_excess_div"
         }
       ],
       "negative_controls": [

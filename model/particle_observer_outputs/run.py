@@ -52,6 +52,9 @@ def build():
     from model.particle_physical_causality import cone as physical_cone
     from model.particle_field_state_response import state_response as field_thermal
     from model.particle_geometric_response import geometry as spatial_geometry
+    from model.particle_spatial_ground_state import ground as spatial_ground
+    from model.particle_ground_spectral_records import records as ground_records
+    from model.particle_gauge_characteristics import characteristics as gauge_characteristics
     inherited=json.loads(BASE.read_text())['input_sha256']
     for path,digest in inherited.items():
         if sha(ROOT/path)!=digest:
@@ -63,7 +66,8 @@ def build():
                    holonomy_transport,consensus_records,gauge_input,bare_effective,controller_readout,
                    attachment,causality,energy,ground,regional,preparation,spectrum,experiment,
                    local_gauge,wilson_density,local_history,sign_boundary,smooth,joint_translation,
-                   physical_cone,field_thermal,spatial_geometry):
+                   physical_cone,field_thermal,spatial_geometry,
+                   spatial_ground,ground_records,gauge_characteristics):
         paths.update(getattr(module,'SOURCE_INPUTS',()))
         owner=Path(module.__file__).parent
         paths.update(str(p.relative_to(ROOT)) for p in owner.iterdir()
@@ -99,14 +103,17 @@ def build():
             'refinement_uniform_causality':capture_certificate(physical_cone),
             'interacting_field_thermal_records':capture_certificate(field_thermal),
             'declared_spatial_geometry_response':capture_certificate(spatial_geometry),
+            'spatial_low_energy_preparation':capture_certificate(spatial_ground),
+            'ground_energy_spectral_records':capture_certificate(ground_records),
+            'gauge_matter_characteristics':capture_certificate(gauge_characteristics),
             'empirical_mass_inputs':[],
             'physical_particle_assignments':[],
             'source_predicted_GeV_masses':[],
             'empirical_calibrations_eliminated':[],
             'physical_requirement_status':[
-                {'id':1,'name':'preparation and complete instruments','status':'finite scalar and referenced spatial preparations, full quantum-flux thermal preparation and complete instruments established; the degree-zero Legendre spatial tracial-Fock input is not a finite ground, and a physical relativistic state attachment is unproved'},
+                {'id':1,'name':'preparation and complete instruments','status':'complete finite preparations and gap-free polynomial low-energy plans on the full tensor-cutoff spatial source established; a physical relativistic state and convergence across spacings are unproved'},
                 {'id':2,'name':'common operational position, momentum, time and energy','status':'same-H energies, state-specific Gibbs modular time, full-field position records and conserved joint crystal momentum established; physical particle position/momentum and clock dictionary unproved'},
-                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-positive-smoothing interacting local-record limit and refinement-uniform causal bounds established on their declared families; a convergent physical state, Lorentz transformations and chiral matter remain unproved'},
+                {'id':3,'name':'interacting relativistic field behavior','status':'fixed-positive-smoothing local records, refinement-uniform causal bounds and same-clock quadratic gauge-matter cone matching established on declared families; convergent physical states, interacting Lorentz transformations and chiral matter are unproved'},
                 {'id':4,'name':'physical masses, mixing, scattering and decays','status':'finite spectral responses established; physical mass and scattering matching unproved'},
                 {'id':5,'name':'defect-to-species attachment','status':'declared protected-label interaction established; physical species identification unproved'},
                 {'id':6,'name':'controlled errors and same-source gravity','status':'fixed-time regulator/volume/cutoff bounds, refinement-uniform influence tails, same-action energy and declared spatial strain responses established; observer-derived proper geometry, physical state refinement and Einstein regional premises unproved'}],
@@ -140,7 +147,10 @@ def build():
         'same-H variational witness excluding the spatial degree-zero tracial-Fock preparation as a finite ground',
         'declared spatial coframe coupling with six source strain responses, frame rotation covariance and fixed-regulator dilation identity',
         'compact constant-coframe causal bounds on the same parent Wilson action, with outgoing-link electric cross terms onsite',
-        'shared208-state thermal and pressure control with complete stress instruments, retaining target Gibbs versus prepared polynomial state distinctions']
+        'shared208-state thermal and pressure control with complete stress instruments, retaining target Gibbs versus prepared polynomial state distinctions',
+        'gap-free low-energy preparation plans for full spatial CAR and product coordinate cutoffs, with reference-preserving polynomial error',
+        'conjugate-charge spectral symmetry and complete phase records on the same cooled208-state control, with a finite Lean downward-record bound',
+        'native trace-dual electric metric and Wilson plaquette Hessian give a common twelve-direction quadratic gauge cone and an explicit matter-speed matching relation']
     if any(sha(ROOT/p)!=h for p,h in pins.items()):
         raise ValueError('input changed during complete-output replay')
     return json.dumps(report,ensure_ascii=False,indent=2,sort_keys=True,allow_nan=False)+'\n'

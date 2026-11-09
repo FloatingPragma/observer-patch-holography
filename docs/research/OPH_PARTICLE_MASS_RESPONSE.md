@@ -44,6 +44,22 @@ lines below refer to another preparation; their residues cannot be
 transferred to this ground. The [prepared-state dependency map](OPH_FIELD_RECONSTRUCTION.md#prepared-states-and-actual-regional-response)
 also records the finite gauge-gap and regional modular premises.
 
+## Cooled source thresholds and physical mass interpretation
+
+The [same-source spectral construction](../../model/particle_ground_spectral_records/PROOF.md)
+uses the full 208-state quantum-flux control and a certified cooled
+preparation. Charge conjugation pairs its `N=1` and `N=3` spectra about
+the `N=2` ground. Complete CAR probes and their compensating references
+retain every original weight. A bound on mean ground-energy excess
+controls downward transfers without a spectral gap or success filtering.
+These are source transition energies. Their rest-mass interpretation
+requires momentum-dependent spatial response on the same interacting
+state; a GeV label additionally requires a physical energy reference.
+The [dependency map](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
+gives the full spatial low-energy plans and the quadratic gauge/matter
+clock match. Neither substitutes a calibrated lepton ratio for a
+calculated mass shell.
+
 ## Charged energies about the complete finite ground
 
 The [full-ground charged response](../../model/particle_ground_charged/PROOF.md)

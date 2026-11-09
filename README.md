@@ -130,6 +130,14 @@ proof shows that the whole class of laws cannot work.
   same state and clock. The proper geometric interpretation and regional
   entropy and area premises required for Einstein dynamics are separate
   physical requirements.
+- **Low-energy states and opposite charges.** A
+  [finite cooling construction](model/particle_spatial_ground_state/PROOF.md)
+  prepares low-energy states without knowing a spectral gap. One interacting
+  [charged control](model/particle_ground_spectral_records/PROOF.md)
+  pairs opposite-charge energies and retains complete detector records.
+  The [native gauge action](model/particle_gauge_characteristics/PROOF.md)
+  also admits a common quadratic propagation speed matched to matter.
+  Physical particles require the corresponding interacting spatial limit.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs. Computational
   receipts bind their source inputs and include replay checks.

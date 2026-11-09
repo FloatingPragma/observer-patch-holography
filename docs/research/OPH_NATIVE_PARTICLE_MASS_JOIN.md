@@ -19,6 +19,21 @@ requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
+## Same-source low-energy and charge-conjugate readouts
+
+The [low-energy and propagation construction](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
+prepares gap-free ground-energy approximants on each full spatial
+product-cutoff carrier. Its stationary energy budget feeds the finite
+[downward-record theorem](../../Lean/QFT/GroundRecordTail.lean).
+On the unchanged 208-state directional control, exact charge conjugation
+pairs opposite charges, and complete compensated probes retain their
+original weights. These certified finite thresholds require spatial
+dispersion, dressing and physical units before a measured-mass assignment.
+The actual trace-dual gauge metric also gives a common quadratic cone;
+matching it to matter requires the declared relation `e0*kappa0=15`.
+No source-predicted GeV mass or observed-species entry follows from these
+finite controls alone.
+
 ## Complete neutral and charged observer records
 
 The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)

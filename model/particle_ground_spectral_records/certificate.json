@@ -1,0 +1,346 @@
+{
+  "accepted_branch_normalization": false,
+  "adjacent_charge_minimum_transfer_intervals": {
+    "1": [
+      "19030367577/17179869184",
+      "38060735167/34359738368"
+    ],
+    "3": [
+      "19030367577/17179869184",
+      "38060735167/34359738368"
+    ]
+  },
+  "all_fock_occupation_states": 16,
+  "all_quantum_flux_labels": [
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "charge_conjugation": {
+    "Gauss_charge_reversed": true,
+    "Hamiltonian_invariant": true,
+    "antiunitary_square_identity": true,
+    "electric_flux_reversed": true
+  },
+  "complete_original_negative_transfer_bound": "min(1,mean_ground_excess/eta)",
+  "cooled_source_records": {
+    "Taylor_order": 8,
+    "beta": "4",
+    "complete_clock_apparatus": {
+      "Cayley_steps": 4,
+      "Fourier_bins": 2,
+      "Gibbs_exact_clock_output_half_trace_error_upper": "20255622025645/47847722383835136",
+      "all_quantum_references_retained": true,
+      "complete_original_branch_count": 16,
+      "duration": "1/64",
+      "mode_and_sign_are_apparatus_records": true,
+      "negative_bin_is_negative_energy_measurement": false,
+      "prepared_exact_clock_output_half_trace_error_upper": "1331/3145728",
+      "probability_sum": "1",
+      "records": [
+        {
+          "mode": 0,
+          "original_probability_interval": [
+            "33889347521/137438953472",
+            "271114780169/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": 1
+        },
+        {
+          "mode": 0,
+          "original_probability_interval": [
+            "28323049/1099511627776",
+            "14161525/549755813888"
+          ],
+          "phase_bit": 1,
+          "sign": 1
+        },
+        {
+          "mode": 1,
+          "original_probability_interval": [
+            "33889347521/137438953472",
+            "271114780169/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": 1
+        },
+        {
+          "mode": 1,
+          "original_probability_interval": [
+            "28323049/1099511627776",
+            "14161525/549755813888"
+          ],
+          "phase_bit": 1,
+          "sign": 1
+        },
+        {
+          "mode": 2,
+          "original_probability_interval": [
+            "1863905949/549755813888",
+            "3727811899/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": 1
+        },
+        {
+          "mode": 2,
+          "original_probability_interval": [
+            "1747957/274877906944",
+            "6991829/1099511627776"
+          ],
+          "phase_bit": 1,
+          "sign": 1
+        },
+        {
+          "mode": 3,
+          "original_probability_interval": [
+            "1863905949/549755813888",
+            "3727811899/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": 1
+        },
+        {
+          "mode": 3,
+          "original_probability_interval": [
+            "1747957/274877906944",
+            "6991829/1099511627776"
+          ],
+          "phase_bit": 1,
+          "sign": 1
+        },
+        {
+          "mode": 0,
+          "original_probability_interval": [
+            "1863905949/549755813888",
+            "3727811899/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": -1
+        },
+        {
+          "mode": 0,
+          "original_probability_interval": [
+            "1747957/274877906944",
+            "6991829/1099511627776"
+          ],
+          "phase_bit": 1,
+          "sign": -1
+        },
+        {
+          "mode": 1,
+          "original_probability_interval": [
+            "1863905949/549755813888",
+            "3727811899/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": -1
+        },
+        {
+          "mode": 1,
+          "original_probability_interval": [
+            "1747957/274877906944",
+            "6991829/1099511627776"
+          ],
+          "phase_bit": 1,
+          "sign": -1
+        },
+        {
+          "mode": 2,
+          "original_probability_interval": [
+            "33889347521/137438953472",
+            "271114780169/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": -1
+        },
+        {
+          "mode": 2,
+          "original_probability_interval": [
+            "28323049/1099511627776",
+            "14161525/549755813888"
+          ],
+          "phase_bit": 1,
+          "sign": -1
+        },
+        {
+          "mode": 3,
+          "original_probability_interval": [
+            "33889347521/137438953472",
+            "271114780169/1099511627776"
+          ],
+          "phase_bit": 0,
+          "sign": -1
+        },
+        {
+          "mode": 3,
+          "original_probability_interval": [
+            "28323049/1099511627776",
+            "14161525/549755813888"
+          ],
+          "phase_bit": 1,
+          "sign": -1
+        }
+      ],
+      "reference_counter_evolution": true,
+      "same_H_clock": true,
+      "source_dimension": 208
+    },
+    "complete_negative_transfer_probability_upper": "687868984689/1099511627776",
+    "dyadic_scale": 128,
+    "mean_ground_excess_interval": [
+      "42991811491/274877906944",
+      "171967246173/1099511627776"
+    ],
+    "mean_source_energy_interval": [
+      "-550839124561/274877906944",
+      "-2203356498243/1099511627776"
+    ],
+    "negative_transfer_threshold": "1/4",
+    "resolved_readout_plan_from_executed_control": {
+      "Cayley_substeps_per_clock_step": 4096,
+      "Fourier_bins": 16384,
+      "alias_probability_upper": "0",
+      "clock_step": "1/16",
+      "complete_Cayley_clock_error_upper": "7268591/17179869184",
+      "energy_resolution": "1/16",
+      "entire_source_transfer_support_bound": "26",
+      "executed_full_distribution": false,
+      "filter_leakage_upper": "11/202",
+      "maximum_source_time": "16383/16",
+      "negative_transfer_threshold": "1/4",
+      "original_negative_record_probability_upper": "6170457587303/6940667150336"
+    }
+  },
+  "global_ground_interval": [
+    "-74228867013/34359738368",
+    "-148457734013/68719476736"
+  ],
+  "global_ground_occupation": 2,
+  "instrument": [
+    {
+      "mode": 0,
+      "reference_charge": -6,
+      "reference_parity": 1,
+      "sign": 1,
+      "source_charge_change": 6
+    },
+    {
+      "mode": 1,
+      "reference_charge": -6,
+      "reference_parity": 1,
+      "sign": 1,
+      "source_charge_change": 6
+    },
+    {
+      "mode": 2,
+      "reference_charge": -6,
+      "reference_parity": 1,
+      "sign": 1,
+      "source_charge_change": 6
+    },
+    {
+      "mode": 3,
+      "reference_charge": -6,
+      "reference_parity": 1,
+      "sign": 1,
+      "source_charge_change": 6
+    },
+    {
+      "mode": 0,
+      "reference_charge": 6,
+      "reference_parity": 1,
+      "sign": -1,
+      "source_charge_change": -6
+    },
+    {
+      "mode": 1,
+      "reference_charge": 6,
+      "reference_parity": 1,
+      "sign": -1,
+      "source_charge_change": -6
+    },
+    {
+      "mode": 2,
+      "reference_charge": 6,
+      "reference_parity": 1,
+      "sign": -1,
+      "source_charge_change": -6
+    },
+    {
+      "mode": 3,
+      "reference_charge": 6,
+      "reference_parity": 1,
+      "sign": -1,
+      "source_charge_change": -6
+    }
+  ],
+  "instrument_effect_sum_identity": true,
+  "observed_particle_identification": false,
+  "reducing_block_sizes": {
+    "1": 52,
+    "12": 1,
+    "4": 20,
+    "6": 4,
+    "8": 5
+  },
+  "relativistic_mass_shell_derived": false,
+  "resolved_readout_plan_for_mean_excess_one_hundredth": {
+    "Cayley_substeps_per_clock_step": 4096,
+    "Fourier_bins": 16384,
+    "alias_probability_upper": "0",
+    "clock_step": "1/16",
+    "complete_Cayley_clock_error_upper": "7268591/17179869184",
+    "energy_resolution": "1/8",
+    "entire_source_transfer_support_bound": "26",
+    "executed_full_distribution": false,
+    "filter_leakage_upper": "11/426",
+    "maximum_source_time": "16383/16",
+    "negative_transfer_threshold": "1/4",
+    "original_negative_record_probability_upper": "9719561532259/91482803404800"
+  },
+  "same_source_H_and_clock": true,
+  "schema": "oph.native_ground_spectral_records.v1",
+  "sector_minimum_intervals": {
+    "0": [
+      "-1/17179869184",
+      "9/68719476736"
+    ],
+    "1": [
+      "-72336263705/68719476736",
+      "-18084065923/17179869184"
+    ],
+    "2": [
+      "-74228867013/34359738368",
+      "-148457734013/68719476736"
+    ],
+    "3": [
+      "-72336263705/68719476736",
+      "-18084065923/17179869184"
+    ],
+    "4": [
+      "-1/17179869184",
+      "9/68719476736"
+    ]
+  },
+  "source_dimension": 208,
+  "source_files": {
+    "Lean/QFT/GroundRecordTail.lean": "650c3f7908f203e43361249f47d25210f675530d962a1a00d3bb3243e7ad5952",
+    "model/particle_candidate_atlas/interacting_chiral.py": "f9a5685f3abaa076eee459941a3643554628ff22679115cd9955b65d2a3a4694",
+    "model/particle_field_state_response/state_response.py": "3dc00db2122f21533682cdbd14d104f4b35b990a4f390e5cba42a6351938b5e3",
+    "model/particle_observer_outputs/field_route.py": "13a44eed2f0321412ae84da9925aed30e9aed7c2ceaffbb753a9dde2e6e5c698",
+    "model/particle_spatial_ground_state/ground.py": "1c44ebb13c05ea6999a6146adeb3127e5cd7099f4ed9fbc7aeea64c470c1cd37"
+  },
+  "three_dimensional_spatial_source": false
+}

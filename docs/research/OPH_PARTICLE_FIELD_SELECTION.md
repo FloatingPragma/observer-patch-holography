@@ -21,6 +21,22 @@ rest-mass identification requires the interacting
 spatial response of those same operators; no measured particle assignment
 is inferred from the finite coefficient reconstruction.
 
+## Preparation and characteristic-speed choices
+
+The [common low-energy construction](OPH_FIELD_RECONSTRUCTION.md#low-energy-states-conjugate-records-and-common-propagation)
+uses a product of per-link word cutoffs, every CAR occupation and a
+canonical conjugate reference. Temperature and polynomial order are
+selected from a certified energy tolerance, with no measured mass input.
+This specifies a finite preparation service; it does not prove an
+uncontrolled repair process cools to that state. Gauge invariance of the
+full density differs from support on a source-only Gauss-singlet sector.
+The native trace-dual electric form makes all twelve quadratic gauge
+speeds equal. `e0*kappa0=15` matches them to the unit matter principal
+speed on the same clock. Physical state refinement, interacting Lorentz
+covariance and chiral complementary modes need their own common-family
+proofs. Architecture choice is allowed; measured-parameter ancestry is
+retained wherever used.
+
 ## Outputs of a specified interacting field and apparatus
 
 The [six output obligations](OPH_FIELD_RECONSTRUCTION.md#six-output-obligations-evidence-and-exact-boundaries)
