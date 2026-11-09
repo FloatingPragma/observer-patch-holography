@@ -173,6 +173,16 @@ Specifically, nu includes t delta_E for the controlled ground-reference
 phase, so the displayed derivative error includes 2 delta_E. The scalar
 reference is retained in both the pulse word and the target characteristic.
 
+Receipt comparison retains an absolute tolerance epsilon=2e-11 on each
+original probability. The reported score is (p_0-p_1)/t, so its comparison
+error is at most 2epsilon/t, plus binary64 rounding. At t=1/4096 this is
+1.6384e-7, not epsilon. Each receipt must reproduce its score exactly from
+its own stored probabilities using that binary64 operation. All probability,
+failure, source-binding and rational-error checks are unchanged; only this
+derived score uses the propagated tolerance. The rounding allowance is four
+times the sum of the four probability ulps divided by t and the two score
+ulps. This comparison allowance does not alter the physical error 3.59e-4.
+
 A separate complete native Z^2 control returns every ideal input to itself
 and has zero ideal system work, with four primitive pulses and absolute
 angle sum 2pi. Pulse count and absolute control effort therefore do not

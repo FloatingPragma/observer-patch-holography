@@ -1,5 +1,6 @@
 import copy
 import json
+import math
 import subprocess
 import sys
 from fractions import Fraction as F
@@ -98,3 +99,59 @@ def test_check_reads_exact_requested_path(tmp_path):
     run = subprocess.run([sys.executable, '-m', 'model.source_energy_effort', '--check', str(path)],
                          cwd=packet.ROOT, capture_output=True, text=True)
     assert run.returncode != 0 and str(path) in run.stderr
+
+
+def test_conditioned_clock_comparison_propagates_original_probability_error():
+    retained = json.loads((packet.HERE/'results.json').read_text())
+    changed = copy.deepcopy(retained)
+    clock = changed['native_clock_action']
+    time = float(F(clock['time']))
+    row = clock['joint_charge_clock_success_probabilities'][0]
+    row[0] += 9e-12
+    row[1] -= 9e-12
+    clock['unnormalized_mean_energy_from_sine_derivative'][0] = (row[0]-row[1])/time
+    difference = abs(clock['unnormalized_mean_energy_from_sine_derivative'][0]
+                     - retained['native_clock_action']['unnormalized_mean_energy_from_sine_derivative'][0])
+    assert difference > 2e-11
+    assert difference < 2*2e-11/time
+    packet.compare(changed, retained)
+    packet.compare(retained, changed)
+
+
+@pytest.mark.parametrize('mutation', ['score', 'probability', 'clock', 'failure', 'physical_bound', 'negative_score'])
+def test_conditioned_clock_comparison_rejects_inconsistent_or_unadmitted_records(mutation):
+    retained = json.loads((packet.HERE/'results.json').read_text())
+    changed = copy.deepcopy(retained)
+    clock = changed['native_clock_action']
+    if mutation == 'score':
+        # Smaller than the propagated allowance, but not computed from its records.
+        clock['unnormalized_mean_energy_from_sine_derivative'][0] += 1e-9
+    elif mutation == 'probability':
+        row = clock['joint_charge_clock_success_probabilities'][0]
+        row[0] += 3e-11
+        clock['unnormalized_mean_energy_from_sine_derivative'][0] = (row[0]-row[1])/float(F(clock['time']))
+    elif mutation == 'clock':
+        clock['time'] = '1/2048'
+        clock['unnormalized_mean_energy_from_sine_derivative'] = [
+            (row[0]-row[1])/float(F(clock['time']))
+            for row in clock['joint_charge_clock_success_probabilities']]
+    elif mutation == 'failure':
+        clock['native_first_failure_weights'].pop()
+    elif mutation == 'negative_score':
+        clock['joint_charge_clock_success_probabilities'][0].reverse()
+        clock['unnormalized_mean_energy_from_sine_derivative'][0] *= -1
+        # Even a self-consistent negative score retains the old type/domain guard.
+        retained = copy.deepcopy(changed)
+    else:
+        clock['energy_derivative_error_upper'] = '1/1000'
+    with pytest.raises(ValueError):
+        packet.compare(changed, retained)
+
+
+def test_conditioned_clock_comparison_rejects_one_ulp_score_forgery():
+    retained = json.loads((packet.HERE/'results.json').read_text())
+    changed = copy.deepcopy(retained)
+    scores = changed['native_clock_action']['unnormalized_mean_energy_from_sine_derivative']
+    scores[0] = math.nextafter(scores[0], math.inf)
+    with pytest.raises(ValueError, match='own original probabilities'):
+        packet.compare(changed, retained)

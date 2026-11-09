@@ -496,12 +496,13 @@ def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     scalar = [step for step in observer['steps'] if 'verify_source_scalar_time_refinement.py' in step.get('run','')]
     assert len(scalar) == 1 and scalar[0]['if'] == 'matrix.shard == 2'
     assert regression['strategy']['matrix']['os'] == ['ubuntu-latest']
-    assert regression['strategy']['matrix']['shard'] == [0,1,2,3,4,5,6,7]
+    assert regression['strategy']['matrix']['shard'] == list(range(16))
+    assert regression['timeout-minutes'] == 90
     commands = [step for step in regression['steps'] if 'run' in step]
     pytest_steps = [step for step in commands if 'python -m pytest' in step['run']]
     assert len(pytest_steps) == 1 and 'if' not in pytest_steps[0]
-    assert pytest_steps[0]['run'] == ('python -m pytest -q -W error -p model.pytest_shards '
-        '--model-shard-index ${{ matrix.shard }} --model-shard-count 8 model')
+    assert pytest_steps[0]['run'] == ('python -m pytest -q -W error --durations=30 -p model.pytest_shards '
+        '--model-shard-index ${{ matrix.shard }} --model-shard-count 16 model')
     extra = [step for step in commands if 'model.common_source.repair_field_attachment' in step['run']
              or 'native_staggered_field' in step['run'] or 'observer_particles/run.py' in step['run']]
     assert len(extra) == 4

@@ -5,16 +5,73 @@ from fractions import Fraction as F
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 
 import numpy as np
 
 from tools import strict_json
-from model.spin_modular_geometry.packet import compare, rational
+from model.spin_modular_geometry.packet import compare as compare_native_records, rational
 from . import energy, readout, clock
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
+
+# The inherited complete-record comparator admits this absolute error on each
+# probability. A difference quotient must propagate that error through 1/time.
+_RECORD_ERROR = 2e-11
+_CLOCK_DERIVATIVE = 'unnormalized_mean_energy_from_sine_derivative'
+
+
+def _clock_derivative(value, path):
+    try:
+        clock_value = value['native_clock_action']
+        duration = clock_value['time']
+        probabilities = clock_value['joint_charge_clock_success_probabilities']
+        derivative = clock_value[_CLOCK_DERIVATIVE]
+        if type(duration) is not str:
+            raise ValueError('time must retain its exact rational string')
+        time = float(F(duration))
+        if not math.isfinite(time) or time <= 0:
+            raise ValueError('time must be positive and finite')
+        if (type(probabilities) is not list or len(probabilities) != 2
+                or type(derivative) is not list or len(derivative) != 2):
+            raise ValueError('both original charge and clock records are required')
+        for row, score in zip(probabilities, derivative, strict=True):
+            if (type(row) is not list or len(row) != 2
+                    or any(type(p) is not float or not math.isfinite(p) or p < 0 for p in row)
+                    or type(score) is not float or not math.isfinite(score) or score < 0):
+                raise ValueError('invalid complete clock record')
+            # This is the producer's exact binary64 operation on the retained
+            # probabilities, not a comparison with a different platform's score.
+            if score != (row[0]-row[1])/time:
+                raise ValueError('sine derivative differs from its own original probabilities')
+    except (KeyError, TypeError, ZeroDivisionError, OverflowError) as error:
+        raise ValueError(path+': invalid clock derivative record') from error
+    return time, probabilities, derivative
+
+
+def compare(actual, expected, path='receipt'):
+    """Compare complete records, propagating only the derived clock score error."""
+    a_time, a_probabilities, a_scores = _clock_derivative(actual, path)
+    e_time, e_probabilities, e_scores = _clock_derivative(expected, path)
+    masked = []
+    for value in (actual, expected):
+        root = dict(value)
+        root['native_clock_action'] = dict(value['native_clock_action'])
+        root['native_clock_action'][_CLOCK_DERIVATIVE] = [0.0, 0.0]
+        masked.append(root)
+    # All raw successes, failures, rational bounds, types, source pins and
+    # physical-scope flags retain the unchanged inherited comparison.
+    compare_native_records(*masked, path)
+    if a_time != e_time:
+        raise ValueError(path+': source clock changed')
+    for a_row, e_row, a_score, e_score in zip(
+            a_probabilities, e_probabilities, a_scores, e_scores, strict=True):
+        roundoff = 4*(sum(math.ulp(p) for p in a_row+e_row)/a_time
+                      + math.ulp(a_score)+math.ulp(e_score))
+        if abs(a_score-e_score) > 2*_RECORD_ERROR/a_time+roundoff:
+            raise ValueError(path+': propagated clock derivative error exceeded')
 
 
 def source_bindings():
