@@ -41,6 +41,15 @@ their physical acceptance criteria. The defect endpoint includes a separate
 controller-work experiment; its probabilities are not substituted for the
 occupation experiment.
 
+The refinement and pressure panel plots the certified causal cone, every
+one of the 169 flux-record probabilities, and the exact prepared-state
+pressure in its declared volume convention. It separates the source
+density from its purification, and alternative work measurements from
+the sequential flux experiment. The coframe result connects constant
+spatial deformations to the causal estimate. Its input guard rejects
+incompatible actions, temperatures, preparation errors and physical
+interpretations before rendering a shared-state claim.
+
 ```sh
 python -m model.particle_atlas_horizontal.build --write
 python -m model.particle_atlas_horizontal.build --check

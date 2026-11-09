@@ -18,17 +18,17 @@ def render(c, data, y):
            47, INK, max_y=y+280)
     cards = [
         ('01  PREPARATION AND DETECTORS', 'state → interaction → complete record',
-         'The diagonal scalar source has a unique full-carrier ground with Q* = 6 and complete occupation records. A separate spatial field experiment has one prepared marginal, one action and clock, and all 61 local occupation outcomes.',
-         'Physical target: one spatial interacting state and detector dictionary. Closed Q* = 0 evolution cannot prepare Q* = 6. The occupation frequency 16.89261 differs from the full isolation gap > 0.0469.',
-         'model/particle_scalar_ground/PROOF.md'),
+         'The diagonal scalar source has a certified full-carrier Q* = 6 ground. A separate interacting flux control has complete thermal preparation on all 208 states and 169 original flux records. The degree-zero Legendre spatial input has a same-action lower-energy competitor.',
+         'Physical target: one spatial state family and detector dictionary under refinement. The finite thermal control is not that vacuum; the lower-energy competitor is not proved to be the interacting ground.',
+         'model/particle_field_state_response/PROOF.md'),
         ('02  POSITION, MOMENTUM AND CLOCK', 'same source + same state + same clock',
          'Joint translations move matter, links and the compensating reference. Their complete Fourier instrument measures conserved crystal momentum. A position detector samples an occupied mode’s site and retains vacuum; reading it changes the momentum law.',
          'Physical target: one particle’s momentum, physical spin and Lorentz clocks for the same interacting excitations. Whole-field crystal momentum and finite uncertainty do not fix a GeV mass.',
          'model/particle_joint_translation_readout/PROOF.md'),
         ('03  PROPAGATION AND RELATIVITY', 'local intervention → bounded distant change',
-         'A declared smooth sign action has an exponentially summable interaction. Complete quantum-link and electric-field detector records have controlled polynomial, box and cutoff errors at fixed time and spacing, uniformly in volume.',
-         'Physical target: interacting chiral relativistic refinement and its physical state. Zero smoothing is required only to reproduce the discontinuous action. A finite-range Wilson action is also an allowed choice.',
-         'model/particle_smooth_sign_field/PROOF.md'),
+         'Smooth-field local records have uniform approximation bounds. With specified coupling scaling, the physical causal bound is also uniform as spacing shrinks, including growing detector supports and every occupation. Ordinary Wilson supplies a sharper allowed example.',
+         'Physical target: a convergent interacting state and observable family, Lorentz symmetry and chiral matter. A causal cone alone supplies none of these identifications. Exact-sign equivalence is optional.',
+         'model/particle_physical_causality/PROOF.md'),
         ('04  MASSES AND INTERACTIONS', 'source spectrum → spectral readout → matching',
          'The Q* = 6 full ground has 12 complete charged channels. First-family doublet removal and addition begin near 0.0710 and 0.4873 source-energy units. A common sector offset cannot equalize their complete spectral shapes.',
          'Physical target: mass shells, charged dressing, scattering and decay laws on the common spatial state. These finite transition lines are not electron or positron masses.',
@@ -38,9 +38,9 @@ def render(c, data, y):
          'Physical target: propagation, spin, statistics and currents identifying a species. Strengths 1 and 2 are declared. Protected motion conserves the coupled action; birth needs controller-work accounting.',
          'model/particle_defect_attachment/PROOF.md'),
         ('06  ERRORS, ENERGY AND GRAVITY', 'H = Σhₓ → Jₓᵧ = i[hₓ,hᵧ] → exact flux',
-         'Same-action currents obey exact energy continuity. The smooth-field plan bounds three complete-record errors by 3/2²⁰ at time one, with enormous finite resources. An exact ten-probe tensor decoder applies when its same-state regional premises hold.',
-         'Physical target: uniform refinement and capacity errors; geometric stress, proper clocks, regional modular/area responses and the Einstein theorem’s same-state small-ball premises.',
-         'model/particle_gravity_response/PROOF.md')]
+         'Same-action currents obey energy continuity. A declared coframe supplies six spatial strain operators; the shared thermal flux control has complete work and pressure records. The ten-probe Einstein decoder keeps its geometric premises explicit.',
+         'Physical target: proper geometry and clocks, Lorentz stress, regional modular/area responses and controlled same-state small-ball errors. A declared mechanical volume does not supply a cosmological equation of state.',
+         'model/particle_geometric_response/PROOF.md')]
     width = (W-2*M)/3
     for index, (title, chain, result, boundary, proof) in enumerate(cards):
         x = M+(index % 3)*width

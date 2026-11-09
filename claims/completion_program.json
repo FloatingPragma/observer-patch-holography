@@ -1171,7 +1171,9 @@
         "model/particle_prepared_field_readout/PROOF.md",
         "model/particle_local_gauge_state/PROOF.md",
         "model/particle_local_wilson_density/PROOF.md",
-        "model/particle_local_history_family/PROOF.md"
+        "model/particle_local_history_family/PROOF.md",
+        "model/particle_field_state_response/state_response.py",
+        "model/particle_field_state_response/PROOF.md"
       ],
       "legacy_issues": [
         1077,
@@ -2225,7 +2227,13 @@
         "model/particle_local_history_family/PROOF.md",
         "model/particle_joint_translation_readout/PROOF.md",
         "model/particle_joint_translation_readout/readout.py",
-        "model/particle_joint_translation_readout/test_readout.py"
+        "model/particle_joint_translation_readout/test_readout.py",
+        "model/particle_physical_causality/cone.py",
+        "model/particle_physical_causality/PROOF.md",
+        "model/particle_field_state_response/state_response.py",
+        "model/particle_field_state_response/PROOF.md",
+        "model/particle_geometric_response/geometry.py",
+        "model/particle_geometric_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -2646,7 +2654,11 @@
         "model/particle_local_history_family/PROOF.md",
         "model/particle_joint_translation_readout/PROOF.md",
         "model/particle_joint_translation_readout/readout.py",
-        "model/particle_joint_translation_readout/test_readout.py"
+        "model/particle_joint_translation_readout/test_readout.py",
+        "model/particle_physical_causality/cone.py",
+        "model/particle_physical_causality/PROOF.md",
+        "model/particle_geometric_response/geometry.py",
+        "model/particle_geometric_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -3059,7 +3071,11 @@
         "model/particle_smooth_sign_field/test_smooth.py",
         "model/particle_joint_translation_readout/PROOF.md",
         "model/particle_joint_translation_readout/readout.py",
-        "model/particle_joint_translation_readout/test_readout.py"
+        "model/particle_joint_translation_readout/test_readout.py",
+        "model/particle_physical_causality/cone.py",
+        "model/particle_physical_causality/PROOF.md",
+        "model/particle_field_state_response/state_response.py",
+        "model/particle_field_state_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -4385,7 +4401,11 @@
         "model/support_refinement/construction.py",
         "model/support_refinement/README.md",
         "model/full_fock_field/local_simulation.py",
-        "model/full_fock_field/LOCAL_SIMULATION.md"
+        "model/full_fock_field/LOCAL_SIMULATION.md",
+        "model/particle_physical_causality/cone.py",
+        "model/particle_physical_causality/PROOF.md",
+        "model/particle_geometric_response/geometry.py",
+        "model/particle_geometric_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -4643,7 +4663,11 @@
         "model/defect_field_modular/source_controls.npz",
         "model/defect_field_modular/test_modular.py",
         "model/particle_gravity_response/PROOF.md",
-        "model/particle_regional_geometry/PROOF.md"
+        "model/particle_regional_geometry/PROOF.md",
+        "model/particle_field_state_response/state_response.py",
+        "model/particle_field_state_response/PROOF.md",
+        "model/particle_geometric_response/geometry.py",
+        "model/particle_geometric_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -5131,7 +5155,11 @@
         "model/completion/modular_access_results.json",
         "model/particle_sign_response_boundary/PROOF.md",
         "model/particle_sign_response_boundary/boundary.py",
-        "model/particle_sign_response_boundary/test_boundary.py"
+        "model/particle_sign_response_boundary/test_boundary.py",
+        "model/particle_field_state_response/state_response.py",
+        "model/particle_field_state_response/PROOF.md",
+        "model/particle_geometric_response/geometry.py",
+        "model/particle_geometric_response/PROOF.md"
       ],
       "legacy_issues": [
         1078,

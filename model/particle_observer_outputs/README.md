@@ -143,6 +143,34 @@ Relativistic spacing refinement and chiral particle identification require
 their own proofs; zero smoothing is needed only for equivalence to the
 discontinuous-sign action.
 
+The [physical-distance propagation bound](../particle_physical_causality/PROOF.md)
+is uniform as assigned spacing shrinks under its declared coupling
+scaling. It controls complete local intervention records and growing
+physical supports. Its finite-range Wilson option has a sharper source
+constant. The result bounds influence outside a conservative cone; it
+does not construct a limiting state or Lorentz boosts.
+
+The [thermal field control](../particle_field_state_response/PROOF.md)
+retains all208 native charge-six spinor/flux states. A complete unitary
+preparation approximates the Gibbs target with a certified reference
+error, and its rational evolution retains all169 two-time flux records.
+The target supplies the same-energy modular and thermodynamic identities;
+the polynomial preparation is stationary and source-passive, without
+an exact Gibbs or KMS identification. A separate same-H variational
+comparison lowers the spatial degree-zero mixed state's mean energy by
+`750V/(17a)`, proving that particular input is not a finite ground.
+
+The [spatial coframe construction](../particle_geometric_response/PROOF.md)
+specifies all six strain responses of the finite-range Wilson field.
+Its work, frame-rotation and dilation identities follow from the actual
+deformed action. The same source has a causal bound uniform over compact
+constant-coframe families; electric cross terms remain onsite under
+outgoing-link ownership. A directional quantum-flux control shares the thermal
+package's full208-state preparation and clock, giving complete stress
+records and pressure for its declared volume coupling. This finite
+response does not identify the supplied coframe with observer-derived
+proper geometry or supply the Einstein regional entropy/area premises.
+
 The physical output requirements are the common spatial and relativistic
 limit, controlled chiral matter content, interacting spectral/detector
 identification and energy matching. Defect creation and transport must
@@ -230,6 +258,9 @@ python -m model.particle_observer_outputs.run --write
 python -m model.particle_observer_outputs.run --check
 python -W error -m pytest -q model/particle_observer_outputs
 ```
+
+Set `OPH_REPLAY_PROGRESS=1` to print certificate stage timings to stderr.
+This leaves the computed report and source checks unchanged.
 
 The report authenticates the inherited inputs and binds its code and
 proofs. The [named-field explanations](../particle_atlas_horizontal/FIELD_NATURE.md)

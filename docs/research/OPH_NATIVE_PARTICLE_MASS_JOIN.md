@@ -192,8 +192,10 @@ The [native small-gap control](../../model/particle_sign_response_boundary/PROOF
 shows why low-mode probability alone does not control inverse-gap electric
 derivatives; it does not prove failure of the configured mixed state.
 A fixed positive smoothing or a directly declared finite-range Wilson
-action avoids that comparison. Physical spacing refinement, chirality,
-dispersion and species identification require their own same-action proofs.
+action avoids that comparison. The causal refinement bound below is
+available for those actions. Convergence of interacting records across
+spacings, chirality, dispersion and species identification require their
+own same-action proofs.
 
 The [periodic polynomial field's position and translation instruments](../../model/particle_joint_translation_readout/PROOF.md)
 retain every number sector with effects `F_x=n_x/N` on `N>0` and a
@@ -217,6 +219,45 @@ coordinate first moment and crystal-momentum operator; the recorded
 coordinate variance also includes positive POVM noise. Their cyclic wrap
 and number-dependent Weyl phase preclude an unqualified finite
 `[X,P]=i hbar I` or physical `hbar/2` assertion.
+
+The [refinement-uniform influence theorem](../../model/particle_physical_causality/PROOF.md)
+supplies a stronger spatial premise for the chosen smooth or finite-range
+Wilson action: with `kappa(a)<=kappa0/a`, its physical causal rate has a
+spacing-independent upper bound. It controls complete local histories,
+polynomially growing detector supports and separate approximation errors
+on both experiments. It supplies neither convergence of a physical state
+nor a particle dispersion or Lorentz transformation.
+
+State identification has an explicit source test. On the spatial
+degree-zero Legendre action, replacing only the tracial Fock factor by
+the gauge-singlet negative-beta filling lowers mean energy by
+`750 V/(17a)`, so that mixed preparation is not a finite ground. The
+[interacting thermal construction](../../model/particle_field_state_response/PROOF.md)
+instead prepares a distinct charge-six quantum-flux source on all 208
+states, approximating its beta=1/64 Gibbs target by a certified faithful
+polynomial density. Its same-clock flux instrument retains all 169 joint
+labels and the conjugate reference. Target Gibbs identities are not
+assigned exactly to the polynomial density or to the scalar Q*=6 ground.
+
+The [declared coframe family](../../model/particle_geometric_response/PROOF.md)
+derives six spatial strain operators from its three-dimensional Wilson
+action. Its pressure and work quantum control uses the same 208-state
+Hamiltonian and thermal preparation above, with declared kappa=0. The
+native sixty-column coframe check uses kappa=1/7 and retains the full
+magnetic scalar and its geometry derivative. Even identity plaquettes
+have a nonzero scalar term at nonzero kappa; setting their links to
+identity does not remove that term. This algebraic coordinate control
+and the directional quantum reduction have separate parameters and
+carrier domains. The latter is not a reducing Hilbert subspace of the
+full three-dimensional link theory. Declared strain/volume, proper stress,
+physical mass and geometric Einstein premises retain their distinct
+identification requirements. For the ordinary-Wilson action, compact
+constant-coframe families also have uniform causal estimates under the
+stated magnetic scaling: outgoing-link electric cross terms are onsite,
+and the hopping and magnetic interaction constants remain bounded.
+This geometric input does not select a limiting state or its physical
+metric interpretation. Their [joint dependency map](OPH_FIELD_RECONSTRUCTION.md#refinement-uniform-influence-and-an-interacting-thermal-state)
+keeps those source and state domains explicit.
 
 The [native clock calculation](../../model/particle_calibration_selection/PROOF_CLOCK_UNITS.md)
 derives `P B=B(I-L/60)` from all 66 source inputs and sixty seam/coin

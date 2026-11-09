@@ -3425,6 +3425,215 @@
     ],
     "unresolved_equivalence": "theta -> +/-theta+2pi*k/3 with family permutation"
   },
+  "declared_spatial_geometry_response": {
+    "compact_coframe_causality": {
+      "compact_family": {
+        "coframe_cube_to_coordinate_halfwidth_factor": "4",
+        "constant_coframes_only": true,
+        "log_weight_rational_lower": "1/2",
+        "magnetic_scale_upper": "1/7",
+        "max_singular": "2",
+        "min_singular": "1/2",
+        "physical_distance": "Euclidean on open carriers; quotient Euclidean on periodic carriers",
+        "physical_speed_rational_upper": "3310080/7",
+        "proper_geometry_Lorentz_covariance_or_limiting_state_proved": false,
+        "spatial_weight": "2",
+        "weighted_rate_times_spacing_upper": "413760/7"
+      },
+      "flat_source_rate": {
+        "collapsed_periodic_neighbors_allowed": true,
+        "electric_cross_terms_are_tail_cell_onsite": true,
+        "magnetic_rate_upper": "192/7",
+        "magnetic_scale_upper": "1/7",
+        "mixed_Wilson_rate_upper": "0",
+        "nearest_bond_rate_upper": "720",
+        "self_loop_terms_absorbed_into_onsite_generator": true,
+        "spatial_weight": "2",
+        "weighted_rate_times_spacing_upper": "5232/7"
+      },
+      "flat_source_rate_recovered": true,
+      "native_control_coframe": [
+        [
+          "1",
+          "1/3",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "1/5"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "native_control_membership": {
+        "all_fourteen_principal_minors_nonnegative": true,
+        "lower_metric_principal_minors": [
+          "3/4",
+          "31/36",
+          "79/100",
+          "77/144",
+          "237/400",
+          "461/720",
+          "5651/14400"
+        ],
+        "single_coframe_rate": {
+          "collapsed_periodic_neighbors_allowed": true,
+          "electric_cross_terms_are_tail_cell_onsite": true,
+          "magnetic_rate_upper": "76096/1575",
+          "magnetic_scale_upper": "1/7",
+          "mixed_Wilson_rate_upper": "13248/5",
+          "nearest_bond_rate_upper": "2272/3",
+          "self_loop_terms_absorbed_into_onsite_generator": true,
+          "spatial_weight": "2",
+          "weighted_rate_times_spacing_upper": "5442016/1575"
+        },
+        "upper_metric_principal_minors": [
+          "3",
+          "26/9",
+          "74/25",
+          "77/9",
+          "222/25",
+          "383/45",
+          "5671/225"
+        ]
+      },
+      "native_coordinate_control_magnetic_coefficient": "1/7",
+      "native_coordinate_control_spacing": 1,
+      "shared_rotor_thermal_state_transferred_to_spatial_refinement": false
+    },
+    "metric_identification_boundary": {
+      "physical_particle_or_GeV_assignment": false,
+      "proper_geometric_stress_or_Einstein_limit_claimed": false,
+      "same_flat_action_fixes_unique_metric_response": false
+    },
+    "native_sixty_column_stress": {
+      "Dirac_rows": 4,
+      "all_six_strain_HS_squared": [
+        "89464757695052/2161366878125",
+        "27691734435858988/365271002403125",
+        "131697797343852/2161366878125",
+        "70664805678689536/4980865206810025",
+        "15655246220584/1178730891845",
+        "123149894767272/7454510253125"
+      ],
+      "all_six_strain_labels": [
+        "00",
+        "11",
+        "22",
+        "01",
+        "02",
+        "12"
+      ],
+      "complete_one_body_columns": 60,
+      "constant_frame_rotation_covariance": true,
+      "coordinate_symbol_is_a_normalizable_quantum_preparation": false,
+      "flat_Wilson_source_equality": true,
+      "flat_magnetic_source_equality": true,
+      "full_Fock_lift_is_algebraic_not_dense_execution": true,
+      "magnetic_scalar_is_second_quantized": false,
+      "native_gauge_covariance": true,
+      "native_internal_rows": 15
+    },
+    "schema": "oph.spatial_coframe_response.v1",
+    "shared_quantum_rotor_work": {
+      "all_CAR_occupations": 16,
+      "all_electric_fluxes": [
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "complete_dimension": 208,
+      "energy_components_prepared": {
+        "HD": "-50271836490338845242203311208295752320159452819115814071433201134118016844/11890955614853694194346412248229062220129160577563112501413405321335870124771",
+        "HE": "21799236316616054035212814113954291618884837589219936843386231367611161125413/3397415889958198341241832070922589205751188736446603571832401520381677178506",
+        "HW": "-236082647045388956137894183783722984152612960505052486759274127876317825676/11890955614853694194346412248229062220129160577563112501413405321335870124771"
+      },
+      "energy_prepared": "152021945249240922643729503807696003859248318297891221302042204915257256192851/23781911229707388388692824496458124440258321155126225002826810642671740249542",
+      "global_Gibbs_entropy_slope_is_regional_geometric_entropy": false,
+      "inverse_temperature_target": "1/64",
+      "magnetic_coefficient": 0,
+      "prepared_density": "positive order12 amplitude polynomial, normalized without postselection",
+      "pressure_is_a_physical_cosmological_equation_of_state": false,
+      "pressure_over_energy_density_prepared": "50516593318383381577151238480042852630314364125627038776174552219834873513833/152021945249240922643729503807696003859248318297891221302042204915257256192851",
+      "pressure_prepared_at_declared_volume1": "50516593318383381577151238480042852630314364125627038776174552219834873513833/23781911229707388388692824496458124440258321155126225002826810642671740249542",
+      "rotor_is_a_normalizable_reducing_subspace_of_full3D_quantum_field": false,
+      "same_clock": "exp(-it H); no coframe redefinition of duration",
+      "source": "unchanged field_route.exact_rotor(6)",
+      "stress_instruments": [
+        {
+          "Gauss_commutator_zero": true,
+          "exact_prepared_work_slope": "153639528477474611761525682155231524773444633872197999478883582487051635214283/23781911229707388388692824496458124440258321155126225002826810642671740249542",
+          "operator_row_sum_bound": "25",
+          "original_probabilities": [
+            "819533042909281486644924768056059009100677626215732299558034280481860362201459/1331787028863613749766798171801654968654465984687068600158301395989617453974352",
+            "512253985954332263121873403745595959553788358471336300600267115507757091772893/1331787028863613749766798171801654968654465984687068600158301395989617453974352"
+          ],
+          "record_labels": [
+            "28",
+            "-28"
+          ],
+          "strain": "longitudinal",
+          "target_Gibbs_mean_error_upper": "163086595857367/8916806393993140753946325811200"
+        },
+        {
+          "Gauss_commutator_zero": true,
+          "exact_prepared_work_slope": "-151549779955150144731453715440128557890943092376881116328523656659504620541499/23781911229707388388692824496458124440258321155126225002826810642671740249542",
+          "operator_row_sum_bound": "25",
+          "original_probabilities": [
+            "514343734476656730151945370460698926436289899966653183750627041335304106445677/1331787028863613749766798171801654968654465984687068600158301395989617453974352",
+            "817443294386957019614852801340956042218176084720415416407674354654313347528675/1331787028863613749766798171801654968654465984687068600158301395989617453974352"
+          ],
+          "record_labels": [
+            "28",
+            "-28"
+          ],
+          "strain": "isotropic",
+          "target_Gibbs_mean_error_upper": "163086595857367/8916806393993140753946325811200"
+        }
+      ],
+      "target_Gibbs_pressure_error_upper": "163086595857367/26750419181979422261838977433600",
+      "target_Gibbs_pressure_ratio_error_upper": "350483932952731947824391724099004501557450772164288941765782356027367577005543567106263106387667932985204281897274712298312337571830842373192674758135856038822906075651/206073386408877429788119230444934035165092372796963070282078263115620725469150219307346267765243868644448077590372571258748423326327904493122943039767728556718289687158909830062125936989",
+      "target_state_trace_error_upper": "23298085122481/71334451151945126031570606489600"
+    },
+    "source_inputs": [
+      "model/particle_geometric_response/geometry.py",
+      "model/particle_geometric_response/PROOF.md",
+      "model/particle_field_state_response/state_response.py",
+      "model/particle_field_state_response/PROOF.md",
+      "model/particle_observer_outputs/field_route.py",
+      "model/particle_observer_outputs/FIELD_ROUTE.md",
+      "model/particle_local_wilson_density/density.py",
+      "model/particle_gravity_response/PROOF.md",
+      "model/particle_physical_causality/PROOF.md",
+      "model/particle_field_causality/PROOF.md",
+      "model/matched_einstein_limit/PROOF.md",
+      "Lean/QFT/CoarseEnergyWard.lean",
+      "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean"
+    ],
+    "spatial_coframe_action": {
+      "Dirac_coefficient": "V^(-T)",
+      "Wilson_coefficient": "G^(-1)",
+      "dilation_derivative": "-H_E-H_D-2H_W-H_B",
+      "electric_magnetic_coefficient": "G/v",
+      "metric": "G=V^T V",
+      "metric_probe_is_declared": true,
+      "volume": "v=det(V)>0"
+    }
+  },
   "defect_field_attachment": {
     "architecture_choice": "charge-controlled coupling is declared; it is not implied by protected topology",
     "declared_coupled_H": "H_Q=(3I-Q)V(Y)/2, Y=diag(1,2,3), d=0",
@@ -56204,7 +56413,13 @@
     "exact local marginal consistency, fixed-time complete polynomial record limits and finite word-code error moduli",
     "native inverse-gap electric-response counterfamily distinguishing low-mode weight from dynamical control",
     "declared smooth gauge-coordinate action with exponentially summable interactions and complete fixed-time local quantum records",
-    "exact joint source/reference translations, conserved crystal momentum and complete position-then-momentum records on all occupations"
+    "exact joint source/reference translations, conserved crystal momentum and complete position-then-momentum records on all occupations",
+    "physical-distance influence bound uniform under declared spacing refinement, with complete-history and implementation errors",
+    "unchanged208-state quantum-flux Gibbs target, complete reference-preserving polynomial preparation and169 exact rational flux histories",
+    "same-H variational witness excluding the spatial degree-zero tracial-Fock preparation as a finite ground",
+    "declared spatial coframe coupling with six source strain responses, frame rotation covariance and fixed-regulator dilation identity",
+    "compact constant-coframe causal bounds on the same parent Wilson action, with outgoing-link electric cross terms onsite",
+    "shared208-state thermal and pressure control with complete stress instruments, retaining target Gibbs versus prepared polynomial state distinctions"
   ],
   "fixed_time_local_polynomial_records": {
     "complete_finite_cutoff_plan": {
@@ -100505,8 +100720,10 @@
     "Lean/SourceLaw/SpinMarginalForce.lean": "a0c399269d760f88527860087b70c58dcaf0805fb9f1839099eef34a81a50dbe",
     "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
     "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+    "Lean/Thermodynamics/FirstLawIdentity.lean": "3a7de1755b3001a7528aadf359f77625e569c1b51a02469bd16c520d3a076c1c",
     "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
     "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
+    "Lean/Thermodynamics/LowTemperatureControl.lean": "0448898fbf94c66f663dd30ec38ae13be007f52f0b08567d80df5c1e649cf0e6",
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
     "code/P_derivation/interval_contraction_certificate.py": "4c8191fce843fb3ef69e1a12b690682744c94c6669b68239ea3192fbff2a8493",
@@ -101495,9 +101712,21 @@
     "model/particle_field_preparation/__main__.py": "25c83d3e7efc463c08f035e1119e5d38d796050d57a93c092903085925f264cb",
     "model/particle_field_preparation/preparation.py": "71952f964216a30502fa4761df7fc8be083753428c3d23b425e6d330f5c9ecfb",
     "model/particle_field_preparation/test_preparation.py": "94bb7f0d2a67accef1c29b832a6780c1a272dc962ceade839e203ee34b4359df",
+    "model/particle_field_state_response/PROOF.md": "7f96fbee77d0f5fc0b640f8e0e60f415fb3509a21021e9e1b7ba2169ce6dda18",
+    "model/particle_field_state_response/README.md": "77eeb59a0b7a2cf549e6211cede8ddf3048f558da672d67e740a3c905b2cb7f3",
+    "model/particle_field_state_response/__init__.py": "14aa07d6e585b3cf3cabe805513266aef7534723f8f4cb220d8fa421eb63e341",
+    "model/particle_field_state_response/__main__.py": "799581317448477c0365c677c3804e532553ae7425300ef9aaae312ba7fe6f52",
+    "model/particle_field_state_response/state_response.py": "3dc00db2122f21533682cdbd14d104f4b35b990a4f390e5cba42a6351938b5e3",
+    "model/particle_field_state_response/test_state_response.py": "d1f3c3f544c8d1c5aeb3540c46e0acdbed9efa5ce92a43fff94be82714ca44a4",
     "model/particle_gauge_band/QUANTUM_LINK_PROOF.md": "9e4e22b8bdf80c6bfe70654749fb1bed996670d8412e8ecb427515d369e3514f",
     "model/particle_gauge_band/__init__.py": "0edf95fd5b7c9af3a2319638450907ced0dcf3c09bb21e2bb9f5bd03915cc1d8",
     "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
+    "model/particle_geometric_response/PROOF.md": "2534f846e165e4eba886065416410582a6361d493d7179f4feb9d03dd4be047c",
+    "model/particle_geometric_response/README.md": "2b403def10943fdda7e77b4f6fa17d64b603b7916d42f3479cd4203bedfbefcf",
+    "model/particle_geometric_response/__init__.py": "4ed9c79a59ca273d2d5afc7f0e34cd14d514e391834882d55f64550d99e4f913",
+    "model/particle_geometric_response/__main__.py": "9b7659cfbe1403d420d7bca90098f7aa479ce8a0798f43027a261b8a4658c4cd",
+    "model/particle_geometric_response/geometry.py": "400abc84f496282e8b607cc617a73cee0b2d7888c419bbc468618651088e3150",
+    "model/particle_geometric_response/test_geometry.py": "47d0b935092e4a8e5a87d82685652d378134036b17055a2a55aff17f85e59e5b",
     "model/particle_gravity_response/PROOF.md": "01923b2229d3029d9303e77631432780ca16406270b9469ee29ca40cf79eae55",
     "model/particle_gravity_response/README.md": "6534ed45e76da84f6d02c87e53f76293ce279ac6c8cd6ee330528c247b3fb459",
     "model/particle_gravity_response/__init__.py": "ce1c029ac1c777cce06e1d632a5339993633c577908e35c66f2e692c33f2de0b",
@@ -101557,8 +101786,8 @@
     "model/particle_observer_outputs/GAUGE_INPUT.md": "66c4f3b7c98a36dae1d3f3685be1bcb0c348fddf7e0a1071686cdd576e533ee2",
     "model/particle_observer_outputs/HIGGS_RECORDS.md": "209a9d19ad8d89802b8cfa1fe90e0c370d14ce85e18afe4ecbc6ad973e62e703",
     "model/particle_observer_outputs/HOLONOMY_TRANSPORT.md": "af3ad95a2bf9d18c07f1c94e0ce63640e7fa8cc2e2418ed1afb64d1f152e613f",
-    "model/particle_observer_outputs/PROOF.md": "d08a05ad6957a397ad68cc6ef41f834ca5ffbba9994bfe02c1dd68097e1cc98e",
-    "model/particle_observer_outputs/README.md": "8fb418904922a645c010fd5b9968678fcfce62dcab198e651cc06edfb599e00c",
+    "model/particle_observer_outputs/PROOF.md": "3fb6fabf2cb73f5d0039214bee78855b022905873716998bfa1a976ae31cc767",
+    "model/particle_observer_outputs/README.md": "5b7046a8f09a01dbdd5c4174b667c24a3725c36d342e8bb390a6b0b6192f7603",
     "model/particle_observer_outputs/READOUT_CONTRACT.md": "a0db4183b1d4879533516386cda622c32be95b951c75256d43474c0e0a3f7747",
     "model/particle_observer_outputs/THERMAL_CLOCK.md": "a1cc8e6a08c93699363191243023cedef8d1c688c1eb2dcd2f171d35947b730e",
     "model/particle_observer_outputs/__init__.py": "278bde9206edaf6cd03954b70381bccd9e92e1edd0c8343763db995313df502d",
@@ -101571,7 +101800,7 @@
     "model/particle_observer_outputs/higgs_records.py": "8494d22a3d64cb3c7d88bccf4f23c80fb02b67a1924cc616f750cefecb0ea7b9",
     "model/particle_observer_outputs/holonomy_transport.py": "57581d85afbb833a887e6db1c84f32e6d1e76650d97d6ec21866775ef3b84980",
     "model/particle_observer_outputs/readout_contract.py": "33388e2c8572b3b227f504a74c6cb78ec3ed5933e9609328ba975ee8fb78451a",
-    "model/particle_observer_outputs/run.py": "9295328bbfe8e2bd6ff60298256dfa0fc5f1dbce8d3ffc047f1c1f11334f260c",
+    "model/particle_observer_outputs/run.py": "d7eb26d4a413f0b002bfa48553517f15f8ee3b4190c5ffa53c182e16864f03e4",
     "model/particle_observer_outputs/test_bare_effective.py": "328755076e593ef0473649d8f046b239ed44be179fb7e62d4492dbaf744542d5",
     "model/particle_observer_outputs/test_charged_higgs_records.py": "76addf707a89bf1d5352ef4efc357865c4a40810d3fdca17afbefce65fdea9ed",
     "model/particle_observer_outputs/test_consensus_records.py": "8eefc62155d8591d5b9acc163c0e0bd3c3f3900ef89b6d51ec2033e5f770a39e",
@@ -101583,6 +101812,12 @@
     "model/particle_observer_outputs/test_readout_contract.py": "595b89bc41c98fa9320274dbb2490b3d6135a15743f63d2dc8d1053b4f346b75",
     "model/particle_observer_outputs/test_thermal_clock.py": "4fac3ddbc5d70004c1cf1c7f7c5aa15de3652fc213988da3ddee2ed336cc19e9",
     "model/particle_observer_outputs/thermal_clock.py": "697c3f6aeb9d13e45e6745f098c9b098c7958f66d682503310dba8da4bb32783",
+    "model/particle_physical_causality/PROOF.md": "1332abffdf46b5602bc227695908b11971f856e445bc73bb79424f7248f832ee",
+    "model/particle_physical_causality/README.md": "f4d002a55c58dd15eac06fe957792c051774af91b6d49b8cf2dd1f2aa1214576",
+    "model/particle_physical_causality/__init__.py": "2a49701263fc891bdab772b1362f68428a4a7010aa7defbca40adb05a9043a70",
+    "model/particle_physical_causality/__main__.py": "f2babed9f03417d02fd8df6b319f0145cc19aa7b5276b30b7081dffbceaac974",
+    "model/particle_physical_causality/cone.py": "2acf6bb8eb7d580782349fcd30d49338b20a91a088c38880c6a29d76737deada",
+    "model/particle_physical_causality/test_cone.py": "5da3594b94762cfe0894d94c41a1063643e513b39c756a71befb825cef3355a5",
     "model/particle_prepared_field_readout/PROOF.md": "7239eda0823309e8b2b42aa81078e7501cff0827119f95f14f5038a28ce15022",
     "model/particle_prepared_field_readout/README.md": "9b77801d417060adc0a8077127cc53595de48cb7e21a771be5efb0ad53bf059c",
     "model/particle_prepared_field_readout/__init__.py": "1c9678bf02245fa06a97b48fa127be1d6100ba29aa52dc7528aad5e0055342ab",
@@ -102041,6 +102276,994 @@
     "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "interacting_field_thermal_records": {
+    "complete_flux_records": {
+      "Cayley_steps": 4,
+      "Gibbs_exact_evolution_output_half_trace_error_upper": "15091284828700877718432412081/71334451151945126031570606489600",
+      "all_joint_labels": 169,
+      "all_occupations_and_reference_retained": true,
+      "duration": "1/64",
+      "exact_compiled_unitarity": true,
+      "first_flux_labels": [
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "measurement_times": [
+        "0",
+        "1/64"
+      ],
+      "records": [
+        {
+          "first_flux": -6,
+          "original_probability": "144903844964382161533823615827553176496909655595648580752853178588674271698401789402888752953230049331779043129804607978427811938321435077747044284803964495797792038821378651510488842427922152580768357074010432924612670690606418373597238698584359453028420936745624315871214946064881524748792348003844483021827233188658850896480936453780793899773564285414564387015100834435492076322816/2247608153394098238969243687836458016759286421176947163595433053306303711804250558329860871856487625601705202273348492575521192370328218115944194605088937937602307992411577015635538670402191473901429180520411561091732759625606399217026279578114847959531989155907616300901975751505694533013815340219507179891069343363658063245580993996202486738598844087812382530256413854316413460231875",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "947281731037897308317627812796649752891731412897569510097101139514681626517129841713827086543728262264890821725416534935216540705653216203919456673412926339537389463729225487263523700324357720049843509358487714187731010980186854394696253196343127018901876638425313094531966605434577322039150272121494085664276242812246426290174522958717582362343332481100414976/121242565190408112106386081404483527183221598872754196610600639787232614341300629947515325638514075635679597750778694889403266564704123646601572322076918089649898480950232355636676841133825603780520341654133810588024875075504027495371440860740186096427731049798313110799992397496928573053585936516939891131513380928626353861209127743658258436558340288870826946031875",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -6,
+          "original_probability": "536096475258135139915890323322480347458767872995929453054173040101305333656431653953819653086580060050379104739591310291438654633653118228361108322604582971072379760554016249658000346821505059470599315165958578713157650185795522890558836870854499915569613131425164358929912030884728083658226415436007205308181370937355039977042984492609072336204200366662395106548185445695488/2247608153394098238969243687836458016759286421176947163595433053306303711804250558329860871856487625601705202273348492575521192370328218115944194605088937937602307992411577015635538670402191473901429180520411561091732759625606399217026279578114847959531989155907616300901975751505694533013815340219507179891069343363658063245580993996202486738598844087812382530256413854316413460231875",
+          "second_flux": 6
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "11291216064942332589050274279733386675108803082020721255164936355298504530728939630833954852842295260613865913921831281530396976780199694854426594768459710771622289344591982916460376179325659759957190446579694215345409895751560329428977194225472048666617167441606076089803156209197894686007447404350586673689073367/160716465680466496132575278076413593648285526126243826157328347657488230928469575244211095951175922122678786260677343855658687737211523863343906595630215136373767219837978066658910544797210417315366744011352636688078230241130514827998174389737828086857856089432877779449713431676269813440849815180986789445881876618",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "687001804874585345898169244768916634939448679092464929127609498912696441311801926841358521701627441706071749845110240324458193178093319749152693199406886199074094258628365660769674820975616502163976475577435215187774576553934591686686820980919694022592800927055383564842390793982986187463152709827163464925184/80358232840233248066287639038206796824142763063121913078664173828744115464234787622105547975587961061339393130338671927829343868605761931671953297815107568186883609918989033329455272398605208657683372005676318344039115120565257413999087194868914043428928044716438889724856715838134906720424907590493394722940938309",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -5,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "128611116593065969818991478387508159242312763489292662539582258019879455443605513479553456629916234670057785191687722730852643856233699632532306937289786311350101016127936934671257744017034390129706739920014265029356934942304854124244949330219356962742911755743912776230326679633920/1706329302559191887305855303548962831790985787205745872157471718785330226880940348953190010085768646974608999006266446810295029151109260340927121809262421624342493630695794699559405912982581595326284104425524437928850337595143216417182912141968339005123119568379686297008691394077259",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "15687837816335372277341808096996690206731132490744540766908839894733821390714730031904645974781471511127316157821143666344970913431563257594873163595898236041413848756376242689463492966029396695404828541225911601697328025830832670466492676828342542269974155261006769550119665664/1706329302559191887305855303548962831790985787205745872157471718785330226880940348953190010085768646974608999006266446810295029151109260340927121809262421624342493630695794699559405912982581595326284104425524437928850337595143216417182912141968339005123119568379686297008691394077259",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -4,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "1034713925429934459169697719728878570629495256055059996820799350614876300051975154713618263391439981533861884027032559761250046795463426423116596526176480894283674304795124298783691708047444339567513611781277051123666220771828801867981867006762755285855921717817641997149365483122030131653/12997356892703282450564789744625993567238545162242354072175768928282066525391404184458628694023950980821833495457694351023315420660528229776446337169597833440419736220092943386117824646172423329429708647460063121748375907683552957454512380186052610667813576706099194834123704946446130100510",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "63156075023542370669002178455232317152171176828348215763083598984575737127379759801658696125802202546575299550143031655544097282326150046341650967992037763352983727130509687792386846880762343116035030424145910475581171938588876882889414065909617572406287203125391891565059898779631616/6498678446351641225282394872312996783619272581121177036087884464141033262695702092229314347011975490410916747728847175511657710330264114888223168584798916720209868110046471693058912323086211664714854323730031560874187953841776478727256190093026305333906788353049597417061852473223065050255",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -3,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "47083713135011371012187957855308002305385189709211446983168197698373908335812776078126502477074603430077487794340124236515149815070384473366188936402173207399257309959428032181611392798648040005376217300409597766991465129830570513650282075606574451976405505299390991013368507138048/568776434186397295768618434516320943930328595735248624052490572928443408960313449651063336695256215658202999668755482270098343050369753446975707269754140541447497876898598233186468637660860531775428034808508145976283445865047738805727637380656113001707706522793228765669563798025753",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "5743128810227708925113077787262768445981637704816684488946849975599240138708077487904637239394581134866545590241620837459762864007709532832237139891403078953993750284060209376464572676242991645677118036278779349221383234234602383583974212771283648572522061753407655592215969792/568776434186397295768618434516320943930328595735248624052490572928443408960313449651063336695256215658202999668755482270098343050369753446975707269754140541447497876898598233186468637660860531775428034808508145976283445865047738805727637380656113001707706522793228765669563798025753",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -2,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "1511786957889456193484592320713499567274095631663573591180402261134515337483035619317574281146879263256301477074766444312800120209046343915714009025611843003706843931020775728325988344034623689421320850815892723903553149429933607177130111641822509106704947318440211966363461103210994527358159056072681071645567095673/17839527690531781070715855866481908894959693400013064703463446589981193633060122852107431650580527355617345274935185167978114338830479148831173632114953880137488161402015565399139070472490356322005708585260142672376683556765487145907797357260898917641222025927049433518918190916065949291934329485089533628492888304598",
+          "second_flux": -1
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "91980186191490775364617507979109666074657999029500722851176926266774170112712805707998447497984587146231998150221591529439602028165260971147221071659430260816590809370349710521006349376397476000493043760395470559461325982269802233185432815481774945170434731540461362476305204349737768560902383327469927204388864/8919763845265890535357927933240954447479846700006532351731723294990596816530061426053715825290263677808672637467592583989057169415239574415586816057476940068744080701007782699569535236245178161002854292630071336188341778382743572953898678630449458820611012963524716759459095458032974645967164742544766814246444152299",
+          "second_flux": 5
+        },
+        {
+          "first_flux": -1,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "50197656249127199138902224202799775322617252321971899222121088344513395769977532852079968682524890345125597432168424358420977357698740080731654263607395089629200578446481548530231953511113473682567193765575461937117816700023200385161810697259564074432324450637408313248777205601936253701029918118012760105284648525168558451217009491371968537756972921443581952/4849702607616324484255443256179341087328863954910167864424025591489304573652025197900613025540563025427183910031147795576130662588164945864062892883076723585995939238009294225467073645353024151220813666165352423520995003020161099814857634429607443857109241991932524431999695899877142922143437460677595645260535237145054154448365109746330337462333611554833077841275",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "414177317609782532146282660829451212102578538591466633560042673200227871095530618362810346155040555548840075875565216988862086841680517385922102031021546206127983872351552452175144706174111266600747805468878231991549246687312902987873909285962159664537576632040281345308836325985778632727145949538638663882030660830220121004616938070193771787200088445533600874496/4849702607616324484255443256179341087328863954910167864424025591489304573652025197900613025540563025427183910031147795576130662588164945864062892883076723585995939238009294225467073645353024151220813666165352423520995003020161099814857634429607443857109241991932524431999695899877142922143437460677595645260535237145054154448365109746330337462333611554833077841275",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 0,
+          "original_probability": "50197656249127199138902224202799775322617252321971899222121088344513395769977532852079968682524890345125597432168424358420977357698740080731654263607395089629200578446481548530231953511113473682567193765575461937117816700023200385161810697259564074432324450637408313248777205601936253701029918118012760105284648525168558451217009491371968537756972921443581952/4849702607616324484255443256179341087328863954910167864424025591489304573652025197900613025540563025427183910031147795576130662588164945864062892883076723585995939238009294225467073645353024151220813666165352423520995003020161099814857634429607443857109241991932524431999695899877142922143437460677595645260535237145054154448365109746330337462333611554833077841275",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "91980186191490775364617507979109666074657999029500722851176926266774170112712805707998447497984587146231998150221591529439602028165260971147221071659430260816590809370349710521006349376397476000493043760395470559461325982269802233185432815481774945170434731540461362476305204349737768560902383327469927204388864/8919763845265890535357927933240954447479846700006532351731723294990596816530061426053715825290263677808672637467592583989057169415239574415586816057476940068744080701007782699569535236245178161002854292630071336188341778382743572953898678630449458820611012963524716759459095458032974645967164742544766814246444152299",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "1511786957889456193484592320713499567274095631663573591180402261134515337483035619317574281146879263256301477074766444312800120209046343915714009025611843003706843931020775728325988344034623689421320850815892723903553149429933607177130111641822509106704947318440211966363461103210994527358159056072681071645567095673/17839527690531781070715855866481908894959693400013064703463446589981193633060122852107431650580527355617345274935185167978114338830479148831173632114953880137488161402015565399139070472490356322005708585260142672376683556765487145907797357260898917641222025927049433518918190916065949291934329485089533628492888304598",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 1,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "5743128810227708925113077787262768445981637704816684488946849975599240138708077487904637239394581134866545590241620837459762864007709532832237139891403078953993750284060209376464572676242991645677118036278779349221383234234602383583974212771283648572522061753407655592215969792/568776434186397295768618434516320943930328595735248624052490572928443408960313449651063336695256215658202999668755482270098343050369753446975707269754140541447497876898598233186468637660860531775428034808508145976283445865047738805727637380656113001707706522793228765669563798025753",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "47083713135011371012187957855308002305385189709211446983168197698373908335812776078126502477074603430077487794340124236515149815070384473366188936402173207399257309959428032181611392798648040005376217300409597766991465129830570513650282075606574451976405505299390991013368507138048/568776434186397295768618434516320943930328595735248624052490572928443408960313449651063336695256215658202999668755482270098343050369753446975707269754140541447497876898598233186468637660860531775428034808508145976283445865047738805727637380656113001707706522793228765669563798025753",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 2,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "63156075023542370669002178455232317152171176828348215763083598984575737127379759801658696125802202546575299550143031655544097282326150046341650967992037763352983727130509687792386846880762343116035030424145910475581171938588876882889414065909617572406287203125391891565059898779631616/6498678446351641225282394872312996783619272581121177036087884464141033262695702092229314347011975490410916747728847175511657710330264114888223168584798916720209868110046471693058912323086211664714854323730031560874187953841776478727256190093026305333906788353049597417061852473223065050255",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "1034713925429934459169697719728878570629495256055059996820799350614876300051975154713618263391439981533861884027032559761250046795463426423116596526176480894283674304795124298783691708047444339567513611781277051123666220771828801867981867006762755285855921717817641997149365483122030131653/12997356892703282450564789744625993567238545162242354072175768928282066525391404184458628694023950980821833495457694351023315420660528229776446337169597833440419736220092943386117824646172423329429708647460063121748375907683552957454512380186052610667813576706099194834123704946446130100510",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 3,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "15687837816335372277341808096996690206731132490744540766908839894733821390714730031904645974781471511127316157821143666344970913431563257594873163595898236041413848756376242689463492966029396695404828541225911601697328025830832670466492676828342542269974155261006769550119665664/1706329302559191887305855303548962831790985787205745872157471718785330226880940348953190010085768646974608999006266446810295029151109260340927121809262421624342493630695794699559405912982581595326284104425524437928850337595143216417182912141968339005123119568379686297008691394077259",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "128611116593065969818991478387508159242312763489292662539582258019879455443605513479553456629916234670057785191687722730852643856233699632532306937289786311350101016127936934671257744017034390129706739920014265029356934942304854124244949330219356962742911755743912776230326679633920/1706329302559191887305855303548962831790985787205745872157471718785330226880940348953190010085768646974608999006266446810295029151109260340927121809262421624342493630695794699559405912982581595326284104425524437928850337595143216417182912141968339005123119568379686297008691394077259",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 4,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "687001804874585345898169244768916634939448679092464929127609498912696441311801926841358521701627441706071749845110240324458193178093319749152693199406886199074094258628365660769674820975616502163976475577435215187774576553934591686686820980919694022592800927055383564842390793982986187463152709827163464925184/80358232840233248066287639038206796824142763063121913078664173828744115464234787622105547975587961061339393130338671927829343868605761931671953297815107568186883609918989033329455272398605208657683372005676318344039115120565257413999087194868914043428928044716438889724856715838134906720424907590493394722940938309",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "11291216064942332589050274279733386675108803082020721255164936355298504530728939630833954852842295260613865913921831281530396976780199694854426594768459710771622289344591982916460376179325659759957190446579694215345409895751560329428977194225472048666617167441606076089803156209197894686007447404350586673689073367/160716465680466496132575278076413593648285526126243826157328347657488230928469575244211095951175922122678786260677343855658687737211523863343906595630215136373767219837978066658910544797210417315366744011352636688078230241130514827998174389737828086857856089432877779449713431676269813440849815180986789445881876618",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 5,
+          "original_probability": "0",
+          "second_flux": 6
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "536096475258135139915890323322480347458767872995929453054173040101305333656431653953819653086580060050379104739591310291438654633653118228361108322604582971072379760554016249658000346821505059470599315165958578713157650185795522890558836870854499915569613131425164358929912030884728083658226415436007205308181370937355039977042984492609072336204200366662395106548185445695488/2247608153394098238969243687836458016759286421176947163595433053306303711804250558329860871856487625601705202273348492575521192370328218115944194605088937937602307992411577015635538670402191473901429180520411561091732759625606399217026279578114847959531989155907616300901975751505694533013815340219507179891069343363658063245580993996202486738598844087812382530256413854316413460231875",
+          "second_flux": -6
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": -5
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": -4
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": -3
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": -2
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": -1
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "947281731037897308317627812796649752891731412897569510097101139514681626517129841713827086543728262264890821725416534935216540705653216203919456673412926339537389463729225487263523700324357720049843509358487714187731010980186854394696253196343127018901876638425313094531966605434577322039150272121494085664276242812246426290174522958717582362343332481100414976/121242565190408112106386081404483527183221598872754196610600639787232614341300629947515325638514075635679597750778694889403266564704123646601572322076918089649898480950232355636676841133825603780520341654133810588024875075504027495371440860740186096427731049798313110799992397496928573053585936516939891131513380928626353861209127743658258436558340288870826946031875",
+          "second_flux": 0
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": 1
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": 2
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": 3
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": 4
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "0",
+          "second_flux": 5
+        },
+        {
+          "first_flux": 6,
+          "original_probability": "144903844964382161533823615827553176496909655595648580752853178588674271698401789402888752953230049331779043129804607978427811938321435077747044284803964495797792038821378651510488842427922152580768357074010432924612670690606418373597238698584359453028420936745624315871214946064881524748792348003844483021827233188658850896480936453780793899773564285414564387015100834435492076322816/2247608153394098238969243687836458016759286421176947163595433053306303711804250558329860871856487625601705202273348492575521192370328218115944194605088937937602307992411577015635538670402191473901429180520411561091732759625606399217026279578114847959531989155907616300901975751505694533013815340219507179891069343363658063245580993996202486738598844087812382530256413854316413460231875",
+          "second_flux": 6
+        }
+      ],
+      "second_flux_labels": [
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_dimension": 208,
+      "zero_probability_labels": 140
+    },
+    "diagnostic_Gibbs_values": {
+      "Gibbs_stationarity_residual": 3.8626690553611907e-16,
+      "beta_heat_capacity": 0.009201500557570158,
+      "current_mean": 8.879684656777168e-18,
+      "current_operator_nonzero": true,
+      "current_second_moment": 19.542226939654533,
+      "energy_variance": 37.68934628380737,
+      "flux_mean": 5.065392549852277e-16,
+      "full_spectral_rows": 208,
+      "kind": "floating diagnostics, not interval certificates",
+      "maximum_energy": 20.113444922665195,
+      "mean_energy": 6.392335072689253,
+      "minimum_energy": -2.160344360396029,
+      "source_current_identity_residual": 0.0,
+      "von_Neumann_entropy": 5.332838532811875
+    },
+    "finite_state_preparation": {
+      "all_Fock_occupation_counts": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "canonical_unitary_preparation_requires_no_postselection": true,
+      "declared_inverse_temperature": "1/64",
+      "dimension": 208,
+      "joint_Gauss_and_parity_preserved": true,
+      "joint_purification_stationary": false,
+      "positive_polynomial": {
+        "amplitude_operator_error_upper": "23298085122481/142668902303890252063141212979200",
+        "beta": "1/64",
+        "canonical_state_half_trace_error_upper": "23298085122481/71334451151945126031570606489600",
+        "order": 12,
+        "positive_amplitude_argument_upper": "13/64",
+        "target_source_spectral_interval": [
+          -4,
+          22
+        ]
+      },
+      "reducing_block_dimension_counts": {
+        "1": 52,
+        "12": 1,
+        "4": 20,
+        "6": 4,
+        "8": 5
+      },
+      "reference_H": 0,
+      "source": "unchanged field_route.exact_rotor(6)",
+      "source_density_stationary": true
+    },
+    "mixed_spatial_ground_obstruction": {
+      "alternative_kinetic_mean": "-6000/17",
+      "cells": 8,
+      "finite_mixed_state_is_ground": false,
+      "full_occupied_modes_per_site": 30,
+      "native_U1_charge_trace": 0,
+      "native_internal_dimension": 15,
+      "negative_beta_spin_dimension": 2,
+      "periodic_side": 2,
+      "physical_vacuum_continuum_impossibility_claimed": false,
+      "same_H_energy_decrease": "6000/17",
+      "same_gauge_density_electric_and_plaquette_terms": true,
+      "source_regulator": "degree-zero Legendre field h0; not a smooth-field coefficient",
+      "spacing": "1",
+      "tracial_Fock_kinetic_mean": "0"
+    },
+    "physical_temperature_energy_or_mass_calibrations": [],
+    "physical_vacuum_or_continuum_derived": false,
+    "schema": "oph.field_state_response.v1",
+    "source_inputs": [
+      "model/particle_observer_outputs/field_route.py",
+      "model/particle_observer_outputs/FIELD_ROUTE.md",
+      "model/particle_observer_outputs/READOUT_CONTRACT.md",
+      "model/particle_local_gauge_state/state.py",
+      "model/particle_local_gauge_state/PROOF.md",
+      "model/interacting_extension/chiral_lattice/source_data.py",
+      "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+      "Lean/Thermodynamics/FirstLawIdentity.lean",
+      "Lean/Thermodynamics/LowTemperatureControl.lean"
+    ],
+    "source_thermal_identities": {
+      "Gibbs_modular_H": "-log(rho_beta)=beta H+log Z I",
+      "arbitrary_reference_operations_passive": false,
+      "exact_identity_state": "target rho_beta=exp(-beta H)/Tr exp(-beta H)",
+      "first_law": "dE=Tr(H d rho)+Tr(rho dH)",
+      "fixed_beta_free_energy_derivative": "dF/ds=<dH/ds>",
+      "heat_capacity": "beta^2 Var_rho(H)",
+      "polynomial_preparation_complete_passivity_claimed": false,
+      "polynomial_preparation_exactly_Gibbs": false,
+      "polynomial_preparation_stationary_and_passive": true,
+      "source_KMS": "Tr rho A alpha_(t+i beta)(B)=Tr rho alpha_t(B) A",
+      "source_cyclic_passivity": true,
+      "strain_entropy_derivative": "dS/ds=-beta^2 Cov_KM(H,dH/ds)"
+    }
   },
   "joint_position_translation_records": {
     "complete_reference_control": {
@@ -102744,7 +103967,7 @@
     {
       "id": 1,
       "name": "preparation and complete instruments",
-      "status": "finite scalar and referenced spatial preparations, complete occupation-position and joint crystal-momentum instruments established; a physical relativistic state attachment unproved"
+      "status": "finite scalar and referenced spatial preparations, full quantum-flux thermal preparation and complete instruments established; the degree-zero Legendre spatial tracial-Fock input is not a finite ground, and a physical relativistic state attachment is unproved"
     },
     {
       "id": 2,
@@ -102754,7 +103977,7 @@
     {
       "id": 3,
       "name": "interacting relativistic field behavior",
-      "status": "fixed-positive-smoothing interacting local-record limit established with quantum links and electric dynamics; original exact-sign comparison, chiral matter and relativistic spacing refinement unproved"
+      "status": "fixed-positive-smoothing interacting local-record limit and refinement-uniform causal bounds established on their declared families; a convergent physical state, Lorentz transformations and chiral matter remain unproved"
     },
     {
       "id": 4,
@@ -102769,7 +103992,7 @@
     {
       "id": 6,
       "name": "controlled errors and same-source gravity",
-      "status": "fixed-time smooth-regulator, volume and complete cutoff record bounds plus same-action energy identities established; uniform physical refinement and geometric Einstein premises unproved"
+      "status": "fixed-time regulator/volume/cutoff bounds, refinement-uniform influence tails, same-action energy and declared spatial strain responses established; observer-derived proper geometry, physical state refinement and Einstein regional premises unproved"
     }
   ],
   "prepared_spatial_field_records": {
@@ -103526,6 +104749,159 @@
       "model/interacting_extension/chiral_lattice/source_data.py"
     ],
     "source_preparation_and_apparatus_may_be_declared_primitives": true
+  },
+  "refinement_uniform_causality": {
+    "Lorentz_covariance_continuum_vacuum_or_chirality_proved": false,
+    "Wilson_fixed_time_example": {
+      "alignment_safe_observed_cell_count_upper": 21952,
+      "all_smaller_spacing_upper": "1/128",
+      "certified_error_bits": 41,
+      "complete_local_history_half_trace_upper": {
+        "base": 2,
+        "exponent": -41
+      },
+      "continuum_state_or_observable_convergence_proved": false,
+      "duration": "1/1000",
+      "dyadic_refinements": 7,
+      "error_binary_exponent_upper": -41,
+      "full_Fock_all_outcomes_and_untouched_references": true,
+      "includes_boundary_representation_or_implementation_error": false,
+      "intermediate_local_dilation_count_upper": "2",
+      "inverse_spacing_prefactor_power": 3,
+      "monotonic_envelope_condition": true,
+      "physical_duration_held_fixed": true,
+      "physical_exponential_margin_lower": "1738/3125",
+      "physical_separation_lower": "4",
+      "physical_support_cube_half_width": "1/10",
+      "remote_support_cardinality_in_bound": false,
+      "requested_error_bits": 20,
+      "same_state_and_clock_within_each_comparison": true,
+      "spacing": "1/128",
+      "support_and_apparatus_prefactor": "8192/25",
+      "uniform_for_every_real_spacing_below_cut": true
+    },
+    "actual_large_field_history_allocated": false,
+    "complete_detector": "all local occupation outcomes and two retained local apparatus records; remote Wilson-plaquette phase versus identity",
+    "example_input": "same full source/reference state in both experiments; no translation or vacuum assumption",
+    "fixed_delta_smooth_family": {
+      "action": "H_E(a) + dGamma((beta+c_delta s_delta(H_W))/a) - kappa(a) sum ReTr(U_p)/15",
+      "fixed_delta": "1",
+      "fixed_delta_source_is_discontinuous_sign": false,
+      "kind": "smooth",
+      "log_weight_rational_lower": "1/521",
+      "magnetic_scale_upper": "1/100",
+      "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+      "measured_light_speed_or_mass_input": false,
+      "onsite_electric_coefficient_restricted_by_bound": false,
+      "physical_speed_formula": "2 W_star / log(lambda)",
+      "physical_speed_rational_upper": "3894880863961138155650750975517063754628905181849857031783818223051146725333046729155797663637/18296502268317563210664645782988390995855924857178280975040471955000",
+      "spatial_weight": "521/520",
+      "weighted_rate_times_spacing_upper": "7475779009522338110654032582566341179709990752111049965036119430040588724247690459032241197/36593004536635126421329291565976781991711849714356561950080943910000"
+    },
+    "measured_light_speed_or_particle_mass_inferred": false,
+    "native_Wilson_bond_census": [
+      {
+        "all_internal_columns": 15,
+        "axis": 0,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      },
+      {
+        "all_internal_columns": 15,
+        "axis": 1,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      },
+      {
+        "all_internal_columns": 15,
+        "axis": 2,
+        "full_Fock_bond_norm_times_spacing": 30,
+        "one_body_spectrum_per_internal_column": {
+          "-1": 2,
+          "0": 4,
+          "1": 2
+        },
+        "spin_projector_rank": 2,
+        "two_site_one_body_dimension": 120
+      }
+    ],
+    "ordinary_Wilson_family": {
+      "action": "H_E(a) + dGamma((beta+H_W)/a) - kappa(a) sum ReTr(U_p)/15",
+      "fixed_delta": null,
+      "fixed_delta_source_is_discontinuous_sign": false,
+      "kind": "wilson",
+      "log_weight_rational_lower": "1/2",
+      "magnetic_scale_upper": "1/100",
+      "magnetic_scaling_premise": "0 <= kappa(a) <= magnetic_scale_upper/a",
+      "measured_light_speed_or_mass_input": false,
+      "onsite_electric_coefficient_restricted_by_bound": false,
+      "physical_speed_formula": "2 W_star / log(lambda)",
+      "physical_speed_rational_upper": "72192/25",
+      "spatial_weight": "2",
+      "weighted_rate_times_spacing_upper": "18048/25"
+    },
+    "physical_support_growth_included": true,
+    "remaining_refinement_premise": "compatible renormalized states, observables and interacting records must converge across spacings; a causal bound alone does not prove this",
+    "schema": "oph.physical_causality.v1",
+    "smooth_fixed_time_example": {
+      "alignment_safe_observed_cell_count_upper": 2248091,
+      "all_smaller_spacing_upper": "1/64",
+      "certified_error_bits": 35,
+      "complete_local_history_half_trace_upper": {
+        "base": 2,
+        "exponent": -35
+      },
+      "continuum_state_or_observable_convergence_proved": false,
+      "duration": "1",
+      "dyadic_refinements": 6,
+      "error_binary_exponent_upper": -35,
+      "full_Fock_all_outcomes_and_untouched_references": true,
+      "includes_boundary_representation_or_implementation_error": false,
+      "intermediate_local_dilation_count_upper": "2",
+      "inverse_spacing_prefactor_power": 3,
+      "monotonic_envelope_condition": true,
+      "physical_duration_held_fixed": true,
+      "physical_exponential_margin_lower": "1",
+      "physical_separation_lower": "3894880863961138155650760507994745548079337938130309968735527063987997315217434725241686218637/18296502268317563210664645782988390995855924857178280975040471955000",
+      "physical_support_cube_half_width": "1",
+      "remote_support_cardinality_in_bound": false,
+      "requested_error_bits": 20,
+      "same_state_and_clock_within_each_comparison": true,
+      "spacing": "1/64",
+      "support_and_apparatus_prefactor": "1250",
+      "uniform_for_every_real_spacing_below_cut": true
+    },
+    "source_inputs": [
+      "model/particle_smooth_sign_field/smooth.py",
+      "model/particle_smooth_sign_field/PROOF.md",
+      "model/particle_field_causality/bounds.py",
+      "model/particle_field_causality/PROOF.md",
+      "model/particle_local_history_family/history.py",
+      "model/particle_local_history_family/PROOF.md",
+      "model/particle_observer_outputs/field_route.py",
+      "model/particle_observer_outputs/FIELD_ROUTE.md",
+      "model/interacting_extension/chiral_lattice/source_data.py",
+      "model/common_source/overlap_regulator.py",
+      "model/full_fock_field/README.md",
+      "model/source_family_compatibility/LOCAL_MATTER_READOUT.md",
+      "Lean/QFT/FiniteCausalObserverNet.lean",
+      "Lean/Geometry/RefiningLatticeCausalCone.lean"
+    ],
+    "strict_zero_tail_at_finite_spacing": false,
+    "uniform_physical_cone_for_stated_scaling": true,
+    "whole_degree_compression_assumed_local": false
   },
   "regional_modular_response": {
     "actual_regional_gauge_probe": {

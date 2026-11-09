@@ -38,9 +38,10 @@ representation-degree cutoff can destroy exact support commutation, so
 complete-record cutoff errors are added to parent locality estimates.
 The [energy construction](../../model/particle_gravity_response/PROOF.md)
 derives currents from the selected action and supplies the finite
-coarse-energy theorem's premise. A geometric stress or regional modular
-kernel requires its own source attachment; action differentiation alone
-does not establish it.
+coarse-energy theorem's premise. The declared coframe family below also
+supplies six spatial strain operators. Identifying them as proper
+geometric stress, or supplying a geometric regional modular kernel,
+requires the corresponding source/state attachment.
 
 The [observer-output package](../../model/particle_observer_outputs/README.md)
 treats the field, preparation and measurement service as declared program
@@ -136,8 +137,9 @@ for every permissible field construction. The
 has low-mode original weight tending to zero while inverse-gap electric
 derivative cost diverges. It excludes that proposed shortcut, without
 showing that the configured preparation's local dynamics fails.
-Physical spacing refinement, state selection and chiral response require
-their own estimates for the chosen action.
+The causal refinement estimate below applies to the chosen action.
+Convergence of states and interacting records across spacings, and chiral
+response, require additional estimates.
 
 The [periodic polynomial field's observation menu](../../model/particle_joint_translation_readout/PROOF.md)
 also gives a complete random-occupied-site position instrument, retaining
@@ -153,6 +155,44 @@ is not single-particle momentum, and the cyclic Weyl relation does not
 supply a universal finite `hbar/2` lower bound.
 Both menus are global finite instruments; the fixed-support local-record
 thermodynamic theorem does not supply their volume limit.
+
+The [refining causal construction](../../model/particle_physical_causality/PROOF.md)
+extends the chosen smooth or finite-range Wilson action along
+`kappa(a)<=kappa0/a`. Complete local influence then vanishes uniformly
+outside a conservative cone in the assigned physical length units, with
+growing detector supports and both implementation errors included. This
+does not select a limiting state or prove Lorentz covariance. Selecting
+the regulator and scaling is allowed; their physical consequences require
+the stated estimates rather than a uniqueness argument.
+
+The [finite thermal preparation](../../model/particle_field_state_response/PROOF.md)
+also makes the state choice explicit. The spatial degree-zero mixed input
+fails the finite-ground comparison by `750 V/(17a)`, with unchanged gauge
+energy. A separate unchanged 208-state charge-six quantum-flux action has
+an actual deterministic positive-polynomial preparation, a beta=1/64
+Gibbs target and all 169 complete flux records. Its thermal identities
+refer to that target and action; the actual prepared polynomial density
+has a certified error and is not exact Gibbs at beta. Neither state is
+silently replaced by the scalar ground or an interacting spatial vacuum.
+
+The [coframe choice](../../model/particle_geometric_response/PROOF.md)
+specifies how the finite-range Wilson action couples to constant spatial
+geometry. Six gauge-preserving strain operators and a frame-rotation
+identity follow from it. The same 208-state thermal control gives complete
+work and pressure records on the declared volume at kappa=0. Its directional
+carrier and the native sixty-column algebraic check at kappa=1/7 are
+distinct from a full three-dimensional quantum-state calculation. The
+latter retains its magnetic scalar and geometry derivative; identity
+plaquettes do not erase them at nonzero kappa. The ordinary-Wilson causal
+estimate is uniform on compact sets of constant coframes under the
+declared magnetic scaling, because electric cross terms remain onsite
+and the other interaction constants have common bounds. Convergence
+of physical states and identification with proper geometry are separate
+requirements. A term
+`xi log(det V)I` changes the geometry response while preserving every
+flat-source record. Thus choosing the coupling is permitted, while
+claiming its identification with proper stress or an Einstein source
+requires the additional operational map and regional estimates.
 
 The [same-source quantum-Higgs readout](../../model/particle_observer_outputs/HIGGS_RECORDS.md)
 prepares the full 307-state conserved-sector ground using the actual vertex

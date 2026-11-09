@@ -560,6 +560,171 @@ sixty-mode experiment. Finite-dimensional trace excludes
 $[X,P]=i\hbar I$. A universal physical uncertainty normalization and
 particle momentum require their own continuum identification.
 
+\subsection{A propagation estimate uniform in physical refinement}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_physical_causality/PROOF.md}{physical-distance construction}
+fixes positive smoothing and declares $0\le\kappa(a)\le\kappa_0/a$.
+The weighted interaction bound is then $W_a\le W_*/a$. Arbitrary
+nonnegative onsite electric coefficients are removed in the interaction
+picture; their magnitude does not enter this propagation estimate.
+For actual supports separated by assigned distance $d=aD$, the graded
+commutator chain gives
+\[
+ \|[\alpha_{a,t}(A_X),B_Y]_{\rm gr}\|
+ \le 2\|A_X\|\|B_Y\||X|
+       \exp\!\left[-\frac{\log(\lambda)d-2W_*|t|}{a}\right].
+\]
+The weighted row sum includes every destination in $Y$, without a
+factor growing with the remote support. For the directly declared
+ordinary Wilson action, each native full-Fock bond has norm $30/a$,
+giving $W_*=360\lambda+48\kappa_0\lambda^2$. These constants retain
+all sixty native modes per cell. Neither action is identified with a
+chiral physical theory by this estimate.
+
+Let $0<a\le1$ and $\lambda>1$ in the declared units. Let the observed
+supports fit inside a fixed physical cube of half-width
+$R$, and let $k(a)\le K a^{-p}$ complete local interventions occur by
+duration $T$. Deferred measurement and the actual cell count give a
+half-trace bound
+\[
+ \min\{1,Ca^{-(p+3)}e^{-g/a}\},\qquad
+ C=2(2K+1)(2R+3)^3,\quad
+ g=\frac{\lambda-1}{\lambda}d-2W_*T>0.
+\]
+It retains every local record and untouched reference. The remote
+apparatus is private, with no record sent directly to the observer.
+The envelope increases with $a$ for $a\le g/(p+3)$, so an exact dyadic
+planner certifies every smaller real spacing. With Wilson
+$\lambda=2$, $\kappa_0=1/100$, $R=1/10$, $T=1/1000$, $d=4$ and
+$K=2,p=0$, the bound is at most $2^{-41}$ for every $a\le1/128$.
+This is a conservative source cone, not a measured light speed.
+Separate complete implementation errors on both experiments add to it;
+choosing each at most $a$ preserves vanishing influence outside the
+cone. A convergent interacting state and observable family is an
+additional premise, not a consequence of this causal bound.
+
+\subsection{An interacting thermal preparation with complete flux records}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_field_state_response/PROOF.md}{same-source thermal construction}
+uses the unchanged charge-six control: sixteen Dirac occupations times
+thirteen electric fluxes, with all 208 states and $-4I\le H\le22I$.
+Its declared target is $\rho_b=e^{-bH}/Z$, $b=1/64$. Put
+$A=b(22I-H)/2$ and $Q_M=\sum_{j=0}^M A^j/j!$. The positive Gaussian-rational
+state $\rho_M=Q_M^2/\operatorname{Tr}Q_M^2$ has a canonical
+purification prepared deterministically by a joint gauge- and
+parity-preserving Householder unitary. No success outcome is selected.
+For $x=13b<M+2$, its half-trace error to the target purification is
+at most
+\[
+ \epsilon_{\rm prep}=\frac{2x^{M+1}}{(M+1)!}
+                      \frac1{1-x/(M+2)}.
+\]
+At $M=12$ this is below $3.27\times10^{-19}$. The source density is
+stationary; its purification need not be stationary under $H\otimes I$.
+
+All 169 initial/final flux labels are retained. A rational Cayley
+unitary with $J$ substeps approximates the original duration $t$ with
+operator error at most $|t|^3 22^3/(12J^2)$. The complete original
+weights are
+$\|P_gU_{t,J}P_fQ_M\|_F^2/\operatorname{Tr}Q_M^2$.
+For measurements at $0$ and $1/64$, $J=4$ gives allowance
+$1331/6291456$, added to $\epsilon_{\rm prep}$, including subnormalized
+outcome states and the untouched reference. This is a compiled approximation
+to the same clock. The first flux measurement has its full backaction.
+
+The ideal target supplies the finite Gibbs, thermal correlation and
+entropy identities for this actual $H$, with heat capacity
+$b^2\operatorname{Var}(H)$. Both the target and $\rho_M$ are passive
+under cyclic source unitaries. Exact thermal correlation identities
+at $b$ are not asserted for $\rho_M$, and source passivity does not
+cover arbitrary operations consuming the purifying reference.
+The temperature and preparation service are declared; autonomous
+cooling and a spatial thermodynamic limit are separate constructions.
+
+The spatial degree-zero Legendre mixed preparation has a concrete ground-state
+obstruction. On a periodic carrier with side at least two, fill all
+thirty negative-$\beta$ modes at each site while retaining its gauge
+density. The filled state is a gauge singlet because the native
+representation has determinant one. Both preparations have zero
+intersite coherence and identical electric and magnetic means. The
+onsite coefficient $25\beta/(17a)$ therefore lowers the total energy
+by $750V/(17a)$. The mixed state is not a finite ground; the comparison
+neither proves that this Slater alternative is the interacting ground
+nor excludes every continuum interpretation of the mixed family.
+
+\subsection{Spatial strain and pressure from the chosen action}
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_geometric_response/PROOF.md}{coframe response}
+declares a constant spatial matrix $V$ with $\det V>0$,
+$G=V^TV$ and $v=\det V$. On the finite-range Wilson source, the
+Dirac coefficient is $V^{-T}$, the Wilson Laplacian coefficient is
+$G^{-1}$, and electric and based-plaquette Gram coefficients are
+$G/v$. The magnetic subtraction retains the original flat potential
+and energy zero. Products are formed before coordinate-word
+compression. Every term is gauge invariant; the six symmetric strain
+derivatives retain the complete Fock space. Constant frame rotations
+have their explicit Dirac spin lift, without an inferred Lorentz boost.
+
+These constant coframes retain a uniform causal estimate. The three
+outgoing link factors belong to their tail cell, so the positive electric
+quadratic form, including cross terms, remains onsite. Its self-adjoint generators therefore
+admit the same interaction-picture argument. Put $C=G^{-1}$ and $A=G/v$.
+With $\kappa(a)\le\kappa_0/a$, a full-Fock interaction majorant is
+\[
+ \begin{aligned}
+ W(V)={}&120\lambda\sum_i\max\{\sqrt{C_{ii}},C_{ii}\}
+         +1080\lambda^2\sum_{i<j}|C_{ij}|\\
+       &+\kappa_0\lambda^2\left(16\sum_i A_{ii}
+                         +64\sum_{i<j}|A_{ij}|\right).
+ \end{aligned}
+\]
+It reduces to the preceding Wilson bound at $V=I$. The conservative
+cross coefficient also covers collapsed periodic cells. The rational
+certificate uses $\sqrt{C_{ii}}\le\max\{1,C_{ii}\}$. On a compact
+family $\sigma_{\min}(V)\ge m>0$, $\|V\|_{\rm op}\le L$, its supremum is finite.
+The declared coframe distance is at most $L$ times the coordinate path
+length, giving speed bound $2L\sup_V W(V)/\log\lambda$.
+The lower singular bound also controls growing physical-region support
+counts. Periodic carriers use quotient distance across their seams. This joins
+the mechanical and causal constructions; it supplies neither proper
+geometry nor convergence of their interacting states.
+
+Write $H_{\rm reg}$ for the Wilson Laplacian energy.
+At fixed bare regulator length, isotropic strain $V(s)=e^sI$ gives
+\[
+ H(s)=e^{-s}(H_E+H_D+H_B)+e^{-2s}H_{\rm reg},\qquad
+ K_{\rm iso}=-H_E-H_D-H_B-2H_{\rm reg}.
+\]
+The Wilson term's extra coefficient is necessary. Along isolated
+driving, $d\langle H\rangle/dt=\langle\partial_tH\rangle$.
+For separately prepared Gibbs targets at fixed $b$, the same source
+instead gives $F'=\langle K\rangle$ and
+$S'=-b^2\operatorname{Cov}(H,K)$. These different experiments are
+not identified by assuming thermalization during unitary evolution.
+The declared volume fixes the mechanical pressure
+$p=-\langle K_{\rm iso}\rangle/(3v)$.
+
+The 208-state control shares exactly the thermal preparation's Hamiltonian,
+target, prepared state and clock. Its directional reduction sets the magnetic
+coefficient to zero and has
+$K_\parallel=H_E-H_D-2H_{\rm reg}$ and $K_{\rm iso}=-H_E-H_D-2H_{\rm reg}$.
+Each has norm at most 28, so effects $(I\pm K/28)/2$ and labels
+$\pm28$ give a complete mean-reading instrument. They do not assert
+that $K$ has only two eigenvalues. The pressure error at declared
+$v=1$ is at most $56\epsilon_{\rm prep}/3$. This control is an
+algebraic reduction with transverse classical links fixed; it is not
+a normalizable reducing subspace of the full three-dimensional
+quantum-link field.
+
+Flat records do not determine the metric coupling: adding
+$\xi\log(\det V)I$ changes no flat Hamiltonian or fixed-flat record,
+but shifts strain by $\xi\operatorname{Tr}(S)I$ and pressure by
+$-\xi/v$. Declaring one complete family fixes this response without
+a uniqueness theorem. Identifying its coframe and stress with the
+observers' proper geometry, and supplying the same-state regional
+modular and area estimates, are additional Einstein premises. This
+finite mechanical pressure is not a cosmological equation of state.
+
 \subsection{Finite holonomy and shared event meaning}
 
 An explicit link-register extension on the same icosahedral incidence

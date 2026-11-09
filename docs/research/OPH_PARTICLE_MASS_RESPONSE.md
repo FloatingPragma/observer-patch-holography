@@ -18,7 +18,9 @@ birth/occupation law and separate preparation-work audit are calculated.
 These finite transition energies have no physical species or GeV assignment.
 The [same-action energy currents](../../model/particle_gravity_response/PROOF.md)
 and [fixed-spacing locality estimates](../../model/particle_field_causality/PROOF.md)
-do not supply a mass-shell dictionary or a uniform interacting refinement.
+do not supply a mass-shell dictionary or convergence of interacting records
+across spacings. The separate physical-distance estimate below supplies
+uniform causal control for its declared refinement.
 
 The [finite source/output construction](../../model/particle_observer_outputs/README.md)
 connects complete spectral readouts, the faithful modular clock, source
@@ -130,8 +132,9 @@ exhibits a vanishing low-mode weight with diverging inverse-gap electric
 response, excluding an inference from one-body spectral probability alone.
 It does not establish failure of the configured mixed state. A fixed
 positive smoothing, or a directly specified finite-range Wilson action,
-is a permitted construction without that exact-sign comparison. Physical
-refinement and chiral mass matching keep their own hypotheses.
+is a permitted construction without that exact-sign comparison. The
+causal refinement bound below does not replace convergence of interacting
+states and spectral records, or the hypotheses of chiral mass matching.
 
 The [periodic polynomial field's position/momentum calculation](../../model/particle_joint_translation_readout/PROOF.md)
 uses complete effects `n_x/N` plus vacuum and Fourier projectors of
@@ -150,6 +153,53 @@ whole-field records. A finite cyclic commutator supplies no universal
 physical `hbar/2` bound or rest-mass identification.
 Their global support is outside the local-record thermodynamic theorem;
 its error bounds are not assigned to these finite joint menus.
+
+## State, refinement and geometric energy response
+
+The [physical-distance bound](../../model/particle_physical_causality/PROOF.md)
+controls complete local influence uniformly under the declared
+`kappa(a)<=kappa0/a` scaling of the smooth or finite-range Wilson field.
+It includes growing supports and apparatus counts. Its conservative
+velocity is a locality majorant in chosen units, without a measured
+light-speed, mass-shell or Lorentz interpretation. Convergence of the
+same interacting state's spectral records across spacings is a separate
+mass-extraction requirement.
+
+The [thermal/source-state result](../../model/particle_field_state_response/PROOF.md)
+exhibits an exact finite-ground obstruction for the degree-zero spatial
+mixed input: a gauge-singlet filled-negative-beta Fock factor lowers
+energy by `750 V/(17a)` with the gauge density unchanged. This does not
+identify the replacement as the ground or exclude every continuum
+interpretation of the original family. A separate unchanged 208-state
+charge-six quantum-flux action has a beta=1/64 Gibbs target and a
+deterministically prepared positive-polynomial approximation. All 169
+joint flux outcomes and the reference are retained. Thermal energy,
+variance and response use that action's clock; none is a GeV mass.
+Exact Gibbs formulas apply to the target, with explicit preparation
+errors for bounded measurements on the actual polynomial state.
+
+The [coframe/strain result](../../model/particle_geometric_response/PROOF.md)
+uses that same finite quantum state and action for work and pressure
+readout. Its isotropic derivative is `K_iso=-H_E-H_D-2H_W` on the
+directional control with declared kappa=0, and `p=-<K_iso>/(3v)` for its
+declared volume.
+The full three-dimensional source additionally retains its magnetic
+derivative and all six strain components; its sixty-column check at
+kappa=1/7 is an algebraic coordinate control. Identity plaquettes retain
+their magnetic scalar at nonzero kappa, including its coframe derivative.
+The kappa=0 directional quantum carrier is not asserted to be a normalizable
+reducing subspace of that field or the same action as the kappa=1/7 check.
+For the ordinary-Wilson coframe action, the causal constants are uniform
+over any fixed compact family of constant positive-determinant coframes
+under the declared magnetic scaling. This controls influence in the
+assigned geometry; it does not establish convergence of spectral records,
+Lorentz stress or proper geometry.
+Adding `xi log(det V)I` preserves the flat source and changes the
+pressure by `-xi/v`. Energy zero and geometry coupling therefore belong
+to the same declared experiment. These finite quantities are not a
+cosmological equation of state, observer-derived proper stress or an
+Einstein limit. The [common dependency map](OPH_FIELD_RECONSTRUCTION.md#declared-spatial-geometry-and-same-state-pressure)
+specifies the additional geometric and particle identifications.
 
 ## An exact interacting coefficient-to-record map
 

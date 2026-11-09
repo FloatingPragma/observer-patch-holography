@@ -113,16 +113,23 @@ proof shows that the whole class of laws cannot work.
   [spectral readout](model/spin_shell_readout/README.md),
   [ten common-theory requirements](docs/research/OPH_FIELD_RECONSTRUCTION.md#ten-common-theory-construction-requirements).
 - **Interacting fields and actual position records.** A declared
-  [smooth gauge-field action](model/particle_smooth_sign_field/PROOF.md)
-  has controlled complete local detector records at fixed spacing and time,
-  including quantum links and the electric field. Its finite approximation
-  bounds are uniform in volume. A
+  [gauge-field construction](model/particle_observer_outputs/PROOF.md)
+  has controlled local detector records and a causal bound uniform in
+  physical refinement, including quantum links and all fermion occupations. A
   [joint field/reference instrument](model/particle_joint_translation_readout/PROOF.md)
   supplies conserved crystal momentum, position backaction and finite
   uncertainty. Physical chiral refinement and particle mass identification
   require their own same-state derivations. The
   [illustrated atlas](docs/research/OPH_PARTICLE_ATLAS_V2.html) explains
   these finite measurements and the remaining physical connections.
+- **Thermal records, work and pressure.** One interacting quantum-flux
+  control has a [certified thermal preparation](model/particle_field_state_response/PROOF.md)
+  and complete two-time records, with every occupation and reference retained.
+  Its [spatial strain response](model/particle_geometric_response/PROOF.md)
+  calculates work and pressure from a declared geometry coupling on the
+  same state and clock. The proper geometric interpretation and regional
+  entropy and area premises required for Einstein dynamics are separate
+  physical requirements.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
   12800 public theorems and lemmas with no admitted proofs. Computational
   receipts bind their source inputs and include replay checks.

@@ -87,6 +87,18 @@ finite-range Wilson action is also an allowed design. These options
 retain vectorlike Dirac content and require a separate interacting
 chiral and relativistic construction for physical particle claims.
 
+The [physical-distance theorem](../particle_physical_causality/PROOF.md)
+controls a declared refinement family with kinetic scale1/a and
+magnetic coefficient at most kappa0/a. Its full-Fock parent influence
+bound is uniform in state, exterior volume and untouched references,
+including physical supports whose site count grows as a shrinks.
+The sharper finite-range Wilson estimate belongs to that action;
+it is not substituted into the smooth regulator's constants. The
+finite-code implementation adds the errors of both complete compared
+experiments. These bounds do not assert convergence of states or
+observable correlations across spacings. A finite-dimensional global
+cutoff is not used as an exactly local parent.
+
 ## 4. What the position and momentum records identify
 
 The [joint translation construction](../particle_joint_translation_readout/PROOF.md)
@@ -114,7 +126,59 @@ local support. Conversely, the local-record limit does not prove a
 thermodynamic limit of either global menu. A common laboratory
 dictionary needs its own attachment.
 
-## 5. Physical interpretation and gravity
+## 5. Same-source thermal preparation and declared spatial response
+
+The [thermal control](../particle_field_state_response/PROOF.md) uses
+the unchanged charge-six action on all208 spinor/electric states.
+Its inverse temperature1/64 is a declared preparation input. A positive
+polynomial and complete Householder unitary prepare a canonical joint
+state without postselection. Its returned density is in the original
+source basis; a real arithmetic chart is only a computational change
+of coordinates. The first flux measurement occurs at time0, followed
+by one same-clock interval and the second flux measurement. All169
+original weights, including zeros, and the conjugate reference are
+retained. Canonical preparation and rational-unitary clock errors add
+in half-trace distance to the target Gibbs experiment.
+
+Exact Gibbs, KMS and entropy-response identities refer to the target
+rho_beta. The prepared polynomial density rho_M is faithful, stationary
+and passive for cyclic source operations, but is generally not exact
+Gibbs or KMS at that beta. Its modular operator is -log rho_M. Passivity
+does not cover arbitrary operations using the purifying reference as
+a work resource. The source density is stationary; its global pure
+reference state need not be stationary under H tensor I. Bounded
+record expectations transfer under the trace-error bound, whereas
+derivatives and logarithms require their own estimates.
+
+The [coframe response](../particle_geometric_response/PROOF.md) declares
+a geometry coupling for the three-dimensional finite-range Wilson
+action and derives its six spatial strain operators. Frame rotations,
+the regulator-dependent dilation trace and same-action work identities
+follow on that source. The sixty-column noncommuting-link calculation
+is an algebraic configuration control, not a prepared quantum field.
+Its parent interaction decomposition also has a causal rate uniform on
+constant coframes whose singular values lie in a fixed positive compact
+interval. Tail-cell ownership keeps all electric cross terms onsite;
+the mixed Wilson and magnetic interactions have explicit weighted bounds.
+The flat coframe recovers the finite-range Wilson rate. This extends
+the parent causal argument to that declared coframe family without
+transferring the directional thermal state to a spatial refinement.
+The complete208-state directional reduction has magnetic coefficient
+zero and shares the thermal package's H, rho_beta, rho_M and clock.
+Its complete stress instruments and pressure use that declared
+coframe/volume law. Setting transverse coordinate links to identity
+does not exhibit a normalizable reducing sector of the full quantum
+three-dimensional gauge field.
+
+These state and strain controls do not supply the initial tracial-Fock
+formula used for the separate global position/momentum experiment.
+They also supply no thermodynamic limit of their Gibbs states. The
+spatial mixed-state variational witness applies to the degree-zero
+Legendre action; its coefficient is not assigned to the smooth or
+ordinary-Wilson actions. Its failure to be a finite ground is not a
+universal no-vacuum-continuum theorem.
+
+## 6. Physical interpretation and gravity
 
 Protected labels can control complete scalar records through a declared
 interaction, with preparation work kept explicit. Those finite detector
@@ -127,6 +191,8 @@ supplies same-action conservation and response identities. The
 [regional modular calculation](../particle_regional_geometry/PROOF.md)
 supplies actual internal reduced modular interactions and an entropy
 response. Its regions are not spatial diamonds. Same-source geometric
-stress, area response and a controlled Einstein limit are additional
-premises, not definitions of the desired output. No measured parameter
+stress under the declared coframe has an explicit source response;
+identification with proper geometry, the spatial-diamond modular
+kernel, area response and controlled Einstein limit require their
+same-state premises. No measured parameter
 is removed merely by adding these finite constructions to the report.
