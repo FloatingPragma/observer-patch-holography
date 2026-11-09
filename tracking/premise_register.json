@@ -32351,10 +32351,12 @@
         "Lean/SourceLaw/MatrixLimits.lean",
         "Lean/SourceLaw/MatrixSeams.lean",
         "Lean/SourceLaw/OpenWindow.lean",
+        "Lean/SourceLaw/RecordRealization.lean",
         "Lean/SourceLaw/ReflectionPositivity.lean",
         "Lean/SourceLaw/RepairAdmissibility.lean",
         "Lean/SourceLaw/RepairConvergence.lean",
         "Lean/SourceLaw/ScalarPacket.lean",
+        "Lean/SourceLaw/SpinMarginalForce.lean",
         "Lean/SourceLaw/StationaryWindow.lean",
         "Lean/SourceLaw/TransferMatrixLift.lean",
         "Lean/SourceLaw/TransferStructure.lean",
@@ -41684,8 +41686,8 @@
             "finite_state_preparation_contractivity",
             "positive_transfer_spectral_functional_calculus"
           ],
-          "scope": "For the actual default weighted H66 source, all 721 raw slots determine a complete 30-by-30 multi-time contrast-record response with measurement backaction. Exact transition and insertion matrices give its resolvent and all 65 simple positive nonstationary population-relaxation factors. Twenty-two equal-weight seam contrast columns have zero correlation with every later source record in stationarity. Weighted occupation means do not close: their exact one-step span grows from dimension 12 to 19. Complete records observe the full 66-dimensional population space, while bare record effects are diagonal and do not provide quantum-state tomography. A controlled native preparation error bounds every bounded future record moment. These poles are decay factors in repair-attempt time, not particle masses or a selected field propagator. With the actual raw-label reversal, every stationary scalar record cylinder has a positive reflection form. Their reflection quotient is exactly 66-dimensional by native record observability. Weighted detailed balance gives the positive transfer S=Pi^(-1/2) P Pi^(1/2), with (296/495)I<=S<=I, and its unique nonnegative generator -log(S). Correctly reflected contrast residues are positive; a complete exact negative control excludes reflection that incorrectly leaves incoming contrast unchanged. This is a finite Euclidean record reconstruction, not an implemented real-time quantum field or mass spectrum.",
-          "limitations": "The named weighted H66 member, uniform seam selector, fixed tagged C/E mixture, native endpoint coins and complete exported record grammar are used. Stationary formulas use its exact source marginal; finite preparation retains its explicit error and excludes the preparation archive from the product target. Scaled signed record scores are statistics, without success conditioning. Coherent services, physical coordinates, momentum and a physical clock are not inferred. Reflection uses the complete native raw-label involution, the stationary fixed-selector population law and scalar complex record-cylinder statistics. Positivity of operator-valued quantum histories, arbitrary operational effects, continuous fractional stochastic updates, spatial locality of the logarithm and implemented unitary continuation are not inferred.",
+          "scope": "For the actual default weighted H66 source, all 721 raw slots determine a complete 30-by-30 multi-time contrast-record response with measurement backaction. Exact transition and insertion matrices give its resolvent and all 65 simple positive nonstationary population-relaxation factors. Twenty-two equal-weight seam contrast columns have zero correlation with every later source record in stationarity. Weighted occupation means do not close: their exact one-step span grows from dimension 12 to 19. Complete records observe the full 66-dimensional population space, while bare record effects are diagonal and do not provide quantum-state tomography. A controlled native preparation error bounds every bounded future record moment. These poles are decay factors in repair-attempt time, not particle masses or a selected field propagator. With the actual raw-label reversal, every stationary scalar record cylinder has a positive reflection form. Their reflection quotient is exactly 66-dimensional by native record observability. Weighted detailed balance gives the positive transfer S=Pi^(-1/2) P Pi^(1/2), with (296/495)I<=S<=I, and its unique nonnegative generator -log(S). Correctly reflected contrast residues are positive; a complete exact negative control excludes reflection that incorrectly leaves incoming contrast unchanged. This is a finite Euclidean record reconstruction, not an implemented real-time quantum field or mass spectrum. Complete one-record conditional probabilities have exact rank 42. The constant, eleven single-contrast functions and fifty-four ordered two-record products form a 66-dimensional basis. Correctly reflected statistics of at most five attempts recover all 721 selective population maps through G^-1 B_h=X^-1 T_h^T X, with exact Gram floor 55756800/2129251819009, and determine arbitrary finite stationary record laws. The finite dimension/source specification is explicit; bounded-depth data do not identify unrestricted hidden architectures. The inverse and arbitrary-word identities have a Lean proof; the actual H66 matrix attachment is an exact executable certificate. Uniform native mixing before each probe supplies conditional stationary-score bias bounds without independent resets when the preparation archive is inaccessible to subsequent controls. A martingale bound retains complete finite-sample errors. The conservative sampler exceeds the native program cap and is not executed; an exact interpreter control retains all 721 raw branches with RESOURCE_STOP and zero completed calibration trials.",
+          "limitations": "The named weighted H66 member, uniform seam selector, fixed tagged C/E mixture, native endpoint coins and complete exported record grammar are used. Stationary formulas use its exact source marginal; finite preparation retains its explicit error and excludes the preparation archive from the product target. Scaled signed record scores are statistics, without success conditioning. Coherent services, physical coordinates, momentum and a physical clock are not inferred. Reflection uses the complete native raw-label involution, the stationary fixed-selector population law and scalar complex record-cylinder statistics. Positivity of operator-valued quantum histories, arbitrary operational effects, continuous fractional stochastic updates, spatial locality of the logarithm and implemented unitary continuation are not inferred. Bounded-depth identification requires the configured finite source realization or an explicit sufficient dimension/observability premise. It does not identify arbitrary hidden-state architectures. Error bounds on inverse matrices do not by themselves assert that perturbed matrices are a valid stochastic instrument.",
           "sources": [
             {
               "path": "model/native_record_response/PROOF.md",
@@ -41694,6 +41696,14 @@
             {
               "path": "model/native_record_response/TRANSFER.md",
               "anchor": "# Positive transfer from reflected native records"
+            },
+            {
+              "path": "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md",
+              "anchor": "# Complete population realization from short native records"
+            },
+            {
+              "path": "Lean/SourceLaw/RecordRealization.lean",
+              "anchor": "recover_history"
             }
           ]
         },

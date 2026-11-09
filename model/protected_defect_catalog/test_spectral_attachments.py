@@ -74,6 +74,27 @@ def test_joint_consumer_accepts_complete_scoped_bands(joint_payload, monkeypatch
 
 
 @pytest.mark.parametrize('path,value', [
+    (('source_quantum_correction_to_mean_spin_force','liminf_kappa_minus_m_squared_lower'), '1'),
+    (('source_quantum_correction_to_mean_spin_force','corrected_kinetic_coefficients_excluded'), True),
+    (('source_quantum_correction_to_mean_spin_force','infrared_sharp_component_excluded'), True),
+    (('source_quantum_correction_to_mean_spin_force','source_to_history_unbounded_force_norm_preservation_assumed'), True),
+    (('source_quantum_correction_to_mean_spin_force','physical_mass_or_species_assigned'), True),
+    (('source_quantum_correction_to_mean_spin_force','physical_mass_or_species_assigned'), 0),
+    (('source_quantum_correction_to_mean_spin_force','additional_native_detector_execution'), True),
+    (('scope','strict_source_bond_minus_squared_order_margin_proved'), False),
+    (('scope','unfiltered_microscopic_mean_spin_force_factorization_excluded'), False),
+    (('scope','quantum_force_margin_excludes_corrected_infrared_shell'), True),
+])
+def test_quantum_force_forgery_rejected_despite_matching_owner(joint_payload, monkeypatch, path, value):
+    changed = copy.deepcopy(joint_payload)
+    _set(changed, path, value)
+    monkeypatch.setattr(packet.joint_field, 'build', lambda: changed)
+    monkeypatch.setattr(packet.strict_json, 'load', lambda path: changed)
+    with pytest.raises(ValueError, match='joint-field quantum force correction'):
+        packet.joint_field_attachment()
+
+
+@pytest.mark.parametrize('path,value', [
     (('continuum_band', 'each_original_charge_probability_lower'), '1'),
     (('continuum_band', 'joint_positive_field_clock_used'), False),
     (('continuum_band', 'sharp_shell_or_physical_mass_inferred'), True),

@@ -149,6 +149,7 @@ lean_lib «SourceLaw» where
     `SourceLaw.ReflectionPositivity, `SourceLaw.ContinuumTimeLimit,
     `SourceLaw.TwoPointFlux, `SourceLaw.MatrixSeams,
     `SourceLaw.ScalarPacket, `SourceLaw.TransferMatrixLift,
+    `SourceLaw.RecordRealization, `SourceLaw.SpinMarginalForce,
     `SourceLaw.RepairAdmissibility, `SourceLaw.CounterfamilyReader,
     `SourceLaw.StationaryWindow, `SourceLaw.GoldenCarrier,
     `SourceLaw.MatrixLimits, `SourceLaw.DynamicalResponse,

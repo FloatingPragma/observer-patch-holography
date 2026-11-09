@@ -1003,6 +1003,20 @@ The transfer generator and native modular generator `K=-log(rho_*)` are
 inequivalent: an exact source element gives `[S,K]!=0`, hence `[H,K]!=0`.
 A common physical clock requires an additional comparison map.
 
+The [short-record realization](../../model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md)
+uses the configured weighted source to recover all 721 selective population
+maps. Complete single-record functions have rank 42; the constant, eleven
+single contrasts and fifty-four two-record products have rank 66. Correctly
+reflected moments of at most five attempts determine the Gram and insertion
+matrices, with exact Gram floor `55756800/2129251819009`. Their inverse
+reconstructs arbitrary finite stationary record histories, including zero
+outcomes. The [finite algebra theorem](../../Lean/SourceLaw/RecordRealization.lean)
+proves insertion uniqueness and all-word similarity under explicit inverse
+premises. The exact source certificate supplies those premises. This closes
+finite population observability and realization on the configured source;
+it does not identify unspecified hidden architectures from five-event data,
+recover quantum coherences or supply the common relativistic particle clock.
+
 The [native clock observables](../../model/native_clock_observables/PROOF.md)
 attach noncommuting local measurements to the working-state clock itself.
 Existing coherent analyzers followed by native E records give complete

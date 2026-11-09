@@ -1069,7 +1069,12 @@ must bound leakage outside a shrinking energy--momentum tube, using the
 actual filtered cross moment and both inverse susceptibilities. The
 [bounded preparation inequality](../../model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md)
 then transfers this leakage to an original charge-probability floor without
-a growing preparation normalization. A common linear low-momentum shell
+a growing preparation normalization. The [two-site source inequality](../../model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md)
+proves `liminf(kappa_B-m_B^2)>=61/14400` on this same joint trajectory.
+Exact double commutators therefore exclude closing the unfiltered forces
+by replacing every longitudinal spin by its staggered mean. A corrected
+infrared coefficient or sharp subbranch is not excluded. This bound does
+not discharge the filtered susceptibility/slack requirement. A common linear low-momentum shell
 would identify a massless branch only; additional massive sectors require
 their own surviving weights and dispersions. Neither route transfers its
 state or clock to the other family. Relativistic transformations, surviving
@@ -1948,6 +1953,20 @@ gives an exact negative control. This supplies a finite Euclidean
 representation. Its [controlled finite implementation](../../model/native_transfer_control/PROOF.md)
 uses separately declared coherent services; a spatial field and autonomous
 physical time evolution are not inferred.
+The [short-record realization](../../model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md)
+uses the configured weighted source to recover all 721 selective population
+maps. Complete single-record functions have rank 42; the constant, eleven
+single contrasts and fifty-four two-record products have rank 66. Correctly
+reflected moments of at most five attempts determine the Gram and insertion
+matrices, with exact Gram floor `55756800/2129251819009`. Their inverse
+reconstructs arbitrary finite stationary record histories, including zero
+outcomes. The [finite algebra theorem](../../Lean/SourceLaw/RecordRealization.lean)
+proves insertion uniqueness and all-word similarity under explicit inverse
+premises. The exact source certificate supplies those premises. This closes
+finite population observability and realization on the configured source;
+it does not identify unspecified hidden architectures from five-event data,
+recover quantum coherences or supply the common relativistic particle clock.
+
 The working source's modular generator `K=-log(Pi)` is a different clock:
 an exact source matrix element has `[S,K]!=0`. The reconstructed ground
 direction `sqrt(pi)` is not a preparation of the native full working state.

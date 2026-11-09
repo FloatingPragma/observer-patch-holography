@@ -384,6 +384,17 @@ them. Its [controlled finite implementation](../native_transfer_control/PROOF.md
 uses declared nine-bit observer services. A common physical clock, growing
 service embedding and spatial locality require their own maps.
 
+The [short-record realization](../native_record_response/SHORT_RECORD_RECONSTRUCTION.md)
+recovers the configured weighted source from bounded-depth population
+statistics: single-record functions have rank 42 and two-record functions
+have rank 66. Correctly reflected moments through five attempts determine
+all 721 selective maps and arbitrary finite stationary word laws. An exact
+Gram floor controls inversion; finite-error predictions retain every raw
+outcome. This supplies the finite population dictionary on that specified
+source. The source dimension, reference and attempt-clock interpretation
+are explicit, and quantum coherence, physical mass and a continuum family
+are separate requirements.
+
 The [clock-observable protocol](../native_clock_observables/PROOF.md) uses
 existing coherent services and actual native E records to implement a
 finite noncommuting Pauli menu on all 66 source states. Retained-record

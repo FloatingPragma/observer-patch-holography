@@ -840,8 +840,8 @@ blocks, so the rank statement is population observability, not quantum-state
 tomography. After $1600$ unread preparation attempts, the reduced
 source/reference half trace distance is at most $\varepsilon=542159/10^{12}$; any fixed
 future $r$-fold score moment has error at most $2\,60^r\varepsilon$.
-The preparation archive can remain correlated. No finite sampling or stable
-pole-inversion bound is asserted
+The preparation archive can remain correlated. Exact population
+observability alone supplies no sampling or stable pole-inversion bound
 (\path{model/native_record_response}, \cite{ophrepo}).
 
 \paragraph{Positive transfer from complete records.}
@@ -866,6 +866,29 @@ therefore have the positive reflected spectral representation
 The ordinary oriented covariance $C(1)$ is different: the centered score
 $Y_{(0,5)}-Y_{(0,1)}$ has the naive unreflected quadratic form
 $-83481968/1858725825$. Reflection must use the actual record dictionary.
+
+Complete single-record conditional probabilities span dimension $42$.
+Two records suffice: the constant, eleven contrast functions and fifty-four
+ordered contrast products give an invertible feature matrix $X$. With
+$G=X^T\Pi X$ and $B_h=X^T\Pi T_h^T X$, correctly reflected moments of at most
+five attempts determine
+\[
+ A_h=G^{-1}B_h=X^{-1}T_h^T X,\qquad
+ G\succeq\frac{55756800}{2129251819009}I.
+\]
+The first feature is constant, so every finite chronological word has law
+$e_0^T G A_{h_1}\cdots A_{h_m}e_0$. All $721$ raw labels, including zero
+slots, enter this reconstruction. The finite realization and the depth-two
+rank certificate supply its domain; a dimension bound or known source
+specification is required to infer arbitrary histories from bounded-depth
+data. The Gram bound controls inverse perturbations. Uniform native mixing
+followed by each probe gives conditional score-bias bounds without independent
+resets, provided the preparation archive is inaccessible to later controls.
+Martingale concentration then gives finite-error intervals; the conservative
+sample budget exceeds the interpreter's admitted horizon and is unexecuted.
+This finite population result does not determine quantum coherences or a physical clock
+(\path{model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md},
+\cite{ophrepo}).
 
 This is a finite Euclidean reconstruction from scalar records. Spectral
 calculus defines a unitary continuation but supplies no native protocol
@@ -2493,6 +2516,15 @@ ordered-zero-field history state (\path{model/spin_joint_field_limit}, \cite{oph
 The actual filtered current has norm $O(p^2)$. A sufficient source-norm
 route to the linear force is a specific residual $o(p^2)$, measured with
 its original probability and retained complements. This cancellation and a sharp spectral branch are unproved.
+
+The two-site positive ground marginal also gives a strict correction to
+mean-spin factorization. With transverse bond coefficient $\kappa_B$ and
+staggered moment $m_B$, the source dimer variational bound implies
+$\liminf(\kappa_B-m_B^2)\ge61/14400$. Exact ground double commutators then
+exclude the unfiltered force coefficients $12m_B,m_B$ obtained by replacing
+each longitudinal spin by its mean. Corrected coefficients and an infrared
+sharp component are allowed; the result supplies no pole
+(\path{model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md}, \cite{ophrepo}).
 
 The actual two-force equations admit a useful static reduction. Here P
 is canonical field momentum, distinct from spatial translation momentum. For

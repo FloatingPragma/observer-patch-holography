@@ -9789,6 +9789,7 @@
     "physical_particle_assignment": null,
     "positive_field_order_and_bond_variance_bounds_quantitative": true,
     "positive_full_pair_slack_excludes_sharp_subbranches": false,
+    "quantum_force_margin_excludes_corrected_infrared_shell": false,
     "same_clock_ground_vector_filtered_current_O_p_squared_bound": true,
     "second_canonical_pair_on_same_joint_history_subsequence": true,
     "sequence_forced_by_unread_repair": false,
@@ -9797,6 +9798,8 @@
     "source_Ward_reduction_of_two_force_form_defects": true,
     "source_field_sequence": "p=n^-2, B=J*n^-5, n>=2",
     "state": "the unique positive-B infinite-volume source ground at each n",
+    "strict_source_bond_minus_squared_order_margin_proved": true,
+    "unfiltered_microscopic_mean_spin_force_factorization_excluded": true,
     "uniform_mode_nonvanishing_original_continuum_residue_proved": false,
     "uniform_mode_weighted_centre_and_variance_concentrate_at_zero": true
   },
@@ -10615,6 +10618,7 @@
     "uniform_continuum_slack_vanishing_proved": false
   },
   "source_bindings": {
+    "Lean/SourceLaw/SpinMarginalForce.lean": "a0c399269d760f88527860087b70c58dcaf0805fb9f1839099eef34a81a50dbe",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
@@ -10886,6 +10890,7 @@
     "model/spin_charge_dispersion/DIMER_BOUND.md": "baf3e7e7511baa9033f4503e8e1b1f0fed58227fc56c36b63a274cee9636525d",
     "model/spin_charge_dispersion/PROOF.md": "4b8a586622b6bc121da30d94866df90ea8e4820f7c60ad380d78ac566702270b",
     "model/spin_charge_dispersion/__init__.py": "81fab3a1d62f1ad4efbaa2f168b5ff5bb88c7d74721662ffdab1de6654c28e9a",
+    "model/spin_charge_dispersion/dimer.py": "c12ec83bf9899079a769c033a1c33098a6052c35f47b5d372edf09ce241c5e2f",
     "model/spin_charge_dispersion/order.py": "1314b0ae8a11f4a0deb782408c35f231c20cf6ad569ae85bb013948e8d1c2be8",
     "model/spin_charge_dispersion/results.json": "7fe78ea88136ac6f2eb3fe5279108a76d8820045d0fa8b68050afbb9225a985b",
     "model/spin_dynamical_memory/__init__.py": "eed35352bc86452f97893dcd981adc2c2d284d1e36c6191313c71f3dcd1515f7",
@@ -10905,10 +10910,11 @@
     "model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md": "98566a39571ddc8a2a9f20c00eb294287b27e9bd50c2ef2a29f094a2fc8ab98c",
     "model/spin_joint_field_limit/FORCE_READOUT.md": "876ed6ba21da5534c0428bd540698de94db9fb84ef1df8f28aa975aec3c2235b",
     "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
-    "model/spin_joint_field_limit/README.md": "af2b3bd2ce5d203cd2f11db82cea6d9cea59fedbad9b3293b0b207a1005e9f61",
+    "model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md": "37772315f30f2e8341ff12be70cb49685829caaaff7fb5330c93eb924e9019e6",
+    "model/spin_joint_field_limit/README.md": "d23b825ac218b7620e70e67f6b2d9c10282b5cc66ef7b8b83247bad38a7e858f",
     "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
     "model/spin_joint_field_limit/UNIFORM_MODE.md": "6c88f4458bce56f67f00269eaac808272820d27bc673c4eb565a20837b10374d",
-    "model/spin_joint_field_limit/WARD_DYNAMICS.md": "266dc9d34140ba345a361edf3e7d508cf4dd83bd7a8891932e9d4fc8167fa156",
+    "model/spin_joint_field_limit/WARD_DYNAMICS.md": "a2d21ab4a6e356da00cde2a974e68e86d4abbbe02e166712e73323bcb3c00bde",
     "model/spin_joint_field_limit/__init__.py": "4642f35854e6e530b6cf9b4912068956c46a9f71a68d39881a2e1541f3f248c4",
     "model/spin_joint_field_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/spin_joint_field_limit/algebra.py": "e2432c398757d27a81479ac204a5e1ab58e72791d80e236ba948b6853ed73c69",
@@ -10919,7 +10925,8 @@
     "model/spin_joint_field_limit/directed_bands.py": "cf6a343674bd54c452e16887e71fdba9d3cec55331c69852caea352e181f8b04",
     "model/spin_joint_field_limit/force.py": "a833d96800bb543e2b3e8fb5d4c36d10a303c40bca737f60015a7840680d3bf1",
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
-    "model/spin_joint_field_limit/packet.py": "9c2237a2e779e6bf38926cb82da4d51555a648fde0813cd266c5343a357812de",
+    "model/spin_joint_field_limit/packet.py": "278b75a6239362a86b62143f1c995e7f4ad1584d58f05e414825a04c54836b2a",
+    "model/spin_joint_field_limit/quantum_force_slack.py": "e298922696dee7130571311b3c626b2bae9915b03fb28b2a027887c288c3d402",
     "model/spin_joint_field_limit/test_arctan_bands.py": "35a258349468ec90a5e5b040043b5e0c7e897b85fd05978353176b009cdb6d34",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
     "model/spin_joint_field_limit/test_construction.py": "d6f640daf0cd6f9ae6bcb7d248787b7db9afba6e4d41662aecf61e3f022f4d1b",
@@ -10927,6 +10934,7 @@
     "model/spin_joint_field_limit/test_force.py": "84b1cb61b67304932143a2d6576b57b9ea18bc527d34e055225af4da7d2ba5eb",
     "model/spin_joint_field_limit/test_joint_family.py": "9f0dd7de83edb1dfd02ed5d31abf1d4f9780108c5c7a47bd3acc3e8b0d8b56ce",
     "model/spin_joint_field_limit/test_joint_symmetry.py": "1db3ee11b445e2faa4b0b02839a805c84dee7c6071cac424d073cc01b82b8199",
+    "model/spin_joint_field_limit/test_quantum_force_slack.py": "e6dd6f9313b7ca9c389267ad856eef6cc521e04ee8aacbae298e49b47503d0e2",
     "model/spin_joint_field_limit/test_uniform_mode.py": "199f3f3f7fc49f470af3e4bbf902aea5608b945b4c3eb45cd81c4e5d8b040703",
     "model/spin_joint_field_limit/test_ward.py": "c364d2130655c8c9bb46466a377bac7a573b69a1bfa475dea464a3b0f26eef26",
     "model/spin_joint_field_limit/uniform_mode.py": "4708aa6b033783da57223199464947ea9ac66b95410b48448a64f9c2e69fb32a",
@@ -10942,6 +10950,94 @@
     "model/spin_twist_closure/results.json": "62319828b2127bc64705a946c649ae5c2416244849e5966948faec9f68a22de9",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "source_quantum_correction_to_mean_spin_force": {
+    "actual_dimer_force_control": {
+      "B": "2/3",
+      "J": "1",
+      "P_residual_ground_score": "59/300",
+      "Q_residual_ground_score": "5/192",
+      "finite_dimer_substituted_for_cubic_ground": false,
+      "force_coefficient_excess": "6/25",
+      "full_source_dimension": 4,
+      "ground_energy": "-4/3",
+      "ground_rank": 1,
+      "kappa": "2/5",
+      "magnetization": "2/5",
+      "source_degree": 1,
+      "source_frame_checked": true
+    },
+    "additional_native_detector_execution": false,
+    "corrected_kinetic_coefficients_excluded": false,
+    "exact_sharp_local_marginal_control": {
+      "bond_coefficient": "2/5",
+      "energy_improvement": "3/10",
+      "excess_lower": "6/25",
+      "force_coefficient_excess": "6/25",
+      "ground_selection_inferred_from_marginal_alone": false,
+      "magnetization": "2/5",
+      "nonnegative_remainder_terms": [
+        "0",
+        "0",
+        "0"
+      ],
+      "spin_dot_energy_coefficient": "33/20"
+    },
+    "excluded_approximation": "replace every longitudinal spin by its staggered mean in unfiltered microscopic forces",
+    "infrared_sharp_component_excluded": false,
+    "joint_family_floors": [
+      {
+        "B_over_J": "1/32",
+        "dimer_trial_order_lower": "12/25",
+        "exchange_energy_e_lower": "1239/1600",
+        "kappa_minus_m_squared_lower": "10569/2560000",
+        "marginal_energy_improvement_lower": "13/1600",
+        "n": 2,
+        "p": "1/4"
+      },
+      {
+        "B_over_J": "1/1024",
+        "dimer_trial_order_lower": "12/25",
+        "exchange_energy_e_lower": "39679/51200",
+        "kappa_minus_m_squared_lower": "99863041/23592960000",
+        "marginal_energy_improvement_lower": "1279/153600",
+        "n": 4,
+        "p": "1/16"
+      },
+      {
+        "B_over_J": "1/1048576",
+        "dimer_trial_order_lower": "12/25",
+        "exchange_energy_e_lower": "40632319/52428800",
+        "kappa_minus_m_squared_lower": "104797120757761/24739011624960000",
+        "marginal_energy_improvement_lower": "1310719/157286400",
+        "n": 16,
+        "p": "1/256"
+      }
+    ],
+    "liminf_kappa_minus_m_squared_lower": "61/14400",
+    "physical_mass_or_species_assigned": false,
+    "source": "spin-one-half cubic antiferromagnet, J>0",
+    "source_to_history_unbounded_force_norm_preservation_assumed": false,
+    "source_torus_count_control": {
+      "dimer_bonds": 32,
+      "distinct_source_bonds": 192,
+      "inter_dimer_bonds": 160,
+      "periodic_wrap_bonds_retained": true,
+      "side": 4,
+      "sites": 64,
+      "spin_dot_energy_density": "-31/40"
+    },
+    "source_trial": {
+      "inter_dimer_spin_dot_expectation": "-6/25",
+      "intra_dimer_spin_dot_expectation": "-7/20",
+      "pair_state": "[(sqrt(3)+sqrt(2))|up down>-(sqrt(3)-sqrt(2))|down up>]/sqrt(10)",
+      "staggered_single_site_spin_mean_squared": "6/25",
+      "state_norm_squared": "1",
+      "trial_shifted_H_over_J_per_site": "-61/40",
+      "trial_spin_dot_energy_per_site": "-31/40",
+      "twice_amplitude_product": "1/5"
+    },
+    "state_and_clock": "positive-field ground; p=n^-2, B=J n^-5, K_B/(Jp)"
   },
   "transverse_energy": [
     {

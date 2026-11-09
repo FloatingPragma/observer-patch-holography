@@ -107,7 +107,8 @@ def rows():
                                      'model/spin_joint_field_limit/CLOCK_COMPARISON.md',
                                      'model/spin_joint_field_limit/UNIFORM_MODE.md',
                                      'model/spin_joint_field_limit/ARCTAN_CHARGED_BANDS.md',
-                                     'model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md']},
+                                     'model/spin_joint_field_limit/DIRECTED_CHARGED_BANDS.md',
+                                     'model/spin_joint_field_limit/QUANTUM_FORCE_SLACK.md']},
         {'id':'common_hidden_spin_factor', 'kind':'joint_noiseless_subsystem',
          'source':'same six-site Weyl/contact field and complete charged-block repair',
          'protected_object':'at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315',
@@ -209,6 +210,13 @@ def joint_field_attachment():
                   'sharp_particle_mass_shell_proved', 'Lorentz_covariance_proved')
     if any(scope[name] is not False for name in exclusions) or scope['physical_particle_assignment'] is not None:
         raise ValueError('joint-field attachment exceeds the owning physical scope')
+    quantum_force = value['source_quantum_correction_to_mean_spin_force']
+    if (joint_field.canonical(quantum_force) != joint_field.canonical(
+            joint_field.serialize(joint_field.quantum_force_slack.certificate()))
+            or scope['strict_source_bond_minus_squared_order_margin_proved'] is not True
+            or scope['unfiltered_microscopic_mean_spin_force_factorization_excluded'] is not True
+            or scope['quantum_force_margin_excludes_corrected_infrared_shell'] is not False):
+        raise ValueError('joint-field quantum force correction differs from its source scope')
     history = value['complete_prepared_local_history']
     uniform=value['uniform_mode_original_weight_and_concentration']
     spectral=value['complete_finite_uniform_spectral_readout']
@@ -264,6 +272,7 @@ def joint_field_attachment():
             'ordered_zero_field_history_identity_proved':False,
             'bounded_charged_joint_bands':charged,
             'directed_joint_charged_bands':directed,
+            'source_quantum_correction_to_mean_spin_force':quantum_force,
             'uniform_mode_response':{'weighted_centre_and_variance_tend_to_zero':True,
                 'original_window_probability_lower':'m/(8N); finite order floor m>1/20',
                 'uniform_original_continuum_residue_lower_proved':False,

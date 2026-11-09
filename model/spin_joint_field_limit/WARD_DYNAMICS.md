@@ -31,6 +31,21 @@ On the joint family lambda_p=1/n and B/J=n^-5; the selection torques
 vanish on the vacuum vectors by the proved uniform second-moment bounds.
 Equations (1)-(2) retain the distinct exchange currents that must close.
 
+The ground marginal imposes a strict constraint on a mean-spin
+approximation to these currents. With `kappa_B` the actual transverse
+bond coefficient and `m_B` the actual staggered order, the variational
+trial and two-site positivity in [QUANTUM_FORCE_SLACK.md](QUANTUM_FORCE_SLACK.md)
+give
+
+    kappa_B-m_B^2 >= delta_n^2+delta_n/2,
+    delta_n=1/120-1/(150n^5), n>=2.
+
+Its limiting lower bound is 61/14400. Exact first-moment tests therefore
+exclude vanishing unfiltered microscopic residuals for the replacements
+`iLQ=12m_B P` and `iLP=-m_B Q(-Delta_p G)`. This constraint leaves
+corrected kinetic coefficients and projected infrared subbranches
+undetermined; it is not a no-shell conclusion.
+
 ## 2. An exact reduction to static source responses
 
 Let q=Q Omega and a=P Omega for two Hermitian source probes with zero

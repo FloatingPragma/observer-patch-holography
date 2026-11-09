@@ -9,7 +9,7 @@ from pathlib import Path
 
 from tools import strict_json
 from . import algebra, bounds, clock_comparison, construction, force, joint_symmetry, ward, uniform_mode, uniform_spectral
-from . import arctan_bands, directed_bands
+from . import arctan_bands, directed_bands, quantum_force_slack
 
 ROOT=Path(__file__).resolve().parents[2]
 HERE=Path(__file__).resolve().parent
@@ -30,6 +30,7 @@ PARENTS=('model/spin_twist_closure/FINITE_FIELD_GAP.md',
          'model/spin_charge_dispersion/DIMER_BOUND.md',
          'model/spin_charge_dispersion/order.py',
          'model/spin_charge_dispersion/results.json',
+         'Lean/SourceLaw/SpinMarginalForce.lean',
          'model/native_spin_observer/README.md',
          'model/requirements.txt')
 
@@ -96,6 +97,7 @@ def build():
         'second_canonical_pair_and_full_internal_circle':joint_symmetry.certificate(),
         'same_clock_filtered_current_and_complete_force_readout':force.certificate(),
         'source_Ward_susceptibilities_and_force_equations':ward.certificate(),
+        'source_quantum_correction_to_mean_spin_force':quantum_force_slack.certificate(),
         'uniform_mode_original_weight_and_concentration':uniform_mode.certificate(),
         'complete_finite_uniform_spectral_readout':uniform_spectral.certificate(),
         'bounded_joint_charged_energy_momentum_bands':arctan_bands.certificate(),
@@ -116,6 +118,9 @@ def build():
             'same_clock_ground_vector_filtered_current_O_p_squared_bound':True,
             'complete_finite_original_weight_force_defect_readout_constructed':True,
             'source_Ward_reduction_of_two_force_form_defects':True,
+            'strict_source_bond_minus_squared_order_margin_proved':True,
+            'unfiltered_microscopic_mean_spin_force_factorization_excluded':True,
+            'quantum_force_margin_excludes_corrected_infrared_shell':False,
             'original_weight_energy_tube_bound_from_filtered_Ward_data':True,
             'uniform_mode_weighted_centre_and_variance_concentrate_at_zero':True,
             'finite_source_uniform_order_floor_computable':True,

@@ -15,6 +15,11 @@ filtered values give an explicit original-probability energy-window bound.
 The complete finite source exhibits both exact force closure and a
 polarization mismatch beside a sharp energy line; no vanishing continuum
 force error follows from those controls.
+The [two-site ground marginal](QUANTUM_FORCE_SLACK.md) and the source
+variational energy bound imply `liminf(kappa_B-m_B^2)>=61/14400` on the
+joint family. Thus replacing each longitudinal spin by its staggered mean
+cannot close the unfiltered microscopic force equations. A corrected
+infrared dispersion requires separate spectral control.
 For the volume-wide [uniform Ward mode](UNIFORM_MODE.md), the source first
 moment and a computable finite-box order floor make its inverse-weighted
 energy centre and energy-square variance converge to zero. Its original

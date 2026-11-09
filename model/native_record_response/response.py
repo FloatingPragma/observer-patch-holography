@@ -339,7 +339,7 @@ def preparation_error(attempts=1600):
 
 
 def certificate():
-    from . import transfer
+    from . import transfer, short_records
     d = data(); validate(d)
     ranks = response_ranks(d)
     if ranks['observable_rank_by_depth'][-1] != 66 or ranks['reachable_rank_by_depth'][-1] != 65:
@@ -366,6 +366,7 @@ def certificate():
             'response_ranks': ranks,
             'complete_relaxation_spectrum': spectral_certificate(d),
             'positive_record_transfer': transfer.certificate(d, ranks),
+            'short_record_population_realization': short_records.certificate(),
             'occupation_hierarchy': hierarchy(d),
             'preparation': preparation_error(),
             'same_time_variance_seam_0': str(covariance(d, 0)[0, 0]),
@@ -379,7 +380,8 @@ def certificate():
 
 def source_bindings():
     from .transfer import SOURCE_FILES as transfer_sources
-    paths = set(mixing.source_bindings()) | set(SOURCE_FILES) | set(transfer_sources)
+    from .short_records import SOURCE_FILES as short_record_sources
+    paths = set(mixing.source_bindings()) | set(SOURCE_FILES) | set(transfer_sources) | set(short_record_sources)
     if any(path.startswith('docs/') for path in paths):
         raise ArithmeticError('research notes cannot be direct source evidence')
     return {path: hashlib.sha256((ROOT/path).read_bytes()).hexdigest() for path in sorted(paths)}
