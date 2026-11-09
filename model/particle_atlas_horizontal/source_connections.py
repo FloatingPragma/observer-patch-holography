@@ -26,7 +26,7 @@ SUMMARIES = {
     'chiral_species_attachment':
         'A weak doublet pair plus a singlet, or a color triple, gives six odd gauge-singlet states: G1 ⊕ H. Uniform spatial preparation gives G1g ⊕ Hg; conjugates give G1u ⊕ Hu. Native-current increments and disjoint-site fermionic exchange are exact. Opposite native occupations have identical spectra; odd inversion eigenstates have opposite parity under C. These finite cube labels establish no Lorentz spin or named species. Chiral propagation and interactions require proof.',
     'particle_observables':
-        'Each complete Walsh spatial row has original positive-energy weight >1/40 in [0.25,17.75] source units; G1/H parts exceed 1/128 and 9/512. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/5. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Relativistic dispersion, an isolated rest branch and a GeV mass require proof.',
+        'Each complete Walsh spatial row has original positive-energy weight >1/24 in [0.25,17.75] source units; G1/H parts exceed 5/384 and 11/384. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/3. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Relativistic dispersion, an isolated rest branch and a GeV mass require proof.',
     'independent_comparison':
         'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
@@ -111,7 +111,7 @@ def render(c, data, y):
                    'joint_refinement': 'model/particle_primary_odd_low_energy/PROOF.md',
                    'relativistic_field': 'model/particle_primary_odd_resolvent/PROOF.md',
                    'chiral_species_attachment': 'model/particle_primary_composite_spin/PROOF.md',
-                   'particle_observables': 'model/particle_primary_coherent_odd_response/PROOF.md',
+                   'particle_observables': 'model/particle_primary_original_branch/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
                        node['id'], node['evidence'][0]['path'])
         c.link(x+width/2, top+660, 'Scoped construction or theorem',
@@ -121,7 +121,7 @@ def render(c, data, y):
             'local_records': ('Local influence', 'model/particle_primary_locality/PROOF.md'),
             'joint_refinement': ('Origin momentum', 'model/particle_primary_origin_momentum/PROOF.md'),
             'relativistic_field': ('Exact residual', 'model/particle_primary_residual_refinement/PROOF.md'),
-            'particle_observables': ('Positive window', 'model/particle_positive_window/PROOF.md'),
+            'particle_observables': ('Local window', 'model/particle_primary_response_moments/PROOF.md'),
         }.get(node['id'])
         if extra: c.link(x+width*.77, top+660, extra[0], extra[1], 49)
         fourth = {
@@ -153,11 +153,11 @@ def render(c, data, y):
                 ('Literal conjugation', 'model/particle_primary_charge_conjugation/PROOF.md'),
                 ('Populated odd response', 'model/particle_primary_selected_odd_response/PROOF.md')),
             'particle_observables': (
-                ('Local response window', 'model/particle_primary_response_moments/PROOF.md'),
                 ('Local [4,8] response', 'model/particle_primary_branch_resolution/PROOF.md'),
                 ('Charged endpoint band', 'model/particle_primary_charged_string/PROOF.md'),
                 ('Checkerboard A2g band', 'model/particle_primary_staggered_response/PROOF.md'),
                 ('Populated spatial scans', 'model/particle_primary_populated_momentum/PROOF.md'),
+                ('Coherent creation + four kernels', 'model/particle_primary_coherent_odd_response/PROOF.md'),
                 ('Four spectral measures', 'model/particle_primary_coherent_odd_response/KERNEL_PROOF.md')),
         }.get(node['id'], ())
         for j, (label, path) in enumerate(earlier):
@@ -181,12 +181,45 @@ def render(c, data, y):
            'model/particle_primary_geometric_cut/PROOF.md', 49)
     c.link(M+9000, top+420, 'Covariant source energy and boundary improvement',
            'model/particle_primary_covariant_stress/PROOF.md', 45)
-    c.para(M, y+3360, W-2*M,
+    # Four original-state results have different observable domains. Their own
+    # cards prevent a density wave or an energy moment from being read as mass.
+    c.text(M, y+3350, 'EXACT FINITE SOURCE RECORDS: FOUR DISTINCT TESTS',
+           76, TEAL, 700, serif=True)
+    card_width=(W-2*M)/4
+    cards=(
+        ('Odd creation and native labels',
+         '>1/24 per complete Walsh row',
+         'The unchanged polynomial state suppresses reverse negative-energy records. G1/H creation parts exceed 5/384 and 11/384; all 104 outcomes remain. Total cube and native-number detectors preserve the summed energy law. Every component has more than one exact transfer frequency, with variance ≥9c/4 and c=2⁻⁵⁸²⁴⁰⁷¹³³. This tiny floor neither locates a pole nor identifies a particle.',
+         'particle_primary_original_branch'),
+        ('Even density: real energy contrast',
+         'First moments: 0 : 1 : 2 : 3',
+         'Four cube classes have these exact source-energy moment ratios. The spatially constant density field is elastic; the other classes have positive inelastic weight. Complete finite clocks retain distinct mean records. These even density waves are different observables from the odd G1/H creators; the ratios are neither masses nor a relativistic dispersion law.',
+         'particle_primary_original_shell_moments'),
+        ('Spatial work: a controlled 3D limit',
+         'Work ratios: 4 • 2 • 3/2',
+         'Relative to the unit-width, amplitude-one cube: double the amplitude, all three widths, or just one width. The selected-state coefficient cancels from these limiting work ratios. The positive gradient-energy form has explicit lattice O(a²) and phase O(a⁴) errors. A limit of energy moments does not prove a fixed-energy particle residue or a four-dimensional field theory.',
+         'particle_primary_critical_refinement'),
+        ('Boundary records change the source',
+         'Iambient = Ialgebra + 2Sedge + Ccenter',
+         'Recording the region’s boundary sector preserves its marginal entropy but removes global center coherence. The actual action proves Ccenter >0 and positive recording work. The identity separates boundary representation entropy from accessible algebra information. Bounds shrink with capacity; no geometric area law, Newton constant or Einstein dynamics is inferred.',
+         'particle_primary_boundary_information'),
+    )
+    for i,(title,equation,body,owner) in enumerate(cards):
+        x=M+i*card_width;top=y+3420
+        c.rect(x,top,card_width-70,620,'#edf5f1',LINE,26)
+        c.text(x+80,top+100,title,58,INK,700)
+        c.text(x+80,top+210,equation,60,TEAL,700)
+        c.para(x+80,top+315,card_width-230,body,55,INK,max_y=top+525)
+        c.link(x+80,top+575,'Exact proof, source and complete records',
+               'model/'+owner+'/PROOF.md',46)
+    c.link(M+card_width*.53,y+3995,'Positive-window theorem',
+           'model/particle_positive_window/PROOF.md',42)
+    c.para(M, y+4160, W-2*M,
            'Conditional candidate: a declared chiral gauge-Higgs action supplies calibrated tree/running coefficients, with a separately calibrated neutrino extension. These coefficients are not physical pole masses, full radiative matching or independent predictions. The massless photon excludes a positive global vacuum gap for the full theory.',
-           60, BLUE, max_y=y+3470)
-    c.link(M, y+3540, 'Canonical dependency graph and acceptance conditions',
+           60, BLUE, max_y=y+4270)
+    c.link(M, y+4340, 'Canonical dependency graph and acceptance conditions',
            'model/particle_joint_reconstruction/DEPENDENCIES.md', 51)
-    c.link(M+14700, y+3540, 'Conditional candidate, spectrum conventions and calibration ancestry',
+    c.link(M+14700, y+4340, 'Conditional candidate, spectrum conventions and calibration ancestry',
            graph['conditional_candidate']['proof'], 51)
     c.items.append('</g>')
-    return y+3630
+    return y+4430

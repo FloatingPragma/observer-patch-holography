@@ -34,7 +34,7 @@ def test_render_has_real_measurement_links_and_all_derivation_paths(data):
     svg=drawing.render(data)
     root=ET.fromstring(svg)
     assert float(root.get('width'))>float(root.get('height'))
-    assert (float(root.get('width')),float(root.get('height'))) == (48000,47065)
+    assert (float(root.get('width')),float(root.get('height'))) == (48000,47865)
     hrefs=[n.get('href') for n in root.iter('{http://www.w3.org/2000/svg}a')]
     assert any('OperationalBornBridge.lean#L214' in h for h in hrefs)
     assert any('PrimitivePortFrameQuotient.lean#L631' in h for h in hrefs)
@@ -87,7 +87,8 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_selected_odd_response', 'particle_primary_covariant_stress',
                   'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
-                  'particle_primary_coherent_odd_response'):
+                  'particle_primary_coherent_odd_response',
+                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'):
         assert 'model/'+owner+'/PROOF.md' in text
 
 

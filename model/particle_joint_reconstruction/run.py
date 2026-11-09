@@ -54,6 +54,10 @@ from model.particle_primary_odd_resolvent import model as odd_resolvent
 from model.particle_primary_odd_low_energy import model as odd_filter
 from model.particle_primary_geometric_cut import model as geometric_cut
 from model.particle_primary_coherent_odd_response import model as coherent_odd
+from model.particle_primary_original_shell_moments import model as original_shells
+from model.particle_primary_original_branch import model as original_branch
+from model.particle_primary_critical_refinement import model as critical_refinement
+from model.particle_primary_boundary_information import model as boundary_information
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -166,7 +170,8 @@ def build():
                    spectral_resolution, charged_readout, staggered_response, current_tail,
                    sector_threshold, populated_momentum, weighted_survival, charge_conjugation,
                    composite_transport, composite_spin, selected_odd_response, covariant_stress,
-                   selected_spin, odd_resolvent, odd_filter, geometric_cut, coherent_odd):
+                   selected_spin, odd_resolvent, odd_filter, geometric_cut, coherent_odd,
+                   original_shells, original_branch, critical_refinement, boundary_information):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -327,6 +332,16 @@ def build():
         geometric_cut.verify_bound(contract.member(level), receipt)
     spatial_odd_records = coherent_odd.certificate()
     coherent_odd.verify_bound(member, spatial_odd_records['members'][0])
+    density_shells = original_shells.certificate()
+    original_shells.verify_bound(member, density_shells['selected_member_bound'])
+    original_branches = original_branch.certificate()
+    original_branch.verify_bound(member, original_branches['members'][0])
+    critical_profiles = critical_refinement.certificate()
+    for level, receipt in zip((0, 1, 2, 8), critical_profiles['members'], strict=True):
+        critical_refinement.verify_bound(contract.member(level), receipt)
+    boundary_records = boundary_information.certificate()
+    for level, receipt in zip((0, 1, 2, 8), boundary_records['members'], strict=True):
+        boundary_information.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -383,6 +398,10 @@ def build():
         'primary_complete_selected_odd_energy_filters': complete_odd_filters,
         'primary_covariant_regional_cuts_and_boundary_entropy': regional_cuts,
         'primary_original_coherent_spatial_odd_energy_records': spatial_odd_records,
+        'primary_original_density_shell_energy_moments': density_shells,
+        'primary_original_total_cube_and_number_branches': original_branches,
+        'primary_critical_profile_work_refinement': critical_profiles,
+        'primary_boundary_center_information_and_record_work': boundary_records,
         'primary_common_subsequential_algebra_and_positive_GNS_proved': True,
         'primary_finite_positive_energy_weight_proved': True,
         'primary_uniform_fixed_band_positive_energy_weight_proved': False,
@@ -413,6 +432,11 @@ def build():
         'primary_covariant_regional_entropy_and_boundary_representation_bound_proved': True,
         'primary_member_zero_each_coherent_spatial_odd_row_populated': True,
         'primary_original_coherent_spatial_odd_dispersion_proved': False,
+        'primary_original_density_spatial_energy_mean_contrast_proved': True,
+        'primary_native_block_hopping_expectations_strictly_negative': True,
+        'primary_original_total_cube_and_native_number_joint_records_proved': True,
+        'primary_critical_profile_Dirichlet_work_limit_proved': True,
+        'primary_boundary_center_record_source_work_and_coherence_proved': True,
         'primary_selected_odd_filter_proves_fixed_energy_continuum_residue': False,
         'primary_composite_transport_is_an_isolated_particle_band': False,
         'primary_scanned_analyzer_labels_are_conserved_momenta': False,

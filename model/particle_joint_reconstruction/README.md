@@ -62,6 +62,21 @@ python -m model.particle_joint_reconstruction --check
 python -m pytest model/particle_joint_reconstruction
 ```
 
+The [source boundary-information identity](../particle_primary_boundary_information/PROOF.md)
+keeps the induced cut, its central sectors and their global coherences.
+For source marginals it proves
+`I_ambient=I_alg+2 S_edge+C_center`, where
+`C_center=D(rho||pinch(rho))`. The actual magnetic action forces
+`C_center>=10(c beta_low/(210a))^2>0`; the complete center record costs
+source work at least `20 c beta_low/(210a)^2>0`. The exact polynomial
+slope also gives
+`beta_low W<=C_center+D(pinch(rho)||rho)<=beta W`.
+The regional-algebra information has the finite floor
+`I_alg>=10 N c log(2)`, with the actual `c=2^(-N)`.
+These floors deteriorate with capacity. The reference-inclusive pure-state
+quantity is different, and none of these entropies is identified with
+proper area, a geometric modular kernel or an Einstein coefficient.
+
 The next shared physical acceptance is a nontrivial finite-energy field
 on this common subsequence, with effective correlation and apparatus errors
 where predictions require them. Fixed-volume link-cutoff removal and
@@ -173,15 +188,25 @@ these proved bands scale as `1/a`. A uniformly populated fixed-energy component
 requires its own original residue; neither discarding other selectors nor
 a fixed-depth number-phase dressing supplies that proof.
 
-The [signed spatial analyzer](../particle_primary_coherent_odd_response/PROOF.md)
-populates both odd probe multiplets at every chosen flat Fourier phase
-on the original density. Its Walsh probe has 104 outcomes and retains every failure. Each spatial
-row has reported G1 weight above `1/128` and H weight above
-`9/512` in `[1/4,71/4]` after the complete clocks. The [cube-kernel reduction](../particle_primary_coherent_odd_response/KERNEL_PROOF.md)
-uses the actual symmetry to reduce each summed probe multiplet to four
-spectral measures. Their values must establish energy-shape differences
-and a common resolved branch; intensity changes alone are insufficient.
-The spatial label is not conserved particle momentum.
+The [original-state branch apparatus](../particle_primary_original_branch/PROOF.md)
+uses the actual polynomial forward/reverse bracket to give every complete
+Walsh row weight above `1/24`, including G1 above `5/384` and H above
+`11/384` in `[1/4,71/4]`. Conserved total-cube and native-number
+records refine the same energy law. Explicit original `(n0,A1g)` to
+G1g/Hg branches have positive, capacity-deteriorating weights. Their
+same labels contain energy means separated by 12, so labels alone do
+not identify a mass. The original full coherent transfer measures
+also have normalized variance at least `9c/4`, with the tiny authenticated
+source floor `c`. They contain multiple frequencies without excluding an
+isolated pole or resolving its position.
+
+The [original density-shell moments](../particle_primary_original_shell_moments/PROOF.md)
+give a distinct even-sector result: complete Walsh first moments are
+`s tau/7200`, `s=0,1,2,3`, with `tau>0.2373`. The constant row is
+elastic and the others are inelastic; complete clocks preserve their
+ordered means. The four original odd spectral measures, their normalized
+energy-shape dependence, a resolved branch and conserved momentum remain
+separate inputs.
 
 The [full odd resolvent](../particle_primary_odd_resolvent/PROOF.md)
 is bounded at interaction coefficient one, including the entire physical
@@ -225,6 +250,25 @@ records opposite native charge increments while preserving the original
 without measuring them. The charged-pair success band keeps weight above 3/10
 in `[39/4,135/4]`; complete clocks keep weight above 1/4 in `[77/8,271/8]`.
 This even pair operator has no assigned physical spin or particle name.
+
+The [critical-profile work calculation](../particle_primary_critical_refinement/PROOF.md)
+keeps the actual source and proves a three-dimensional gradient limit for
+complete signed local phase experiments. Its selected hopping coefficient
+has the sharper bound `h_n>=h_*+3a^2/7-3a^4/28-a^8/128`, where
+`h_*=-g-3/7>0.0424` and `g` is the authenticated tiled-trial energy gain.
+For fixed rectangular physical tents of half-widths `b_i` and rational
+amplitude `s`, `W_n/h_n` tends to
+`(pi^2 s^2/6) integral |grad f_b|^2`, with explicit rational
+`O(a^2)` lattice and `O(a^4)` phase errors. The complete source clocks
+record these means with `O(a^2)` error. Work ratios cancel `h_n`
+exactly. Starting from the unit-width, amplitude-one cube, doubling
+amplitude, all widths, or one width gives limiting ratios 4, 2, or 3/2.
+These are actual spatial work comparisons.
+Energy-weighted ultraviolet escape can coexist with a purely elastic
+probability limit, so this Dirichlet work form does not prove an action,
+fixed-energy particle residue or relativistic dispersion. A fixed-anchor
+relative-perturbation decomposition has bounded remainder norm at least
+`sqrt(15)` per Wilson bond; no endpoint gap-stability threshold is supplied.
 
 The [local Weyl apparatus](../particle_primary_local_fluctuation/PROOF.md)
 has unit original probability, a uniformly bounded absolute energy moment

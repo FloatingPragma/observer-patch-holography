@@ -92,8 +92,9 @@ proof shows that the whole class of laws cannot work.
   certified physical occupation sectors with positive excitation thresholds.
   Its odd composites propagate, carry finite rotation labels and have complete
   spin-resolved energy readouts in all eight rows of a finite spatial analyzer.
-  One prepared composite has energy-response bounds retaining every other state in its sector.
-  Complete filters preserve original probability. Part of the
+  Complete total-cube and native-number measurements give conserved labels
+  and populated original-state branches. Density probes have distinct spatial
+  energy moments; these are not particle masses. Complete filters preserve original probability. Part of the
   response moves toward the cutoff as capacity grows. The
   [defect catalogue](model/protected_defect_catalog/CATALOG.md)
   distinguishes source charges from physical species; a surviving
@@ -131,9 +132,11 @@ proof shows that the whole class of laws cannot work.
   has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
   a stationary limiting state, positive energy and convergent finite detector
   histories on one subsequence. Its energy currents obey exact finite
-  conservation. A [covariant regional cut](model/particle_primary_geometric_cut/PROOF.md)
-  retains the actual boundary charges and specifies their contribution to
-  entropy, with an explicit boundary comparison to regional energy. These results do not show
+  conservation. [Local phase experiments](model/particle_primary_critical_refinement/PROOF.md)
+  have a controlled spatial work limit. An
+  [exact information identity](model/particle_primary_boundary_information/PROOF.md)
+  separates boundary entropy from correlations and proves that recording
+  boundary labels costs positive source work. These results do not show
   that excitations survive the limit or identify physical particles,
   Lorentz symmetry or gravity. The
   [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)

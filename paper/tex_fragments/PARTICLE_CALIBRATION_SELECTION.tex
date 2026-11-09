@@ -1433,16 +1433,59 @@ divided by $\sqrt6$, together with the full failure. Exact local
 anticommutators give completeness and the original vacancy floor.
 Four colors pair opposite cube vertices with disjoint residual stars,
 bounding the total signed centered second moment by $110/3$.
-The complete downward-record theorem bounds negative transfer below
-$-1/2$ by $1/8$. After both energy clocks, each chosen flat phase has
-creation weight above $1/5$ in $[1/4,71/4]$; separately its G1 and H
-weights exceed $1/16$ and $9/64$. In a single complete eight-row Walsh
-instrument, each row carries an additional factor $1/8$: the corresponding
-original joint bounds are $1/40$, $1/128$ and $9/512$.
-All 96 signed success records and eight address failures are retained.
-The adjoint rows are annihilation operations, without an antiparticle
-identification. These are populated finite spatial analyzers, not
-spectral values of conserved momentum or an isolated dispersion branch.
+The actual polynomial state supplies a stronger
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_original_branch/PROOF.md}{paired-adjoint balance}:
+for positive transfer $\omega$,
+\[
+ e^{-\beta\omega}\,d\mu_A(\omega)
+ \le d\mu_{A^*}(-\omega)
+ \le e^{-\beta_{\rm low}\omega}\,d\mu_A(\omega),
+ \qquad \beta_{\rm low}>22271.
+\]
+This uses the actual selected polynomial, not a substituted Gibbs state.
+Combining the bound with the signed centered moment gives original
+creation weight above $1/3$ in the reported interval $[1/4,71/4]$;
+the G1 and H parts exceed $5/48$ and $11/48$.
+In one complete eight-row Walsh instrument, each row therefore has
+weight above $1/24$, with G1 above $5/384$ and H above $11/384$.
+All 96 signed successes and eight address failures remain present.
+The adjoint records annihilate excitations; charge-conjugate creation
+is a different operation. These are populated spatial analyzers,
+without an isolated conserved-momentum dispersion branch.
+
+The actual total cube and native-number projectors commute with $H$,
+$\rho$ and every energy-clock kernel. The cube group has 96 elements:
+48 proper binary rotations and a separately implemented inversion.
+Complete initial and final measurements of these labels preserve the
+original classical energy marginal, while generally changing its
+reference coherence. Tensor products allow 28 G1 and 44 H total-cube
+transitions. Positive original weight implies at least one populated
+allowed pair, not that every permitted pair is populated.
+For the filled-beta native occupations $N_0=(48,32,96,48,16)$ and
+$\Delta=(0,2,0,0,1)$, explicit physical witnesses and the actual floor
+$\rho\ge cP_G$ prove original initial-label/final-energy branches
+\[
+ (N_0,A_{1g})\longrightarrow(N_0+\Delta,G_{1g})\text{ or }(N_0+\Delta,H_g),
+\]
+with weights greater than $85c/4096$ and $85c/2048$ in the certified
+final-energy window. Charge conjugation gives the corresponding
+$N_0-\Delta$ branches. These very small bounds do not use an initial
+energy condition or replace the selected state by the witness.
+Two orthogonal physical vectors in each indicated final sector have
+energy means $-711$ and $-699$, so a symmetry label cannot identify
+one energy. The means are not eigenvalues or particle masses.
+More directly, the actual first hopping action on the filled-beta
+witness has residual norm squared $9/4$, orthogonal to its created
+component. The original source floor therefore gives
+\[
+ \operatorname{Tr}\rho\,([H,A_f]-\omega A_f)^*
+     ([H,A_f]-\omega A_f)
+ \ge c\bigl[(9-\omega)^2+9/4\bigr].
+\]
+Each normalized original transfer measure has variance at least $9c/4$
+and cannot consist of one spectral line. This tiny bound gives no useful
+line separation, no resolution claim for the current clocks, and no
+exclusion of an isolated pole accompanied by other spectral weight.
 
 Cube symmetry gives an exact reduction of the original energy-transfer
 kernel after summing the components of either probe multiplet. Its entry
@@ -1463,6 +1506,35 @@ source Hamiltonian. Nonzero off-diagonal measures give unequal joint
 responses; unequal intensities alone do not imply different normalized
 energy profiles or dispersion. The component-resolved and cross-multiplet
 kernels require their full transformation laws.
+
+\paragraph{Original density shells and recorded mean contrast.}
+For $n_x=N_x-30I$ on the same eight-cell source, a complete apparatus has
+successes $K_q=\sum_x(-1)^{q\cdot x}n_x/(30V)$ and failures
+$\sqrt{I-(n_x/30)^2}/\sqrt V$, $V=8$.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_original_shell_moments/PROOF.md}{exact density Ward sum}
+is
+\[
+ M^{(1)}=\frac\tau2(3I-\operatorname{Adj}_{\rm cube}),\qquad
+ \tau=-\frac{\operatorname{Tr}(\rho H_{\rm hop})}{12}
+       \ge0.2373480904.
+\]
+Its complete-row signed first moments are $s\tau/7200$, where
+$s=|q|=0,1,2,3$ has multiplicity $1,3,3,1$. The constant mode is
+exactly elastic; each nonconstant mode has positive inelastic weight.
+The $1:2:3$ ratios concern unnormalized energy-weighted records,
+not particle masses or success-conditioned energies. The actual finite
+clocks give per-row mean error below $\gamma/14400$, with
+$\gamma=0.2373480904$ replaced by its exact rational lower bound;
+thus their reported means resolve this contrast.
+
+Native sublattice parity reverses each block's hopping $T_r$.
+The strict polynomial slope and the actual Haar/CAR first action give
+$-\operatorname{Tr}(\rho T_r)/12\ge2d_r c\beta_{\rm low}>0$ for each
+$d_r=3,2,6,3,1$. These are even density channels, not created fermions.
+The complete success weight is at most
+$\langle D\rangle/(30V)<0.0208$, from $n_x^2\le30D_x$.
+An explicitly conditional signed mean is also bounded, but neither
+conditioning nor the shell contrast isolates a rest-mass pole.
 
 An \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_low_energy/PROOF.md}{explicit complete filter}
 uses a triangle of half-width $T=a/6$, analyzer frequency $9/a$ and
@@ -1538,6 +1610,38 @@ union has weight above $15/256$ using the scalar subinstrument bound $I/4$.
 Exact cube covariance compares the corresponding complete experiments.
 The phase labels specify the finite aperture; differing interval widths
 are neither a measured dispersion curve nor a species count.
+
+\paragraph{Controlled spatial work at growing capacity.}
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_critical_refinement/PROOF.md}{complete local phase experiment}
+retains every address $X$, both signs and both energy records:
+\[
+ U_{X,\sigma}=\exp\!\left(i\sigma\pi s a
+   \sum_y f_b(y-X)(N_y-30)\right),\qquad
+ K_{X,\sigma}=U_{X,\sigma}/\sqrt{2V}.
+\]
+Here $f_b$ is a product of finite tents with fixed physical half-widths
+$b_i\in\mathbb N$ and $s\in\mathbb Q\setminus\{0\}$.
+Only the apparatus address list wraps; the source bonds remain open.
+Writing $h_n=-a\operatorname{Tr}(\rho H_{\rm hop})/V$, the selected
+energy estimate sharpens to $h_n\ge h_*>0.0424$, while $h_n<90$.
+Exact sign and address averaging gives $W_n=h_n\bar k_n/a$.
+Finite tent sums and the cosine remainder then prove, on a common
+subsequence with $h_n\to h$,
+\[
+ W_n\longrightarrow\frac{\pi^2h}{6}
+     \int_{\mathbb R^3}|\nabla(sf_b)|^2\,dx,\qquad
+ \int|\nabla f_b|^2=\frac89\sum_i\frac{b_jb_k}{b_i}.
+\]
+The spatial discretization error is $O(a^2)$ and the phase remainder
+$O(a^4)$, with explicit rational bounds. Complete finite-clock reported
+means have an additional $O(a^2)$ error and the same limit.
+Ratios cancel the unknown $h_n$. Starting from the unit-width,
+amplitude-one cube, doubling amplitude, all widths, or one width gives
+limiting ratios $4$, $2$, or $3/2$.
+This is a nonzero continuum limit of measured work, not a continuum
+field action. Rare ultraviolet records can retain positive work while
+the probability limit is elastic; fixed-energy survival and uniform
+integrability remain required for a particle conclusion.
 
 \paragraph{Physical charged endpoints and energy records.}
 For a directed interior bond, the native weak/color singlet character
@@ -2191,6 +2295,40 @@ algebra; its difference from $\sum_{x\in R}h_x$ is a crossing operator
 of norm at most $b[609\ell^2/4+15+3/14]/a$. Neither this boundary
 comparison nor the representation entropy identifies a proper area,
 regional modular-energy kernel or finite Newton coefficient.
+
+The same cut admits an
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_boundary_information/PROOF.md}{exact source information identity}.
+Let $\mathcal D\rho=\sum_\lambda\Pi_\lambda\rho\Pi_\lambda$ record
+the full boundary representation, $S_{\rm edge}=\sum p_\lambda\log d_\lambda$
+and $C_{\rm center}=D(\rho\Vert\mathcal D\rho)$.
+With unweighted block trace in the regional observable algebra,
+\[
+ I_{\rm ambient}=I_{\rm algebra}+2S_{\rm edge}+C_{\rm center}.
+\]
+This is mutual information between the source region and its complement,
+not the entropy of their retained purification. Ten actual native or
+conjugate plaquette characters connect the physical empty-Fock,
+constant-link vector to distinct nontrivial boundary sectors, each with
+Hamiltonian matrix element $-\gamma$, $\gamma=1/(210a)$.
+The source floor $c=2^{-N}$ and strict slope imply
+\[
+ C_{\rm center}\ge10(c\beta_{\rm low}\gamma)^2>0,\qquad
+ W_{\rm record}:=\operatorname{Tr}H(\mathcal D\rho-\rho)
+       \ge20c\beta_{\rm low}\gamma^2>0.
+\]
+These follow from full-source commutator norms, without assuming that
+the eleven witness vectors span an invariant space. Pinching also gives
+\[
+ \beta_{\rm low}W_{\rm record}
+ \le C_{\rm center}+D(\mathcal D\rho\Vert\rho)
+ \le\beta W_{\rm record}.
+\]
+The boundary apparatus therefore supplies positive source work despite
+leaving each regional marginal unchanged. All eleven populated sectors
+have probability at least $c$, giving
+$I_{\rm algebra}\ge10Nc\log2$ and
+$I_{\rm ambient}\ge10Nc\log2+8c\log108+10(c\beta_{\rm low}\gamma)^2$.
+These finite floors decay with capacity and establish no proper-area law.
 
 Write $\rho\ge2^{-N}P_G$ for the selected source floor. Its regional density obeys
 $\sigma_R\ge m_RP_R$, where $P_R=\operatorname{supp}\operatorname{Tr}_{\bar R}P_G$

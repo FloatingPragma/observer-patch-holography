@@ -121,7 +121,8 @@
         {"path": "model/particle_spatial_ground_state/PROOF.md", "scope": "Ground-state subsequence and dynamics at fixed spacing and link cutoff, not the simultaneous primary limit."},
         {"path": "model/particle_common_contract/PROOF.md", "scope": "Exact finite sequence; joint physical refinement is a separate output theorem."},
         {"path": "model/particle_joint_reconstruction/POSITIVE_ENERGY.md", "scope": "Selected cooling gives nonnegative support under continuous stationary correlation convergence; the reused filtered bounds enter the common primary algebra theorem without a gap assumption."},
-        {"path": "model/particle_primary_refinement_response/PROOF.md", "scope": "Uniform original collective transfer probability at least3/100 across the finite primary family, with selected defect density below97/10. Its band [1/(100 beta_n),1446/a_n] expands toward zero and infinity; no fixed finite-energy continuum survival is inferred."}
+        {"path": "model/particle_primary_refinement_response/PROOF.md", "scope": "Uniform original collective transfer probability at least3/100 across the finite primary family, with selected defect density below97/10. Its band [1/(100 beta_n),1446/a_n] expands toward zero and infinity; no fixed finite-energy continuum survival is inferred."},
+        {"path": "model/particle_primary_critical_refinement/PROOF.md", "scope": "Original selected-state local phase work has an explicit Dirichlet-form subsequential limit, rational lattice and phase errors, and a complete finite-clock mean error. The hopping coefficient is bounded strictly away from zero; positive finite-energy probability survival and multitime continuum convergence are not inferred."}
       ],
       "conditional_assumptions": ["common_vacuum_reference_clock", "renormalized_four_dimensional_correlations"],
       "required_for": ["particle_target", "pure_gauge_branch"]
@@ -175,7 +176,8 @@
         {"path": "model/conditional_standard_model/PROOF.md", "scope": "Conditional three-family representation, anomaly and gauge-Higgs action theorem with supplied continuum and kinetic premises."},
         {"path": "model/conditional_standard_model/FORMAL_BRIDGE.md", "scope": "Exact finite premise interfaces for the representation and family conclusions."},
         {"path": "model/conditional_standard_model/DEFECTS.md", "scope": "Scoped protection conditions and interaction constraints on proposed defect assignments."},
-        {"path": "model/particle_joint_reconstruction/CANDIDATE.md", "scope": "Declared conditional chiral gauge-Higgs extension; no transfer of its assumptions to the primary finite program."}
+        {"path": "model/particle_joint_reconstruction/CANDIDATE.md", "scope": "Declared conditional chiral gauge-Higgs extension; no transfer of its assumptions to the primary finite program."},
+        {"path": "model/particle_primary_original_branch/PROOF.md", "scope": "Actual commuting total-cube and native-occupation projectors give complete original records, exact G1/H fusion selection and nonzero original branches with conjugates. Cube irreps do not establish Lorentz spin, chiral propagation, a family count or particle masses."}
       ],
       "conditional_assumptions": ["extension_carrier_and_action", "chiral_measure_and_mirror_control", "physical_current_spin_detector_dictionary", "neutrino_EFT_completion_and_running"],
       "required_for": ["particle_target"]
@@ -215,7 +217,9 @@
         {"path": "model/particle_identification/SCATTERING.md", "scope": "Required inclusive and asymptotic observable conventions and error interfaces."},
         {"path": "model/particle_primary_response_moments/PROOF.md", "scope": "Actual member-zero original neutral-pair transfer weight at least1/2 in [2,10], final excitation weight at least3/8 in [2,21/2], and finite-clock reported weight at least15/32 in [15/8,81/8]. This broad even gauge-neutral channel has no particle momentum, rest mass, species or refinement transfer."},
         {"path": "model/particle_primary_pair_channels/PROOF.md", "scope": "Actual member-zero complete pair instruments resolve cubic parity and all32 spatial Walsh/internal records with positive original spectral-band weight. Operator irreps and Fourier labels do not establish particle spin, momentum or a rest mass."},
-        {"path": "model/particle_primary_refinement_response/PROOF.md", "scope": "Physical tiled variational upper bounds and full-occupation local electric estimates give scalable collective response and a further-member charge-six density bound. The selected preparation, source and clock are unchanged."}
+        {"path": "model/particle_primary_refinement_response/PROOF.md", "scope": "Physical tiled variational upper bounds and full-occupation local electric estimates give scalable collective response and a further-member charge-six density bound. The selected preparation, source and clock are unchanged."},
+        {"path": "model/particle_primary_original_shell_moments/PROOF.md", "scope": "Original even-density energy-weighted records have exact cube-shell contrast, strict native hopping signs and controlled complete-clock means. Their 1:2:3 moment ratios and separately conditional statistics are not mass ratios."},
+        {"path": "model/particle_primary_original_branch/PROOF.md", "scope": "The actual polynomial state strengthens original odd positive-energy weights by paired-adjoint detailed balance and admits complete total-cube/native-number labels. Same-label sectors contain distinct energies; neither trial means nor finite transfer windows identify rest masses."}
       ],
       "conditional_assumptions": ["radiative_infrared_resonance_matching", "neutrino_EFT_completion_and_running"],
       "required_for": ["particle_target"]
@@ -304,7 +308,8 @@
           "path": "model/particle_spatial_modular_response/PROOF.md",
           "scope": "Supported finite regional modular generator, distinct from the geometric diamond kernel."
         },
-        {"path": "model/particle_primary_gravity_premises/PROOF.md", "scope": "Exact polynomial modular slopes bound physical source work and regional marginal entropy, with a nonzero member-zero work witness. A periodic coframe has an explicit open-boundary mismatch; proper geometry, diamond and area response retain their hypotheses."}
+        {"path": "model/particle_primary_gravity_premises/PROOF.md", "scope": "Exact polynomial modular slopes bound physical source work and regional marginal entropy, with a nonzero member-zero work witness. A periodic coframe has an explicit open-boundary mismatch; proper geometry, diamond and area response retain their hypotheses."},
+        {"path": "model/particle_primary_boundary_information/PROOF.md", "scope": "Exact source regional information equals algebraic information plus twice the edge representation entropy plus center coherence. Actual plaquette matrix elements force positive center-record disturbance and source work, with the polynomial modular balance. No proper-area law, Newton coefficient or Einstein limit is claimed."}
       ],
       "conditional_assumptions": [],
       "required_for": [

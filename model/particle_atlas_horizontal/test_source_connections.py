@@ -20,7 +20,7 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     end = source_connections.render(canvas, {'joint_dependencies': graph}, 100)
     root = ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg">'+''.join(canvas.items)+'</svg>')
     text = ' '.join(' '.join(root.itertext()).split())
-    assert end == 3730
+    assert end == 4530
     assert root.find('{http://www.w3.org/2000/svg}g').get('id') == 'joint-field-particle-dependencies'
     for node in graph['nodes']:
         assert node['title'] in text
@@ -58,7 +58,8 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_selected_odd_response', 'particle_primary_covariant_stress',
                   'particle_primary_selected_spin_response', 'particle_primary_odd_resolvent',
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
-                  'particle_primary_coherent_odd_response'):
+                  'particle_primary_coherent_odd_response',
+                  'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert '../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md' in hrefs
     assert 'Filtered and unfiltered probes share positive time dynamics' in text
@@ -85,10 +86,10 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'Finite mass comparison needs a resolved branch' in text
     assert 'Five coherent qutrit meters' in text
     assert 'Each complete Walsh spatial row has original positive-energy' in text
-    assert 'weight >1/40 in [0.25,17.75]' in text
-    assert 'G1/H parts exceed 1/128 and 9/512' in text
+    assert 'weight >1/24 in [0.25,17.75]' in text
+    assert 'G1/H parts exceed 5/384 and 11/384' in text
     assert 'All 96 successes and 8 failures remain' in text
-    assert 'separately chosen normalized phase has weight >1/5' in text
+    assert 'separately chosen normalized phase has weight >1/3' in text
     assert 'not total-spin or conserved-momentum eigenvalues' in text
     assert 'Four uncomputed spectral measures determine each summed multiplet' in text
     assert 'full sector complement resolvent' in text
@@ -104,6 +105,14 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert '0≤S_edge≤ℓ b log 6' in text
     assert 'Complete center recording preserves regional entropy' in text
     assert 'finite universal area coefficient' in text
+    assert 'First moments: 0 : 1 : 2 : 3' in text
+    assert 'These even density waves are different observables' in text
+    assert 'unit-width, amplitude-one cube' in text
+    assert 'lattice O(a²) and phase O(a⁴) errors' in text
+    assert 'Iambient = Ialgebra + 2Sedge + Ccenter' in text
+    assert 'variance ≥9c/4' in text
+    assert 'neither locates a pole nor identifies a particle' in text
+    assert 'All 96 successes and 8 failures remain' in text
 
 
 @pytest.mark.parametrize('mutation', [

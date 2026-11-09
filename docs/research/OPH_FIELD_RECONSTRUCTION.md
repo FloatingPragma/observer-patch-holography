@@ -191,17 +191,37 @@ These are probe representations, not total-spin labels of the mixed
 output. Cube symmetry fixes equal component weights after the address
 average.
 
-The [coherent signed spatial apparatus](../../model/particle_primary_coherent_odd_response/PROOF.md)
-adds the adjoint rows and uses exact odd-field anticommutators to control
-every chosen flat Fourier phase on the original state. At member zero,
-its reported creation weights exceed `1/16` for G1 and `9/64` for H in
-`[1/4,71/4]`. The complete Walsh probe has 104 outcomes before clocks and native-number
-meters, including eight address failures. Every one of its eight spatial rows has original
-reported G1 weight above `1/128` and H weight above `9/512`. These bounds
-sum each multiplet's components. The adjoint rows are not identified with
-source-conjugate antiparticles. A finite spatial label is not conserved
-momentum, and populated rows alone do not prove that their energy laws
-differ with phase.
+The [original-state branch apparatus](../../model/particle_primary_original_branch/PROOF.md)
+uses the exact selected polynomial slope to bracket creation and adjoint
+reverse probabilities by `exp(-beta omega)` and
+`exp(-beta_low omega)`, with `beta=22272` and `beta_low>22271` at
+member zero. No Gibbs state is substituted. In `[1/4,71/4]`, each
+chosen flat spatial phase has reported creation weight above `1/3`,
+including G1 above `5/48` and H above `11/48`. The complete Walsh
+probe retains 96 successes and eight failures before clocks and meters;
+every spatial row has original weight above `1/24`, with G1 above
+`5/384` and H above `11/384`. Adjoint annihilation and source-conjugate
+hole creation are distinct experiments.
+
+Complete native-number and total-cube projectors refine these energy
+records without changing their classical energy marginal. They retain
+all initial and final labels, with number increment `(0,2,0,0,1)`.
+The uniform row permits 28 G1g and 44 Hg total-cube transitions. Specific
+original branches from `(n0,A1g)` to `(n0+Delta,G1g)` and
+`(n0+Delta,Hg)` have reported final-energy weights above `85c/4096`
+and `85c/2048`, respectively, where `c=2^(-582407133)` at member zero.
+Here `n0=(48,32,96,48,16)`. These are source-marginal positive-effect
+bounds using an anchor witness,
+without replacing the preparation or its reference. They do not assert
+an initial-to-final energy-transfer interval. The same conserved labels
+contain orthogonal source vectors with means `-711` and `-699`, proving
+spectral diameter at least 12. Labels alone therefore do not select a
+mass. Actual inversion parity is retained; it is not Lorentz spin. For every
+normalized coherent component, the actual anchor residual gives original
+normalized transfer variance at least `9c/4`; each full measure therefore
+contains at least two frequencies. This tiny finite bound gives no line
+positions or clock-resolved separation and permits an isolated pole with
+additional spectral weight.
 
 The [complete odd filter](../../model/particle_primary_odd_low_energy/PROOF.md)
 uses the original four Slater probes with a triangular duration `a/6`
@@ -251,6 +271,28 @@ below `1/4` at every member. Neither upper bound proves a surviving residue. Sta
 number-phase conjugation only changes each retained local odd row by a
 scalar phase. Even time-separated critical density-Weyl dressings of
 depth `o(a^-1/2)` cannot make the complete odd output energy tight.
+
+The [original density-shell calculation](../../model/particle_primary_original_shell_moments/PROOF.md)
+computes an exact off-diagonal energy moment on this selected state in the
+separate even sector `n_x=N_x-30`. At member zero,
+`M^(1)=(tau/2)(3I-Adj_cube)`, with
+`tau=-Tr(rho H_hop)/12>0.2373`. The complete sixteen-record density
+analyzer has Walsh first moments `s tau/7200`, for `s=0,1,2,3` with
+multiplicities `1,3,3,1`. Actual finite clocks retain strictly ordered
+nonzero original means. The constant row is elastic and has positive
+weight; the other rows have positive-frequency weight, so their normalized
+energy shapes differ from the constant row. This evaluates even density
+moments, not the four odd G1/H measures. The latter's normalized spectral
+shapes and a common resolved branch require their own calculation.
+
+The same calculation resolves each native internal density: its bond
+coefficient obeys `tau_r>=2 d_r c beta_low>0`, with the actual faithful
+source floor `c`; this proves native inelastic density response, not
+creation of a named fermion. All total-density successes have combined
+original probability below `0.0208`. Conditioning on those retained
+successes is explicit and gives signed transfer mean above `0.019`, or
+above `0.015` with the finite clocks. These conditional means are not
+spectral lines or rest masses.
 
 The [exact cube-kernel reduction](../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md)
 reduces each component-summed G1/H response to four real spectral measures,
@@ -307,6 +349,25 @@ it is not a computation of the primary source. Branch identification,
 physical momentum and the rest-energy relation consume this common kernel
 with their stated finite or refinement errors.
 
+The [critical-profile work calculation](../../model/particle_primary_critical_refinement/PROOF.md)
+keeps the actual source and proves a three-dimensional gradient limit for
+complete signed local phase experiments. Its selected hopping coefficient
+has the sharper bound `h_n>=h_*+3a^2/7-3a^4/28-a^8/128`, where
+`h_*=-g-3/7>0.0424` and `g` is the authenticated tiled-trial energy gain.
+For fixed rectangular physical tents of half-widths `b_i` and rational
+amplitude `s`, `W_n/h_n` tends to
+`(pi^2 s^2/6) integral |grad f_b|^2`, with explicit rational
+`O(a^2)` lattice and `O(a^4)` phase errors. The complete source clocks
+record these means with `O(a^2)` error. Work ratios cancel `h_n`
+exactly. Starting from the unit-width, amplitude-one cube, doubling
+amplitude, all widths, or one width gives limiting ratios 4, 2, or 3/2.
+These are actual spatial work comparisons.
+Energy-weighted ultraviolet escape can coexist with a purely elastic
+probability limit, so this Dirichlet work form does not prove an action,
+fixed-energy particle residue or relativistic dispersion. A fixed-anchor
+relative-perturbation decomposition has bounded remainder norm at least
+`sqrt(15)` per Wilson bond; no endpoint gap-stability threshold is supplied.
+
 The [cube-covariant energy allocation](../../model/particle_primary_covariant_stress/PROOF.md)
 shares complete edge terms between endpoints and plaquettes among their
 four vertices. Its density sums to the unchanged H; the difference from
@@ -328,6 +389,21 @@ regional energy differs from the covariant allocation by an explicit
 boundary operator. Its modular generator is not identified with that
 energy. Proper geometry and the matched Einstein estimates are separate
 physical premises.
+
+The [source boundary-information identity](../../model/particle_primary_boundary_information/PROOF.md)
+keeps the induced cut, its central sectors and their global coherences.
+For source marginals it proves
+`I_ambient=I_alg+2 S_edge+C_center`, where
+`C_center=D(rho||pinch(rho))`. The actual magnetic action forces
+`C_center>=10(c beta_low/(210a))^2>0`; the complete center record costs
+source work at least `20 c beta_low/(210a)^2>0`. The exact polynomial
+slope also gives
+`beta_low W<=C_center+D(pinch(rho)||rho)<=beta W`.
+The regional-algebra information has the finite floor
+`I_alg>=10 N c log(2)`, with the actual `c=2^(-N)`.
+These floors deteriorate with capacity. The reference-inclusive pure-state
+quantity is different, and none of these entropies is identified with
+proper area, a geometric modular kernel or an Einstein coefficient.
 
 ## Populated channels across the finite source family
 

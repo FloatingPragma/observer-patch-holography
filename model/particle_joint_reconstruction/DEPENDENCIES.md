@@ -44,13 +44,28 @@ the coupled matter source merely by sharing those node names.
 | 1. Fixed program | The [common contract](../particle_common_contract/PROOF.md) fixes the open Wilson action, all sixty modes per cell, product link cutoff, Gauss boundary condition, polynomial preparation, conjugate reference and `exp(-itH)`. It authenticates the finite inputs and separates architecture from empirical calibration. | Finite specification constructed. No uniqueness theorem for the architecture is required. |
 | 2. Physical preparation | The [physical Gauss preparation](../particle_gauss_ground_state/PROOF.md) and [boundary-state theorem](../particle_physical_boundary_state/PROOF.md) construct the actual selected state, deterministic preparation and complete boundary-charge measurement. Eleven Wilson-loop/blank witnesses have strictly positive weight; all charge outcomes are retained. | Finite construction established. Full spatial execution and compatibility between refinement levels are separate claims. |
 | 3. Local records | The [complete filtered apparatus](../particle_filtered_probe/PROOF.md) supplies distinct LCU/Ramsey and square-root effect instruments with error bounds. The [primary locality consumer](../particle_primary_locality/PROOF.md) proves the complete boundary-detector comparison against an actual remote plaquette phase, with the full canonical reference retained. Product compression preserves local supports and norms; the conservative cone is uniform in the declared scaling. | Finite selected-source locality constructed. The bound preserves exact zero-time non-signalling and includes every charge outcome. Fixed finite effect histories converge on the common subsequence below; growing reference outputs and the full particle-detector repertoire are separate requirements. |
-| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md) and [mixed phase/filtered history construction](../particle_primary_current_tail/PROOF.md) supply one stationary subsequential state, continuous positive-energy GNS time and fixed finite pointer-history limits. Nonelastic survival, charge tightness, effective errors and a full field dictionary require proof; fixed-regulator results retain their domains. |
-| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. The [retained-origin domain](../particle_primary_origin_momentum/PROOF.md) supplies a translation-invariant relative state with strongly commuting canonical H>=0 and P. The [complete Fourier transfer](../particle_primary_momentum_transfer/PROOF.md) attaches regular-probe records to canonical joint spectral kernels. The [signed odd analyzer](../particle_primary_coherent_odd_response/PROOF.md) has populated finite spatial/energy rows in both G1 and H on member zero. A surviving canonical joint response, Lorentz covariance and interaction require proof; fixed-origin invariance is not asserted. |
-| 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | The [complete local composite kernels](../particle_primary_composite_spin/PROOF.md) have exact finite-cube spin labels, native-current commutators, graded exchange and source conjugation. Both odd `G1 + H` components propagate at the first nonzero cubic moment. The [selected spinor instrument](../particle_primary_selected_spin_response/PROOF.md) gives original G1/H energy records with exact native-number increments; the [signed coherent analyzer](../particle_primary_coherent_odd_response/PROOF.md) populates both multiplets at every finite Walsh row. Lorentz spin, asymptotic particle statistics, physical chirality and Standard Model species attachment require proof. |
+| 4. Joint refinement | Construct compatible local states, multitime correlations and complete recorded experiments along one declared volume, spacing, link-cutoff and cooling trajectory. Fix renormalization maps and input ancestry; retain finite-energy observable weight. | A [common bounded observable algebra](../particle_primary_field_algebra/PROOF.md) and [mixed phase/filtered history construction](../particle_primary_current_tail/PROOF.md) supply one stationary subsequential state, continuous positive-energy GNS time and fixed finite pointer-history limits. The [critical-profile calculation](../particle_primary_critical_refinement/PROOF.md) gives a positive Dirichlet work form with explicit lattice, phase and clock errors; it does not prove nonelastic probability survival. Charge tightness, effective correlation errors and a full field dictionary require proof. |
+| 5. Relativistic interacting field | Reconstruct the same positive-energy, nontrivial vacuum theory in three spatial dimensions and time; prove Lorentz covariance, locality and regularity. Establish a nonfree response in a fixed generating-field/current dictionary, rather than connected correlations produced by nonlinear composites of free fields. Attach translations and physical observables to its records; a Euclidean route identifies its reconstructed clock. | The [regular spatial algebra](../particle_primary_spatial_algebra/PROOF.md) has continuous translations commuting with time and controlled bulk transfer from the actual finite state. The [retained-origin domain](../particle_primary_origin_momentum/PROOF.md) supplies a translation-invariant relative state with strongly commuting canonical H>=0 and P. The [complete Fourier transfer](../particle_primary_momentum_transfer/PROOF.md) attaches regular-probe records to canonical joint spectral kernels. The [original branch analyzer](../particle_primary_original_branch/PROOF.md) has populated finite spatial/energy rows in both G1 and H on member zero. The [even density calculation](../particle_primary_original_shell_moments/PROOF.md) computes exact spatial first-moment contrast; it is distinct from the odd kernels. A surviving canonical joint response, Lorentz covariance and interaction require proof; fixed-origin invariance is not asserted. |
+| 6. Chiral matter and species | Identify physical currents, spin, statistics, family content and anomaly conditions; control mirrors and extra modes; admit the Higgs and neutrino sectors on the same construction. A claimed defect must have a proved creation, protection and field attachment. | The [complete local composite kernels](../particle_primary_composite_spin/PROOF.md) have exact finite-cube spin labels, native-current commutators, graded exchange and source conjugation. Both odd `G1 + H` components propagate at the first nonzero cubic moment. The [selected spinor instrument](../particle_primary_selected_spin_response/PROOF.md) gives original G1/H energy records with exact native-number increments; the [original branch apparatus](../particle_primary_original_branch/PROOF.md) populates both multiplets at every Walsh row and adds conserved total-cube and native-number records. Explicit original total-cube branches have capacity-deteriorating positive weights; their labels contain distinct source energies. Lorentz spin, asymptotic particle statistics, physical chirality and Standard Model species attachment require proof. |
 | 7. Full observable spectrum | Determine stable branches, resonances and charged infrared thresholds with retained residues; calculate masses, mixing, production, inclusive scattering and decays in matching schemes. Include all claimed species, extra modes and required composites, with controlled asymptotic and detector errors. | Full positive member-zero sector thresholds, complete prepared windows and [exact composite transport](../particle_primary_composite_transport/PROOF.md) are proved. The [complete odd filter](../particle_primary_odd_low_energy/PROOF.md) reports original weight above `3/5` in `[11/4,61/4]`. The [full odd resolvent](../particle_primary_odd_resolvent/PROOF.md) and prepared band above `1/26` use a distinct declared weak-trion preparation. Source faithfulness also transfers its implemented final-energy event to a positive original floor. Neither removes the selected odd probe's inverse-spacing tail. The [cube reduction](../particle_primary_coherent_odd_response/KERNEL_PROOF.md) leaves four original component-summed spectral measures per multiplet to calculate. Their energy-shape contrast and a resolved branch, operational momentum and controlled dispersion are required before a physical mass is assigned. |
 | 8. Independent comparison | Fix physical units and a frozen observable dictionary; compare joint records in the same schemes, initial conditions and resolution, with propagated errors. Preserve fitted-input ancestry and distinguish independent tests from calibration. | Declared SI/GeV comparison conversion is available immediately. Candidate fits retain their calibration ancestry; actual particle masses need the preceding physical attachments. |
 | 9. Pure Yang-Mills branch | Admit a pure compact-simple source or prove a reducing/decoupling map, instantiate 1-5 for that source, establish Yang-Mills short-distance behavior, and prove dense local Euclidean decay with finite-energy noncollapse in its reconstructed clock. | The [spectral criterion](../particle_yang_mills_gap_contract/PROOF.md) is proved conditionally. Its pure-gauge source, continuum correlation estimates and positive physical gap are not supplied by the primary finite construction. |
-| 10. Geometric gravity | Attach the selected local energy currents and regional responses to physical stress, proper geometry, the geometric modular kernel and fixed-volume area law. Meet the matched small-ball error estimates on the same state and clock. | The [cube-covariant energy convention](../particle_primary_covariant_stress/PROOF.md) preserves H, gives an explicit boundary improvement and instantiates finite energy-Ward sums with complete covariant instruments. The [induced regional cut](../particle_primary_geometric_cut/PROOF.md) supplies covariant supported marginals and a boundary-representation entropy bound. Proper geometry, Lorentz stress, modular/area matching and the errors required by the [Einstein reconstruction](../matched_einstein_limit/PROOF.md) need physical proofs. |
+| 10. Geometric gravity | Attach the selected local energy currents and regional responses to physical stress, proper geometry, the geometric modular kernel and fixed-volume area law. Meet the matched small-ball error estimates on the same state and clock. | The [cube-covariant energy convention](../particle_primary_covariant_stress/PROOF.md) preserves H, gives an explicit boundary improvement and instantiates finite energy-Ward sums with complete covariant instruments. The [induced regional cut](../particle_primary_geometric_cut/PROOF.md) supplies supported marginals; its [actual information identity](../particle_primary_boundary_information/PROOF.md) distinguishes regional-algebra information, representation entropy and global center coherence, with strictly positive work for the center record. Proper geometry, Lorentz stress, modular/area matching and the errors required by the [Einstein reconstruction](../matched_einstein_limit/PROOF.md) need physical proofs. |
+
+The [source boundary-information identity](../particle_primary_boundary_information/PROOF.md)
+keeps the induced cut, its central sectors and their global coherences.
+For source marginals it proves
+`I_ambient=I_alg+2 S_edge+C_center`, where
+`C_center=D(rho||pinch(rho))`. The actual magnetic action forces
+`C_center>=10(c beta_low/(210a))^2>0`; the complete center record costs
+source work at least `20 c beta_low/(210a)^2>0`. The exact polynomial
+slope also gives
+`beta_low W<=C_center+D(pinch(rho)||rho)<=beta W`.
+The regional-algebra information has the finite floor
+`I_alg>=10 N c log(2)`, with the actual `c=2^(-N)`.
+These floors deteriorate with capacity. The reference-inclusive pure-state
+quantity is different, and none of these entropies is identified with
+proper area, a geometric modular kernel or an Einstein coefficient.
 
 The full theory containing a massless photon has no positive global vacuum
 gap. Node 7 therefore uses the appropriate sector threshold, resonance or
@@ -347,17 +362,36 @@ These are probe representations, not total-spin labels of the mixed
 output. Cube symmetry fixes equal component weights after the address
 average.
 
-The [coherent signed spatial apparatus](../particle_primary_coherent_odd_response/PROOF.md)
-adds the adjoint rows and uses exact odd-field anticommutators to control
-every chosen flat Fourier phase on the original state. At member zero,
-its reported creation weights exceed `1/16` for G1 and `9/64` for H in
-`[1/4,71/4]`. The complete Walsh probe has 104 outcomes before clocks and native-number
-meters, including eight address failures. Every one of its eight spatial rows has original
-reported G1 weight above `1/128` and H weight above `9/512`. These bounds
-sum each multiplet's components. The adjoint rows are not identified with
-source-conjugate antiparticles. A finite spatial label is not conserved
-momentum, and populated rows alone do not prove that their energy laws
-differ with phase.
+The [original-state branch apparatus](../particle_primary_original_branch/PROOF.md)
+uses the exact selected polynomial slope to bracket creation and adjoint
+reverse probabilities by `exp(-beta omega)` and
+`exp(-beta_low omega)`, with `beta=22272` and `beta_low>22271` at
+member zero. No Gibbs state is substituted. In `[1/4,71/4]`, each
+chosen flat spatial phase has reported creation weight above `1/3`,
+including G1 above `5/48` and H above `11/48`. The complete Walsh
+probe retains 96 successes and eight failures before clocks and meters;
+every spatial row has original weight above `1/24`, with G1 above
+`5/384` and H above `11/384`. Adjoint annihilation and source-conjugate
+hole creation are distinct experiments.
+
+Complete native-number and total-cube projectors refine these energy
+records without changing their classical energy marginal. They retain
+all initial and final labels, with number increment `(0,2,0,0,1)`.
+The uniform row permits 28 G1g and 44 Hg total-cube transitions. Specific
+original branches from `(n0,A1g)` to `(n0+Delta,G1g)` and
+`(n0+Delta,Hg)` have reported final-energy weights above `85c/4096`
+and `85c/2048`, respectively, where `c=2^(-582407133)` at member zero.
+These are source-marginal positive-effect bounds using an anchor witness,
+without replacing the preparation or its reference. They do not assert
+an initial-to-final energy-transfer interval. The same conserved labels
+contain orthogonal source vectors with means `-711` and `-699`, proving
+spectral diameter at least 12. Labels alone therefore do not select a
+mass. Actual inversion parity is retained; it is not Lorentz spin. For every
+normalized coherent component, the actual anchor residual gives original
+normalized transfer variance at least `9c/4`; each full measure therefore
+contains at least two frequencies. This tiny finite bound gives no line
+positions or clock-resolved separation and permits an isolated pole with
+additional spectral weight.
 
 The [complete odd filter](../particle_primary_odd_low_energy/PROOF.md)
 uses the original four Slater probes with a triangular duration `a/6`
@@ -402,6 +436,28 @@ number-phase conjugation only changes each retained local odd row by a
 scalar phase. Even time-separated critical density-Weyl dressings of
 depth `o(a^-1/2)` cannot make the complete odd output energy tight.
 
+The [original density-shell calculation](../particle_primary_original_shell_moments/PROOF.md)
+computes an exact off-diagonal energy moment on this selected state in the
+separate even sector `n_x=N_x-30`. At member zero,
+`M^(1)=(tau/2)(3I-Adj_cube)`, with
+`tau=-Tr(rho H_hop)/12>0.2373`. The complete sixteen-record density
+analyzer has Walsh first moments `s tau/7200`, for `s=0,1,2,3` with
+multiplicities `1,3,3,1`. Actual finite clocks retain strictly ordered
+nonzero original means. The constant row is elastic and has positive
+weight; the other rows have positive-frequency weight, so their normalized
+energy shapes differ from the constant row. This evaluates even density
+moments, not the four odd G1/H measures. The latter's normalized spectral
+shapes and a common resolved branch require their own calculation.
+
+The same calculation resolves each native internal density: its bond
+coefficient obeys `tau_r>=2 d_r c beta_low>0`, with the actual faithful
+source floor `c`; this proves native inelastic density response, not
+creation of a named fermion. All total-density successes have combined
+original probability below `0.0208`. Conditioning on those retained
+successes is explicit and gives signed transfer mean above `0.019`, or
+above `0.015` with the finite clocks. These conditional means are not
+spectral lines or rest masses.
+
 The [exact cube-kernel reduction](../particle_primary_coherent_odd_response/KERNEL_PROOF.md)
 reduces each component-summed G1/H response to four real spectral measures,
 indexed by cell-pair Hamming distance. Off-diagonal measures may be signed.
@@ -415,6 +471,25 @@ Operational momentum and controlled dispersion are the physical mass
 connections. A continuum claim also requires fixed-energy original weight bounded away from zero under
 refinement; the finite faithfulness floor and filtered upper bounds do
 not supply that estimate.
+
+The [critical-profile work calculation](../particle_primary_critical_refinement/PROOF.md)
+keeps the actual source and proves a three-dimensional gradient limit for
+complete signed local phase experiments. Its selected hopping coefficient
+has the sharper bound `h_n>=h_*+3a^2/7-3a^4/28-a^8/128`, where
+`h_*=-g-3/7>0.0424` and `g` is the authenticated tiled-trial energy gain.
+For fixed rectangular physical tents of half-widths `b_i` and rational
+amplitude `s`, `W_n/h_n` tends to
+`(pi^2 s^2/6) integral |grad f_b|^2`, with explicit rational
+`O(a^2)` lattice and `O(a^4)` phase errors. The complete source clocks
+record these means with `O(a^2)` error. Work ratios cancel `h_n`
+exactly. Starting from the unit-width, amplitude-one cube, doubling
+amplitude, all widths, or one width gives limiting ratios 4, 2, or 3/2.
+These are actual spatial work comparisons.
+Energy-weighted ultraviolet escape can coexist with a purely elastic
+probability limit, so this Dirichlet work form does not prove an action,
+fixed-energy particle residue or relativistic dispersion. A fixed-anchor
+relative-perturbation decomposition has bounded remainder norm at least
+`sqrt(15)` per Wilson bond; no endpoint gap-stability threshold is supplied.
 
 The [covariant stress input](../particle_primary_covariant_stress/PROOF.md)
 redistributes complete source terms by an exact boundary divergence,

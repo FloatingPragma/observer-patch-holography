@@ -40,7 +40,8 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
     'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
-    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response'))
+    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
+    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
@@ -53,7 +54,8 @@ PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_composite_transport', 'particle_primary_selected_odd_response',
     'particle_primary_covariant_stress', 'particle_primary_selected_spin_response',
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
-    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response'))
+    'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
+    'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -257,6 +259,10 @@ def reader(svg,data):
         ('particle_primary_odd_low_energy','Complete finite odd filters, exact selector energy laws and necessary dressing depth'),
         ('particle_primary_geometric_cut','Covariant induced regional state, actual boundary-representation entropy and contained energy'),
         ('particle_primary_coherent_odd_response','Positive G1/H energy records in every complete coherent Walsh spatial row on the original state'),
+        ('particle_primary_original_shell_moments','Exact original even-density spectral moments, native hopping signs and complete finite-clock contrast'),
+        ('particle_primary_original_branch','Polynomial detailed balance, original total-cube/current branches and non-single-line odd transfer measures'),
+        ('particle_primary_critical_refinement','Controlled three-dimensional phase-work limit and source-independent profile-work ratios'),
+        ('particle_primary_boundary_information','Original boundary-center coherence, complete recording work and regional information identity'),
         ('particle_filtered_probe','Complete finite filtering apparatus and original Ramsey responses'),
         ('particle_primary_stress','Primary local energy currents and source-marginal entropy response'),
         ('particle_positive_window','Original positive-energy window weight from complete records'),
