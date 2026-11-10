@@ -1,0 +1,1174 @@
+{
+  "finite_field": {
+    "C": [
+      [
+        "1",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "1",
+        "0",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "-1",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "-1",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "-1",
+        "-1",
+        "1"
+      ]
+    ],
+    "Coulomb": "g^2 rho_ref^T G rho_ref/(2a)",
+    "D": [
+      [
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1",
+        "1"
+      ]
+    ],
+    "G": [
+      [
+        "29/96",
+        "1/96",
+        "1/96",
+        "-7/96",
+        "1/96",
+        "-7/96",
+        "-7/96",
+        "-11/96"
+      ],
+      [
+        "1/96",
+        "29/96",
+        "-7/96",
+        "1/96",
+        "-7/96",
+        "1/96",
+        "-11/96",
+        "-7/96"
+      ],
+      [
+        "1/96",
+        "-7/96",
+        "29/96",
+        "1/96",
+        "-7/96",
+        "-11/96",
+        "1/96",
+        "-7/96"
+      ],
+      [
+        "-7/96",
+        "1/96",
+        "1/96",
+        "29/96",
+        "-11/96",
+        "-7/96",
+        "-7/96",
+        "1/96"
+      ],
+      [
+        "1/96",
+        "-7/96",
+        "-7/96",
+        "-11/96",
+        "29/96",
+        "1/96",
+        "1/96",
+        "-7/96"
+      ],
+      [
+        "-7/96",
+        "1/96",
+        "-11/96",
+        "-7/96",
+        "1/96",
+        "29/96",
+        "-7/96",
+        "1/96"
+      ],
+      [
+        "-7/96",
+        "-11/96",
+        "1/96",
+        "-7/96",
+        "1/96",
+        "-7/96",
+        "29/96",
+        "1/96"
+      ],
+      [
+        "-11/96",
+        "-7/96",
+        "-7/96",
+        "1/96",
+        "-7/96",
+        "1/96",
+        "1/96",
+        "29/96"
+      ]
+    ],
+    "PT": [
+      [
+        "5/12",
+        "-5/24",
+        "-5/24",
+        "-1/6",
+        "-1/24",
+        "-1/6",
+        "-1/24",
+        "-1/12",
+        "5/24",
+        "5/24",
+        "1/24",
+        "1/24"
+      ],
+      [
+        "-5/24",
+        "5/12",
+        "-5/24",
+        "-1/24",
+        "-1/6",
+        "5/24",
+        "5/24",
+        "1/24",
+        "-1/6",
+        "-1/24",
+        "-1/12",
+        "1/24"
+      ],
+      [
+        "-5/24",
+        "-5/24",
+        "5/12",
+        "5/24",
+        "5/24",
+        "-1/24",
+        "-1/6",
+        "1/24",
+        "-1/24",
+        "-1/6",
+        "1/24",
+        "-1/12"
+      ],
+      [
+        "-1/6",
+        "-1/24",
+        "5/24",
+        "5/12",
+        "-5/24",
+        "-1/12",
+        "1/24",
+        "-1/6",
+        "1/24",
+        "-5/24",
+        "5/24",
+        "-1/24"
+      ],
+      [
+        "-1/24",
+        "-1/6",
+        "5/24",
+        "-5/24",
+        "5/12",
+        "1/24",
+        "-5/24",
+        "5/24",
+        "-1/12",
+        "1/24",
+        "-1/6",
+        "-1/24"
+      ],
+      [
+        "-1/6",
+        "5/24",
+        "-1/24",
+        "-1/12",
+        "1/24",
+        "5/12",
+        "-5/24",
+        "-1/6",
+        "-5/24",
+        "1/24",
+        "-1/24",
+        "5/24"
+      ],
+      [
+        "-1/24",
+        "5/24",
+        "-1/6",
+        "1/24",
+        "-5/24",
+        "-5/24",
+        "5/12",
+        "5/24",
+        "1/24",
+        "-1/12",
+        "-1/24",
+        "-1/6"
+      ],
+      [
+        "-1/12",
+        "1/24",
+        "1/24",
+        "-1/6",
+        "5/24",
+        "-1/6",
+        "5/24",
+        "5/12",
+        "-1/24",
+        "-1/24",
+        "-5/24",
+        "-5/24"
+      ],
+      [
+        "5/24",
+        "-1/6",
+        "-1/24",
+        "1/24",
+        "-1/12",
+        "-5/24",
+        "1/24",
+        "-1/24",
+        "5/12",
+        "-5/24",
+        "-1/6",
+        "5/24"
+      ],
+      [
+        "5/24",
+        "-1/24",
+        "-1/6",
+        "-5/24",
+        "1/24",
+        "1/24",
+        "-1/12",
+        "-1/24",
+        "-5/24",
+        "5/12",
+        "5/24",
+        "-1/6"
+      ],
+      [
+        "1/24",
+        "-1/12",
+        "1/24",
+        "5/24",
+        "-1/6",
+        "-1/24",
+        "-1/24",
+        "-5/24",
+        "-1/6",
+        "5/24",
+        "5/12",
+        "-5/24"
+      ],
+      [
+        "1/24",
+        "1/24",
+        "-1/12",
+        "-1/24",
+        "-1/24",
+        "5/24",
+        "-1/6",
+        "-5/24",
+        "5/24",
+        "-1/6",
+        "-5/24",
+        "5/12"
+      ]
+    ],
+    "Q_vacuum_covariance": [
+      [
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/144 + 1/32",
+        "1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144"
+      ],
+      [
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/144 + 1/32",
+        "1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144"
+      ],
+      [
+        "-1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/144 + 1/32",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72"
+      ],
+      [
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-1/32 + sqrt(6)/144"
+      ],
+      [
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144"
+      ],
+      [
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "-1/32 + sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "sqrt(6)/144 + 1/32"
+      ],
+      [
+        "-1/32 + sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "sqrt(6)/144 + 1/32",
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72"
+      ],
+      [
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "-1/32 - sqrt(6)/144"
+      ],
+      [
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "-1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32"
+      ],
+      [
+        "sqrt(6)/144 + 1/32",
+        "-1/32 + sqrt(6)/144",
+        "-sqrt(6)/72",
+        "-1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72"
+      ],
+      [
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "1/32 - sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 - sqrt(6)/144",
+        "-sqrt(6)/72",
+        "sqrt(6)/144 + 1/32",
+        "sqrt(6)/72 + 1/16",
+        "-1/32 - sqrt(6)/144"
+      ],
+      [
+        "1/32 - sqrt(6)/144",
+        "1/32 - sqrt(6)/144",
+        "-1/16 + sqrt(6)/72",
+        "-1/32 + sqrt(6)/144",
+        "-1/32 + sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/144 + 1/32",
+        "-sqrt(6)/72",
+        "-1/32 - sqrt(6)/144",
+        "sqrt(6)/72 + 1/16"
+      ]
+    ],
+    "boundary_completion": "P_N=3 [dGamma(nu)+Tr(nu)]/(2a)",
+    "commuting_abelian_link_coordinates_claimed_on_full_cutoff": false,
+    "constant_vertex_mode": "retained gauge redundancy; G kills constants",
+    "edge_Q_norm_strict_upper": "3/4",
+    "edge_Q_variance": "sqrt(6)/72 + 1/16",
+    "edges_tail_head_axis": [
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        1,
+        5,
+        0
+      ],
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        2,
+        6,
+        0
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        3,
+        7,
+        0
+      ],
+      [
+        4,
+        6,
+        1
+      ],
+      [
+        4,
+        5,
+        2
+      ],
+      [
+        5,
+        7,
+        1
+      ],
+      [
+        6,
+        7,
+        2
+      ]
+    ],
+    "electric_flux": "P_e=a^2 E_phys,e",
+    "exact_edge_Q_norm_squared_at_cap3": "5*sqrt(6)/48 + 13/48",
+    "faces_base_axes": [
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        0,
+        1
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        0,
+        2
+      ],
+      [
+        [
+          0,
+          0,
+          0
+        ],
+        1,
+        2
+      ],
+      [
+        [
+          0,
+          0,
+          1
+        ],
+        0,
+        1
+      ],
+      [
+        [
+          0,
+          1,
+          0
+        ],
+        0,
+        2
+      ],
+      [
+        [
+          1,
+          0,
+          0
+        ],
+        1,
+        2
+      ]
+    ],
+    "finite_photon_ladder_commutator": "[a_i,a_j^dag]=delta_ij I-P_N=3 (delta_ij I+a_j^dag a_i)",
+    "free_H": "[sum_j nu_j/2 + dGamma(nu)]/a, nu=(2,2,2,sqrt6,sqrt6)",
+    "full_longitudinal_label_range": [
+      -4,
+      4
+    ],
+    "full_native_density_range": [
+      -4,
+      4
+    ],
+    "full_static_compensator_energy": "4 abs(R), including every retained charge sector",
+    "full_static_compensator_range": [
+      -32,
+      32
+    ],
+    "harmonic_one_form_dimension": 0,
+    "large_occupation_CCR_or_continuum_carrier_claimed": false,
+    "link_coordinate_boundary_counterexample": {
+      "all_nonzero_entries_supported_on_total_cutoff_boundary": true,
+      "bra_occupation": [
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "edges": [
+        0,
+        1
+      ],
+      "exact_Q_commutator_matrix_element": "3/32",
+      "ket_occupation": [
+        2,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "link_variable": "Q_e=a A_phys,e",
+    "magnetic_divergence_D2_C_exactly_zero": true,
+    "matter_link_phase": "exp(i g Q_e) multiplies Psi_head^dagger B_e^dagger Psi_tail",
+    "native_PW119_H_unchanged_or_source_transfer_claimed": false,
+    "normalized_Gauss": "D^T Ebar_L-rho-R delta_r=0, independent of g",
+    "oriented_volume_boundary": [
+      [
+        "-1",
+        "1",
+        "-1",
+        "1",
+        "-1",
+        "1"
+      ]
+    ],
+    "photon_dimension": 56,
+    "physical_electric_flux": "g Ebar_L+P_transverse",
+    "schema": "oph.open_cube_finite_transverse_field.v1",
+    "squared_dimensionless_frequencies": {
+      "4": 3,
+      "6": 2
+    },
+    "total_photon_cutoff": 3,
+    "transverse_dimension": 5,
+    "vertices": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ]
+  },
+  "full_Gauss_embedding": {
+    "Peierls_derivative_current": "J_phase,e=+i(K_e-K_e^dag)=-I_flow,e",
+    "Y_Y_dagger": "projector onto all normalized integer Gauss kernels",
+    "Y_dagger_Y": "I on every retained native matter sector",
+    "all_12_oriented_hops_and_16_charge_pump_moves_preserve_Gauss": true,
+    "charge_current_orientation": "D_tail=-1,D_head=+1; I_flow,e=-i(K_e-K_e^dag), dot rho=D^T I_flow",
+    "complete_two_endpoint_boundary_cases": 157464,
+    "density_operator_hypotheses": [
+      "all rho_x commute and have integer spectra in [-4,4]",
+      "the full native complement is retained",
+      "sum_x rho_x is the conserved native port charge"
+    ],
+    "full_kinematic_photon_cutoff_affects_Gauss_identity": false,
+    "full_longitudinal_dimension": 4782969,
+    "full_static_reference_dimension": 65,
+    "g_zero_constraint": "the normalized integer Gauss constraints do not disappear at g=0",
+    "invalid_cutoff_moves": "zero partial isometry; no modulo wraparound",
+    "longitudinal_charge_columns": [
+      [
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1"
+      ],
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "longitudinal_electric_map": [
+      [
+        "5/24",
+        "5/24",
+        "1/4",
+        "7/12",
+        "3/8",
+        "3/8",
+        "1/3"
+      ],
+      [
+        "5/24",
+        "7/12",
+        "3/8",
+        "5/24",
+        "1/4",
+        "3/8",
+        "1/3"
+      ],
+      [
+        "7/12",
+        "5/24",
+        "3/8",
+        "5/24",
+        "3/8",
+        "1/4",
+        "1/3"
+      ],
+      [
+        "-5/24",
+        "1/24",
+        "0",
+        "1/6",
+        "3/8",
+        "1/8",
+        "1/6"
+      ],
+      [
+        "-5/24",
+        "1/6",
+        "3/8",
+        "1/24",
+        "0",
+        "1/8",
+        "1/6"
+      ],
+      [
+        "1/24",
+        "-5/24",
+        "0",
+        "1/6",
+        "1/8",
+        "3/8",
+        "1/6"
+      ],
+      [
+        "1/6",
+        "-5/24",
+        "3/8",
+        "1/24",
+        "1/8",
+        "0",
+        "1/6"
+      ],
+      [
+        "-1/24",
+        "-1/24",
+        "-1/4",
+        "1/12",
+        "1/8",
+        "1/8",
+        "1/3"
+      ],
+      [
+        "1/24",
+        "1/6",
+        "1/8",
+        "-5/24",
+        "0",
+        "3/8",
+        "1/6"
+      ],
+      [
+        "1/6",
+        "1/24",
+        "1/8",
+        "-5/24",
+        "3/8",
+        "0",
+        "1/6"
+      ],
+      [
+        "-1/24",
+        "1/12",
+        "1/8",
+        "-1/24",
+        "-1/4",
+        "1/8",
+        "1/3"
+      ],
+      [
+        "1/12",
+        "-1/24",
+        "1/8",
+        "-1/24",
+        "1/8",
+        "-1/4",
+        "1/3"
+      ]
+    ],
+    "physical_isometry": "Y psi=sum_rho Pi_rho psi tensor |rho_(x!=r)>_ell tensor |-sum rho>_R",
+    "positive_Peierls_phase": "K_e=Psi_head^dag B_e^dag Psi_tail exp(+i g Q_e), with matching ell shifts",
+    "reference_vertex": 0,
+    "single_label_boundary_checks": 162
+  },
+  "independent_exact_current": {
+    "P4_current_square_contraction": "sqrt(21)/84 + 2*sqrt(91)/273 + 965/364",
+    "P6_current_square_contraction": "-sqrt(21)/12 + 7*sqrt(91)/156 + 5/3",
+    "all_twelve_filled_vacuum_current_means": "0",
+    "binomial_sign_approximation_or_numerical_eigensolver_used": false,
+    "complete_CRT_projector_ranks": [
+      8,
+      16,
+      8
+    ],
+    "diagnostic_sigma_squared_over_m_squared": 1.0435157377429136,
+    "exact_filled_projector": "(I-sign_H)/2",
+    "exact_sigma_squared_over_m_squared": "-sqrt(14)/48 + sqrt(21)/336 + sqrt(91)/546 + 7*sqrt(546)/1872 + 5*sqrt(6)/36 + 965/1456",
+    "exact_sign_H": "sum_(r=3,7,13) M_r/sqrt(r); rational M_r M_s=delta_rs r E_r",
+    "exact_transverse_current_contractions": [
+      [
+        [
+          "3",
+          "-1/2",
+          "0"
+        ],
+        [
+          "-1/2",
+          "25/3",
+          "-4/3"
+        ],
+        [
+          "0",
+          "-4/3",
+          "-31/3"
+        ]
+      ],
+      [
+        [
+          "0",
+          "7/2",
+          "0"
+        ],
+        [
+          "7/2",
+          "28/3",
+          "-49/6"
+        ],
+        [
+          "0",
+          "-49/6",
+          "0"
+        ]
+      ]
+    ],
+    "outward_interval": [
+      "8152466701116512176836003529885232601042678315868690967319/7812500000000000000000000000000000000000000000000000000000",
+      "1043515737742913558635008451825309772933462824431192443816833/1000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "rank": 16,
+    "strict_sigma_over_m_lower": "2043/2000"
+  },
+  "input_sha256": {
+    "Lean/Screen/DiscreteCoulombGreen.lean": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
+    "Lean/Screen/ModalMaxwellFactorizationBoundary.lean": "4a2e19016d521a58808378d533b3e1e5b6aafcf1d47f9db418cf0d08a69c626d",
+    "Lean/Screen/PositionSpaceMaxwellAction.lean": "07062608b74c2923311fd08764d74ea80d73afe8abc0edef55a38fc76cb67505",
+    "Lean/Screen/SeamCurrentFreePhotonLift.lean": "5c816286127815938c7c391d1764a67c899ce544b0b2bbb6768388de4fb5699c",
+    "Lean/Screen/SeamMaxwellContinuum.lean": "6755c8c7d2b55610ddaed520a8a272fab4c270130c6ac62a6bcef074ee2d2a41",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "5e617c445abd94e87d2edcd7adf210eeff49fd9c161bc9a312eb49525750d647",
+    "Lean/Screen/WhitneyNormalModeConstruction.lean": "31d240480049d623583f2a5febcc590d193873271c9d28b50d7ca2fdfb5134bf",
+    "Lean/Screen/WhitneyQuantumBridge.lean": "707a331b338d2c0491caa681700a25000540de14ac5b858dbc2d6198aad41a31",
+    "code/electromagnetism/__init__.py": "717a2681bc8a7ed54167f6037234126f7c897db1df06e192af60d9f0cacc2db7",
+    "code/electromagnetism/cone_whitney_bridge.py": "638fcd8cc85fc9b6e844c2173f9015fcb2fbed1c47805693cc989daf7d340114",
+    "code/electromagnetism/discrete_coulomb_green.py": "64c87395ff4bb11c13e89dbe1fee30e9b46e5edf9a25d95689b7c73b28f4dc61",
+    "code/electromagnetism/whitney_quantum_state.py": "ee1e5b6ced290c44e524dd469a7517f7f7a7d4e0a9dcdc4384b5fb72e65dbf84",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/affine_gauss_mobile/PROOF.md": "4be7a1594695e7e387bdab371c2f34be92b7e515d2c855e0abae9def856e3941",
+    "model/affine_gauss_mobile/__init__.py": "5fd736b5a20c77355ee21fb0582e9d9044fefe3c3670071b2a63d16d7f8e8491",
+    "model/affine_gauss_mobile/model.py": "cbbf4ce2fd0b9c16cbcc3554f1a655b1fbe93d6c648aab77fb9c1dac8ef49674",
+    "model/affine_gauss_source/PROOF.md": "146c55af867de86014d6a784029ce46dd9a2cf7dab5b6faf607de7ed5f50ea0e",
+    "model/affine_gauss_source/__init__.py": "5fd736b5a20c77355ee21fb0582e9d9044fefe3c3670071b2a63d16d7f8e8491",
+    "model/affine_gauss_source/certificate.py": "85a6adfb4a8a76c6f7f89b35a65c087fc8b83ac535b05e28ca9b8d6b80294e32",
+    "model/affine_gauss_source/model.py": "ec446eabfef62914fa0a9c97357cf870533769593084e9315be1bc5a0cae57b7",
+    "model/native_block_dirac/PROOF.md": "53d581634bc9362e02483cefc3e27dc16317ed477321e66784568b86602a5acb",
+    "model/native_block_dirac/__init__.py": "159c065771ecb3a06841026e1cd2aec0fe7b150bf34d541c494831c9e5cc7c70",
+    "model/native_block_dirac/algebra.py": "72cede8eefbdacd1abe9653fb4bafbccd0f271674c0e75a55e37c73d2187ec01",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723"
+  },
+  "owned_source_sha256": {
+    "CURRENT_AUDIT.md": "c899ea7b000d71fca518f974cc29b7e75b6c0b888cd9edfe4db83b3369ba7c6a",
+    "REUSE.md": "eb3101bcc18c1b6c38ae5ed521f5b841ee30408c6a7fe0711d2f23db6ae2e97c",
+    "SOURCE.md": "d5e0ea3bb1862a4db509abeef7aae9d0b40499a2de69c80fe10c619cb113fe7d",
+    "certificate.py": "2f829d8ba6ce69ecbc9f0b208cb823b908031e16381046d6c59f640924cb5c22",
+    "current_audit.py": "22ee0f7a77bd01b4eaa58efc194a5d3ff0eb5c497459c46efaadfcb2702afb7b",
+    "field.py": "0d223de7aecbd77d9028f88c674c55f62ec28aa31b9cd8ba892c7f68af2f2721",
+    "gauss.py": "7431ce0d5cba2fce56c0a6ef6bbc675ea3c341d9337eb75117ca077a6ac6333c",
+    "test_exact_current.py": "b223f04fe94d2e26db8a22edbe7b146871663cb2f03f77a97fe0bcaac74aa7e0",
+    "test_field.py": "f23680030518483827447167a6bd339e9d05c6c33dac191fca33baff8d9259c0"
+  },
+  "schema": "oph.open_cube_Maxwell_native_current_prerequisites.v1",
+  "scope": {
+    "actual_native_charge_density_and_preparation_support_supplied_by_matter_provider": true,
+    "complete_interaction_probability_proved_by_this_prerequisite_alone": false,
+    "finite_photon_top_boundary_and_all_full_charge_complements_retained": true,
+    "one_common_coupled_H_source_authority_required": true,
+    "source_unchanged_from_native_PW119_or_thirteen_vertex_cone": false
+  }
+}
