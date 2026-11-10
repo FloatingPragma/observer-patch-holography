@@ -42,7 +42,7 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
 | Registered claims | 392 |
-| Unique ordinary `assumptions` names | 919 |
+| Unique ordinary `assumptions` names | 923 |
 | Unique `imported_results` names | 1193 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
@@ -1156,6 +1156,10 @@ Native charge-to-field preparation. The native/abelian join retains thirteen act
 
 Actual prepared charged and Higgs records. Sharper native spectral windows and the direct two-copy 20-bit centroid retain the original preparation error, all phase labels and the prior exact spectral-bin service, without an additional P0 projection. The depth-three preparation tree retains eight trials and seven filters. Its elementary/composite normalized-bin states have a common-environment history bound below 1.686e-7 on the narrow window; this comparison does not equate the unequal original pump probabilities or policies conditioned on the pump setting. The same-h weak-density experiment retains the actual ground comparison, every preparation/pump/Cayley outcome and the charged apparatus position. Its charged insertion is evaluated after two source units, with noncommuting energy/current backaction explicit. The source ground is distinct from zero-energy apparatus degeneracies. Complete affine post-clock instruments and native-abelian arrival/energy records retain finite fidelity, reference energy and controller work. The separate free Dirac construction uses a product of native constituent grounds, full occupation codes and an added square-root kinetic Hamiltonian; its physical preparation and programmable full-matrix services are declared. None of these state constructions supplies a physical chiral interacting vacuum or an observed GeV mass.
 
+Native quark and Higgs inputs. The actual eight-cell physical preparation supplies the quark 13/13/25-root measures, positive dominant-bin records and quantum-Higgs interference with all failures retained. The full thirty-mode static reference costs four per successful removal. No source-ground projector is inserted. The addition-branch dressed-current calculation uses its actual conjugate-current polynomial, rather than reusing the removal-branch insertion. Its bounded-support final pointer coupling preserves source evolution and retains the preparation and bin services as separate premises.
+
+Wilson-Maxwell state selection. The declared open-cube native occupation code, finite transverse carrier and coherent Gauss attachment retain the full native complement charges and static reference. Deterministic native trial preparation has an exact reducing-support comparison to the free matter/photon input, which is nonstationary under the coupled Hamiltonian. The complete record law includes the native complement and outer Gauss failure. The unmodified full source has an active ground outside the code. Adding the explicitly chosen positive onsite code-complement energy produces a distinct completed Hamiltonian with a unique active coupled ground, finite complete energy-agreement preparation and a positive stationary virtual-occupation record. The source-derived coefficient does not force the choice of completion. Fixed-graph photon-cap refinement does not select a physical continuum vacuum. The completed fixed-cube ground has a uniform cap-family gap and complete finite preparation; its large-cap clock/count comparison retains the same chosen complement completion and a separately specified constant-ground-chord filter setting. The admitted quark elementary/composite states, with the common preparation environment, have history distance below 5.193e-6 under a common subsequent policy that does not read the pump-setting label. Their original pump and bin probabilities are distinct.
+
 **Remaining input:** Independent oscillator blanks, control of the ramp and model time are hypotheses. The original q=3, d=8192 preparation word has not been emitted or executed; physical pulse and code-service precision, storage, initialization and readout costs remain additional. Preparation is not autonomous vacuum selection; the supplied oscillator branch has no uniform refinement resource theorem. The initial two-site preparation bound alone controls only a common subsequent channel; its complete-history cutoff certificate supplies the separate finite-versus-infinite propagation and readout comparison. This action and state differ from the original eight-mode ramp, and physical initialization/control errors require additional bounds. The native canonical-sector state is a distinct stationary classical source family, not the supplied interacting oscillator vacuum. Particle density is conserved boundary information. The native screen-family preparation schedule bounds native attempts and entropy errors, but does not prepare the supplied oscillator vacuum, select conserved-sector mixtures or identify a physical duration. Retaining or conditioning on the warm-up tape is outside the unconditional preparation contract. A sufficient route to the protected-spin mass shell is common-speed concentration of the entire selected response, expressed by a vanishing ratio-moment defect or the equivalent ground-specific current/force remainder. Alternatively, prove a sharp component retains a nonzero fraction of the original response while a continuum may coexist. The new exact identities and positive-measure controls establish neither of these estimates. Effective continuum detector accuracy, moment tails, an interacting Lorentz-covariant particle sector and empirical mass identification are unproved. The source must establish continuum susceptibility saturation or the appropriate spectral tail estimates, with nonvanishing operational response and the physical dispersion/detector dictionary. Finite Ritz nodes and finite energy thresholds are not physical masses. This scheduler bound does not select the interacting matter ground or prove generic Hubbard invariance of the one-hole/no-doublon subspace. The fixed-c,U local repair theorem traces inaccessible remote raw records and does not prove an interacting spatial continuum or select an effective ground-state modulus. Its charged band bound needs momentum-resolved poles, resonances or controlled thresholds for a species identification. The aligned-hole limit uses a different reference and is free and nonrelativistic. Uniform-spin weighted concentration is at zero, with a volume-dependent original success floor. None supplies measured masses or common physical units. On the centered default-ratio route, a complete filtered branch needs a nonzero original probability in shrinking c=1 energy windows and control of its frequency-dependent memory on the same spatial packet and clock. Complete prepared histories require quantitative local-state control; a bounded spectral score can instead use the direct pressure certificate when its common-ground margin is proved. Neither route supplies the required scaling-uniform infrared margin. The unfiltered unit-mass regular limit is excluded on the specified cubic ground family.
 
 **Closure condition:** Implement the native preparation within the same-code history of RE-10 and charge actual initialization, pulse and service errors. Reuse the uniform synthesis estimate and transport the state-specific preparation error by channel contraction. Do not substitute q=3 evidence for q=5/q=233 budgets or a numerical trajectory for a certified bound. For the two-site branch, use its complete ideal history certificate and add independently justified numerical and physical service errors before claiming a realized infinite-oscillator comparison.
@@ -1857,6 +1861,101 @@ Sources:
 - [native weak current response](../model/native_weak_current_response/research_reference.json).
 - [native weak current response](../model/native_weak_current_response/results.json).
 - [native weak current response](../model/native_weak_current_response/test_response.py).
+- [Finite current/source evidence: model/native_higgs_current_response/PROOF.md](../model/native_higgs_current_response/PROOF.md).
+- [Finite current/source evidence: model/native_higgs_current_response/README.md](../model/native_higgs_current_response/README.md).
+- [Finite current/source evidence: model/native_higgs_current_response/__init__.py](../model/native_higgs_current_response/__init__.py).
+- [Finite current/source evidence: model/native_higgs_current_response/__main__.py](../model/native_higgs_current_response/__main__.py).
+- [Finite current/source evidence: model/native_higgs_current_response/local.py](../model/native_higgs_current_response/local.py).
+- [Finite current/source evidence: model/native_higgs_current_response/model.py](../model/native_higgs_current_response/model.py).
+- [Finite current/source evidence: model/native_higgs_current_response/results.json](../model/native_higgs_current_response/results.json).
+- [Finite current/source evidence: model/native_higgs_current_response/test_current.py](../model/native_higgs_current_response/test_current.py).
+- [Finite current/source evidence: model/native_local_current_readout/PROOF.md](../model/native_local_current_readout/PROOF.md).
+- [Finite current/source evidence: model/native_local_current_readout/README.md](../model/native_local_current_readout/README.md).
+- [Finite current/source evidence: model/native_local_current_readout/__init__.py](../model/native_local_current_readout/__init__.py).
+- [Finite current/source evidence: model/native_local_current_readout/__main__.py](../model/native_local_current_readout/__main__.py).
+- [Finite current/source evidence: model/native_local_current_readout/apparatus.py](../model/native_local_current_readout/apparatus.py).
+- [Finite current/source evidence: model/native_local_current_readout/model.py](../model/native_local_current_readout/model.py).
+- [Finite current/source evidence: model/native_local_current_readout/results.json](../model/native_local_current_readout/results.json).
+- [Finite current/source evidence: model/native_local_current_readout/test_apparatus.py](../model/native_local_current_readout/test_apparatus.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/PROOF.md](../model/native_quark_higgs_join/PROOF.md).
+- [Finite current/source evidence: model/native_quark_higgs_join/PROVENANCE.md](../model/native_quark_higgs_join/PROVENANCE.md).
+- [Finite current/source evidence: model/native_quark_higgs_join/README.md](../model/native_quark_higgs_join/README.md).
+- [Finite current/source evidence: model/native_quark_higgs_join/__init__.py](../model/native_quark_higgs_join/__init__.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/__main__.py](../model/native_quark_higgs_join/__main__.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/alignment.py](../model/native_quark_higgs_join/alignment.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/bounds.py](../model/native_quark_higgs_join/bounds.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/certificate.py](../model/native_quark_higgs_join/certificate.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/operators.py](../model/native_quark_higgs_join/operators.py).
+- [Finite current/source evidence: model/native_quark_higgs_join/research_reference.json](../model/native_quark_higgs_join/research_reference.json).
+- [Finite current/source evidence: model/native_quark_higgs_join/results.json](../model/native_quark_higgs_join/results.json).
+- [Finite current/source evidence: model/native_quark_higgs_join/test_join.py](../model/native_quark_higgs_join/test_join.py).
+- [Finite current/source evidence: model/native_quark_response/PROOF.md](../model/native_quark_response/PROOF.md).
+- [Finite current/source evidence: model/native_quark_response/PROVENANCE.md](../model/native_quark_response/PROVENANCE.md).
+- [Finite current/source evidence: model/native_quark_response/README.md](../model/native_quark_response/README.md).
+- [Finite current/source evidence: model/native_quark_response/__init__.py](../model/native_quark_response/__init__.py).
+- [Finite current/source evidence: model/native_quark_response/__main__.py](../model/native_quark_response/__main__.py).
+- [Finite current/source evidence: model/native_quark_response/certificate.py](../model/native_quark_response/certificate.py).
+- [Finite current/source evidence: model/native_quark_response/full.py](../model/native_quark_response/full.py).
+- [Finite current/source evidence: model/native_quark_response/local.py](../model/native_quark_response/local.py).
+- [Finite current/source evidence: model/native_quark_response/quark.py](../model/native_quark_response/quark.py).
+- [Finite current/source evidence: model/native_quark_response/research_reference.json](../model/native_quark_response/research_reference.json).
+- [Finite current/source evidence: model/native_quark_response/response.py](../model/native_quark_response/response.py).
+- [Finite current/source evidence: model/native_quark_response/results.json](../model/native_quark_response/results.json).
+- [Finite current/source evidence: model/native_quark_response/test_response.py](../model/native_quark_response/test_response.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/CURRENT.md](../model/native_wilson_maxwell/CURRENT.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/EXACT_CURRENT_PROOF.md](../model/native_wilson_maxwell/EXACT_CURRENT_PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/FIELD_PROOF.md](../model/native_wilson_maxwell/FIELD_PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/FIELD_REUSE.md](../model/native_wilson_maxwell/FIELD_REUSE.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/PROOF.md](../model/native_wilson_maxwell/PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/PROVENANCE.md](../model/native_wilson_maxwell/PROVENANCE.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/README.md](../model/native_wilson_maxwell/README.md).
+- [Finite current/source evidence: model/native_wilson_maxwell/__init__.py](../model/native_wilson_maxwell/__init__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/__main__.py](../model/native_wilson_maxwell/__main__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/bounds.py](../model/native_wilson_maxwell/bounds.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/current.py](../model/native_wilson_maxwell/current.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/exact_current.py](../model/native_wilson_maxwell/exact_current.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/field.py](../model/native_wilson_maxwell/field.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/field_research_reference.json](../model/native_wilson_maxwell/field_research_reference.json).
+- [Finite current/source evidence: model/native_wilson_maxwell/gauss.py](../model/native_wilson_maxwell/gauss.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/matter.py](../model/native_wilson_maxwell/matter.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/model.py](../model/native_wilson_maxwell/model.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/research_reference.json](../model/native_wilson_maxwell/research_reference.json).
+- [Finite current/source evidence: model/native_wilson_maxwell/results.json](../model/native_wilson_maxwell/results.json).
+- [Finite current/source evidence: model/native_wilson_maxwell/test_current.py](../model/native_wilson_maxwell/test_current.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/test_exact_current.py](../model/native_wilson_maxwell/test_exact_current.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/test_field.py](../model/native_wilson_maxwell/test_field.py).
+- [Finite current/source evidence: model/native_wilson_maxwell/test_source.py](../model/native_wilson_maxwell/test_source.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/PROOF.md](../model/native_wilson_maxwell_ground/PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/PROVENANCE.md](../model/native_wilson_maxwell_ground/PROVENANCE.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/README.md](../model/native_wilson_maxwell_ground/README.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/__init__.py](../model/native_wilson_maxwell_ground/__init__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/__main__.py](../model/native_wilson_maxwell_ground/__main__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/ground.py](../model/native_wilson_maxwell_ground/ground.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/producer.py](../model/native_wilson_maxwell_ground/producer.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/research_reference.json](../model/native_wilson_maxwell_ground/research_reference.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/results.json](../model/native_wilson_maxwell_ground/results.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground/test_ground.py](../model/native_wilson_maxwell_ground/test_ground.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/PROOF.md](../model/native_wilson_maxwell_ground_refinement/PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/PROVENANCE.md](../model/native_wilson_maxwell_ground_refinement/PROVENANCE.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/README.md](../model/native_wilson_maxwell_ground_refinement/README.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/__init__.py](../model/native_wilson_maxwell_ground_refinement/__init__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/__main__.py](../model/native_wilson_maxwell_ground_refinement/__main__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/producer.py](../model/native_wilson_maxwell_ground_refinement/producer.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/refinement.py](../model/native_wilson_maxwell_ground_refinement/refinement.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/research_reference.json](../model/native_wilson_maxwell_ground_refinement/research_reference.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/results.json](../model/native_wilson_maxwell_ground_refinement/results.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_ground_refinement/test_refinement.py](../model/native_wilson_maxwell_ground_refinement/test_refinement.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/PROOF.md](../model/native_wilson_maxwell_refinement/PROOF.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/PROVENANCE.md](../model/native_wilson_maxwell_refinement/PROVENANCE.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/README.md](../model/native_wilson_maxwell_refinement/README.md).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/__init__.py](../model/native_wilson_maxwell_refinement/__init__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/__main__.py](../model/native_wilson_maxwell_refinement/__main__.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/algebra.py](../model/native_wilson_maxwell_refinement/algebra.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/bounds.py](../model/native_wilson_maxwell_refinement/bounds.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/producer.py](../model/native_wilson_maxwell_refinement/producer.py).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/research_reference.json](../model/native_wilson_maxwell_refinement/research_reference.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/results.json](../model/native_wilson_maxwell_refinement/results.json).
+- [Finite current/source evidence: model/native_wilson_maxwell_refinement/test_cutoff.py](../model/native_wilson_maxwell_refinement/test_cutoff.py).
 
 <a id="re-10"></a>
 
@@ -4595,6 +4694,14 @@ Post-clock affine readout retains all 26 joint outcomes, finite accepted-state e
 
 Mass and experiment. Exact finite coefficients, local gaps, bare action eigenvalues, source-clock phase windows, continuum rest frequencies and empirical masses are different observables. A charged Coulomb-phase target may require an inclusive or dressed energy-momentum threshold rather than an isolated pole. The common-current calibrated action, conditional chiral mass matrix, beta-function alternatives, compact-defect interaction and detector comparisons remain useful sanity checks with their calibration ancestry explicit. The construction supplies no parameter-free Standard Model spectrum, three-generation flavour explanation, complete scattering/decay comparison or early-universe abundance prediction.
 
+Complete native quark/Higgs records. Literal original-CAR intertwiners into the full charged quark modules determine every local root and residue with exact total weight one half. The 13/13/25-root targets retain twelve exact Q zero residues. Full eight-cell bins have positive original-attempt probability with the actual preparation and reference cost four. Quantum-Higgs EOM probes have strictly positive shared cross weight and complete interference records on this source. The equal-coupling local u^c/d^c identity does not imply physical mass equality or exact full-source degeneracy. Neither the colored charged ground nor an asymptotic quark pole is identified.
+
+Dressed-current instruments. The elementary/Higgs addition branch uses the exact antiunitary conjugate-current polynomial to obtain its actual dressed weak-current law. A finite bounded-support polynomial-current pointer coupling gives a controlled final measurement with neutral admission flags, source evolution and every failure retained. This is an explicitly declared apparatus coupling. Preparation and exact spectral bins retain their full-matrix service premise; no autonomous implementation by primitive C/E is inferred.
+
+One finite coupled matter/field source. The separate native Wilson-Maxwell architecture uses the actual four-component Wilson current, coherent longitudinal Gauss attachment and five finite transverse modes on a contractible cube. It retains all native complements, charges outside the occupation code, the full compensator and noncanonical top-cap commutators. Its actual deterministic preparation and 1,161-label instrument give positive matter/field interaction and connected records. The photon-cap family is controlled on this fixed graph, with no volume, spatial-continuum or interacting ultraviolet conclusion. The unmodified source ground lies outside the code. A chosen positive onsite complement-energy completion defines a distinct source with a certified coupled ground, complete energy-agreement filters and a stationary virtual-occupation measurement. That field dressing is not ground-state radiation. The exact U(1) current is not identified with physical electromagnetism or a measured Standard Model coupling.
+
+Numerical evidence admission. The protected readout's cold original-owner replay and interval/binary64 certificate preserve raw scientific values and arrays under the two explicit current-parent bindings. The exact verifier successor replaces only its declared legacy replay route. This controls computational reproducibility and source custody without changing physical classifications. The completed ground cap family also controls the full finite preparation/clock/count experiment against its infinite-cap fixed-graph oscillator limit. Its uniform gap and convergence do not supply spatial continuum or ultraviolet closure.
+
 **Remaining input:** A full same-source interacting chiral field and an empirical particle dictionary require a justified physical phase, compatible charged or neutral dispersion/threshold readouts, complete scattering and decay records, and controlled capacity dependence. The paired neutral block limit is free. Its finite interactions and the original source charged energy bins do not identify Standard Model masses.
 
 **Closure condition:** Construct the selected interacting source family and its controlled observables/continuum, reusing the algebraic packets without treating supplied matter content as derived.
@@ -5985,6 +6092,119 @@ Sources:
 - [native weak current response](../model/native_weak_current_response/research_reference.json).
 - [native weak current response](../model/native_weak_current_response/results.json).
 - [native weak current response](../model/native_weak_current_response/test_response.py).
+- [Finite field/current or numerical custody evidence: model/completion/field_current_measurement.py](../model/completion/field_current_measurement.py).
+- [Finite field/current or numerical custody evidence: model/completion/field_current_measurement_replay.json](../model/completion/field_current_measurement_replay.json).
+- [Finite field/current or numerical custody evidence: model/completion/test_field_current_measurement.py](../model/completion/test_field_current_measurement.py).
+- [Finite field/current or numerical custody evidence: model/completion/test_field_current_measurement_consumers.py](../model/completion/test_field_current_measurement_consumers.py).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/PROOF.md](../model/native_higgs_current_response/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/README.md](../model/native_higgs_current_response/README.md).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/__init__.py](../model/native_higgs_current_response/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/__main__.py](../model/native_higgs_current_response/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/local.py](../model/native_higgs_current_response/local.py).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/model.py](../model/native_higgs_current_response/model.py).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/results.json](../model/native_higgs_current_response/results.json).
+- [Finite field/current or numerical custody evidence: model/native_higgs_current_response/test_current.py](../model/native_higgs_current_response/test_current.py).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/PROOF.md](../model/native_local_current_readout/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/README.md](../model/native_local_current_readout/README.md).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/__init__.py](../model/native_local_current_readout/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/__main__.py](../model/native_local_current_readout/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/apparatus.py](../model/native_local_current_readout/apparatus.py).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/model.py](../model/native_local_current_readout/model.py).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/results.json](../model/native_local_current_readout/results.json).
+- [Finite field/current or numerical custody evidence: model/native_local_current_readout/test_apparatus.py](../model/native_local_current_readout/test_apparatus.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/PROOF.md](../model/native_quark_higgs_join/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/PROVENANCE.md](../model/native_quark_higgs_join/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/README.md](../model/native_quark_higgs_join/README.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/__init__.py](../model/native_quark_higgs_join/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/__main__.py](../model/native_quark_higgs_join/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/alignment.py](../model/native_quark_higgs_join/alignment.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/bounds.py](../model/native_quark_higgs_join/bounds.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/certificate.py](../model/native_quark_higgs_join/certificate.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/operators.py](../model/native_quark_higgs_join/operators.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/research_reference.json](../model/native_quark_higgs_join/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/results.json](../model/native_quark_higgs_join/results.json).
+- [Finite field/current or numerical custody evidence: model/native_quark_higgs_join/test_join.py](../model/native_quark_higgs_join/test_join.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/PROOF.md](../model/native_quark_response/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/PROVENANCE.md](../model/native_quark_response/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/README.md](../model/native_quark_response/README.md).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/__init__.py](../model/native_quark_response/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/__main__.py](../model/native_quark_response/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/certificate.py](../model/native_quark_response/certificate.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/full.py](../model/native_quark_response/full.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/local.py](../model/native_quark_response/local.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/quark.py](../model/native_quark_response/quark.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/research_reference.json](../model/native_quark_response/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/response.py](../model/native_quark_response/response.py).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/results.json](../model/native_quark_response/results.json).
+- [Finite field/current or numerical custody evidence: model/native_quark_response/test_response.py](../model/native_quark_response/test_response.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/CURRENT.md](../model/native_wilson_maxwell/CURRENT.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/EXACT_CURRENT_PROOF.md](../model/native_wilson_maxwell/EXACT_CURRENT_PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/FIELD_PROOF.md](../model/native_wilson_maxwell/FIELD_PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/FIELD_REUSE.md](../model/native_wilson_maxwell/FIELD_REUSE.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/PROOF.md](../model/native_wilson_maxwell/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/PROVENANCE.md](../model/native_wilson_maxwell/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/README.md](../model/native_wilson_maxwell/README.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/__init__.py](../model/native_wilson_maxwell/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/__main__.py](../model/native_wilson_maxwell/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/bounds.py](../model/native_wilson_maxwell/bounds.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/current.py](../model/native_wilson_maxwell/current.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/exact_current.py](../model/native_wilson_maxwell/exact_current.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/field.py](../model/native_wilson_maxwell/field.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/field_research_reference.json](../model/native_wilson_maxwell/field_research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/gauss.py](../model/native_wilson_maxwell/gauss.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/matter.py](../model/native_wilson_maxwell/matter.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/model.py](../model/native_wilson_maxwell/model.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/research_reference.json](../model/native_wilson_maxwell/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/results.json](../model/native_wilson_maxwell/results.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/test_current.py](../model/native_wilson_maxwell/test_current.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/test_exact_current.py](../model/native_wilson_maxwell/test_exact_current.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/test_field.py](../model/native_wilson_maxwell/test_field.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell/test_source.py](../model/native_wilson_maxwell/test_source.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/PROOF.md](../model/native_wilson_maxwell_ground/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/PROVENANCE.md](../model/native_wilson_maxwell_ground/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/README.md](../model/native_wilson_maxwell_ground/README.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/__init__.py](../model/native_wilson_maxwell_ground/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/__main__.py](../model/native_wilson_maxwell_ground/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/ground.py](../model/native_wilson_maxwell_ground/ground.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/producer.py](../model/native_wilson_maxwell_ground/producer.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/research_reference.json](../model/native_wilson_maxwell_ground/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/results.json](../model/native_wilson_maxwell_ground/results.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground/test_ground.py](../model/native_wilson_maxwell_ground/test_ground.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/PROOF.md](../model/native_wilson_maxwell_ground_refinement/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/PROVENANCE.md](../model/native_wilson_maxwell_ground_refinement/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/README.md](../model/native_wilson_maxwell_ground_refinement/README.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/__init__.py](../model/native_wilson_maxwell_ground_refinement/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/__main__.py](../model/native_wilson_maxwell_ground_refinement/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/producer.py](../model/native_wilson_maxwell_ground_refinement/producer.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/refinement.py](../model/native_wilson_maxwell_ground_refinement/refinement.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/research_reference.json](../model/native_wilson_maxwell_ground_refinement/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/results.json](../model/native_wilson_maxwell_ground_refinement/results.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_ground_refinement/test_refinement.py](../model/native_wilson_maxwell_ground_refinement/test_refinement.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/PROOF.md](../model/native_wilson_maxwell_refinement/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/PROVENANCE.md](../model/native_wilson_maxwell_refinement/PROVENANCE.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/README.md](../model/native_wilson_maxwell_refinement/README.md).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/__init__.py](../model/native_wilson_maxwell_refinement/__init__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/__main__.py](../model/native_wilson_maxwell_refinement/__main__.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/algebra.py](../model/native_wilson_maxwell_refinement/algebra.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/bounds.py](../model/native_wilson_maxwell_refinement/bounds.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/producer.py](../model/native_wilson_maxwell_refinement/producer.py).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/research_reference.json](../model/native_wilson_maxwell_refinement/research_reference.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/results.json](../model/native_wilson_maxwell_refinement/results.json).
+- [Finite field/current or numerical custody evidence: model/native_wilson_maxwell_refinement/test_cutoff.py](../model/native_wilson_maxwell_refinement/test_cutoff.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/PROOF.md](../model/protected_readout_numerics/PROOF.md).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/README.md](../model/protected_readout_numerics/README.md).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/__init__.py](../model/protected_readout_numerics/__init__.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/__main__.py](../model/protected_readout_numerics/__main__.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/arithmetic.py](../model/protected_readout_numerics/arithmetic.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/contract.json](../model/protected_readout_numerics/contract.json).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/interval_replay.py](../model/protected_readout_numerics/interval_replay.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/kernel.py](../model/protected_readout_numerics/kernel.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/model.py](../model/protected_readout_numerics/model.py).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/results.json](../model/protected_readout_numerics/results.json).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/retained.json](../model/protected_readout_numerics/retained.json).
+- [Finite field/current or numerical custody evidence: model/protected_readout_numerics/test_numerics.py](../model/protected_readout_numerics/test_numerics.py).
+- [Finite field/current or numerical custody evidence: model/test_verify_current.py](../model/test_verify_current.py).
+- [Finite field/current or numerical custody evidence: model/verify_current.py](../model/verify_current.py).
 
 <a id="re-20"></a>
 
