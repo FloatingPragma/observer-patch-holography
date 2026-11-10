@@ -126,7 +126,7 @@ def hero(c, data):
 
     cy = py + ph + 38
     for x, col, lab, body in (
-            (X0 + 8, TEAL, 'What the program runs', 'Observers, seams and repairs, and one twist that no repair removes.'),
+            (X0 + 8, TEAL, 'What the program runs', 'Observers, seams and repair records. Protection depends on the allowed moves.'),
             (bx + 4, AMBER, 'What gets recorded', 'Clicks that observers compare and agree on.'),
             (zx + 8, VIOLET, 'The physical target', 'A controlled particle description with position, velocity and mass.')):
         c.caps(x, cy, lab, col, 14)

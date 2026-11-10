@@ -1,5 +1,70 @@
 # Particle construction: source laws, mass operators and physical matching
 
+## Interacting finite readout before a mass assignment
+
+The [joint defect-wave construction](../../model/coherent_defect_wave/PROOF.md)
+implements both directions of influence with a fixed unitary: link state
+changes a wave detector probability from `1/120` to `0`, while a change in
+wave preparation changes a face-position probability from `1` to `0`.
+Every binary detector includes its complement. A coherent product input also
+develops link/wave correlations with Schmidt weights `1/2,1/2`; this is a
+register diagnostic, with gauge-invariant reciprocal probabilities supplying
+the interaction test.
+
+The [gauge-constrained preparation](../../model/coherent_defect_wave/GAUSS.md)
+preserves these one-tick comparisons. A conditional-frame return detector
+also preserves the constraint: coherent reversal returns with probability one,
+while recording the defect face first gives one half. Its stationary state comes from a
+complete filter of the same joint evolution, rather than a stationary state
+borrowed from a frozen link. The calculation supplies a finite interacting
+response, with no physical mass or species assignment. Mass extraction
+requires controlled spatial spectra and their observable interpretation.
+
+## Response of a reversible repair defect
+
+The [coherent seam observer](../../model/coherent_seam_repair/README.md) stores
+the antisymmetric seam component in a coherent correction register. An address
+reflection completes its wave step. Its clock, prepared reference and optional
+detector belong to that explicit program. The committed-record pump has a
+different channel: its uniform coherence damping cannot be reinterpreted as
+a long-lived wave merely by changing units.
+
+The coupled five-level version provides an exact finite holonomy-to-response
+calculation. One central link has two face holonomies `diag(I3,-I2)`.
+The same walk changes a doublet endpoint's three-step return amplitude by
+`-1/6750`; the corresponding prepared-return probability changes by
+`-9353/91125000`. This is a specified input preparation and detector control,
+not a response asserted on every stationary ensemble. The internal charges
+`2,-3` are conserved under idle propagation. A link update can remove the
+flux pair, so recharting invariance alone does not establish defect lifetime.
+
+The separate [boundary-preserving repair](../../model/coherent_seam_repair/PROTECTION.md)
+gives a precise protected example: regional flux equals boundary flux, so
+interior flips cannot erase an odd regional defect. A reversible local move
+transports it through the five region faces and retains both move and hold
+records. This specified boundary constraint does not supply a mass. The joint
+program couples these link dynamics to a link-dependent wave step. The
+[finite premise crosswalk](../../model/coherent_seam_repair/PREMISES.md)
+keeps those physical requirements distinct from executed chart agreement.
+
+The [proof and result](../../model/coherent_seam_repair/PROOF.md#gauge-coupled-walk)
+distinguish walk phases, the reference modular generator and physical energy.
+Neither a static response coefficient nor a positive finite frequency gap is
+a particle mass. For a single negative edge on V vertices, the constant trial
+vector gives a signed-Laplacian eigenvalue upper bound `4/V`; a finite flux
+gap can vanish as volume grows. A physical mass claim needs a populated
+energy-momentum branch with controlled volume and clock scaling.
+
+The mass-response dependencies are: protected excitation and lifetime;
+dynamical gauge/matter coupling; a common spatial and momentum readout;
+dispersion or the relevant charged threshold/resonance; physical
+spin/statistics and species; controlled capacity/cutoff errors; and a fixed
+conversion to comparison units. The finite construction supplies no observed
+mass value. Calibration in the benchmark calculations below retains its
+ancestry and supplies no missing source dynamics.
+
+## Wilson and calibrated comparison responses
+
 The [labelled catalogue](../../model/particle_candidate_confirmation/CATALOGUE.md)
 groups eleven protected-object entries and sixteen source excitation IDs into
 families. Conserved charges, protected memory, spatial winding and kinetic

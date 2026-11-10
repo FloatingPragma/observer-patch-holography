@@ -28,6 +28,9 @@
 
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\U}{\mathrm{U}}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\diag}{\operatorname{diag}}
 
 \title{Particles from Native Overlap Transport:\\
 Common Currents, Defect Modes and a\\
@@ -440,6 +443,130 @@ quadratic. A positive logarithm expansion with an explicit tail bounds the
 distance for $-\log P$ below by $0.01984562$. The test retains every native state
 and permits arbitrary quadratic hoppings, on-site potentials and an energy
 offset. Arbitrary re-encodings lie outside it.
+
+\subsection{Reversible seam repair and an observable gauge flux}
+\label{sec:reversible-gauge-seam}
+
+A declared coherent repair couples a propagating amplitude to the internal
+$3+2$ response code on the same carrier \cite{coherentSeamRepair}. It changes
+the committed-record dynamics. Write
+$\ket\pm=(\ket{10}\pm\ket{01})/\sqrt2$ on a one-load seam and exchange
+$\ket-\ket{0}_{\rm mem}$ with $\ket+\ket{1}_{\rm mem}$, fixing the orthogonal
+states. The removed seam disagreement is retained in coherent memory.
+Reversible exchanges also implement
+$\ket{20}\ket0\leftrightarrow\ket{11}\ket2$ and
+$\ket{02}\ket0\leftrightarrow\ket{11}\ket3$ for double loads.
+These are unitary finite rules, not classical load averaging or a proof of
+fermionic exchange statistics.
+
+With sixty oriented seam addresses, the controlled local operation $Q$ and
+uniform-address embedding $A$ give the walk $W=Q(2AA^*-I)$.
+On the one-load source and its parity memory the discriminant is
+\[
+ A^*QA=\diag\!\left(I-\frac{L}{60},\,
+                              I-\frac{D+B}{60}\right),
+\]
+where $B$ is the carrier adjacency and $D$ its degree matrix. Consequently
+$A^*W^nA=T_n(A^*QA)$ and $\cos\omega=\lambda$ for each discriminant
+eigenvalue. The $1440$-dimensional program has an exact finite wave response
+in its own step clock. Its first population update agrees with native repair;
+its second single-port return is $643/900$, rather than the classical
+$101/120$. Its reference and apparatus therefore require their own source
+contract.
+
+For a five-component internal vector $h$ and unitary link $G_{ba}=G_{ab}^*$, use
+\[
+ m_{ab}h=\frac{\ket a h-\ket bG_{ba}h}{\sqrt2},\qquad
+ p_{ab}h=\frac{\ket a h+\ket bG_{ba}h}{\sqrt2}.
+\]
+The seam exchanges $m_{ab}h\ket0$ and $p_{ab}h\ket1$. Its orientation-reversed
+partner cancels the parity cross terms, giving magnetic and signless blocks
+$P_G=I-(D-B_G)/60$ and $I-(D+B_G)/60$. The $7200$-dimensional coupled walk
+conserves $Q_5=\diag(2I_3,-3I_2)$ for block-unitary links. This is an internal
+conserved charge; it does not establish relativistic spin, statistics or
+the physical identities of the three- and two-dimensional blocks.
+
+The link controller generates the binary cover of the actual sixty carrier
+rotations and retains its central sign in every executed overlap word.
+The central lift is $Z=\diag(I_3,-I_2)$, so the mixed code is not a projective
+representation of the sixty-element group itself. The gauge theorem's
+holonomy-cover premise permits this action. Finite cover-valued links are
+closed under recharting by that cover; arbitrary continuous frame changes
+require the corresponding transformed link domain. Complete internal response
+and full apparatus control are distinct interfaces whose quotient must be
+specified before applying the twelve-dimensional response theorem.
+
+A single link $Z$ with all other links identity produces two triangular
+Wilson loops with trace $1$, compared with $5$ in the flat source. Exact
+carrier enumeration gives
+\[
+ \Tr B_G^3-\Tr B_0^3=-48,\qquad
+ \Tr P_G^3-\Tr P_0^3=-\frac1{4500}.
+\]
+The embedded three-step return trace changes by $-1/1125$, and a prepared
+doublet endpoint return has a nonzero complete probability contrast. This
+is a gauge-invariant flux response of a propagating source amplitude.
+Changing that one link back removes both fluxes, so the specified operations
+do not protect them against arbitrary link repair. A finite spectral gap in
+this background is not a physical rest mass or a continuum mass-gap theorem.
+
+The same coupled walk prepares its reference through the complete instrument
+$K_+=(2I+W)/3$, $K_-=\sqrt2(I-W)/3$ on $I/7200$. Since $\Tr W=-6380$,
+the successful state is
+\[
+ \rho_W=\frac{(5/4)I+(W+W^*)/2}{2620}\ge\frac{I}{10480},
+ \qquad p_+=\frac{131}{810}.
+\]
+It commutes with $W$, and independent recorded restarts have failure
+probability $(679/810)^k$ after $k$ trials. This reference belongs to the
+reduced walk algebra; conditioning on preparation records changes it.
+For an implemented local cover frame $S$, the transformed links execute
+$W'=SWS^*$ and the filter prepares $\rho'=S\rho S^*$. The apparatus
+explicitly undoes the frame, reads its owned detector and restores the
+frame. Every finite adaptive branch consequently obeys $B'_h=SB_hS^*$,
+including preparation failures and detector complements; complete history
+laws agree with arbitrary untouched quantum references. A bare unchanged
+pointer can disagree: the exact source example gives $1/120$ instead of
+$1/60$. This finite chart agreement retains its declared apparatus domain.
+Its modular generator depends on $\cos\omega$ and is not the quasienergy
+clock. The reflection, coherent storage, code, links and preparation are
+declared architecture. Dynamical gauge fields, interacting many-particle
+records, a chiral field limit and measured masses are outside this finite
+construction.
+
+\paragraph{Joint defect and wave dynamics.}
+A finite coupled program retains ten link words with one regional flux,
+fixed boundary links and an exterior compensator \cite{coherentDefectWave}.
+An interior edge move $T_e$ flips its bit when exactly one adjacent face has
+flux and otherwise holds; it is an involution. With $\Pi_e$ the wave's
+endpoint projector, its fixed joint clock is
+\[
+ B=\bigoplus_g W_g,\qquad
+ C_e=I\otimes(I-\Pi_e)+T_e\otimes\Pi_e,\qquad
+ U=C_4C_3C_2C_1C_0B.
+\]
+This is unitary on $72000$ dimensions and preserves regional boundary flux
+and $Q_5$. The link register remains coherent during idle updates.
+Changing its initial defect position while holding one wave preparation
+fixed changes a complete one-tick wave-pointer probability from $1/120$
+to $0$. Holding the link input fixed and changing the prepared wave changes
+a face-position probability from $1$ to $0$. These reciprocal marginal
+responses distinguish interaction from propagation on an external
+background. A coherent preparation also gives two equal register Schmidt
+weights, without assigning a physical tensor factorization to a gauge
+system.
+
+The same U has trace $-47850$. Its complete heralded filter on $I/72000$
+prepares $\rho_U=[(5/4)I+(U+U^*)/2]/42150\ge I/168600$, with success
+probability $281/1080$ and all failure flags retained. A simultaneous
+interior vertex-star link flip and central matter-frame change defines
+$\Gamma^2=I$ with $[U,\Gamma]=0$. The $+1$ Gauss sector has dimension
+$36000$; its normalized faithful reference has denominator $21075$.
+The reciprocal one-tick readouts are gauge invariant and survive this
+constraint. The fixed boundary, controlled moves and preparation are
+declared architecture. This finite joint interaction supplies neither a
+continuous gauge-field action nor all matter occupations, relativistic
+dispersion, physical spin/statistics or rest masses.
 
 \subsection{The charged spectrum of the interacting cube}
 \label{sec:charged-spectrum}
@@ -3808,7 +3935,7 @@ criticality premise derived from the same source\\
 Neutral masses and mixing & A nonzero-gap mechanism and complete readout outside the excluded minimal and
 unshifted-phase branches\\
 Physical records & Matched preparation, instruments, clock and estimator, retaining all failure outcomes, with
-a complete error budget\\
+a complete error budget; the reversible seam construction supplies a finite gauge-flux response on its own declared source\\
 Capacity and refinement & A full-history equivalence or controlled limit for the physical source, beyond the
 four-address encoding\\
 Early-Universe distribution & The relevant state, finite-temperature dynamics, interactions and population
@@ -3907,6 +4034,18 @@ B.\ M\"uller et al.,
 \emph{Observer Patch Holography: formal proofs and executable receipts},
 2026.
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model}
+
+\bibitem{coherentSeamRepair}
+B.\ M\"uller et al.,
+\emph{Coherent seam repair: finite source, reference, gauge transport and
+complete records}. Executable construction and proof.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/coherent_seam_repair}
+
+\bibitem{coherentDefectWave}
+B.\ M\"uller et al.,
+\emph{Reversible coupling of a regional defect and a carrier wave}.
+Finite joint program, preparation and interior Gauss proof.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/coherent_defect_wave}
 
 \bibitem{ophobservers}
 B.\ M\"uller, M.\ Poneder, A.\ Osika, K.\ Xue, B.\ Cassie, P.\ Nguyen, and D.\ A.\ Friedman,

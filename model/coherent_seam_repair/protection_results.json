@@ -1,0 +1,432 @@
+{
+  "boundary_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      4,
+      11
+    ]
+  ],
+  "distinct_odd_region_syndromes": 16,
+  "face_count": 20,
+  "filled_sphere_first_homology_dimension": 0,
+  "finite_gap_bound": {
+    "actual_carrier_trial_quotient": "1/3",
+    "clock_condition": "fixed local spectral normalization during volume growth",
+    "single_negative_link": "lambda_min(L_signed) <= 4/N",
+    "uniform_infinite_volume_mass_lower_bound_supplied": false
+  },
+  "initial_flux_faces": [
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      1,
+      7
+    ]
+  ],
+  "initial_negative_edge": [
+    0,
+    1
+  ],
+  "input_sha256": {
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/coherent_seam_repair/protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38"
+  },
+  "interior_edges": [
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "involutory_transport_move_checks": 20,
+  "link_memory_bits": 30,
+  "mod2_face_boundary_rank": 19,
+  "mod2_vertex_boundary_rank": 11,
+  "protection": {
+    "arbitrary_link_updates_protect_initial_pair": false,
+    "coupled_static_wave_register_is_this_dynamic_link_program": false,
+    "fixed_boundary_odd_flux_cannot_reach_vacuum": true,
+    "vertex_recharting_preserves_all_face_fluxes": true
+  },
+  "reachable_interior_flip_states": 32,
+  "region_boundary_identity_checked_on_all_link_generators": true,
+  "region_faces": [
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      4,
+      5,
+      9
+    ],
+    [
+      4,
+      5,
+      11
+    ]
+  ],
+  "retained_no_operation_checks": 30,
+  "round_robin_execution": [
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 3,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": true,
+      "tick": 0
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": false,
+      "tick": 1
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": false,
+      "tick": 2
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": false,
+      "tick": 3
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 6,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": true,
+      "tick": 4
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 131074,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": false,
+      "tick": 5
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 131074,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": false,
+      "tick": 6
+    },
+    {
+      "after_face_syndrome": 65538,
+      "before_face_syndrome": 131074,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": true,
+      "tick": 7
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 65538,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": true,
+      "tick": 8
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 34,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": false,
+      "tick": 9
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 34,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": false,
+      "tick": 10
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 34,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": true,
+      "tick": 11
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": false,
+      "tick": 12
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": false,
+      "tick": 13
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": false,
+      "tick": 14
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 3,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": true,
+      "tick": 15
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": false,
+      "tick": 16
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": false,
+      "tick": 17
+    },
+    {
+      "after_face_syndrome": 6,
+      "before_face_syndrome": 6,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": false,
+      "tick": 18
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 6,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": true,
+      "tick": 19
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 131074,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": false,
+      "tick": 20
+    },
+    {
+      "after_face_syndrome": 131074,
+      "before_face_syndrome": 131074,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": false,
+      "tick": 21
+    },
+    {
+      "after_face_syndrome": 65538,
+      "before_face_syndrome": 131074,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": true,
+      "tick": 22
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 65538,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": true,
+      "tick": 23
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 34,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": false,
+      "tick": 24
+    },
+    {
+      "after_face_syndrome": 34,
+      "before_face_syndrome": 34,
+      "edge": [
+        0,
+        5
+      ],
+      "moved": false,
+      "tick": 25
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 34,
+      "edge": [
+        1,
+        5
+      ],
+      "moved": true,
+      "tick": 26
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        4,
+        5
+      ],
+      "moved": false,
+      "tick": 27
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        5,
+        9
+      ],
+      "moved": false,
+      "tick": 28
+    },
+    {
+      "after_face_syndrome": 3,
+      "before_face_syndrome": 3,
+      "edge": [
+        5,
+        11
+      ],
+      "moved": false,
+      "tick": 29
+    }
+  ],
+  "schema": "oph.coherent_seam_repair.boundary_flux.v1",
+  "scope": {
+    "dynamical_gauge_backreaction_with_coherent_walk": false,
+    "physical_particle_identification": false,
+    "rest_mass": false,
+    "source_selected_boundary_or_move_grammar": false
+  },
+  "single_defect_positions": 5,
+  "single_defect_transport_link_states": 10,
+  "source_domain": "declared finite classical central-link register and fixed-boundary move grammar",
+  "vertex_count": 12,
+  "whole_sphere_face_flux_parity": 0
+}

@@ -1,5 +1,23 @@
 # The runnable OPH model
 
+The [joint defect-wave program](coherent_defect_wave/PROOF.md) evolves a
+moving protected regional flux and a coherent wave under one reversible
+clock. Exact complete detectors show influence in both directions. The
+same program admits an interior Gauss constraint and a faithful stationary
+preparation. Its finite interaction uses explicit occupation-controlled
+repair gates; a spatial relativistic family and particle masses require
+further construction.
+
+The [coherent seam observer](coherent_seam_repair/README.md) repairs seam
+disagreement while keeping the removed information in coherent memory.
+A declared address reflection gives an executable finite wave, with its own
+stationary preparation and detector. A five-level gauge coupling preserves
+internal charge and makes loop holonomy change a measured return probability.
+The construction has no established physical particle masses or interacting
+relativistic limit. Its code and
+[proof](coherent_seam_repair/PROOF.md) distinguish the coherent law from the
+committed-record interpreter and the supplied Wilson field family.
+
 The [candidate identity tests](particle_candidate_confirmation/README.md) compare
 named particle hypotheses with conserved source charges, exact internal
 representations and complete detector records. They construct a charged

@@ -1,0 +1,35 @@
+name: Coherent seam repair
+
+on:
+  pull_request:
+    paths: ['model/**', 'Lean/Screen/**', 'evidence/**', '.github/workflows/coherent-seam-repair.yml']
+  push:
+    branches: [main]
+    paths: ['model/**', 'Lean/Screen/**', 'evidence/**', '.github/workflows/coherent-seam-repair.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - run: python -m model.coherent_seam_repair --check
+      - run: python -m model.coherent_seam_repair.agreement --check
+      - run: python -m model.coherent_seam_repair.protection --check
+      - run: python -m pytest -q -W error model/coherent_seam_repair
+      - run: python -m model.coherent_defect_wave --check
+      - run: python -m pytest -q -W error model/coherent_defect_wave

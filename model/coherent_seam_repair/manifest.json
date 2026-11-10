@@ -1,0 +1,40 @@
+{
+  "dependencies": [
+    "model/requirements.txt",
+    "source import closure pinned by each exact receipt"
+  ],
+  "files": {
+    "PREMISES.md": "0ba469ce232438f1059b2ffdd629abaf48ffc4cc7639a695dfdd813829774468",
+    "PROOF.md": "3b0e8c0ce174b488d22be89a247d1029cd02626dc8deeaf5029bd3f36fe5fbf7",
+    "PROTECTION.md": "50a2062aa42a472b6943733ecdcafd57d80bb6877ada7cca50afc292c02c5414",
+    "README.md": "23456a7403e3d0f7b02bfb34372f65694eb6db221276b28e5dba2d0c2d075129",
+    "__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+    "__main__.py": "fae61279d2498549f50b9728e98647f122494f5ee1659ce990b5f35da9f04a7e",
+    "agreement.py": "8a0af6fd095c41283768bb92f4427d1cdceee5233f8dc31adad67c95d4daf282",
+    "agreement_results.json": "0e99037c96df1b33153a687c448d3a45a3caa164ee13bb4ebbabcad5eefe9883",
+    "apparatus.py": "07188933d9138ac6345a9e2b6129282603a23aeb9bb6a4fd11926dc9b665f3a1",
+    "certificate.py": "d37d3008911d8f2513748061dc28d0027e35851d836b5105b6ffc4f10d5e59c5",
+    "coherence.py": "477f325167b22eda44eef6a22f46a246d02d8139150224e69942768a212e60f9",
+    "committed.py": "bed6f876b1f9a7f6b4c32346991693c9675a1a7c41eead8d0e234f1b3db28f0f",
+    "common.py": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+    "gauge_walk.py": "34f376b412ebb19233d3b34ba49872592168f0117c663b2fa25554cdc9562c79",
+    "holonomy.py": "6bff8fab622f6846ca9efed25f149b98f3c413ec37b52ff1998aa06c06080d41",
+    "program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+    "protection_results.json": "68ebcd98b2388c1ed3246dba2e7931347632e75e0307d64ae415171a34a6710f",
+    "results.json": "35cb6a4c07c39ffe24eec0412f0ba915350abbcf0ede9d37ba25d1db8b5e2a82",
+    "session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+    "test_agreement.py": "37cb0bf621dc98b6f9be91ff5051973f3e0af82338336aeef8e424012c241a37",
+    "test_artifacts.py": "fafcc9593fbc314cac9eec0fdc5754b22a4a6b8fa5fcc89d6f8a9be9fc835736",
+    "test_protection.py": "2692e64e602ada3cefaafe5634675a15202064416add8307d71ef2d0b4e208ff",
+    "test_repair.py": "f8a6827843f288269ddad9e7b2b611c1d25bd4d60af55766b0fac74629035045",
+    "walk.py": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127"
+  },
+  "reproduce": [
+    "python -m model.coherent_seam_repair --check",
+    "python -m model.coherent_seam_repair.agreement --check",
+    "python -m model.coherent_seam_repair.protection --check",
+    "python -m pytest -q -W error model/coherent_seam_repair"
+  ],
+  "schema": "oph.coherent_seam_repair.public_manifest.v1"
+}

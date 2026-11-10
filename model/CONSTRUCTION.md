@@ -7,6 +7,15 @@ One declared repair/memory process must supply the clocks, particle/energy
 interpretation and gravitational premises together; separate successful
 benchmarks do not discharge that joint requirement.
 
+The [finite joint defect-wave construction](coherent_defect_wave/PROOF.md)
+supplies one such connection on a specified one-defect/one-wave sector.
+The retained links control wave propagation, and local wave occupation
+controls reversible link moves in the same tick. Complete readouts certify
+both influences. A compatible [interior Gauss state](coherent_defect_wave/GAUSS.md)
+and [stationary preparation](coherent_defect_wave/PREPARATION.md) use that
+joint evolution. Spatial refinement, further occupations and physical
+mass/particle identification retain their own construction requirements.
+
 The spectral and precision continuation
 classifies the repair-active and repair-transparent chain spectra, proves
 literal source-reference errors with exact intervals, and supplies all
@@ -83,10 +92,24 @@ Mathematically, an instance is a tuple
  observer instruments and feedback maps, preparation domain, declared services).
 ```
 
-Each seam `e` carries an instrument whose outcomes `r` are committed records.
-An observer is a finite tape of such records together with a controller that
-chooses the next operation from the tape alone. Everything an observer can
-report is a probability computed from these maps.
+Each declared seam operation specifies its output register and whether that
+register is coherently retained or committed as a classical record. The
+committed C/E observer is a finite tape with a controller that chooses its
+next operation from that tape. The
+[coherent seam observer](coherent_seam_repair/README.md) instead keeps a
+reversible correction register between wave steps and uses explicit apparatus
+operations for recording. Those are different programs. Their complete output
+maps determine every reported probability, including preparation failures and
+resource stops.
+
+For the coherent program, the reduced walk reference is stationary under its
+specified unitary. A preparation archive can carry additional correlations;
+conditioning on it changes that reference. Autonomous repair/transport,
+preparation and optional destructive apparatus are separate operation classes
+within one declared source. Protection is tested under its stated idle or
+transport class, without treating every possible detector as unsolicited noise.
+Internal gauge-response completeness is also a separate contract from the
+full apparatus control algebra.
 
 The carrier, code, scheduler, preparations and observer apparatus are
 legitimate design choices. A component may be a primitive of this declared

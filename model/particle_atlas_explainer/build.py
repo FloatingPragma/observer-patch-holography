@@ -9,7 +9,7 @@ from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 import zlib
 
-from . import families, scenes_a, scenes_b
+from . import families, joint_panels, repair_panels, scenes_a, scenes_b
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
 
@@ -25,7 +25,7 @@ MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
-SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'build.py')
+SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'build.py')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -90,8 +90,16 @@ def load():
     from model.particle_candidate_confirmation.model import validate as validate_identity
     validate_identity(identity)
     data['identity_tests'] = identity
+    data['repair'] = repair_panels.load()
+    data['protection'] = repair_panels.load_protection()
+    data['agreement'] = repair_panels.load_agreement()
+    data['joint'] = joint_panels.load()
     data['inputs'] = {str(p.relative_to(ROOT)): sha(p)
                       for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)}
+    data['inputs'].update(repair_panels.input_pins(data['repair']))
+    data['inputs'].update(repair_panels.protection_pins(data['protection']))
+    data['inputs'].update(repair_panels.agreement_pins(data['agreement']))
+    data['inputs'].update(joint_panels.input_pins(data['joint']))
     return data
 
 
@@ -99,6 +107,8 @@ def render(data):
     c = Canvas()
     c.nodes = []
     y = scenes_a.hero(c, data)
+    y = repair_panels.draw(c, data, y + 70)
+    y = joint_panels.draw(c, data, y + 70)
     for step in (scenes_a.step1, scenes_a.step2, scenes_a.step3, scenes_a.step4,
                  scenes_b.step5, scenes_b.step67, scenes_b.step8, scenes_b.step9,
                  scenes_b.dictionary, scenes_b.roster, families.catalogue, scenes_b.evidence, families.responses,
@@ -135,7 +145,11 @@ def render(data):
             'Each step distinguishes computed records from the proof required to identify '
             'physical position, momentum and mass. A receipt-bound panel links the candidate '
             'map, isolated gauge transition, static loop fusion and executed contact control; '
-            'no source-derived GeV masses or identified physical species are asserted.')
+            'A receipt-bound coherent seam-repair panel connects its declared reversible '
+            'memory, stationary reference, apparatus and static gauge-flux response. '
+            'A separate joint construction couples movable boundary flux to the wave, '
+            'with reciprocal detectors, invariant interference readout and its own reference. '
+            'No source-derived GeV masses or identified physical species are asserted.')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{height}" '
             f'viewBox="0 0 {W} {height}" role="img" aria-labelledby="title desc">'
             f'<title id="title">{title}</title><desc id="desc">{desc}</desc>'
@@ -176,7 +190,13 @@ def build():
             'static_loop_fusion': 'same primary source, no moving collision',
             'executed_contact_echo': 'separate supplied contact action and preparation',
             'named_roster': 'measured comparison inputs and candidate assignments',
+            'coherent_seam_repair': 'declared reversible memory, same-walk reference and optional apparatus',
+            'coherent_static_flux': 'coupled finite gauge walk, conserved internal charge and return response',
+            'joint_defect_wave': 'fixed-boundary joint unitary, invariant reciprocal readouts and same-clock reference',
         },
+        'coherent_repair_scope': data['repair']['scope'],
+        'boundary_flux_scope': data['protection']['scope'],
+        'joint_defect_wave_scope': data['joint']['scope'],
         'dependency_status': {node['id']: node['status'] for node in data['nodes']},
         'layout': {'width': root.get('width'), 'height': root.get('height')},
         'svg_sha256': hashlib.sha256(svg.encode()).hexdigest(),

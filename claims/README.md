@@ -96,7 +96,7 @@ registry/check surface. That rule keeps the registry from becoming a stale snaps
 
 ## Finite model constructions
 
-Thirteen of the `emitted_artifact` rows register the runnable model and its
+The `emitted_artifact` rows below register runnable model constructions and their
 retained evidence. Their owners are the self-contained implementation documents under
 `model/`, with `owner_medium: protocol_record`; no paper theorem is promoted
 or changed by these executable records.
@@ -116,6 +116,15 @@ or changed by these executable records.
 | `OPH-MODEL-COUPLED-INTERACTION-RECOVERY` | [Coupled interaction reconstruction](../model/coupled_reconstruction/README.md), finite source identification under the declared action and clock |
 | `OPH-MODEL-ANHARMONIC-TRANSFER-COMPARISON` | [Anharmonic transfer](../model/anharmonic_transfer/README.md), retrospective changed-potential transfer on published records |
 | `OPH-MODEL-NATIVE-PROCESS-RECOVERY` | [Observer-relative recovery](../model/OBSERVER_RELATIVE_RECOVERY.md): overlapping-observer correspondences, local and active event clocks, record-law identification, federations and matched screens, the coherent screen observer, the native continuum operator, the sequential protocol, and the public Bell and optical replays, with their calibration and gluing limits |
+
+The native-observer row also covers the separately declared
+[coherent seam observer](../model/coherent_seam_repair/README.md): reversible
+correction memory, a finite wave, same-walk stationary preparation and a
+static gauge-response coupling. The [joint defect-wave program](../model/coherent_defect_wave/PROOF.md)
+adds reciprocal finite interaction, a preserved interior Gauss constraint and
+a compatible stationary preparation. Its complete records and clock differ
+from the committed C/E source. These finite variants establish no physical
+particle identification or continuum limit.
 
 The detector consumes PR-17 and PR-37. Its separate physical same-quantity
 and Thomson readback attachments are undischarged PR-38 and PR-39. These rows

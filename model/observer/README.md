@@ -1,5 +1,20 @@
 # Runnable finite observers
 
+The [joint defect-wave observer](../coherent_defect_wave/README.md),
+`coherent-defect-wave-v1`, couples moving boundary-protected flux to a coherent
+wave. It executes reciprocal interaction, an interior gauge constraint and
+same-clock preparation. Run `python -m model.coherent_defect_wave --check`.
+This finite construction has no assigned physical particle masses.
+
+The [coherent seam observer](../coherent_seam_repair/README.md) is the named
+program `coherent-seam-repair-v1`. It retains removed seam disagreement in
+coherent memory, executes a finite wave recurrence and prepares a stationary
+reference with that same walk. Optional complete detectors read a static
+gauge-loop signal. Run `python -m model.observer.coherent_repair --check`.
+Its coherent address reflection and encoded fibre are declared architecture;
+the finite results do not identify physical particles or their masses. The
+committed observer below has its own unchanged event and record contract.
+
 This directory implements a bounded observation–record–feedback process from
 OPH's native local repair. The same declared process writes an observation,
 retains its classical record, uses that record to choose the next interaction,

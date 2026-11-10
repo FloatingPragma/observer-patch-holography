@@ -1,5 +1,100 @@
 # Field response and particle identification from observer records
 
+## Joint finite defect and wave dynamics
+
+The [joint construction](../../model/coherent_defect_wave/PROOF.md) couples
+the moving boundary-flux register to the coherent wave in one autonomous
+unitary. Its 72000-dimensional invariant sector combines ten link words with
+the 7200-dimensional wave register. These dimensions count register states,
+not particle species. Every tick applies link-dependent wave propagation
+followed by five reversible, occupation-controlled interior link moves.
+There is no externally updated background between ticks.
+
+The interaction has reciprocal complete readouts. Two link preparations give
+wave detector probabilities `1/120` and `0`; two wave preparations give defect
+face-position probabilities `1` and `0`. Removing the corresponding coupling
+gate removes each contrast. Odd boundary flux and the internal charge are
+preserved. The [interior Gauss constraint](../../model/coherent_defect_wave/GAUSS.md)
+is invariant under the same evolution and supports those readout contrasts
+in a 36000-dimensional constrained sector.
+
+The [same-clock reference preparation](../../model/coherent_defect_wave/PREPARATION.md)
+is a complete filter of this joint unitary. Its faithful stationary ambient
+reference has eigenvalues at least `1/168600` and success probability
+`281/1080` from a fresh maximally mixed input. The constrained reference
+has its own normalization and eigenvalue bound `1/84300`. All failure
+outcomes are retained.
+
+This supplies the finite coupling of the specified defect and wave registers.
+A spatial/refinement family, additional matter occupations, physical
+spin/statistics, relativistic dispersion and mass readout require further
+construction. The coherent address reflection and occupation-controlled
+repair rule are declared architecture; the finite interaction does not
+establish a local interacting 3+1-dimensional field limit.
+
+## Coherent seam repair and its observation domain
+
+The [coherent seam observer](../../model/coherent_seam_repair/README.md) is an
+explicit executable architecture. A seam correction exchanges
+`|->|0_record>` and `|+>|1_record>`, where
+`|+/->=(|10>+/-|01>)/sqrt(2)`. Removed disagreement enters coherent memory.
+Committing that memory after each event defines a different, dissipative law.
+Exchange antisymmetry of these amplitudes does not establish fermionic statistics.
+
+The seam operation and a reflection of its address register give a
+1440-dimensional unitary `W=Q(2AA*-I)`. Its blank-memory discriminant is the
+exact native one-load kernel `I-L/60`; compressed amplitudes obey a finite wave
+recurrence. The clock counts W steps. Its two-step return probabilities differ
+from the committed repair-attempt chain.
+
+The same W implements a complete preparation with
+`K_success=(2I+W)/3` and `K_failure=sqrt(2)(I-W)/3`. Its success state on the
+walk-register algebra, from the maximally mixed input, is
+`rho_W=[(5/4)I+(W+W*)/2]/524`, faithful and stationary.
+Success probability is `131/810`; k independent restarts have failure
+probability `(679/810)^k`. Failures are retained. Conditioning on a preparation
+archive changes the reference. Its modular generator is a function of
+`W+W*`, rather than the walk's quasienergy generator.
+
+Optional register projectors and declared quarter-turn probes give complete
+complex tomography on this finite space. Apparatus interventions are separated
+from idle propagation. Their tomographic linear span does not implement every
+positive operator-valued measurement.
+
+The [encoded transport coupling](../../model/coherent_seam_repair/PROOF.md#gauge-coupled-walk)
+attaches a declared five-level fibre to the moving source. The resulting
+7200-dimensional walk preserves `Q5=diag(2,2,2,-3,-3)` and has its own reference
+`[(5/4)I+(W_G+W_G*)/2]/2620`, with the same preparation success probability.
+A central binary-cover link produces two nontrivial triangular holonomies
+and changes an actual three-step return amplitude. This is a finite gauge
+background, propagation and observable response in one source and clock.
+The background has no autonomous gauge-field evolution or backreaction.
+Its flux is invariant under recharting and removable by a link change.
+
+The [finite agreement theorem](../../model/coherent_seam_repair/PREMISES.md)
+proves equality of complete adaptive record laws under implemented chart
+changes, with the preparation, links and apparatus transformed together.
+Preparation failures and untouched quantum references are included. It also
+lists the exact A1, A2, A3 and operational Born interfaces that require further
+witnesses; a coherent execution alone does not supply every finite premise.
+
+A separate [boundary-flux construction](../../model/coherent_seam_repair/PROTECTION.md)
+stores thirty central link bits. Its interior repair moves a face defect while
+preserving the region's odd flux when its boundary is fixed. The defect reaches
+all five faces of the region. A permitted boundary flip can erase the original
+pair. This component proves protection under a specified move grammar. Its
+coupling to the wave is the joint construction above; physical particle
+identification requires the remaining spatial, dynamical and readout interfaces.
+
+The [checked result](../../model/coherent_seam_repair/results.json) supplies
+a finite kinematic coupling. A controlled spatial family, protected excitation
+dynamics, operational energy/momentum, physical spin/statistics and the
+detector dictionary are requirements for a particle identification. No
+interacting 3+1-dimensional limit or physical rest mass follows from the
+finite carrier. The dependency map below applies separately to each program.
+
+## Particle candidates on the Wilson and comparison sources
+
 The [labelled catalogue](../../model/particle_candidate_confirmation/CATALOGUE.md)
 groups eleven protected-object entries and sixteen source excitation IDs into
 families. Conserved charges, protected memory, spatial winding and kinetic

@@ -1,0 +1,28 @@
+{
+  "dependencies": [
+    "model/requirements.txt",
+    "source import closure pinned by each exact receipt"
+  ],
+  "files": {
+    "GAUSS.md": "97c48329d8cf56e654410ae07e3743e611d99220717450bc867feb31b8536e74",
+    "PREPARATION.md": "6fac9f3faebeb8f226d57307ffe1d1bc367a3a2f3a55143788a884eb39dc0d63",
+    "PROOF.md": "746f9dc53a69ebdb9cadf1b358cd649abd061b3580732302280d063321ad171a",
+    "README.md": "9b71e39ca365fe82db02d5b65ec5960a999e5950c1e46a189141333d30cd77c5",
+    "__init__.py": "15a75539d1ccf3de058e5c5a23a0cb9d656dca7ad9fcc25b4d6c46ab64afbf54",
+    "__main__.py": "b1e31a30fb05f8f1c3c24ad2d6cbdbf36045e9a09aef82ffab140f2f5dfc2e81",
+    "certificate.py": "f5ccb2f0492f4e96132c7666d6b46bf92d1d8df963229fa61354d50d89cd6faa",
+    "gauss.py": "7df4e1550518a999586f1722eff4db26e15f960b75e793c7143c8400d59694b6",
+    "model.py": "51531e26722d3b09ce525ce22d5677de4a17a48f0ea4492908dee9a72e053f4d",
+    "preparation.py": "0f52461b009a337addfa1f794a9a3eb5bdaebff575c00431ad764ec01b4bbea1",
+    "results.json": "70211a10c4864f4f717a20278430214cff3507aa6bfb89a124b4a2e7733dc54d",
+    "test_artifacts.py": "755dab2a275290fa38c12f6833111f372db62fe49e9e45b9c52546c1060fb178",
+    "test_gauss.py": "ffaf4cd4d007b9723b5477afbb3d8cf1c565bf1dcba7f905662f8289b34fb395",
+    "test_model.py": "f26b50a51e9f31b5b73e0a18401df2e596d4813650bf39f24205ac9801ed2d1c",
+    "test_preparation.py": "ecaff97be3606a09130bde5fdb849a489e45ee15869b0512bca936192d0a0963"
+  },
+  "reproduce": [
+    "python -m model.coherent_defect_wave --check",
+    "python -m pytest -q -W error model/coherent_defect_wave"
+  ],
+  "schema": "oph.coherent_defect_wave.public_manifest.v1"
+}

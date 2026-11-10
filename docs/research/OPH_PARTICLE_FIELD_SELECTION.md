@@ -1,5 +1,70 @@
 # Particle response and field-action selection
 
+## Specified joint source and interaction
+
+The [joint program](../../model/coherent_defect_wave/PROOF.md) selects one
+explicit interaction rule: a wave step controlled by the retained link
+register, followed by five link moves controlled by local wave occupation.
+It is reversible, preserves the fixed-boundary flux and internal charge,
+and produces reciprocal detector contrasts. Its source-defined conditional
+gates use no particle-data calibration. This is an architectural choice,
+not a proof that the previous committed interpreter executes the same law.
+
+The [interior Gauss sector](../../model/coherent_defect_wave/GAUSS.md) and
+[same-unitary preparation](../../model/coherent_defect_wave/PREPARATION.md)
+provide a compatible constrained state and clock. The remaining field-selection
+requirements concern a spatial/refinement family, the complete response and
+overlap domain of A1–A2, the A3 optimizer construction, additional matter
+sectors and physical particle observables. One central gauge constraint
+does not select the complete Standard Model gauge and matter dynamics.
+
+## Source choice for coherent seam transport
+
+The [coherent repair construction](../../model/coherent_seam_repair/PROOF.md)
+defines its memory, address reflection, state preparation and walk clock as
+architecture. No uniqueness theorem is required for those choices. They also
+do not inherit the complete record law of the committed C/E interpreter or
+the action of the separately declared Wilson field family.
+
+The gauge coupling uses a declared five-level `3+2` fibre. The actual carrier
+rotations generate 120 binary-cover lifts, including the central element
+`diag(I3,-I2)`. Closed encoded words retain that central sign. The finite A2
+holonomy bridge permits a covering group; it does not require a homomorphic
+section from the sixty carrier rotations into projective five-dimensional
+unitaries. The local code/controller supplies explicit transport witnesses.
+Growing-federation overlap acceptance and refinement require their own maps.
+
+The [executed chart-agreement proof](../../model/coherent_seam_repair/PREMISES.md)
+transports the state, links and apparatus using the same compiled frame words.
+It proves equality of all finite adaptive histories in that grammar, including
+failure outcomes and untouched references. Comparing an unchanged pointer
+after changing its frame is a different experiment: the exact countercontrol
+gives probability `1/120` in place of `1/60`. The crosswalk distinguishes this
+finite agreement from complete A1 response, growing A2 overlap/refinement and
+the A3 information-projection state-selection requirements.
+
+The coupled seam walk propagates this fibre through fixed link values and
+conserves `diag(2,2,2,-3,-3)`. A central link has a measured return-response
+effect. The representation and coefficient choices are part of the program;
+this is not a derived fifteen-state fermion family, three generations, physical
+chirality or a dynamical gauge theory. Gauge transformation of a background
+and physical evolution of that background are distinct operations.
+
+The complete apparatus can have more controls than the twelve-dimensional
+internal response. Applying the finite gauge theorem requires identifying
+the precise quotient-visible port-response domain and proving its
+completeness. Omitting visible generators to obtain dimension twelve is
+invalid. Tomography on a charge-superselected algebra is tested on its blocks,
+without assuming inaccessible cross-charge coherences are physical probes.
+
+The [checked program](../../model/coherent_seam_repair/results.json) therefore
+fixes a finite wave/gauge-response construction with explicit physical
+boundaries. The candidate assignments below retain the source domains of
+their owning proofs. Their physical identification is not transferred to
+this construction by matching an internal representation.
+
+## Wilson-family and comparison-field candidates
+
 The [labelled catalogue](../../model/particle_candidate_confirmation/CATALOGUE.md)
 groups eleven protected-object entries and sixteen source excitation IDs into
 families. Conserved charges, protected memory, spatial winding and kinetic
