@@ -330,6 +330,10 @@ jobs:
       OMP_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch the authenticated historical test inputs
+        run: |
+          git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git 0194fc685be3f7ba5f732681713c9cfd04e5290f
+          git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git c7b09261853f5a3c5a67e21294c3d9511ed59fc7
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
