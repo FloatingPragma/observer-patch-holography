@@ -70,6 +70,15 @@ ground, including the position measurement's backaction and all failures.
 These are finite source energies and motion; a relativistic species and
 an independent GeV scale require their physical comparison.
 
+On the unchanged native cube, [refined charged-energy windows](native_charge_resolution/PROOF.md)
+retain positive original probe weight in a source-energy interval more than
+364 times narrower than the coarse bin. The
+[quantum Higgs/elementary join](native_higgs_spectral_join/PROOF.md)
+proves a positive common-energy response of an elementary charged probe and
+its Higgs–lepton composite, with a complete interference experiment.
+Neither calculation substitutes a classical scalar background or selects
+an observed mass by fitting it.
+
 A separate [free Dirac construction](native_block_dirac/PROOF.md) uses
 the actual odd native states in a complete fermionic occupation code.
 Its declared square-root kinetic law, spinor filters and programmable
