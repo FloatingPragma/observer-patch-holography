@@ -408,6 +408,110 @@ reference occupations, not fifteen detected particles. The reference is
 specified by its ground projector; this result supplies no arbitrary-input
 preparation protocol or many-cell vacuum.
 
+### A controlled interacting reference and its collective modes
+
+The [complete atomic lattice bound](../../model/coherent_defect_wave/chiral_joint/atomic_reference_control/PROOF.md)
+includes charged local matter compensated by every allowed quantum-link
+sector. On all `5*2^30` unconstrained local states, the actual Hamiltonian
+is greater than `-11.71`. Exact positivity checks cover all 1686 decisive
+weight blocks. At unit link penalty, a nonblank link can lower the energy
+of at most its two endpoint cells. The resulting full physical atomic gap
+is greater than `0.0411705884953`, uniformly in the finite volume. The atomic
+ground space is the tensor product of local doublets, of rank `2^V`.
+
+The same full hopping operator has norm at most 360 on the eight-cell
+member and zero first-order compression onto that ground space. Its
+complete charged-state resolvent gives a second-order spin interaction
+with the [exact coefficient](../../model/coherent_defect_wave/chiral_joint/charged_ground_exchange/PROOF.md)
+`J in [41579260299095/281474976710656,5197407537387/35184372088832]`,
+about `0.147719206819003`. Complete charged response polynomials have
+degrees nine and seventeen. Separate quark and lepton spin conservation
+makes the quark contribution to this spin coefficient zero at every
+virtual time; its scalar-energy contribution is retained. No charged
+intermediate state or native family is discarded.
+An [exact sublattice-parity argument](../../model/coherent_defect_wave/chiral_joint/atomic_even_remainder/PROOF.md)
+bounds the difference between the canonical same-H generator and its
+second-order expression by `25*(abs(lambda)*360)^4/g^3`, where g is the
+atomic gap bound. The side-four source contains same-sublattice paths;
+this improved error bound is specific to side two.
+
+The [complete spin geometry](../../model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/PROOF.md)
+uses an exact local spin-coordinate rotation to obtain
+`K2=-24*A+2*J*H_cube`. All 256 cube states are retained. Its unique singlet
+ground has energy about `-4.82008937437` in H_cube units; its first
+triplet is at exactly `-4`. Combining the full spectrum with the quartic
+remainder proves a unique **full physical interacting ground** for the
+declared family `H_lambda=H0+lambda*T`, throughout
+`0<lambda<=2^-29`. At the reported coefficient `lambda=2^-29`, the
+ground gap lies in the outward source-unit interval
+`[6.95741157484e-19,9.85455023443e-19]`. This is a rigorous
+error-and-coefficient enclosure, not a measured mass estimate.
+
+The actual source translation is retained under the spin-coordinate
+rotation. The interacting ground has zero momentum. Its first isolated
+cluster has one mode at each of `(pi,0,0)`, `(0,pi,0)` and `(0,0,pi)`;
+actual cubic symmetry makes their energies equal. These are collective
+even-parity source excitations. The rotated atomic-spin labels do not
+establish Lorentz spin, and the three momenta do not identify three
+generations. Their lowest gap is not a zero-momentum rest mass.
+
+Small hopping is a declared architecture choice; its uniqueness and
+equivalence to unit hopping are not required. Physical identification
+requires propagation, detector records and a controlled refinement on
+that chosen family. The ground theorem does not transfer to unit hopping,
+and the finite gap does not prove a continuum mass gap. A formal complete
+ground filter on the maximally mixed full carrier has success `1/D` and
+failure `1-1/D`, with `D=(5*2^30)^8*119^24`; an efficient native implementation
+and its full histogram are not supplied.
+
+The [complete interacting spin detector](../../model/coherent_defect_wave/chiral_joint/collective_spin_response/PROOF.md)
+uses this same source and its actual stationary ground at `lambda=2^-34`.
+The full spin current `O_a=sum_x (-1)^x_a S_x,a` has norm 60. Its physical
+pump retains a four-state scalar/vector reference, which compensates each
+source momentum. The exact finite dilation includes pump failure. Full
+operator and state bounds give a first-line probability in
+`[0.00204894419,0.00211090162]` and an outside-line probability in
+`[0.00001386725,0.00001938783]`, conditioned on ground preparation.
+The excitation energy is in `[8.20758426381,8.21034719056]e-22` source units.
+Initial failure `1-1/D`, pump failure, and line/outside for each of three
+axes form eight positive coarse records. Their exact probability sum is
+one. The energy and momentum filters are declared finite spectral services;
+the result proves a visible collective line, including a positive spectral
+complement, without an empirical particle or rest-mass assignment.
+
+The [centre/current catalogue](../../model/particle_catalogue_correspondence/PROOF.md)
+recomputes the six classes of the 32-state exterior register and the actual
+fifteen-state internal current representation. Class labels retain colour
+triality and weak centre parity. They lose integer hypercharge, electric
+charge, full non-Abelian representation and physical fermion parity. In
+particular, the colour singlet and octet share the same centre, and an even
+two-quark channel can have the same gauge representation as an odd `d^c`
+field. These exact witnesses constrain transfers from a defect register to
+the full interacting source without invalidating its internal candidates.
+
+### Complete detector records on the physical local ground
+
+The [actual scalar–lepton composite instrument](../../model/coherent_defect_wave/chiral_joint/ground_composite_response/PROOF.md)
+acts on the full physical local ground density. Four spin/addition/removal
+settings retain all 26 target states in each charge sector. Exact projector
+moments give nine positive energy weights per setting, including the
+lowest physical local gap. The joint first-line probability is about
+`0.0177861244421` per setting. The complete law has 44 records, including
+failures and zero-weight complementary outcomes. Its parity-preserving
+apparatus retains its fermionic reference; no successful branch is
+renormalized.
+
+The [scalar and total-Yukawa instrument](../../model/coherent_defect_wave/chiral_joint/ground_scalar_response/PROOF.md)
+uses the full source identities `N^2=N`, `{N,Y}=Y` and `Y^2=H^2-H`.
+From the ground energy E0, the only inelastic scalar frequency is
+`1-2*E0`, about `23.4611705884953` source units. Its raw retarded residue
+is about `0.249545806772616`. The actual current obeys
+`(i[H,N])^2=Y^2`. All 22 instrument records are retained: six have positive
+weight and sixteen are exactly zero. Elastic records and both full-carrier
+failure operators are included. These are local stationary responses;
+their transfer to the interacting many-cell reference requires an explicit
+operator-and-state comparison.
+
 | Field role | Exact finite attachment | Required physical identification |
 | --- | --- | --- |
 | Charged leptons | Native L and e^c currents; quantum Higgs composite; certified periodic charged spectral line | Propagating relativistic charged sector, generations, mass thresholds and decay laws |

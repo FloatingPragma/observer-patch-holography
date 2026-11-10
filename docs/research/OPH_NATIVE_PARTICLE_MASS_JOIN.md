@@ -139,14 +139,19 @@ connect elementary and composite operators to the same charged line,
 retain neutral creation/removal and scalar/loop records, and use the actual
 quantum scalar. These reduced lepton results have their own Hamiltonian.
 
-The [full-family local reference and Peter–Weyl source](OPH_FIELD_RECONSTRUCTION.md#spatial-symmetries-neutral-motion-and-the-full-family-cell)
-provide two complementary results. Exact collective algebra proves the
-global zero-boundary-charge local ground is a spin-one-half doublet near
-`-11.23058529425`, with physical gap `0.08955533047607` and mean native
-occupation fifteen. Full Peter–Weyl coordinate transitions permit neutral
-motion and matter-generated contractible loops without an added neutral
-hopping or magnetic term. Their finite records do not transfer the local
-ground to the full hopping Hamiltonian or assign measured particle masses.
+The [full-family local reference and finite interacting ground](OPH_FIELD_RECONSTRUCTION.md#a-controlled-interacting-reference-and-its-collective-modes)
+belong to a common full quantum-link construction. Exact all-sector bounds
+give the local physical doublet, and a charged pair resolvent fixes the
+exchange coefficient near `0.147719206819003`. At declared hopping
+`lambda=2^-29`, a full complementary-space bound proves a unique physical
+eight-cell ground and gap in `[6.95741157484,9.85455023443]e-19` source units.
+At `lambda=2^-34`, a complete reference-compensated spin instrument resolves
+the first three-momentum collective line and a positive outside complement.
+Preparation failure and pump failure are retained. These are finite
+interacting energy records; their nonzero momenta do not define a rest mass.
+The [centre/current comparison](../../model/particle_catalogue_correspondence/PROOF.md)
+also distinguishes defect classes, full gauge representations and physical
+fermion parity before assigning a named species.
 
 ### Finite comparison clocks
 

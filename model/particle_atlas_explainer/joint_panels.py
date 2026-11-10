@@ -24,7 +24,11 @@ EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'chiral_joint/neutral_composite', 'chiral_joint/periodic_boson_records',
               'chiral_joint/peter_weyl_links', 'chiral_joint/family_transport',
               'chiral_joint/local_reference', 'chiral_joint/matter_induced_ring',
-              'chiral_joint/matter_induced_plaquette', 'chiral_joint/finite_clock')
+              'chiral_joint/matter_induced_plaquette', 'chiral_joint/finite_clock',
+              'chiral_joint/atomic_reference_control', 'chiral_joint/atomic_even_remainder',
+              'chiral_joint/charged_ground_exchange', 'chiral_joint/atomic_spin_geometry',
+              'chiral_joint/atomic_momentum_response', 'chiral_joint/ground_composite_response',
+              'chiral_joint/ground_scalar_response', 'chiral_joint/collective_spin_response')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -211,9 +215,31 @@ def load():
     check_neutral_detectors(value['extensions']['chiral_joint/neutral_composite'],
                             value['extensions']['chiral_joint/periodic_boson_records'])
     check_PW_transport(value['extensions'])
+    check_interacting_reference(value['extensions'])
     check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
 
+
+
+def check_interacting_reference(extensions):
+    ground=extensions['chiral_joint/atomic_spin_geometry']['full_interacting_transfer']
+    records=extensions['chiral_joint/collective_spin_response']['same_source_interacting_records']
+    line=records['actual_interacting_energy_line']
+    if (not ground['unique_full_physical_interacting_ground_proved']
+            or not ground['all_full_Fock_scalar_link_and_physical_Gauss_sectors_retained']
+            or ground['unit_hopping_ground_statement_transferred']
+            or ground['lowest_gap_is_a_zero_momentum_particle_rest_mass']
+            or ground['named_species_or_GeV_masses']
+            or ground['thermodynamic_or_relativistic_limit']
+            or Fraction(ground['full_physical_ground_gap_interval_at_reported_coefficient'][0])<=0):
+        raise ValueError('interacting ground domain or full complement changed')
+    if (line['exact_full_source_cluster_rank']!=3
+            or line['source_momenta_in_pi_units']!=[[1,0,0],[0,1,0],[0,0,1]]
+            or not line['complete_outside_line_weight_strictly_positive']
+            or Fraction(line['first_line_probability_conditioned_on_ground_preparation'][0])<=0
+            or Fraction(line['outside_line_probability_conditioned_on_ground_preparation'][0])<=0
+            or not line['ideal_finite_spectral_service_is_declared']):
+        raise ValueError('complete collective line or declared apparatus changed')
 
 
 def check_PW_transport(extensions):
@@ -742,7 +768,7 @@ def draw(c, data, y):
         'is not a claim of fifteen particles. The empty-register cyclic ground cannot be the universal vacuum; '
         'the lower reference energy is not a negative particle mass.',19,SOFT,1.4)
     c.para(X0+28,y+360,CW-56,
-        'The many-cell reference must also include link-compensated local charges and the actual hopping.',18,MUTED,1.35)
+        'The controlled many-cell construction below includes link-compensated charges and actual hopping.',18,MUTED,1.35)
     c.link(X0+28,y+h-15,'Complete local ground, dark states, gap and occupations',
            '../../model/coherent_defect_wave/chiral_joint/local_reference/PROOF.md',16)
     y+=h+22
@@ -772,6 +798,36 @@ def draw(c, data, y):
            '../../model/coherent_defect_wave/chiral_joint/matter_induced_plaquette/PROOF.md',16)
     c.link(X0+830,y+h-18,'Finite unitary clock and its error',
            '../../model/coherent_defect_wave/chiral_joint/finite_clock/PROOF.md',16)
+    y+=h+22
+    h=535
+    card(c,X0,y,CW,h,stroke=TEAL)
+    c.text(X0+28,y+43,'A finite interacting ground has a visible collective excitation',28,TEXT,700)
+    c.para(X0+28,y+84,CW-56,
+        'Eight cells retain every matter occupation, scalar state and quantum link. '
+        'At a declared weak hopping strength, exact local bounds and a complete charged-state '
+        'resolvent prove a unique physical ground. The first excited cluster has three cubic momenta. '
+        'Its finite gap is computed with a bound for every complementary state.',19,SOFT,1.4)
+    stages=[('PREPARE','Ground filter','success 1/D'),('INTERVENE','Spin pump','all failures retained'),
+            ('RESOLVE','Three X momenta','line and complement')]
+    w=(CW-100)/3
+    for i,(label,title,detail) in enumerate(stages):
+        x=X0+32+i*(w+18)
+        c.text(x,y+210,label,15,TEAL,700)
+        c.text(x,y+243,title,23,TEXT,700)
+        c.text(x,y+273,detail,18,SOFT)
+        if i<2:c.text(x+w-12,y+243,'→',25,TEAL,700)
+    c.text(X0+28,y+323,'Detected line: [8.20758, 8.21035] × 10⁻²² source energy units',25,TEAL,700,maxw=CW-56)
+    c.para(X0+28,y+360,CW-56,
+        'At hopping 2⁻³⁴, the line probability is 0.00204894–0.00211091 after successful ground '
+        'preparation. A positive outside-line response is also bounded. Three reference axes, '
+        'pump failure and preparation failure make a complete probability law.',19,SOFT,1.4)
+    c.para(X0+28,y+447,CW-56,
+        'This is an interacting collective energy record at nonzero momentum. '
+        'A rest mass, measured species and GeV conversion require their own physical identification.',18,MUTED,1.35)
+    c.link(X0+28,y+h-18,'Full interacting ground and momentum proof',
+           '../../model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/PROOF.md',16)
+    c.link(X0+730,y+h-18,'Complete source, apparatus and detector records',
+           '../../model/coherent_defect_wave/chiral_joint/collective_spin_response/PROOF.md',16)
     y+=h+35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

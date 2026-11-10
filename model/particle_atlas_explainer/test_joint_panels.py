@@ -235,3 +235,23 @@ def test_full_quantum_transport_and_local_ground_cannot_drop_their_domains(joint
         altered[package][path[0]][path[1]]=value
         with pytest.raises(ValueError):
             joint_panels.check_PW_transport(altered)
+
+
+def test_interacting_line_cannot_drop_complement_or_change_mass_domain(joint):
+    import copy
+    cases=[('chiral_joint/atomic_spin_geometry','full_interacting_transfer',
+            'unit_hopping_ground_statement_transferred',True),
+           ('chiral_joint/atomic_spin_geometry','full_interacting_transfer',
+            'lowest_gap_is_a_zero_momentum_particle_rest_mass',True),
+           ('chiral_joint/atomic_spin_geometry','full_interacting_transfer',
+            'all_full_Fock_scalar_link_and_physical_Gauss_sectors_retained',False)]
+    for package,section,key,value in cases:
+        changed=copy.deepcopy(joint['extensions'])
+        changed[package][section][key]=value
+        with pytest.raises(ValueError):
+            joint_panels.check_interacting_reference(changed)
+    changed=copy.deepcopy(joint['extensions'])
+    line=changed['chiral_joint/collective_spin_response']['same_source_interacting_records']['actual_interacting_energy_line']
+    line['outside_line_probability_conditioned_on_ground_preparation']=['0','0']
+    with pytest.raises(ValueError):
+        joint_panels.check_interacting_reference(changed)
