@@ -79,12 +79,28 @@ its Higgs–lepton composite, with a complete interference experiment.
 Neither calculation substitutes a classical scalar background or selects
 an observed mass by fitting it.
 
+The [finite charged centroid](native_charge_centroid/PROOF.md) uses the
+actual physical preparation without an extra ground projection. It bounds
+the complete twenty-bit detector's conditional source-energy mean by
+`[0.6916566792649156, 0.6916566826118845]`, retaining preparation failures,
+the charged reference and the explicit neutral-energy baseline error.
+Admission to the narrow bin remains a declared spectral service. The mean
+does not identify a single pole or a GeV mass.
+
+The [weak-current interface](native_weak_current_interface/PROOF.md)
+preserves the full canonical field/current map on the quantum source.
+An exact constant-scalar replacement fails at its five-state cap; the
+proved nilpotency bound does not forbid controlled collective limits.
+A gauge-invariant dressed weak-current operator has full norm two and
+a complete two-outcome measurement. Its field interpretation requires
+the actual source correlators and propagation.
+
 A separate [free Dirac construction](native_block_dirac/PROOF.md) uses
 the actual odd native states in a complete fermionic occupation code.
 Its declared square-root kinetic law, spinor filters and programmable
 apparatus give a controlled free spin-one-half record limit with a
-source-selected rest frequency. The same native ground and clock support
-complete particle/antiparticle detector records. This construction has
+source-selected rest frequency. The product native ground and this declared
+kinetic Hamiltonian support complete particle/antiparticle detector records. This construction has
 full-range couplers; it does not inherit the charged field's interaction
 or identify a Standard Model lepton.
 
