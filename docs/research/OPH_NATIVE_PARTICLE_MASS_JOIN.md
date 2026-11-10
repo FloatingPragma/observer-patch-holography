@@ -1,5 +1,28 @@
 # Native particles, currents and mass operators
 
+The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
+separate source-channel confirmation from physical particle identification.
+A coherent seven-state counter distinguishes the six signed neutral-composite
+interventions and failure through the conserved increment of
+`S=N_-4+N_2+N_6`; it does not measure a particle name or absolute initial charge.
+A local Higgs-conjugate scalar composite gives a charged-singlet dressing with
+the same native occupation increment as a charged singlet hole. Its existence
+permits a correlation channel. A complete nine-record compensated comparison
+has original plus/minus contrast at least `2 sqrt(2) c/3`, with `rho>=c P_G`.
+This proves a shared finite source transition without locating its energy,
+supplying a Higgs-phase response or calculating a rest mass. The proved
+overlap can include elastic response; its frequency is unresolved.
+A separate full-occupation residual estimate transfers the original bare
+clock event to the dressed menu: its unconditioned reported pair-transfer
+probability is greater than `1/40` in `[77/8,271/8]` source units at member
+zero. The 96 success rows and failure keep the opposite charge and flux.
+This broad energy-window result supplies neither a rest-frame energy nor
+a uniform capacity bound.
+The six gauge-sector cube multiplets have complete loop readouts with the
+original rare-sector probability retained. Their symmetry selection rules
+identify which detector can excite a channel; physical mass requires the
+energy-momentum and population criteria below.
+
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)

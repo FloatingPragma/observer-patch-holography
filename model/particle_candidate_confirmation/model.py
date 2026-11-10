@@ -1,0 +1,297 @@
+"""A compact consumer of independently calculated candidate identity tests."""
+from functools import lru_cache
+import hashlib
+import json
+from pathlib import Path
+
+from model.particle_common_contract import contract
+
+ROOT = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).parent
+INPUTS = {
+    'dictionary': 'model/standard_model_source_map/candidates/correspondence.json',
+    'charged': 'model/particle_candidate_charged/results.json',
+    'composites': 'model/particle_candidate_composites/results.json',
+    'bosons': 'model/particle_candidate_bosons/results.json',
+}
+SCHEMAS = {
+    'dictionary': 'oph.particle_candidate_correspondence.v1',
+    'charged': 'oph.particle_candidate_charged_certificate.v1',
+    'composites': 'oph.particle_candidate_composites_certificate.v1',
+    'bosons': 'oph.particle_candidate_bosons_certificate.v1',
+}
+SOURCE_INPUTS = tuple('model/particle_candidate_confirmation/' + name for name in
+                     ('__init__.py', '__main__.py', 'model.py', 'test_model.py',
+                      'PROOF.md', 'README.md'))
+SOURCE_TESTS = {
+    'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.',
+    'up_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
+    'down_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
+    'active_neutrinos': 'The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.',
+    'photon': 'Finite polar and axial loop channels couple; the isolated A1u line is dark to vector probes. The physical field dictionary and masslessness are unproved.',
+    'gluon': 'Eight native color directions exist; an undressed local adjoint current has zero physical Gauss compression.',
+    'W_plus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
+    'W_minus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
+    'Z': 'A neutral source-vector channel couples; its weak/hypercharge mixture and physical Z attachment are unproved.',
+    'Higgs': 'An even scalar loop channel couples and a separate Higgs-conjugate composite exists; a common vacuum and radial-Higgs response are unproved.',
+}
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def validate_result_digests(value):
+    if isinstance(value, dict):
+        if 'result_sha256' in value and isinstance(value.get('result'), dict):
+            if contract.digest(value['result']) != value['result_sha256']:
+                raise ValueError('candidate consequence digest differs')
+        for child in value.values():
+            validate_result_digests(child)
+    elif isinstance(value, list):
+        for child in value:
+            validate_result_digests(child)
+
+
+def read_inputs():
+    values, pins, cache = {}, {}, {}
+    for role, name in INPUTS.items():
+        path = ROOT / name
+        value = json.loads(path.read_text())
+        if value.get('schema') != SCHEMAS[role]:
+            raise ValueError('candidate producer schema differs: ' + role)
+        ancestry = value.get('source_sha256')
+        if not ancestry:
+            raise ValueError('missing candidate producer custody: ' + name)
+        for relative, expected in ancestry.items():
+            source = (ROOT / relative).resolve()
+            if not source.is_relative_to(ROOT) or not source.is_file():
+                raise ValueError('invalid candidate producer path: ' + relative)
+            if relative not in cache:
+                cache[relative] = sha(source)
+            actual = cache[relative]
+            if actual != expected:
+                raise ValueError('stale candidate producer: ' + relative)
+            if relative in pins and pins[relative] != expected:
+                raise ValueError('conflicting candidate producer: ' + relative)
+            pins[relative] = expected
+        validate_result_digests(value)
+        if role != 'dictionary':
+            validate_primary_binding(value)
+        else:
+            from model.standard_model_source_map.candidates.model import validate as validate_dictionary
+            validate_dictionary(value)
+        values[role] = value
+        pins[name] = sha(path)
+    return values, pins
+
+
+@lru_cache(maxsize=1)
+def expected_bindings():
+    members = [contract.member(n) for n in (0, 1, 2, 8)]
+    return {m['member_id']: {'member_id': m['member_id'], **m['ids']} for m in members}
+
+
+def validate_primary_binding(value):
+    expected_by_id = expected_bindings()
+    bounds = value.get('members', [value.get('selected_member_bound')])
+    observed = []
+    for bound in bounds:
+        result = bound['result']
+        expected = expected_by_id.get(result.get('member_id'))
+        if expected is None or any(result.get(key) != item for key, item in expected.items()):
+            raise ValueError('candidate calculation changed source, state, reference or clock')
+        if any(result.get(key) for key in ('physical_particle_map', 'physical_mass_table_GeV',
+                                           'physical_species_confirmed', 'mass_predictions_GeV')):
+            raise ValueError('candidate calculation requires physical interpretation review')
+        observed.append(result['member_id'])
+    if next(iter(expected_by_id)) not in observed or len(observed) != len(set(observed)):
+        raise ValueError('candidate calculation lacks a distinct member-zero binding')
+
+
+def target_family(name):
+    if name in ('electron', 'muon', 'tau'):
+        return 'charged_leptons'
+    if name in ('up', 'charm', 'top'):
+        return 'up_type_quarks'
+    if name in ('down', 'strange', 'bottom'):
+        return 'down_type_quarks'
+    if name.endswith('_neutrino'):
+        return 'active_neutrinos'
+    return name
+
+
+def supporting_receipts(name):
+    if target_family(name) == 'active_neutrinos':
+        return [INPUTS['composites']]
+    if name == 'Higgs':
+        return [INPUTS['charged']]
+    return []
+
+
+def calculated_summary(values):
+    charged = next(b['result'] for b in values['charged']['members']
+                   if b['result']['member_id'] == next(iter(expected_bindings())))
+    composites = values['composites']['selected_member_bound']['result']
+    bosons = values['bosons']['selected_member_bound']['result']
+    return {
+        'charged': {
+            'local_coefficient_commutant_dimension': charged['native_coefficient_control']['gauge_and_each_Wilson_coefficient_commutant_dimension'],
+            'one_sharp_H_dagger_for_all_bare_Yukawas': charged['native_number_Ward_control']['one_sharp_native_number_H_dagger_for_all_three'],
+            'scalar_and_dressed_operator': charged['scalar_and_dressed_odd_control'],
+            'original_coherent_bare_dressed_join': charged['original_coherent_bare_dressed_join'],
+            'original_compensated_dressed_energy_window': charged['original_compensated_dressed_energy_window'],
+        },
+        'composites': {
+            'native_counter_coefficients': composites['complete_detector']['S_native_coefficients'],
+            'cyclic_radix': composites['complete_detector']['cyclic_radix'],
+            'signed_family_increments': {r['family'] + ('+' if r['sign'] > 0 else '-'): r['S_increment']
+                                         for r in composites['candidate_rows']},
+            'multiple_excitation_alias': composites['actual_multiple_excitation_alias'],
+        },
+        'bosons': {
+            'multiplet_dimensions': bosons['actual_loop_symmetry']['multiplet_dimensions'],
+            'complete_menu': bosons['actual_complete_loop_menu'],
+            'full_source_spectral_bounds': bosons['full_source_interacting_multiplet_bounds'],
+            'original_row_weight': bosons['each_row_original_reported_weight_strict_lower_factored'],
+            'forbidden_record_categories': bosons['forbidden_original_record_categories'],
+        },
+    }
+
+
+def build():
+    values, pins = read_inputs()
+    dictionary = values['dictionary']
+    if dictionary['physical_particle_map'] or dictionary['mass_predictions_GeV']:
+        raise ValueError('candidate input requires a physical interpretation review')
+    rows = []
+    for target in dictionary['target_rows']:
+        name = target['target']
+        role = 'charged' if target['source_component_ids'][0] in {
+            'charged_lepton_left', 'neutrino_left', 'up_left', 'down_left'} else 'bosons'
+        rows.append({
+            'target': name,
+            'family': target_family(name),
+            'source_component_ids': target['source_component_ids'],
+            'actual_primary_excitation_ids': target['actual_primary_excitation_ids'],
+            'test_receipt': INPUTS[role],
+            'supporting_receipts': supporting_receipts(name),
+            'source_test_summary': SOURCE_TESTS[target_family(name)],
+            'scope': 'source representation, conserved-charge and detector selection tests',
+            'physical_identity_status': 'unresolved',
+            'source_flavor_index': None,
+            'source_derived_mass_GeV': None,
+        })
+    result = {
+        'schema': 'oph.particle_candidate_confirmation.v1',
+        'target_rows': rows,
+        'source_excitation_ids': [r['id'] for r in dictionary['source_excitation_rows']],
+        'protected_catalogue_ids': [r['id'] for r in dictionary['protected_catalogue_rows']],
+        'evidence': {role: {'path': path, 'sha256': sha(ROOT / path),
+                            'schema': values[role]['schema']}
+                     for role, path in INPUTS.items()},
+        'calculated_source_results': calculated_summary(values),
+        'physical_particle_map': [],
+        'mass_predictions_GeV': [],
+        'fit_parameters_used': [],
+        'physical_gate_promotions': [],
+        'source_sha256': {**pins, **{p: sha(ROOT / p) for p in SOURCE_INPUTS}},
+    }
+    result['content_sha256'] = content_digest(result)
+    validate(result, authenticated=(values, pins))
+    return result
+
+
+def content_digest(value):
+    return contract.digest({k: v for k, v in value.items() if k not in ('source_sha256', 'content_sha256')})
+
+
+def validate(value, *, authenticated=None):
+    targets = value['target_rows']
+    names = [row['target'] for row in targets]
+    expected = {'electron', 'muon', 'tau', 'up', 'charm', 'top', 'down', 'strange',
+                'bottom', 'electron_neutrino', 'muon_neutrino', 'tau_neutrino',
+                'photon', 'gluon', 'W_plus', 'W_minus', 'Z', 'Higgs'}
+    if len(names) != 18 or set(names) != expected:
+        raise ValueError('candidate identity coverage differs')
+    if any(value[key] for key in ('physical_particle_map', 'mass_predictions_GeV',
+                                  'fit_parameters_used', 'physical_gate_promotions')):
+        raise ValueError('source identity tests do not certify physical particles')
+    original = json.loads((ROOT / INPUTS['dictionary']).read_text())
+    originals = {r['target']: r for r in original['target_rows']}
+    for row in targets:
+        if (row['physical_identity_status'] != 'unresolved'
+                or row['source_flavor_index'] is not None
+                or row['source_derived_mass_GeV'] is not None):
+            raise ValueError('candidate identity promoted beyond the calculated tests')
+        expected_family = target_family(row['target'])
+        expected_role = 'charged' if expected_family in (
+            'charged_leptons', 'up_type_quarks', 'down_type_quarks', 'active_neutrinos') else 'bosons'
+        if row['family'] != expected_family or row['test_receipt'] != INPUTS[expected_role]:
+            raise ValueError('candidate identity test has the wrong source owner')
+        source = originals[row['target']]
+        if any(row[key] != source[key] for key in ('source_component_ids', 'actual_primary_excitation_ids')):
+            raise ValueError('candidate source assignments differ from the original dictionary')
+        if row.get('supporting_receipts') != supporting_receipts(row['target']):
+            raise ValueError('candidate supporting evidence differs')
+        if row['source_test_summary'] != SOURCE_TESTS[row['family']]:
+            raise ValueError('candidate identity summary differs from its tested domain')
+    if len(set(value['source_excitation_ids'])) != 16 or len(set(value['protected_catalogue_ids'])) != 11:
+        raise ValueError('candidate source IDs were lost or conflated')
+    if value.get('content_sha256') != content_digest(value):
+        raise ValueError('candidate identity result content differs')
+    values, pins = read_inputs() if authenticated is None else authenticated
+    dictionary = values['dictionary']
+    expected_evidence = {role: {'path': path, 'sha256': sha(ROOT / path),
+                                 'schema': values[role]['schema']}
+                         for role, path in INPUTS.items()}
+    expected_pins = {**pins, **{p: sha(ROOT / p) for p in SOURCE_INPUTS}}
+    if (value['calculated_source_results'] != calculated_summary(values)
+            or value['evidence'] != expected_evidence
+            or value['source_sha256'] != expected_pins
+            or value['source_excitation_ids'] != [r['id'] for r in dictionary['source_excitation_rows']]
+            or value['protected_catalogue_ids'] != [r['id'] for r in dictionary['protected_catalogue_rows']]):
+        raise ValueError('candidate identity result differs from authenticated producers')
+
+
+def render(value):
+    facts = value['calculated_source_results']
+    join = facts['charged']['original_coherent_bare_dressed_join']
+    window = facts['charged']['original_compensated_dressed_energy_window']
+    lines = ['# Candidate identity tests', '',
+             'These tests distinguish source excitations and constrain their physical',
+             'interpretations. No named particle or GeV mass is certified by this table.', '',
+             'The source calculations give:', '',
+             '- A complete ' + str(join['complete_probe_outcomes']) + '-record compensated '
+             'bare/dressed interference experiment, with positive original contrast '
+             '`' + join['positive_original_contrast_multiplier_of_density_floor'] + ' * c`. '
+             'The transition frequency is unresolved and can include elastic response.',
+             '- A separate complete dressed menu has original reported weight greater than `'
+             + window['original_dressed_recorded_simple_strict_lower'] + '` in the source pair-transfer '
+             'interval `[' + ', '.join(window['reported_transfer_interval']) + ']`. '
+             'The compensating endpoint and flux are retained; this is not a single-particle rest mass.',
+             '- A local coefficient commutant of dimension ' + str(facts['charged']['local_coefficient_commutant_dimension'])
+             + ', with no extra onsite three-generation factor.',
+             '- A coherent ' + str(facts['composites']['cyclic_radix']) + '-state increment counter '
+             'for the six signed composite interventions plus failure, with an explicit multiple-excitation alias.',
+             '- Six interacting gauge multiplets: ' + ', '.join('`' + label + '`' for label in facts['bosons']['multiplet_dimensions'])
+             + '. Their complete source menu retains the original rare-sector probability.', '',
+             '| Target | Shared source test | Calculated discriminator | Physical identity |',
+             '| --- | --- | --- | --- |']
+    for row in value['target_rows']:
+        owner = row['test_receipt'].split('/')[1]
+        support = ''.join(' + [support](../' + p.split('/')[1] + '/PROOF.md)'
+                          for p in row['supporting_receipts'])
+        lines.append('| ' + row['target'] + ' | [' + row['family'] + '](../' + owner
+                     + '/PROOF.md)' + support + ' | ' + row['source_test_summary']
+                     + ' | Unresolved |')
+    lines += ['', 'The neutral composite families have a separate '
+              '[conserved-charge identity test](../particle_candidate_composites/PROOF.md). '
+              'They are not inserted into the elementary-particle target rows.', '',
+              'A physical confirmation needs the same source current and spin dictionary, '
+              'a populated propagating sector with controlled dispersion, and matching '
+              'interaction records. Generation names require a source flavor discriminator. '
+              'A unit conversion supplies none of these tests.', '',
+              '[Calculated source tests and their domains](README.md); '
+              '[candidate map](../standard_model_source_map/candidates/CANDIDATES.md).', '']
+    return '\n'.join(lines)

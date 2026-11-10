@@ -251,6 +251,9 @@ def render_candidate_wings(c,data):
     from fractions import Fraction as F
     from .drawing import INK, MUTED, TEAL, ORANGE, BLUE, RED, LINE
     value=data['candidate_correspondence'];targets={r['target']:r for r in value['target_rows']}
+    window=data['candidate_identity_tests']['calculated_source_results']['charged']['original_compensated_dressed_energy_window']
+    dressed_weight=window['original_dressed_recorded_simple_strict_lower']
+    dressed_lo,dressed_hi=window['reported_transfer_interval']
     left=360;right=38360;y=30400;w=9120
     c.items.append('<g id="candidate-particle-map">')
     for x,title,subtitle in (
@@ -260,11 +263,11 @@ def render_candidate_wings(c,data):
         c.para(x+120,y+220,w-240,title,132,INK,700,max_y=y+480)
         c.para(x+120,y+650,w-240,subtitle,74,TEAL,700,max_y=y+890)
     c.para(left+140,y+1080,w-280,
-        'Gold names are physical comparison targets. Green source facts are exact in their declared domain. Orange arrows are hypotheses: a matching charge or finite spin label does not yet identify a relativistic particle. No fitted GeV mass is added here.',
+        'Gold names are physical comparison targets. Green source facts are exact in their declared domain. Orange arrows are hypotheses: a matching charge or finite spin label does not identify a relativistic particle. No fitted GeV mass is added here.',
         76,INK,max_y=y+1590)
     groups=(
         (('electron','muon','tau'),'Electron • muon • tau',
-         'Exact lepton-doublet and conjugate-singlet weights. Actual Q6=+6 regional G1 factor: charged-lepton-singlet-type lead. The other endpoint stays outside.',
+         'Exact lepton-doublet and conjugate-singlet weights. A source Higgs-conjugate scalar composite gives a dressed charged singlet. The charged regional G1 factor retains its outside compensator. Flavor and mass are unproved.',
          'charged_lepton_left + charged_lepton_right_conjugate'),
         (('electron_neutrino','muon_neutrino','tau_neutrino'),'Electron • muon • tau neutrinos',
          'Exact neutral member of the native lepton doublet. Flavor labels are not mass eigenstates. No neutrino mass or Dirac/Majorana choice follows.',
@@ -273,10 +276,10 @@ def render_candidate_wings(c,data):
          'The color-triplet weak-doublet and conjugate weak-singlet weights fit one up-type family pattern. Three names do not supply three source flavors.',
          'up_left + up_right_conjugate'),
         (('down','strange','bottom'),'Down • strange • bottom quarks',
-         'The native color triplet and conjugate component weights fit one down-type family pattern. Propagating chiral quark fields remain to be attached.',
+         'The native color triplet and conjugate component weights fit one down-type family pattern. Their propagating chiral quark-field dictionary is unproved.',
          'down_left + down_right_conjugate'),
         (('photon',),'Photon',
-         'Q=T3+Y is the candidate unbroken direction under a neutral Higgs vacuum. A massless transverse field and its measured propagation require proof.',
+         'Q=T3+Y is the candidate unbroken direction under a neutral Higgs vacuum. Actual polar and axial loop channels have nonzero source transitions. Their transverse photon interpretation and masslessness require proof.',
          'Q=T3+Y'),
         (('gluon',),'Gluons',
          'Eight color-current directions have the adjoint pattern. This does not turn eight rows or a neutral Wilson loop into eight observed free particles.',
@@ -288,7 +291,7 @@ def render_candidate_wings(c,data):
          'The neutral weak/hypercharge span supports a Z-type hypothesis. Its mixing angle, massive field and detector identity are separate calculations.',
          'span(T3,Y)'),
         (('Higgs',),'Higgs boson',
-         'The declared doublet has a candidate radial scalar direction. Its vacuum, interactions and physical scalar mass are not fixed by naming it.',
+         'A same-source fermion composite has Higgs-conjugate doublet charges and scalar source spin. An A1g gauge-loop scalar also couples. Their common vacuum, radial Higgs response and mass require proof.',
          'declared_Higgs_doublet_radial_direction'),
     )
     for i,(ids,title,body,source) in enumerate(groups):
@@ -324,8 +327,8 @@ def render_candidate_wings(c,data):
            'model/standard_model_source_map/candidates/CANDIDATES.md',72)
     c.link(left+170,y+16100,'Machine-readable map and exact rational energy comparisons',
            'model/standard_model_source_map/candidates/correspondence.json',66)
-    c.link(left+170,y+16300,'Protected-defect catalogue with original source domains',
-           'model/protected_defect_catalog/CATALOG.md',66)
+    c.link(left+170,y+16300,'Candidate-by-candidate tests: source facts and physical requirements',
+           'model/particle_candidate_confirmation/RESULTS.md',66)
 
     # Regional spinor: draw both endpoints so the compensator cannot disappear.
     top=y+1050
@@ -343,20 +346,23 @@ def render_candidate_wings(c,data):
     c.text(right+2100,top+1270,'REGION • odd G1',84,TEAL,700,anchor='middle')
     c.text(right+6950,top+1270,'OUTSIDE • compensator',78,BLUE,700,anchor='middle')
     c.para(right+160,top+1750,w-320,
-        'Coherent counters attach Q6 and source-spin increments to original energy records. The full apparatus is neutral and even, with A1/T1 pair coefficients. A single endpoint is a charged-lepton-singlet-type candidate; the pair is not automatically a photon. Its transfer energy includes the link and cannot be divided by two to obtain a lepton mass. Terminal one-particle occupation is not guaranteed.',
+        'Coherent counters attach Q6 and source-spin increments to original energy records. The full apparatus is neutral and even, with A1/T1 pair coefficients. A single endpoint is a charged-lepton-singlet-type candidate; the pair is not automatically a photon. Its transfer energy includes the link and cannot be divided by two to obtain a lepton mass. '
+        f'A scalar-dressed pair also has original probability >{dressed_weight} in [{dressed_lo},{dressed_hi}] source-energy units on the same clock. All {window["complete_success_outcomes"]} success records and failure are retained. Terminal one-particle occupation is not guaranteed.',
         82,INK,max_y=top+2420)
     c.link(right+160,top+2690,'Actual charged regional source, spin and complete energy records',
            'model/particle_primary_regional_fermion/PROOF.md',68)
+    c.link(right+160,top+2860,'Source scalar dressing and the original positive pair-energy window',
+           'model/particle_candidate_charged/PROOF.md',66)
     top=y+4100
     c.text(right+160,top+150,'NEUTRAL COMPOSITE HYPOTHESES',94,INK,700)
     c.para(right+160,top+420,w-320,
-        'LL eᶜ: neutral gauge-singlet odd trion. A neutral-lepton-composite or sterile-like analogy is plausible; a direct unbroken weak-current map to an active neutrino fails. A different dressed current dictionary needs proof.',
+        'LL eᶜ: neutral gauge-singlet odd trion. Its source counter increment is +1, with −1 for its conjugate. A neutral-lepton-composite analogy is plausible; a direct unbroken weak-current map to an active neutrino fails.',
         82,TEAL,max_y=top+940)
     c.para(right+160,top+1170,w-320,
-        'uᶜ(dᶜ)²: neutral color-singlet odd trion. It suggests an antineutron-type composite channel; the opposite increment is neutron-type. This is a family analogy, with baryon number, physical spin and named identity unproved. It is not an elementary color-triplet quark.',
+        'uᶜ(dᶜ)²: neutral color-singlet odd trion with source counter increment +3; its conjugate has −3. The even composite gives ±2. The counter reads S=N₋₄+N₂+N₆: three native occupation counts, not electric charge. It separates six interventions and failure; multiple excitations can alias. Physical spin and named identities are unproved.',
         82,TEAL,max_y=top+1810)
-    c.link(right+160,top+2080,'Exact gauge kernels, G1/H multiplets and graded exchange',
-           'model/particle_primary_composite_spin/PROOF.md',68)
+    c.link(right+160,top+2080,'Exact conserved-charge counter, gauge currents and selection rules',
+           'model/particle_candidate_composites/PROOF.md',68)
     top=y+6500
     c.rect(right+120,top,w-240,2500,'#fbefeb',RED,30)
     c.text(right+280,top+190,'A DIRECT LEPTON-RATIO GUESS FAILS',94,RED,700)

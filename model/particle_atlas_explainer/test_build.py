@@ -49,17 +49,27 @@ def test_dependency_strip_follows_the_register(data):
 
 
 def test_evidence_panel_uses_receipts_and_keeps_domains_separate(data):
+    def visible_text(value):
+        return ' '.join(' '.join(ET.fromstring(value).itertext()).split())
+
     svg = build.render(data)
-    text = ' '.join(''.join(ET.fromstring(svg).itertext()).split())
+    text = visible_text(svg)
     assert '22,531 native pulses' in text
     assert 'Source-derived GeV mass table: empty' in text
     assert 'rare empty-matter sector' in text
     assert 'separate supplied contact action' in text
     assert 'Static fusion is not a moving collision' in text
     assert '18 named targets; no identified species' in text
+    assert 'Six source identities; seven records' in text
+    assert 'A dressed charged energy channel' in text
+    assert 'pair-energy transfers in [77/8, 271/8] source units' in text
+    assert 'probability above 1/40' in text
+    assert len(data['identity_tests']['target_rows']) == 18
     changed = deepcopy(data)
     changed['candidates']['collision_status']['separate_contact_extension']['native_pulses'] = 12345
     assert '12,345 native pulses' in build.render(changed)
+    changed['identity_tests']['calculated_source_results']['charged']['original_compensated_dressed_energy_window']['original_dressed_recorded_simple_strict_lower'] = '1/41'
+    assert 'probability above 1/41' in visible_text(build.render(changed))
     assert 'Repair treats every seam alike, so momentum is conserved' not in text
     assert 'that standing cost is the defect’s rest energy' not in text
 

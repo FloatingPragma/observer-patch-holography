@@ -530,6 +530,9 @@ def evidence(c, data, y):
     contact = collision['separate_contact_extension']
     spectrum = gauge['interacting_source_spectrum']
     ratio = candidates['finite_sector_ratio_control']['result']
+    dressed = data['identity_tests']['calculated_source_results']['charged']['original_compensated_dressed_energy_window']
+    dressed_probability = dressed['original_dressed_recorded_simple_strict_lower']
+    dressed_interval = '[' + ', '.join(dressed['reported_transfer_interval']) + ']'
     c.caps(X0, y + 10, 'Evidence behind the picture', TEAL, 14)
     c.text(X0, y + 60, 'Which links are computed?', 40, TEXT, 700, ls=-0.4)
     yb = c.para(X0, y + 100, 1320,
@@ -559,11 +562,12 @@ def evidence(c, data, y):
         ('An isolated source transition', TEAL,
          f'{float(low):.6f} < energy gap < {float(high):.6f}',
          'This exact interacting gauge line uses source energy units. Its certified record '
-         'comes from a rare empty-matter sector, rather than the ambient source ground. Static adjacent '
-         f'loops reach a {adjacent} energy cluster; separated opposite loops reach 124 to 128.',
+         'comes from a rare empty-matter sector. A complete loop menu couples to six scalar, '
+         'vector and diagonal-tensor cube multiplets. Even scalar and vector probes cannot '
+         'create the isolated odd-scalar line from an even-scalar input.',
          'Full-complement bounds control these intervals. Static fusion is not a moving collision.',
-         'Read the isolated-line and fusion proofs',
-         '../../model/particle_primary_loop_fusion/README.md'),
+         'Read the six-multiplet detector proof',
+         '../../model/particle_candidate_bosons/PROOF.md'),
         ('An interaction experiment was executed', TEAL,
          f'{pulse_count:,} native pulses; all outcomes retained',
          f'A four-mode contact echo gives pointer probability {signal_text}; the free control '
@@ -582,7 +586,27 @@ def evidence(c, data, y):
          'Required: physical-vacuum channels, a momentum/energy law, controlled capacity errors '
          'and one declared energy unit. Unit conversion alone cannot change mass ratios.',
          'Read the finite ratio exclusion',
-         '../../model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md'))
+         '../../model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md'),
+        ('Testing the charged family', AMBER,
+         'A dressed charged energy channel',
+         'Pairing source components gives a scalar with Higgs-conjugate weights. Its '
+         'dressed charged channel overlaps the bare-hole channel. A complete detector '
+         f'records pair-energy transfers in {dressed_interval} source units with original '
+         f'probability above {dressed_probability}.',
+         'The compensating endpoint is retained. A Higgs phase, physical flavor and '
+         'single-particle rest mass require their own identification.',
+         'Inspect the charged-family calculation',
+         '../../model/particle_candidate_charged/PROOF.md'),
+        ('Testing neutral composites', TEAL,
+         'Six source identities; seven records',
+         'A conserved occupation counter records the change caused by an intervention. '
+         'Its values distinguish the three composite families and their conjugates, plus '
+         'failure. It cancels the unknown initial value and preserves the original energy '
+         'and reference histories.',
+         'These are source identities. Neutrino or neutron names need physical currents '
+         'and propagation. Multiple excitations can alias outside this menu.',
+         'Inspect all candidate identity tests',
+         '../../model/particle_candidate_confirmation/RESULTS.md'))
     for i, (title, col, headline, body, scope, label, href) in enumerate(cards):
         x, yy = X0 + (i % 2) * (w + gap), yb + (i // 2) * (h + gap)
         card(c, x, yy, w, h)
@@ -592,7 +616,7 @@ def evidence(c, data, y):
         end = c.para(x + 28, yy + 110, w - 56, body, 17, SOFT, 1.42)
         c.para(x + 28, end + 10, w - 56, scope, 15, MUTED, 1.42)
         c.link(x + 28, yy + h - 25, label, href, 15)
-    return yb + 2 * h + gap
+    return yb + 3 * h + 2 * gap
 
 
 # ---------------------------------------------------------------- standing
@@ -663,6 +687,7 @@ LINKS = (('Book, chapter 6: the leftover', '../../book/07-chapter-06.md'),
          ('Position and crystal-momentum records', '../../model/particle_joint_translation_readout/README.md'),
          ('One source, state, reference and clock', '../../model/particle_common_contract/README.md'),
          ('Candidate map and collision evidence', '../../model/standard_model_source_map/candidates/CANDIDATES.md'),
+         ('Candidate-by-candidate identity tests', '../../model/particle_candidate_confirmation/RESULTS.md'),
          ('Isolated gauge transition', '../../model/particle_primary_reduced_sector/PROOF.md'),
          ('Source charge and spin records', '../../model/particle_primary_regional_fermion/PROOF.md'),
          ('Equal work need not preserve finite energy', '../../model/particle_primary_equal_work_control/PROOF.md'),

@@ -18,6 +18,7 @@ V1 = ROOT/'model/particle_candidate_atlas/audit.json'
 OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
 DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
 CANDIDATES = ROOT/'model/standard_model_source_map/candidates/correspondence.json'
+IDENTITY_TESTS = ROOT/'model/particle_candidate_confirmation/results.json'
 PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_field_algebra', 'particle_filtered_probe',
     'particle_primary_stress', 'particle_positive_window',
@@ -127,6 +128,13 @@ def load():
     data['primary_response_receipt_records'],response_paths=scientific_receipt_records()
     data['candidate_correspondence']=json.loads(CANDIDATES.read_text())
     candidate=data['candidate_correspondence']
+    data['candidate_identity_tests']=json.loads(IDENTITY_TESTS.read_text())
+    from model.particle_candidate_confirmation.model import read_inputs as identity_inputs
+    data['_candidate_identity_authenticated']=identity_inputs()
+    for path,expected in data['candidate_identity_tests']['source_sha256'].items():
+        resolved=(ROOT/path).resolve()
+        if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
+            raise ValueError('stale candidate identity input: '+path)
     from model.standard_model_source_map.candidates.model import validate as validate_candidates
     validate_candidates(candidate)
     for path,expected in candidate['source_sha256'].items():
@@ -153,6 +161,9 @@ def load():
     paths.update(PRIMARY_PROOFS)
     paths.update(response_paths)
     paths.update(candidate['source_sha256'])
+    paths.update(data['candidate_identity_tests']['source_sha256'])
+    paths.update((str(IDENTITY_TESTS.relative_to(ROOT)),
+                  'model/particle_candidate_confirmation/RESULTS.md'))
     paths.update((str(CANDIDATES.relative_to(ROOT)),
                   'model/standard_model_source_map/candidates/CANDIDATES.md'))
     for node in data['joint_dependencies']['nodes']:
@@ -179,6 +190,23 @@ def validate_content(data):
     expected={r['target'] for r in data['v1']['candidate_rows']}
     if len(ids)!=18 or len(set(ids))!=18 or set(ids)!=expected:
         raise ValueError('complete elementary target coverage failed')
+    from model.particle_candidate_confirmation.model import validate as validate_identity
+    identity=data['candidate_identity_tests']
+    validate_identity(identity,authenticated=data.get('_candidate_identity_authenticated'))
+    comparison={r['target']:r for r in data['candidate_correspondence']['target_rows']}
+    if {r['target'] for r in identity['target_rows']}!=expected:
+        raise ValueError('candidate identity tests lost an elementary target')
+    for row in identity['target_rows']:
+        target=comparison[row['target']]
+        if any(row[key]!=target[key] for key in ('source_component_ids','actual_primary_excitation_ids')):
+            raise ValueError('candidate identity tests changed the comparison source assignment')
+    window=identity['calculated_source_results']['charged']['original_compensated_dressed_energy_window']
+    if (not window['same_original_source_state_reference_clock']
+            or window['energy_window_is_a_single_endpoint_or_rest_mass']
+            or window['physical_charged_lepton_identified']
+            or window['complete_probe_outcomes']!=window['complete_success_outcomes']+1
+            or window['additional_clock_loss_subtracted']!=0):
+        raise ValueError('dressed pair response changed its complete source-record domain')
     named=data['field_nature']['families']
     if len(named)!=18 or {r['target'] for r in named}!=expected:
         raise ValueError('named-field coverage failed')
@@ -301,6 +329,10 @@ def reader(svg,data):
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
     extra += [{'label':'Best-guess named-particle map and scoped source IDs','path':'model/standard_model_source_map/candidates/CANDIDATES.md'},
+              {'label':'Identity tests for all 18 named comparison targets','path':'model/particle_candidate_confirmation/RESULTS.md'},
+              {'label':'Native mass coefficients, scalar dressing and complete charged records','path':'model/particle_candidate_charged/PROOF.md'},
+              {'label':'Neutral composite current selection and coherent occupation-increment records','path':'model/particle_candidate_composites/PROOF.md'},
+              {'label':'Gauge-loop scalar/vector response and exact physical current exclusions','path':'model/particle_candidate_bosons/PROOF.md'},
               {'label':'Exact finite-sector ratio exclusion','path':'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md'},
               {'label':'Static Wilson-loop fusion on the primary source','path':'model/particle_primary_loop_fusion/PROOF.md'},
               {'label':'Same-source exact work with an elastic spectral limit','path':'model/particle_primary_equal_work_control/PROOF.md'}]
@@ -364,6 +396,20 @@ def build():
             'protected_catalogue_ids':[r['id'] for r in data['candidate_correspondence']['protected_catalogue_rows']],
             'finite_sector_ratio_result_sha256':data['candidate_correspondence']['finite_sector_ratio_control']['result_sha256'],
             'physical_particle_map':[], 'mass_predictions_GeV':[]},
+        'candidate_identity_tests':{
+            'path':str(IDENTITY_TESTS.relative_to(ROOT)),
+            'sha256':sha(IDENTITY_TESTS),
+            'schema':data['candidate_identity_tests']['schema'],
+            'target_count':len(data['candidate_identity_tests']['target_rows']),
+            'targets':[{key:row[key] for key in ('target','family','test_receipt','supporting_receipts','physical_identity_status')}
+                       for row in data['candidate_identity_tests']['target_rows']],
+            'original_dressed_pair_window':{key:data['candidate_identity_tests']['calculated_source_results']['charged']
+                ['original_compensated_dressed_energy_window'][key] for key in (
+                    'original_dressed_recorded_simple_strict_lower','reported_transfer_interval',
+                    'complete_success_outcomes','complete_probe_outcomes',
+                    'energy_window_is_a_single_endpoint_or_rest_mass')},
+            'physical_particle_map':[], 'mass_predictions_GeV':[],
+            'source_scientific_experiments_replayed_by_atlas':False},
         'common_construction_specification_resolved':True,
         'finite_physical_preparation_including_boundary_charges_resolved':True,
         'finite_primary_local_records_and_uniform_influence_constructed':True,

@@ -58,6 +58,161 @@
       "particle_primary_reduced_sector:isolated_A1u_cluster"
     ]
   },
+  "candidate_identity_tests": {
+    "mass_predictions_GeV": [],
+    "original_dressed_pair_window": {
+      "complete_probe_outcomes": 97,
+      "complete_success_outcomes": 96,
+      "energy_window_is_a_single_endpoint_or_rest_mass": false,
+      "original_dressed_recorded_simple_strict_lower": "1/40",
+      "reported_transfer_interval": [
+        "77/8",
+        "271/8"
+      ]
+    },
+    "path": "model/particle_candidate_confirmation/results.json",
+    "physical_particle_map": [],
+    "schema": "oph.particle_candidate_confirmation.v1",
+    "sha256": "078792e8dd7638297ca48fa44044ca46cdc81999fefc3d762615f4e0b5c5cae8",
+    "source_scientific_experiments_replayed_by_atlas": false,
+    "target_count": 18,
+    "targets": [
+      {
+        "family": "charged_leptons",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "electron",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "charged_leptons",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "muon",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "charged_leptons",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "tau",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "up_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "up",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "up_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "charm",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "up_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "top",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "down_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "down",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "down_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "strange",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "down_type_quarks",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "bottom",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "active_neutrinos",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [
+          "model/particle_candidate_composites/results.json"
+        ],
+        "target": "electron_neutrino",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "active_neutrinos",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [
+          "model/particle_candidate_composites/results.json"
+        ],
+        "target": "muon_neutrino",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "active_neutrinos",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [
+          "model/particle_candidate_composites/results.json"
+        ],
+        "target": "tau_neutrino",
+        "test_receipt": "model/particle_candidate_charged/results.json"
+      },
+      {
+        "family": "photon",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "photon",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      },
+      {
+        "family": "gluon",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "gluon",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      },
+      {
+        "family": "W_plus",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "W_plus",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      },
+      {
+        "family": "W_minus",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "W_minus",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      },
+      {
+        "family": "Z",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [],
+        "target": "Z",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      },
+      {
+        "family": "Higgs",
+        "physical_identity_status": "unresolved",
+        "supporting_receipts": [
+          "model/particle_candidate_charged/results.json"
+        ],
+        "target": "Higgs",
+        "test_receipt": "model/particle_candidate_bosons/results.json"
+      }
+    ]
+  },
   "canonical_joint_dependency_map": "model/particle_joint_reconstruction/dependencies.json",
   "common_construction_specification_resolved": true,
   "comparison_requirement_domains": [
@@ -490,11 +645,13 @@
     "apparatus",
     "record"
   ],
-  "html_sha256": "fbebda28d6c1a688207f7f77e44f75cb5fa49aacc20b3169b555cff43992bb25",
+  "html_sha256": "7f7bd796717867229b5d0ae865d6decb7380c166f45a9d8ea6c7dcf647c8da35",
   "input_sha256": {
+    "Lean/Dynamics/ProtectedCharge.lean": "a659a021d3893ee9676f194db0aedb43116318e0b602c62858b9c015e6a50329",
     "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
     "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean": "14c45c9598979d795dad9bcc9b6cfbf35ef0057de8c8ba56af104b8cdc8550a8",
     "Lean/EventAlgebra/OperationalBornBridge.lean": "34d3f92fff2f7cc78ec0353005f379b6177dd7826f24365980a05d65ae7ffcdf",
+    "Lean/EventAlgebra/PartitionPinchingCP.lean": "36586ae01cfc4faa135583642456dcdd9b1d575964ae668f26a0dfc888cddf87",
     "Lean/EventAlgebra/PublicRecordAlgebra.lean": "9301de8050611cac94a53b2d28b9b6c26d3019ede6b0c5034160696b7236fcc4",
     "Lean/EventAlgebra/Robertson.lean": "7b08a20ce5f865596fb34a1c969a7d27f5e5090ceb103eb223dd1c0b1c1c928e",
     "Lean/Geometry/EventFrameSoldering.lean": "bdc5257d6d259d63314cc913d4a57db91e71d0ceb8cc73d92bfb3c8d17ed26af",
@@ -515,6 +672,7 @@
     "Lean/QFT/ColimitSelectedStateGNS.lean": "2c5e94d4676192cc3b98fe05b6a409d1f8acf4b3192dd11873a5e9360cf18932",
     "Lean/QFT/ElectricCutoffFloor.lean": "9f09669ffd65099b9c26d76e40f2b8fe20d0ece9c554a31c840e6ba75e2c8b52",
     "Lean/QFT/FiniteCausalObserverNet.lean": "d523da22cad68d20f67ab860d165dd7800e1b69892ab7053aaa7d761a617c626",
+    "Lean/QFT/GaugeIrreducibleBorn.lean": "6e502184ce65b5133a12235ea5304c923c2934d34bd5d73b684f240e90cb43f2",
     "Lean/QFT/GroundRecordTail.lean": "650c3f7908f203e43361249f47d25210f675530d962a1a00d3bb3243e7ad5952",
     "Lean/QFT/LatticeMomentumBalance.lean": "0c530905266cbef2538edbee8f4ef1b65a018d5ed813be22ac24cefb6089fcba",
     "Lean/QFT/ModularClockComparison.lean": "e9ea518b35bdd8ac09f87b90bfa27bdc8ef5b6d6a4f0583bea7f4541dd21644c",
@@ -860,7 +1018,7 @@
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualization_schema.py": "6e3f1c1360cc3b94fe709220677cdaa9e4177fce0a52bd8c50d854e367e5b9e2",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualizer_pack.py": "321a54b79d4b89a895f4b8d21f9611d5d68239c9886c74aa4868ceb3977aaa84",
     "extra/yang_mills_gap_clay_problem.tex": "8e6c2fe53b5458c3fff5d46010e0e612bfa4cf99cc919125763dce63434d0734",
-    "flagship/from_observer_consensus_to_standard_physics.pdf": "a60f819e1a02e3fb0859ce38eca5afd10d51688afc78bbad6aecf3589aa8c838",
+    "flagship/from_observer_consensus_to_standard_physics.pdf": "90ca810969d5a06e43023745c712da0767635a1c5475b53fc8af7ced1d481c20",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -1612,7 +1770,7 @@
     "model/particle_atlas_horizontal/STORY.md": "1eae4400513f7c40e25e7ab8eae5524404b18ed972aa36ae83dfeea91237a57c",
     "model/particle_atlas_horizontal/THEOREMS.md": "148e0ee284874c4cfa28403c63d54641af829c6e5744ff6bc8b852927a14a997",
     "model/particle_atlas_horizontal/__init__.py": "c461591d6dece1266c8689d6dde4800fb27009e6cb2f1ff214e87e4387336d2e",
-    "model/particle_atlas_horizontal/build.py": "d6192da5e2aa459f1dacda06efc20a0468e21948f7d7c3db0151791d9f8c6ae9",
+    "model/particle_atlas_horizontal/build.py": "5994721e74d34af94da32fa284cd4d6906064a1732185c402775429a00d3ace0",
     "model/particle_atlas_horizontal/common_contract.py": "c4725a34fa475c5686de46606544a80a6f7230f0edd6d3215b093f71c78707e6",
     "model/particle_atlas_horizontal/drawing.py": "6cb72b9b6d41a126696a6b98d872ae8a6c1125f327a0d8bbc91dbeea2e5037f7",
     "model/particle_atlas_horizontal/endpoints.py": "566104314a9495fb2269a7958f96e993fad39ee0bbccb46f444635d188655437",
@@ -1626,9 +1784,9 @@
     "model/particle_atlas_horizontal/observer_wings.py": "28c5a3df3b1819ea81479aa98114d9faf1f8d60952e0e46d6db1dbfdb33d2d6f",
     "model/particle_atlas_horizontal/operational_readouts.py": "933a457f9a86ad3fc63ce982ec40a7fc03fa2181334cd628d6e6928520093b0e",
     "model/particle_atlas_horizontal/refinement_readouts.py": "b3c2c12cb1a2617caec69bb490ced4b61d0fb7a0331af4d8771b0ed27b81c9c7",
-    "model/particle_atlas_horizontal/source_connections.py": "604fea9b2edb9c4901c9910106b787f7458b347b71785a4a9ba0b0c49c031766",
+    "model/particle_atlas_horizontal/source_connections.py": "c22d53f07b95a4885a5f5bb1d442edca58f7aa0bd22db341ea91160b7557bb61",
     "model/particle_atlas_horizontal/story.json": "d65cb2a87ccb024c3891534d3a17cf67a8b2f65aa204b6510aac740906de7b7a",
-    "model/particle_atlas_horizontal/test_build.py": "0083db2e8a9cb76824269149028da57161f209fedfedbce8238565f71d806d4f",
+    "model/particle_atlas_horizontal/test_build.py": "93b8d3703e51ac7c09e35f22a1e228781d7ec86708dba9ddc02b320332c9ce06",
     "model/particle_atlas_horizontal/test_endpoints.py": "d788b8004bbe0126530958f35d8e55cf4e94cc7ef05ad9bd96e9a7da17a143cf",
     "model/particle_atlas_horizontal/test_field_nature.py": "b052ce06b95517e86ade3f3778c5ab5f7903be6c6ebc531dca939763e2a73379",
     "model/particle_atlas_horizontal/test_ground_readouts.py": "69dca55f203f78f1bc07352e9b7e9f04cbca7e7c02886ab38c70dc2e619e7336",
@@ -1690,6 +1848,35 @@
     "model/particle_candidate_atlas/test_measured_mass_join.py": "6cee1bc79ae3f760ee730183b92a8c1d9803bdc0fbaabf55b9a2887097364a24",
     "model/particle_candidate_atlas/test_memory_diffusion.py": "b79ce0a9da040aa0ddee760ff6e94f1a88927f97fedb42db19bd13af0c8b79cb",
     "model/particle_candidate_atlas/test_native_response.py": "9b6e8e2d9b16c9d7b272515c7911adef47bd90fe0f4ddf7beb2d0bca24897536",
+    "model/particle_candidate_bosons/PROOF.md": "9e49840e89b3d98e5dcd7991bd54eda402016ac0cf230d77af8d1436618e2fb2",
+    "model/particle_candidate_bosons/README.md": "ba37988bd6b6958b21328e2e92a31b50be4d25e4c2376c25a0f7c1d019950a93",
+    "model/particle_candidate_bosons/__init__.py": "3acdea62a90369a0526881faf8deab0aa1bb159f8f371bdc8999b4d95c189e5c",
+    "model/particle_candidate_bosons/__main__.py": "96997b4c2769f46f139eef6fb732d3a153dc08fe68ae2fc87fd403d897cf2730",
+    "model/particle_candidate_bosons/model.py": "bdb47ad7b0885ce4b4674c90616abae61c8e647c8eca20f991fb02614070a16f",
+    "model/particle_candidate_bosons/results.json": "4a2c46c774c1ce94882650722c30d23154ae7053adb1b5e71105669a24947341",
+    "model/particle_candidate_bosons/test_model.py": "ac63ceae6b64ec91cc22fecbe952318f6b7e107eadf5cbbabd9abdbb729c03d8",
+    "model/particle_candidate_charged/PROOF.md": "a10a1ee01559aac3903d311414c639b051846890fe62089baa5ce9e8099cc3c3",
+    "model/particle_candidate_charged/README.md": "634bf41c9bd7d1459ade857e8e34204ef9911159541f74dd53546b6d22c0446d",
+    "model/particle_candidate_charged/__init__.py": "19fa90cd17ba9330eaa5a2f2ccbc840f728e0691c5e9a75ee5c5b885378c5d9b",
+    "model/particle_candidate_charged/__main__.py": "85778e1257e9f9204c8858a54a8701c356a31dba96a75768b3840f3b6b68156f",
+    "model/particle_candidate_charged/model.py": "2b32c184642c902d6d00b53fd258fe60c7177795814649e025924589bbe3202d",
+    "model/particle_candidate_charged/results.json": "29e3c780ffbe49ca560d9e6e89cf819a28f20ece18e46759753109267beb1fad",
+    "model/particle_candidate_charged/test_model.py": "13f7e430c869285beb7a9f2907b8bbbf9a262683d3618d095a1d4fbd96b52c75",
+    "model/particle_candidate_composites/PROOF.md": "287b18417ee57b7cb03e69412eac4d8c90e9e004681e59e9beb7fc4575a05692",
+    "model/particle_candidate_composites/README.md": "810e25cb4d3a45c6db3d4b04256bce5f3f554a695941b35f0cc20ebbb999828d",
+    "model/particle_candidate_composites/__init__.py": "28cec7c12254a84d63998e40980918852103ffae8b044df0ca3f042dcdf0f115",
+    "model/particle_candidate_composites/__main__.py": "3b6d42e6ed847a84d1d14b530679838927da1c071bf75acf326c8b32d009c219",
+    "model/particle_candidate_composites/model.py": "434f6bc0d371217b794d606bbd01fbfd35d890a86c8d24a6e2644fb8db307cdc",
+    "model/particle_candidate_composites/results.json": "5f657086257211742d5bb0b40378be6ebbeba24a6d7b53317f80c1dfd693f6d0",
+    "model/particle_candidate_composites/test_model.py": "b33533587c7660fe4a69ce3312f7c2210f226790e53d7058c75ab52b8563afb3",
+    "model/particle_candidate_confirmation/PROOF.md": "558d7f2320ad7654238b13f266fa8e8b5410e085ef59a677f7f2955c5cdbbfb5",
+    "model/particle_candidate_confirmation/README.md": "9f3071cf869a260aad9a29c9552bca80b4c097d2da265275cc1f6c5699e2eb2c",
+    "model/particle_candidate_confirmation/RESULTS.md": "5dd09c353c8e99dfd2d1e395f4d65d1b7d729e83706e64b2792dbea10f0aae88",
+    "model/particle_candidate_confirmation/__init__.py": "27d2753887ee5dd13e84a2df06102b1f4c99f9436a7b2af24dfb1ed67ea32c26",
+    "model/particle_candidate_confirmation/__main__.py": "17669cdcca2f153d0d98cbed43e34baa5469cd542ec2e3aa54990d249f2f6fd3",
+    "model/particle_candidate_confirmation/model.py": "27126d0ed8b3bbaf510c55b3f5bfdd85f0f6e637965408ffff18495fa48d3dec",
+    "model/particle_candidate_confirmation/results.json": "078792e8dd7638297ca48fa44044ca46cdc81999fefc3d762615f4e0b5c5cae8",
+    "model/particle_candidate_confirmation/test_model.py": "a9181ace406d10eabd39616ec35be8da47042d5be1b37443d1036af6208ba6cb",
     "model/particle_charged_residue/PROOF.md": "0f1f120479af74f4a7f12adeff214b20cf495059b92cd551a91d05e7dc1cb65e",
     "model/particle_charged_residue/README.md": "c2503e21cd99a2a9fedd89d4f02eec0e8c5719198d9e173c20cacc3f3d63120e",
     "model/particle_charged_residue/__init__.py": "7bb4bcf24d02798af88ffad553d1fb615978ca0c242829d6aaa6c0a7b8b1d372",
@@ -2757,7 +2944,7 @@
     "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
     "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "7f66825d059e17b6f5005313e51ea86d3217380cd24cb93f7a48a89b4a493c44",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "aa6c8c5348bc5fb59d2aae61d85828c96b8cb701a9b6556d444547cde8be7eb2",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "ea767502571d8939a92dea3b5a1028f7ae0a4351323af0c5520ac4b7431a41c4",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "8865b4b180b74b503273050b2a4a577475179794946a7642290c6ef7d96dac25",
     "paper/tex_fragments/BAND_EDGE_CONTACT.tex": "0f23b4bfe9ddb2ae67fc53736537790d3650ad93d1eaf24ba2aec8c42ba5b5f2",
     "paper/tex_fragments/CENTERED_NATIVE_PREPARATION.tex": "e5e713898d0cc316f0b77936299607874a7877fb36981f1b236ce35d0fcae8df",
@@ -5311,7 +5498,7 @@
   "schema": "oph.horizontal_particle_atlas.v2",
   "source_physical_identifications": [],
   "source_scientific_experiments_replayed": false,
-  "svg_sha256": "16ed40c9ab61ad0058bff5cf345f7d6f8b5b0f7bd33a5248b4ffdb61001e3e8b",
+  "svg_sha256": "59443f61281e242a770fa3dc2f5c8286f65ffdcdd2bda8176159126a58c21049",
   "unified_dependency_status": {
     "chiral_species_attachment": "physical_proof_required",
     "fixed_program": "finite_constructed",

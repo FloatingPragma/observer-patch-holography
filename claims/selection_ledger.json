@@ -463,7 +463,7 @@
         "OPH-OBSERVER-MATTER-INTERACTION-WITNESS"
       ],
       "owner_issues": [],
-      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12. The source-linked finite decoder and one-Higgs tensor witness instantiate the stated branch; numerical coefficients and physical field selection are separate.",
+      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12. The source-linked finite decoder and one-Higgs tensor witness instantiate the stated branch; numerical coefficients and physical field selection are separate. Separate primary-source candidate tests construct a Higgs-conjugate scalar composite and its compensated charged dressing, with original pair-energy-window probability above 1/40 at member zero. Native charge constraints and a five-dimensional local coefficient commutant constrain elementary-family assignments. These do not discharge the physical matter action, Lorentz-spin or flavor premises of this row.",
       "menu": {
         "size": 1024,
         "alternatives": "all 1024 subsets of the ten nontrivial isotypic components; exactly two survive chirality and the four anomaly constraints, and they form one unordered conjugate pair equal to the two fermionic-parity sectors",
@@ -474,7 +474,15 @@
         "code/a5_closure/super_tannakian_matter_lift_certificate.py",
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
         "code/a5_closure/manifests/spin_statistics_semantic_artifact.json",
-        "model/observer_particles/results/unified_yukawa_action.json"
+        "model/observer_particles/results/unified_yukawa_action.json",
+        "model/particle_candidate_charged/PROOF.md",
+        "model/particle_candidate_charged/results.json",
+        "model/particle_candidate_composites/PROOF.md",
+        "model/particle_candidate_composites/results.json",
+        "model/particle_candidate_bosons/PROOF.md",
+        "model/particle_candidate_bosons/results.json",
+        "model/particle_candidate_confirmation/PROOF.md",
+        "model/particle_candidate_confirmation/results.json"
       ],
       "lean": [
         {
@@ -493,7 +501,11 @@
       "negative_controls": [
         "twenty typed negative controls fail closed, including Vec/sVec and opposite-Weyl same-reduct controls failing against the derived grading and measured centre",
         "the representation-arithmetic route is rejected as realization (`REALIZATION_NOT_OPERATOR`)",
-        "spin-artifact pin drift and wrong-schema substitutions fail closed (`UPSTREAM_HASH`)"
+        "spin-artifact pin drift and wrong-schema substitutions fail closed (`UPSTREAM_HASH`)",
+        "model/particle_candidate_charged/test_model.py",
+        "model/particle_candidate_composites/test_model.py",
+        "model/particle_candidate_bosons/test_model.py",
+        "model/particle_candidate_confirmation/test_model.py"
       ],
       "paper_anchors": [
         {

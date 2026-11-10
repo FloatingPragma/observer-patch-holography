@@ -1,5 +1,14 @@
 # The runnable OPH model
 
+The [candidate identity tests](particle_candidate_confirmation/README.md) compare
+named particle hypotheses with conserved source charges, exact internal
+representations and complete detector records. They construct a charged
+composite dressing and resolve six finite gauge multiplets. Physical
+propagation, species and GeV masses require the same-source field attachment.
+The [candidate table](particle_candidate_confirmation/RESULTS.md) states each
+comparison domain; the [particle atlas](../docs/research/OPH_PARTICLE_ATLAS_V3.svg)
+illustrates the source-to-observation chain.
+
 The [particle comparison](particle_spectrum_audit/README.md) reproduces the
 stipulated mass branch with explicit measurement conventions and input
 ancestry. The [finite response proofs](particle_finite_response/README.md)

@@ -30,6 +30,10 @@ and isolated gauge-transition receipt, checks all their producer hashes, and
 distinguishes a rare primary-source transition and static fusion from an
 executed contact-interaction control in a separate supplied action. The GeV
 mass table is empty; the reference masses do not supply source parameters.
+The [candidate identity tests](../particle_candidate_confirmation/RESULTS.md)
+bind the six finite gauge multiplets, the seven-record composite counter and
+the dressed charged pair's positive energy window. These detector results
+constrain the particle dictionary without identifying a named species.
 
 ```sh
 python -m model.particle_atlas_explainer.build --write

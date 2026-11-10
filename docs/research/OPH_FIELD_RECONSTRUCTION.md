@@ -1,5 +1,22 @@
 # Field response and particle identification from observer records
 
+The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
+organize the eighteen elementary comparison targets by their shared source
+representations. Exact internal weights, source spin and conserved occupation
+records are tested before physical names are assigned. Three charged-lepton
+names do not supply three source flavors. A scalar composite with Higgs-conjugate
+weights permits an explicit charged-singlet dressing, while a finite loop menu
+resolves six scalar, vector and diagonal-tensor cube multiplets. These are
+source-level constructions. A complete compensated interference experiment
+gives positive original-state overlap between the dressing and the bare
+charged-hole channel, without locating a narrow energy band.
+An exact occupation-residual bound also gives dressed original probability
+greater than `1/40` in the complete reported pair-energy window
+`[77/8,271/8]` at member zero, with compensator and flux retained.
+Physical confirmation requires their populated
+energy-momentum response, Lorentz/current dictionary and interaction records
+on the same source and state. The common ten-node dependency map is unchanged.
+
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)

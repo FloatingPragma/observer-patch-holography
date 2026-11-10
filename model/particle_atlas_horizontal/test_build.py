@@ -19,6 +19,20 @@ def test_every_family_and_each_owed_bridge_survives(data):
     assert data['v1']['physical_particle_map']==[]
     assert len(data['candidate_correspondence']['target_rows'])==18
     assert data['candidate_correspondence']['physical_particle_map']==[]
+    assert len(data['candidate_identity_tests']['target_rows'])==18
+    assert all(row['physical_identity_status']=='unresolved'
+               for row in data['candidate_identity_tests']['target_rows'])
+
+
+@pytest.mark.parametrize('kind',['lost_target','duplicated_target','promoted_identity','invented_mass','changed_source'])
+def test_candidate_identity_coverage_and_source_dictionary_are_guarded(data,kind):
+    bad=deepcopy(data);value=bad['candidate_identity_tests'];rows=value['target_rows']
+    if kind=='lost_target':rows.pop()
+    elif kind=='duplicated_target':rows[-1]['target']=rows[0]['target']
+    elif kind=='promoted_identity':rows[0]['physical_identity_status']='confirmed'
+    elif kind=='invented_mass':rows[0]['source_derived_mass_GeV']='0.000511'
+    else:rows[0]['source_component_ids']=['unproved_component']
+    with pytest.raises(ValueError):build.validate_content(bad)
 
 
 @pytest.mark.parametrize('kind',['missing_target','duplicate_target','promoted_identity','promoted_edge','lost_strategy'])
@@ -74,6 +88,9 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     assert 'model/particle_primary_locality/PROOF.md' in text
     assert 'model/particle_joint_reconstruction/DEPENDENCIES.md' in text
     assert 'model/particle_joint_reconstruction/CANDIDATE.md' in text
+    for owner in ('particle_candidate_charged','particle_candidate_composites','particle_candidate_bosons'):
+        assert 'model/'+owner+'/PROOF.md' in text
+    assert 'model/particle_candidate_confirmation/RESULTS.md' in text
     for owner in ('particle_primary_survival','particle_primary_mass_readout',
                   'particle_primary_spatial_algebra','particle_primary_capacity',
                   'particle_compact_mass_probe', 'particle_primary_momentum',
@@ -107,8 +124,15 @@ def test_named_candidate_wings_preserve_exact_weights_and_separate_collision_dom
     root=ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg">'+''.join(canvas.items)+'</svg>')
     text=' '.join(' '.join(root.itertext()).split())
     assert 'BEST-GUESS PARTICLE MAP' in text
-    assert 'Q6=+6 regional G1' in text and 'the pair is not automatically a photon' in text
-    assert 'physical spin and named identity unproved' in text
+    assert 'charged regional G1 factor' in text and 'the pair is not automatically a photon' in text
+    assert 'Physical spin and named identities are unproved' in text
+    assert 'S=N₋₄+N₂+N₆' in text and 'multiple excitations can alias' in text
+    assert 'Higgs-conjugate scalar composite gives a dressed charged singlet' in text
+    assert 'Actual polar and axial loop channels have nonzero source transitions' in text
+    window=data['candidate_identity_tests']['calculated_source_results']['charged']['original_compensated_dressed_energy_window']
+    assert 'original probability >'+window['original_dressed_recorded_simple_strict_lower'] in text
+    assert '['+','.join(window['reported_transfer_interval'])+'] source-energy units on the same clock' in text
+    assert f'All {window["complete_success_outcomes"]} success records and failure are retained' in text
     assert 'Antiparticle and flavor readouts need the same physical field dictionary' in text
     assert 'Y=1/6' in text and 'Y=-2/3' in text and 'Y=-1/2' in text
     assert 'Every family ratio <21.16; odd-family ratios <15.31' in text
@@ -122,6 +146,9 @@ def test_named_candidate_wings_preserve_exact_weights_and_separate_collision_dom
     hrefs=[n.get('href') for n in root.iter('{http://www.w3.org/2000/svg}a')]
     for path in ('model/standard_model_source_map/candidates/CANDIDATES.md',
                  'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md',
+                 'model/particle_candidate_confirmation/RESULTS.md',
+                 'model/particle_candidate_composites/PROOF.md',
+                 'model/particle_candidate_charged/PROOF.md',
                  'model/contact_scattering/README.md','model/scattering_packet_readout/PROOF.md'):
         assert '../../'+path in hrefs
 
@@ -161,3 +188,9 @@ def test_generated_outputs_match_their_exact_source_inventory():
     assert build.HTML.read_text()==html
     assert build.AUDIT.read_text()==audit
     assert json.loads(audit)['source_physical_identifications']==[]
+    identity=json.loads(audit)['candidate_identity_tests']
+    assert identity['target_count']==18 and len({row['target'] for row in identity['targets']})==18
+    assert all(row['physical_identity_status']=='unresolved' for row in identity['targets'])
+    assert identity['physical_particle_map']==[] and identity['mass_predictions_GeV']==[]
+    assert not identity['source_scientific_experiments_replayed_by_atlas']
+    assert not identity['original_dressed_pair_window']['energy_window_is_a_single_endpoint_or_rest_mass']

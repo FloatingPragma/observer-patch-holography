@@ -23,6 +23,7 @@ MASSES = ROOT / 'model/particle_candidate_atlas/reference_values.json'
 DEPENDENCIES = ROOT / 'model/particle_joint_reconstruction/dependencies.json'
 MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
+IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
 SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'build.py')
 
@@ -85,8 +86,12 @@ def load():
             or not gauge['finite_symmetry_resolved_gauge_transition_atom_proved']):
         raise ValueError('gauge transition changed its finite-sector scope')
     data['candidates'], data['gauge'] = candidates, gauge
+    identity = receipt(IDENTITY_TESTS)
+    from model.particle_candidate_confirmation.model import validate as validate_identity
+    validate_identity(identity)
+    data['identity_tests'] = identity
     data['inputs'] = {str(p.relative_to(ROOT)): sha(p)
-                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE)}
+                      for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)}
     return data
 
 
@@ -164,6 +169,7 @@ def build():
         'reference_masses_are_predictions': False,
         'candidate_mass_predictions_GeV': data['candidates']['mass_predictions_GeV'],
         'candidate_target_count': len(data['candidates']['target_rows']),
+        'candidate_identity_test_count': len(data['identity_tests']['target_rows']),
         'protected_catalogue_count': len(data['candidates']['protected_catalogue_rows']),
         'evidence_domains': {
             'isolated_gauge_transition': 'rare empty-matter reducing sector, source units',

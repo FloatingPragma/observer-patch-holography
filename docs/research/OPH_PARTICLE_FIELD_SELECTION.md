@@ -1,5 +1,22 @@
 # Particle response and field-action selection
 
+The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
+compare each named target with exact source representations and detector
+selection rules. Charged elementary families share source tests before any
+generation assignment. A composite Higgs-conjugate doublet and a dressed charged
+singlet can be constructed from the same local CAR modes; a physical vacuum
+and chiral propagation require their own proof. Neutral composites have exact
+conserved-charge discriminators. The isolated gauge cluster contains scalar,
+vector and diagonal-tensor cube channels, whose total spatial symmetry is not
+an intrinsic Lorentz-spin assignment. No target name or GeV mass is accepted
+by these source tests alone.
+
+The scalar-dressed compensated menu has original reported probability greater
+than `1/40` in `[77/8,271/8]` source units at member zero, by an exact
+full-occupation residual bound on the same complete clock histories. This
+is a pair-transfer record with the opposite charge and flux retained; no
+single-particle rest mass or uniform capacity limit is assigned.
+
 The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
