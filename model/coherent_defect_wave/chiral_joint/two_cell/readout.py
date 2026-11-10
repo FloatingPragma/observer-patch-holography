@@ -6,11 +6,10 @@ success/failure is a separate retained instrument, never a vacuum selection.
 from functools import lru_cache
 from math import isqrt
 from collections import defaultdict
-import numpy as np
 import sympy as s
 from ..model import fermion
 from .basis import coordinate_rows
-from .spectrum import (physical_block,numerical_block,certified_block,
+from .spectrum import (physical_block,rational_block,certified_block,
                        sector_certificate,_integer_matrix,_sparse_integer_product)
 
 BITS=44
@@ -31,9 +30,7 @@ def sqrt_upper(value,bits=80):
 @lru_cache(maxsize=None)
 def approximation(block):
     _,embedding,g,k,generator=physical_block(*block)
-    values,vectors=numerical_block(*block)
-    z=np.rint(vectors*SCALE).astype(np.int64).astype(object)
-    d=np.rint(values*SCALE).astype(np.int64).astype(object)
+    d,z=rational_block(*block)
     hd,hi=_integer_matrix(generator);gd,gi=_integer_matrix(g)
     hz=_sparse_integer_product(hi,z);gz=_sparse_integer_product(gi,z)
     residual=SCALE*hz-hd*z*d[None,:]
@@ -150,7 +147,7 @@ def complete_experiment(site=1,spin=0):
         branch_weight=s.factor((x.H*g*x)[0]/(2*norm))
         z,_,_,_=approximation(target)
         q=s.ImmutableMatrix(z.tolist())/SCALE
-        amplitudes=q.T*g*x
+        amplitudes=q.T*(g*x)
         clusters,intervals=energy_clusters(target)
         records=[]
         for indices,lo,hi in clusters:

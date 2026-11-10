@@ -168,16 +168,44 @@ explicit full-residual comparison that bounds every omitted component.
 | Finite step | Result on the declared source | Requirement for a particle mass |
 | --- | --- | --- |
 | 1. Hamiltonian and constrained carrier | Complete active Gauss bases and actual quantum scalar/link H | Preserve that operator/state ancestry under refinement |
-| 2. Reference and preparation | Unique neutral ground, certified gap and complete `1/1053` preparation law | Control the physical reference on a growing family |
-| 3. Energy instrument | [460 conditional records and 461 original-attempt outcomes](../../model/coherent_defect_wave/chiral_joint/two_cell/READOUT_PROOF.md), including two visible charged thresholds | Identify the appropriate moving branch and its residue |
-| 4. Motion and momentum | Controlled finite arrival; a separate periodic joint-reference phase instrument | Joint energy/momentum on one reference, three spatial directions and controlled dispersion |
+| 2. Reference and preparation | Independently certified open and periodic grounds, with complete preparation laws `1/1053` and `1/3424` | Control the physical reference on a growing three-dimensional family |
+| 3. Energy instrument | [2627 original-attempt periodic records](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md), including equal visible charged thresholds and quantum Higgs overlap | Establish the moving branch and its physical mass observable |
+| 4. Motion and momentum | Controlled finite arrival; periodic energy and joint-reference phases on one ground; full three-axis operator family | Source-relative dispersion across independent momentum magnitudes and sizes |
 | 5. Candidate discrimination | [Actual native currents, CAR, Kramers and conjugation tests](../../model/coherent_defect_wave/chiral_joint/two_cell/CANDIDATES.md) | Separate elementary, composite and boundary-bound responses; no empirical species is assigned |
-| 6. Size, cutoff and field transfer | Blank-link transfer is rejected; full-residual and multi-momentum tests specify a replacement route | Bound state, omitted-sector, detector and numerical errors on the chosen interacting family |
+| 6. Size, cutoff and field transfer | A finite dressed interaction has a full error bound; raw long quantum paths fail the blank-reference uniform bound | Control the chosen link architecture, physical reference and interaction under refinement |
 
 The finite completion of steps 1–3 and the motion controls in step 4 do not
 supply the physical conclusions in the final column. Scalar/flavor response,
 interacting relativistic control and an independent energy reference retain
 their separate roles in a GeV comparison.
+
+### Periodic spectra and the quantum Higgs connection
+
+The [complete periodic calculation](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md)
+has 3424 neutral physical states, a unique ground near `-4.33817023295`,
+and equal same-boundary charged transfers `0.97009612853 +/- 3e-8`
+in source units. All 2627 original-attempt records retain the `1/3424`
+ground-preparation probability and its failure. Energy and joint
+source/reference phase are read on this same Hamiltonian; the phase
+pair supplies only one squared momentum and no rest-mass fit.
+The [actual quantum Higgs composite](../../model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md)
+has a positive residue in that same first line, without a scalar background.
+The [field reconstruction](OPH_FIELD_RECONSTRUCTION.md#periodic-quantum-ground-charged-fields-and-controlled-interaction)
+details the full-domain quark/lepton equations, neutral star-parity selection,
+three-axis source, controlled finite dressed interaction, and
+sector-appropriate mass criteria. These are finite source results; observed
+species, three generations and GeV masses are not assigned.
+The [spatial and full-family results](OPH_FIELD_RECONSTRUCTION.md#spatial-symmetries-neutral-motion-and-the-full-family-cell)
+include orientation-closed contractive links, exact proper cubic rotations,
+a controlled physical neutral-packet arrival on a declared hopping extension,
+and a 36-state exact physical spectral reduction of the full-family quantum
+cell. Each source retains its own preparation and reference; their spectra
+are not transferred across different Hamiltonians. The physical neutral local component has a lower ground near
+`-11.23058529425`, so the empty-preparation component minimum is not a
+universal vacuum. Exact centered-charge and spin identities distinguish
+this reference correction from a particle-mass statement. The common
+interacting reference requires the other conserved sectors and their
+correlations.
 
 ### Selection requirements on one interacting source
 

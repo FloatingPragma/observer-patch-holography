@@ -42,8 +42,8 @@ explained in the [assumption dictionary](../claims/assumption_dictionary.md).
 | Canonical premise IDs represented in this crosswalk | 84/84 |
 | Model criteria represented | 12/12 |
 | Registered claims | 392 |
-| Unique ordinary `assumptions` names | 885 |
-| Unique `imported_results` names | 1186 |
+| Unique ordinary `assumptions` names | 902 |
+| Unique `imported_results` names | 1191 |
 | Workgroups | 27 |
 | Assumption names explicitly linked by optional group fields | 33 |
 | Claims explicitly linked by optional group fields | 20 |
@@ -8045,9 +8045,9 @@ anchors are not proofs. No entry silently discharges a canonical premise.
 | Canonical claims retained | 392 |
 | Claims with restricted bindings | 67 |
 | Claims with open common-model mapping | 325 |
-| Tracked Lean source modules retained | 678 |
-| Lean modules referenced by canonical evidence | 480 |
-| Public theorem/lemma declarations | 12873 |
+| Tracked Lean source modules retained | 681 |
+| Lean modules referenced by canonical evidence | 481 |
+| Public theorem/lemma declarations | 12880 |
 | Restricted bindings / sourced connections | 134 / 69 |
 
 ### Restricted model bindings

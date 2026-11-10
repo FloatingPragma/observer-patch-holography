@@ -16,7 +16,12 @@ EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'native_routing_join', 'many_body_route', 'mass_instrument',
               'field_identity_audit', 'propagating_native_join', 'chiral_source',
               'chiral_regulator', 'chiral_higgs', 'chiral_particle_map', 'chiral_joint',
-              'chiral_joint/two_cell')
+              'chiral_joint/two_cell', 'chiral_joint/periodic_spectrum',
+              'chiral_joint/periodic_family', 'chiral_joint/field_limit',
+              'chiral_joint/higgs_composites', 'chiral_joint/spectral_edges',
+              'chiral_joint/oriented_links', 'chiral_joint/neutral_mobility',
+              'chiral_joint/family_cell', 'chiral_joint/neutral_local_spectrum',
+              'chiral_joint/neutral_composite', 'chiral_joint/periodic_boson_records')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -38,7 +43,21 @@ FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'interacting_chiral_continuum', 'measured_species_identified',
              'onsite_gap_is_relativistic_particle_mass', 'full_reference_is_physical_Lorentz_vacuum',
              'physical_pole_mass_or_GeV_prediction', 'physical_rest_mass_or_GeV_identification',
-             'observed_species_identified', 'finite_gap_is_Clay_mass_gap'}
+             'observed_species_identified', 'finite_gap_is_Clay_mass_gap',
+             'GeV_masses_or_observed_species_identified', 'interacting_continuum_limit_proved',
+             'source_only_particle_momentum_or_relativistic_dispersion_proved',
+             'named_particle_or_GeV_mass', 'interacting_relativistic_field_limit',
+             'GeV_mass_prediction', 'interacting_Lorentz_continuum',
+             'physical_spin_or_species_identified', 'physical_interacting_continuum',
+             'observed_particles_identified', 'continuum_em_charge_or_GeV_mass_identified',
+             'physical_particle_or_mass_identified', 'relativistic_limit_or_mass_claim',
+             'source_operator_identified_with_measured_particle',
+             'interacting_relativistic_refinement_proved', 'measured_particle_or_GeV_mass_identified',
+             'source_energy_is_particle_rest_mass', 'spatial_propagation_or_GeV_mass',
+             'moving_neutrino_or_relativistic_mass_identified', 'three_observed_neutrino_generations',
+             'empirical_neutrino_identification', 'named_physical_bosons_identified',
+             'Higgs_photon_W_Z_gluon_particle_identification', 'physical_Lorentz_spin_or_mass',
+             'continuum_propagation_or_GeV_mass'}
 
 
 def check_extension_scope(value, name):
@@ -175,8 +194,118 @@ def load():
         value['extensions'][name] = extension
     check_identity(value['extensions']['field_identity_audit'])
     check_two_cell(value['extensions']['chiral_joint/two_cell'])
+    check_periodic(value['extensions']['chiral_joint/periodic_spectrum'],
+                   value['extensions']['chiral_joint/higgs_composites'])
+    check_neutral_motion(value['extensions']['chiral_joint/neutral_mobility'],
+                         value['extensions']['chiral_joint/family_cell'])
+    check_local_reference(value['extensions']['chiral_joint/neutral_local_spectrum'])
+    check_neutral_detectors(value['extensions']['chiral_joint/neutral_composite'],
+                            value['extensions']['chiral_joint/periodic_boson_records'])
     check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
+
+
+def check_periodic(value, higgs):
+    neutral = next(row for row in value['complete_physical_spectra'] if row['boundary'] == [0, 0])
+    law = value['compensated_charged_spectroscopy']
+    if (neutral['physical_dimension'] != 3424 or not neutral['ground_certifiably_simple']
+            or law['original_ground_preparation_success'] != '1/3424'
+            or law['original_ground_preparation_failure'] != '3423/3424'
+            or law['original_attempt_outcome_count_including_preparation_failure'] != 2627
+            or law['probabilities_renormalized']
+            or not law['joint_phase_energy_degeneracy_is_reference_position_structure']):
+        raise ValueError('periodic ground or complete reference records changed')
+    branches = law['charged_success_branches']
+    if len(branches) != 2:
+        raise ValueError('periodic conjugate branch omitted')
+    first = []
+    for branch in branches:
+        if len(branch['complete_energy_windows']) != 328 or branch['exact_total_branch_probability'] != '1/4':
+            raise ValueError('periodic energy alternatives omitted')
+        row = branch['complete_energy_windows'][0]
+        if Fraction(row['original_swap_probability_interval'][0]) <= 0:
+            raise ValueError('periodic first line lacks certified weight')
+        if row['joint_source_reference_phase_splitting_factors'] != ['0', '1/2', '0', '1/2']:
+            raise ValueError('periodic phase apparatus changed')
+        first.append(row['energy_transfer_interval'])
+    if first[0] != first[1]:
+        raise ValueError('periodic conjugate thresholds differ')
+    bridge = higgs['same_periodic_H_spectral_bridge']
+    if bridge['residues_are_instrument_probabilities'] or not bridge['quantum_Higgs_matrix_used']:
+        raise ValueError('quantum Higgs residue interpretation changed')
+    for branch in bridge['branches']:
+        row = branch['first_residue_enclosure']
+        if (not branch['exact_complete_Gauss_transfer_identity']
+                or Fraction(row['quantum_composite_residue_interval'][0]) <= 0
+                or row['residue_is_instrument_probability']):
+            raise ValueError('quantum Higgs first-line connection lost')
+
+
+def check_neutral_detectors(neutral, bosons):
+    for value in (neutral, bosons):
+        law = value['complete_readout']
+        if (law['ground_preparation_success_probability'] != '1/3424'
+                or law['retained_ground_preparation_failure_probability'] != '3423/3424'
+                or not Fraction(law['complete_original_probability_enclosure'][0]) <= 1 <=
+                Fraction(law['complete_original_probability_enclosure'][1])):
+            raise ValueError('neutral detector loses complete reference records')
+    if (neutral['complete_readout']['success_postselection_renormalization']
+            or bosons['complete_readout']['success_probabilities_renormalized']
+            or not bosons['complete_readout']['elastic_projectors_retained']):
+        raise ValueError('neutral detector changes original response weights')
+    rows = bosons['complete_readout']['settings']
+    if ({r['setting'] for r in rows} != {'scalar_number', 'singlet_loop', 'doublet_loop'}
+            or len({tuple(r['lowest_certified_positive_inelastic_record']['energy_transfer_interval'])
+                    for r in rows}) != 1
+            or any(Fraction(r['lowest_certified_positive_inelastic_record']
+                            ['setting_success_energy_phase_probability_interval'][0]) <= 0 for r in rows)):
+        raise ValueError('scalar and loop shared response is missing')
+
+
+def check_local_reference(value):
+    spectrum = value['complete_physical_spectrum']
+    symmetry = value['physical_symmetries']
+    records = spectrum['complete_energy_records']
+    if (spectrum['full_seed_component_dimension'] != 113948
+            or spectrum['full_physical_cyclic_dimension'] != 49
+            or len(records) != 49
+            or not spectrum['exact_full_graph_and_cyclic_intertwiners']
+            or not spectrum['positive_Perron_overlap_of_physical_seed']
+            or spectrum['global_ground_across_all_local_sectors_proved']
+            or spectrum['reference_is_product_ground_or_particle_mass']
+            or spectrum['full_component_excitation_gap_inferred_from_visible_line_spacing']):
+        raise ValueError('local spectral reference scope changed')
+    if (not all(0 < Fraction(r['probability_interval'][0]) <= Fraction(r['probability_interval'][1]) <= 1
+                for r in records)
+            or spectrum['outside_cyclic_sector_record'] != {'retained': True, 'probability_interval': ['0', '0']}
+            or Fraction(spectrum['odd_minus_vacuum_component_ground_interval'][1]) >= 0):
+        raise ValueError('local spectral reference comparison or complete weights changed')
+    if (symmetry['centered_charge_L_minus_one'] != '0'
+            or symmetry['raw_L_charge_conjugation'] != 'L -> 2-L'
+            or not symmetry['charge_conjugation_pairs_ground_within_raw_L_one']
+            or symmetry['raw_L_is_identified_with_measured_lepton_charge']
+            or symmetry['spin_is_identified_with_a_relativistic_little_group']):
+        raise ValueError('local reference charge or spin interpretation changed')
+
+
+def check_neutral_motion(mobility, cell):
+    law = mobility['complete_physical_arrival_experiment']
+    if (not mobility['source']['all_base_interactions_retained']
+            or law['old_ground_or_old_spectrum_consumed']
+            or law['postselection_or_discarded_dynamical_sector']
+            or law['complete_source_and_reference_readout'] != ['arrival', 'no_arrival']):
+        raise ValueError('neutral motion changes its complete source or reference')
+    lo, hi = map(Fraction, law['complete_arrival_probability_interval'])
+    flo, fhi = map(Fraction, law['complete_no_arrival_probability_interval'])
+    if not (0 < lo <= hi < 1 and lo + fhi == 1 and hi + flo == 1):
+        raise ValueError('neutral motion loses its positive complete probability bound')
+    spectrum = cell['complete_vacuum_energy_records']
+    if (spectrum['full_physical_cyclic_dimension'] != 36
+            or len(spectrum['complete_energy_records']) != 36
+            or spectrum['numerical_eigensolver_used']
+            or spectrum['global_other_sector_minimum_proved']
+            or not spectrum['outside_cyclic_preparation_sector_record']['retained']):
+        raise ValueError('full-family cyclic reference or complete records changed')
 
 
 def input_pins(value):
@@ -452,14 +581,10 @@ def draw(c, data, y):
 
     field_map=extensions['chiral_particle_map']
     spectrum=field_map['background_spectrum']
-    finite=extensions['chiral_joint/two_cell']
-    charged={r['kind']:r for r in finite['conditional_readout']['records']}
-    thresholds=[]
-    for kind in ('add','remove'):
-        first=charged[kind]['complete_energy_windows'][0]
-        assert s.Rational(first['probability_interval'][0])>0
-        interval=list(map(s.Rational,first['energy_transfer_interval']))
-        thresholds.append(f'{float(sum(interval)/2):.8f}')
+    finite=extensions['chiral_joint/periodic_spectrum']
+    first=finite['compensated_charged_spectroscopy']['charged_success_branches'][0]['complete_energy_windows'][0]
+    interval=list(map(s.Rational,first['energy_transfer_interval']))
+    threshold=f'{float(sum(interval)/2):.8f}'
     h=678
     card(c,X0,y,CW,h,stroke=VIOLET)
     c.text(X0+28,y+43,'A chiral field dictionary from the actual source currents',28,TEXT,700)
@@ -491,18 +616,93 @@ def draw(c, data, y):
         'No electron/muon/tau generation is selected, and v and the three Yukawa coefficients are inputs.',
         19,SOFT,1.4)
     c.para(X0+28,y+527,CW-56,
-        'In the separate finite lepton control, quarks are empty spectators. Both quantum scalars '
-        'and the quantum link are retained. Its 614,400 source states yield '
-        '1,053 neutral physical states and one certified ground. Preparation succeeds with probability 1/1053; '
-        'failures are recorded. Visible charged transfers are '+' and '.join(thresholds)+
-        ' source units. Conjugate experiments reflect the boundary. These are detector energies; '
-        'relativistic dispersion, electron/muon/tau identity and GeV masses are unproved.',
+        'The periodic quantum lepton control has 3,424 neutral physical states and one certified ground. '
+        'Its 2,627 complete records retain preparation failure (success 1/3424). Addition and removal '
+        'both read '+threshold+' source units. An actual Higgs composite excites this same line, '
+        'without a fitted scalar background. Joint source/reference phases supply only one squared momentum. '
+        'Quarks are spectators here; relativistic masses, generations and GeV values are unproved.',
         18,MUTED,1.38)
     c.link(X0+28,y+h-25,'Source IDs, all currents and conditional mass formulas',
            '../../model/coherent_defect_wave/chiral_particle_map/PROOF.md',16)
     c.link(X0+805,y+h-25,'Quantum state and complete records',
-           '../../model/coherent_defect_wave/chiral_joint/two_cell/READOUT_PROOF.md',16)
+           '../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md',16)
     y += h + 35
+
+    neutral = extensions['chiral_joint/neutral_composite']['complete_readout']
+    bosons = extensions['chiral_joint/periodic_boson_records']['complete_readout']
+    neutral_line = neutral['branches'][0]['complete_translation_branches'][0]['complete_energy_records'][0]
+    boson_line = bosons['settings'][0]['lowest_certified_positive_inelastic_record']
+    middle = lambda row: f"{float(sum(map(Fraction,row['energy_transfer_interval']))/2):.8f}"
+    h=300
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'Several detectors read the same interacting source',28,TEXT,700)
+    c.para(X0+28,y+84,CW-56,
+        'The scalar, link loops and neutral composite are measured on the same 3,424-state periodic ground. '
+        'Success and failure records are retained; scalar and loop probes keep elastic events. Preparation failure is retained too.',
+        19,SOFT,1.4)
+    c.text(X0+28,y+159,'Neutral scalar–lepton probe: '+middle(neutral_line)+' source energy',23,TEAL,700,maxw=CW-56)
+    c.text(X0+28,y+197,'Scalar and two loop probes share a line at '+middle(boson_line),23,VIOLET,700,maxw=CW-56)
+    c.para(X0+28,y+233,CW-56,
+        'These finite energy transfers connect actual source operators. They do not assign a neutrino, Higgs, photon, W or Z mass.',
+        18,MUTED,1.35)
+    c.link(X0+28,y+h-15,'Complete neutral-composite records',
+           '../../model/coherent_defect_wave/chiral_joint/neutral_composite/PROOF.md',16)
+    c.link(X0+650,y+h-15,'Complete scalar and link-loop records',
+           '../../model/coherent_defect_wave/chiral_joint/periodic_boson_records/PROOF.md',16)
+    y+=h+22
+
+    motion=extensions['chiral_joint/neutral_mobility']['complete_physical_arrival_experiment']
+    h=405
+    card(c,X0,y,CW,h,stroke=TEAL)
+    c.text(X0+28,y+43,'A tested design change lets a neutral packet move',28,TEXT,700)
+    c.para(X0+28,y+82,CW-56,
+        'A bare local Higgs–lepton packet carries a conserved star tag in the original link law. '
+        'That tag prevents this particular packet from moving with its required flux record. '
+        'An explicit extra hopping rule changes the tag at both endpoints and preserves the physical gauge constraints.',
+        19,SOFT,1.4)
+    w=(CW-104)/3
+    labels=(('119-state quantum link','Both flux orientations; bounded transport. '
+             'All 24 proper cubic rotations preserve the chosen Hamiltonian.'),
+            ('Prepare the physical packet','A scalar and lepton form a gauge singlet. '
+             'Its fermionic reference and both spin branches are retained.'),
+            ('Read a neighboring detector','At t = '+motion['source_time']+', arrival is at least '+
+             motion['complete_arrival_probability_interval'][0]+'. No arrival is the complementary record.'))
+    for i,(title,body) in enumerate(labels):
+        xx=X0+28+i*(w+24)
+        c.rect(xx,y+176,w,130,'#142337',EDGE,1,8)
+        c.text(xx+14,y+205,title,19,TEAL,700,maxw=w-28)
+        c.para(xx+14,y+233,w-28,body,17,SOFT,1.32)
+    c.para(X0+28,y+337,CW-56,
+        'All quark, scalar and link interactions participate. The full error is bounded. '
+        'This proves finite physical motion on a declared extension; a stationary vacuum and relativistic mass require their own calculation.',
+        18,MUTED,1.35)
+    c.link(X0+28,y+h-15,'Exact source, preparation, detector and arrival bound',
+           '../../model/coherent_defect_wave/chiral_joint/neutral_mobility/PROOF.md',16)
+    y+=h+22
+
+    h=420
+    card(c,X0,y,CW,h,stroke=BLUE)
+    c.text(X0+28,y+43,'All quark and lepton channels in one quantum cell',28,TEXT,700)
+    c.text(X0+28,y+92,'97,878 states  →  240 exact classes  →  36 physical spectral states',25,BLUE,700,maxw=CW-56)
+    c.para(X0+28,y+132,CW-56,
+        'Every native Yukawa channel acts on the quantum scalar. Exact algebra gives all energy probabilities '
+        'from the empty preparation, including its complementary zero-weight outcome. '
+        'The preparation-sector ground energy is about −11.14103 source units; it is not a particle mass or a global-vacuum claim.',
+        19,SOFT,1.4)
+    c.para(X0+28,y+225,CW-56,
+        'A physical neutral spin-½ preparation reaches 113,948 states and has 49 exact energy lines. '
+        'Its ground is lower: about −11.23059. Thus the empty-register cyclic ground cannot be the universal vacuum. '
+        'This energy comparison is not a negative particle mass.',
+        19,SOFT,1.4)
+    c.para(X0+28,y+323,CW-56,
+        'Conjugation sends raw L to 2 − L; the centered charge is L − 1. This local ground has centered charge zero. '
+        'The common interacting reference must include the other sectors and their correlations.',
+        18,MUTED,1.35)
+    c.link(X0+28,y+h-15,'Exact full-family energy records',
+           '../../model/coherent_defect_wave/chiral_joint/family_cell/PROOF.md',16)
+    c.link(X0+650,y+h-15,'Physical neutral sector and reference comparison',
+           '../../model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/PROOF.md',16)
+    y+=h+35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)
     c.link(X0 + 805, y, 'Exact joint receipt', '../../model/coherent_defect_wave/results.json', 17)

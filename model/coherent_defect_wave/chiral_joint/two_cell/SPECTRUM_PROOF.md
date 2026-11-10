@@ -96,10 +96,19 @@ its L=0 subspace.
 
 ## 3. Rigorous complete-spectrum numerical enclosure
 
-A floating generalized eigensolver proposes a full eigenbasis and energies.
+A floating generalized eigensolver proposes a full eigenbasis and energies
+only in the explicit `--generate-witnesses` command. The compressed
+`eigenbasis_witnesses.npz` artifact stores integer numerators with denominator
+`2^44`, without pickle. Its manifest binds every proposal to the exact
+rational K and G matrices, normalized boundary charges, conserved labels
+and dimension. The receipt includes the artifact's SHA256 digest.
+Both `--write` and `--check` replay these stored proposals without running
+the eigensolver. A missing or mismatched witness fails replay. This fixes
+the proposal inside each degenerate eigenspace across numerical platforms.
+
 Its rank, orthogonality and residual are not accepted on floating-point
-trust. Round the proposed basis and diagonal energy matrix to dyadic
-rational matrices Q and Lambda with denominator `2^44`. Compute the
+trust. The stored basis and diagonal energy matrix define dyadic rational
+matrices Q and Lambda with denominator `2^44`. Replay computes the
 following using exact integer arithmetic:
 
 `F=Q^T G Q`, `R=K Q-G Q Lambda`,

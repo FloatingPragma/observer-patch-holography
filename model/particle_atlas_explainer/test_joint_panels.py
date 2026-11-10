@@ -28,7 +28,7 @@ def test_both_reciprocal_readouts_and_preparation_domains_are_visible(joint):
                    '281/1080', '36,000 basis states', '281/2160',
                    'the retained link frame to compare amplitudes',
                    'Every failure is retained.',
-                   'relativistic dispersion, electron/muon/tau identity and GeV masses are unproved.'):
+                   'relativistic masses, generations and GeV values are unproved.'):
         assert phrase in text
 
 
@@ -121,12 +121,53 @@ def test_positive_free_mass_current_binding_and_complete_apparatus_are_visible(j
                    'E² = |p|² + 4; rest energy = 2 source units in this free limit',
                    'A chiral field dictionary from the actual source currents',
                    'No electron/muon/tau generation is selected',
-                   '1,053 neutral physical states and one certified ground',
-                   '1.05204385 and 0.90979863 source units',
+                   '3,424 neutral physical states and one certified ground',
+                   '0.97009613 source units',
+                   'An actual Higgs composite excites this same line',
                    'Weak currents act only on left components',
                    'one flux and one native occupation, bounded coupling gives vanishing contact response',
                    'fixed-volume, fixed native-momentum window'):
         assert phrase in text
+
+
+def test_periodic_story_keeps_preparation_failure_and_composite_scope(joint):
+    periodic = deepcopy(joint['extensions']['chiral_joint/periodic_spectrum'])
+    higgs = deepcopy(joint['extensions']['chiral_joint/higgs_composites'])
+    periodic['compensated_charged_spectroscopy']['original_ground_preparation_failure'] = '0'
+    with pytest.raises(ValueError, match='complete reference records'):
+        joint_panels.check_periodic(periodic, higgs)
+    periodic = deepcopy(joint['extensions']['chiral_joint/periodic_spectrum'])
+    higgs['same_periodic_H_spectral_bridge']['residues_are_instrument_probabilities'] = True
+    with pytest.raises(ValueError, match='residue interpretation'):
+        joint_panels.check_periodic(periodic, higgs)
+
+
+def test_local_reference_retains_dark_sector_and_charge_boundaries(joint):
+    original = joint['extensions']['chiral_joint/neutral_local_spectrum']
+    changed = deepcopy(original)
+    changed['complete_physical_spectrum']['full_component_excitation_gap_inferred_from_visible_line_spacing'] = True
+    with pytest.raises(ValueError, match='reference scope'):
+        joint_panels.check_local_reference(changed)
+    changed = deepcopy(original)
+    changed['physical_symmetries']['raw_L_is_identified_with_measured_lepton_charge'] = True
+    with pytest.raises(ValueError, match='charge or spin'):
+        joint_panels.check_local_reference(changed)
+    text, c = visible(joint)
+    assert not c.overflow
+    assert 'empty-register cyclic ground cannot be the universal vacuum' in text
+    assert 'not a negative particle mass' in text
+
+
+def test_neutral_detectors_preserve_failures_and_shared_source(joint):
+    neutral = deepcopy(joint['extensions']['chiral_joint/neutral_composite'])
+    bosons = deepcopy(joint['extensions']['chiral_joint/periodic_boson_records'])
+    neutral['complete_readout']['success_postselection_renormalization'] = True
+    with pytest.raises(ValueError, match='original response weights'):
+        joint_panels.check_neutral_detectors(neutral, bosons)
+    neutral = deepcopy(joint['extensions']['chiral_joint/neutral_composite'])
+    bosons['complete_readout']['settings'][0]['lowest_certified_positive_inelastic_record']['energy_transfer_interval'] = ['2', '3']
+    with pytest.raises(ValueError, match='shared response'):
+        joint_panels.check_neutral_detectors(neutral, bosons)
 
 
 def test_apparatus_cannot_drop_failures_or_switch_the_clock(joint):

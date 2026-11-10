@@ -106,10 +106,10 @@ overlap, without choosing a particle name first.
    but its carrier and Hamiltonian differ. Its charged Gauss-compatible
    apparatus translates the retained compensator with the source, so the
    phase is a joint source/reference observable. It is not an identified
-   momentum of an isolated source particle. Its physical reference and energy
-   response must be calculated on that source before interpreting a phase
-   readout as a joint energy/momentum observation. It does not provide a
-   three-dimensional relativistic momentum measurement. On the two-cell
+   momentum of an isolated source particle. The separate
+   [complete periodic calculation](../periodic_spectrum/PROOF.md) supplies
+   its own ground and joint energy/reference-phase records. It does not
+   provide a three-dimensional relativistic momentum measurement. On the two-cell
    antiperiodic odd sector there is only one momentum magnitude, so a fit
    of both rest parameter and limiting speed is underdetermined. A
    ring in the specified even antiperiodic family needs at least four cells
@@ -117,13 +117,16 @@ overlap, without choosing a particle name first.
    shell test. These menu counts are necessary and do not suffice for a
    particle dispersion. They supply neither the required same-H branches
    and gauge-compatible states nor a controlled relativistic continuum.
-4. **Isolated pole and residue.** Compute the matrix of connected energy
-   responses for the charged creator, its actual Higgs-conversion channel
-   and neutral/composite probes. Test whether an isolated energy branch has
-   controlled nonzero spectral weight and stable dispersion as boundaries
-   and cutoffs recede. Every finite matrix has discrete levels; that fact
-   alone is not an infinite-volume particle pole. Operator overlap by itself
-   does not uniquely distinguish an elementary field from a composite.
+4. **Spectral response and particle criterion.** Compute connected responses
+   for the actual charged, quantum Higgs and neutral/composite operators.
+   The [spectral-edge attachment](../spectral_edges/PROOF.md) reuses the
+   existing finite threshold theorem with original preparation weights.
+   Stable gapped particles can have poles; charged infrared sectors can
+   require dressed thresholds and inclusive records; unstable particles
+   require resonances; confined quarks use specified renormalized parameters.
+   Finite discrete levels alone prove none of these limiting identifications.
+   Operator overlap by itself does not uniquely distinguish an elementary
+   field from a composite.
 5. **Physical species.** Establish the spatial rotation/little-group action,
    interactions and decay or scattering channels on that same family, then
    compare its complete predictions and error bars with observations. A

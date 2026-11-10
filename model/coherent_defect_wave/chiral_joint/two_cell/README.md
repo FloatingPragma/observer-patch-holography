@@ -43,5 +43,10 @@ relativistic dispersion, physical particle identity and a GeV reference
 require their own controlled attachment.
 
 ```sh
+python -m model.coherent_defect_wave.chiral_joint.two_cell --check
 python -m pytest -q model/coherent_defect_wave/chiral_joint/two_cell
 ```
+
+Replay checks the stored rational eigenbasis proposals with exact arithmetic.
+Use `--generate-witnesses` explicitly to replace those proposals, followed
+by `--write` to regenerate the receipt.

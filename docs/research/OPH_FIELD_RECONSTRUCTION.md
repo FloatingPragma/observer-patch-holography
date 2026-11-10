@@ -187,16 +187,161 @@ explicit full-residual comparison that bounds every omitted component.
 | Finite step | Result on the declared source | Requirement for a particle mass |
 | --- | --- | --- |
 | 1. Hamiltonian and constrained carrier | Complete active Gauss bases and actual quantum scalar/link H | Preserve that operator/state ancestry under refinement |
-| 2. Reference and preparation | Unique neutral ground, certified gap and complete `1/1053` preparation law | Control the physical reference on a growing family |
-| 3. Energy instrument | [460 conditional records and 461 original-attempt outcomes](../../model/coherent_defect_wave/chiral_joint/two_cell/READOUT_PROOF.md), including two visible charged thresholds | Identify the appropriate moving branch and its residue |
-| 4. Motion and momentum | Controlled finite arrival; a separate periodic joint-reference phase instrument | Joint energy/momentum on one reference, three spatial directions and controlled dispersion |
+| 2. Reference and preparation | Independently certified open and periodic grounds, with complete preparation laws `1/1053` and `1/3424` | Control the physical reference on a growing three-dimensional family |
+| 3. Energy instrument | [2627 original-attempt periodic records](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md), including equal visible charged thresholds and quantum Higgs overlap | Establish the moving branch and its physical mass observable |
+| 4. Motion and momentum | Controlled finite arrival; periodic energy and joint-reference phases on one ground; full three-axis operator family | Source-relative dispersion across independent momentum magnitudes and sizes |
 | 5. Candidate discrimination | [Actual native currents, CAR, Kramers and conjugation tests](../../model/coherent_defect_wave/chiral_joint/two_cell/CANDIDATES.md) | Separate elementary, composite and boundary-bound responses; no empirical species is assigned |
-| 6. Size, cutoff and field transfer | Blank-link transfer is rejected; full-residual and multi-momentum tests specify a replacement route | Bound state, omitted-sector, detector and numerical errors on the chosen interacting family |
+| 6. Size, cutoff and field transfer | A finite dressed interaction has a full error bound; raw long quantum paths fail the blank-reference uniform bound | Control the chosen link architecture, physical reference and interaction under refinement |
 
 The finite completion of steps 1–3 and the motion controls in step 4 do not
 supply the physical conclusions in the final column. Scalar/flavor response,
 interacting relativistic control and an independent energy reference retain
 their separate roles in a GeV comparison.
+
+### Periodic quantum ground, charged fields and controlled interaction
+
+The [periodic quantum spectrum](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md)
+uses two oriented quantum links and both scalar memories on 3686400 active
+states. Its full neutral Gauss space has dimension 3424, with a unique
+`(L,2Sz,T)=(2,0,+1)` ground at `-4.33817023295` and gap greater than
+`0.25770063535`, in the declared source clock. Each compensated charged
+space has dimension 2456. Complete rational eigenbasis bounds include every
+conserved sector. These values belong to this periodic Hamiltonian and are
+calculated independently of the open-edge values above.
+
+Translation composed with the actual conjugation maps addition to removal
+at the same boundary. Both probes have their first transfer in
+`[2083265509/2147483648,2083265637/2147483648]`, approximately
+`0.97009612853`, with original-swap probability in
+`[29863037/134217728,14931519/67108864]`, approximately `0.22249697`.
+Ground preparation succeeds with probability `1/3424`; failure `3423/3424`
+is retained. The complete adaptive energy and joint reference-phase
+instrument has 2626 post-preparation records and 2627 original-attempt
+records. The charged phase weights `(0,1/2,0,1/2)` hold at each energy
+window because the compensator's two recorded positions are orthogonal.
+They are joint source/reference phases, with only one squared momentum;
+they do not determine a source-only rest mass.
+
+The [quantum Higgs operator identities](../../model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md)
+attach the native up, down and charged-lepton pair tensors to their actual
+Higgs-screened operators. All twelve current identities and the creation
+equations hold on the entire thirty-mode local occupation space. In the
+periodic lepton control, the elementary charged operator and its quantum
+Higgs composite excite the same first energy line. The latter's squared
+matrix element lies in `[56785389/134217728,28392695/67108864]`, approximately
+`0.42308412`. This is an operator residue, not an implemented preparation
+probability. The exact same-H equation retains the hopping contribution
+and its interference. No scalar expectation value is substituted.
+
+The neutral contraction `phi0*c_L11-phi1*c_L10` is a gauge singlet and is
+fermion odd. It is noncanonical and has a nonzero interacting equation of
+motion. Local conserved star parities make its separated two-point
+correlator zero in a unique-ground or Gibbs reference. A physical neutral
+propagation claim therefore requires an appropriate link-dressed operator;
+the absence of a native neutral singlet partner proves no massless neutrino.
+
+The [three-axis periodic family](../../model/coherent_defect_wave/chiral_joint/periodic_family/PROOF.md)
+retains all native quark/lepton occupations and supplies three commuting
+translations with exact Gauss-compatible path transport. A physical
+pair/scalar preparation has 64 complete joint phase outcomes, eight of
+weight `1/8`. Its full interacting ground is distinct from the calculated
+reduced lepton ground. The raw raising-link paths amplify a blank-reference
+internal state by `d^(r/2)` on a path of length r in a d-dimensional block.
+A [contractive-link alternative and finite effective-interaction proof](../../model/coherent_defect_wave/chiral_joint/field_limit/PROOF.md)
+make the required architecture and comparison choices explicit. On an
+actual fifteen-state Gauss block at link penalty 128, a six-state dressed
+effective generator has complete-record error below `10^-12*abs(t)`.
+A separate member at penalty 65536 has a rigorously positive connected
+energy. Neither estimate transfers the unit-coupling ground or proves a
+nonzero interacting relativistic limit.
+
+The [source spectral-edge attachment](../../model/coherent_defect_wave/chiral_joint/spectral_edges/PROOF.md)
+feeds the actual original preparation weight into the existing threshold
+readout theorem. Particle identification uses the appropriate observable:
+a stable gapped pole, an infrared charged threshold with inclusive records,
+an unstable resonance, or a specified renormalized confined-quark mass.
+An isolated atom is not required for every physical charged sector.
+
+The [complete neutral-composite instrument](../../model/coherent_defect_wave/chiral_joint/neutral_composite/PROOF.md)
+and [scalar/link-loop instruments](../../model/coherent_defect_wave/chiral_joint/periodic_boson_records/PROOF.md)
+use this same periodic ground. Neutral creation and removal each retain
+all 298 target states, both translation phases and their preparation and
+apparatus failures. Their first transfer is in
+`[2681604835/4294967296,2681605091/4294967296]`, about `0.62435981` source
+units. The conserved local-star symmetry pairs these phases and forbids
+the separated bare two-point response; this line does not describe a
+propagating neutrino. A local scalar-number probe and two closed-link
+probes retain all 502 target states, elastic records and failures. All
+three have positive weight at the same inelastic line in
+`[228185229/134217728,228185237/134217728]`, about `1.70011247` source units.
+This is an exact common-reference response, without a Higgs, photon or
+weak-vector identification.
+
+### Spatial symmetries, neutral motion and the full-family cell
+
+The [orientation-closed link construction](../../model/coherent_defect_wave/chiral_joint/oriented_links/PROOF.md)
+uses 119 quantum states per link, with both flux orientations. Its actual
+native-current matrices satisfy every endpoint Ward identity, admit unitary
+orientation reversal and have contractive full internal transporters.
+All 24 proper cubic rotations, including antiperiodic seam phases, preserve
+the full periodic Hamiltonian. A two-pi rotation is fermion parity. This
+finite spatial symmetry is distinct from continuous Lorentz covariance.
+The link operators omit nonvacuum Clebsch transitions of literal
+Peter-Weyl multiplication; that difference is proved with actual currents.
+
+A [declared neutral composite hopping term](../../model/coherent_defect_wave/chiral_joint/neutral_mobility/PROOF.md)
+removes the local-star obstruction for one physical odd packet. It preserves
+Gauss constraints, global parity and proper cubic rotations. All base quark,
+lepton, scalar and quantum-link interactions remain active. An even,
+gauge-neutral preparation retains its fermionic reference and both spin
+branches. At source time `1/353`, a complete neighboring packet detector
+has arrival probability in `[1/498436,9/498436]`; its complement is retained.
+The full second-action norm `15948017/128` bounds all omitted Taylor terms.
+With this extra hopping coefficient zero the specified arrival is exactly
+zero. This is a verified design change and finite physical transport;
+it supplies no stationary vacuum, relativistic mass or GeV identification.
+
+The [full-family quantum cell](../../model/coherent_defect_wave/chiral_joint/family_cell/PROOF.md)
+activates all three unit Yukawa channels on `5*2^30` local states. Its complete
+vacuum-connected graph has 97878 states. An exact equitable compression and
+Krylov closure produce a 36-dimensional Gauss-singlet cyclic space, with all
+36 positive energy probabilities certified by rational polynomial root
+isolation. The complementary code outcome is retained with zero weight.
+The graph's unique ground is near `-11.14102996` source units and its ground
+filter succeeds with probability near `0.00047723947`. These are a
+preparation-sector reference and energy records, without a global minimum
+claim across other sectors. Independent complete short-time number records
+resolve up-pair, down-pair and charged-lepton-pair production. The labels
+specify source representations, not measured quarks or lepton generations.
+
+The [physical neutral local response](../../model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/PROOF.md)
+starts from the gauge-singlet two-component preparation `D_up^dagger Omega`.
+Its complete connected graph has 113948 states; exact compression gives
+49 positive spectral weights and a retained zero-weight complementary
+outcome. The component ground is a physical local spin-one-half state near
+`-11.23058529425`, strictly below the vacuum-connected minimum by about
+`0.08955533`. This comparison rules out the empty-register cyclic ground
+as the global local reference when these two sectors are both admitted.
+It is not a negative rest mass. The raw conserved charge has conjugation
+law `L -> 2-L`, so its centered value is `L-1`; this odd ground has centered
+charge zero. Its conjugation partner has opposite spin in the same raw
+charge sector. A two-cell singlet of these local grounds is an explicit
+even physical reference for uncoupled cells. The interacting many-cell
+ground requires its own calculation, including other conserved sectors
+and excitations invisible to these preparation probes.
+
+| Field role | Exact finite attachment | Required physical identification |
+| --- | --- | --- |
+| Charged leptons | Native L and e^c currents; quantum Higgs composite; certified periodic charged spectral line | Propagating relativistic charged sector, generations, mass thresholds and decay laws |
+| Up and down quarks | Native colored chiral weights, all-occupation Higgs equations, joint full-family production | Colored dynamics, confinement and a stated renormalized mass convention |
+| Neutral leptons | Gauge-singlet odd composite, complete local spectral response, controlled physical packet motion on a declared extension | A common stationary reference and moving relativistic branch; flavor and mass/mixing law |
+| Scalar/Higgs channel | Five-state quantum memory, actual invariant pair tensors and complete same-ground scalar energy records | Propagating scalar response and its relation to fermion and vector masses |
+| Photon and weak vectors | Native electroweak currents, gauge-compatible links and complete same-ground closed-loop records | Vector-channel attachment, mixing, massless/massive dispersion and physical polarizations |
+| Gluons | Native color currents and color-covariant quantum transport | Non-Abelian dynamics and color-singlet observable consequences; no free-gluon pole is required |
+
+No gauge-weight table by itself assigns observed particle identities. The
+computed finite records and the conditional background field dictionary
+have separate state and parameter ancestry.
 
 ### Other source branches and the physical join
 

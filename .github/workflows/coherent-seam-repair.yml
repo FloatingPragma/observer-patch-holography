@@ -51,9 +51,13 @@ jobs:
       - run: python -m model.coherent_defect_wave.chiral_higgs --check
       - run: python -m model.coherent_defect_wave.chiral_particle_map --check
       - run: python -m model.coherent_defect_wave.chiral_joint --check
-      - run: python -m pytest -q -W error model/coherent_defect_wave --ignore=model/coherent_defect_wave/chiral_joint/two_cell
+      - run: python -m pytest -q -W error model/coherent_defect_wave --ignore=model/coherent_defect_wave/chiral_joint/two_cell --ignore=model/coherent_defect_wave/chiral_joint/periodic_family --ignore=model/coherent_defect_wave/chiral_joint/field_limit --ignore=model/coherent_defect_wave/chiral_joint/periodic_spectrum --ignore=model/coherent_defect_wave/chiral_joint/higgs_composites --ignore=model/coherent_defect_wave/chiral_joint/spectral_edges --ignore=model/coherent_defect_wave/chiral_joint/oriented_links --ignore=model/coherent_defect_wave/chiral_joint/neutral_mobility --ignore=model/coherent_defect_wave/chiral_joint/family_cell --ignore=model/coherent_defect_wave/chiral_joint/neutral_local_spectrum --ignore=model/coherent_defect_wave/chiral_joint/neutral_composite --ignore=model/coherent_defect_wave/chiral_joint/periodic_boson_records
 
   constrained-spectrum:
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [two_cell, periodic_family, field_limit, periodic_spectrum, higgs_composites, spectral_edges, oriented_links, neutral_mobility, family_cell, neutral_local_spectrum, neutral_composite, periodic_boson_records]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -68,5 +72,5 @@ jobs:
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python -m model.coherent_defect_wave.chiral_joint.two_cell --check
-      - run: python -m pytest -q -W error model/coherent_defect_wave/chiral_joint/two_cell
+      - run: python -m model.coherent_defect_wave.chiral_joint.${{ matrix.package }} --check
+      - run: python -m pytest -q -W error model/coherent_defect_wave/chiral_joint/${{ matrix.package }}

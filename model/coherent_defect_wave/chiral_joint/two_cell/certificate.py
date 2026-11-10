@@ -23,6 +23,7 @@ def input_hashes():
     here=Path(__file__).parent
     seeds={str(p.relative_to(ROOT)) for p in here.iterdir()
            if p.suffix in ('.py','.md')}
+    seeds.add(str((here/'eigenbasis_witnesses.npz').relative_to(ROOT)))
     seeds.update(action.SOURCE_FILES)
     seeds.update(('model/requirements.txt',
         'model/coherent_defect_wave/chiral_source/PROOF.md',
