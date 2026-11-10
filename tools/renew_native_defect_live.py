@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from tools import strict_json  # noqa: E402
 
-RETAINED = 'model/common_source/native_defect_decision_results.json'
+RETAINED = 'model/completion/historical/r2063_live_inputs/model/common_source/native_defect_decision_results.json'
 RETAINED_SHA256 = '77065a134b14867e5e5426172249608a17ff19413fa7e8b89043c2377bfcb862'
 LIVE = 'model/common_source/native_defect_decision_live_results.json'
 

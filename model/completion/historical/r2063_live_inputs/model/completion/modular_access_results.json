@@ -1,0 +1,234 @@
+{
+  "addition": "Attach that real-operation invariant to unequal weights of the actual CP01 full-record stationary references and obtain an exact1/2 implementation-error witness for their nontrivial modular action on the fixed support algebra.",
+  "boundaries": [
+    "This excludes implementing the stated nontrivial modular action on the fixed source-basis full support algebra of these two references using the frozen operational grammar.",
+    "The real pair probe tests an all-input map on that algebra; it is not claimed to be preparable by the admitted diagonal-input native grammar.",
+    "PauliY is a mathematical trace-distance witness, not an executed or admitted native detector.",
+    "The 1/2 bound compares normalized outputs; an unnormalized success branch of probability p contributes a p/2 bound when its success flag is retained.",
+    "On the accessible commutative record algebra the modular automorphism flow is trivial; the result does not rule out its identity implementation.",
+    "A new complex phase resource, a different quantum encoding, additional coherent registers, different reference/algebra, or carrier refinement changes the tested contract and is not excluded here.",
+    "Supplied joint ancillary states must be real; individually real marginals would not suffice if they conceal complex joint correlations.",
+    "A supplied non-real encoder or decoder is also outside the declared native implementation grammar.",
+    "This is not a no-go for every modular-clock construction, a physical clock calibration, or the broader executable hypothesis."
+  ],
+  "campaign": {
+    "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
+    "path": "model/completion/campaign.json",
+    "sha256": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75"
+  },
+  "full_CP02_gate_accepted": false,
+  "gate": "CP-02",
+  "nearest_existing_result": "model/native_interface/README.md: the exact reachability boundary and real-effect complex-conjugation control",
+  "primitive_certificate": {
+    "C_E": {
+      "C": {
+        "complete_raw_branch_matrices": 240,
+        "integer_matrix_entries_equal_one": 4680,
+        "kraus_scalar": "1/sqrt(2), times real square roots of scheduler/law weights",
+        "nonzero_branch_matrices": 180,
+        "unweighted_matrix_is_real": true
+      },
+      "E": {
+        "complete_raw_branch_matrices": 480,
+        "integer_matrix_entries_equal_one": 4680,
+        "kraus_scalar": "1/sqrt(2), times real square roots of scheduler/law weights",
+        "nonzero_branch_matrices": 300,
+        "unweighted_matrix_is_real": true
+      }
+    },
+    "ancilla_premise": "all supplied ancillary joint states are real in the declared basis; admitted diagonal independent ancillas suffice",
+    "classical_memory_operations": "classical transitions represented by real basis maps with nonnegative probability square roots",
+    "closure": "products, classical sums, partial traces and positive-probability normalization preserve real density matrices",
+    "holds_and_timeouts": "identity matrices; real",
+    "scope": "arbitrary finite admitted histories; no coherent phase service or change of quantum encoding"
+  },
+  "proof": [
+    "Every admitted native Kraus branch, hold and classical memory map is real in the fixed source/record basis. Classical probability weights multiply these maps by real scalars.",
+    "A finite product maps a real joint density to a real subnormalized density. Summing classical branches, tracing ancillary registers, or dividing by a positive real branch probability preserves realness.",
+    "In an actual stationary block choose positive unequal weights p_i>p_j. On its full support matrix algebra, the predual modular map at s_star=pi/(2log(p_i/p_j)) sends the real pair probe to the positive-Y pure state.",
+    "Extend PauliY by zero outside that pair and record block. It has operator norm1. The target expectation is1, whereas every real normalized admitted output has expectation0, even with leakage or a changed classical record.",
+    "Trace-norm duality therefore gives trace distance at least1/2 from the target. A positive-probability heralded native branch remains subject to the same bound. Norm limits cannot evade the closed real-output condition."
+  ],
+  "reference_witnesses": {
+    "C": {
+      "block_exact_diagonal_sha256": "43f118aa4f5c5669a5791a286ccb01d3cf8aebe9687d955952a9b67bc6e8d1b5",
+      "block_probability": "19044470382567741749679173821263591372894573957393371663027189194593390124409/2666810946245316062655876650225908466063120765243578460235078613722150793118760",
+      "central_record_weight_cancels_from_ratio": true,
+      "conditional_positive_weights": [
+        "564974970723540040214808279282018927084808022748319294672360318943356635488/19044470382567741749679173821263591372894573957393371663027189194593390124409",
+        "692139586108258003722618632480358268878420017084902240588323889034521706468/57133411147703225249037521463790774118683721872180114989081567583780170373227"
+      ],
+      "law": "C",
+      "ordered_source_indices_i_j": [
+        76,
+        61
+      ],
+      "ordered_source_states_i_j": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "phase_witness": {
+        "every_normalized_real_output_pauli_y_expectation": "0",
+        "excluded_phase_service_control": "diag(1,i) maps the real probe to the target exactly; this complex gate is outside the campaign",
+        "modular_parameter": "s_star=pi/(2*log(q)) > 0; dimensionless",
+        "observable_orientation": "A -> sigma^(i*s) A sigma^(-i*s)",
+        "predual_orientation": "rho -> sigma^(-i*s) rho sigma^(i*s)",
+        "probe": "(|i>+|j>)/sqrt(2), a real full-algebra test input",
+        "ratio_q": "423731228042655030161106209461514195313606017061239471004270239207517476616/173034896527064500930654658120089567219605004271225560147080972258630426617",
+        "relative_predual_phase_at_s_star": "-i",
+        "sharp_real_state_control": "diag(1/2,1/2) has trace distance1/2 from target",
+        "target_density_on_ordered_pair": [
+          [
+            "1/2",
+            "-i/2"
+          ],
+          [
+            "i/2",
+            "1/2"
+          ]
+        ],
+        "target_pauli_y_expectation": "1",
+        "trace_distance_lower_bound": "1/2"
+      },
+      "positive_block_support_dimension": 56,
+      "record": [
+        "repair",
+        "explore",
+        [
+          0,
+          1
+        ],
+        "C",
+        0,
+        0,
+        0
+      ],
+      "unnormalized_positive_weights": [
+        "70621871340442505026851034910252365885601002843539911834045039867919579436/333351368280664507831984581278238558257890095655447307529384826715268849139845",
+        "173034896527064500930654658120089567219605004271225560147080972258630426617/2000108209683987046991907487669431349547340573932683845176308960291613094839070"
+      ]
+    },
+    "E": {
+      "block_exact_diagonal_sha256": "d04b6894e7c67a2f1d54a879accd8e7a022012125f92e79cd9f2d45f4b61a551",
+      "block_probability": "5793197047060856968578875450156073605914978724444450472994274648099110607999/4000216419367974093983814975338862699094681147865367690352617920583226189678140",
+      "central_record_weight_cancels_from_ratio": true,
+      "conditional_positive_weights": [
+        "1344750204717111646635169893210589150102329068526050848479035329234960091365/11586394094121713937157750900312147211829957448888900945988549296198221215998",
+        "346069793054129001861309316240179134439210008542451120294161944517260853234/5793197047060856968578875450156073605914978724444450472994274648099110607999"
+      ],
+      "law": "E",
+      "ordered_source_indices_i_j": [
+        59,
+        61
+      ],
+      "ordered_source_states_i_j": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "phase_witness": {
+        "every_normalized_real_output_pauli_y_expectation": "0",
+        "excluded_phase_service_control": "diag(1,i) maps the real probe to the target exactly; this complex gate is outside the campaign",
+        "modular_parameter": "s_star=pi/(2*log(q)) > 0; dimensionless",
+        "observable_orientation": "A -> sigma^(i*s) A sigma^(-i*s)",
+        "predual_orientation": "rho -> sigma^(-i*s) rho sigma^(i*s)",
+        "probe": "(|i>+|j>)/sqrt(2), a real full-algebra test input",
+        "ratio_q": "1344750204717111646635169893210589150102329068526050848479035329234960091365/692139586108258003722618632480358268878420017084902240588323889034521706468",
+        "relative_predual_phase_at_s_star": "-i",
+        "sharp_real_state_control": "diag(1/2,1/2) has trace distance1/2 from target",
+        "target_density_on_ordered_pair": [
+          [
+            "1/2",
+            "-i/2"
+          ],
+          [
+            "i/2",
+            "1/2"
+          ]
+        ],
+        "target_pauli_y_expectation": "1",
+        "trace_distance_lower_bound": "1/2"
+      },
+      "positive_block_support_dimension": 10,
+      "record": [
+        "repair",
+        "explore",
+        [
+          0,
+          1
+        ],
+        "E",
+        0,
+        -1,
+        0
+      ],
+      "unnormalized_positive_weights": [
+        "268950040943422329327033978642117830020465813705210169695807065846992018273/1600086567747189637593525990135545079637872459146147076141047168233290475871256",
+        "173034896527064500930654658120089567219605004271225560147080972258630426617/2000108209683987046991907487669431349547340573932683845176308960291613094839070"
+      ]
+    }
+  },
+  "schema": "oph.completion.modular_access.v1",
+  "source_sha256": {
+    "model/common_source/native_defect_decision.py": "d3c9293c3494b104f3a0926d088377984ec296f127bf29b60bb7d4a7cde81373",
+    "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
+    "model/completion/modular_access.py": "8a5cfc4d77b697deab832507e8dbf216c768ed27ac08673d3169822cb93af9d9",
+    "model/completion/observer.py": "ad0ccc68f93a02c2d624af66bae90eed1777d9e975875c92f87d6e1f2177aae2",
+    "model/completion/observer_reference.py": "e19148025043494b207d0ea64bfa09b26d454ebee3f71153a9df7e745daf6a4f",
+    "model/completion/stationary_reference.py": "e46bad71aea43212f86bd59de547e38c2306783f8d8cc3a8e7620888d2613f6b",
+    "model/native_interface/README.md": "ff702966e9ed114e8cfda9cd9123d5cc8de15bbcbf5b009e6e9ede910417fe4f"
+  },
+  "status": "FIXED_REFERENCE_ALGEBRA_IMPLEMENTATION_OBSTRUCTED",
+  "whole_program_excluded": false
+}

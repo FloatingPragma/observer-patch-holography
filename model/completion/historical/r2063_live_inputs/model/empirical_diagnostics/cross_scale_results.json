@@ -1,0 +1,273 @@
+{
+  "attribution": {
+    "OPH_contribution": "Independent reconstruction and complete-outcome, support-alignment and normalized-readout controls; physical electromagnetic identification remains conditional.",
+    "author": "A. D. Wissner-Gross",
+    "borrowed_construction": "Entangled-pair exchange operators, spectral weights and normalization giving the exact scalar.",
+    "title": "A Parameter-Free Candidate for the Fine-Structure Constant from Entangled Qudits",
+    "year": 2026
+  },
+  "chiral_mass_comparison": {
+    "an_overall_mass_scale_can_change_these_ratios": false,
+    "benchmark": "charged lepton hierarchy, ascending e/mu/tau masses",
+    "comparison_contract": {
+      "passing_windows_would_establish_physical_mass_agreement": false,
+      "physical_comparison_admissible": false,
+      "prediction_quantity": "dimensionless_source_coefficients_or_declared_Hubbard_texture_threshold_ratios",
+      "prediction_renormalization_scheme_and_scale": null,
+      "reference_quantity": "charged_lepton_pole_mass_ratios",
+      "required_for_physical_comparison": "derive_mass_and_kinetic_response_together_then_supply_scheme_scale_and_pole_matching",
+      "source_to_pole_matching_supplied": false,
+      "status": "unmatched_hierarchy_diagnostic_only"
+    },
+    "comparisons": [
+      {
+        "both_ratios_pass": false,
+        "prescription": "linear_F",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ]
+      },
+      {
+        "both_ratios_pass": false,
+        "prescription": "a_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ]
+      },
+      {
+        "both_ratios_pass": false,
+        "prescription": "b_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ]
+      },
+      {
+        "both_ratios_pass": false,
+        "prescription": "J_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ]
+      }
+    ],
+    "conservative_ratio_windows": [
+      [
+        "206",
+        "207"
+      ],
+      [
+        "3470",
+        "3485"
+      ]
+    ],
+    "empirical_data_used_only_for_comparison": true,
+    "other_nonlinear_or_interacting_actions_excluded": false,
+    "source": "https://pdg.lbl.gov/2025/download/db2024.pdf"
+  },
+  "classification": "retrospective conditional cross-scale comparison",
+  "cosmology": {
+    "archive_sha256": "8f2801a69663ef1142bb05660e0118ef7b1e0bdf3d05afba434a0569023b98ab",
+    "forward_and_inherited_have_same_tail_weight": true,
+    "forward_minus_inherited_tilt_interval": [
+      "2305659434691335688064353035708381842241356379669283184645367715044482042627779125554926791599429475550332022481/93312000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "922263773876534275225741214283352736896542551868111869234703945116130415931943654130054691940085277257812809159/37324800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "forward_posterior_mass_interval": [
+      "3114/508985",
+      "3114/508985"
+    ],
+    "forward_tail_weight_interval": [
+      3114,
+      3114
+    ],
+    "inherited_P": "16309682094039593/10000000000000000",
+    "inherited_scalar_tilt": "463690317905960407/480000000000000000",
+    "inherited_tail_weight": 3114,
+    "multiplicity": 508985,
+    "per_chain": [
+      {
+        "archive_member_sha256": "197d8b6dece708833f51d6b973063bcc6bff3cec7f496d769b0d427eb8521833",
+        "burn_in_rows": 101494,
+        "forward_tail_weight_interval": [
+          766,
+          766
+        ],
+        "inherited_tail_weight": 766,
+        "member": "p-actbase-l-b_lcdm_camb/p-actbase-l-b_lcdm_camb.1.txt",
+        "multiplicity": 135830,
+        "retained_rows": 101494
+      },
+      {
+        "archive_member_sha256": "e402a00c788e188d0506a89ea6c7ccd4ef8d8917306470f72273f398147921e8",
+        "burn_in_rows": 79180,
+        "forward_tail_weight_interval": [
+          396,
+          396
+        ],
+        "inherited_tail_weight": 396,
+        "member": "p-actbase-l-b_lcdm_camb/p-actbase-l-b_lcdm_camb.2.txt",
+        "multiplicity": 106182,
+        "retained_rows": 79180
+      },
+      {
+        "archive_member_sha256": "89ed05e1f71a2bb4054e528e13b5fc5f061b09b28d07531d0623b9dffdeb8cba",
+        "burn_in_rows": 118240,
+        "forward_tail_weight_interval": [
+          847,
+          847
+        ],
+        "inherited_tail_weight": 847,
+        "member": "p-actbase-l-b_lcdm_camb/p-actbase-l-b_lcdm_camb.3.txt",
+        "multiplicity": 159817,
+        "retained_rows": 118240
+      },
+      {
+        "archive_member_sha256": "b6a2f12f9bd9cc3e8ec2ac2a0aa330fb922db0ceb417769001ea6163f9ebc011",
+        "burn_in_rows": 80261,
+        "forward_tail_weight_interval": [
+          1105,
+          1105
+        ],
+        "inherited_tail_weight": 1105,
+        "member": "p-actbase-l-b_lcdm_camb/p-actbase-l-b_lcdm_camb.4.txt",
+        "multiplicity": 107156,
+        "retained_rows": 80261
+      }
+    ],
+    "physical_comparison_contract": {
+      "archive_product": "p-actbase-l-b_lcdm_camb",
+      "cosmological_model": "baseline six-parameter flat Lambda-CDM",
+      "data_combination": "P-ACT-LB: Planck, full multifrequency ACT DR6, ACT/Planck lensing, DESI 2024 DR1 BAO",
+      "documentation": "code/cosmology/tilt_posterior/README.md",
+      "native_primordial_embedding_derived": false,
+      "ns_prior": {
+        "bounds": [
+          "0.85",
+          "1.1"
+        ],
+        "family": "uniform"
+      },
+      "pivot_Mpc_inverse": "0.05",
+      "posterior_marginal_not_joint_model_likelihood": true,
+      "primary_parameter_paper": "https://arxiv.org/html/2503.14452v1",
+      "quantity": "primordial scalar power-law spectral index n_s",
+      "supplied_physics": "standard radiation transfer, recombination, foreground, calibration and nuisance models"
+    },
+    "posterior_mass_is_p_value": false,
+    "projection": "code/cosmology/tilt_posterior/act_dr6_ns_weight.json.gz",
+    "projection_sha256": "13dab540b652300bd000cf1ac3b197af55c7c411de215682482ea55993f40485",
+    "retained_rows": 379175,
+    "tail_effective_sample_size_or_confidence_certificate": false
+  },
+  "coupling": {
+    "interpretation": "Retrospective scalar agreement; reported standard uncertainty is not a model-error bound or model probability.",
+    "inverse_alpha_decimal_enclosure": {
+      "hi": "137.03599918956615502918374402086679956640868467385426554124952443939012544588656",
+      "lo": "137.03599918956615502918374402086679956640868467385426554124946829116314913743238"
+    },
+    "signed_difference_over_reported_standard_uncertainty": {
+      "hi": "0.59838833472303542956508569363850879399306026386902497330429168789935981693336434",
+      "lo": "0.59838833472303542956508569363850879399306026386902229957919757797297075900149921"
+    },
+    "target": {
+      "citation": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+      "comparison_half_width_in_standard_uncertainties": "5",
+      "exposure": "retrospective_known_data",
+      "observable": "inverse_fine_structure_constant_thomson_limit",
+      "schema": "oph.predictions.empirical_endpoint.v1",
+      "source": "CODATA 2022 recommended values, NIST wall table",
+      "standard_uncertainty": "0.000000021",
+      "unit": "dimensionless",
+      "value": "137.035999177"
+    },
+    "within_one_reported_standard_uncertainty": true
+  },
+  "custody": {
+    "ACT_weighted_projection_recomputed_here": true,
+    "exact_spectral_enclosure_recomputed_here": true,
+    "input_sha256": {
+      "code/cosmology/tilt_posterior/README.md": "9d27696b3460f2aab794b8c94a53f66520af1c63474239f67fabb972efa26955",
+      "code/cosmology/tilt_posterior/act_dr6_ns_weight.json.gz": "13dab540b652300bd000cf1ac3b197af55c7c411de215682482ea55993f40485",
+      "model/common_source/chiral_candidate/results.json": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a",
+      "model/empirical_diagnostics/cross_scale.py": "899a07e79a6943eaa801d42face356c0800a84d878e556e436e3c92d90bb68f3",
+      "model/observer_particles/results/entangled_alpha.json": "1536bdceda74bb6849ecdb1a9840c681d7dc1dbb83b74e97720ec776112927f0",
+      "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+      "model/predictions/shared_parameter.py": "fa3fb9161fdf1238e8e5058d14cce8029c2f137e0e82f7bb0d2eff1d3e601058",
+      "model/scalar_observations/experimental_readout/executable_results.json": "5c605c4ec5d6762cdc190ac49c5d2139b8cc8286dbe89a3101e9783faa6eb73b"
+    },
+    "upstream_histories_reexecuted_here": false
+  },
+  "joint_status": {
+    "all_public_datasets_reproduced": false,
+    "declared_chiral_prescriptions": [
+      "linear_F",
+      "a_Hubbard_function",
+      "b_Hubbard_function",
+      "J_Hubbard_function"
+    ],
+    "declared_chiral_prescriptions_failing_both_ratio_requirement": [
+      "linear_F",
+      "a_Hubbard_function",
+      "b_Hubbard_function",
+      "J_Hubbard_function"
+    ],
+    "declared_chiral_prescriptions_passing_both_lepton_ratios": [],
+    "joint_likelihood_or_significance": null,
+    "missing_contracts": [
+      "spectral_scalar_to_Thomson_photon_residue",
+      "same_cell_P_alpha_identification",
+      "same_reconstructed_native_spacetime_field_history_proved",
+      "quantum_gauge_and_Higgs_dynamics_executed",
+      "observed_standard_model_mass_spectrum_derived",
+      "oscillator_apparatus_action_and_preparation_from_fixed_repair",
+      "physical_clock_for_quantum_comparison",
+      "native_curvature_to_CMB_transfer_and_background",
+      "common_physical_action_and_complete_comparison_error_contract"
+    ],
+    "source_only_measured_universe_established": false,
+    "status": "not_evaluable_as_one_complete_physical_construction"
+  },
+  "prediction": {
+    "P_interval": [
+      "1268240879631596487906123465724774258785716647263103457448131888130765296054883869584068056345869945308059914722742187190841/777600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "3170602199078991219765308664311935646964291618157758643620330716815354632284955517957372220874445073208400570524449667977519/1944000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "alpha_interval": [
+      "5674421353503773574130641433235745533970997828002487606903063/777600000000000000000000000000000000000000000000000000000000000",
+      "226976854140150942965225657329429821358839913120099504276122613/31104000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "arithmetic_error_is_physical_theory_error": false,
+    "declared_maps": [
+      "P=(1+sqrt(5))/2+sqrt(pi)*alpha",
+      "n_s=1-P/48"
+    ],
+    "inverse_alpha_interval": [
+      "31104000000000000000000000000000000000000000000000000000000000000/226976854140150942965225657329429821358839913120099504276122613",
+      "777600000000000000000000000000000000000000000000000000000000000/5674421353503773574130641433235745533970997828002487606903063"
+    ],
+    "method": "Exact rational square-root bounds and alternating Machin-series bounds",
+    "observation_inputs": [],
+    "scalar_tilt_interval": [
+      "90141397800921008780234691335688064353035708381842241356379669283184645367715044482042627779125554926791599429475550332022481/93312000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "36056559120368403512093876534275225741214283352736896542551868111869234703945116130415931943654130054691940085277257812809159/37324800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    ],
+    "spectral_expression": "(79+48 sqrt(2)+42 sqrt(3)+3 sqrt(6))/31104"
+  },
+  "prediction_sha256_before_comparison": "c1beba01801b4db73c91136a54c12401fb4c15cba31378e22dd5d1689c054c9e",
+  "quantum_comparison_scope": {
+    "complete_native_history_tested": false,
+    "initialization_conditioned_experimental_data": true,
+    "interacting_scalar_dynamics_tested": false,
+    "oph_specific_prediction": false,
+    "physical_clock_calibrated": false,
+    "preparation_or_action_selected_by_OPH": false,
+    "prospective_prediction": false,
+    "source_executed_finite_preparation": true,
+    "source_executed_readout_prediction": true,
+    "supplied_classical_thermal_draw_and_code_services": true
+  },
+  "schema": "oph.empirical_diagnostics.fixed_spectral_cross_scale.v1"
+}

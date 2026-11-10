@@ -4,7 +4,7 @@ import json
 import os
 import shutil
 import pytest
-from model.completion import current_custody_renewal as renewal
+from model.completion import r2063_custody_renewal as renewal
 from tools import strict_json
 
 
@@ -64,6 +64,19 @@ def custody_template(tmp_path_factory):
              renewal.MAP, renewal.REVIEW, renewal.INTERFACES, renewal.TRACKING}
     authority = renewal.load_authority()
     names.update(authority['historical_file_sha256'])
+    names.update(authority['reviewed_live_interface_sha256'])
+    for name, row in authority['permitted_integration_configuration_renewals'].items():
+        names.update((name, row['retained_path']))
+        names.update(strict_json.load(renewal.ROOT / name)['source_bindings'])
+    from tools import renew_canonical_live_receipts as live
+    for name, row in authority['permitted_canonical_live_renewals'].items():
+        names.update((name, row['retained_path']))
+        value = strict_json.load(renewal.ROOT / name)
+        if name != 'model/completion/campaign.json':
+            names.update(str(target.relative_to(renewal.ROOT))
+                         for _, _, _, target in live.bindings(renewal.ROOT, name, value))
+        for pointer in row.get('reviewed_receipt_pointers', ()):
+            names.update((pointer['target'], pointer['retained_path']))
     names.update(renewal.CURRENT_BINDINGS)
     for name in (renewal.MAP, renewal.REVIEW, renewal.INTERFACES):
         names.update(strict_json.load(renewal.ROOT / name)['source_bindings'])
@@ -98,6 +111,7 @@ def write(root, name, value):
     'class_clause', 'review_history', 'assumption_union', 'extra_assumption',
     'canonical_discharge', 'unreviewed_group_text', 'navigation_count',
     'historical_record', 'authority', 'owner_science',
+    'r2063_assumption', 'r2063_remaining', 'r2063_source',
 ))
 def test_rebuilt_outer_hashes_do_not_authorize_scientific_or_historical_changes(isolated_root, damage):
     root = isolated_root
@@ -118,10 +132,18 @@ def test_rebuilt_outer_hashes_do_not_authorize_scientific_or_historical_changes(
         value = read(root, name)
         value['unreviewed_scientific_change'] = True
     elif damage in ('assumption_union', 'extra_assumption', 'canonical_discharge',
-                    'unreviewed_group_text', 'navigation_count'):
+                    'unreviewed_group_text', 'navigation_count', 'r2063_assumption',
+                    'r2063_remaining', 'r2063_source'):
         name = renewal.TRACKING
         value = read(root, name)
-        if damage == 'canonical_discharge':
+        if damage == 'r2063_assumption':
+            value['model_supply']['contract_coverage']['bindings'][1]['assumptions'].remove(
+                'declared_collective_native_block_architecture')
+        elif damage == 'r2063_remaining':
+            value['model_supply']['groups'][18]['remaining'] += ' Unreviewed physical acceptance.'
+        elif damage == 'r2063_source':
+            value['model_supply']['groups'][8]['sources'].pop()
+        elif damage == 'canonical_discharge':
             value['rows'][0]['discharge']['status'] = 'discharged'
         elif damage == 'unreviewed_group_text':
             value['model_supply']['groups'][8]['constructed'] += ' New unreviewed result.'
@@ -198,3 +220,64 @@ def test_self_consistent_live_repin_cannot_replace_immutable_scientific_source(i
     document['source_bindings'][name] = renewal.file_digest(path)
     with pytest.raises(ValueError, match='immutable nonrenewable source custody changed'):
         renewal.check_bindings(document, renewal.INTERFACES, isolated_root, renewal.load_authority())
+
+
+@pytest.mark.parametrize('damage', ('acceptance', 'extra_source', 'deleted_source', 'scope'))
+def test_configuration_transition_retains_science_even_if_outer_digest_is_forged(isolated_root, damage):
+    authority = copy.deepcopy(renewal.load_authority())
+    name = 'model/pair_cyclic_control/campaign.json'
+    value = read(isolated_root, name)
+    if damage == 'acceptance':
+        value['integrated_gate_accepted'] = True
+    elif damage == 'extra_source':
+        value['source_bindings']['tools/unreviewed.py'] = 'f' * 64
+    elif damage == 'deleted_source':
+        value['source_bindings'].pop(next(iter(value['source_bindings'])))
+    else:
+        value['scope'] = 'PHYSICAL_COMPLETION'
+    write(isolated_root, name, value)
+    authority['permitted_integration_configuration_renewals'][name]['replay_verified_sha256'] = renewal.file_digest(isolated_root / name)
+    with pytest.raises(ValueError, match='scientific configuration changed'):
+        renewal.validate_integration_configurations(isolated_root, authority)
+
+
+@pytest.mark.parametrize('damage', ('science', 'source_inventory'))
+def test_live_canonical_science_survives_forged_outer_receipt_pin(isolated_root, damage):
+    authority = copy.deepcopy(renewal.load_authority())
+    name = 'model/native_program/results.json'
+    value = read(isolated_root, name)
+    if damage == 'science':
+        value['unreviewed_physical_acceptance'] = True
+    else:
+        value['source_sha256'].pop(next(iter(value['source_sha256'])))
+    write(isolated_root, name, value)
+    authority['permitted_canonical_live_renewals'][name]['replay_verified_sha256'] = renewal.file_digest(isolated_root / name)
+    with pytest.raises(ValueError, match='scientific payload|source map scope'):
+        renewal.validate_canonical_live_inputs(isolated_root, authority)
+
+
+@pytest.mark.parametrize('damage', ('old_attribution', 'receipt', 'class_fingerprint',
+                                   'review_fingerprint', 'class_clause', 'status'))
+def test_interpreter_custody_successor_cannot_rewrite_review_or_class(damage):
+    authority = renewal.load_authority()
+    documents = {p: read(renewal.ROOT, p) for p in (
+        renewal.PROGRAM, renewal.MAP, renewal.CLASS, renewal.REVIEW, renewal.INTERFACES)}
+    klass, review = documents[renewal.CLASS], documents[renewal.REVIEW]
+    if damage == 'old_attribution':
+        review['current_interpreter_custody_successor']['old_review_signed_current_bytes'] = True
+    elif damage == 'receipt':
+        klass['interpreter_binding']['source_hashes']['model/native_program/results.json'] = 'f' * 64
+    elif damage == 'class_fingerprint':
+        klass['adoption']['independent_review']['reviewed_contract_digest'] = 'f' * 64
+    elif damage == 'review_fingerprint':
+        review['reviewed_contract_digest'] = 'f' * 64
+    elif damage == 'class_clause':
+        klass['services']['coherent_services_derived_from_passive_repair'] = True
+    else:
+        klass['adoption']['status'] = 'PROPOSED_FOR_INDEPENDENT_REVIEW'
+    if damage == 'status':
+        bodies = renewal.semantic_bodies(documents, authority)
+        assert renewal.digest(bodies['class']) != authority['baseline_semantics']['class']
+    else:
+        with pytest.raises(ValueError):
+            renewal.semantic_bodies(documents, authority)

@@ -1,0 +1,701 @@
+{
+  "baseline_binding_path_sha256": {
+    "model/completion/component_interfaces.json": "1f75d695f9419b42e21d83f586bcc5ef1397fe8b1c11ebc33764790b794d79f1",
+    "model/completion/finite_attachment_map.json": "c8ddcc7952b113f5739c715d065a81ff71670b384dab5b5699b61d3bc9fdd29a",
+    "model/completion/program_class_v2_review.json": "ce6d0c427a05e42f5d45d98888b9b646635b81ef56b3d534407ce15f0c5c3060"
+  },
+  "baseline_file_sha256": {
+    "claims/completion_program.json": "8729ccfb5fe702914e75bf40f362dd68225d53e9d6906a641278ac1688a5426a",
+    "model/completion/component_interfaces.json": "0b6d94b4f88923085f5c3deb3f18653d9a8394a721070b621ed819f4338c28f8",
+    "model/completion/finite_attachment_map.json": "07bdebac7a8e7214da1e3fec3f9911bf3cd9d721a17ed26703c3d66af479be3b",
+    "model/completion/program_class_v2.json": "cde27d4c5314efcdaef2169b62b3f41301aafda2bd9abca6569935f94073c348",
+    "model/completion/program_class_v2_review.json": "e3877700db429eb81f16b736b1b5f1fe9b5bfd19b3ebfb6865605396ceb814df",
+    "tracking/premise_register.json": "72a1edf048e94ad9b7facbc1f2d4eae394d688fb7043d2dbd6a28ca1e7bde3a2"
+  },
+  "baseline_navigation": {
+    "claim_count": 392,
+    "coverage_sha256": "a1f9df4b0ec73e393d52f4b634f4a6f582a7109c80ce1a1434f96d5041f46fe4",
+    "lean_module_count": 681
+  },
+  "baseline_semantics": {
+    "class": "feac37c29e1fde91153d1ef0a756e439b77a009ec3a37b037939dbb9df440651",
+    "finite": "68e75807aff2f46a60bf77e82b01ba01067f393213141b12a8fe29a5948ce843",
+    "interfaces": "814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0",
+    "program": "21323c62ce0341f0455f8d04390dafaa16a1635bab3d1e59516461f15ee98710",
+    "review": "04a6285b703ae7dce54fa5cd49b547860596de8edca5d5a6ea96b20cd53a0bc2",
+    "tracking": "5d1578a45759971c193332c4d71ef66b4d7cc525b020b35c38e771bdb6a2743c"
+  },
+  "baseline_static_binding_sha256": {
+    "model/completion/component_interfaces.json": "0f7b12cc75e5ee4d16b2934cadba5d9fdd33bde31c8420e8c0490084a6361bda",
+    "model/completion/finite_attachment_map.json": "8defd23782f9acdb4d46489f27e6ae5b342a86e7e0ad6b8e1723c050c5d4946e",
+    "model/completion/program_class_v2_review.json": "bd366db8409cd09d0e62b81a35e9df6ae9d0d411524be6a256177021d21a3b1a"
+  },
+  "classification_counts": {
+    "domains": 156,
+    "realized": 151
+  },
+  "current_live_vs_historical_contract": {
+    "archived_inputs": "exact immutable prior receipt bytes, not current documentary custody",
+    "binary64_replay": "existing complete owner comparisons only; no new tolerance or exact fresh-bit claim",
+    "canonical_outputs": "current replay source maps; original numerical science retained",
+    "reviewed_parent_adapter": "original calculations retained; exact prior/current parent science plus four inherited sources and two custody-interface files"
+  },
+  "date": "2026-11-11",
+  "gate_statuses": {
+    "CP-00": "ACCEPTED",
+    "CP-01": "ACCEPTED",
+    "CP-02": "IN_PROGRESS",
+    "CP-03": "IN_PROGRESS",
+    "CP-04": "IN_PROGRESS",
+    "CP-05": "IN_PROGRESS",
+    "CP-06": "IN_PROGRESS",
+    "CP-07": "IN_PROGRESS",
+    "CP-08": "IN_PROGRESS",
+    "CP-09": "IN_PROGRESS",
+    "CP-10": "OPEN",
+    "CP-11": "OPEN",
+    "CP-12": "IN_PROGRESS",
+    "CP-13": "ACCEPTED"
+  },
+  "historical_file_sha256": {
+    "model/completion/current_custody_renewal.py": "9b8004ddb4ae0d1d0d2136d589a83864ad80ff7bccb80e2a0a5221e0c0df3da9",
+    "model/completion/custody_authority_20261111.json": "9537d11b1c352da10f0531f9bee002cc9695a307a86f1aefe831a386b45b19d4",
+    "model/completion/custody_renewal.py": "530bb2b93fcb7753cc3ed251b5c1ff076c48fafb49fdbf7d4436592a65abc56e",
+    "model/completion/custody_renewal_20261107.json": "7105f90d98135976add47d11d2b371d3e1bbb20fe54b21141eca00d7dfc44bbf",
+    "model/completion/custody_renewal_20261111.json": "f45377db7656c0fadf2e4e7e2815ccebf5382bef77638061fafb18af20c9d5c4",
+    "model/completion/historical/exposure/observation_ledger.json": "4c372d75b2a1dafeb11a773b37ef1a5a36e620f39326ad311a108a9bd4bd00d3",
+    "model/completion/historical/exposure/physical_identification_registry.json": "7067d1a59ca45c877aae0760a2cdf19407bde64ce581065840805dd9845ed83c",
+    "model/completion/historical/exposure/provenance.json": "6a2df257894e32619db093fc66ec2c60d14929e6ff4c9b840044d257aa9bef93",
+    "model/completion/historical/program_class_v2_review_before_current_research_20261102.json": "d15b5e3937ec2ee8ff29d4b420e8528a2e1a48b448a0dd3ad761bb720572c472",
+    "model/completion/historical/program_class_v2_review_before_current_research_20261102.metadata.json": "a96e4d614ca0f2cae3ee77dfe9c33e85c1153faf69b6e1935585b5ea831bee88",
+    "model/completion/historical/r2063_live_inputs/manifest.json": "e8e8a29c1531576efa14f69beb3d9bcf11375aafecea27788c82b4e642f2b3a0",
+    "model/completion/historical/r2063_live_inputs/model/biased_code_universality/campaign.json": "4211c651ba67b1fdb44b60befdbead01717a9a4b0dfa14e0dc1a1fe556e5b96b",
+    "model/completion/historical/r2063_live_inputs/model/clock_defect_energy/mode_energy_results.json": "05a325f9af03f737d7adbb38ecd5e633d0c233dba849f2fd69656935b3b2fa4f",
+    "model/completion/historical/r2063_live_inputs/model/common_source/chiral_candidate/results.json": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a",
+    "model/completion/historical/r2063_live_inputs/model/common_source/full_repair_response/results.json": "4b28d8af6485a90fa9eb1fc56e55ae5dd12757ed12d464d3578693d49c9eed2e",
+    "model/completion/historical/r2063_live_inputs/model/common_source/hierarchy_diagnosis/results.json": "503ea67d3531f98fe8552967afd6f83aa603b6ec3759e8d49fb43e6ea67bd690",
+    "model/completion/historical/r2063_live_inputs/model/common_source/native_defect_decision_results.json": "77065a134b14867e5e5426172249608a17ff19413fa7e8b89043c2377bfcb862",
+    "model/completion/historical/r2063_live_inputs/model/common_source/native_repair_mass_results.json": "4d4e789aa6953d296d22f9925fde01c7dcd562e72ddc6405dbd7d258bcb03b2f",
+    "model/completion/historical/r2063_live_inputs/model/completion/adaptive_reference_results.json": "7c23b727cf726d60049778e64af1d573840765018146568b420cb298e2a8dc02",
+    "model/completion/historical/r2063_live_inputs/model/completion/campaign.json": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75",
+    "model/completion/historical/r2063_live_inputs/model/completion/defect_algebra_results.json": "471877060878d0a0fc334a38a6482d11ec20f7082cb3f8478c887637e32d66a7",
+    "model/completion/historical/r2063_live_inputs/model/completion/modular_access_results.json": "7df3948f4ebe1863f26dcfa4049c053c52442b47aaff80468cbaa7ca58923a30",
+    "model/completion/historical/r2063_live_inputs/model/completion/observer_reference_results.json": "2e3363dcf041984b2f8635ca3c42ab582e5ed30119328a4c74127f5dd312a307",
+    "model/completion/historical/r2063_live_inputs/model/completion/observer_results.json": "7ca7783416abd9fa46fe4ec033f98db16b1849d6aea30c1b3e8209cf04457b76",
+    "model/completion/historical/r2063_live_inputs/model/completion/program_class_v2.json": "0b9d9631ee005cc9f45d0942af282aedd33cd57e20e3cb1e839bd6ef81d2ffa4",
+    "model/completion/historical/r2063_live_inputs/model/completion/program_class_v2_review.json": "50720faafe964d79c9a958dfb4dcb7f7fa62e9852cc878b62e22e332cda3131f",
+    "model/completion/historical/r2063_live_inputs/model/completion/source_flavor_comparison.json": "2956bc105a2b68b766e98042af2a6b06e42dce5e5c549daf575d8e54b55c7a3f",
+    "model/completion/historical/r2063_live_inputs/model/completion/stationary_reference_results.json": "4d4bd10a78fb2948bb7d3cd64bd9c73ca2bf59147389752d5e1cc0a54f5888f3",
+    "model/completion/historical/r2063_live_inputs/model/completion/test_theorem_map.py": "d36acafb83cd040f154fe9ba566820d8909180f76d2e7ca8785e7e72bff3288e",
+    "model/completion/historical/r2063_live_inputs/model/defect_current_bridge/results.json": "7a0fe57ddbb110906d6f35a99d49c207fe85d98e2fd7b3603493cdac824ece51",
+    "model/completion/historical/r2063_live_inputs/model/empirical_diagnostics/cross_scale_results.json": "2868dbacc9441c72786ce53583c637217d15f38d673bbd084e1107a81478dded",
+    "model/completion/historical/r2063_live_inputs/model/majorana_defect_bridge/results.json": "20b517536a38958ec041659a239649a5aa1e50e83370a3aa1036e5322599a1c1",
+    "model/completion/historical/r2063_live_inputs/model/mcpr_native_memory_bridge/results.json": "0c42b29446868115a7e12d2ca07f3c11ad72e77d06e9eff5a61453eac04d8652",
+    "model/completion/historical/r2063_live_inputs/model/native_coherent_occupation_control/results.json": "0d08d7dd201d2dd029ec1ee707b46a6173d1ae0ed1970777b49b770a4cebfab7",
+    "model/completion/historical/r2063_live_inputs/model/native_dilute_ground_limit/results.json": "e80dffaf87d53752d2751b5ad1b047577872c1d12f2bfcb075ce8cc3633d65e2",
+    "model/completion/historical/r2063_live_inputs/model/native_energy_identification/results.json": "7dd802dfe4a120d79decfc0835f95e13f70db1af36c7b14358641685c377efdd",
+    "model/completion/historical/r2063_live_inputs/model/native_energy_measurement/results.json": "6c4f66f29e34eac29bac5d7ebe1c857606888eede03113761556c41eb1b0ffeb",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_ground_readout/packet.py": "046ad94f294d32fe54ce8cbd36449fa02274d4c418c77eb78a740059e1aa6684",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_ground_readout/results.json": "ed75cdb50807e3da02b0c437f058e53d20ab5cd996dbfed585e94d93e566c2e7",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_ground_readout/test_packet.py": "cf1bd28cca0f52d8e1d80f1d197c56e5ab56f863be5d0fc2dcb7a77490dfddd8",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_local_clock/results.json": "657aac4d6c9527bb85ea8d09a37e9bfd4564f41f63894802d6c5e640d0485207",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_local_preparation/results.json": "05aefce7cc92f86f574233da1b18e843c65cff2672955fba1a9721ce6cfe1f5b",
+    "model/completion/historical/r2063_live_inputs/model/native_fair_local_readout/results.json": "f0c46e26cd116a30cdab8ccfc7cc3ca3006f34abd119bd7a175cfbff00256e8d",
+    "model/completion/historical/r2063_live_inputs/model/native_flavor_orbit/results.json": "0fbbc27b9a89a9ab016f6d34307ea9456b79f5ec95e267871ac1ed52a29365c8",
+    "model/completion/historical/r2063_live_inputs/model/native_local_charge_history/results.json": "872a98e3fdbefca5070b298317159e8e93958e014218da20487e4a95be8c552b",
+    "model/completion/historical/r2063_live_inputs/model/native_local_energy_clock/packet.py": "47ca370b714f81080714992d73e27676f11a684bda7e89b14e35b85c789cda42",
+    "model/completion/historical/r2063_live_inputs/model/native_local_energy_clock/results.json": "1e1d11d74c1be70000f51ce86fd74e85309e9b23dde36a3971e1e256b49a702d",
+    "model/completion/historical/r2063_live_inputs/model/native_noncentral_reference/results.json": "226996156983fcbf8a687348da417adefcc3ac68d8e9e7337ca16c9d1dc95abe",
+    "model/completion/historical/r2063_live_inputs/model/native_program/results.json": "63ecb769838a942e865b4ec78c668ab8c597cd4c9ff480ed4c94db6f3bddfbc8",
+    "model/completion/historical/r2063_live_inputs/model/native_quantum_defects/results.json": "3a34a40b3f5857c442d8934f29f7392189b02291f0ecc948c8baa3321a155418",
+    "model/completion/historical/r2063_live_inputs/model/native_regional_modular_clock/results.json": "f9c6d8a46d83fc8dc637b483086b55665325e589c7df7b5ba64194df8a931aaf",
+    "model/completion/historical/r2063_live_inputs/model/native_source_chsh/results.json": "99ddbb513c9332b252e493c7e780c373fee38212bd842109b5ef256882018ff5",
+    "model/completion/historical/r2063_live_inputs/model/observer_time_fields/continuum_dynamics_results.json": "48189c704d6cb8a5dfb2acda4482b8ad162da4b2efe5a9231ff62cdeb73354dc",
+    "model/completion/historical/r2063_live_inputs/model/pair_cyclic_control/campaign.json": "2349e2bc055b192393ed17cc6949184404cdaa65e4585f0266413174eb97af88",
+    "model/completion/historical/r2063_live_inputs/model/particle_comparison/results.json": "48d21c97df7dd20939462e7d3758e5a77f265a555241334f2dc4348ae632f0d7",
+    "model/completion/historical/r2063_live_inputs/model/particle_identification/completion_results.json": "fc32cb97292b90edb3e333a39551740217efc71dc0e124409f168f654aa8ae79",
+    "model/completion/historical/r2063_live_inputs/model/physical_space_time/observation_process_results.json": "1c6b2e002ad18e14a1ac5c9c7f7ea629d4e32de845d6c360908e5c8fb3283420",
+    "model/completion/historical/r2063_live_inputs/model/physical_space_time/occupation_field_results.json": "13a3252e868e100d3d305ffd78704e02e58da6324466835a12952d053148814b",
+    "model/completion/historical/r2063_live_inputs/model/recovery_elision/campaign.json": "85711a3e739e831c4d4ea6068868bef13dd5d52cfc6dd5600373a899a681d43a",
+    "model/completion/historical/r2063_live_inputs/model/standard_model_source_map/particle_map.json": "5161f7811334a6b0e5d22a248df9ef0b17eefc1a446624b4840d0ee4564b284c",
+    "model/completion/theorem_map.json": "4c64cec4dd0252f7b3d8c8e16b26a8498404cd1e9c496bc679555b33a92ed05d",
+    "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab"
+  },
+  "immutable_base_commit": "bd5e6ba80bb3e24c09c6e2289e9b72a627a039fa",
+  "live_child_evidence": {
+    "component": "matched_einstein_limit",
+    "path": "model/completion/spectrum_einstein_campaign.json",
+    "semantic_sha256": "677fc0b7245c2150b330e2812443f32853d87bdb951088db9d6a0ade505196ca",
+    "target": "model/matched_einstein_limit/results.json"
+  },
+  "maintenance_interface_dependency_append": {
+    "model/common_source/chiral_candidate/hierarchy_controls.py": "91baa39d1c8c950162c0aaf35228694110e5e738eb9ae84027a2ffc8545d9a46",
+    "model/common_source/chiral_candidate/history.py": "265e73ac87321ebd514b97af2c7c4c0bb376144f60e53d10bfd46662ce2d8db4",
+    "model/common_source/chiral_candidate/run.py": "3a6746e9ef8e0bb893927bbeefc7e9a764e77c32bf3033c8283f746914a8598c",
+    "model/common_source/chiral_candidate/spacetime_attachment.py": "fa1a55c076de8f4a79e96fb14f3a98644f62e712a43b4f78a3169d3d0c5495e4",
+    "model/common_source/hierarchy_diagnosis/__init__.py": "405c9e9abaf890b8ec76716bf8a8fa777d8012ba0fa1e9adb0aabef5bfb91f57",
+    "model/common_source/hierarchy_diagnosis/audit.py": "9c19bdcdfc72438aed3c08264b6c02391054e5d0baffe0d5215c73baa1ba6b87",
+    "model/common_source/hierarchy_diagnosis/charged_sector.py": "bfa4c722d01ff06f3ab68addfc2a9c004687bb116d83e2bc437c080e48175491",
+    "model/common_source/hierarchy_diagnosis/collective_response.py": "0030c1a50cab9b09ae99a77171c294ca878758a2fa06de175891de83dac4dcb8",
+    "model/common_source/hierarchy_diagnosis/native_covariance.py": "a4b90a2e65f242a716fb203cf8d4b7579d00201a3b0e347c256d3e377905ff7f",
+    "model/common_source/hierarchy_diagnosis/native_exterior_attachment.py": "2f4001ea2a3b2c8a59b4fe8b6634a3f28304716f7e21665be2a966e6c91a2327",
+    "model/common_source/hierarchy_diagnosis/native_family_dynamics.py": "4b518574d7c4371a05dc174047aa852b2dfc245b90a1801974ffc25e5d9202d9",
+    "model/common_source/hierarchy_diagnosis/nonlinear_shapes.py": "2a8821536f6bc71995391e60e244780dd0c2dec64fa450ce5ea2ed43fb922f18",
+    "model/common_source/hierarchy_diagnosis/quadratic_response.py": "fc171dd30460bb23d74a74306a86a73c0d956aae671783651575e60dc2799713",
+    "model/common_source/mass_response/dispersion.py": "de471a1ad966bb7f8de4666617350e291fad2eb09ad04d69e5a182077634f53d",
+    "model/common_source/mass_response/experiment.py": "9d465522ec54aefabd277e7d01d9f35248186365a8541797087b7502e900154b",
+    "model/common_source/mass_response/gap_certificate.py": "36c70dbb674099d4fdffdf2439413e875f7258971a39782adc277a6113149d23",
+    "model/common_source/mass_response/hubbard.py": "2e39da1dbed7dedc04065d2b2dc63d90ef472449695e286307f6ec6fc6b29ea4",
+    "model/common_source/mass_response/native_attachment.py": "e9a941e74ed90c5536b1094ffdf810cfa101a9a786c212e4906370e2092a1620",
+    "model/common_source/mass_response/run.py": "6a8e0d4d8f41ae18e2ac84f0591bdc2e6d8d0168728fb69662f79c71589b5bb9",
+    "model/common_source/particle_identification/clifford.py": "5180f20f2152c69d41721e7a07c5fd9a4326f4c7be7cbeadece64533f3a20232",
+    "model/common_source/particle_identification/kinetic_response.py": "fb1cb1406389ffb6ec839c0403f714b05701a7a9ba101b70d61dff1309e35944",
+    "model/common_source/particle_identification/response.py": "c87db8964e5c414a1d899dc2ebcea3ddbdf531c21e686006a4fec23440193171",
+    "model/common_source/particle_identification/run.py": "37e66c873b1574093744d6d75c92669dfcebbafc28feaa40322bda7f234669a7",
+    "model/common_source/replay.py": "861464866a9418050990ef5c2066faa735f146fe9440fa0e935f8c32f190c77c",
+    "model/exchange_sector/many_body.py": "ad2cc7ad2b1f28cdd900edc2677a932902c5fa90abeb0fc267859a227d4f4d36",
+    "model/federated_observer/scaling.py": "8c110f05b0475041689413bcedb2d836b8fb156de1702922cdfa28e1435a55ca",
+    "model/gauge_defect_transport/__init__.py": "41a49e0dad3a5a2aa4e12c531b6033cdcb2aef84c87839f6e858aaba475ab5f3",
+    "model/gauge_defect_transport/transport.py": "0091fe4e9031e5ea1a02e437db410e1a11e5294f65ec38358011d667bba29d63",
+    "model/native_causal_dataflow/__init__.py": "bdea37a1d4b04d93b90ff4d5d67f59250fa1e4dd5a7bebe98df814fd598b91d5",
+    "model/native_causal_dataflow/dataflow.py": "489cba52e04975043b4caedf509175857dc18d788c886276c71b1e108f1089c3",
+    "model/native_coexistent_effects/__init__.py": "b265d995308a1d01d8f814ab7bd39c551058e477362eecc57b029e4b5a3da716",
+    "model/native_coexistent_effects/menus.py": "64cd91a143358b4b31026ff5093d7bdb8742ca31836fc9837d850509cf24df99",
+    "model/native_coexistent_effects/packet.py": "a91697d32e2ba9a76b3266acbf5923c8b065d7065c8ac6f76266207d5652aac6",
+    "model/native_correlation_preparation/__init__.py": "4c5e0acd19e96f3aff10e2d6b02787b653455a65b9ee689abbfb3a18011bd038",
+    "model/native_correlation_preparation/packet.py": "9bc65202fe3b0b77d8db5d1fa45a72dcd89c4458c8c52a078f73e2b9b501cd9f",
+    "model/native_correlation_preparation/preparation.py": "8b6417e098ec36214068a5c78fd236bc00a23bf8039b898706f8887bf6351067",
+    "model/native_correlation_sectors/__init__.py": "64e0c74b825378ae19d8c70087afc0046afb4388011774385fea053d00fe569c",
+    "model/native_correlation_sectors/packet.py": "ec9fc5f260ef683895dd1c5ac3c2dbb84c0ffdf9fa1bae1d7436e27b20747d4c",
+    "model/native_correlation_sectors/records.py": "034c430e4c7d573ab98bca30d5da8c0950d3a35a80ce2e13fe124d3e4b4daaa7",
+    "model/native_correlation_sectors/sectors.py": "0cd7bbfce539316336d76a4c3376a8a1c9fb0e5f36242b8146e927f8d176cf93",
+    "model/native_effect_coverage/__init__.py": "6023c57d01fe8cd5ff4956d3b755e3e460d1ae3deb4710ddf86151e24cd444da",
+    "model/native_effect_coverage/coverage.py": "c95dc4629736bf46e5642ad735c0364b8609c06f6b2522eb4027e9da53904fdc",
+    "model/native_effect_coverage/detector.py": "9a55322e03f46658a5311bb53fb57adae7ecba1cb76045282a74bb8d573248e1",
+    "model/native_effect_coverage/packet.py": "2fade25022f3cc539442c23d2037aff8c2ec043adb00ffad3c0702c5293e0d04",
+    "model/native_effect_synthesis/__init__.py": "628711bb639102225ca6c333b98f5ce60eb34985ff460c781098e996291bf95d",
+    "model/native_effect_synthesis/intervals.py": "9bf23ce452acf22c79db8582cebcedd47c4309646b8a34788d61d90f2fcf1591",
+    "model/native_effect_synthesis/packet.py": "7a37d07d6c351637700ace7d2ead3e3d9420783257e973541bb261646cce1f17",
+    "model/native_effect_synthesis/synthesis.py": "559ea14f06b7d30ab017b2113feeeebc4d90a517bf85257fd3251d098cb4e372",
+    "model/native_energy_identification/__init__.py": "e36872c72e8e731c306c5ceb66ea2c44c9264fbf9f71a3057bf13cfed721e173",
+    "model/native_energy_identification/energy.py": "76b88de65d90c1a826da950ec003ee996c8caf17ae7745753e3a099ddfe11fff",
+    "model/native_energy_identification/packet.py": "fe102e43f0bc9664db8387cc6fd6bc6e1e840c786b05ad1903424ce4f25f2d76",
+    "model/native_energy_measurement/__init__.py": "94cdcbcbdc026e665df94b55fe14f933aeb18623d8e8d5aa92b479c417fdd9ec",
+    "model/native_energy_measurement/measurement.py": "879ea29b9e31060cbe3fdb62035f952d9adef5826cad7e2aa1e099963cc4a57c",
+    "model/native_energy_measurement/packet.py": "9f6671daff44fa6f54034700778a1519af6b4510b79ec21d2fed44e66b5b1282",
+    "model/native_energy_measurement/reference.py": "bee4f701e4fdb002abac4a8bd2c1886dbc4580df5fac30cc5bed329c965da72d",
+    "model/native_energy_measurement/spectral.py": "652a397f69e01bea9820df32e55224570de8e6a88ab0c41589fb70f45458da16",
+    "model/native_exchange_clock/__init__.py": "b60b5dde7db920bf1a09a0d928c696d839df4ce657b052df08ceb7ab5e7b084e",
+    "model/native_exchange_clock/exchange.py": "ecf61293dfea245a01a623df1e163848ba5838fe57992af817104db7d8a4f9e8",
+    "model/native_exchange_clock/packet.py": "292e26ef03c87b05f1d4ae5eeb0a21a1493f5492050fb21cb372820c2f31e8b4",
+    "model/native_fair_local_preparation/__init__.py": "d1dda5b94e5f933ac2e3065e0f3cbe38f12b47770cb5f8fb1ef60d932f792c33",
+    "model/native_fair_local_preparation/coupling.py": "3529042412ddae955ff3e194bc58de02863d7043409f5b9182b0a8c10c1d7782",
+    "model/native_fair_local_preparation/packet.py": "880103c4330faf0813b82aa44c2391fab9a418ef2fb5183504effa2f137c71ac",
+    "model/native_fair_local_preparation/preparation.py": "fad5c640a03cdefff378811b580695b2a1b5f0922769ea71126919b3c4e5a5e7",
+    "model/native_fair_local_preparation/witness.py": "56a078b8c8846d156f476824b3de87005ea071d1f48d34b68a3f879a148dd3dd",
+    "model/native_fixed_algebra/occupation_service.py": "45bad3dbf98484094ab9c5c82acd27f0f6bc9ff09f0a963b198312ce30dd2af6",
+    "model/native_interface/tomography.py": "bbed38234544ebad6f04cdc360fee875a3b01a86e21cc4a37eca638167b473e0",
+    "model/native_local_response/__init__.py": "890e6992cb37c08515e1ded2257714f8d9c4cb679caaec1880a385f4b455ac18",
+    "model/native_local_response/bounds.py": "2ee23813a1e95effc397fd84bbb26e21b27658c7572fd70565cd10b7c84a0047",
+    "model/native_local_response/cone.py": "ae0c84a17b041c61055ff50b45690a1e322315ab5d79577a18fb8793afdc6468",
+    "model/native_local_response/packet.py": "bfc63dd98a3fad28245b203005718ef5943149f04be487b0fdcbfa16ba7dff96",
+    "model/native_noncentral_reference/__init__.py": "d2f7b0ec4908e767407fb704d466422fab1d6644d02c087748d76aa1d01712f5",
+    "model/native_noncentral_reference/packet.py": "2e064d9c8a2016960170183ebc442652d6ed783a24433df9bbecf6cd4be81881",
+    "model/native_noncentral_reference/reference.py": "a2798fe2dc47b8788e4877062a75cbfdd500228f13032b7aa208c8b3308631b5",
+    "model/native_phase_experiment/__init__.py": "2f9ef65edc381a54995089c9ad779b24fbb3ac7998d6f906298196d8159a2772",
+    "model/native_phase_experiment/experiment.py": "5b636c40be615860bf62acb7601a09973f636de060802cba7aa45d2a3a9a8820",
+    "model/native_phase_experiment/independent.py": "4c91becf5ea0242cabcc4af078872edc5923943dd386ca47ee4c6ef2e86e1e71",
+    "model/native_phase_experiment/lineage.py": "3b8321df6c40b0bb2e86852e517443accfe9822a5399bd2ead969777fa42a32d",
+    "model/native_phase_experiment/provenance.py": "3342b06344640f0612d91701dc3845e126c4926604fdff7720dde4af01131f85",
+    "model/native_phase_experiment/verify.py": "5f05d7c4a8229d104fa040dc670475c30518d8e96d2bff43db6cc025b18f6f55",
+    "model/native_quantum_gauss/__init__.py": "1b1b4fe7a8f3b86e70654f4b7ff0cce2c880180dbec633082acd083cd3a64ca3",
+    "model/native_quantum_gauss/algebra.py": "b201991787f2fcf1f79805ab2271e1aef0b8a389a2dd16bb79afa5787200361d",
+    "model/native_record_causality/__init__.py": "122149c80c47657a60cfce9a225aaa53725501aa79202cad52e621f048871669",
+    "model/native_record_causality/causality.py": "fea7944ad7a9688b1c76ff6df0a1f4a01e4d2f1e82730e2a9403b44c0ef2645c",
+    "model/native_record_response/__init__.py": "1faeb63abd75d0c037cd20f1e5306a46a2889ff63c72449cc5db14f05dfe4200",
+    "model/native_record_response/response.py": "67aa358c6ff158c8fb58695aa5069e6501c0d253a60d70619c09a70425a5d973",
+    "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+    "model/native_record_response/transfer.py": "b58ed13227b883bee950404921da48b99b741d5d5752e93238b9bca94cdcd506",
+    "model/native_sector_readout/__init__.py": "5f1f31d1f2b93b98078e80ca51c065969d0eceb687ddc8e4a23da3ef9e512705",
+    "model/native_sector_readout/packet.py": "914a3077bc6525e18740c247d9e5d50f63a85af8499b0133edfb68f44c22e4d1",
+    "model/native_sector_readout/readout.py": "2fc750b2351efc4ca75768b08dbed1584fec1973652242515fcb70dadfbca104",
+    "model/native_transfer_control/__init__.py": "a448dc4fe74a0c0e2e6ba082d2932e6d2ab1a58377c7f38f9d546416cf46b36f",
+    "model/native_transfer_control/control.py": "af7e88d631a35993718e9a3f19536ecba0694b0bdc9c950bb72abaf74818fca8",
+    "model/native_transfer_control/packet.py": "dccf0761ff28504f66adb6d29ab8606f052dc17f1cf59cfaf45f743015183670",
+    "model/native_transfer_control/spectral.py": "bd4531b8aaed5524b115aa11fc1b3810feba9a056b904cc34d3a5cfbc3f72b2f",
+    "model/native_vacuum_response/__init__.py": "cfd001d8f0adac986c2862b3a17de9e2189c1af5a528bc86c84a13c04025bf95",
+    "model/native_vacuum_response/packet.py": "71e83a063ccff93fd3dd38a87c541b5758464a881bbf3bc9adc7cee0d2470036",
+    "model/native_vacuum_response/response.py": "edd527743e9295247c3ee531b69357658cbd291c8433024a93c38f036a8eb5b6",
+    "model/particle_gauge_band/__init__.py": "0edf95fd5b7c9af3a2319638450907ced0dcf3c09bb21e2bb9f5bd03915cc1d8",
+    "model/particle_gauge_band/quantum_link_completion.py": "4b38c762f3ca01a28556f5fb75b4c67db51bfceef982cd9abec6872559b049e1",
+    "model/protected_reference/__init__.py": "a2f99596805943318fe3eb4d1e48f427531326c060b6a19e383d23f0b0a73bb8",
+    "model/protected_reference/gauge_join.py": "c9455ecabcf6ec55cb32ef9a4ff11a2b6f27b3152eb92e4a20acb21c010f7549",
+    "model/protected_reference/reference.py": "6edde542a1cf0b4f4be063a6d5f32729aaaf0dec534d2273d956d05c4dc6fe7a",
+    "model/protected_reference/reversal.py": "60f0ce72d4f9c211f687b2fd51a6dab5e9d18c1b8ff5c73d6ab74feb83d4d885",
+    "model/weighted_source_family/__init__.py": "9b8954c27f9a661a3d9b4d38ae5c57e4ef04c0c1a4f79bf314809915bd6bddea",
+    "model/weighted_source_family/family.py": "ccf335f48ecdba36aa266b7e28bc064af4e3b55d79cc36668796eb65bd090fe2",
+    "tools/replay_model_receipts.py": "8361935365489bd44e71d9c1ff15de47ce5cde1f03475df1d056b3a50333ed87"
+  },
+  "maintenance_interface_dependency_role": "EXACT_IMPORT_WALKER_CLOSURE_OF_REVIEWED_CUSTODY_INTERFACE; NO_PHYSICAL_STATUS_CHANGE",
+  "matched_einstein_scientific_sha256": "6dc5b5c84b61be9eefd9862c11a52ec4be2c4497a7e5f00fffce9859e1039d27",
+  "permitted_canonical_live_renewals": {
+    "model/common_source/chiral_candidate/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "a31d852a17afdda9b653a3913fd806221c6787188be906aba4da84b7da00ce48",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/common_source/chiral_candidate/results.json",
+      "retained_sha256": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a"
+    },
+    "model/common_source/native_repair_mass_results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "cfb33ce8419bd255edc21a23d4124e2ec2ef6f454b0a89df29d57832aa2af30c",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/common_source/native_repair_mass_results.json",
+      "retained_sha256": "4d4e789aa6953d296d22f9925fde01c7dcd562e72ddc6405dbd7d258bcb03b2f"
+    },
+    "model/completion/campaign.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "99f90e18a17384839d6cf4f9240b675ef6f74732d972fdccc4f046f1c440a916",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/completion/campaign.json",
+      "retained_sha256": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "retained_controls",
+            0,
+            "sha256"
+          ],
+          "retained_path": "model/completion/historical/r2063_live_inputs/model/common_source/native_defect_decision_results.json",
+          "retained_sha256": "77065a134b14867e5e5426172249608a17ff19413fa7e8b89043c2377bfcb862",
+          "target": "model/common_source/native_defect_decision_results.json"
+        }
+      ]
+    },
+    "model/completion/source_flavor_comparison.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "47cc095b923ff71a98d5c5f969ce2bb49054ae44af9e621ef98b42e4440a8263",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/completion/source_flavor_comparison.json",
+      "retained_sha256": "2956bc105a2b68b766e98042af2a6b06e42dce5e5c549daf575d8e54b55c7a3f"
+    },
+    "model/defect_current_bridge/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "1c861127d1aa07b182537fddbf45c711648449a1506699950ba07d0baff87a8f",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/defect_current_bridge/results.json",
+      "retained_sha256": "7a0fe57ddbb110906d6f35a99d49c207fe85d98e2fd7b3603493cdac824ece51"
+    },
+    "model/majorana_defect_bridge/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "4c2e5e7b450a20a9736e96e54544dcafb0fb129bb6ae078f8a3bf26767a5118a",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/majorana_defect_bridge/results.json",
+      "retained_sha256": "20b517536a38958ec041659a239649a5aa1e50e83370a3aa1036e5322599a1c1"
+    },
+    "model/mcpr_native_memory_bridge/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "c2ae74809c476104e94a42c92cc64b3031155f52bc47e5b4f1da356f0ee61a8d",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/mcpr_native_memory_bridge/results.json",
+      "retained_sha256": "0c42b29446868115a7e12d2ca07f3c11ad72e77d06e9eff5a61453eac04d8652"
+    },
+    "model/native_flavor_orbit/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "f46f441a8e7e8b313560208cbb39234e8b52784c27e008f27293d015cf80b911",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/native_flavor_orbit/results.json",
+      "retained_sha256": "0fbbc27b9a89a9ab016f6d34307ea9456b79f5ec95e267871ac1ed52a29365c8"
+    },
+    "model/native_program/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "9e6685e460935594c6184d2cc34fa4456fa59058d29dfbf3c3d84123e84ee214",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/native_program/results.json",
+      "retained_sha256": "63ecb769838a942e865b4ec78c668ab8c597cd4c9ff480ed4c94db6f3bddfbc8"
+    },
+    "model/particle_comparison/results.json": {
+      "canonical_scientific_payload_exactly_preserved": true,
+      "fresh_Lean_execution_claimed": false,
+      "replay_verified_sha256": "9ed78c315007d21841b57810cf7e8662bf56a76ef7073423ccd87151a8b66a64",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/particle_comparison/results.json",
+      "retained_sha256": "48d21c97df7dd20939462e7d3758e5a77f265a555241334f2dc4348ae632f0d7",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "actual_data_replay",
+            "full_replay_sha256"
+          ],
+          "retained_path": "model/completion/historical/r2063_live_inputs/model/empirical_diagnostics/cross_scale_results.json",
+          "retained_sha256": "2868dbacc9441c72786ce53583c637217d15f38d673bbd084e1107a81478dded",
+          "target": "model/empirical_diagnostics/cross_scale_results.json"
+        }
+      ]
+    }
+  },
+  "permitted_class_interpreter_custody_successor": {
+    "current_interpreter_receipt_sha256": "9e6685e460935594c6184d2cc34fa4456fa59058d29dfbf3c3d84123e84ee214",
+    "current_reviewed_contract_digest": "95f5aed565e078d9daedd84076144bfed7d5688c52ccf740afade1165a2e26a5",
+    "date": "2026-11-11",
+    "interpreter_receipt": "model/native_program/results.json",
+    "old_review_signed_current_bytes": false,
+    "original_class_checker_unchanged": {
+      "path": "model/completion/program_class_v2.py",
+      "sha256": "38b44e3a0a76f6dbe261b6b277b2971b0cc1121e096e12a444f5be8164dc4319"
+    },
+    "retained_class": {
+      "path": "model/completion/historical/r2063_live_inputs/model/completion/program_class_v2.json",
+      "sha256": "0b9d9631ee005cc9f45d0942af282aedd33cd57e20e3cb1e839bd6ef81d2ffa4"
+    },
+    "retained_interpreter_receipt_sha256": "63ecb769838a942e865b4ec78c668ab8c597cd4c9ff480ed4c94db6f3bddfbc8",
+    "retained_review": {
+      "path": "model/completion/historical/r2063_live_inputs/model/completion/program_class_v2_review.json",
+      "sha256": "50720faafe964d79c9a958dfb4dcb7f7fa62e9852cc878b62e22e332cda3131f"
+    },
+    "retained_reviewed_contract_digest": "cd9a8d174f3d9d41fb94096cc0d4ece811253bc7b5e4ad58a2fa69185a1a565d",
+    "role": "CURRENT_CUSTODY_SUCCESSOR_NO_NEW_CLASS_OR_MATHEMATICAL_ACCEPTANCE",
+    "scientific_clauses_and_gate_statuses_exactly_preserved": true
+  },
+  "permitted_integration_configuration_renewals": {
+    "model/biased_code_universality/campaign.json": {
+      "allowed_source_pin_targets": [
+        "model/completion/campaign.json",
+        "model/native_program/results.json"
+      ],
+      "owning_validation": "unchanged tools.build_completion_program.validate_integration_sources",
+      "replay_verified_sha256": "3706c234a4f2c89caa51d397519812b3ffb658081f07e4448558253d305867c8",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/biased_code_universality/campaign.json",
+      "retained_sha256": "4211c651ba67b1fdb44b60befdbead01717a9a4b0dfa14e0dc1a1fe556e5b96b",
+      "scientific_configuration_exactly_preserved": true
+    },
+    "model/pair_cyclic_control/campaign.json": {
+      "allowed_source_pin_targets": [
+        "model/completion/campaign.json",
+        "model/native_program/results.json"
+      ],
+      "owning_validation": "unchanged tools.build_completion_program.validate_integration_sources",
+      "replay_verified_sha256": "e14119e98d653dba53c3e7a108b8e78645e9d8fc0a26994ef5fadde04f0af711",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/pair_cyclic_control/campaign.json",
+      "retained_sha256": "2349e2bc055b192393ed17cc6949184404cdaa65e4585f0266413174eb97af88",
+      "scientific_configuration_exactly_preserved": true
+    },
+    "model/recovery_elision/campaign.json": {
+      "allowed_source_pin_targets": [
+        "model/completion/campaign.json",
+        "model/native_program/results.json"
+      ],
+      "owning_validation": "unchanged tools.build_completion_program.validate_integration_sources",
+      "replay_verified_sha256": "4b31a3b976b48d6f8a96539a643b8e917183b6068063abaa55e46ad8345c6121",
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/recovery_elision/campaign.json",
+      "retained_sha256": "85711a3e739e831c4d4ea6068868bef13dd5d52cfc6dd5600373a899a681d43a",
+      "scientific_configuration_exactly_preserved": true
+    }
+  },
+  "permitted_r2063_navigation_transition": {
+    "assumptions_added": [
+      "declared_collective_native_block_architecture",
+      "declared_relational_block_field_and_packet_services",
+      "declared_unscreened_charge_location_instrument"
+    ],
+    "binding_indices": [
+      1,
+      74
+    ],
+    "canonical_contracts_and_discharge_statuses_changed": false,
+    "groups": [
+      {
+        "constructed_append": "\n\nFor the paired replicated native blocks, variational exclusion of all higher constituent sectors and a nonnegative symmetric ground establish a stationary full-source reference. Its Gaussian comparison has explicit energy and state error; a finite regular symmetry reference makes bounded field records relational without assuming an invariant pure source vector. The two-packet collision instead prepares a nonstationary admitted state with its own complete trial/filter error and failure law.",
+        "group_id": "RE-09",
+        "group_index": 8,
+        "source_additions": [
+          {
+            "label": "Finite-capacity Klein-Gordon record limit",
+            "path": "model/interacting_block_quadrature/PROOF.md"
+          },
+          {
+            "label": "Finite-capacity Klein-Gordon record limit",
+            "path": "model/interacting_block_quadrature/results.json"
+          },
+          {
+            "label": "Finite neutral collision with controlled error",
+            "path": "model/interacting_block_scattering/PROOF.md"
+          },
+          {
+            "label": "Finite neutral collision with controlled error",
+            "path": "model/interacting_block_scattering/results.json"
+          }
+        ]
+      },
+      {
+        "constructed_append": "\n\nOn the same weak-hopping source, complete elementary-removal instruments have strictly positive neighbor-arrival probabilities with physical preparation error included before squaring. These settings are separate from low-energy selection. Full Gauss constraints give an unscreened single-charge distance cost and an all-time selected-bin remote-location bound below 8.656e-15 for e^c and 1.699e-15 for L. A retained multi-charge cloud contains an explicit screening counterexample; no unrestricted confinement or free charged dispersion is inferred. The charged continuum target allows inclusive or dressed thresholds under the applicable infraparticle hypotheses.\n\nA declared lattice of complete interacting blocks has a uniform gap and an isolated moving neutral triplet band with a controlled Schrodinger limit. A distinct paired replicated-block architecture retains every native sector and has a stationary full-source ground with controlled finite-capacity comparison to a free Klein-Gordon field. Complete bounded instruments include a finite symmetry reference and explicit evolution, spacing and volume errors. The three components are internal scalar labels, with rest frequency the actual block gap. At finite capacity a connected quartic channel has a strictly positive two-packet record after all admission and preparation errors; the interaction vanishes in the proved refinement. The five-block interval diagnostic is a finite projected-packet momentum-exchange response, not by itself a same-admitted-state free-forbidden collision. No empirical particle identity, source-derived GeV mass or nontrivial interacting ultraviolet limit is asserted.",
+        "group_id": "RE-19",
+        "group_index": 18,
+        "remaining_replacement": {
+          "after": "A full same-source interacting chiral field and an empirical particle dictionary require a justified physical phase, compatible charged or neutral dispersion/threshold readouts, complete scattering and decay records, and controlled capacity dependence. The paired neutral block limit is free. Its finite interactions and the original source charged energy bins do not identify Standard Model masses.",
+          "before": "A common construction must identify physical charge and chiral sectors, interactions, vacuum, clock and metrological units, and reproduce the simultaneous measured spectrum. Specified coherent controls are architecture inputs; their derived free continuum and finite pole laws are not empirical identification. The echoed field has two Dirac tastes per sector; the interacting path has a nonuniform finite-volume bound. Neither passes the charged hierarchy. The overlap route additionally needs the chiral measure, quantum gauge/Higgs fields and a controlled interacting continuum. The wedge vacuum theorem applies to the specified free action only. The specified current menu and chosen spin/exterior lift provide a conditional same-object construction. Physical completeness of the accessible current, local gauge dynamics, physical spin/statistics, vacuum, clock/units and an uncalibrated mass-generating law matching observations remain required; the measured spectrum is not derived. The 17-current result excludes the stated exchange law and does not contradict a classification conditional on complete 12-dimensional response. The executable construction realizes calibrated Standard Model charged-matter structure and permits observer-record recovery of its supplied mass parameters. Their source derivation and the complete interacting physical continuum remain unestablished. Generation ordering within an established physical charge sector is a naming convention, not evidence of an extra conserved generation charge. The same response must emit the mass eigenvectors, residues and charged-current matrix with consistent permutations and phases; an exactly conserved generation label across charged weak transitions would exclude CKM mixing. The finite family-band window excludes no additional entry once faithfulness is imposed on the actual four-band table; the single-band realization and operational cost rule remain physical assumptions. Spectral visibility requires the accessible interpolator and reference-state contract: a mode dark to a restricted menu has not been shown absent or decoupled. Nambu redundancy, regulator tastes and physical species must be counted separately. A common kinetic metric, current vertices and charged preparation/readout including any phase-reference service must be identified on the same response; finite Hermitian action spectroscopy alone does not supply them. The native path class is not a protected live sector or source-only charge. Bare C/E moving amplitudes are positive; supplied phase-sensitive source controls implement and read both flat characters but do not select physical statistics. The triangular path fillings are declared relations, not consequences of edge moves. A common particle construction must join this exchange interface to reference-compatible localization, autonomous protection, physical spin and the same rest/kinetic/stress action. The active code remains exterior-supported, has a full-exterior deficit and requires supplied recovery and core reset after every attempt. The q=2 pair has no invariant native-edge bond. Neither construction supplies a localized physical species, intrinsic rest energy or stress; intermediate recovery changes the history grammar. The all-occupation result classifies scalar transport under declared path relations and an explicit spectator-compatibility condition. It does not select physical statistics or join a spatially protected native core to Lorentz spin, the matched particle spectrum and a physical mass dictionary. Hidden spin/eta multiplets and an eta-coherent source signal do not supply a localized native boundary charge, a protected charge-one particle, Lorentz spin or a physical mass dictionary. The eta preparation supplies coherence between even number sectors and does not select a physical vacuum or an autonomous phase reference. A sufficient route to the protected-spin mass shell is common-speed concentration of the entire selected response, expressed by a vanishing ratio-moment defect or the equivalent ground-specific current/force remainder. Alternatively, prove a sharp component retains a nonzero fraction of the original response while a continuum may coexist. The new exact identities and positive-measure controls establish neither of these estimates."
+        },
+        "source_additions": [
+          {
+            "label": "Complete charged transport",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/PROOF.md"
+          },
+          {
+            "label": "Complete charged transport",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charged_transport/results.json"
+          },
+          {
+            "label": "Unscreened charge and screening domains",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charge_localization/PROOF.md"
+          },
+          {
+            "label": "Unscreened charge and screening domains",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charge_localization/results.json"
+          },
+          {
+            "label": "Moving neutral block band",
+            "path": "model/interacting_block_propagation/PROOF.md"
+          },
+          {
+            "label": "Moving neutral block band",
+            "path": "model/interacting_block_propagation/results.json"
+          },
+          {
+            "label": "Finite-capacity Klein-Gordon record limit",
+            "path": "model/interacting_block_quadrature/PROOF.md"
+          },
+          {
+            "label": "Finite-capacity Klein-Gordon record limit",
+            "path": "model/interacting_block_quadrature/results.json"
+          },
+          {
+            "label": "Finite neutral collision with controlled error",
+            "path": "model/interacting_block_scattering/PROOF.md"
+          },
+          {
+            "label": "Finite neutral collision with controlled error",
+            "path": "model/interacting_block_scattering/results.json"
+          }
+        ]
+      }
+    ],
+    "immutable_predecessor_commit": "bc63b3dd8b7a352337b2080d025cbd46934bc36f",
+    "predecessor_register_sha256": "aba3c1c235edbf1eb98dacbd4d9e20ecd69cf9bb7424e6a564d8d4a021a89886"
+  },
+  "permitted_tracking_transition": {
+    "assumptions_added": [
+      "declared_family_collision_clock",
+      "declared_full_charge_reference_energy",
+      "declared_physical_algebraic_ground_preparation"
+    ],
+    "binding_indices": [
+      1,
+      74
+    ],
+    "canonical_contracts_and_discharge_statuses_changed": false,
+    "groups": [
+      {
+        "constructed_append": " A separate side-two full Peter-Weyl source at hopping 2^-34 has a physical algebraic ground preparation from blank states. The local polynomial controller and complete Householder/Cayley schedule retain all references and failures, with success at least 0.999999942661984 and conditional source trace error at most 2.355922487e-7. The finite schedule and coherent algebraic services are declared; efficient full-source compilation is not proved.",
+        "group_id": "RE-09",
+        "group_index": 8,
+        "source_additions": [
+          {
+            "label": "Physical preparation",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md"
+          },
+          {
+            "label": "Physical preparation",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json"
+          }
+        ]
+      },
+      {
+        "constructed_append": " On that same full weak-hopping interacting ground, native e^c and L removal probes into a complete 30-mode static CAR reference have positive full-H spectral-bin probabilities with complete complement control. Their source-energy bins are near 0.69166 and 0.09689; the reference energy four is retained separately. These odd physical responses establish neither isolated propagating charged poles nor measured species or rest masses.",
+        "group_id": "RE-19",
+        "group_index": 18,
+        "source_additions": [
+          {
+            "label": "Complete charged source response",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md"
+          },
+          {
+            "label": "Complete charged source response",
+            "path": "model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json"
+          }
+        ]
+      },
+      {
+        "constructed_append": " The finite family-clock calculation verifies the one-tick balanced amplitude and shows the literal second tick is scalar. A declared unconditional repeated-interaction extension realizes the squared effect with diamond error at most min(2,4t^2/N). The independent full three-family quantum scalar memory has complete two-line charged response and increases every heavy/light squared-coefficient ratio at positive coupling; it cannot repair the theta=2/9 muon/electron excess. Neither the phase nor a spatial mass transfer is supplied by these finite identities.",
+        "group_id": "RE-20",
+        "group_index": 19,
+        "source_additions": [
+          {
+            "label": "Family clock and complete memory response",
+            "path": "model/finite_family_clock/PROOF.md"
+          },
+          {
+            "label": "Family clock and complete memory response",
+            "path": "model/finite_family_clock/results.json"
+          }
+        ]
+      }
+    ]
+  },
+  "program_pointer_schema": {
+    "locations": 813,
+    "sha256": "4ad9f08dfedf380d77742eaae6b023f1d98fdce57a34b7ec9dfc0db96a363f33",
+    "targets": 342
+  },
+  "renewable_targets": [
+    "Lean/lakefile.lean",
+    "model/biased_code_universality/campaign.json",
+    "model/common_source/chiral_candidate/hierarchy_controls.py",
+    "model/common_source/chiral_candidate/history.py",
+    "model/common_source/chiral_candidate/results.json",
+    "model/common_source/chiral_candidate/run.py",
+    "model/common_source/chiral_candidate/spacetime_attachment.py",
+    "model/common_source/hierarchy_diagnosis/__init__.py",
+    "model/common_source/hierarchy_diagnosis/audit.py",
+    "model/common_source/hierarchy_diagnosis/charged_sector.py",
+    "model/common_source/hierarchy_diagnosis/collective_response.py",
+    "model/common_source/hierarchy_diagnosis/native_covariance.py",
+    "model/common_source/hierarchy_diagnosis/native_exterior_attachment.py",
+    "model/common_source/hierarchy_diagnosis/native_family_dynamics.py",
+    "model/common_source/hierarchy_diagnosis/nonlinear_shapes.py",
+    "model/common_source/hierarchy_diagnosis/quadratic_response.py",
+    "model/common_source/mass_response/dispersion.py",
+    "model/common_source/mass_response/experiment.py",
+    "model/common_source/mass_response/gap_certificate.py",
+    "model/common_source/mass_response/hubbard.py",
+    "model/common_source/mass_response/native_attachment.py",
+    "model/common_source/mass_response/run.py",
+    "model/common_source/native_repair_mass_results.json",
+    "model/common_source/particle_identification/clifford.py",
+    "model/common_source/particle_identification/kinetic_response.py",
+    "model/common_source/particle_identification/response.py",
+    "model/common_source/particle_identification/run.py",
+    "model/common_source/replay.py",
+    "model/completion/README.md",
+    "model/completion/campaign.json",
+    "model/completion/component_interfaces.json",
+    "model/completion/current_theorem_navigation.py",
+    "model/completion/custody_authority_r2063.json",
+    "model/completion/custody_renewal_r2063.json",
+    "model/completion/finite_attachment_map.json",
+    "model/completion/native_measurement_parent_adapter.py",
+    "model/completion/r2063_custody_renewal.py",
+    "model/completion/source_flavor_comparison.json",
+    "model/completion/spectrum_einstein_campaign.json",
+    "model/completion/test_custody_renewal.py",
+    "model/completion/test_native_measurement_parent_adapter.py",
+    "model/completion/test_theorem_map.py",
+    "model/completion/theorem_navigation_current.json",
+    "model/defect_current_bridge/results.json",
+    "model/exchange_sector/many_body.py",
+    "model/federated_observer/scaling.py",
+    "model/gauge_defect_transport/__init__.py",
+    "model/gauge_defect_transport/transport.py",
+    "model/majorana_defect_bridge/results.json",
+    "model/matched_einstein_limit/results.json",
+    "model/mcpr_native_memory_bridge/results.json",
+    "model/native_causal_dataflow/__init__.py",
+    "model/native_causal_dataflow/dataflow.py",
+    "model/native_coexistent_effects/__init__.py",
+    "model/native_coexistent_effects/menus.py",
+    "model/native_coexistent_effects/packet.py",
+    "model/native_correlation_preparation/__init__.py",
+    "model/native_correlation_preparation/packet.py",
+    "model/native_correlation_preparation/preparation.py",
+    "model/native_correlation_sectors/__init__.py",
+    "model/native_correlation_sectors/packet.py",
+    "model/native_correlation_sectors/records.py",
+    "model/native_correlation_sectors/sectors.py",
+    "model/native_effect_coverage/__init__.py",
+    "model/native_effect_coverage/coverage.py",
+    "model/native_effect_coverage/detector.py",
+    "model/native_effect_coverage/packet.py",
+    "model/native_effect_synthesis/__init__.py",
+    "model/native_effect_synthesis/intervals.py",
+    "model/native_effect_synthesis/packet.py",
+    "model/native_effect_synthesis/synthesis.py",
+    "model/native_energy_identification/__init__.py",
+    "model/native_energy_identification/energy.py",
+    "model/native_energy_identification/packet.py",
+    "model/native_energy_measurement/__init__.py",
+    "model/native_energy_measurement/measurement.py",
+    "model/native_energy_measurement/packet.py",
+    "model/native_energy_measurement/reference.py",
+    "model/native_energy_measurement/spectral.py",
+    "model/native_exchange_clock/__init__.py",
+    "model/native_exchange_clock/exchange.py",
+    "model/native_exchange_clock/packet.py",
+    "model/native_fair_local_preparation/__init__.py",
+    "model/native_fair_local_preparation/coupling.py",
+    "model/native_fair_local_preparation/packet.py",
+    "model/native_fair_local_preparation/preparation.py",
+    "model/native_fair_local_preparation/witness.py",
+    "model/native_fixed_algebra/occupation_service.py",
+    "model/native_flavor_orbit/results.json",
+    "model/native_interface/tomography.py",
+    "model/native_local_response/__init__.py",
+    "model/native_local_response/bounds.py",
+    "model/native_local_response/cone.py",
+    "model/native_local_response/packet.py",
+    "model/native_noncentral_reference/__init__.py",
+    "model/native_noncentral_reference/packet.py",
+    "model/native_noncentral_reference/reference.py",
+    "model/native_phase_experiment/__init__.py",
+    "model/native_phase_experiment/experiment.py",
+    "model/native_phase_experiment/independent.py",
+    "model/native_phase_experiment/lineage.py",
+    "model/native_phase_experiment/provenance.py",
+    "model/native_phase_experiment/verify.py",
+    "model/native_program/results.json",
+    "model/native_quantum_gauss/__init__.py",
+    "model/native_quantum_gauss/algebra.py",
+    "model/native_record_causality/__init__.py",
+    "model/native_record_causality/causality.py",
+    "model/native_record_response/__init__.py",
+    "model/native_record_response/response.py",
+    "model/native_record_response/short_records.py",
+    "model/native_record_response/transfer.py",
+    "model/native_sector_readout/__init__.py",
+    "model/native_sector_readout/packet.py",
+    "model/native_sector_readout/readout.py",
+    "model/native_transfer_control/__init__.py",
+    "model/native_transfer_control/control.py",
+    "model/native_transfer_control/packet.py",
+    "model/native_transfer_control/spectral.py",
+    "model/native_vacuum_response/__init__.py",
+    "model/native_vacuum_response/packet.py",
+    "model/native_vacuum_response/response.py",
+    "model/pair_cyclic_control/campaign.json",
+    "model/particle_comparison/results.json",
+    "model/particle_gauge_band/__init__.py",
+    "model/particle_gauge_band/quantum_link_completion.py",
+    "model/protected_reference/__init__.py",
+    "model/protected_reference/gauge_join.py",
+    "model/protected_reference/reference.py",
+    "model/protected_reference/reversal.py",
+    "model/recovery_elision/campaign.json",
+    "model/weighted_source_family/__init__.py",
+    "model/weighted_source_family/family.py",
+    "tools/build_completion_program.py",
+    "tools/build_completion_program_current.py",
+    "tools/canonical_live_receipt_owners_r2063.json",
+    "tools/renew_canonical_live_receipts.py",
+    "tools/replay_model_receipts.py",
+    "tools/test_completion_program.py",
+    "tools/test_renew_canonical_live_receipts.py"
+  ],
+  "reviewed_live_interface_sha256": {
+    "model/completion/current_theorem_navigation.py": "e51e1d7844bf2f528df5628853426544afb796cf283b4a10fa05781d3b898c0e",
+    "model/completion/native_measurement_parent_adapter.py": "91130d3f7b6da3e514b39d466dc0825c5d2ee182e2da4033cbfc73256ca14557",
+    "model/completion/test_native_measurement_parent_adapter.py": "f7c5bce2d37ea2a623de67827aa7e684d6e85826f58f7f41b029bef66a0b5051",
+    "model/completion/test_theorem_map.py": "72e7fe590d4a449eaaef1234c1eb74e13080a7719934f88e2eb2769b3c436ab2",
+    "model/completion/theorem_navigation_current.json": "b7e4f9cec0eea3df79cf11cfe2db9ecc5d17196b9d69777b478c4a0fe9b0b4e0",
+    "tools/canonical_live_receipt_owners_r2063.json": "5a40afb85402428cf8d168676248d2e39b73cb6175dbf168ba29ae3989638ea8",
+    "tools/renew_canonical_live_receipts.py": "9b04569aa9f5429372576b789b9d5aee6ab46660642e8e7822fa0cc1af557315",
+    "tools/test_renew_canonical_live_receipts.py": "40d18cec6acc703cd00a388bbe2fa1c4a4301318e7cec9d90523edc7c20e3205"
+  },
+  "schema": "oph.custody_authority.v1"
+}

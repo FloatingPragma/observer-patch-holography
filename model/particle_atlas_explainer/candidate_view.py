@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 
 from model.particle_candidate_atlas import builder as base
 from model.particle_candidate_confirmation.model import validate
-from . import build, families, joint_panels, repair_panels
+from . import build, families, field_panels, joint_panels, repair_panels
 from .canvas import BG, Canvas, MUTED, TEAL, TEXT
 from .parts import CW, W, X0
 
@@ -21,7 +21,7 @@ ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
 OUTPUT = ROOT/'docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg'
 AUDIT = HERE/'candidate_view_audit.json'
-SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
+SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
 
 
 def load():
@@ -33,7 +33,7 @@ def load():
     return comparison, original_svg, confirmation
 
 
-def render(original_svg, confirmation, repair=None, protection=None, agreement=None, joint=None):
+def render(original_svg, confirmation, repair=None, protection=None, agreement=None, joint=None, field=None):
     root = ET.fromstring(original_svg)
     original_height, width = int(root.get('height')), int(root.get('width'))
     if width != 4000:
@@ -49,9 +49,11 @@ def render(original_svg, confirmation, repair=None, protection=None, agreement=N
     data = {'identity_tests': confirmation, 'repair': repair or repair_panels.load(),
             'protection': protection or repair_panels.load_protection(),
             'agreement': agreement or repair_panels.load_agreement(),
-            'joint': joint or joint_panels.load()}
+            'joint': joint or joint_panels.load(),
+            'field_records': field or field_panels.load()}
     y = repair_panels.draw(c, data, y) + 70
     y = joint_panels.draw(c, data, y) + 70
+    y = field_panels.draw(c, data, y) + 70
     for draw in (families.responses, families.catalogue, families.confirmation, families.chronology):
         y = draw(c, data, y)+70
     if c.overflow:
@@ -80,7 +82,8 @@ def produce():
     protection = repair_panels.load_protection()
     agreement = repair_panels.load_agreement()
     joint = joint_panels.load()
-    svg = render(old_svg, confirmation, repair, protection, agreement, joint)
+    field = field_panels.load()
+    svg = render(old_svg, confirmation, repair, protection, agreement, joint, field)
     build.check_links(svg)
     pins = {**comparison['input_sha256'], **confirmation['source_sha256'],
             str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS)}
@@ -88,6 +91,7 @@ def produce():
     pins.update(repair_panels.protection_pins(protection))
     pins.update(repair_panels.agreement_pins(agreement))
     pins.update(joint_panels.input_pins(joint))
+    pins.update(field['pins'])
     audit = {'schema': 'oph.particle_candidate_current_view.v1',
              'input_sha256': pins,
              'renderer_sha256': {name: build.sha(HERE/name) for name in SOURCES},

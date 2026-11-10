@@ -1,0 +1,364 @@
+{
+  "C_E_six_attempt_histories": {
+    "C": [
+      {
+        "committed_records_per_history": 1,
+        "expected_hold_events": "0",
+        "expected_repair_events": "1",
+        "exported_fifo_records_per_history": 0,
+        "joint_source_reference_offdiagonal_l1": "5/12",
+        "model_attempt": 1,
+        "reachable_last_records": 74,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 2,
+        "expected_hold_events": "0",
+        "expected_repair_events": "2",
+        "exported_fifo_records_per_history": 1,
+        "joint_source_reference_offdiagonal_l1": "259/1440",
+        "model_attempt": 2,
+        "reachable_last_records": 123,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 3,
+        "expected_hold_events": "0",
+        "expected_repair_events": "3",
+        "exported_fifo_records_per_history": 2,
+        "joint_source_reference_offdiagonal_l1": "3347/43200",
+        "model_attempt": 3,
+        "reachable_last_records": 128,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 4,
+        "expected_hold_events": "0",
+        "expected_repair_events": "4",
+        "exported_fifo_records_per_history": 3,
+        "joint_source_reference_offdiagonal_l1": "43183/1296000",
+        "model_attempt": 4,
+        "reachable_last_records": 128,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 5,
+        "expected_hold_events": "0",
+        "expected_repair_events": "5",
+        "exported_fifo_records_per_history": 4,
+        "joint_source_reference_offdiagonal_l1": "1424351/99532800",
+        "model_attempt": 5,
+        "reachable_last_records": 128,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 6,
+        "expected_hold_events": "0",
+        "expected_repair_events": "6",
+        "exported_fifo_records_per_history": 5,
+        "joint_source_reference_offdiagonal_l1": "1833057661/298598400000",
+        "model_attempt": 6,
+        "reachable_last_records": 128,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      }
+    ],
+    "E": [
+      {
+        "committed_records_per_history": 1,
+        "expected_hold_events": "0",
+        "expected_repair_events": "1",
+        "exported_fifo_records_per_history": 0,
+        "joint_source_reference_offdiagonal_l1": "7/20",
+        "model_attempt": 1,
+        "reachable_last_records": 82,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 2,
+        "expected_hold_events": "0",
+        "expected_repair_events": "2",
+        "exported_fifo_records_per_history": 1,
+        "joint_source_reference_offdiagonal_l1": "49/400",
+        "model_attempt": 2,
+        "reachable_last_records": 180,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 3,
+        "expected_hold_events": "0",
+        "expected_repair_events": "3",
+        "exported_fifo_records_per_history": 2,
+        "joint_source_reference_offdiagonal_l1": "343/8000",
+        "model_attempt": 3,
+        "reachable_last_records": 192,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 4,
+        "expected_hold_events": "0",
+        "expected_repair_events": "4",
+        "exported_fifo_records_per_history": 3,
+        "joint_source_reference_offdiagonal_l1": "2401/160000",
+        "model_attempt": 4,
+        "reachable_last_records": 192,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 5,
+        "expected_hold_events": "0",
+        "expected_repair_events": "5",
+        "exported_fifo_records_per_history": 4,
+        "joint_source_reference_offdiagonal_l1": "16807/3200000",
+        "model_attempt": 5,
+        "reachable_last_records": 192,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      },
+      {
+        "committed_records_per_history": 6,
+        "expected_hold_events": "0",
+        "expected_repair_events": "6",
+        "exported_fifo_records_per_history": 5,
+        "joint_source_reference_offdiagonal_l1": "117649/64000000",
+        "model_attempt": 6,
+        "reachable_last_records": 192,
+        "retained_fifo_records_per_history": 1,
+        "source_coherence_l1": "0",
+        "trace": "1"
+      }
+    ]
+  },
+  "adaptive_reference_control": {
+    "maximum_deviation_from_uniform": "1/960",
+    "two_attempt_changed_binary_probabilities": 30,
+    "uniform_source_reference_preserved": false
+  },
+  "campaign_binding": {
+    "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
+    "path": "model/completion/campaign.json",
+    "sha256": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75"
+  },
+  "complete_six_hold_word": {
+    "exports": 5,
+    "probability": "1/4096",
+    "reconstructs_complete_word": true,
+    "retained": 1
+  },
+  "conditional_reference_disturbance_control": {
+    "branch_probability": "1/640",
+    "conditional_reference": {
+      "(0, 0)": "1"
+    },
+    "selected_current": 1,
+    "unconditional_reference_unchanged": true
+  },
+  "gate": "CP-01",
+  "instrument_certificates": {
+    "C_weight=0,last_current=-1": {
+      "nonzero_operator_branches": 311,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 186
+    },
+    "C_weight=0,last_current=0": {
+      "nonzero_operator_branches": 311,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 186
+    },
+    "C_weight=0,last_current=1": {
+      "nonzero_operator_branches": 311,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 186
+    },
+    "C_weight=1,last_current=-1": {
+      "nonzero_operator_branches": 187,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 310
+    },
+    "C_weight=1,last_current=0": {
+      "nonzero_operator_branches": 187,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 310
+    },
+    "C_weight=1,last_current=1": {
+      "nonzero_operator_branches": 187,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 310
+    },
+    "C_weight=1/2,last_current=-1": {
+      "nonzero_operator_branches": 497,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 0
+    },
+    "C_weight=1/2,last_current=0": {
+      "nonzero_operator_branches": 497,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 0
+    },
+    "C_weight=1/2,last_current=1": {
+      "nonzero_operator_branches": 497,
+      "reference_dimension_limit": null,
+      "semantic_branches_including_zero": 497,
+      "source_dimension": 78,
+      "sum_effects": "I_78",
+      "zero_operator_or_weight_branches": 0
+    }
+  },
+  "parameters": {
+    "c_weight": "1/2",
+    "exploration_probability": "1/2",
+    "memory_capacity": 1,
+    "overflow": "export_oldest",
+    "repair_probability": "3/4"
+  },
+  "resource_boundary": {
+    "controller_reads": "last retained current only",
+    "demonstrated_reference_dimension": 2,
+    "exported_record_count_after_n_attempts": "max(0,n-1)",
+    "history_representation": "complete Kraus transition kernel and exact prefix replay; no exponential history tree materialized",
+    "memory_slots": 1,
+    "new_native_source_word_execution": false,
+    "physical_clock_or_energy_normalization": false,
+    "q3_common_code_history": "unexecuted, not used by this component",
+    "remote_record_replication_constructed": false,
+    "source_dimension": 78,
+    "supplied_services": [
+      "initial source/reference state",
+      "classical random selection",
+      "committed C/E instrument",
+      "FIFO writes and export",
+      "classical record feedback"
+    ],
+    "total_history_storage_bounded": false
+  },
+  "schema": "oph.completion.observer.v1",
+  "six_attempt_history": [
+    {
+      "committed_records_per_history": 1,
+      "expected_hold_events": "1/4",
+      "expected_repair_events": "3/4",
+      "exported_fifo_records_per_history": 0,
+      "joint_source_reference_offdiagonal_l1": "43/80",
+      "model_attempt": 1,
+      "reachable_last_records": 157,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    },
+    {
+      "committed_records_per_history": 2,
+      "expected_hold_events": "1/2",
+      "expected_repair_events": "3/2",
+      "exported_fifo_records_per_history": 1,
+      "joint_source_reference_offdiagonal_l1": "7441/25600",
+      "model_attempt": 2,
+      "reachable_last_records": 304,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    },
+    {
+      "committed_records_per_history": 3,
+      "expected_hold_events": "3/4",
+      "expected_repair_events": "9/4",
+      "exported_fifo_records_per_history": 2,
+      "joint_source_reference_offdiagonal_l1": "80467/512000",
+      "model_attempt": 3,
+      "reachable_last_records": 321,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    },
+    {
+      "committed_records_per_history": 4,
+      "expected_hold_events": "1",
+      "expected_repair_events": "3",
+      "exported_fifo_records_per_history": 3,
+      "joint_source_reference_offdiagonal_l1": "27842243/327680000",
+      "model_attempt": 4,
+      "reachable_last_records": 321,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    },
+    {
+      "committed_records_per_history": 5,
+      "expected_hold_events": "5/4",
+      "expected_repair_events": "15/4",
+      "exported_fifo_records_per_history": 4,
+      "joint_source_reference_offdiagonal_l1": "4816301381/104857600000",
+      "model_attempt": 5,
+      "reachable_last_records": 321,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    },
+    {
+      "committed_records_per_history": 6,
+      "expected_hold_events": "3/2",
+      "expected_repair_events": "9/2",
+      "exported_fifo_records_per_history": 5,
+      "joint_source_reference_offdiagonal_l1": "416532615541/16777216000000",
+      "model_attempt": 6,
+      "reachable_last_records": 321,
+      "retained_fifo_records_per_history": 1,
+      "source_coherence_l1": "0",
+      "trace": "1"
+    }
+  ],
+  "source_sha256": {
+    "model/completion/family.py": "8aa8384f1a86af9531a4eeea7517b2d710bba4cce9b139660bfff482bf5e6d10",
+    "model/completion/observer.py": "ad0ccc68f93a02c2d624af66bae90eed1777d9e975875c92f87d6e1f2177aae2",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb"
+  },
+  "status": "BOUNDED_COMPONENT_EXECUTED_GATE_OPEN",
+  "untouched_reference_final": {
+    "(0, 0)": "1/2",
+    "(1, 1)": "1/2"
+  }
+}

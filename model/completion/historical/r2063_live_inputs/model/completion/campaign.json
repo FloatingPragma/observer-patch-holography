@@ -1,0 +1,163 @@
+{
+  "schema": "oph.finite_completion_campaign.v1",
+  "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
+  "parent_program": "OPH-EXECUTABLE-COMPLETION-2026-10-28",
+  "scope": "FINITE_COMPONENT_FAMILY",
+  "boundary_status": "FROZEN_FINITE_CAMPAIGN",
+  "whole_program_frozen": false,
+  "physical_comparison_count_added": 0,
+  "issues": [
+    1135,
+    1136,
+    1137,
+    1139
+  ],
+  "purpose": "Test bounded changes of the C/E record law, repair cadence and classical memory on the existing finite source before selecting a refinement or physical dictionary. This is a subfamily investigation, not acceptance of any integrated completion gate.",
+  "source_domain": {
+    "carrier": "Existing twelve ports and thirty native icosahedral seams, with all 78 total-two configurations and their full complex matrix algebra M78",
+    "closed_binary_subspace": "The existing 66 binary configurations; restriction must be stated explicitly",
+    "compatibility": "Independently of an update, seam compatibility is |x_a-x_b|<=1. Simultaneous compatibility on all native seams at total two is the binary shell. It permits ongoing swaps and is not an instantaneous fixed-state condition.",
+    "quantum_records": "The actual complete C coin/current and E coin/contrast instruments; the mixture's law tag is an additional committed classical record",
+    "untouched_references": "The operation contract is completely positive and acts as identity on arbitrary reference factors; finite executions declare the tested reference dimension"
+  },
+  "parameter_boundary": {
+    "probability_max_denominator": 256,
+    "repair_probability_min": "1/16",
+    "exploration_probability_min": "1/16",
+    "memory_capacity_range": [
+      1,
+      8
+    ],
+    "controller_state_limit": 256,
+    "laws": [
+      "C",
+      "E"
+    ],
+    "overflow_policies": [
+      "export_oldest",
+      "halt"
+    ]
+  },
+  "law_family": {
+    "fixed_parameters": "lambda, r and epsilon are fixed per candidate and are exact rationals with denominator at most 256; lambda is in [0,1] and r,epsilon are in [1/16,1]. These bounds define a research family, not measured physical constants.",
+    "seam_policy": "At each nonhalted attempt, p(e|m)=epsilon/30+(1-epsilon)pi(e|m), where pi is a predeclared classical distribution over native seams depending only on the finite controller and retained record buffer. Rational table entries have denominator at most 256. Source amplitudes, hidden loads and future records are inaccessible to the policy.",
+    "repair": "With probability r, apply C with probability lambda or E with probability 1-lambda. Each repair retains its fair coin and full native record. With probability 1-r apply identity and retain a HOLD record. There is no rejection of an inconvenient nonzero native outcome.",
+    "memory": "A predeclared classical controller of at most 256 states updates from its own state, retained records and the new actual record. Stochastic update table entries are exact rationals of denominator at most 256. A FIFO retains one to eight complete records. Export-oldest transfers a displaced record to a counted environment; halt emits an explicit full-buffer failure branch without further source action.",
+    "locality": "All source operations act on one native seam. This campaign declares controller access to its own records and seam addresses; delivery and cross-observer implementation remain supplied services. Memory changes select future seams and never apply unlisted coherent source operations.",
+    "continuation": "Any finite attempt horizon is admitted with its complete record resource bound. A bounded working buffer plus a growing exported tape is not a finite closed apparatus operating for unlimited duration.",
+    "parameter": "Attempt count, including holds and explicit halts. No seconds, proper duration or physical energy conversion is assigned."
+  },
+  "initial_members": [
+    {
+      "name": "C",
+      "parameters": {
+        "c_weight": "1",
+        "repair_probability": "1",
+        "exploration_probability": "1/2",
+        "memory_capacity": 1,
+        "overflow": "export_oldest"
+      }
+    },
+    {
+      "name": "E",
+      "parameters": {
+        "c_weight": "0",
+        "repair_probability": "1",
+        "exploration_probability": "1/2",
+        "memory_capacity": 1,
+        "overflow": "export_oldest"
+      }
+    },
+    {
+      "name": "mixed_delayed",
+      "parameters": {
+        "c_weight": "1/2",
+        "repair_probability": "3/4",
+        "exploration_probability": "1/2",
+        "memory_capacity": 1,
+        "overflow": "export_oldest"
+      }
+    }
+  ],
+  "resource_boundary": {
+    "supplied": [
+      "Initial native/source-reference state and controller state",
+      "Exact ideal C/E instruments and Born readout",
+      "Declared rational selector randomization and controller table",
+      "Addressable native seam access",
+      "Classical record writing, delivery and environmental export storage"
+    ],
+    "accounting": "Count attempted and executed repairs, holds, law/seam/coin/outcome records, buffer occupancy, displaced records and halt mass. Branch-conditioned untouched references remain in the output comparison. A source-word realization or accuracy budget is not inferred from a matrix-level execution.",
+    "horizons": "Exact one-step all-input instrument checks, retained short joint quantum histories, longer classical branch/marginal executions and analytic all-horizon statements only where proved.",
+    "computational_budget": "Finite combinatorial or rational certificates first. No large search, cloud allocation or empirical parameter optimization. Any numerical tolerance, tested horizon and state/reference dimension must be retained in the owning report."
+  },
+  "excluded_operations": [
+    "Deleting native seams, coins or nonzero record branches to protect a defect",
+    "Source feedback depending on an unobserved load or quantum state",
+    "Coherent access to committed records, unlisted branch phases, encoded unitary control or active quantum recovery",
+    "New fields, protected matter registers, link phases, Hamiltonians or species-specific energy conversions",
+    "Carrier enlargement, new load sectors or physical continuum/refinement interpretation without a separately versioned contract",
+    "Silent erasure or uncounted infinite record retention"
+  ],
+  "ancestry": {
+    "known_before_campaign": [
+      "Classical collision and shell invariant exclusions",
+      "Quantum collision survival effect",
+      "Fixed-schedule C/E quantum mixing and nonfaithfulness on full M78",
+      "Conditional active matching-code recovery and its scalar record-cost control"
+    ],
+    "empirical_exposure": "Existing P/N calibration ancestry and all retrospective particle, field and gravity comparisons are retained in the parent ledgers. No empirical numbers select this finite family; no new prediction or confirmation is claimed.",
+    "calibration": "Only dimensionless rational probabilities, source event records and finite combinatorial identities are compared. No mass, length, clock duration, P or N is fitted here.",
+    "legacy_q3": "The original issue #1077 q=3 scalar preparation/history remains unexecuted with its existing bounds. It is outside this finite campaign, neither executed nor scientifically obstructed or retired from the parent program."
+  },
+  "decisions": {
+    "positive": "Retain a complete checked witness and its exact domain; integrated acceptance still requires predecessor maps and the remaining physical obligations.",
+    "candidate_rejection": "An exact counterexample or reproducible failed source/interface obligation rejects only that specified candidate or interpretation.",
+    "class_obstruction": "A theorem covering every admitted member and every required sector in an explicitly named subclass can reject that subclass; source-only exact charges, metastability, full histories and refinement are separate questions.",
+    "whole_program": "Unavailable: this finite campaign does not freeze or exhaust the parent program's refinement and interpretation classes.",
+    "resource_stop": "Report an uncompleted exact calculation or an exhausted declared run budget as inconclusive, never an impossibility result.",
+    "revision": "Any change to the admitted source law, memory grammar, parameter boundary, services or domain creates a new campaign ID and preserves this contract and its verdicts."
+  },
+  "remaining_CP00": [
+    "Freeze a composition/refinement family capable of the full field/particle/gravity milestone",
+    "Specify the physical observer operation, clock and energy dictionary and allowed common calibrations",
+    "Bind independent physical comparisons and full-program success/resource thresholds before any validation",
+    "Decide the active status of the original q=3 construction through its existing owners"
+  ],
+  "source_bindings": [
+    {
+      "path": "model/completion/family.py",
+      "sha256": "8aa8384f1a86af9531a4eeea7517b2d710bba4cce9b139660bfff482bf5e6d10"
+    },
+    {
+      "path": "model/observer/native.py",
+      "sha256": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+    },
+    {
+      "path": "model/repair_scheduler/coins.py",
+      "sha256": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb"
+    },
+    {
+      "path": "model/observer/quantum_mixing.py",
+      "sha256": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139"
+    }
+  ],
+  "retained_controls": [
+    {
+      "path": "model/common_source/native_defect_decision_results.json",
+      "sha256": "77065a134b14867e5e5426172249608a17ff19413fa7e8b89043c2377bfcb862"
+    },
+    {
+      "path": "model/observer/QUANTUM_MIXING.md",
+      "sha256": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1"
+    },
+    {
+      "path": "model/SOURCE_SELECTION.md",
+      "sha256": "0363e9b613c20ef6f5cda4a2a969b6884f4db837d3a4de44c5e849a249204836"
+    },
+    {
+      "path": "docs/OPH_EXECUTABLE_HYPOTHESIS.md",
+      "sha256": "c503247a2b333c2e27b3eba865d47f2d15c966a5052eceb4aadb14fc9002f35a"
+    }
+  ]
+}

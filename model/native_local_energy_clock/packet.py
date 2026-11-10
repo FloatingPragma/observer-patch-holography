@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+from model.completion import native_measurement_parent_adapter as parent_custody
 from . import energy
 from ..native_exchange_clock import packet as exchange_owner
 from ..native_energy_measurement import packet as measurement_owner
@@ -28,16 +29,19 @@ def canonical(value):
 
 
 def source_bindings():
-    paths=set(exchange_owner.source_bindings())|set(measurement_owner.source_bindings())|set(SOURCE_FILES)
+    paths=set(exchange_owner.source_bindings())|set(measurement_owner.source_bindings())|set(SOURCE_FILES)|set(parent_custody.SOURCE_FILES)
     paths.add(measurement_owner.OUTPUT.relative_to(measurement_owner.ROOT).as_posix())
     return {name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in sorted(paths)}
 
 
 def owning_measurement():
     """Authenticate the prior full replay and recompute its consumed bounds."""
-    digest=hashlib.sha256(measurement_owner.OUTPUT.read_bytes()).hexdigest()
-    if digest!=AUDITED_MEASUREMENT_SHA256:
-        raise ValueError('audited complete measurement receipt bytes differ')
+    try:
+        digest=parent_custody.authenticate(measurement_owner.OUTPUT,
+                                          AUDITED_MEASUREMENT_SHA256,
+                                          measurement_owner.source_bindings())
+    except ValueError as error:
+        raise ValueError('audited complete measurement receipt bytes differ: '+str(error)) from error
     value=strict_json.load(measurement_owner.OUTPUT)
     expected={'source_bindings':measurement_owner.source_bindings(),
               'spectral_certificate':spectral.certify(),

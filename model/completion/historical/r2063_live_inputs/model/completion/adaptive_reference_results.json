@@ -1,0 +1,4830 @@
+{
+  "campaign": {
+    "campaign_id": "OPH-CE-FINITE-MEMORY-2026-10-28-v1",
+    "path": "model/completion/campaign.json",
+    "sha256": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75"
+  },
+  "canonical_premise_navigation": [
+    "PR-07"
+  ],
+  "conclusion": "The initially uniform source marginal fails to remain uniform under this admissible record-feedback scheduler.",
+  "contract": {
+    "hold_rule": "identity on source and memory; not used in this r=1 witness",
+    "initial_state": "I_66/66 tensor blank classical bit m=0",
+    "memory_update_on_repair": "m'=1[current>0]",
+    "preferred_seams_by_memory": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "record_laws": "C, E, and every tagged convex mixture have this same diagonal marginal",
+    "repair_probability": "1",
+    "retention": "one current-sign bit; complete records may be retained separately without changing this marginal",
+    "source": "existing 66-state binary shell of the total-two twelve-port carrier",
+    "time_parameter": "native attempt count, not physical duration",
+    "uniform_exploration_probability": "1/2"
+  },
+  "first_attempt": {
+    "changed_source_entries": 0,
+    "maximum_absolute_deviation": "0",
+    "source_probabilities": [
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "total_probability": "1",
+    "total_variation_from_uniform": "0"
+  },
+  "fixed_policy_control": {
+    "changed_source_entries": 0,
+    "maximum_absolute_deviation": "0",
+    "source_probabilities": [
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "total_probability": "1",
+    "total_variation_from_uniform": "0"
+  },
+  "gate": "CP-13",
+  "schema": "oph.completion.adaptive_reference.v1",
+  "scope": [
+    "This refutes transfer of fixed state-independent mixture stationarity to arbitrary record-controlled source marginals.",
+    "It does not refute mixture_stationary or its proof: the source/memory correlations violate that theorem's fixed-mixture identification.",
+    "It does not exclude an invariant reference for the joint finite source/controller kernel or a nonuniform source marginal.",
+    "It does not decide physical clock construction, defect protection, or the broader executable hypothesis."
+  ],
+  "second_attempt": {
+    "changed_source_entries": 30,
+    "maximum_absolute_deviation": "1/960",
+    "source_probabilities": [
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/10560",
+        "probability": "53/3520",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/7920",
+        "probability": "119/7920",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/15840",
+        "probability": "239/15840",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/10560",
+        "probability": "53/3520",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/7920",
+        "probability": "119/7920",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/10560",
+        "probability": "53/3520",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/15840",
+        "probability": "239/15840",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/10560",
+        "probability": "53/3520",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/10560",
+        "probability": "53/3520",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "1/990",
+        "probability": "8/495",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "1/990",
+        "probability": "8/495",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "1/1056",
+        "probability": "17/1056",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "1/1056",
+        "probability": "17/1056",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "31/31680",
+        "probability": "511/31680",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "31/31680",
+        "probability": "511/31680",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-1/15840",
+        "probability": "239/15840",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "31/31680",
+        "probability": "511/31680",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "31/31680",
+        "probability": "511/31680",
+        "state": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "31/31680",
+        "probability": "511/31680",
+        "state": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-29/31680",
+        "probability": "41/2880",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "-7/7920",
+        "probability": "113/7920",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-7/7920",
+        "probability": "113/7920",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-3/3520",
+        "probability": "151/10560",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-3/3520",
+        "probability": "151/10560",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-7/7920",
+        "probability": "113/7920",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-31/31680",
+        "probability": "449/31680",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-29/31680",
+        "probability": "41/2880",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-7/7920",
+        "probability": "113/7920",
+        "state": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "-7/7920",
+        "probability": "113/7920",
+        "state": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "1/960",
+        "probability": "57/3520",
+        "state": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "total_probability": "1",
+    "total_variation_from_uniform": "13/1320"
+  },
+  "source_sha256": {
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/completion/adaptive_reference.py": "b7acada7572f55c81fa8754658d3f7d592ee007dc38d2a421ba6d19de8247804",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d"
+  },
+  "uniform_schedule_control": {
+    "changed_source_entries": 0,
+    "maximum_absolute_deviation": "0",
+    "source_probabilities": [
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "deviation_from_uniform": "0",
+        "probability": "1/66",
+        "state": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "total_probability": "1",
+    "total_variation_from_uniform": "0"
+  }
+}

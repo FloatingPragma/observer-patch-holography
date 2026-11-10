@@ -50,6 +50,22 @@ The [family-clock calculation](finite_family_clock/PROOF.md) separately
 distinguishes a one-tick Koide effect, its controlled collision-clock
 extension and the complete quantum scalar-memory spectrum.
 
+The same source has positive charge arrivals and a separately bounded
+low-energy [localization law](coherent_defect_wave/chiral_joint/interacting_charge_localization/PROOF.md).
+Its multi-charge cloud retains screening, so the single-charge bound is
+not an unrestricted confinement claim.
+
+## Neutral fields and finite collisions
+
+Coupling complete interacting blocks gives a
+[controlled Klein–Gordon record limit](interacting_block_quadrature/PROOF.md)
+with the native block gap as its rest frequency. All native sectors,
+finite-capacity errors and measurement outcomes are retained. The
+[finite collision experiment](interacting_block_scattering/PROOF.md)
+has a positive, error-bounded channel between two neutral components.
+The proved refinement becomes free; identifying a measured particle
+and a nontrivial interacting relativistic limit requires further control.
+
 The [complete two-cell source](coherent_defect_wave/chiral_joint/two_cell/README.md) keeps
 quantum scalar/link registers and every active lepton occupation. Its
 certified neutral ground supports complete charged detector lines near

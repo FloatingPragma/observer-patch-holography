@@ -9,7 +9,7 @@ from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 import zlib
 
-from . import families, joint_panels, repair_panels, scenes_a, scenes_b
+from . import families, field_panels, joint_panels, repair_panels, scenes_a, scenes_b
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
 
@@ -25,7 +25,7 @@ MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
-SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'build.py')
+SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -94,12 +94,14 @@ def load():
     data['protection'] = repair_panels.load_protection()
     data['agreement'] = repair_panels.load_agreement()
     data['joint'] = joint_panels.load()
+    data['field_records'] = field_panels.load()
     data['inputs'] = {str(p.relative_to(ROOT)): sha(p)
                       for p in (OUTPUTS, MASSES, DEPENDENCIES, MOMENTUM, CANDIDATES, GAUGE, IDENTITY_TESTS)}
     data['inputs'].update(repair_panels.input_pins(data['repair']))
     data['inputs'].update(repair_panels.protection_pins(data['protection']))
     data['inputs'].update(repair_panels.agreement_pins(data['agreement']))
     data['inputs'].update(joint_panels.input_pins(data['joint']))
+    data['inputs'].update(data['field_records']['pins'])
     return data
 
 
@@ -109,6 +111,7 @@ def render(data):
     y = scenes_a.hero(c, data)
     y = repair_panels.draw(c, data, y + 70)
     y = joint_panels.draw(c, data, y + 70)
+    y = field_panels.draw(c, data, y + 70)
     for step in (scenes_a.step1, scenes_a.step2, scenes_a.step3, scenes_a.step4,
                  scenes_b.step5, scenes_b.step67, scenes_b.step8, scenes_b.step9,
                  scenes_b.dictionary, scenes_b.roster, families.catalogue, scenes_b.evidence, families.responses,

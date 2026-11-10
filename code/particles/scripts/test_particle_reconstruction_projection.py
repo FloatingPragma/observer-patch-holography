@@ -6,6 +6,7 @@ import json
 import pytest
 
 import build_postdiction_ledger as ledger
+from tools.renew_native_defect_live import RETAINED as NATIVE_ARCHIVE
 
 
 @pytest.fixture
@@ -29,7 +30,7 @@ def pinned_receipts(tmp_path):
                 target = tmp_path / relative
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes((ledger.REPO / relative).read_bytes())
-            retained = tmp_path / 'model/common_source/native_defect_decision_results.json'
+            retained = tmp_path / NATIVE_ARCHIVE
             retained.parent.mkdir(parents=True, exist_ok=True)
             retained.write_bytes((ledger.REPO / retained.relative_to(tmp_path)).read_bytes())
         if "finite_inverse_response_kinetics" in packet:
@@ -89,7 +90,7 @@ def test_live_native_projection_cannot_rewrite_retained_science(pinned_receipts,
     elif damage == 'coverage':
         del packet['source_sha256'][next(iter(packet['source_sha256']))]
     else:
-        retained = path.with_name('native_defect_decision_results.json')
+        retained = pinned_receipts / NATIVE_ARCHIVE
         retained.write_text(retained.read_text() + '\n')
     path.write_text(json.dumps(packet))
     with pytest.raises(ValueError):

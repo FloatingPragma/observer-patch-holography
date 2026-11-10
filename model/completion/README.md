@@ -160,8 +160,27 @@ changed contracts need a new version rather than a reset of prior evidence.
 The current completion interface uses `tools/build_completion_program_current.py`.
 The original builder remains byte-identical for retained scientific source closures;
 the successor adds the typed joint dependency owner without accepting any gate.
-The November 11 custody record preserves the earlier dated proof records and
-authenticates the accepted-main pointer schema plus explicitly reviewed navigation
-assumption unions. Run `python -m model.completion.current_custody_renewal --check`
+The r2063 custody record retains both dated predecessor authorities and records.
+It authenticates the accepted-main pointer schema and reverses only the reviewed
+descriptions, evidence links and architecture-assumption unions before checking
+the conserved scientific semantics. Run `python -m model.completion.r2063_custody_renewal --check`
 for read-only custody verification; `--renew` is explicit maintenance and rejects
 source changes outside that reviewed boundary.
+
+Canonical replay receipts carry current source custody. Their exact prior bytes
+are retained under `historical/r2063_live_inputs`; those archived documentary
+pins are not represented as current. The live renewal tools execute the owning
+producers, preserve the original numerical payloads and NPZ bytes, and use the
+existing complete owner comparisons. Binary64 replay tolerances certify that
+replay comparison only; they are not physical error bounds. The two complete
+measurement consumers use a typed parent adapter with exact scientific equality,
+the reviewed four-source append, and every existing spectral and clock check.
+
+For a listed owner, run `python tools/renew_canonical_live_receipts.py --check
+--owner OWNER`. Its `--renew` form performs the actual replay before writing
+admitted metadata. `python tools/renew_native_control_canonical.py --renew`
+handles the native-control documentation pin and its explicitly live campaign
+pointer; `python tools/renew_source_workflow_receipts.py --renew` handles the
+five source-workflow owners. The completion authority pins this reviewed
+checkpoint: a new source implementation, added scope or changed scientific
+value requires an explicit successor authority, not a hash refresh.

@@ -1,14 +1,18 @@
 # Native defect receipt custody
 
-The ledger consumes `native_defect_decision_live_results.json`, produced by
-the unchanged `native_defect_decision.report()` calculation. Every scientific
-field equals the immutable `native_defect_decision_results.json`; only source
-hashes can differ. The retained receipt, completion campaign and quantum-defect
-receipt keep their recorded provenance. Their historical documentation pins are
-not represented as hashes of the working tree.
+The canonical `native_defect_decision_results.json` and the ledger projection
+`native_defect_decision_live_results.json` use the unchanged
+`native_defect_decision.report()` calculation. Their scientific fields equal
+the byte-authenticated receipt under
+`../completion/historical/r2063_live_inputs/model/common_source/`.
+That archived receipt retains its documentary pin; it is not a claim of
+current source custody. The frozen clock campaign explicitly permits the
+canonical control's one documentation digest and its completion-campaign
+reference to renew. Its scientific parameters and executable sources are fixed.
 
-After editing a source document, regenerate the live receipt from the repository
-root with `python3 tools/renew_native_defect_live.py --renew`. Run
-`python3 tools/renew_native_defect_live.py --check` for a fresh producer replay
-and exact payload comparison. The tool rejects changed scientific fields,
-source coverage or retained evidence.
+Run `python3 tools/renew_native_control_canonical.py --renew` for the canonical
+control, admitted campaign reference and quantum-defect child. The command
+executes the unchanged producers and rejects every non-custody difference.
+Run `python3 tools/renew_native_defect_live.py --renew` for the ledger projection.
+Both commands accept `--check` for producer replay without writing. Consumers
+of changed canonical receipt hashes require their own producer-backed renewal.

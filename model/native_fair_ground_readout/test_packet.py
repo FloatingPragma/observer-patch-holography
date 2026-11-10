@@ -16,7 +16,7 @@ def fresh():
 def test_retained_receipt_matches_current_complete_owner(fresh):
     assert packet.check_payload(packet.strict_json.load(packet.OUTPUT), fresh)
     assert fresh['inherited_complete_energy_measurement'][
-        'audited_full_66_word_receipt_sha256'] == packet.MEASUREMENT_RECEIPT_SHA256
+        'audited_full_66_word_receipt_sha256'] == packet.parent_custody.REPLAYED_SHA256
     assert fresh['inherited_complete_energy_measurement']['full_66_word_execution_repeated_here'] is False
 
 

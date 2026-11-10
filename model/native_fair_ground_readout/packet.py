@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from tools import strict_json
+from model.completion import native_measurement_parent_adapter as parent_custody
 from model.native_energy_measurement import packet as measurement_owner
 from model.native_energy_measurement import measurement, spectral
 from . import preparation, reference
@@ -41,14 +42,18 @@ def canonical(value):
 
 
 def source_bindings():
-    paths = set(measurement_owner.source_bindings()) | set(OWNED_FILES) | set(ADDITIONAL_FILES)
+    paths = set(measurement_owner.source_bindings()) | set(OWNED_FILES) | set(ADDITIONAL_FILES) | set(parent_custody.SOURCE_FILES)
     return {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in sorted(paths)}
 
 
 def owning_measurement():
-    digest = hashlib.sha256(measurement_owner.OUTPUT.read_bytes()).hexdigest()
-    if digest != MEASUREMENT_RECEIPT_SHA256:
-        raise ArithmeticError('the audited complete measurement receipt SHA differs')
+    try:
+        digest = parent_custody.authenticate(measurement_owner.OUTPUT,
+                                            MEASUREMENT_RECEIPT_SHA256,
+                                            measurement_owner.source_bindings())
+    except ValueError as error:
+        raise ArithmeticError('the audited complete measurement receipt SHA differs; '
+                              'live sources or consumed bounds differ: '+str(error)) from error
     retained = strict_json.load(measurement_owner.OUTPUT)
     expected = {
         'source_bindings': measurement_owner.source_bindings(),
