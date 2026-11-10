@@ -1,0 +1,260 @@
+{
+  "schema": "oph.active_code_energy.v1",
+  "scope": "FINITE_COMPONENT_DIAGNOSTICS",
+  "campaign_id": "active-code-energy-20261028-v1",
+  "contract_sha256": "4fcdc174c2564e150086ab215de9289f1b0e425ace8a211555cb44f73fe55e14",
+  "predecessor_git_commit": "7ab50c9fa326b86344ba0dda6ca56804eb094fb7",
+  "native_family_changed": false,
+  "cp04_accepted": false,
+  "physical_comparisons_added": 0,
+  "sector_action_ambiguity": {
+    "joint_source_core_states": 4356,
+    "connected_charge_sector_sizes": {
+      "0": 2970,
+      "1": 1320,
+      "2": 66
+    },
+    "C_E_complete_population_kernels_equal": true,
+    "complete_raw_C_E_record_blocks_preserve_q": true,
+    "reweight_q1_relative_to_q0_by_factor_two": {
+      "1": {
+        "stationary_sector_masses": {
+          "0": "2/5",
+          "1": "5/9",
+          "2": "2/45"
+        },
+        "faithful_reversible_edge_core_checks": 19800,
+        "nonconstant_q_potential_native_gradient_form": "0",
+        "fixed_q1_conditional_state_weight": "1/1320",
+        "conditional_q1_source_marginal_each_state": "1/66"
+      },
+      "2": {
+        "stationary_sector_masses": {
+          "0": "9/35",
+          "1": "5/7",
+          "2": "1/35"
+        },
+        "faithful_reversible_edge_core_checks": 19800,
+        "nonconstant_q_potential_native_gradient_form": "0",
+        "fixed_q1_conditional_state_weight": "1/1320",
+        "conditional_q1_source_marginal_each_state": "1/66"
+      }
+    },
+    "relative_modular_gap_shift_q1_minus_q0": "-log(2)",
+    "at_one_declared_common_beta_relative_energy_gap_shift": "-log(2)/beta",
+    "one_physical_beta_or_energy_action_selected": false,
+    "stationarity_scope": "reduced diagonal source/core population law under uniform seams; no stationary retained archive",
+    "statement": "arbitrary positive sector reweightings are stationary; q-only action offsets have zero native gradient form"
+  },
+  "active_code_work": {
+    "code_core": [
+      0,
+      1
+    ],
+    "source_executed_repair_seam": [
+      0,
+      5
+    ],
+    "prior_source_executed_code_nonzero_current_per_uniform_seam_attempt": "1/6",
+    "screened_successor_code": {
+      "particle_campaign_id": "particle-screening-20261028-v1",
+      "logical_columns": [
+        {
+          "pair_supports": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "basis_current_rates": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "logical_current_rate": "1/6"
+        },
+        {
+          "pair_supports": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "basis_current_rates": [
+            "1/6",
+            "1/6",
+            "1/6",
+            "1/6"
+          ],
+          "logical_current_rate": "1/6"
+        }
+      ],
+      "any_logical_input_nonzero_current_per_uniform_seam_attempt": "1/6",
+      "basis_supports_all_have_same_degree": 10,
+      "native_core_motion_by_law_and_logical_column": {
+        "C": [
+          {
+            "core_value_change_per_uniform_seam_attempt": "1/15",
+            "transported_core_exits_native_seam_set_per_attempt": "1/30"
+          },
+          {
+            "core_value_change_per_uniform_seam_attempt": "1/15",
+            "transported_core_exits_native_seam_set_per_attempt": "1/30"
+          }
+        ],
+        "E": [
+          {
+            "core_value_change_per_uniform_seam_attempt": "1/15",
+            "transported_core_exits_native_seam_set_per_attempt": "1/30"
+          },
+          {
+            "core_value_change_per_uniform_seam_attempt": "1/15",
+            "transported_core_exits_native_seam_set_per_attempt": "1/30"
+          }
+        ]
+      },
+      "all_seam_recovery_exists_algebraically_in_particle_packet": true,
+      "source_pulse_recovery_executed": false
+    },
+    "uniform_source_or_stationary_q1_background": "5/33",
+    "excess_over_stationary_q1_background_per_attempt": "1/66",
+    "fixed_core_q1_conditional_background_not_stationary": "23/150",
+    "excess_over_fixed_core_q1_conditional_background_per_attempt": "1/75",
+    "fixed_core_unconditional_reference_background_not_stationary": "341/2250",
+    "excess_over_fixed_core_unconditional_reference_per_attempt": "17/1125",
+    "mean_native_current_excess_times_declared_cost_epsilon": "epsilon/66 per attempted uniform-seam repair",
+    "power_with_supplied_attempt_interval_delta_tau": "epsilon/(66*delta_tau)",
+    "uniform_seam_activity_and_one_seam_executed_recovery_form_one_protocol": false,
+    "prior_source_executed_code_recovery_laws": {
+      "C": {
+        "positive_raw_branches": [
+          {
+            "coin": 0,
+            "raw": 0,
+            "probability": "1/4",
+            "recovery_native_pulses": 38863
+          },
+          {
+            "coin": 0,
+            "raw": 1,
+            "probability": "1/4",
+            "recovery_native_pulses": 57277
+          },
+          {
+            "coin": 1,
+            "raw": 0,
+            "probability": "1/2",
+            "recovery_native_pulses": 57270
+          }
+        ],
+        "raw_abort_probability_on_code": "0",
+        "mean_recovery_native_pulses_per_attempt": "52670",
+        "fixed_routed_repair_native_pulses_per_attempt": 386739,
+        "mean_repair_plus_recovery_native_pulses_per_attempt": "439409",
+        "initial_encoder_native_pulses_per_preparation": 28635,
+        "core_reset_value_change_probability": "1/4",
+        "archive_bits_per_nonabort_reset_entry": 15,
+        "archive_entries_per_positive_code_attempt": 1
+      },
+      "E": {
+        "positive_raw_branches": [
+          {
+            "coin": 0,
+            "raw": 0,
+            "probability": "1/4",
+            "recovery_native_pulses": 38863
+          },
+          {
+            "coin": 0,
+            "raw": 5,
+            "probability": "1/4",
+            "recovery_native_pulses": 57277
+          },
+          {
+            "coin": 1,
+            "raw": 0,
+            "probability": "1/4",
+            "recovery_native_pulses": 38863
+          },
+          {
+            "coin": 1,
+            "raw": 4,
+            "probability": "1/4",
+            "recovery_native_pulses": 44995
+          }
+        ],
+        "raw_abort_probability_on_code": "0",
+        "mean_recovery_native_pulses_per_attempt": "89999/2",
+        "fixed_routed_repair_native_pulses_per_attempt": 386742,
+        "mean_repair_plus_recovery_native_pulses_per_attempt": "863483/2",
+        "initial_encoder_native_pulses_per_preparation": 28635,
+        "core_reset_value_change_probability": "1/4",
+        "archive_bits_per_nonabort_reset_entry": 15,
+        "archive_entries_per_positive_code_attempt": 1
+      }
+    },
+    "physical_cost_per_pulse_or_current_supplied": false,
+    "kinetic_curvature_for_same_code_measured": false,
+    "rest_energy_or_gravitational_stress_inferred": false
+  },
+  "independent_product_mode_control": {
+    "ideal_rest_gap": "E_n(0)=sqrt(Q)*theta=a",
+    "ideal_kinetic_curvature": "1/a",
+    "same_active_q1_code": false,
+    "same_source_or_momentum_dictionary": false,
+    "physical_mass_transfer_allowed": false
+  },
+  "source_sha256": {
+    "model/exchange_sector/sector.py": "5f6b51ce146cdb78c61f7836239a36c1de03a486593a24f2d40f8c3bb06898c0",
+    "model/exchange_sector/sector_results.json": "28d8ee4328d140684ef6ddf9c328bf2dfca25921d3335ab5aabb0ffac1f28aaf",
+    "model/clock_defect_energy/reference_balance.py": "6695eddff9a93667193c307d80d349c36d685b4dfd717f9191035c989b73940d",
+    "model/clock_defect_energy/reference_balance_results.json": "5d32d1949061d6af1a421d94d4c9db075387bb2e14f7f63f35b5ff38656b15e1",
+    "model/clock_defect_energy/defect_history.py": "b0976dcd8266e0d3aa85d8d84b41c85e7504192884e01299c6ed23346d2ca4fb",
+    "model/clock_defect_energy/mode_energy_results.json": "05a325f9af03f737d7adbb38ecd5e633d0c233dba849f2fd69656935b3b2fa4f",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/particle_screening/campaign.json": "1d5eb2ce29c41a80f3e3e6bf90388ba99daff2b537f9267063171afa2d2f6b8d",
+    "model/particle_screening/README.md": "62f972fd6af38ebac89fe81d2826073ea3169e5c002d1b676acd988962e47b34",
+    "model/particle_screening/screening.py": "7fda107721574f80f2e048ff441beef2a4c2206a95b6defa04f8dd5004f6690c",
+    "model/particle_screening/screening_results.json": "b6f355a2d457f5f6bfb3b3ac3c5c9a60fbd43c5de97c37a4e17fa576d46dfeaf",
+    "model/particle_screening/test_screening.py": "6106f4a5ff764d499ad87caab2514cb536653039177f1ac8eaaeda834a223b2b",
+    "Lean/Geometry/SourceActionMeasure.lean": "802361b7efc592b84d2df4d00506818a9d9354fd239b94eaf63e26792ea3a73d",
+    "Lean/Geometry/InternalEnergyInertia.lean": "48a468bbb8e397abdf512005a87b923f393bf96cc8535b18b03ed42e98d0eb04",
+    "Lean/Geometry/ProperTimeInternalAction.lean": "8933451e0b96b0f1a339ca7912dd7e1c26cde321b5144440ee7127fd95a76307",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+    "Lean/Screen/RegionalContinuity.lean": "fa00c3aed6580174519e1d828ad81572d7ac7b759a3274dbc60e99761d76bd28",
+    "Lean/Dynamics/WardLimitManifest.lean": "6bae06ce219aa104014a3094298c3f376586cc54d03223b534b94a95565a6b0d",
+    "model/active_code_energy/__init__.py": "78d9126fe87e2cd176cfcd5b2fa37aceda69f10b3b5b848110b590b1ce703c93",
+    "model/active_code_energy/energy_bridge.py": "5827e26cc323060b6ed7d9a0d23c874a3d4cef9acee6310e5eee34550db0e36e",
+    "model/active_code_energy/test_energy_bridge.py": "f4de128765f5a8939cfec1161d2f8cd55aca5b655cea9b0fc01a1e783cbe53cc",
+    "model/active_code_energy/README.md": "b30d199e99bd80c05e4a2101132ba008cd3f3ad0b3f4779b68df181778fb81bc",
+    "model/active_code_energy/campaign.json": "4fcdc174c2564e150086ab215de9289f1b0e425ace8a211555cb44f73fe55e14"
+  }
+}

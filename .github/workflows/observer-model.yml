@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'model/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/test_retained_custody_routing.py'
       - 'code/P_derivation/**'
       - 'code/capacity_readback/**'
       - 'code/native_response/**'
@@ -30,6 +33,9 @@ on:
     tags: ['r*']
     paths:
       - 'model/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/test_retained_custody_routing.py'
       - 'code/P_derivation/**'
       - 'code/capacity_readback/**'
       - 'code/native_response/**'

@@ -13,6 +13,12 @@ on:
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/test_retained_custody_routing.py'
+      - 'tools/renew_diagnostic_parent_custody.py'
+      - 'tools/diagnostic_parent_custody_authority.json'
+      - 'tools/test_diagnostic_parent_custody.py'
       - 'model/charged_composite_search/**'
       - 'model/quadratic_conservation/**'
       - 'model/prepared_regional_entropy/**'
@@ -141,6 +147,12 @@ on:
       - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
+      - 'pytest.ini'
+      - 'tools/check_retained_completion_custody.py'
+      - 'tools/test_retained_custody_routing.py'
+      - 'tools/renew_diagnostic_parent_custody.py'
+      - 'tools/diagnostic_parent_custody_authority.json'
+      - 'tools/test_diagnostic_parent_custody.py'
       - 'model/charged_composite_search/**'
       - 'model/quadratic_conservation/**'
       - 'model/prepared_regional_entropy/**'
@@ -264,6 +276,24 @@ permissions:
   contents: read
 
 jobs:
+  retained-custody:
+    name: Retained 0194 custody regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch the immutable custody checkpoint
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git 0194fc685be3f7ba5f732681713c9cfd04e5290f
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install the retained checkpoint requirements
+        run: |
+          git show 0194fc685be3f7ba5f732681713c9cfd04e5290f:model/requirements.txt > "$RUNNER_TEMP/oph-retained-requirements.txt"
+          python -m pip install -r "$RUNNER_TEMP/oph-retained-requirements.txt"
+      - name: Run all 53 original tests in their authenticated historical tree
+        run: python tools/check_retained_completion_custody.py
+
   # These commands ran serially in one job of about 30 minutes; the same
   # commands run here as parallel jobs.
   program-contract:
@@ -279,6 +309,7 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python tools/build_completion_program_current.py --check
+      - run: python -m pytest -q -W error tools/test_retained_custody_routing.py tools/test_diagnostic_parent_custody.py
       - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
       - run: python -m model.completion.acceptance_audit --check
       - run: python -m model.completion.program_class_v2 --check
@@ -318,6 +349,7 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python -m pytest -q --durations=10 -W error model/local_repair_family model/active_code_energy model/screened_recovery model/conserved_sector_action model/screened_transport
+      - run: python tools/renew_diagnostic_parent_custody.py --check
 
   program-fields:
     runs-on: ubuntu-latest

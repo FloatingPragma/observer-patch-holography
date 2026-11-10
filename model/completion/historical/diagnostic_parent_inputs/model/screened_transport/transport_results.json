@@ -1,0 +1,394 @@
+{
+  "schema": "oph.screened_transport.v1",
+  "scope": "FINITE_COMPONENT_DIAGNOSTICS",
+  "campaign_id": "screened-transport-20261028-v1",
+  "contract_sha256": "b4d65580af28c5dcc759e992ff2dddc467edd4db94b766c2e3ecb367a15f421d",
+  "native_family_changed": false,
+  "cp04_accepted": false,
+  "physical_comparisons_added": 0,
+  "current_response": {
+    "code_core": [
+      0,
+      1
+    ],
+    "logical_supports": [
+      [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    ],
+    "logical_independent_occupations": [
+      "1/2",
+      "1/2",
+      "1/4",
+      "1/4",
+      "1/4",
+      "0",
+      "1/4",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "laws_and_logical_columns_complete_attempts": {
+      "C0": 240,
+      "C1": 240,
+      "E0": 240,
+      "E1": 240
+    },
+    "law_C_E_second_moments_equal": true,
+    "source_current_second_moment_matrix": [
+      [
+        "1/20",
+        "-1/60",
+        "0",
+        "0",
+        "0",
+        "-1/120",
+        "0",
+        "-1/120",
+        "0",
+        "0",
+        "-1/120",
+        "-1/120"
+      ],
+      [
+        "-1/60",
+        "1/20",
+        "0",
+        "0",
+        "0",
+        "-1/120",
+        "0",
+        "-1/120",
+        "-1/120",
+        "-1/120",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/30",
+        "-1/120",
+        "-1/120",
+        "0",
+        "-1/120",
+        "0",
+        "0",
+        "0",
+        "-1/240",
+        "-1/240"
+      ],
+      [
+        "0",
+        "0",
+        "-1/120",
+        "1/30",
+        "-1/120",
+        "0",
+        "-1/120",
+        "0",
+        "-1/240",
+        "-1/240",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1/120",
+        "-1/120",
+        "7/240",
+        "-1/240",
+        "0",
+        "0",
+        "0",
+        "-1/240",
+        "0",
+        "-1/240"
+      ],
+      [
+        "-1/120",
+        "-1/120",
+        "0",
+        "0",
+        "-1/240",
+        "1/48",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1/120",
+        "-1/120",
+        "0",
+        "0",
+        "7/240",
+        "-1/240",
+        "-1/240",
+        "0",
+        "-1/240",
+        "0"
+      ],
+      [
+        "-1/120",
+        "-1/120",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/240",
+        "1/48",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1/120",
+        "0",
+        "-1/240",
+        "0",
+        "0",
+        "-1/240",
+        "0",
+        "1/60",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1/120",
+        "0",
+        "-1/240",
+        "-1/240",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/60",
+        "0",
+        "0"
+      ],
+      [
+        "-1/120",
+        "0",
+        "-1/240",
+        "0",
+        "0",
+        "0",
+        "-1/240",
+        "0",
+        "0",
+        "0",
+        "1/60",
+        "0"
+      ],
+      [
+        "-1/120",
+        "0",
+        "-1/240",
+        "0",
+        "-1/240",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/60"
+      ]
+    ],
+    "current_form_formula": "C=(1/60) sum_seams (w_a+w_b)(e_b-e_a)(e_b-e_a)^T; D(v)=v^T C v/2",
+    "current_form_rank": 11,
+    "current_form_characteristic_polynomial_of_240C": "lambda*(lambda - 4)*(lambda**3 - 30*lambda**2 + 254*lambda - 528)*(lambda**3 - 16*lambda**2 + 80*lambda - 126)*(lambda**4 - 30*lambda**3 + 310*lambda**2 - 1270*lambda + 1728)",
+    "nonzero_current_probability_per_uniform_native_attempt": "1/6",
+    "mode_profile": [
+      1,
+      -1,
+      -1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "mode_current_form": "13/120",
+    "mode_logical_columns": [
+      {
+        "support_values": [
+          0,
+          0,
+          1,
+          -1
+        ],
+        "mean": "0",
+        "variance": "1/2",
+        "current_form_over_variance": "13/60"
+      },
+      {
+        "support_values": [
+          2,
+          -2,
+          1,
+          -1
+        ],
+        "mean": "0",
+        "variance": "5/2",
+        "current_form_over_variance": "13/300"
+      }
+    ],
+    "mode_variance_any_normalized_logical_input": "|alpha|^2/2+5|beta|^2/2",
+    "prior_profile_has_logical_input_independent_wave_ratio": false,
+    "stationary_uniform_source_mode_ratio_from_separate_process": "1/10",
+    "physical_energy_or_inertial_curvature_inferred": false
+  },
+  "corrected_cycle": {
+    "laws": {
+      "C": {
+        "positive_complete_raw_flags": 90,
+        "pre_reset_core_distribution": {
+          "(0, 1)": "14/15",
+          "(0, 5)": "1/120",
+          "(0, 7)": "1/120",
+          "(0, 8)": "1/120",
+          "(0, 9)": "1/120",
+          "(1, 5)": "1/120",
+          "(1, 7)": "1/120",
+          "(1, 10)": "1/120",
+          "(1, 11)": "1/120"
+        },
+        "pre_reset_core_change_probability": "1/15",
+        "post_reset_core_distribution": {
+          "(0, 1)": "1"
+        },
+        "ideal_corrected_logical_superoperator_eigenvalues": [
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "ideal_corrected_logical_generator_eigenvalues_per_attempt": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "logical_channel_preserves_any_untouched_reference": true,
+        "same_code_uniform_seam_expected_source_pulses_from_recovery_receipt": "37499681/60",
+        "retained_classical_bits_per_attempt_including_core_archive": 23
+      },
+      "E": {
+        "positive_complete_raw_flags": 118,
+        "pre_reset_core_distribution": {
+          "(0, 1)": "14/15",
+          "(0, 5)": "1/120",
+          "(0, 7)": "1/120",
+          "(0, 8)": "1/120",
+          "(0, 9)": "1/120",
+          "(1, 5)": "1/120",
+          "(1, 7)": "1/120",
+          "(1, 10)": "1/120",
+          "(1, 11)": "1/120"
+        },
+        "pre_reset_core_change_probability": "1/15",
+        "post_reset_core_distribution": {
+          "(0, 1)": "1"
+        },
+        "ideal_corrected_logical_superoperator_eigenvalues": [
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "ideal_corrected_logical_generator_eigenvalues_per_attempt": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "logical_channel_preserves_any_untouched_reference": true,
+        "same_code_uniform_seam_expected_source_pulses_from_recovery_receipt": "36870437/60",
+        "retained_classical_bits_per_attempt_including_core_archive": 24
+      }
+    },
+    "effective_attempt_boundary_core_transition": "delta_(0,1) to (0,1)",
+    "uniform_independent_attempt_core_excursions": "probability any reset in t attempts = 1-(14/15)^t; expected reset count = t/15",
+    "time_parameter": "native attempted repair count, not a calibrated observer clock",
+    "unreset_fixed_code_q1_probability": "29/30",
+    "source_compiler_resource_counts_owned_by_screened_recovery": true,
+    "source_execution_error_is_exactly_zero_claimed": false,
+    "common_logical_phase_or_rest_gap_fixed_by_channel": false,
+    "continuous_momentum_or_coherent_dispersion_constructed": false,
+    "gravitational_stress_constructed": false
+  },
+  "source_sha256": {
+    "model/particle_screening/screening.py": "7fda107721574f80f2e048ff441beef2a4c2206a95b6defa04f8dd5004f6690c",
+    "model/particle_screening/screening_results.json": "b6f355a2d457f5f6bfb3b3ac3c5c9a60fbd43c5de97c37a4e17fa576d46dfeaf",
+    "model/screened_recovery/protocol.py": "d523398d59f5e9a80bb8a5b1c6f6982a1e30799a6288f927ece741fb686d4d34",
+    "model/screened_recovery/experiment.py": "fc224938a4dcd59f76281217663582630927e78f2556c4af1ad013e29ce47e06",
+    "model/screened_recovery/screened_recovery_results.json": "8acf9bd17b2c5fd1fa94233b0318dad91aee14f6b7bb4d4ad66a281dabfd038a",
+    "model/screened_recovery/campaign.json": "a63f4404080b593047b7097240d588891cd5974e508dc9393f19d30637a88d70",
+    "model/screened_recovery/README.md": "791c91d9e4963b684273ab5ec00e4a8675c6e70e1d9b2972f8cebef910071ad9",
+    "model/screened_recovery/test_protocol.py": "ea8f3cf323660398b0fe3bc9e21c673e3c772fdf7bfe0293cda654ad55455cf9",
+    "model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/clock_defect_energy/mode_energy_results.json": "05a325f9af03f737d7adbb38ecd5e633d0c233dba849f2fd69656935b3b2fa4f",
+    "model/clock_defect_energy/reference_balance_results.json": "5d32d1949061d6af1a421d94d4c9db075387bb2e14f7f63f35b5ff38656b15e1",
+    "Lean/Geometry/SourceActionMeasure.lean": "802361b7efc592b84d2df4d00506818a9d9354fd239b94eaf63e26792ea3a73d",
+    "Lean/Screen/RegionalContinuity.lean": "fa00c3aed6580174519e1d828ad81572d7ac7b759a3274dbc60e99761d76bd28",
+    "Lean/Geometry/InternalEnergyInertia.lean": "48a468bbb8e397abdf512005a87b923f393bf96cc8535b18b03ed42e98d0eb04",
+    "Lean/Geometry/ProperTimeInternalAction.lean": "8933451e0b96b0f1a339ca7912dd7e1c26cde321b5144440ee7127fd95a76307",
+    "Lean/Dynamics/WardLimitManifest.lean": "6bae06ce219aa104014a3094298c3f376586cc54d03223b534b94a95565a6b0d",
+    "model/screened_transport/__init__.py": "ed06f7ce24037ac2e4cbc00e7ed65f7216ded0a839eca299f41f10deb0768bce",
+    "model/screened_transport/transport.py": "0f8d71595034ff584541e51fd4c3b71f50446b18d807159c500723b3ef849e0a",
+    "model/screened_transport/test_transport.py": "5a148bbeaeb28010401553536bc4c2257bb5f6319a0aa0ee3a0614d77465986b",
+    "model/screened_transport/README.md": "c3a2682d6e623a156ccfe504bf8de594178ae712eeaeb9d6f81b17401f51ad1d",
+    "model/screened_transport/campaign.json": "b4d65580af28c5dcc759e992ff2dddc467edd4db94b766c2e3ecb367a15f421d"
+  }
+}
