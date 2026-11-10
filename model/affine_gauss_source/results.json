@@ -1,0 +1,3458 @@
+{
+  "architecture": {
+    "Hamiltonian": "N+R+||E||^2/2+||B||^2/2+(1/2)P_top[dGamma(omega)+Tr(omega)]",
+    "charge_unit": "1",
+    "clock": "exp(-i t H), hbar=1",
+    "compact_local_link_realization": false,
+    "electric_and_magnetic_metrics": "identity on edges and faces; declared counting metrics, not Whitney mass forms",
+    "finite_kinematic_dimension_expression": "2^13 * 14 * 2^12 * 5456",
+    "finite_physical_dimension_expression": "2^13 * 5456 = 44695552",
+    "ground": "all matter, reference and longitudinal registers zero; every mode vacuum",
+    "kinematic_source_reference_and_pointer_dimension": 30756260806656,
+    "kinematic_source_reference_dimension": 2563021733888,
+    "matter_energy_per_fermion": "1",
+    "measured_particle_assignment": false,
+    "mobile_matter_hopping": false,
+    "other_controller_storage_included": false,
+    "physical_ground_is_unique": true,
+    "physical_source_dimension": 44695552,
+    "preparation_success_exact": "1",
+    "reference_energy_per_unit": "1",
+    "reference_vertex": 1,
+    "relation_to_PW119": "different declared source; no vacuum or current transfer",
+    "retained_complete_joint_detector_pointer_dimension": 12,
+    "source": "finite affine-Gauss abelian source on the committed contractible cone",
+    "spatial_geometry": "inherited 13 vertices, 42 edges, 50 faces, 20 tetrahedra",
+    "thermodynamic_Coulomb_phase": false,
+    "total_photon_number_cutoff": 3,
+    "transverse_modes": 30
+  },
+  "bare_two_level_obstruction": {
+    "bare_quadrature_diagonal_at_frequency_one": [
+      "1/2",
+      "1/2"
+    ],
+    "boundary_energy_per_mode": "(d omega/2)|d-1><d-1|",
+    "checked_vacuum_moments": [
+      {
+        "order": 2,
+        "vacuum_q_moment_at_frequency_one": "1/2"
+      }
+    ],
+    "completed_H_per_mode": "omega (n+1/2)",
+    "completed_diagonal_at_frequency_one": [
+      "1/2",
+      "3/2"
+    ],
+    "exact_Heisenberg_equations_for_finite_q_p": true,
+    "finite_CCR": "[a,a^dag]=I-d|d-1><d-1|",
+    "levels_per_mode": 2,
+    "untruncated_CCR_claim": false
+  },
+  "charge_reference_and_Gauss": {
+    "Gauss_preserving_creation_columns": 53248,
+    "all_source_occupation_states": 8192,
+    "complete_source_CAR_modes": 13,
+    "dressed_creation": "V c_y^dag V^dag, full extension c_y^dag S_R^+ S_ell,y^+",
+    "independent_CAR_basis_pair_controls": 32768,
+    "joint_dressed_creation_is_even": true,
+    "longitudinal_bits": 12,
+    "matter_creation_is_odd": true,
+    "physical_Gauss_constraint": "ell_y=n_y (y!=1), R=N",
+    "physical_spin_identification": false,
+    "reference_charge": "-R at vertex 1",
+    "reference_charge_states": 14,
+    "reference_energy": "mu R, mu=1",
+    "reference_parity": "(-1)^R"
+  },
+  "complete_field_records": [
+    {
+      "energy_lines": [
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(4 - sqrt(5))",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "4 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(3)",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "3",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(6 - sqrt(5))",
+          "spatial_projector_weight": "25/124 - sqrt(5)/124",
+          "squared_frequency": "6 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/142848",
+          "vacuum_residue": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/248"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "2",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "4",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "sqrt(6)",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "6",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "sqrt(5) + 4",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(7)",
+          "spatial_projector_weight": "5/14",
+          "squared_frequency": "7",
+          "unconditional_pump_and_energy_line_probability": "5*sqrt(7)/16128",
+          "vacuum_residue": "5*sqrt(7)/28"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "spatial_projector_weight": "sqrt(5)/124 + 25/124",
+          "squared_frequency": "sqrt(5) + 6",
+          "unconditional_pump_and_energy_line_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/142848",
+          "vacuum_residue": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/248"
+        }
+      ],
+      "full_finite_operator_norm_upper": "24",
+      "index": 0,
+      "kind": "transverse_electric_edge",
+      "probabilities_sum_exactly_one": true,
+      "pump_failure_probability": "-5*sqrt(7)/16128 - 25*sqrt(sqrt(5) + 6)/142848 - 25*sqrt(6 - sqrt(5))/142848 - sqrt(5*sqrt(5) + 30)/142848 + sqrt(30 - 5*sqrt(5))/142848 + 1",
+      "pump_success_probability": "-sqrt(30 - 5*sqrt(5))/142848 + sqrt(5*sqrt(5) + 30)/142848 + 25*sqrt(6 - sqrt(5))/142848 + 25*sqrt(sqrt(5) + 6)/142848 + 5*sqrt(7)/16128",
+      "success_other_energy_probability": "0",
+      "time_correlation": "sum_line residue * exp(-i frequency time)",
+      "time_scope": "all real times on the same completed finite H"
+    },
+    {
+      "energy_lines": [
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(4 - sqrt(5))",
+          "spatial_projector_weight": "1/10",
+          "squared_frequency": "4 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "sqrt(4 - sqrt(5))/11520",
+          "vacuum_residue": "sqrt(4 - sqrt(5))/20"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(3)",
+          "spatial_projector_weight": "1/6",
+          "squared_frequency": "3",
+          "unconditional_pump_and_energy_line_probability": "sqrt(3)/6912",
+          "vacuum_residue": "sqrt(3)/12"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(6 - sqrt(5))",
+          "spatial_projector_weight": "sqrt(5)/310 + 3/155",
+          "squared_frequency": "6 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/357120",
+          "vacuum_residue": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/620"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "2",
+          "spatial_projector_weight": "2/15",
+          "squared_frequency": "4",
+          "unconditional_pump_and_energy_line_probability": "1/4320",
+          "vacuum_residue": "2/15"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "sqrt(6)",
+          "spatial_projector_weight": "2/15",
+          "squared_frequency": "6",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6)/8640",
+          "vacuum_residue": "sqrt(6)/15"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "spatial_projector_weight": "1/10",
+          "squared_frequency": "sqrt(5) + 4",
+          "unconditional_pump_and_energy_line_probability": "sqrt(sqrt(5) + 4)/11520",
+          "vacuum_residue": "sqrt(sqrt(5) + 4)/20"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(7)",
+          "spatial_projector_weight": "1/42",
+          "squared_frequency": "7",
+          "unconditional_pump_and_energy_line_probability": "sqrt(7)/48384",
+          "vacuum_residue": "sqrt(7)/84"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "spatial_projector_weight": "3/155 - sqrt(5)/310",
+          "squared_frequency": "sqrt(5) + 6",
+          "unconditional_pump_and_energy_line_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/357120",
+          "vacuum_residue": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/620"
+        }
+      ],
+      "full_finite_operator_norm_upper": "24",
+      "index": 12,
+      "kind": "transverse_electric_edge",
+      "probabilities_sum_exactly_one": true,
+      "pump_failure_probability": "-sqrt(6)/8640 - sqrt(3)/6912 - sqrt(sqrt(5) + 4)/11520 - sqrt(4 - sqrt(5))/11520 - sqrt(7)/48384 - sqrt(sqrt(5) + 6)/59520 - sqrt(6 - sqrt(5))/59520 - sqrt(30 - 5*sqrt(5))/357120 + sqrt(5*sqrt(5) + 30)/357120 + 4319/4320",
+      "pump_success_probability": "-sqrt(5*sqrt(5) + 30)/357120 + sqrt(30 - 5*sqrt(5))/357120 + sqrt(6 - sqrt(5))/59520 + sqrt(sqrt(5) + 6)/59520 + sqrt(7)/48384 + sqrt(4 - sqrt(5))/11520 + sqrt(sqrt(5) + 4)/11520 + 1/4320 + sqrt(3)/6912 + sqrt(6)/8640",
+      "success_other_energy_probability": "0",
+      "time_correlation": "sum_line residue * exp(-i frequency time)",
+      "time_scope": "all real times on the same completed finite H"
+    },
+    {
+      "energy_lines": [
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(4 - sqrt(5))",
+          "spatial_projector_weight": "9/20 - 3*sqrt(5)/20",
+          "squared_frequency": "4 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "(3 - sqrt(5))/(7680*sqrt(4 - sqrt(5)))",
+          "vacuum_residue": "3*(3 - sqrt(5))/(40*sqrt(4 - sqrt(5)))"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(3)",
+          "spatial_projector_weight": "1/2",
+          "squared_frequency": "3",
+          "unconditional_pump_and_energy_line_probability": "sqrt(3)/6912",
+          "vacuum_residue": "sqrt(3)/12"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(6 - sqrt(5))",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "6 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "2",
+          "spatial_projector_weight": "3/5",
+          "squared_frequency": "4",
+          "unconditional_pump_and_energy_line_probability": "1/3840",
+          "vacuum_residue": "3/20"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "sqrt(6)",
+          "spatial_projector_weight": "1",
+          "squared_frequency": "6",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6)/6912",
+          "vacuum_residue": "sqrt(6)/12"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "spatial_projector_weight": "3*sqrt(5)/20 + 9/20",
+          "squared_frequency": "sqrt(5) + 4",
+          "unconditional_pump_and_energy_line_probability": "(sqrt(5) + 3)/(7680*sqrt(sqrt(5) + 4))",
+          "vacuum_residue": "3*(sqrt(5) + 3)/(40*sqrt(sqrt(5) + 4))"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(7)",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "7",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "spatial_projector_weight": "0",
+          "squared_frequency": "sqrt(5) + 6",
+          "unconditional_pump_and_energy_line_probability": "0",
+          "vacuum_residue": "0"
+        }
+      ],
+      "full_finite_operator_norm_upper": "24",
+      "index": 0,
+      "kind": "magnetic_face",
+      "probabilities_sum_exactly_one": true,
+      "pump_failure_probability": "-sqrt(11)*(9*(3 - sqrt(5))*sqrt(sqrt(5) + 4) + 9*sqrt(4 - sqrt(5))*(sqrt(5) + 3) + 2*sqrt(11)*(5*sqrt(3) + 9 + 5*sqrt(6)))/760320 + 1",
+      "pump_success_probability": "sqrt(11)*(9*(3 - sqrt(5))*sqrt(sqrt(5) + 4) + 9*sqrt(4 - sqrt(5))*(sqrt(5) + 3) + 2*sqrt(11)*(5*sqrt(3) + 9 + 5*sqrt(6)))/760320",
+      "success_other_energy_probability": "0",
+      "time_correlation": "sum_line residue * exp(-i frequency time)",
+      "time_scope": "all real times on the same completed finite H"
+    },
+    {
+      "energy_lines": [
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(4 - sqrt(5))",
+          "spatial_projector_weight": "1/10",
+          "squared_frequency": "4 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "1/(11520*sqrt(4 - sqrt(5)))",
+          "vacuum_residue": "1/(20*sqrt(4 - sqrt(5)))"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(3)",
+          "spatial_projector_weight": "1/6",
+          "squared_frequency": "3",
+          "unconditional_pump_and_energy_line_probability": "sqrt(3)/20736",
+          "vacuum_residue": "sqrt(3)/36"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(6 - sqrt(5))",
+          "spatial_projector_weight": "3/5 - sqrt(5)/10",
+          "squared_frequency": "6 - sqrt(5)",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6 - sqrt(5))/11520",
+          "vacuum_residue": "sqrt(6 - sqrt(5))/20"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "2",
+          "spatial_projector_weight": "2/15",
+          "squared_frequency": "4",
+          "unconditional_pump_and_energy_line_probability": "1/17280",
+          "vacuum_residue": "1/30"
+        },
+        {
+          "degeneracy": 4,
+          "frequency": "sqrt(6)",
+          "spatial_projector_weight": "2/15",
+          "squared_frequency": "6",
+          "unconditional_pump_and_energy_line_probability": "sqrt(6)/51840",
+          "vacuum_residue": "sqrt(6)/90"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "spatial_projector_weight": "1/10",
+          "squared_frequency": "sqrt(5) + 4",
+          "unconditional_pump_and_energy_line_probability": "1/(11520*sqrt(sqrt(5) + 4))",
+          "vacuum_residue": "1/(20*sqrt(sqrt(5) + 4))"
+        },
+        {
+          "degeneracy": 5,
+          "frequency": "sqrt(7)",
+          "spatial_projector_weight": "7/6",
+          "squared_frequency": "7",
+          "unconditional_pump_and_energy_line_probability": "sqrt(7)/6912",
+          "vacuum_residue": "sqrt(7)/12"
+        },
+        {
+          "degeneracy": 3,
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "spatial_projector_weight": "sqrt(5)/10 + 3/5",
+          "squared_frequency": "sqrt(5) + 6",
+          "unconditional_pump_and_energy_line_probability": "sqrt(sqrt(5) + 6)/11520",
+          "vacuum_residue": "sqrt(sqrt(5) + 6)/20"
+        }
+      ],
+      "full_finite_operator_norm_upper": "24",
+      "index": 20,
+      "kind": "magnetic_face",
+      "probabilities_sum_exactly_one": true,
+      "pump_failure_probability": "-sqrt(11)*(9*sqrt(4 - sqrt(5)) + 9*sqrt(sqrt(5) + 4) + sqrt(11)*(2*sqrt(6) + 6 + 5*sqrt(3) + 9*sqrt(6 - sqrt(5)) + 9*sqrt(sqrt(5) + 6) + 15*sqrt(7)))/1140480 + 1",
+      "pump_success_probability": "sqrt(11)*(9*sqrt(4 - sqrt(5)) + 9*sqrt(sqrt(5) + 4) + sqrt(11)*(2*sqrt(6) + 6 + 5*sqrt(3) + 9*sqrt(6 - sqrt(5)) + 9*sqrt(sqrt(5) + 6) + 15*sqrt(7)))/1140480",
+      "success_other_energy_probability": "0",
+      "time_correlation": "sum_line residue * exp(-i frequency time)",
+      "time_scope": "all real times on the same completed finite H"
+    }
+  ],
+  "complete_same_source_charge_then_full_electric_records": [
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 6780647/27123264",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "460/217",
+      "elastic_unconditional_probability": "169/27123264",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-52/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 460/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 460/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 460/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "894/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 0,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1627285327/6509583360",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "460/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 460/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 460/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 460/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "894/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "460/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 0,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1/4",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "2",
+      "elastic_unconditional_probability": "0",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "0",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 2",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 2",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 2",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "4",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "2 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "2 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "2 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "2 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 1,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 17279/69120",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "2",
+      "elastic_unconditional_probability": "0",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "0",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 2",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 2",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 2",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "4",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "2 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "2 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "2 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "2 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 1,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 12054663/48219136",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 2,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 813618161/3254791680",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/12054784",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "66/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 2,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 12054663/48219136",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 3,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1627285327/6509583360",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 3,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 12054663/48219136",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 4,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1627285327/6509583360",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 4,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 12054663/48219136",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 5,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 813645761/3254791680",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "169/108493056",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "26/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 5,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1695179/6780816",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 6,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 813638831/3254791680",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 6,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 12054663/48219136",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 7,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 813645761/3254791680",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "467/217",
+      "elastic_unconditional_probability": "169/108493056",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "26/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 467/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 467/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "901/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "467/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 7,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1695179/6780816",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 8,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 813638831/3254791680",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 8,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1695179/6780816",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 9,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1627285327/6509583360",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 9,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1695179/6780816",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 10,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1627285327/6509583360",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "121/48219136",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "33/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 10,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 1695179/6780816",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "25/6780816",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-40/217",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 11,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 1693327/6773760",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "474/217",
+      "elastic_unconditional_probability": "1/451584",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "1/7",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 474/217",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 474/217",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "908/217",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "474/217 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 11,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-5*sqrt(7)/258048 - 25*sqrt(sqrt(5) + 6)/2285568 - 25*sqrt(6 - sqrt(5))/2285568 - sqrt(5*sqrt(5) + 30)/2285568 + sqrt(30 - 5*sqrt(5))/2285568 + 61503/246016",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "68/31",
+      "elastic_unconditional_probability": "1/246016",
+      "electric_edge": 0,
+      "electric_mean_in_charged_ground": "-6/31",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 68/31",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 68/31",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/571392",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 68/31",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(25 - sqrt(5))/2285568"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "130/31",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(6)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "0",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "0"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "5*sqrt(7)/64512",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(7)",
+          "unconditional_probability": "5*sqrt(7)/258048"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/571392",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "sqrt(sqrt(5) + 6)*(sqrt(5) + 25)/2285568"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 12,
+      "sum_of_all_twelve_records": "1"
+    },
+    {
+      "charge_pump_failure_probability": "3/4",
+      "charge_success_field_pump_failure_probability": "-sqrt(6)/138240 - sqrt(3)/110592 - sqrt(sqrt(5) + 4)/184320 - sqrt(4 - sqrt(5))/184320 - sqrt(7)/774144 - sqrt(sqrt(5) + 6)/952320 - sqrt(6 - sqrt(5))/952320 - sqrt(30 - 5*sqrt(5))/5713920 + sqrt(5*sqrt(5) + 30)/5713920 + 33209863/132848640",
+      "charged_ground_full_electric_correlation": "electric_mean^2 + sum_line vacuum_residue * exp(-i frequency time)",
+      "elastic_total_energy_above_neutral_ground": "68/31",
+      "elastic_unconditional_probability": "25/8856576",
+      "electric_edge": 12,
+      "electric_mean_in_charged_ground": "5/31",
+      "full_electric_operator_norm_upper": 48,
+      "inelastic_lines": [
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(4 - sqrt(5))/46080",
+          "frequency": "sqrt(4 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(4 - sqrt(5)) + 68/31",
+          "unconditional_probability": "sqrt(4 - sqrt(5))/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(3)/27648",
+          "frequency": "sqrt(3)",
+          "total_energy_above_neutral_ground": "sqrt(3) + 68/31",
+          "unconditional_probability": "sqrt(3)/110592"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(6 - sqrt(5))",
+          "total_energy_above_neutral_ground": "sqrt(6 - sqrt(5)) + 68/31",
+          "unconditional_probability": "sqrt(6 - sqrt(5))*(sqrt(5) + 6)/5713920"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "1/17280",
+          "frequency": "2",
+          "total_energy_above_neutral_ground": "130/31",
+          "unconditional_probability": "1/69120"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(6)/34560",
+          "frequency": "sqrt(6)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(6)",
+          "unconditional_probability": "sqrt(6)/138240"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(sqrt(5) + 4)/46080",
+          "frequency": "sqrt(sqrt(5) + 4)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(sqrt(5) + 4)",
+          "unconditional_probability": "sqrt(sqrt(5) + 4)/184320"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "sqrt(7)/193536",
+          "frequency": "sqrt(7)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(7)",
+          "unconditional_probability": "sqrt(7)/774144"
+        },
+        {
+          "conditional_field_pump_and_energy_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/1428480",
+          "frequency": "sqrt(sqrt(5) + 6)",
+          "total_energy_above_neutral_ground": "68/31 + sqrt(sqrt(5) + 6)",
+          "unconditional_probability": "(6 - sqrt(5))*sqrt(sqrt(5) + 6)/5713920"
+        }
+      ],
+      "other_energy_unconditional_probability": "0",
+      "reference_vertex": 1,
+      "retained_pointer_dimension": 12,
+      "source_state_after_charge_success": "same-H static charge ground and transverse vacuum",
+      "source_vertex": 12,
+      "sum_of_all_twelve_records": "1"
+    }
+  ],
+  "complete_static_charge_records": [
+    {
+      "boundary_surface_hop_distance": null,
+      "charge_vector": [
+        "1",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "sqrt(5)/2 + 5/2",
+      "longitudinal_electric_field": [
+        "-52/217",
+        "-19/217",
+        "-19/217",
+        "-19/217",
+        "-19/217",
+        "-12/217",
+        "-19/217",
+        "-12/217",
+        "-12/217",
+        "-12/217",
+        "-12/217",
+        "-10/217",
+        "33/217",
+        "33/217",
+        "33/217",
+        "33/217",
+        "33/217",
+        "0",
+        "0",
+        "1/31",
+        "1/31",
+        "0",
+        "1/31",
+        "1/31",
+        "0",
+        "1/31",
+        "1/31",
+        "0",
+        "1/31",
+        "1/31",
+        "0",
+        "0",
+        "2/217",
+        "1/31",
+        "1/31",
+        "0",
+        "2/217",
+        "0",
+        "2/217",
+        "0",
+        "2/217",
+        "2/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "243/217",
+      "source_vertex": 0,
+      "static_electric_energy": "26/217",
+      "total_energy_above_actual_neutral_ground": "460/217"
+    },
+    {
+      "boundary_surface_hop_distance": 0,
+      "charge_vector": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 0,
+      "declared_coordinate_distance_squared": "0",
+      "longitudinal_electric_field": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "1",
+      "source_vertex": 1,
+      "static_electric_energy": "0",
+      "total_energy_above_actual_neutral_ground": "2"
+    },
+    {
+      "boundary_surface_hop_distance": 1,
+      "charge_vector": [
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "4",
+      "longitudinal_electric_field": [
+        "-33/217",
+        "33/217",
+        "0",
+        "0",
+        "-1/31",
+        "1/31",
+        "-1/31",
+        "1/31",
+        "0",
+        "0",
+        "-2/217",
+        "2/217",
+        "66/217",
+        "33/217",
+        "33/217",
+        "26/217",
+        "26/217",
+        "-33/217",
+        "-33/217",
+        "-26/217",
+        "-26/217",
+        "-1/31",
+        "1/31",
+        "0",
+        "-1/31",
+        "1/31",
+        "0",
+        "0",
+        "1/31",
+        "5/217",
+        "0",
+        "-1/31",
+        "-5/217",
+        "1/31",
+        "5/217",
+        "-1/31",
+        "-5/217",
+        "-2/217",
+        "2/217",
+        "-2/217",
+        "2/217",
+        "4/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "250/217",
+      "source_vertex": 2,
+      "static_electric_energy": "33/217",
+      "total_energy_above_actual_neutral_ground": "467/217"
+    },
+    {
+      "boundary_surface_hop_distance": 1,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "4",
+      "longitudinal_electric_field": [
+        "-33/217",
+        "0",
+        "33/217",
+        "-1/31",
+        "0",
+        "1/31",
+        "-1/31",
+        "0",
+        "1/31",
+        "-2/217",
+        "0",
+        "2/217",
+        "33/217",
+        "66/217",
+        "26/217",
+        "33/217",
+        "26/217",
+        "33/217",
+        "-1/31",
+        "1/31",
+        "0",
+        "-33/217",
+        "-26/217",
+        "-26/217",
+        "0",
+        "1/31",
+        "5/217",
+        "-1/31",
+        "1/31",
+        "0",
+        "-1/31",
+        "0",
+        "-5/217",
+        "5/217",
+        "1/31",
+        "-2/217",
+        "2/217",
+        "-1/31",
+        "-5/217",
+        "2/217",
+        "4/217",
+        "2/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "250/217",
+      "source_vertex": 3,
+      "static_electric_energy": "33/217",
+      "total_energy_above_actual_neutral_ground": "467/217"
+    },
+    {
+      "boundary_surface_hop_distance": 1,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "4",
+      "longitudinal_electric_field": [
+        "-33/217",
+        "0",
+        "-1/31",
+        "33/217",
+        "-1/31",
+        "0",
+        "0",
+        "1/31",
+        "-2/217",
+        "1/31",
+        "0",
+        "2/217",
+        "33/217",
+        "26/217",
+        "66/217",
+        "26/217",
+        "33/217",
+        "-1/31",
+        "33/217",
+        "0",
+        "1/31",
+        "0",
+        "1/31",
+        "5/217",
+        "-33/217",
+        "-26/217",
+        "-26/217",
+        "1/31",
+        "5/217",
+        "1/31",
+        "1/31",
+        "-2/217",
+        "2/217",
+        "1/31",
+        "0",
+        "0",
+        "-5/217",
+        "2/217",
+        "4/217",
+        "-1/31",
+        "-5/217",
+        "2/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "250/217",
+      "source_vertex": 4,
+      "static_electric_energy": "33/217",
+      "total_energy_above_actual_neutral_ground": "467/217"
+    },
+    {
+      "boundary_surface_hop_distance": 1,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "4",
+      "longitudinal_electric_field": [
+        "-33/217",
+        "-1/31",
+        "0",
+        "-1/31",
+        "33/217",
+        "0",
+        "0",
+        "-2/217",
+        "1/31",
+        "0",
+        "1/31",
+        "2/217",
+        "26/217",
+        "33/217",
+        "26/217",
+        "66/217",
+        "33/217",
+        "1/31",
+        "0",
+        "1/31",
+        "5/217",
+        "33/217",
+        "0",
+        "1/31",
+        "1/31",
+        "5/217",
+        "1/31",
+        "-33/217",
+        "-26/217",
+        "-26/217",
+        "-2/217",
+        "1/31",
+        "2/217",
+        "0",
+        "1/31",
+        "2/217",
+        "4/217",
+        "0",
+        "-5/217",
+        "1/31",
+        "2/217",
+        "-5/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "250/217",
+      "source_vertex": 5,
+      "static_electric_energy": "33/217",
+      "total_energy_above_actual_neutral_ground": "467/217"
+    },
+    {
+      "boundary_surface_hop_distance": 2,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 6",
+      "longitudinal_electric_field": [
+        "-40/217",
+        "0",
+        "0",
+        "-1/31",
+        "-1/31",
+        "40/217",
+        "-9/217",
+        "1/31",
+        "1/31",
+        "0",
+        "0",
+        "9/217",
+        "40/217",
+        "40/217",
+        "33/217",
+        "33/217",
+        "1/7",
+        "0",
+        "-1/31",
+        "40/217",
+        "1/31",
+        "-1/31",
+        "40/217",
+        "1/31",
+        "-2/217",
+        "2/31",
+        "1/31",
+        "-2/217",
+        "2/31",
+        "1/31",
+        "-33/217",
+        "-33/217",
+        "-1/7",
+        "9/217",
+        "9/217",
+        "-1/31",
+        "2/217",
+        "-1/31",
+        "2/217",
+        "0",
+        "9/217",
+        "9/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "257/217",
+      "source_vertex": 6,
+      "static_electric_energy": "40/217",
+      "total_energy_above_actual_neutral_ground": "474/217"
+    },
+    {
+      "boundary_surface_hop_distance": 1,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 1,
+      "declared_coordinate_distance_squared": "4",
+      "longitudinal_electric_field": [
+        "-33/217",
+        "-1/31",
+        "-1/31",
+        "0",
+        "0",
+        "-2/217",
+        "33/217",
+        "0",
+        "0",
+        "1/31",
+        "1/31",
+        "2/217",
+        "26/217",
+        "26/217",
+        "33/217",
+        "33/217",
+        "66/217",
+        "0",
+        "1/31",
+        "5/217",
+        "1/31",
+        "1/31",
+        "5/217",
+        "1/31",
+        "33/217",
+        "0",
+        "1/31",
+        "33/217",
+        "0",
+        "1/31",
+        "2/217",
+        "2/217",
+        "4/217",
+        "-26/217",
+        "-26/217",
+        "1/31",
+        "2/217",
+        "1/31",
+        "2/217",
+        "0",
+        "-5/217",
+        "-5/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "250/217",
+      "source_vertex": 7,
+      "static_electric_energy": "33/217",
+      "total_energy_above_actual_neutral_ground": "467/217"
+    },
+    {
+      "boundary_surface_hop_distance": 2,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 6",
+      "longitudinal_electric_field": [
+        "-40/217",
+        "0",
+        "-1/31",
+        "0",
+        "-9/217",
+        "1/31",
+        "-1/31",
+        "40/217",
+        "0",
+        "1/31",
+        "0",
+        "9/217",
+        "40/217",
+        "33/217",
+        "40/217",
+        "1/7",
+        "33/217",
+        "-1/31",
+        "0",
+        "1/31",
+        "40/217",
+        "-2/217",
+        "2/31",
+        "1/31",
+        "-1/31",
+        "40/217",
+        "1/31",
+        "2/217",
+        "9/217",
+        "9/217",
+        "33/217",
+        "-1/31",
+        "2/217",
+        "2/31",
+        "1/31",
+        "-33/217",
+        "-1/7",
+        "0",
+        "9/217",
+        "-1/31",
+        "2/217",
+        "9/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "257/217",
+      "source_vertex": 8,
+      "static_electric_energy": "40/217",
+      "total_energy_above_actual_neutral_ground": "474/217"
+    },
+    {
+      "boundary_surface_hop_distance": 2,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 6",
+      "longitudinal_electric_field": [
+        "-40/217",
+        "-1/31",
+        "0",
+        "-9/217",
+        "0",
+        "1/31",
+        "-1/31",
+        "0",
+        "40/217",
+        "0",
+        "1/31",
+        "9/217",
+        "33/217",
+        "40/217",
+        "1/7",
+        "40/217",
+        "33/217",
+        "1/31",
+        "-2/217",
+        "2/31",
+        "1/31",
+        "0",
+        "1/31",
+        "40/217",
+        "2/217",
+        "9/217",
+        "9/217",
+        "-1/31",
+        "40/217",
+        "1/31",
+        "-1/31",
+        "33/217",
+        "2/217",
+        "1/31",
+        "2/31",
+        "0",
+        "9/217",
+        "-33/217",
+        "-1/7",
+        "1/31",
+        "9/217",
+        "2/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "257/217",
+      "source_vertex": 9,
+      "static_electric_energy": "40/217",
+      "total_energy_above_actual_neutral_ground": "474/217"
+    },
+    {
+      "boundary_surface_hop_distance": 2,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 6",
+      "longitudinal_electric_field": [
+        "-40/217",
+        "-1/31",
+        "-9/217",
+        "0",
+        "-1/31",
+        "0",
+        "0",
+        "1/31",
+        "0",
+        "40/217",
+        "1/31",
+        "9/217",
+        "33/217",
+        "1/7",
+        "40/217",
+        "33/217",
+        "40/217",
+        "-2/217",
+        "1/31",
+        "1/31",
+        "2/31",
+        "2/217",
+        "9/217",
+        "9/217",
+        "0",
+        "1/31",
+        "40/217",
+        "1/31",
+        "1/31",
+        "2/31",
+        "1/31",
+        "0",
+        "9/217",
+        "40/217",
+        "1/31",
+        "33/217",
+        "2/217",
+        "1/31",
+        "9/217",
+        "-33/217",
+        "-1/7",
+        "2/217"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "257/217",
+      "source_vertex": 10,
+      "static_electric_energy": "40/217",
+      "total_energy_above_actual_neutral_ground": "474/217"
+    },
+    {
+      "boundary_surface_hop_distance": 2,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 6",
+      "longitudinal_electric_field": [
+        "-40/217",
+        "-9/217",
+        "-1/31",
+        "-1/31",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/31",
+        "1/31",
+        "40/217",
+        "9/217",
+        "1/7",
+        "33/217",
+        "33/217",
+        "40/217",
+        "40/217",
+        "2/217",
+        "2/217",
+        "9/217",
+        "9/217",
+        "1/31",
+        "1/31",
+        "2/31",
+        "1/31",
+        "1/31",
+        "2/31",
+        "0",
+        "1/31",
+        "40/217",
+        "0",
+        "1/31",
+        "9/217",
+        "1/31",
+        "40/217",
+        "1/31",
+        "9/217",
+        "33/217",
+        "2/217",
+        "33/217",
+        "2/217",
+        "-1/7"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "257/217",
+      "source_vertex": 11,
+      "static_electric_energy": "40/217",
+      "total_energy_above_actual_neutral_ground": "474/217"
+    },
+    {
+      "boundary_surface_hop_distance": 3,
+      "charge_vector": [
+        "0",
+        "-1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ],
+      "complete_pump_probability": "1/4",
+      "conditional_all_other_energy_probability": "0",
+      "conditional_energy_line_probability": "1",
+      "cone_graph_hop_distance": 2,
+      "declared_coordinate_distance_squared": "2*sqrt(5) + 10",
+      "longitudinal_electric_field": [
+        "-6/31",
+        "-1/31",
+        "-1/31",
+        "-1/31",
+        "-1/31",
+        "1/31",
+        "-1/31",
+        "1/31",
+        "1/31",
+        "1/31",
+        "1/31",
+        "6/31",
+        "5/31",
+        "5/31",
+        "5/31",
+        "5/31",
+        "5/31",
+        "0",
+        "0",
+        "2/31",
+        "2/31",
+        "0",
+        "2/31",
+        "2/31",
+        "0",
+        "2/31",
+        "2/31",
+        "0",
+        "2/31",
+        "2/31",
+        "0",
+        "0",
+        "5/31",
+        "2/31",
+        "2/31",
+        "0",
+        "5/31",
+        "0",
+        "5/31",
+        "0",
+        "5/31",
+        "5/31"
+      ],
+      "matter_energy": "1",
+      "pump_failure_probability": "3/4",
+      "reference_energy": "1",
+      "reference_vertex": 1,
+      "source_energy_excluding_reference": "37/31",
+      "source_vertex": 12,
+      "static_electric_energy": "6/31",
+      "total_energy_above_actual_neutral_ground": "68/31"
+    }
+  ],
+  "cutoff_boundary": {
+    "actual_completed_vacuum_energy": "3*sqrt(4 - sqrt(5))/2 + 3*sqrt(6 - sqrt(5))/2 + 3*sqrt(sqrt(5) + 4)/2 + 4 + 3*sqrt(sqrt(5) + 6)/2 + 5*sqrt(3)/2 + 2*sqrt(6) + 5*sqrt(7)/2",
+    "all_vacuum_field_words_through_degree_six_exact": true,
+    "bare_cutoff_top_state_strictly_below_bare_vacuum": true,
+    "bare_top_state_energy": "3*sqrt(4 - sqrt(5))/2",
+    "basis_independent_in_degenerate_frequency_spaces": true,
+    "boundary_energy": "(1/2) P_(n_total=3) [dGamma(omega)+Tr(omega)]",
+    "completed_H": "Tr(omega)/2 + dGamma(omega)",
+    "error_bound_on_unrestricted_Weyl_or_large_occupation_states_claimed": false,
+    "mode_boundary_coefficient_checks": 163680,
+    "photon_dimension": 5456,
+    "source_representation": "direct sum Sym^n(C^30), n=0,...,3",
+    "total_photon_cutoff": 3
+  },
+  "exact_ground_gaps_and_moment_boundary": {
+    "actual_full_kinematic_ground_gap": "26/217",
+    "actual_physical_ground_gap": "sqrt(4 - sqrt(5))",
+    "complete_longitudinal_patterns_checked": 4096,
+    "frequency_one_single_mode_vacuum_eighth_moment": "81/16",
+    "higher_Weyl_or_all_moment_transfer_rejected": true,
+    "minimum_nonzero_longitudinal_energy": "26/217",
+    "unrestricted_Gaussian_eighth_moment": "105/16"
+  },
+  "geometry": {
+    "constant_longitudinal_zero_mode_removed": true,
+    "curl_rank": 30,
+    "electric_transverse_projector_diagonal": [
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "165/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217",
+      "151/217"
+    ],
+    "full_stiffness_characteristic_polynomial": "x**12*(x - 7)**5*(x - 6)**4*(x - 4)**4*(x - 3)**5*(x**2 - 12*x + 31)**3*(x**2 - 8*x + 11)**3",
+    "gradient_rank": 12,
+    "green_matrix": [
+      [
+        "12/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169",
+        "-1/169"
+      ],
+      [
+        "-1/169",
+        "5750/36673",
+        "173/36673",
+        "173/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1348/36673"
+      ],
+      [
+        "-1/169",
+        "173/36673",
+        "5750/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1348/36673",
+        "-1010/36673"
+      ],
+      [
+        "-1/169",
+        "173/36673",
+        "173/36673",
+        "5750/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1348/36673",
+        "-1010/36673",
+        "-1010/36673"
+      ],
+      [
+        "-1/169",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "5750/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1348/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673"
+      ],
+      [
+        "-1/169",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "5750/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1348/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673"
+      ],
+      [
+        "-1/169",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "5750/36673",
+        "-1348/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673"
+      ],
+      [
+        "-1/169",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1348/36673",
+        "5750/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673"
+      ],
+      [
+        "-1/169",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1348/36673",
+        "173/36673",
+        "-1010/36673",
+        "5750/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673"
+      ],
+      [
+        "-1/169",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1348/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "5750/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673"
+      ],
+      [
+        "-1/169",
+        "-1010/36673",
+        "-1010/36673",
+        "-1348/36673",
+        "173/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "-1010/36673",
+        "5750/36673",
+        "173/36673",
+        "173/36673"
+      ],
+      [
+        "-1/169",
+        "-1010/36673",
+        "-1348/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "5750/36673",
+        "173/36673"
+      ],
+      [
+        "-1/169",
+        "-1348/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "-1010/36673",
+        "173/36673",
+        "-1010/36673",
+        "173/36673",
+        "173/36673",
+        "173/36673",
+        "173/36673",
+        "5750/36673"
+      ]
+    ],
+    "minimum_polynomial": "x**9 - 40*x**8 + 683*x**7 - 6490*x**6 + 37455*x**5 - 134100*x**4 + 289997*x**3 - 344970*x**2 + 171864*x",
+    "neutral_charge_constraint_exact": true,
+    "positive_squared_frequencies": [
+      {
+        "multiplicity": 3,
+        "value": "4 - sqrt(5)"
+      },
+      {
+        "multiplicity": 5,
+        "value": "3"
+      },
+      {
+        "multiplicity": 3,
+        "value": "6 - sqrt(5)"
+      },
+      {
+        "multiplicity": 4,
+        "value": "4"
+      },
+      {
+        "multiplicity": 4,
+        "value": "6"
+      },
+      {
+        "multiplicity": 3,
+        "value": "sqrt(5) + 4"
+      },
+      {
+        "multiplicity": 5,
+        "value": "7"
+      },
+      {
+        "multiplicity": 3,
+        "value": "sqrt(5) + 6"
+      }
+    ],
+    "scalar_product": "Euclidean counting metrics",
+    "transverse_harmonic_zero_modes": 0
+  },
+  "independent_research_comparison": {
+    "all_scientific_fields_equal": true,
+    "fresh_calculation_was_replayed": true,
+    "ignored_only_provenance_fields": [
+      "input_sha256",
+      "owned_source_sha256",
+      "parent_receipt_sha256",
+      "schema"
+    ],
+    "reference_sha256": "b79e2794b638772feb731e440d232c3369b1a381efbd52f8fd9972f389d6552e"
+  },
+  "inherited_twelve_port_Green_receipt_freshly_replayed": "sha256:a1a9402d74cbee24c303a6328c87751a79392f0e05ffa479721d5939e367756b",
+  "input_sha256": {
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/Screen/ConeCochainBridge.lean": "a458e98437f0084e29d1b6879bf00be58a9148d00c876f484056d81c293c980d",
+    "Lean/Screen/DiscreteCoulombGreen.lean": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/SeamCurrentEdge30Moment.lean": "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01",
+    "Lean/Screen/WhitneyConeModes.lean": "44e718541db75a6d24655fb63d4a27f4130acf550e241d36d6c69176f2f88236",
+    "Lean/Screen/WhitneyNormalModeConstruction.lean": "31d240480049d623583f2a5febcc590d193873271c9d28b50d7ca2fdfb5134bf",
+    "Lean/Screen/WhitneyQuantumBridge.lean": "707a331b338d2c0491caa681700a25000540de14ac5b858dbc2d6198aad41a31",
+    "code/electromagnetism/__init__.py": "717a2681bc8a7ed54167f6037234126f7c897db1df06e192af60d9f0cacc2db7",
+    "code/electromagnetism/cone_whitney_bridge.py": "638fcd8cc85fc9b6e844c2173f9015fcb2fbed1c47805693cc989daf7d340114",
+    "code/electromagnetism/discrete_coulomb_green.py": "64c87395ff4bb11c13e89dbe1fee30e9b46e5edf9a25d95689b7c73b28f4dc61",
+    "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json": "0eb5989ad14305cb6d78392a4064e7d353e705870a125df2493a565a7a075201",
+    "code/electromagnetism/verify_cone_whitney_bridge.py": "a3d7f6e69975421e91849283d5173cc070f77c7ef24b3b285248f9f7447ac4f0",
+    "code/electromagnetism/verify_serial_maxwell_readout.py": "5432264f6d20fafaa186f546376ac9b9347300d8626bcc4a5d246f8fb83b5325",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/affine_gauss_source/PROOF.md": "146c55af867de86014d6a784029ce46dd9a2cf7dab5b6faf607de7ed5f50ea0e",
+    "model/affine_gauss_source/PROVENANCE.md": "be293965f1ef6a4c14da5b2d449b1303412a7707f491134ef53c65251f174c5f",
+    "model/affine_gauss_source/README.md": "5c720e40ea4ad30655fee61eeb1114554ce2b98d5a520076f4fa0be314c688cb",
+    "model/affine_gauss_source/__init__.py": "5fd736b5a20c77355ee21fb0582e9d9044fefe3c3670071b2a63d16d7f8e8491",
+    "model/affine_gauss_source/__main__.py": "a7309f3dfb4ca06268d346584f0063fa472e28b807806818f307f5dae68de1bf",
+    "model/affine_gauss_source/certificate.py": "85a6adfb4a8a76c6f7f89b35a65c087fc8b83ac535b05e28ca9b8d6b80294e32",
+    "model/affine_gauss_source/model.py": "ec446eabfef62914fa0a9c97357cf870533769593084e9315be1bc5a0cae57b7",
+    "model/affine_gauss_source/research_reference.json": "b79e2794b638772feb731e440d232c3369b1a381efbd52f8fd9972f389d6552e",
+    "model/affine_gauss_source/test_source.py": "1aa1ce774009e41773f200c265120261df1634f67cc3b7be8e1def8fed78a1ba",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "paper/tex_fragments/WHITNEY_MAXWELL_DYNAMICS.tex": "9a7df41e26cd741f21f48cec7d2df74781560d010cb06e3d12f8e53c6da17b7c"
+  },
+  "schema": "oph.affine_gauss_source.v1",
+  "single_mode_cutoff_corner_check": {
+    "bare_quadrature_diagonal_at_frequency_one": [
+      "1/2",
+      "3/2",
+      "5/2",
+      "3/2"
+    ],
+    "boundary_energy_per_mode": "(d omega/2)|d-1><d-1|",
+    "checked_vacuum_moments": [
+      {
+        "order": 2,
+        "vacuum_q_moment_at_frequency_one": "1/2"
+      },
+      {
+        "order": 4,
+        "vacuum_q_moment_at_frequency_one": "3/4"
+      },
+      {
+        "order": 6,
+        "vacuum_q_moment_at_frequency_one": "15/8"
+      }
+    ],
+    "completed_H_per_mode": "omega (n+1/2)",
+    "completed_diagonal_at_frequency_one": [
+      "1/2",
+      "3/2",
+      "5/2",
+      "7/2"
+    ],
+    "exact_Heisenberg_equations_for_finite_q_p": true,
+    "finite_CCR": "[a,a^dag]=I-d|d-1><d-1|",
+    "levels_per_mode": 4,
+    "untruncated_CCR_claim": false
+  }
+}

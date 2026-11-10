@@ -85,7 +85,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering]
+        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering, affine_gauss_source, affine_gauss_mobile, affine_gauss_spectrum]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
