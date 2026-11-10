@@ -14,7 +14,8 @@ RECEIPT = ROOT / 'model/coherent_defect_wave/results.json'
 EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'cubic_readout', 'energy', 'dispersion', 'physical_attachment', 'mobile_flux',
               'native_routing_join', 'many_body_route', 'mass_instrument',
-              'field_identity_audit', 'propagating_native_join')
+              'field_identity_audit', 'propagating_native_join', 'chiral_source',
+              'chiral_regulator', 'chiral_higgs', 'chiral_particle_map', 'chiral_joint')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -30,13 +31,22 @@ FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'chiral_SM_particle_identification', 'interacting_relativistic_limit',
              'source_GeV_masses', 'physical_Standard_Model_identification',
              'interacting_relativistic_mass', 'GeV_mass_derived',
-             'source_mass_renormalization_or_SM_identity_or_GeV_prediction'}
+             'source_mass_renormalization_or_SM_identity_or_GeV_prediction',
+             'interacting_relativistic_particle_identification',
+             'background_is_a_quantum_Higgs_vacuum_theorem',
+             'interacting_chiral_continuum', 'measured_species_identified',
+             'onsite_gap_is_relativistic_particle_mass', 'full_reference_is_physical_Lorentz_vacuum',
+             'physical_pole_mass_or_GeV_prediction'}
 
 
 def check_extension_scope(value, name):
     """Check nested claims too: a declared rest parameter is permitted, an SM mass is not."""
     if isinstance(value, dict):
         for key, item in value.items():
+            if key=='measured_GeV_predictions' and item:
+                raise ValueError('joined extension physical promotion: '+name+'/'+key)
+            if key=='empirically_identified_species' and item is not None:
+                raise ValueError('joined extension physical promotion: '+name+'/'+key)
             absent_mass_table=(key=='source_GeV_masses' and isinstance(item,(dict,list)) and not item)
             if key in FORBIDDEN and item is not False and not absent_mass_table:
                 raise ValueError('joined extension physical promotion: ' + name + '/' + key)
@@ -412,21 +422,54 @@ def draw(c, data, y):
            '../../model/coherent_defect_wave/mass_instrument/PROOF.md',16)
     y+=h+22
 
-    h=238
+    field_map=extensions['chiral_particle_map']
+    spectrum=field_map['background_spectrum']
+    quantum=extensions['chiral_higgs']['quantum_spectrum']
+    qdim=extensions['chiral_higgs']['quantum_interaction']['full_dimension']
+    observed=sorted({r['excitation_energy_above_full_ground']
+                     for r in quantum['complete_driven_reservoir_energy_records']
+                     if r['setting']=='add' and r['reservoir_out']==0
+                     and s.sympify(r['probability'])!=0},key=s.sympify)
+    h=678
     card(c,X0,y,CW,h,stroke=VIOLET)
-    c.text(X0+28,y+43,'What is established, and what selects a measured particle?',28,TEXT,700)
+    c.text(X0+28,y+43,'A chiral field dictionary from the actual source currents',28,TEXT,700)
     c.para(X0+28,y+83,CW-56,
-        'The graded free source has a positive vacuum, fermionic statistics and measurable '
-        'particle/hole energies. It is a declared extension, not the logarithm of the '
-        'ordered clock. The charged native cloud is an exact current attachment, but its Dirac '
-        'extension contains both spacetime chiralities and allows five independent mass coefficients. '
-        'All equal face-count masses give ratios one. A common chiral interacting dynamics, '
-        'its physical reference and species tests are required; measured species and GeV masses remain unproved.',
+        'A declared cell encoding retains all 30 spin/native fermion modes and every occupation. '
+        'Its spectral left-Weyl propagation has a controlled free limit; its finite position '
+        'kernel is nonlocal. In a specified neutral Higgs background, the source’s pair tensors '
+        'join left fields to conjugate singlets. This is an exact change of field variables.',
         19,SOFT,1.4)
-    c.link(X0+28,y+h-25,'Current binding, chirality and mass freedom',
-           '../../model/coherent_defect_wave/field_identity_audit/PROOF.md',16)
-    c.link(X0+805,y+h-25,'Dependencies and exact status',
-           '../../model/coherent_defect_wave/PARTICLE_PATH.md',16)
+    table_y=y+193
+    c.rect(X0+24,table_y,CW-48,182,'#142337',EDGE,1,8)
+    for xx,label in ((X0+40,'Conditional field role'),(X0+540,'Electric charge'),(X0+800,'Rest parameter')):
+        c.text(xx,table_y+28,label,18,VIOLET,700)
+    roles=(('Up-type quark · 3 colors','2/3','up'),
+           ('Down-type quark · 3 colors','−1/3','down'),
+           ('Charged lepton · 1 field','−1','charged_lepton'),
+           ('Neutral left lepton · 1 field','0','neutral'))
+    for i,(role,charge,key) in enumerate(roles):
+        yy=table_y+62+32*i
+        c.text(X0+40,yy,role,20,TEXT,700)
+        c.text(X0+540,yy,charge,20,SOFT)
+        mass=spectrum['background_mass_energy'][key].replace('abs(', '|').replace(')', '|').replace('*','·')
+        c.text(X0+800,yy,mass+' source units',20,SOFT)
+    c.para(X0+28,y+408,CW-56,
+        'All fields have spin ½. Weak currents act only on left components; color and electric '
+        'charge act on both halves of the massive fields. Antiparticles have conjugate charges. '
+        'The seven Dirac color/lepton components plus one neutral Weyl field form ONE family. '
+        'No electron/muon/tau generation is selected, and v and the three Yukawa coefficients are inputs.',
+        19,SOFT,1.4)
+    c.para(X0+28,y+527,CW-56,
+        'The quantum scalar is retained in a separate exact '+str(qdim)+'-state lepton/scalar calculation: '
+        'its ground energy is '+quantum['full_ground_energy']+', while a complete charged probe sees excitation energies '+
+        ' and '.join(observed)+'. '
+        'These finite detector energies do not establish relativistic masses. A common quantum '
+        'gauge/Higgs Hamiltonian has a specified thermal reference; its interacting continuum and GeV masses are unproved.',
+        18,MUTED,1.38)
+    c.link(X0+28,y+h-25,'Source IDs, all currents and conditional mass formulas',
+           '../../model/coherent_defect_wave/chiral_particle_map/PROOF.md',16)
+    c.link(X0+805,y+h-25,'Quantum state and complete records',
+           '../../model/coherent_defect_wave/chiral_higgs/PROOF.md',16)
     y += h + 35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

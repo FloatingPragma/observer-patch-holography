@@ -1448,40 +1448,93 @@ records; tracing the battery can dephase cross-energy coherence. A nonzero
 momentum control gives $E=\sqrt{10}$ at $a=1,p=(0,0,\pi/2)$. The dimensional
 rest-energy relation is $mc^2=2u_E\,{\rm GeV}$, with $u_E$ unspecified.
 
-\paragraph{Actual currents and interacting propagation.}
-Bare flux has no native gauge charge. The exact commutant of pure face
-matrices under the literal native interaction is scalar. Instead, five
-native dark orbitals realize
-$\Lambda^2\mathbb C^5\oplus\Lambda^4\mathbb C^5$ with actual source-current
-intertwiners. Under the trace-free subgroup their weights are
+\paragraph{Native currents and chiral propagation.}
+Bare flux has trivial native gauge charge, and the pure-face commutant of
+the literal interaction is scalar. Five dark native orbitals instead carry
+$R=\Lambda^2\mathbb C^5\oplus\Lambda^4\mathbb C^5$, with actual-current
+weights
 $(\bar3,1,-2/3)\oplus(3,2,1/6)\oplus(1,1,1)\oplus(1,2,-1/2)
-\oplus(\bar3,1,1/3)$, the gauge pattern of one left-handed family.
-The additional central degree current of the full native internal group
-is separate from this subgroup. On the even dark module $U_F=I$, hence
-$K=I-\operatorname{Re}U_F=0$. Declared bound-object transport preserves the
-actual currents, and a whole-object exterior encoding implements their
-fermionic extension; geometric locality of that encoding requires a
-separate proof. Four-component propagation is vectorlike and admits five
-independent multiplet masses. A purely left-handed constant mass vanishes;
-the allowed Higgs tensors leave their state and coupling coefficients free.
+\oplus(\bar3,1,1/3)$. The additional central degree current is separate.
+On this even module $U_F=I$ and $K=I-\operatorname{Re}U_F=0$.
+A declared cell encoding places each occupied spin--native object in a
+literal compensated-flux slot. Antisymmetrizing within the cell and taking
+the graded tensor product between cells embeds every occupation of
+$\mathcal F(\mathbb C^2\otimes R)$, preserving actual currents and the
+cell support of even operators. Grading, binding and transport are
+architecture choices; the idle law supplies no binding energy.
 
-A distinct finite interacting clock uses the complete two-lane flux cell,
-independent native occupation registers and their common Gauss encoding:
-$J=e^{-ia\lambda K}\Gamma(D_a^0)R_a$, with $0\le K\le2N$. Both native
-and flux registers propagate on that clock. Minimal native root-SWAP transport freezes
-in the fixed relativistic refinement; an explicit four-component native
-memory supplies a controlled free Dirac alternative. Its shared-link
-controls use summed spin-component endpoint parity. Exact incoming-packet
-execution gives a positive face-changing response at their encounter.
-Subtracting the flat-link operator $K_0$ preserves that response and removes
-a native bulk term, but is a change of dynamics, not a scalar energy-zero
-shift or normal ordering. The retained density vertex fails a scalar boost
-test. In the stated one-flux/one-native smooth momentum window, bounded local
-contact strength has vanishing Duhamel comparison
-$O(t\lambda a^{3/2})$. A covariant surviving interaction, its selected
-many-body reference and physical chiral mass spectrum require their own
-construction. The native encounter does not inherit the graded Wilson
-filled vacuum merely from its free Dirac window \cite{oDEFECTWAVE}.
+A complete antiperiodic cubic momentum menu supports
+$h_L(p)=-\boldsymbol\sigma\cdot p\otimes I_R$. All regulator momenta are
+retained. The negative-band sea has positive particle and hole excitations
+with opposite helicities and conjugate charges; no independent mirror
+family is inserted. Fourier projection gives the free Weyl limit with
+Sobolev tail control. Its finite position kernel has algebraic long-range
+hopping, so this proof supplies neither a finite causal cone nor an
+interacting local gauge limit.
+
+\paragraph{Quantum Higgs coupling and the field dictionary.}
+The inherited symmetric tensors $C_{c,k}$, for up, down and charged-lepton
+channels, give the spin-antisymmetric pair interaction
+$\tfrac12 c^T(\epsilon\otimes C_{c,k})c\,\Phi_k+\mathrm{h.c.}$, with
+$\epsilon=i\sigma_2$. Here $\Phi_k$ is the scalar field for the up channel
+and its adjoint for the down and lepton channels. A five-state scalar memory retains its vacuum,
+two particle states and two antiparticle states. The quantum field
+$\Phi_k=a_k+b_k^\dagger$ satisfies the exact finite gauge Ward identities;
+replacing it by a number is a different background calculation.
+In the full $320$-state active lepton--scalar block with unit lepton Yukawa, unit scalar-number energy
+and empty quark spectators, the ground energy is $-2$ with multiplicity two and the spectral gap is
+$(5-\sqrt{21})/2$. Conditioned on ground preparation, the reservoir and energy instrument has
+$56$ records. Ground preparation succeeds with probability $1/160$;
+the full preparation/readout law has $69$ records, including thirteen
+preparation failures. A retained compensator balances the reservoir charge; the
+source plus apparatus obey all local Gauss constraints. Within the
+prepared-ground experiment, each reservoir setting is selected with
+probability $1/2$.
+Successful addition or removal has joint weights $9/40$ and $1/40$ at
+excitation energies $1$ and $3$, respectively. The lower global gap
+has zero weight for this probe. Failed preparations are retained.
+These are finite onsite energies, without a relativistic mass assignment.
+
+For the separately specified neutral background $H=(0,v)$, set
+$M=v\sum_c y_cC_{c,1}$ and $\Delta=\epsilon\otimes M$.
+The Nambu matrix is
+\[
+ B(p)=\begin{pmatrix}h_L(p)&-\Delta^*\\
+ \Delta&-h_L(-p)^T\end{pmatrix}.
+\]
+For each tensor pair $(l,r)$ with sign $s_{lr}$, the canonical variables
+$\Psi_L=c_l$ and $\Psi_R=-s_{lr}\epsilon c_r^\dagger$ reduce this matrix to
+seven Dirac blocks and one neutral left-Weyl block. All occupations survive
+this invertible change of variables. The paired blocks obey
+$E_c^2=|p|^2+|vy_c|^2$. Their actual electric charges are $2/3,-1/3,-1$;
+color acts on both quark chiralities and weak currents only on the left.
+This determines conditional up-type, down-type and charged-lepton roles
+for one family. It selects no generation, Yukawa coefficient, physical
+Higgs vacuum or measured mass. The finite antiperiodic menu excludes
+$p=0$; $|vy_c|$ is the rest parameter of the background continuum formula.
+
+\paragraph{Common interacting state and its scope.}
+Finite quantum-link transport, the quantum Higgs pair terms and invariant
+scalar and electric energies can be placed in one Hermitian Hamiltonian
+with exact local Gauss conservation. On its nonzero physical subspace,
+$\rho_\beta=P_Ge^{-\beta H}P_G/\operatorname{Tr}(P_Ge^{-\beta H})$
+is a specified faithful stationary reference, with $\beta>0$ a declared input.
+For $\|H\|\le B$, the filter
+$L=P_Ge^{-\beta(H+BI)/2}$ on a maximally mixed physical input prepares it;
+$F=\sqrt{I-L^\dagger L}$ retains the failure branch. A two-cell quantum
+creation/transport control on $122880$ active states gives
+$\|R H^2\Omega\|^2=3$, with $R\Omega=RH\Omega=0$ and a strictly
+positive, error-bounded arrival probability at a specified finite time.
+Its empty input is distinct from the thermal reference.
+The free filled sea is not substituted for this interacting state.
+The separate shared-link collision source has a positive finite encounter
+response, but its density vertex fails a scalar boost test and its bounded
+contact vanishes in the stated one-flux/one-native refinement window.
+A nonzero connected interacting limit, controlled physical reference and
+mass renormalization do not follow from either finite interaction.
+An energy conversion supplies units only: the background relation is
+$m_cc^2=u_E|vy_c|\,\mathrm{GeV}$, without a source selection of $v,y_c,u_E$
+\cite{oDEFECTWAVE}.
 
 \subsection{The local event clock}
 \label{sec:local-tick}

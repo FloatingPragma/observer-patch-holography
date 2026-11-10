@@ -27,7 +27,7 @@ def test_both_reciprocal_readouts_and_preparation_domains_are_visible(joint):
                    'Face detector: 1 versus 0', 'Return: 1 unread; 1/2 after readout',
                    '281/1080', '36,000 basis states', '281/2160',
                    'the retained link frame to compare amplitudes',
-                   'Every failure is retained.', 'measured species and GeV masses remain unproved.'):
+                   'Every failure is retained.', 'its interacting continuum and GeV masses are unproved.'):
         assert phrase in text
 
 
@@ -118,8 +118,9 @@ def test_positive_free_mass_current_binding_and_complete_apparatus_are_visible(j
                    '180 actual current identities; native K = 0',
                    'Reservoir + battery', '36 outcomes, including failures',
                    'E² = |p|² + 4; rest energy = 2 source units in this free limit',
-                   'All equal face-count masses give ratios one',
-                   'both spacetime chiralities and allows five independent mass coefficients',
+                   'A chiral field dictionary from the actual source currents',
+                   'No electron/muon/tau generation is selected',
+                   'Weak currents act only on left components',
                    'one flux and one native occupation, bounded coupling gives vanishing contact response',
                    'fixed-volume, fixed native-momentum window'):
         assert phrase in text
@@ -151,3 +152,14 @@ def test_dark_current_attachment_cannot_be_presented_as_native_binding(joint):
     changed['mass_normalization_and_chirality']['Dirac_R15_contains_both_chiralities_in_same_internal_representation']=False
     with pytest.raises(ValueError,match='chirality boundary'):
         joint_panels.check_identity(changed)
+
+
+def test_conditional_dictionary_cannot_be_promoted_to_measured_species_or_masses(joint):
+    value=deepcopy(joint['extensions']['chiral_particle_map'])
+    value['conditional_field_rows'][0]['empirically_identified_species']='top quark'
+    with pytest.raises(ValueError,match='physical promotion'):
+        joint_panels.check_extension_scope(value,'chiral_particle_map')
+    value=deepcopy(joint['extensions']['chiral_particle_map'])
+    value['identification']['measured_GeV_predictions']={'electron':'0.000511'}
+    with pytest.raises(ValueError,match='physical promotion'):
+        joint_panels.check_extension_scope(value,'chiral_particle_map')

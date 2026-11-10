@@ -1,97 +1,112 @@
 # Particle response and field-action selection
 
-## Declared sources and their observable consequences
+## A specified chiral source and its physical inputs
 
 The [construction contract](../../model/CONSTRUCTION.md#what-is-being-built)
-permits explicit choices of carrier, memory, repair, grading and apparatus.
-A uniqueness proof is unnecessary. Identifying their output with a physical
-particle requires the source/state/reference/clock chain in the
-[particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md).
+permits explicit architecture choices. The [sitewise source](../../model/coherent_defect_wave/chiral_source/PROOF.md)
+chooses a left-Weyl spin factor, thirty complete local fermion modes and
+actual native R15 clouds bound to paired-flux objects. Its cell-local
+isometry intertwines all twelve subgroup currents on every occupation
+and preserves even graded spatial support. Grading and binding are supplied
+parts of this program; the native dark-module idle energy is zero.
 
-The native defect/wave source has exact reciprocal detector contrasts,
-compatible Gauss preparation and a shared-link occupation extension. Its
-[positive-clock triplet bands](../../model/coherent_defect_wave/dispersion/PROOF.md)
-fail a common relativistic speed test. The separate paired-flux route has a
-free one-object Dirac window. These statements motivate explicit alternative
-constructions; they do not transfer a field theorem between clocks.
+The native representation has the exact weights
+`(3bar,1,-2/3)+(3,2,1/6)+(1,1,1)+(1,2,-1/2)+(3bar,1,1/3)`.
+They are one all-left-Weyl family. The extra central degree current of the
+full native block group is outside the chosen trace-free subgroup. Finite
+anomaly traces and the even count of weak doublets hold on this representation;
+they do not construct a nonperturbative chiral gauge vacuum.
 
-### A complete graded free-field choice
+### Choosing a regulator without deleting states
 
-The [graded Wilson source](../../model/coherent_defect_wave/many_body_route/PROOF.md)
-selects twenty carrier slots per cell, fermionic occupation signs, nearest-
-neighbor Wilson dynamics and a filled-negative-band reference. Each occupied
-slot contains the literal protected inside/exterior flux pair. Its face count
-`D=2` enters with declared coefficient one. Every local occupation is retained,
-and the source symbol is
+The [spectral regulator](../../model/coherent_defect_wave/chiral_regulator/PROOF.md)
+retains every mode on a finite antiperiodic cubic menu and uses the exact
+left-Weyl symbol `-sigma.p tensor I15`. Its filled reference has positive
+particle/hole energies and no extra low-energy Weyl copies. The price is a
+long-range finite position kernel. Fourier projection tails control the
+free local continuum; finite strict causality and an interacting local
+gauge continuum are separate requirements. The finite gap `sqrt(3)*pi/L`
+vanishes with box size and is not a positive rest mass.
 
-`h_a(p)=sum_i alpha_i sin(a p_i)/a + beta [2+sum_i(1-cos(a p_i))/a]`.
+The [overlap regulator work](../../model/common_source/chiral_candidate/REGULATOR_ROUTES.md)
+retains its own gauge-dependent projector, electric-connection and locality
+conditions as an alternative. It is not silently substituted for the
+spectral Hamiltonian. A gauge link in the sixty-state source code is a
+nilpotent charged operator, rather than a classical unitary background.
+Exact endpoint covariance does not justify setting it to the identity in
+a selected vacuum or importing the free spectrum into its interacting state.
 
-This construction supplies a positive excitation Hamiltonian, particle/hole
-charge conjugation and a controlled free spin-one-half relativistic field
-with rest energy two. Wilson corner energies diverge as `2+2n/a`, leaving
-one finite-energy valley per face channel. The fixed-momentum error controls
-the actual filled reference and all free-field correlation words. The
-[complete energy instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
-includes source preparation, reservoir flags and a finite work battery.
-The native face-changing law need not preserve a slot fixed to one face;
-implementing it on this entire occupation space is a distinct requirement.
+### Quantum scalar dynamics and the background benchmark
 
-### An actual gauge module, with its mass restriction
+The [Higgs construction](../../model/coherent_defect_wave/chiral_higgs/PROOF.md)
+uses the actual symmetric native Yukawa tensors and antisymmetric Weyl
+spin tensor. A five-state scalar memory supplies a finite local quantum
+interaction with all gauge currents conserved. Its complete lepton/scalar
+calculation retains every source state and detector alternative. The memory
+cutoff is explicit and is not a canonical infinite scalar oscillator.
+A gauge-invariant finite reference has zero charged scalar expectation.
 
-The [native-current audit](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
-proves that the bare flux slots are gauge singlets. The literal interaction
-admits only scalar pure-face matrices in its commutant, excluding a gauge
-assignment made just by partitioning the five faces into three and two.
-A native dark orbital for each internal component instead realizes
-`Lambda^2(C^5)+Lambda^4(C^5)`. Its irreducible weights, using left-handed
-conjugate labels, are
+The declared background `H=(0,v)` instead supplies a quadratic benchmark.
+The [source-to-particle map](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
+transforms the original thirty canonical variables into seven Dirac fields
+counting color plus one neutral Weyl field. Charge-conjugate singlet source
+creators supply the right Dirac components. The weak currents remain
+left-handed; color and electric charge have the appropriate equal action
+on both Dirac halves. This construction is chiral in its current action,
+unlike the comparison that puts the same R15 on both Dirac chiralities.
 
-`(3bar,1,-2/3) + (3,2,1/6) + (1,1,1) + (1,2,-1/2) + (3bar,1,1/3)`.
+The background branch masses are `abs(v*y_u)`, `abs(v*y_d)` and
+`abs(v*y_e)`, with zero neutral mass. All three coefficients are free under
+the current constraints. No measured mass is used; no generation is selected.
+The unit attachment is `m c^2=u_E*abs(v*y) GeV`, retaining the unspecified
+energy reference. An empirical fit to the y values would be a calibration,
+not a derivation from the finite idle law.
 
-These are actual source-current intertwiners for the trace-free subgroup,
-with dimensions `3+6+1+2+3`. The extra central degree current of the full
-native `U(3) x U(2)` is separate; gauging it is not implied by this family
-match. Their native repair tick is the identity, giving `K=0`. A bound flux/cloud
-object can be transported while preserving these currents. Its whole-object
-exterior encoding gives the canonical fermion algebra on the admitted code;
-it does not automatically prove geometric locality of the carrier realization.
-Four-component Dirac propagation of this module introduces both chiralities
-with the same gauge representation. A purely left-handed module has no
-constant invariant mass; Higgs vertices require specified dynamics and state.
-The allowed Dirac mass commutant has five independent multiplet coefficients.
-Neither representation weights nor `K=0` selects their values or generations.
+### One quantum Hamiltonian, physical subspace and clock
 
-### Propagation and the interaction's refinement
+The [common quantum gauge/Higgs construction](../../model/coherent_defect_wave/chiral_joint/PROOF.md)
+places the spectral coefficients, actual quantum-link path products, local
+Yukawa terms and invariant scalar/link energies in one Hermitian H. Every
+local total Gauss current commutes with H. For `beta>0`, the physical Gibbs reference
+`rho_beta=P_G exp(-beta H) P_G / Tr(P_G exp(-beta H))` is faithful on its
+nonempty physical subspace and stationary for the same `exp(-it H)`.
+A complete success/failure filter prepares it from the maximally mixed
+physical input, using a specified controller that preserves total Gauss
+charge and total fermion parity, with its graded ancilla retained. The
+explicit side-two norm bound is `||H||<=1884` at unit parameters. This is a finite spectral-controller construction; efficient
+preparation and the huge global eigensystem are not supplied.
 
-The [propagating native source](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
-adds a local transport schedule to the common native/flux clock. Its minimal
-native root-SWAP route has a quadratic low branch that freezes when time and
-spacing scale together. A declared four-component native memory instead
-implements full-CAR directional shifts and a controlled free Dirac window.
-The native update uses shared links and summed spin-component endpoint parity;
-it is not a sequential product of independent link updates.
+A separate control on the same operator grammar retains all 122880 states
+of two lepton cells, a quantum link and a quantum scalar. Starting from
+empty matter, its first action creates a gauge-compatible pair/scalar;
+its second propagates a created lepton to the other cell. The exact
+arrival component has `||R H^2 Omega||^2=3`, with a strictly positive
+complete finite-time arrival bound and the no-arrival alternative retained.
+This input is explicitly distinct from the Gibbs reference. The common
+finite construction supplies no interacting Lorentz vacuum, physical Higgs
+phase, mass renormalization or GeV prediction. No magnetic plaquette term
+is implicit in the declared Hamiltonian.
 
-The flat-link operator `K_0` is a momentum-independent native term. Selecting
-`V=K-K_0` removes that term and preserves the actual face-changing encounter,
-but changes the physical law. It is not a scalar shift of the energy origin
-or a normal-ordering theorem. The tested density vertex fails a scalar boost
-condition. A bounded local contact interaction also has a vanishing continuum
-comparison in the stated one-flux/one-native momentum window. A covariant coupling with a
-specified nonvanishing refinement and a selected interacting reference is
-required before assigning relativistic interacting masses.
+### Selection requirements on one interacting source
 
-### Physical selection and comparison
+The [dependency path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+requires a regulator and reference trajectory whose complete interacting
+outputs approach a nontrivial covariant field. The finite Gibbs reference
+supplies one same-H state, without proving a physical vacuum limit. It then
+requires controlled charged thresholds or resonances, flavor and neutrino
+content, and an independent energy standard. A nonzero classical Higgs
+background needs a gauge-compatible operational realization; a vanishing
+finite gauge-invariant expectation does not prohibit a physical Higgs
+phase, but also does not supply one.
 
-The [dependency map](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-separates five physical requirements: compatible interacting source and
-reference; chiral gauge/Higgs content; controlled relativistic interaction;
-complete mass/scattering records; and an energy standard with independent
-particle identification. Finite theorem conclusions consume their precise
-premises on that same source. The free graded construction supplies a valid
-field example and mass readout; it does not supply a source-derived Standard
-Model spectrum. Its source rest energy has dimensional form `2*u_E` GeV,
-with `u_E` unspecified. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) distinguishes
-this free result from the native interacting constructions.
+The [neutral Wilson source](../../model/coherent_defect_wave/many_body_route/PROOF.md)
+keeps its positive free mass two and complete work-battery readout. The
+[finite native interaction](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+keeps its positive encounter response and the scoped one-flux/one-native
+contact-survival obstruction. Those results neither determine the chiral
+Yukawa coefficients nor transfer their references to the quantum gauge/Higgs
+source. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) separates source constructions,
+conditional field roles and empirical identifications.
 
 ## Local transport architecture
 
@@ -1276,6 +1291,7 @@ The most informative candidates are constrained by several source signatures:
 | Source result | Informed candidate interpretation | Decisive missing test |
 | --- | --- | --- |
 | Exact fifteen-state weights and their full-Fock current, Weyl-kinetic and quantum-link Gauss attachments | The internal quantum-number template of one Standard Model fermion family | The configured 90-mode field has declared spatial-spin and three-family factors. Its interacting state, mirror removal and chiral continuum require a common physical realization; repeating internal rows does not select generations or masses. |
+| [Sitewise native R15 fields and canonical chiral dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md) | One conditional up/down/charged-lepton family with left weak currents, physical spin-1/2 fields and antiparticles | The full spectral source has no extra free Weyl copies but is finite-nonlocal. Its quantum gauge/Higgs reference and interacting continuum, scalar/flavor inputs and measured species require the common physical attachment. |
 | Conditional rank-three family band and the specified memory family's three singular directions | Three generation directions sharing a gauge representation | Realize the conditional family-band premises and their source isometry, then obtain the same interacting poles and mixing. The current real-projector family class has zero charged-current CP invariant and fails that observed feature. |
 | Eight signed kinetic windings with the proved weak-contact free Weyl-field map | Massless chiral fermionic field candidates | Identify their physical currents and survive a justified interacting trajectory. Eight kinetic nodes do not select the observed flavor or family labels. |
 | Complete odd-CAR addition/removal response on the interacting centered ground | Interacting fermionic matter candidates | Prove the relevant relativistic spectral response and attach color/electromagnetic currents on that same ground. Hidden internal spin does not determine physical spin. |

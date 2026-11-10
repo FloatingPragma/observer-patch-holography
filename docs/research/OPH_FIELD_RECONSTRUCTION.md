@@ -1,92 +1,130 @@
 # Field response and particle identification from observer records
 
-## From a finite defect to a relativistic field
+## Chiral fields on an actual native source
 
-The [source-specific path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-specializes the [common acceptance map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
-The construction permits declared carrier, grading, clock and preparation
-choices. Their observable consequences require proofs on that same source.
-The following branches have distinct clocks and occupation spaces; matching
-a one-object equation does not identify their interacting many-body theories.
+The [sitewise chiral source](../../model/coherent_defect_wave/chiral_source/PROOF.md)
+encodes the full `F(C2 tensor R15)` at every cell, with thirty fermion modes
+and all `2^30` occupations. Each occupied object contains the actual paired
+flux, two-component routing memory and a native dark cloud. A cell-local
+antisymmetrization intertwines every actual subgroup current and preserves
+the support of even gates in the declared graded source algebra. It avoids
+a global particle-slot sorting operation. Ordinary qubit compilation with
+bounded-range gates is a separate implementation question.
 
-| Construction | Proved observable content | Physical boundary |
-| --- | --- | --- |
-| [Joint native defect/wave tick](../../model/coherent_defect_wave/PROOF.md) | Reciprocal complete detector contrasts, an invariant interior Gauss constraint, stationary preparation and populated finite frequencies. | A finite interaction does not determine relativistic particles. |
-| [Cubic native occupation source](../../model/coherent_defect_wave/cubic_readout/PROOF.md) and [positive clock](../../model/coherent_defect_wave/dispersion/PROOF.md) | Complete momentum/quadrature records; exact positive source-energy branches. | The tested triplet branches fail a common relativistic speed test. |
-| [Graded paired-flux Wilson source](../../model/coherent_defect_wave/many_body_route/PROOF.md) | Full occupation algebra, filled ground, positive particle/hole energies, spin-one-half free Dirac field and controlled three-spatial-dimensional refinement. | Its five face channels are neutral degenerate copies. Native interactions require an explicit transfer. |
-| [Native-current attachment](../../model/coherent_defect_wave/field_identity_audit/PROOF.md) | An actual native fifteen-state charge module and current-preserving whole-object transport. | Its native repair energy vanishes; a massive four-component attachment is vectorlike and does not select Standard Model masses. |
-| [Propagating native encounter](../../model/coherent_defect_wave/propagating_native_join/PROOF.md) | Both degrees of freedom propagate; the literal joint interaction changes the received face. A declared spin extension supplies controlled free Dirac windows on one clock. | The tested density vertex fails the scalar boost test; bounded contact vanishes in its stated one-flux/one-native refinement. |
+The internal module is `R15=Lambda^2(C5)+Lambda^4(C5)`. The twelve currents
+of the trace-free subgroup act with weights
 
-### Positive energy and the same reference
+`(3bar,1,-2/3)+(3,2,1/6)+(1,1,1)+(1,2,-1/2)+(3bar,1,1/3)`.
 
-The graded source encodes every occupation in twenty literal paired-flux
-carrier slots per cell: five face labels times four Clifford components.
-All `2^20` local occupations are retained. Fermionic grading, a Wilson
-regulator and the coefficient converting the literal face count `D=2` into
-energy are declared architecture. Ordinary qubit implementations require
-parity strings; graded locality alone does not prove ordinary tensor-gate
-locality. The selected Hamiltonian is distinct from the finite routing tick.
-For spacing a and physical momentum p its actual one-body symbol is
+This is one all-left-Weyl family, with right singlets represented by their
+left-handed conjugates. The extra central native degree current is separate.
+The native idle law fixes the even cloud, so `K=0` supplies no binding or
+mass coefficients. Grading, cloud binding and the kinetic law are explicit
+architecture choices.
 
-`h_a(p)=sum_i alpha_i sin(a p_i)/a + beta [2+sum_i(1-cos(a p_i))/a]`.
+### Propagation, reference and the regulator boundary
 
-Filling every negative band gives one finite Slater ground. Relative to that
-same reference,
-`H-E_sea=sum E_a(p) [b* b+d* d] >= 0`.
-The full excitation gap is two, and the nonvacuum neutral sector has gap
-four. A particle adds a source pair; a hole removes a pair from this filled
-reference. Their opposite signed occupation charges are not electromagnetic
-charges. The reference has ten pairs per cell on average, so raw local pair
-count is not a single-particle position projector.
+The [finite spectral regulator](../../model/coherent_defect_wave/chiral_regulator/PROOF.md)
+uses `h_L(p)=-sigma.p tensor I15` on the complete antiperiodic cubic momentum
+menu. All cutoff modes are retained; no mirror state is removed by
+postselection. Filling the negative band gives a unique finite free ground
+and positive particle/hole energies. The finite gap is `sqrt(3)*pi/L`,
+which vanishes with physical volume and is not a rest mass. The particles
+have helicity `-1/2`; their holes have helicity `+1/2` and conjugate currents.
+They are antiparticles rather than independent same-charge mirror fields.
 
-On `|p_i|<=P`, the exact bound
-`||h_a-(alpha.p+2beta)||<=a^2 P^3/2+3a P^2/2`
-controls both dynamics and the filled-band projector. Wick expansion then
-controls all finite free-field words. The resulting effective description
-has `E^2-|p|^2=4`, positive particle/antiparticle energies, spin one half and
-causal graded fields. Wilson corner energies `2+2n/a` remove additional
-finite-energy valleys. This is a free relativistic field with its reference;
-it is not an interacting chiral field or a Yang-Mills mass-gap result.
+The finite position derivative is long-range. Its Fourier symbol equals
+the free continuum symbol exactly on retained windows, and the bound
+`||(I-Pi_N)f|| <= [1+(pi(N+1)/L)^2]^(-s/2) ||f||_Hs`
+controls cutoff tails and all finite free-field words. Causal locality and
+Lorentz covariance hold in that free effective continuum. There is no
+strict finite-source light cone or proved interacting gauge continuum.
+The free filled state is not substituted for a fluctuating-gauge Gauss
+reference.
 
-### Charge and interaction on actual source objects
+### Gauge, scalar and massive field interfaces
 
-The [current audit](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
-proves that native-empty flux slots are gauge singlets. The exact commutant
-of pure face matrices under the actual native interaction is scalar. A
-three-plus-two partition of the face labels therefore supplies no native
-color or weak current. Actual native dark orbitals instead realize
-`Lambda^2(C^5) + Lambda^4(C^5)`, with the fifteen chiral-family gauge weights under the trace-free subgroup.
-The extra central degree current is separate from that subgroup.
-All twelve subgroup current intertwiners are executed. Their even-degree repair tick
-is the identity, so `K=I-Re U_F=0` on this module. Binding and transporting
-that cloud with an odd flux object is a declared extension. Its whole-object
-exterior encoding preserves the actual currents, with geometric locality
-requiring a separate proof. A constant Dirac mass allows five independent
-multiplet coefficients; a constant purely left-handed mass is forbidden.
+The source supplies finite sixty-state quantum links with exact endpoint
+Ward identities on the same full matter occupation algebra. Their charged
+raising coefficients are nilpotent and cannot act as identity links in a
+vacuum. Supplied-background propagation and quantum-link propagation must
+therefore retain distinct state and operator domains.
 
-The [moving native source](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
-removes spatial pinning in a specified interacting clock. Minimal native
-root-SWAP transport freezes in the fixed relativistic refinement. An explicit
-four-component native memory instead supplies a free Dirac branch. Its
-optional subtraction of the flat-link operator `K_0` is a change of dynamics,
-not a scalar energy-zero change or Wick normal ordering. The retained finite
-encounter has a positive face-changing response, but the stated interaction
-has neither a covariant surviving continuum vertex nor a proved interacting
-vacuum and mass shell.
+The [quantum Higgs construction](../../model/coherent_defect_wave/chiral_higgs/PROOF.md)
+uses the actual invariant Weyl pair tensors, an explicit five-state charged
+scalar memory and a Hermitian gauge-invariant interaction. Its complete
+lepton/scalar calculation supplies a finite quantum response. A nonzero
+neutral classical Higgs background is a separate benchmark, not the
+expectation of a gauge-invariant finite reference.
 
-### Physical identification requirements
+For that benchmark, the [canonical particle dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
+is an exact change of the thirty original fermion variables. It combines
+weak-doublet annihilators with conjugate-singlet creators to give seven
+Dirac fields counting color, plus one neutral left-Weyl field. No independent
+mirror family is added. Actual electric charge acts equally on both halves
+of each massive field, color is vectorlike, and the weak currents act only
+on the left components. The source-to-field map therefore includes currents
+and canonical operators, rather than a dimension count alone.
 
-The remaining work is one compatible interacting occupation/source law and
-selected reference; chiral gauge and Higgs dynamics with controlled unwanted
-modes; a surviving relativistic interaction with uniform error control;
-complete charged thresholds or resonance records; and an operational energy
-scale plus independent species comparison. The
-[complete source-unit mass instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
-closes preparation, apparatus work and energy readout for the free graded
-branch. Its output is `2` source energy units, or `2*u_E` GeV when the energy
-conversion `u_E` is supplied. No measured Standard Model identification is
-claimed by these results. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) renders these
-source and measurement boundaries.
+| Conditional field role | Number counting color | Charge | Source rest energy |
+| --- | ---: | ---: | --- |
+| Up-type quark | 3 Dirac fields | `2/3` | `abs(v*y_u)` |
+| Down-type quark | 3 Dirac fields | `-1/3` | `abs(v*y_d)` |
+| Charged lepton | 1 Dirac field | `-1` | `abs(v*y_e)` |
+| Neutral lepton | 1 left-Weyl field | `0` | `0` |
+
+The paired branches have `E^2=|p|^2+abs(v*y)^2`. On the antiperiodic finite
+menu no zero momentum is present; rest energy means the parameter of this
+controlled field relation as physical volume grows. The scalar background
+and three Yukawa values are inputs. No generation or measured species is
+selected, and the massless one-family neutral field cannot reproduce neutrino
+mass splittings. Unit conversion gives `m c^2=u_E*abs(v*y) GeV`; `u_E` is
+an independent energy standard.
+
+### One quantum Hamiltonian, physical subspace and clock
+
+The [common quantum gauge/Higgs construction](../../model/coherent_defect_wave/chiral_joint/PROOF.md)
+places the spectral coefficients, actual quantum-link path products, local
+Yukawa terms and invariant scalar/link energies in one Hermitian H. Every
+local total Gauss current commutes with H. For `beta>0`, the physical Gibbs reference
+`rho_beta=P_G exp(-beta H) P_G / Tr(P_G exp(-beta H))` is faithful on its
+nonempty physical subspace and stationary for the same `exp(-it H)`.
+A complete success/failure filter prepares it from the maximally mixed
+physical input, using a specified controller that preserves total Gauss
+charge and total fermion parity, with its graded ancilla retained. The
+explicit side-two norm bound is `||H||<=1884` at unit parameters. This is a finite spectral-controller construction; efficient
+preparation and the huge global eigensystem are not supplied.
+
+A separate control on the same operator grammar retains all 122880 states
+of two lepton cells, a quantum link and a quantum scalar. Starting from
+empty matter, its first action creates a gauge-compatible pair/scalar;
+its second propagates a created lepton to the other cell. The exact
+arrival component has `||R H^2 Omega||^2=3`, with a strictly positive
+complete finite-time arrival bound and the no-arrival alternative retained.
+This input is explicitly distinct from the Gibbs reference. The common
+finite construction supplies no interacting Lorentz vacuum, physical Higgs
+phase, mass renormalization or GeV prediction. No magnetic plaquette term
+is implicit in the declared Hamiltonian.
+
+### Other source branches and the physical join
+
+The [neutral graded Wilson field](../../model/coherent_defect_wave/many_body_route/PROOF.md)
+and its [complete mass instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
+retain their positive free gap two, particle/antiparticle vacuum and explicit
+work-battery records. Their five face channels are gauge singlets. The
+[finite native encounter](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+retains two propagated objects and a positive joint interaction response;
+its bounded-contact limit applies only to the stated one-flux/one-native
+window. Neither branch becomes the chiral interacting field by matching a
+free dispersion formula.
+
+The [source-specific dependency path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+requires a controlled physical refinement of its interacting reference,
+nontrivial covariant dynamics, scalar/flavor response, physical mass/scattering
+records and independent experimental identification. Finite current and
+charge-conjugation theorems supply their exact interfaces; they do not
+select those physical inputs. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) separates
+the proved source constructions, conditional field roles and measured masses.
 
 ## Local coherent seam operations
 

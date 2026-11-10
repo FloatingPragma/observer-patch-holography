@@ -18,6 +18,19 @@ Grading, regulator and face-count coefficient are architecture choices;
 interacting Standard Model identification and an independent GeV scale
 require additional source attachments.
 
+## Chiral fields and quantum Higgs response
+
+The [sitewise chiral source](chiral_source/PROOF.md) carries every occupation
+of the actual fifteen native charge states with two left-Weyl components.
+Its spectral regulator controls a free chiral limit with explicit finite
+nonlocality. The [quantum Higgs calculation](chiral_higgs/PROOF.md) preserves
+all twelve currents and executes complete scalar/matter energy records.
+The [conditional field dictionary](chiral_particle_map/PROOF.md) gives seven
+color-resolved Dirac fields and one neutral Weyl field with masses `|y v|`.
+The quantum scalar reference does not select that background, the Yukawa
+coefficients or measured species; an interacting chiral continuum requires
+its own proof.
+
 ## Native interactions and charges
 
 The [native-routing join](native_routing_join/PROOF.md) couples flux and
@@ -28,8 +41,9 @@ and one native occupation with a preserved finite native momentum window;
 its density vertex fails the scalar-boost test. An
 [actual native occupation cloud](field_identity_audit/PROOF.md) carries the
 fifteen fermion-family weights and admits current-preserving bound transport.
-The idle repair fixes this cloud, giving no native mass correction; its
-Dirac attachment is vectorlike.
+The idle repair fixes this cloud, giving no native mass correction.
+Propagation and Higgs interactions in the chiral source are declared
+additional laws.
 
 ## Moving the protected object
 
@@ -72,6 +86,10 @@ python -m model.coherent_defect_wave.many_body_route --check
 python -m model.coherent_defect_wave.mass_instrument --check
 python -m model.coherent_defect_wave.propagating_native_join --check
 python -m model.coherent_defect_wave.field_identity_audit --check
+python -m model.coherent_defect_wave.chiral_source --check
+python -m model.coherent_defect_wave.chiral_regulator --check
+python -m model.coherent_defect_wave.chiral_higgs --check
+python -m model.coherent_defect_wave.chiral_particle_map --check
 python -m pytest -q model/coherent_defect_wave
 ```
 

@@ -19,6 +19,20 @@ and battery work retained. The grading, regulator and mass coefficient are
 specified architecture. An interacting chiral theory, measured species
 assignment and independent GeV scale require further source attachments.
 
+## Chiral native matter
+
+The [local chiral encoding](coherent_defect_wave/chiral_source/PROOF.md)
+attaches two left-Weyl components to the actual fifteen-state native charge
+module. A declared spectral regulator has a controlled free chiral limit
+and explicit finite nonlocality. The
+[quantum Higgs interaction](coherent_defect_wave/chiral_higgs/PROOF.md)
+provides exact finite conversion and complete energy records. Its
+[conditional particle dictionary](coherent_defect_wave/chiral_particle_map/PROOF.md)
+has up-type, down-type and charged-lepton Dirac roles, plus a massless
+neutral Weyl role. Selecting a physical scalar state and mass coefficients,
+and proving the interacting relativistic limit, are separate requirements;
+these roles do not identify measured particles.
+
 ## Native interactions and charged objects
 
 The [propagating native construction](coherent_defect_wave/propagating_native_join/PROOF.md)

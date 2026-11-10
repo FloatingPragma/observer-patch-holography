@@ -46,4 +46,9 @@ jobs:
       - run: python -m model.coherent_defect_wave.mass_instrument --check
       - run: python -m model.coherent_defect_wave.propagating_native_join --check
       - run: python -m model.coherent_defect_wave.field_identity_audit --check
+      - run: python -m model.coherent_defect_wave.chiral_source --check
+      - run: python -m model.coherent_defect_wave.chiral_regulator --check
+      - run: python -m model.coherent_defect_wave.chiral_higgs --check
+      - run: python -m model.coherent_defect_wave.chiral_particle_map --check
+      - run: python -m model.coherent_defect_wave.chiral_joint --check
       - run: python -m pytest -q -W error model/coherent_defect_wave

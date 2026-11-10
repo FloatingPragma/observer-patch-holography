@@ -16,93 +16,146 @@ The separate open Wilson gauge-matter family retains its own source contract.
 | [Mobile source](mobile_flux/PROOF.md) and [two-lane route](mobile_flux/ROUTING_COMPLETION.md) | A flat orbit permits transport of the actual inside/exterior pair. Complete source gates retain all 121 local states. The one-object route has the controlled Dirac window with rest-frequency magnitude two | Boundary data move with the object. The coin and two-lane collision rule are architecture; their bosonic slot tensor product does not establish full CAR or a positive many-body reference |
 | [Graded flux field](many_body_route/PROOF.md) and [mass instrument](mass_instrument/PROOF.md) | Twenty literal carrier slots per cell encode all 2^20 graded occupations. A declared local Wilson clock has a unique finite filled sea, positive particle/hole gap two, neutral threshold four, and a controlled massive free Dirac field/vacuum limit. Complete reservoir, energy/charge and battery records read that mass parameter | CAR, regulator, reference and unit face-count coefficient are specified architecture. The five equal face channels have no identified Standard Model charges. This free construction does not inherit the native interaction |
 | [Common native clock](native_routing_join/PROOF.md) and [propagating native completion](propagating_native_join/PROOF.md) | Native waves and actual transported flux interact on one source clock. The spinful completion gives both kinetic sectors controlled free Dirac windows and exact finite interaction records | Primitive matching is quadratic on the common refinement clock. Bounded contact disappears for one flux object and one native occupation on a fixed physical torus with a preserved M-mode native momentum window; the tested density vertex is not Lorentz scalar. A positive interacting reference and a surviving covariant limit need their own proof |
-| [Actual charged source module](field_identity_audit/PROOF.md) and [spin/current attachment](physical_attachment/PROOF.md) | Native dark occupations carry the exact fifteen-state currents and their Standard Model family weights. A complete bound-composite transport preserves those actual currents. A finite whole-object exterior encoding retains the current action at every occupation | The native update fixes this even cloud, so K=0 there. Dirac times this module is vectorlike, not an exclusively chiral family. The whole-object current encoding supplies no geometric locality theorem. Current-compatible mass coefficients are not fixed by the representation |
+| [Actual charged source module](field_identity_audit/PROOF.md) and [spin/current attachment](physical_attachment/PROOF.md) | Native dark occupations carry the exact fifteen-state currents and their Standard Model family weights. A complete bound-composite transport preserves those actual currents. A finite whole-object exterior encoding retains the current action at every occupation | The native update fixes this even cloud, so K=0 there. Dirac times this module is vectorlike, not an exclusively chiral family. The particle-slot encoding has no spatial locality theorem; the distinct sitewise construction below supplies graded locality. Current-compatible mass coefficients are not fixed by the representation |
 
-The graded field supplies a positive many-body reference, fermionic fields,
-antiparticle partners and source-unit mass records on its own construction.
-Those premises are not absent from the repository. The interacting and
-charged constructions require compatible transfers to that source or their
-own corresponding proofs. No row identifies a measured Standard Model
-particle or determines an independent GeV scale.
+| [Sitewise chiral source](chiral_source/PROOF.md) | Thirty whole-object source slots per cell encode the full `F(C2 tensor R15)`. The local map intertwines the actual twelve currents and preserves the spatial support of even graded gates. Sixty-state quantum links obey exact endpoint Ward identities | The native cloud has K=0. Grading, binding, gauge memory and additional Hamiltonian are declared architecture. A bounded-range ordinary-qubit compiler is not supplied |
+| [Spectral left-Weyl field](chiral_regulator/PROOF.md) | `h_L=-sigma.p tensor I15`, every antiperiodic cutoff mode, full occupations, a positive filled reference, particle/antiparticle helicities and controlled free field-word limits. Complete source energy/charge instruments retain all alternatives | The finite derivative is explicitly long-range. Its volume gap vanishes and is not a rest mass. The free reference is not the fluctuating-gauge Gauss reference, and free cutoff bounds do not establish an interacting gauge continuum |
+| [Quantum Higgs memory](chiral_higgs/PROOF.md) | Actual invariant pair tensors couple the full matter occupation algebra to a five-state charged scalar. The exact 320-state lepton/scalar response has a rank-two gauge-singlet ground at energy -2, complete energy spectrum and 56 charged preparation/energy records | Its finite onsite gap is not a relativistic mass. The scalar cutoff is not canonical bosonic CCR. A neutral classical background, a Higgs phase and Yukawa coefficients are distinct inputs |
+| [Canonical chiral particle dictionary](chiral_particle_map/PROOF.md) | At a declared neutral Higgs background, the thirty original variables give three up-type and three down-type color components, one charged Dirac lepton and one neutral left-Weyl field. Actual electric/color currents are vectorlike; weak currents are left-handed. `E^2=p^2+abs(v*y)^2` follows for each paired channel | This is one conditional family. The scalar background, Yukawa coefficients, generations and experimental species are not selected. The minimal massless neutral field cannot account for neutrino mass splittings |
 
-The chosen-H collision has total double-occupation probability
-`t_h^2 sin^2(2 sqrt(1+t_h^2) tau)/(1+t_h^2)` for `t_h=pi/4` on its exact
-six-state source sector. That probability is not the scattering law of the
-graded Wilson field. The native-empty routed sector has K=0, and the exact
-charged dark module also has K=0. Neither supplies an uncomputed native
-vacuum mass correction by changing the interpretation of its records.
+| [Common quantum gauge/Higgs source](chiral_joint/PROOF.md) | Spectral path coefficients, actual quantum links and quantum Yukawa terms form one Hermitian Gauss-invariant H. A complete filter prepares a faithful physical Gibbs state on its own clock. A 122880-state reducing control has proved nonzero same-H pair creation and quantum-link arrival | Full global diagonalization and efficient preparation are not supplied. The finite thermal reference is not a relativistic vacuum. No implicit plaquette term, interacting continuum or physical mass follows |
+
+The canonical dictionary is a charge-conjugating change of variables on the
+same thirty-mode CAR algebra. It does not relabel the vectorlike Dirac times
+R15 comparison program as chiral. No independent mirror family is added by
+the Nambu bookkeeping. For even side length, the antiperiodic momentum menu
+is closed under `p -> -p`, as required by its pair operators.
+
+The finite Higgs response and the constant-background dispersion use distinct
+references. The active quantum ground has charged scalar expectation zero;
+replacing that scalar operator by a nonzero expectation does not derive the
+background response. The free regulator's finite gap `sqrt(3)*pi/L` is a
+volume effect. Its analytic zero-momentum rest symbol is not a measured
+zero-momentum eigenvalue on the antiperiodic finite grid.
+
+The neutral Wilson field retains its own positive free mass two and complete
+work-battery readout. Its face channels are not identified Standard Model
+species. The chosen-H collision and the propagated native collision retain
+their respective clocks and occupation domains. Neither is the scattering
+law of the chiral gauge/Higgs family. The native-empty routed sector and the
+charged dark module have K=0; neither supplies a hidden vacuum mass correction.
 
 ## Remaining physical attachments
 
-1. **One interacting occupation law and reference.** Choose a full source
-   domain that carries the needed charged objects, complete collisions and
-   a positive many-body state. The graded Wilson source supplies the free
-   premises. Transporting a charged cloud or applying the native repair to
-   it must preserve that chosen code and the actual current action. The
-   native face-changing gate does not automatically preserve a fixed-face
-   CAR slot. The whole-object charged encoding supplies a finite current
-   intertwiner, with spatial locality as a separate requirement.
-2. **A nontrivial covariant interacting limit.** Supply the vertex, native
-   field dynamics and refinement/state scaling on that same reference.
-   The propagating-native contact-survival bound concerns exactly one flux
-   object and one native occupation on a fixed physical torus, with a
-   preserved M-mode native momentum window. Bounded coupling in that
-   domain gives free records; arbitrary fixed-N sectors are not covered.
-   A different density, scaling or range must be calculated with its own
-   errors. Correct the tested density vertex or provide another proved
-   field dictionary, and bound momentum leakage together with cutoff,
-   volume and elapsed-time errors. Free-window estimates alone do not
-   control the interacting histories.
+1. **A controlled physical limit of the common reference.** The finite
+   quantum gauge/Higgs H has an explicit nonempty Gauss sector, a faithful
+   physical Gibbs state and complete preparation using that same clock.
+   Establish a useful zero-temperature/reference trajectory, with physical
+   boundary charges and uniform spectral or correlation control. Existence
+   of each finite Gibbs filter does not prove efficient preparation, a
+   Lorentz vacuum or a nontrivial growing-family limit. The onsite ground,
+   empty-state encounter and free filled sea keep their distinct domains.
 
-   **Candidate interaction, not implemented.** On one admitted source with
-   two graded Dirac fields, possible vertices are
-   `g (Psi_bar Psi)(chi_bar chi)` or `g j_Psi^mu j_chi,mu`, where
-   `j^mu=psi_bar gamma^mu psi` and the metric is `(+---)`. Their equal-time
-   spin factors are `beta tensor beta` and
-   `I tensor I - sum_i alpha_i tensor alpha_i`. Any native coefficient
-   multiplying them must have the corresponding scalar or tensor field
-   transformation; inserting beta alone does not make a static native
-   register covariant. These are alternative laws, not identities of K.
-   Both four-fermion vertices have canonical dimension six in 3+1 dimensions.
-   Their scaling, counterterms and interacting reference therefore require
-   explicit control. A concrete acceptance test is the connected four-point
-   cumulant of the declared elementary fields on the selected ground/vacuum,
-   subtracting Wick contractions with their fermionic signs. Its complete,
-   unpostselected records must converge at fixed physical packets with a
-   nonzero lower bound larger than all errors. Non-Gaussian preparations or
-   composite probes cannot substitute for this field/reference test.
-   Covariance, causal/current residuals and positive excitation energy must
-   be controlled on that same source and window. A finite collision or a
-   scalar spin contraction alone does not meet this test.
-3. **Chiral physical currents and species.** Use the literal fifteen-state
-   native-current module rather than assigning its charges to five face
-   positions. Establish the desired spacetime chirality, gauge fields,
-   scalar/reference state and allowed interactions in the propagating
-   occupation theory. The available Dirac attachment is vectorlike; the
-   Weyl gauge-invariant constant mass is forbidden, while the Higgs tensors
-   leave their coefficients unspecified. Spin, statistics and antiparticles
-   of the neutral graded field do not identify it as a lepton or quark.
-4. **Interacting masses and complete comparison records.** The free mass
-   instrument supplies mass readout, without scattering amplitudes. Extend
-   its source-compatible detector construction to the relevant pole, charged threshold,
-   resonance, mixing and incoming/outgoing packet observables of the same
-   interacting source. Retain failures, references, apparatus work and
-   complete detector alternatives. The free mass two and its equal face
-   ratios are calculated outputs of their specified program; an interaction
-   correction requires an actual changed response, not a relabelled free
-   energy or a fit.
-5. **One independent unit reference and empirical identification.** A source
-   energy unit u_E gives the calculated free rest energy `2 u_E` GeV.
-   Units may be attached immediately, with their ancestry stated. A clock
-   or other independent reference must determine u_E for a predictive
-   comparison. Test dimensionless mass ratios, charges and scattering
-   independently of any measured values used to calibrate that reference.
+   Scalar-energy retuning alone cannot change the ground sector of the
+   [active onsite lepton control](chiral_higgs/PROOF.md#3-executed-quantum-interaction-and-two-different-references).
+   Keep its five-state scalar cutoff, set its scalar number energy to
+   `omega>0` and its lepton Yukawa to `y!=0`. The orthogonal particle and
+   antiparticle scalar rows give `W_y^dagger W_y=abs(y)^2 W^dagger W`.
+   Thus each positive eigenvalue r in the proved `0,...,6` spectrum gives
+   `lambda_±(r)=[omega±sqrt(omega^2+4 abs(y)^2 r)]/2`, with the same
+   multiplicity. Since `d lambda_-/dr=-abs(y)^2/sqrt(omega^2+4 abs(y)^2 r)<0`,
+   r=6 retains the rank-two odd-parity ground; all uncoupled energies are
+   zero or omega. The parameter-dependent block intertwiner preserves
+   parity. This excludes that two-parameter onsite shortcut, without
+   excluding a different spatial or quantum-gauge reference of the full
+   source. No scalar background or measured mass is inferred.
+2. **A nontrivial covariant interacting field limit.** Bound the same quantum
+   gauge, scalar and matter correlations under cutoff, scalar/link capacity,
+   physical volume and state refinement. The spectral free regulator has an
+   exact free symbol and controlled tails, with visible finite nonlocality.
+   Its gauge dressing changes the operator, so its free estimates cannot
+   replace interacting Ward, causal or renormalization bounds. An accepted
+   test is a connected four-point function of the declared elementary fields
+   on the selected reference, with Wick contractions subtracted and a
+   nonzero lower bound exceeding all errors at fixed physical packets.
+   Non-Gaussian preparation, a composite probe or a finite collision alone
+   cannot establish that field limit. The propagating-native contact bound
+   concerns exactly one flux object and one native occupation in its stated
+   M-mode window; it cannot be transferred to this chiral gauge family.
+3. **Scalar and flavor response on that source.** The actual gauge tensors
+   and canonical dictionary fix the chiral charge pattern and the form
+   `m_source=abs(v*y_channel)`. They leave three Yukawa coefficients and the
+   scalar background free. Specify their ancestry and calculate a physical
+   gauge-invariant Higgs response, flavor multiplicity and any neutrino
+   mass mechanism. Architecture choices are permitted; measured values
+   used to select them remain calibration inputs. Koide constraints on a
+   separately declared triplet require an explicit map to these physical
+   response variables before constraining lepton masses.
+4. **Masses and complete scattering records.** Extract the appropriate
+   pole, charged threshold or resonance from the same interacting state,
+   with controlled dispersion, finite-volume, cutoff and numerical errors.
+   Extend the existing complete source instruments to its physical probes,
+   retaining failures, apparatus charge, work and every detector alternative.
+   Compare incoming/outgoing wave packets, mixing and decays on this common
+   source. A confined color charge need not be an asymptotic particle, and
+   a finite onsite energy gap is not a quark or lepton rest mass.
+5. **An independent unit reference and measured identity.** Attach one energy
+   unit `u_E`, giving conditional `m c^2=u_E*abs(v*y_channel) GeV`. Units can
+   be attached before a gravity derivation. An independent clock or other
+   reference is required for a predictive GeV comparison. Match charges,
+   spin/statistics, dimensionless ratios and complete interaction records
+   independently of any data used to choose the architecture or calibration.
 
-The first three attachments can be investigated in parallel while preserving
-their common-source acceptance conditions. The fourth consumes their joined
-result; its finite detector and regulator controls are reusable. Unit
-attachment does not require a gravity derivation. A global Yang-Mills gap
-is not a prerequisite for the first particle comparison.
+Reference construction, interacting refinement and flavor response have
+parallel subproblems but must join on one stated source. Physical mass and
+scattering records consume that joined state and clock. A pure Yang-Mills
+global mass gap is not a prerequisite for a first particle comparison; a
+photon-containing physical theory cannot have a positive global vacuum gap.
+
+## Smallest interacting comparison and scalar response criterion
+
+A concrete finite comparison uses two equivalent cells, each with the full
+six lepton CAR modes and five-state quantum scalar, joined by the same
+six-state lepton quantum link. Its active carrier has
+`2^12 * 5^2 * 6 = 614400` states. Both local charged-lepton Yukawa terms
+must be retained. This differs from the executed creation/arrival control,
+which switches off the left Yukawa term and leaves its scalar vacant.
+A compensated boundary probe and the full physical ground or thermal state
+of that uniform two-cell Hamiltonian would test charged spectral response.
+A vacuum-generated cyclic subspace cannot be assumed to contain its ground.
+The [exact sector enumerator](chiral_joint/reduction/README.md) retains
+4140 diagonal-Gauss basis states without boundary charge and 2496 with a
+right compensator of charge minus one. Conserved lepton number and spin
+projection split them into blocks of size at most 642 and 354. These are
+weight-sector counts; the full weak-singlet projection is a separate calculation.
+Two cells alone supply neither three-dimensional dispersion nor a rest mass.
+
+A quantitative quantum-to-background comparison has an exact acceptance
+criterion. Write `W xi=xi tensor psi`, where psi is the retained scalar and
+reference state. For
+`H_q=H_m+H_R+sum_j(y_j A_j tensor Phi_j+h.c.)` and the background operator
+`H_bg=H_m+sum_j(y_j v_j A_j+h.c.)`, define
+
+`epsilon=||(H_R-e_R)psi|| + sum_j |y_j| ||A_j||
+ (||(Phi_j-v_j)psi||+||(Phi_j^dagger-v_j*)psi||)`.
+
+Then `||H_q W-W(H_bg+e_R)||<=epsilon`. Duhamel's identity gives a
+finite-time state error at most `|t| epsilon` and a complete-record total
+variation bound `min(1,|t| epsilon)`. For a background eigenstate of energy E,
+the quantum spectral weight outside a window of half-width w around
+`E+e_R` is at most `epsilon^2/w^2`. These follow directly from the generator
+residual and the spectral theorem; they do not assert that epsilon is small
+for the specified quantum source.
+
+An enlarged, gauge-covariant scalar occupation cutoff can reduce field
+fluctuations in a conditional coherent reference, but both field-adjoint
+residuals and the reference-clock residual must be controlled. An ordinary
+number Hamiltonian rotates a coherent packet. An invariant source has zero
+charged field expectation, so a nonzero v requires a retained relational
+orientation reference and total-Gauss-compatible effects. Larger scalar
+memory alone selects neither that reference nor v, flavor parameters,
+quantum gauge propagation, or a physical vacuum. This criterion makes the
+required approximation testable without replacing an operator by its mean.
 
 ## Existing theorem interfaces
 
@@ -110,7 +163,12 @@ is not a prerequisite for the first particle comparison.
 Hermitian two-by-two matrices. A physical action on a source field needs an
 intertwiner. `Geometry/MassShellKinematics` verifies consequences of an input
 mass parameter. The graded Wilson source supplies its explicit dispersion,
-positive reference and source-unit mass in the free case.
+positive reference and source-unit mass in the free case. The spectral
+left-Weyl construction supplies its massless free field, and the canonical
+Higgs dictionary supplies the conditional chiral massive blocks on their
+declared constant scalar background. `Screen/WeylYukawaConventions` provides
+the all-left charge convention; the actual native pair tensors and complete
+CAR intertwiners supply the corresponding executable interfaces.
 `QFT/PeriodicMomentum` applies once translations and a clock commute; the
 owned sources give those operators and complete finite instruments.
 The operational Fourier clock supplies measurement kernels without choosing
@@ -122,8 +180,9 @@ limits or controlled finite wave-packet experiments. The
 The [centered continuum construction](../continuum_free_limit/README.md)
 proves the full free eight-valley Weyl vacuum net on its specified centered
 CAR source. Its filled-sea uniqueness, field norm and locality arguments
-are reused by the graded flux proof with that proof's actual massive
-projectors and Wilson regulator. Its interacting estimates are not
+are reused by the graded flux proof with its actual massive
+projectors and Wilson regulator, and by the spectral chiral proof with its
+actual single-Weyl Fourier projector and explicit nonlocal finite kernel. Its interacting estimates are not
 transferred between source laws. The
 [ordered-spin field construction](../spin_canonical_field/README.md)
 supplies a regular canonical continuum algebra and positive energy for its

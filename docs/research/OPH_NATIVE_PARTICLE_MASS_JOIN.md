@@ -1,99 +1,140 @@
 # Native particles, currents and mass operators
 
-## A measured source energy with a relativistic free-field interpretation
+The [compensated quantum-scalar instrument](../../model/coherent_defect_wave/chiral_higgs/GAUSS_APPARATUS.md)
+retains 69 unconditional preparation/readout records. Ground preparation
+succeeds with probability `1/160`; its 56 charged-energy records are conditional
+on that recorded success. These are finite source energies, not measured masses.
 
-The [graded flux construction](../../model/coherent_defect_wave/many_body_route/PROOF.md)
-provides one explicit complete occupation law, Hamiltonian and reference.
-Its twenty graded carrier slots per cell encode the literal paired-flux
-objects, including every simultaneous occupation. The nearest-neighbor
-Wilson symbol has squared energy
+## Native chiral fields and their conditional masses
 
-`E_a(p)^2=sum_i sin(a p_i)^2/a^2 + [2+sum_i(1-cos(a p_i))/a]^2`.
+The [sitewise source code](../../model/coherent_defect_wave/chiral_source/PROOF.md)
+realizes `F(C2 tensor R15)` with the actual native currents, retaining every
+local occupation. A local antisymmetric occupied-prefix encoding uses thirty
+whole-object slots per cell and preserves even graded spatial support.
+Each occupied object contains one paired-flux defect and an actual native
+dark cloud. The native idle generator is zero on that cloud; it selects
+neither binding energy nor Yukawa coefficients.
 
-The face count is exactly two; its coefficient in the Hamiltonian is a
-specified architecture choice. Filling the negative bands gives a unique
-finite ground, positive particle and hole excitations, full gap two and
-neutral nonvacuum gap four. On bounded physical momentum windows both
-propagator and vacuum covariance converge with the explicit bound
-`b(a,P)=a^2 P^3/2+3a P^2/2` to the massive free Dirac field. This derives a
-source-unit mass in this program without fitting experimental data. Its
-five neutral face channels do not constitute five measured species.
+The [spectral left-Weyl clock](../../model/coherent_defect_wave/chiral_regulator/PROOF.md)
+is `h_L(p)=-sigma.p tensor I15`, with every mode of an antiperiodic cubic menu.
+Its unique filled-negative-band reference gives positive particle and hole
+energies. The exact finite gap `sqrt(3)*pi/L` is a volume effect; the free
+infinite-volume rest mass is zero. The cutoff is spatially nonlocal and
+has an explicit Fourier-tail control for its local free continuum. No
+interacting gauge-vacuum theorem is inferred from this free calculation.
 
-### Preparation, apparatus work and complete records
+### The actual mass-generating operator
 
-The [mass instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
-uses an actual four-mode block, the same filled reference, a fermionic
-reservoir and an energy detector. Swapping one source mode with an initially
-occupied reservoir can add a particle; an initially empty reservoir can
-create a hole. The setting and success/failure flag are retained. Failure
-can leave a neutral particle-hole pair, so it is not silently discarded or
-modelled as an unchanged state.
+The [Higgs packet](../../model/coherent_defect_wave/chiral_higgs/PROOF.md)
+constructs the full-current invariant local operator
+`(1/2)c^T [epsilon tensor M(H)] c + adjoint`, with the up, down and
+charged-lepton tensors inherited from the native representation. Its
+five-state quantum scalar memory retains both charged particle and
+antiparticle components and the cutoff boundary. The complete six-mode
+lepton/scalar response is finite and gauge invariant. A gauge-invariant
+finite reference has zero expectation of the charged Higgs field.
 
-The detector has nine joint particle/hole occupation projectors on the full
-sixteen-dimensional block. Combined with the four preparation records this
-gives thirty-six records, including all zero-probability outcomes. At rest,
-the six populated records have original probabilities
-`1/4,1/8,1/8,1/4,1/8,1/8`. Successful addition and removal each have energy
-two and opposite relative occupation charge. The failed preparations have
-ground and energy-four components. A finite nine-level battery completes
-the preparation to an exactly energy-conserving unitary. Its shell-extension
-proof retains the battery edges; the receipt executes the source projectors
-and reservoir operation rather than materializing the full 288-dimensional
-battery matrix. Energy-resolved records agree with the driven preparation;
-tracing the battery can dephase cross-energy coherences.
+In the separately declared neutral-background benchmark `H=(0,v)`, write
+`M=v(y_u C_u+y_d C_d+y_e C_e)`. The exact Nambu symbol is
 
-The momentum control at `a=1,p=(0,0,pi/2)` gives `E=sqrt(10)` with exact
-algebraic probabilities. The finite-regulator inversion
+`B(p)=[[h_L(p),-Delta*],[Delta,-h_L(-p)^T]]`,
+`Delta=epsilon tensor M`.
 
-`sqrt(E_a^2-sum_i sin(a p_i)^2/a^2)-sum_i(1-cos(a p_i))/a=2`
+Its sixty rows are redundant bookkeeping for thirty canonical modes. The
+[particle map](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
+executes a canonical transformation into seven massive Dirac fields counting
+color and one massless neutral left-Weyl field. The same current map gives
+left-only weak interactions, equal left/right color action and charges
+`2/3,-1/3,-1,0`. The right Dirac components are the charge conjugates of
+source singlet rows; they are not a second copy of the original R15.
 
-is an identity of this Hamiltonian. It supplies no fitted physical correction.
-The reported dimensional relation is `m c^2=2*u_E GeV`. The energy scale
-`u_E` is unspecified; `c=1` inside the source convention. An SI attachment
-must identify the physical source clock or another measured standard.
+| Conditional role | Source rest energy | Dimensional rest energy |
+| --- | --- | --- |
+| Up-type quark | `abs(v*y_u)` | `u_E*abs(v*y_u) GeV` |
+| Down-type quark | `abs(v*y_d)` | `u_E*abs(v*y_d) GeV` |
+| Charged lepton | `abs(v*y_e)` | `u_E*abs(v*y_e) GeV` |
+| Neutral left lepton | `0` | `0` in this minimal benchmark |
 
-### What prevents a Standard Model mass assignment
+All massive branches obey `E^2=|p|^2+abs(v*y)^2`. Antiperiodic finite momenta
+exclude zero; the listed rest energies are the parameters inferred from
+that branch and its increasing-volume limit. The convention is `H=(0,v)`;
+using `H=(0,v_EW/sqrt(2))` requires the corresponding factor in v. The
+quantum Higgs state, y values and energy standard are unspecified physical
+inputs. Controls `(y_u,y_d,y_e)=(1,1,1)` and `(2,3,5)` preserve the same
+chiral currents while giving different mass ratios. Thus these identities
+alone do not select measured masses or a particular generation.
 
-The [actual current calculation](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
-finds zero native gauge charge on the bare flux field. Attaching the actual
-native `Lambda^2(C^5)+Lambda^4(C^5)` module supplies exact family weights and
-source-current intertwiners. The native repair generator vanishes throughout
-this even dark module, so it supplies no binding energy or mass splitting.
-The full massive four-component attachment is vectorlike. Chiral matter
-requires its own Higgs/gauge dynamics and unwanted-mode control; symmetry
-leaves five Dirac mass coefficients free rather than selecting a lepton ratio.
+### Complete records and the interacting requirement
 
-The [propagating native join](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
-executes a finite encounter with both native and flux propagation. The
-optional native spin memory gives controlled free relativistic windows, but
-its interaction fails the stated scalar boost test. For one flux and one native occupation in the stated smooth momentum
-window, bounded contact strength
-has a vanishing Duhamel comparison bound. A different coupling/refinement
-or finite-density state therefore needs its own interacting proof.
-This join uses its own full 121-state flux cell; it does not inherit the
-filled Wilson vacuum by matching the free rest frequency.
+The unbroken spectral source has an explicit sixteen-outcome two-mode
+reservoir/energy instrument on an actual retained momentum. Its failures
+can create a particle-hole pair, and all outcomes remain in the record.
+The separate [neutral Wilson instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
+measures free rest energy two with thirty-six records and a finite
+energy-conserving work battery. That source's five face channels have no
+native gauge charge. Its apparatus is reusable only after the operator,
+reference and energy standard are attached to the chiral interacting source.
 
-The [five physical attachments](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-are: a common interacting source and reference; physical chiral/gauge/Higgs
-content; a controlled nontrivial relativistic limit; complete mass and
-scattering instruments; and a fixed energy standard with independent
-experimental identification. The free instrument closes the mass-readout part of the fourth item
-on its explicit free source; it supplies no interacting scattering theorem. The
+The finite sixty-state quantum gauge link has exact endpoint Ward identities
+but nilpotent charged coefficients. It cannot be replaced by an identity
+link as a vacuum approximation without a proved bridge. Likewise a classical
+Higgs background is not a source-derived quantum scalar phase. The required
+mass calculation is the spectral or resonance response of a selected
+interacting gauge/scalar reference, with finite-volume, cutoff and detector
+errors. Chiral free propagation, background masses and finite interaction
+are distinct statements in that requirement.
+
+The [particle dependency path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+records the common interacting reference, continuum and physical mass tests.
+The minimal one-family neutral sector is massless, so it does not explain
+observed neutrino mass splittings. Named generations and measured GeV
+predictions are unset in the checked field dictionary. The
 [atlas](OPH_PARTICLE_ATLAS_V3.svg) and [candidate map](OPH_PARTICLE_CANDIDATE_ATLAS.svg)
-retain that distinction.
+retain those distinctions.
+
+The exact quantum lepton/scalar block has ground energy `-2`, with two
+gauge-singlet states, at unit lepton Yukawa and unit scalar number energy.
+Its 56 complete reservoir/energy records include successful excitation
+energies `1` and `3` above that same ground. The global onsite gap
+`(5-sqrt(21))/2` is dark to this charged probe. These are source quantum
+energy lines with explicit operator and reference ancestry; no spatial
+rest mass or GeV value is identified by the onsite calculation.
+
+### One quantum Hamiltonian, physical subspace and clock
+
+The [common quantum gauge/Higgs construction](../../model/coherent_defect_wave/chiral_joint/PROOF.md)
+places the spectral coefficients, actual quantum-link path products, local
+Yukawa terms and invariant scalar/link energies in one Hermitian H. Every
+local total Gauss current commutes with H. For `beta>0`, the physical Gibbs reference
+`rho_beta=P_G exp(-beta H) P_G / Tr(P_G exp(-beta H))` is faithful on its
+nonempty physical subspace and stationary for the same `exp(-it H)`.
+A complete success/failure filter prepares it from the maximally mixed
+physical input, using a specified controller that preserves total Gauss
+charge and total fermion parity, with its graded ancilla retained. The
+explicit side-two norm bound is `||H||<=1884` at unit parameters. This is a finite spectral-controller construction; efficient
+preparation and the huge global eigensystem are not supplied.
+
+A separate control on the same operator grammar retains all 122880 states
+of two lepton cells, a quantum link and a quantum scalar. Starting from
+empty matter, its first action creates a gauge-compatible pair/scalar;
+its second propagates a created lepton to the other cell. The exact
+arrival component has `||R H^2 Omega||^2=3`, with a strictly positive
+complete finite-time arrival bound and the no-arrival alternative retained.
+This input is explicitly distinct from the Gibbs reference. The common
+finite construction supplies no interacting Lorentz vacuum, physical Higgs
+phase, mass renormalization or GeV prediction. No magnetic plaquette term
+is implicit in the declared Hamiltonian.
 
 ### Finite comparison clocks
 
-The [original joint tick](../../model/coherent_defect_wave/PROOF.md) gives
-reciprocal gauge-compatible wave and face readouts, a complete stationary
-filter and populated joint frequencies. The
-[positive-clock triplet calculation](../../model/coherent_defect_wave/dispersion/PROOF.md)
-gives `0,(5-sqrt(5))/60,1/10,(5+sqrt(5))/60`; its additive hopping fails the
-common relativistic speed test. The exact
-[two-wave contact collision](../../model/coherent_defect_wave/energy/PROOF.md)
-and [cubic momentum instrument](../../model/coherent_defect_wave/cubic_readout/PROOF.md)
-retain their own state and clock. They cannot supply an interacting mass
-correction to the graded free source without a transfer proof.
+The [original joint tick](../../model/coherent_defect_wave/PROOF.md) supplies
+reciprocal wave/face response and complete stationary preparation. The
+[positive-clock triplet bands](../../model/coherent_defect_wave/dispersion/PROOF.md)
+are `0,(5-sqrt(5))/60,1/10,(5+sqrt(5))/60` and fail a common relativistic
+speed test. Its [two-wave collision](../../model/coherent_defect_wave/energy/PROOF.md)
+and the [propagating native encounter](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+retain their own clocks and references. Neither supplies a hidden mass
+correction to the conditional chiral benchmark.
 
 ## Local seam frequencies
 
