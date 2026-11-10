@@ -85,7 +85,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering, affine_gauss_source, affine_gauss_mobile, affine_gauss_spectrum, affine_gauss_full_spectrum, affine_gauss_spectrum_validation, affine_gauss_charged_clock, affine_gauss_clock_observables, native_abelian_field_join, native_abelian_energy_records, native_block_dirac, native_charge_resolution, native_higgs_spectral_join, native_charge_centroid, native_weak_current_interface, native_higgs_filtered_state, native_weak_current_response, native_higgs_current_response, native_wilson_maxwell, native_wilson_maxwell_refinement, native_quark_response, native_wilson_maxwell_ground, native_local_current_readout, interacting_block_proca]
+        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering, affine_gauss_source, affine_gauss_mobile, affine_gauss_spectrum, affine_gauss_full_spectrum, affine_gauss_spectrum_validation, affine_gauss_charged_clock, affine_gauss_clock_observables, native_abelian_field_join, native_abelian_energy_records, native_block_dirac, native_charge_resolution, native_higgs_spectral_join, native_charge_centroid, native_weak_current_interface, native_higgs_filtered_state, native_weak_current_response, native_higgs_current_response, native_wilson_maxwell, native_wilson_maxwell_refinement, native_quark_response, native_wilson_maxwell_ground, native_wilson_maxwell_ground_refinement, native_local_current_readout, native_quark_higgs_join, interacting_block_proca]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
