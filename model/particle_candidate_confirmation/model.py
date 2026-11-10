@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from model.particle_common_contract import contract
-from . import catalogue, steps
+from . import catalogue, paths, steps
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -17,6 +17,9 @@ INPUTS = {
     'charged_propagation': 'model/particle_candidate_charged_propagation/results.json',
     'composite_spectrum': 'model/particle_candidate_composite_spectrum/results.json',
     'scalar_response': 'model/particle_candidate_scalar_gauge_response/results.json',
+    'endpoint_threshold': 'model/particle_candidate_endpoint_threshold/results.json',
+    'neutral_dispersion': 'model/particle_candidate_neutral_dispersion/results.json',
+    'scalar_spectrum': 'model/particle_candidate_scalar_spectrum/results.json',
 }
 SCHEMAS = {
     'dictionary': 'oph.particle_candidate_correspondence.v1',
@@ -26,12 +29,18 @@ SCHEMAS = {
     'charged_propagation': 'oph.particle_candidate_charged_propagation.v1',
     'composite_spectrum': 'oph.particle_candidate_composite_spectrum.v1',
     'scalar_response': 'oph.particle_candidate_scalar_gauge_response.v1',
+    'endpoint_threshold': 'oph.particle_candidate_endpoint_threshold.v1',
+    'neutral_dispersion': 'oph.particle_candidate_neutral_dispersion_certificate.v1',
+    'scalar_spectrum': 'oph.particle_candidate_scalar_spectrum.v1',
 }
 SOURCE_INPUTS = tuple('model/particle_candidate_confirmation/' + name for name in
                      ('__init__.py', '__main__.py', 'model.py', 'test_model.py',
-                      'PROOF.md', 'README.md', 'steps.py', 'catalogue.py'))
+                      'PROOF.md', 'README.md', 'steps.py', 'catalogue.py', 'paths.py')) + tuple(
+                          row['path'] for row in paths.REUSE) + (
+                              'model/common_spin_protection/README.md',
+                              'model/cube_eta_protection/README.md')
 SOURCE_TESTS = {
-    'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original time-filtered pair-energy records and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.',
+    'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original dressed records at three endpoint separations and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.',
     'up_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
     'down_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
     'active_neutrinos': 'The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.',
@@ -40,7 +49,7 @@ SOURCE_TESTS = {
     'W_plus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
     'W_minus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
     'Z': 'A neutral source-vector channel couples; its weak/hypercharge mixture and physical Z attachment are unproved.',
-    'Higgs': 'A neutral radial scalar made from the Higgs-conjugate composite has uniform total detection and a separate nonzero finite dynamical response; a surviving inelastic Higgs branch and common physical phase are unproved.',
+    'Higgs': 'A neutral radial scalar made from the Higgs-conjugate composite has uniform elastic detection and a separate resolved positive original energy-transfer window; a surviving inelastic Higgs branch and common physical phase are unproved.',
 }
 
 
@@ -109,7 +118,7 @@ def validate_primary_binding(value):
         if expected is None or any(result.get(key) != item for key, item in expected.items()):
             raise ValueError('candidate calculation changed source, state, reference or clock')
         if any(result.get(key) for key in ('physical_particle_map', 'physical_mass_table_GeV',
-                                           'physical_species_confirmed', 'mass_predictions_GeV')):
+                                           'physical_species_confirmed', 'physical_species_map', 'mass_predictions_GeV')):
             raise ValueError('candidate calculation requires physical interpretation review')
         observed.append(result['member_id'])
     if next(iter(expected_by_id)) not in observed or len(observed) != len(set(observed)):
@@ -130,11 +139,11 @@ def target_family(name):
 
 def supporting_receipts(name):
     if target_family(name) == 'active_neutrinos':
-        return [INPUTS['composites'], INPUTS['composite_spectrum']]
+        return [INPUTS['composites'], INPUTS['composite_spectrum'], INPUTS['neutral_dispersion']]
     if target_family(name) == 'charged_leptons':
-        return [INPUTS['charged_propagation']]
+        return [INPUTS['charged_propagation'], INPUTS['endpoint_threshold']]
     if name == 'Higgs':
-        return [INPUTS['charged'], INPUTS['scalar_response']]
+        return [INPUTS['charged'], INPUTS['scalar_response'], INPUTS['scalar_spectrum']]
     return []
 
 
@@ -148,6 +157,9 @@ def calculated_summary(values):
     propagation = selected('charged_propagation')
     spectrum = values['composite_spectrum']['selected_member_bound']['result']
     scalar = selected('scalar_response')
+    endpoints = values['endpoint_threshold']['selected_member_bound']['result']
+    neutral = selected('neutral_dispersion')
+    inelastic = selected('scalar_spectrum')
     return {
         'charged': {
             'local_coefficient_commutant_dimension': charged['native_coefficient_control']['gauge_and_each_Wilson_coefficient_commutant_dimension'],
@@ -182,6 +194,32 @@ def calculated_summary(values):
             'original_odd_neighboring_two_point_m1_value_or_sign_computed':
                 spectrum['original_odd_neighboring_two_point_m1_value_or_sign_computed'],
         },
+        'endpoint_threshold': {
+            'separations': [{key: row[key] for key in (
+                'geometry', 'onsite_electric_commutator_center', 'centered_second_moment_upper',
+                'reported_transfer_interval', 'original_filtered_recorded_simple_strict_lower',
+                'complete_probe_outcomes', 'finite_pair_interval_is_single_endpoint_mass')}
+                for row in endpoints['separations']],
+            'pair_only_mass_ambiguity': endpoints['pair_only_mass_ambiguity'],
+            'charged_asymptotic_threshold_proved': endpoints['charged_asymptotic_threshold_proved'],
+        },
+        'neutral_dispersion': {
+            'native_increment': neutral['native_increment'],
+            'channels': [{key: row[key] for key in (
+                'probe_irrep', 'dimension', 'centroid_strict_interval',
+                'simple_centroid_span_strict_upper', 'within_multiplet_centroid_ratio_strict_upper',
+                'neighbor_first_moment_value_or_sign_computed', 'centroids_are_isolated_particle_energies')}
+                for row in neutral['channels']],
+            'finite_Walsh_labels_are_conserved_operational_momentum':
+                neutral['finite_Walsh_labels_are_conserved_operational_momentum'],
+        },
+        'scalar_spectrum': {key: inelastic[key] for key in (
+            'source_spacing', 'source_width', 'source_density_floor',
+            'original_ideal_positive_transfer_interval', 'original_ideal_positive_transfer_weight_lower',
+            'reported_positive_transfer_interval', 'original_reported_positive_transfer_weight_lower',
+            'uniform_elastic_weight_lower', 'member_zero_simple_elastic_strict_lower',
+            'positive_cutoff_is_capacity_independent_in_source_clock',
+            'uniform_compact_positive_energy_weight_proved', 'isolated_scalar_pole_or_mass_gap_proved')},
         'scalar_response': {
             'local_radial_spectrum': scalar['local_radial_control']['spectrum'],
             'uniform_original_total_success_lower': scalar['complete_radial_records']['uniform_original_total_success_lower'],
@@ -227,6 +265,7 @@ def build():
         'calculated_source_results': calculated_summary(values),
         'confirmation_plan': steps.plan(),
         'labelled_catalogue': catalogue.build(dictionary),
+        'protected_particle_paths': paths.build(dictionary),
         'physical_particle_map': [],
         'mass_predictions_GeV': [],
         'fit_parameters_used': [],
@@ -278,6 +317,8 @@ def validate(value, *, authenticated=None):
         raise ValueError('candidate confirmation plan differs')
     if value.get('labelled_catalogue') != catalogue.build(original):
         raise ValueError('candidate labelled catalogue differs')
+    if value.get('protected_particle_paths') != paths.build(original):
+        raise ValueError('protected-object particle paths differ')
     if len(set(value['source_excitation_ids'])) != 16 or len(set(value['protected_catalogue_ids'])) != 11:
         raise ValueError('candidate source IDs were lost or conflated')
     if value.get('content_sha256') != content_digest(value):
@@ -331,7 +372,20 @@ def render(value):
              '- The neutral radial scalar detector has total success at least `'
              + scalar['uniform_original_total_success_lower'] + '` throughout the family and above `'
              + scalar['member_zero_simple_strict_lower'] + '` at member zero. Its separate finite dynamical '
-             'response is nonzero; uniform total detection includes elastic records.', '',
+             'response is nonzero; uniform total detection includes elastic records.',
+             '- At endpoint path lengths 1, 2 and 3, complete filtered dressed records have '
+             'probabilities greater than `4/25`, `2/25` and `7/250`. Their broad positive '
+             'transfer bands overlap. The pair data do not fix an endpoint mass.',
+             '- For the weak-pair/singlet neutral trion, the four Walsh spectral centroids '
+             'within either G1 or H lie in `(16/3,38/3)`, span less than `5/9`, and have '
+             'ratio less than `53/48`. These are mean energies, not rest masses; the signed '
+             'neighbor coefficient has no calculated value or sign.',
+             '- The radial scalar has positive original transfer weight in `[1/40,D]` '
+             'at least `c*9/(128*a^2*D^2)`, where `rho >= c I` and D is the full energy '
+             'enclosure width. Complete finite clocks retain at least three quarters of '
+             'this bound in the expanded band. Its uniform elastic floor is `3481/160000`; '
+             'the inelastic floor can vanish with capacity and the enormous clock histogram '
+             'is not executed.', '',
              '| Target | Shared source test | Calculated discriminator | Physical identity |',
              '| --- | --- | --- | --- |']
     for row in value['target_rows']:
@@ -349,6 +403,7 @@ def render(value):
               'interaction records. Generation names require a source flavor discriminator. '
               'A unit conversion supplies none of these tests.', '',
               '[Candidate confirmation steps](CONFIRMATION_STEPS.md); '
+              '[per-object mass paths](MASS_PATHS.md); '
               '[labelled defect and excitation families](CATALOGUE.md); '
               '[Calculated source tests and their domains](README.md); '
               '[candidate map](../standard_model_source_map/candidates/CANDIDATES.md).', '']

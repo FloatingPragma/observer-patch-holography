@@ -463,7 +463,7 @@
         "OPH-OBSERVER-MATTER-INTERACTION-WITNESS"
       ],
       "owner_issues": [],
-      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12. The source-linked finite decoder and one-Higgs tensor witness instantiate the stated branch; numerical coefficients and physical field selection are separate. Separate primary-source candidate tests construct a Higgs-conjugate scalar composite and its compensated charged dressing, with original pair-energy-window probability above 1/40 at member zero. Native charge constraints and a five-dimensional local coefficient commutant constrain elementary-family assignments. These do not discharge the physical matter action, Lorentz-spin or flavor premises of this row. The time-filtered dressed pair has original recorded probability above 3/80 in [311/32,1081/32]. Forty neutral composite components have complete original spatial/final-energy records. The neutral radial scalar has uniform total detection at least 3481/160000 and a separate finite dynamical response. Pair compensation, tiny state floors and elastic contributions retain their scopes; these results do not establish a physical particle dispersion or Higgs phase.",
+      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12. The source-linked finite decoder and one-Higgs tensor witness instantiate the stated branch; numerical coefficients and physical field selection are separate. Separate primary-source candidate tests construct a Higgs-conjugate scalar composite and its compensated charged dressing, with original pair-energy-window probability above 1/40 at member zero. Native charge constraints and a five-dimensional local coefficient commutant constrain elementary-family assignments. These do not discharge the physical matter action, Lorentz-spin or flavor premises of this row. The time-filtered dressed pair has original recorded probability above 3/80 in [311/32,1081/32]. Forty neutral composite components have complete original spatial/final-energy records. The neutral radial scalar has uniform total detection at least 3481/160000 and a separate finite dynamical response. Pair compensation, tiny state floors and elastic contributions retain their scopes; these results do not establish a physical particle dispersion or Higgs phase. Separated endpoint settings have original dressed weights above 4/25, 2/25 and 7/250. Original weak-trion spatial means satisfy within-multiplet ratio <53/48; those means are not particle masses. The radial scalar has resolved positive transfer above the fixed source cutoff 1/40, with explicit density-floor weight and complete clock errors; the compact-window and physical Higgs identifications are unproved.",
       "menu": {
         "size": 1024,
         "alternatives": "all 1024 subsets of the ten nontrivial isotypic components; exactly two survive chirality and the four anomaly constraints, and they form one unordered conjugate pair equal to the two fermionic-parity sectors",
@@ -488,7 +488,13 @@
         "model/particle_candidate_composite_spectrum/PROOF.md",
         "model/particle_candidate_composite_spectrum/results.json",
         "model/particle_candidate_scalar_gauge_response/PROOF.md",
-        "model/particle_candidate_scalar_gauge_response/results.json"
+        "model/particle_candidate_scalar_gauge_response/results.json",
+        "model/particle_candidate_endpoint_threshold/PROOF.md",
+        "model/particle_candidate_endpoint_threshold/results.json",
+        "model/particle_candidate_neutral_dispersion/PROOF.md",
+        "model/particle_candidate_neutral_dispersion/results.json",
+        "model/particle_candidate_scalar_spectrum/PROOF.md",
+        "model/particle_candidate_scalar_spectrum/results.json"
       ],
       "lean": [
         {
@@ -514,7 +520,10 @@
         "model/particle_candidate_confirmation/test_model.py",
         "model/particle_candidate_charged_propagation/test_model.py",
         "model/particle_candidate_composite_spectrum/test_model.py",
-        "model/particle_candidate_scalar_gauge_response/test_model.py"
+        "model/particle_candidate_scalar_gauge_response/test_model.py",
+        "model/particle_candidate_endpoint_threshold/test_model.py",
+        "model/particle_candidate_neutral_dispersion/test_model.py",
+        "model/particle_candidate_scalar_spectrum/test_model.py"
       ],
       "paper_anchors": [
         {

@@ -21,6 +21,8 @@ The [confirmation steps](CONFIRMATION_STEPS.md) attach six physical tests
 to each target within the common field-and-particle dependency map.
 The [labelled catalogue](CATALOGUE.md) groups protected objects and source
 excitations separately, with their original identifiers and domains.
+The [per-object mass paths](MASS_PATHS.md) state the first missing attachment
+for every protected entry and the finite results that can be reused.
 
 ## Charged elementary families
 
@@ -43,6 +45,12 @@ zero and admits this local seed to the canonical energy/momentum algebra.
 The bulk-aperture member-zero apparatus is inactive, so the local bound
 does not prove a positive continuum residue.
 
+The [separated endpoint calculation](../particle_candidate_endpoint_threshold/PROOF.md)
+uses all shortest cube paths of lengths 1, 2 and 3. Its original complete
+filtered dressed probabilities exceed `4/25`, `2/25` and `7/250` in the
+reported positive bands. These bands overlap; the pair data do not
+determine a charged endpoint threshold or mass.
+
 ## Neutral composites
 
 The [composite identity counter](../particle_candidate_composites/PROOF.md)
@@ -58,6 +66,14 @@ has nonzero original neighbor-versus-nonneighbor contrast in all forty
 components. Its complete final-energy records have explicit, extremely
 small probability bounds. They supply no rest mass or two-point dispersion.
 
+The [original two-point moment bound](../particle_candidate_neutral_dispersion/PROOF.md)
+uses occupied-pair estimates on the weak-pair/singlet trion. Within each
+G1 or H multiplet, the four Walsh spectral means lie in `(16/3,38/3)`,
+span less than `5/9` and have ratio less than `53/48`. They may coincide.
+A complete two-clock estimator has controlled bias; its histogram and
+the signed neighbor coefficient are uncomputed. These are spectral means,
+not physical mass ratios or a dispersion relation.
+
 ## Neutral scalar candidate
 
 The [radial response](../particle_candidate_scalar_gauge_response/PROOF.md)
@@ -66,6 +82,14 @@ of the Higgs-conjugate composite has total detection probability at least
 zero. A separate two-time experiment has nonzero original dynamical
 response. Total detection includes elastic records; a surviving inelastic
 branch and Higgs-phase interaction dictionary require separate proofs.
+
+The [resolved positive transfer](../particle_candidate_scalar_spectrum/PROOF.md)
+has original weight at least `c*9/(128*a^2*D^2)` in `[1/40,D]`, with
+`rho >= c I` and full energy enclosure width `D`. Complete finite clocks
+retain at least three quarters of that floor in an expanded band. Exact
+elastic weight has the uniform floor `3481/160000`; the positive inelastic
+floor can vanish and D grows with capacity. The enormous clock resources
+are specified symbolically; their histogram is not executed.
 
 ## Gauge-sector candidates
 

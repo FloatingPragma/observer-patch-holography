@@ -7,6 +7,15 @@ winding retain their distinct meanings and construction domains. The bare
 source entry is an exclusion control. No protected-object entry is identified
 with a named Standard Model particle.
 
+The [per-object particle and mass paths](../../model/particle_candidate_confirmation/MASS_PATHS.md)
+state the first missing attachment for each protected entry and identify the
+existing finite results that supply part of its calculation. A construction
+can be continued directly; combining its records with the primary Wilson
+source requires a transfer proof. No architectural uniqueness proof is needed.
+For the protected hidden-spin factor, `H=h tensor I` makes spin-only probes
+energy-elastic. The eta isometry obeys `H_6 V=V(H_4+U)`, an exact two-occupation
+energy shift. Neither statement supplies an elementary rest mass.
+
 The [candidate confirmation plan](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
 attaches six tests to every elementary target: source operator and charges;
 populated energy-momentum response; physical transformations and statistics;
@@ -17,14 +26,30 @@ have distinct definitions. Unit conversion supplies no species identification.
 
 | Source family | Verified calculation on the declared source | Physical attachment required |
 | --- | --- | --- |
-| Dressed charged pair | [Time-filtered complete records](../../model/particle_candidate_charged_propagation/PROOF.md) have original probability greater than `3/80` in `[311/32,1081/32]` source units at member zero. The same local seed is admitted to the canonical energy/momentum algebra. | A populated momentum-dependent branch and endpoint interpretation. The member-zero bulk aperture is inactive, so its weight cannot be inferred from the distinct local experiment. |
-| Six signed neutral composite families | [Forty component tests](../../model/particle_candidate_composite_spectrum/PROOF.md) give nonzero original neighbor-versus-nonneighbor records with retained final-energy and occupation labels. | The original two-point dispersion, physical currents and Lorentz spin. These final energies are not transfer energies or rest masses; the rigorous event floor is extremely small. |
-| Neutral radial scalar | [The complete radial detector](../../model/particle_candidate_scalar_gauge_response/PROOF.md) has total original success at least `3481/160000` throughout the family and greater than `383/500` at member zero. A separate complete two-time experiment has nonzero original response. | A surviving inelastic scalar branch and a demonstrated Higgs phase with consistent fermion/vector vertices. Total detection includes elastic response and supplies no Higgs mass. |
+| Dressed charged endpoints with compensation | [Separated complete records](../../model/particle_candidate_endpoint_threshold/PROOF.md) at shortest cube path lengths `1,2,3` have original recorded probabilities above `4/25,2/25,7/250` in `[55/32,1337/32]`, `[239/32,2161/32]`, `[263/32,3145/32]` source units, respectively. Each is a fixed member-zero apparatus setting. | A charged-sector threshold or controlled compensator limit, together with a populated momentum-dependent branch. The overlapping pair-transfer windows include flux and the opposite endpoint; dividing them by two gives no endpoint mass. |
+| Six signed neutral composite families | [Forty component tests](../../model/particle_candidate_composite_spectrum/PROOF.md) certify original neighbor-versus-nonneighbor records. For the weak/singlet trion's G1 and H multiplets, [original two-point sum rules](../../model/particle_candidate_neutral_dispersion/PROOF.md) bound each four-centroid spread below `5/9`, every centroid between `16/3` and `38/3`, and their ratio within one multiplet below `53/48`. | Resolve the signed neighbor coefficient and an original spectral branch, then attach operational momentum, physical currents and Lorentz spin. Spectral centroids and the separate four-point final-energy records are not pole energies or rest masses. |
+| Neutral radial scalar | [The original scalar spectrum](../../model/particle_candidate_scalar_spectrum/PROOF.md) has positive transfer weight above the fixed source frequency `1/40`. Complete clocks retain weight at least `3cq/4` in `[3/160,D+1/160]`, with explicit finite resources. The same detector has exact elastic weight at least `3481/160000` across the family and greater than `7/10` at member zero. | A populated scalar branch in a controlled compact energy window, with momentum/dispersion and the appropriate interaction vertices. The inelastic floor is extremely small and the upper endpoint grows with capacity. Neither total radial detection nor the positive event identifies a Higgs mass. |
+
+For the scalar row, `D=U-L` is the authenticated full-source energy enclosure
+width, `q=9/(128 a^2 D^2)`, and `c=2^(-N)` is the original density floor;
+`N` is a density-bound exponent, not capacity in nats. The
+[total radial detector](../../model/particle_candidate_scalar_gauge_response/PROOF.md)
+and the inelastic frequency cut use the same preparation and source clock.
+The positive inelastic estimate coexists with the displayed elastic floor.
+
+The [local charged filter](../../model/particle_candidate_charged_propagation/PROOF.md)
+also retains its distinct `3/80` original event in `[311/32,1081/32]`.
+Admission of its local seed to the canonical energy/momentum algebra does
+not transfer this weight to the inactive member-zero bulk aperture.
 
 All failures, compensators and quantum references stay in their respective
-complete records. These are finite analytic and executable certificates;
-the enormous full histograms are not explicitly sampled. Physical species
-and source-derived GeV outputs are empty in the
+complete records. The neutral neighbor-moment estimator has deterministic
+bias at most `1/2048`, using approximately `9.44e21` bins per energy clock;
+its value and sign are uncomputed. Scalar clock sizes contain the enormous
+density-floor exponent. These are finite analytic and executable resource
+certificates, without sampled full histograms or an established compact
+native-observer apparatus implementation. Physical species and source-derived
+GeV outputs are empty in the
 [checked confirmation receipt](../../model/particle_candidate_confirmation/results.json).
 
 The [particle explainer](OPH_PARTICLE_ATLAS_V3.svg) ([PNG](OPH_PARTICLE_ATLAS_V3.png))
@@ -199,8 +224,13 @@ additional spectral weight.
 The [native odd-field sum rules](../../model/particle_primary_odd_sum_rules/PROOF.md)
 retain creation and reflected adjoint-annihilation histories. Their
 combined success effect is identical in every full Walsh row, and the
-first spectral shell moments reduce exactly to `(m0,m1,0,0)`; the actual
-neighbor expectation `m1` requires calculation. A separate complete
+first spectral shell moments reduce exactly to `(m0,m1,0,0)`. The
+[occupied-pair constraint](../../model/particle_candidate_neutral_dispersion/PROOF.md)
+on the original weak/singlet trion gives `abs(m1) <= d delta/64`, where
+`d=2,4` for G1,H and the actual defect bound has `delta<5`. Its value and
+sign are uncomputed. The four normalized two-point centroids form an
+arithmetic progression with spread below `5/9`; this is not a resolved
+dispersion branch or a bound on particle mass ratios. A separate complete
 four-point graded experiment distinguishes neighbors from nonneighbors
 with original probability difference at least `c t^2/128`, at
 `t=c/(64 R_H^2)`. This is a tiny finite propagation record, not an odd

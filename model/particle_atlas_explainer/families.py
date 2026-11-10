@@ -5,6 +5,7 @@ from .parts import CW, X0, card
 
 def catalogue(c, data, y):
     value = data['identity_tests']['labelled_catalogue']
+    paths = {r['source_id']: r for r in data['identity_tests']['protected_particle_paths']['rows']}
     c.caps(X0, y+10, 'The source catalogue', TEAL, 14)
     c.text(X0, y+60, 'Protected objects have different kinds of labels', 40, TEXT, 700)
     y = c.para(X0, y+100, CW,
@@ -20,6 +21,8 @@ def catalogue(c, data, y):
             body.text(X0+26, yy, row['label'], 21, TEXT, 700)
             yy = body.para(X0+26, yy+27, CW-52, row['description'], 17, SOFT, 1.42)
             yy = body.para(X0+26, yy+5, CW-52, 'Source ID: '+row['source_id'], 13.5, MUTED, 1.35)+25
+            yy = body.para(X0+26, yy, CW-52,
+                'Required attachment: '+paths[row['source_id']]['first_required'], 16, AMBER, 1.42)+25
         h = yy-y
         card(c, X0, y, CW, h)
         c.items.extend(body.items)
@@ -27,6 +30,8 @@ def catalogue(c, data, y):
         y += h+18
     c.link(X0+26, y+20, 'All source domains, proofs and excitation IDs',
            '../../model/particle_candidate_confirmation/CATALOGUE.md', 17)
+    c.link(X0+720, y+20, 'Per-object paths to a particle mass',
+           '../../model/particle_candidate_confirmation/MASS_PATHS.md', 17)
     y += 70
     c.caps(X0, y, 'Source excitations and proposed species', VIOLET, 13)
     y = c.para(X0, y+40, CW,
@@ -109,7 +114,7 @@ def responses(c, data, y):
     composite = source['composite_spectrum']
     interval = '['+', '.join(charged['reported_transfer_interval'])+']'
     c.caps(X0, y+10, 'Tests on the populated source', TEAL, 14)
-    c.text(X0, y+60, 'Three finite detector bounds', 40, TEXT, 700)
+    c.text(X0, y+60, 'Finite detector bounds and mass tests', 40, TEXT, 700)
     y = c.para(X0, y+100, CW,
         'These bounds use the original selected source state and its clock. They keep '
         'the complete apparatus records and quantum reference. A positive record probability '
@@ -142,16 +147,49 @@ def responses(c, data, y):
          'are separate physical identifications.',
          '../../model/particle_candidate_scalar_gauge_response/PROOF.md'),
     )
+    rows += (
+        ('Separated charged endpoints',
+         'Lengths 1 → 2 → 3',
+         'Original recorded probabilities exceed '+', '.join(
+             r['original_filtered_recorded_simple_strict_lower']
+             for r in source['endpoint_threshold']['separations'])+
+         '. Each path transports Wilson flux between opposite charged endpoints. '
+         'The source action, preparation and clock are unchanged.',
+         'These positive energy bands overlap. The response includes both endpoints '
+         'and their dressing. A charged rest mass needs the lower energy edge at '
+         'controlled momentum and a controlled treatment of the companion charge.',
+         '../../model/particle_candidate_endpoint_threshold/PROOF.md'),
+        ('Neutral spectral means',
+         'Within-multiplet ratio < '+source['neutral_dispersion']['channels'][0][
+             'within_multiplet_centroid_ratio_strict_upper'],
+         'For the weak-pair/singlet trion, each G1 or H multiplet has four spatial '
+         'spectral means, which may coincide, in (16/3, 38/3) source units. Their spread is < 5/9. '
+         'Occupied-mode bounds constrain the original interacting source.',
+         'A spectral mean averages many transitions. This ratio is not a particle '
+         'mass ratio. The signed spatial response, conserved physical momentum '
+         'and an isolated branch or threshold require further determination.',
+         '../../model/particle_candidate_neutral_dispersion/PROOF.md'),
+        ('Resolved scalar transfer',
+         'Positive source cutoff: 1/40',
+         'The original scalar measure assigns weight at least c × 9/(128 a² D²) '
+         'to [1/40, D]. Here ρ ≥ c I and D bounds the full source energy width. '
+         'Complete finite clocks retain at least three quarters in an expanded band.',
+         'The floor can vanish and D grows with capacity. Elastic weight is '
+         'at least 3481/160000. No compact surviving branch or Higgs mass follows. '
+         'The enormous clock resources are specified; the histogram is not executed.',
+         '../../model/particle_candidate_scalar_spectrum/PROOF.md'),
+    )
     gap, h = 22, 442
     w = (CW-2*gap)/3
     for i, (label, headline, body, scope, href) in enumerate(rows):
-        x = X0+i*(w+gap)
-        card(c, x, y, w, h)
-        c.text(x+22, y+39, label, 20, TEAL, 700, maxw=w-44)
-        c.text(x+22, y+75, headline, 18, TEXT, 700, maxw=w-44)
-        yy = c.para(x+22, y+112, w-44, body, 17, SOFT, 1.42)
+        x = X0+(i%3)*(w+gap)
+        yy0 = y+(i//3)*(h+gap)
+        card(c, x, yy0, w, h)
+        c.text(x+22, yy0+39, label, 20, TEAL, 700, maxw=w-44)
+        c.text(x+22, yy0+75, headline, 18, TEXT, 700, maxw=w-44)
+        yy = c.para(x+22, yy0+112, w-44, body, 17, SOFT, 1.42)
         yy = c.para(x+22, yy+20, w-44, scope, 16, MUTED, 1.42)
-        if yy > y+h-54:
+        if yy > yy0+h-54:
             raise ValueError('finite response card overflow: '+label)
-        c.link(x+22, y+h-27, 'Source proof and exact bound', href, 16)
-    return y+h
+        c.link(x+22, yy0+h-27, 'Source proof and exact bound', href, 16)
+    return y+2*h+gap

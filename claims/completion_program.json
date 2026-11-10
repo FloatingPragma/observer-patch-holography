@@ -4311,7 +4311,10 @@
         "model/particle_candidate_confirmation/PROOF.md",
         "model/particle_candidate_charged_propagation/PROOF.md",
         "model/particle_candidate_composite_spectrum/PROOF.md",
-        "model/particle_candidate_scalar_gauge_response/PROOF.md"
+        "model/particle_candidate_scalar_gauge_response/PROOF.md",
+        "model/particle_candidate_endpoint_threshold/PROOF.md",
+        "model/particle_candidate_neutral_dispersion/PROOF.md",
+        "model/particle_candidate_scalar_spectrum/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -5329,9 +5332,9 @@
         {
           "id": "candidate_identity_confirmation_dictionary",
           "path": "model/particle_candidate_confirmation/PROOF.md",
-          "sha256": "a9c6b4f2d1fea0e1714f68988985648ecf4642caf1dc4efaef546ada02ee5337",
+          "sha256": "d44b6255f313b23a117d9eebd357db23c2444dc27114240350b5e18568980f9f",
           "independent_check": "model/particle_candidate_confirmation/test_model.py",
-          "scope": "The checked consumer retains all 18 elementary targets, 16 source excitation IDs and 11 protected-object IDs with human labels, families and original construction domains. Six candidate-specific tests specialize the common dependency map. Authenticated charged, neutral and scalar response receipts retain all physical interpretation boundaries. The bare-source entry remains an exclusion control, source excitation defect attachments are null, and no cosmological appearance order is supplied. Physical species, mass predictions, fits and gate promotions are empty.",
+          "scope": "The checked consumer retains all 18 elementary targets, 16 source excitation IDs and 11 protected-object IDs with labels, families and original construction domains. Every protected entry has an explicit source-specific path to a particle and mass observable. The hidden-spin factor is energy-elastic under spin-only probes, and the eta isometry supplies a two-occupation energy shift; neither implies an elementary mass. Authenticated endpoint, neutral-moment and scalar-transfer receipts retain their physical boundaries. Physical species, GeV predictions, fits and gate promotions are empty.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         },
         {
@@ -5356,6 +5359,30 @@
           "sha256": "a1496d16bba56571b8a69502b6f2ca4fe8a319bdf34b8461d87a9d9832c921a8",
           "independent_check": "model/particle_candidate_scalar_gauge_response/test_model.py",
           "scope": "The gauge-invariant radial scalar S/2 has a complete detector with original total success at least 3481/160000 throughout the source family and above 383/500 at member zero. Full-source commutator witnesses give separate nonzero original ideal transfer and finite two-time records. Total detection includes elastic response, and the dynamical floor is not capacity-uniform. No Higgs phase, physical scalar mass or species is identified.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_separated_endpoints",
+          "path": "model/particle_candidate_endpoint_threshold/PROOF.md",
+          "sha256": "101243771034d6dba8004a6f796e47b99cf06a75ba90babdb3dbca1dbdde01c9",
+          "independent_check": "model/particle_candidate_endpoint_threshold/test_model.py",
+          "scope": "Three shortest-path lengths on primary member zero have original complete filtered dressed probabilities above 4/25, 2/25 and 7/250 in positive overlapping transfer bands. Full-Hamiltonian residual bounds retain every path link, compensator, charge-increment meter and failure. These are finite pair responses, not a static potential, charged threshold or endpoint rest mass.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_original_neutral_centroids",
+          "path": "model/particle_candidate_neutral_dispersion/PROOF.md",
+          "sha256": "5e21089f851c34594a8940aa1707454c60037cc6b5013514d3c8ed83fb0fbf0e",
+          "independent_check": "model/particle_candidate_neutral_dispersion/test_model.py",
+          "scope": "The original weak-pair/singlet trion has occupied-pair first-moment bounds in both G1 and H. Each multiplet has four Walsh spectral means in (16/3,38/3), span below 5/9 and ratio below 53/48. A complete finite-clock estimator has a controlled bias. No signed neighbor coefficient is evaluated, no operational momentum is assigned to Walsh labels, and these means are not physical mass ratios.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_resolved_radial_scalar_transfer",
+          "path": "model/particle_candidate_scalar_spectrum/PROOF.md",
+          "sha256": "f38c04bc2fa00a61ff2b03435e3c7079075818d8b343a2299db875ef5db60145",
+          "independent_check": "model/particle_candidate_scalar_spectrum/test_model.py",
+          "scope": "On members 0,1,2,8 the original radial scalar has positive transfer weight at least c*9/(128*a^2*D^2) in [1/40,D], with rho>=cI and D the full energy enclosure width. Complete finite clocks retain three quarters in the expanded band. The cutoff is fixed; the upper endpoint grows and the population floor can vanish. Exact elastic weight has uniform lower bound 3481/160000. No fixed compact surviving branch, Higgs mass, executed histogram or compact native apparatus is proved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
