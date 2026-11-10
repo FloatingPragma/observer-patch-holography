@@ -48,14 +48,33 @@ modes form one all-left-Weyl internal family. The current representation,
 CAR parity and source support are proved together. The fifteen internal
 weights do not select three generations.
 
-The [background particle dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
-is an exact canonical change of these variables when the stated neutral
-scalar background is supplied. It gives seven Dirac fields counting color,
+The [particle dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
+has a canonical field/current map that is independent of the scalar state.
+The [full-source interface](../../model/native_weak_current_interface/PROOF.md)
+verifies its reuse with the quantum scalar and actual interacting ground.
+Its separate Hamiltonian statement supplies seven Dirac fields counting color,
 one neutral left-Weyl field and paired branches
-`E^2=|p|^2+|v_H*y|^2`. The right components are conjugate-singlet creators,
+`E^2=|p|^2+|v_H*y|^2` when a constant neutral scalar is prescribed.
+The right components are conjugate-singlet creators,
 not an added independent mirror family. These background rest parameters
 are inputs; they are not the measured spectrum of the fluctuating quantum
 scalar/link ground.
+
+At the literal five-state scalar cap, `phi^3=0` forbids an exact nonzero
+scalar eigenbackground, with a quantitative residual bound on every state.
+That does not exclude quantum dressed correlations or a specified growing
+register limit. The complete physical weak-density effects
+`(I +/- W/2)/2` use a gauge-invariant scalar-dressed current of norm two.
+They provide an actual operator to test; a nonzero operator alone does not
+supply a relativistic weak vertex. The
+[prepared current response](../../model/native_weak_current_response/PROOF.md)
+does calculate the interacting ground moments and a complete inelastic
+detector law: original nonzero-phase probability exceeds `0.0379338`.
+After the compensated charged pump and energy admission, its conditional
+weak-density expectation lies in `[0.0903329,0.0928015]`, including actual
+preparation and two source-clock control intervals. Energy admission
+precedes the noncommuting current measurement. The full five-outcome
+current instrument and every failure remain.
 
 The [complete quantum Higgs equations](../../model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md)
 relate native elementary and Higgs-screened operators under the same H,
@@ -108,7 +127,66 @@ operator-and-state comparison as any other local calculation.
 <a id="charge-creation-work-and-persistence-on-that-source"></a>
 <a id="same-candidate-transport-and-number-conserving-reads"></a>
 
-## Opposite charge on the actual interacting source
+## Elementary and Higgs-composite response at the same native energy
+
+The [finite centroid experiment](../../model/native_charge_centroid/PROOF.md)
+retains the actual imperfect physical preparation instead of adding an
+ideal ground filter. Its original-attempt narrow-bin probability exceeds
+`0.419706188794`, and its complete phase-pointer mean is in
+`[0.6916566792649, 0.6916566826119]` source units. The bin projector remains
+an explicit spectral apparatus service. A centroid is an aggregate of
+the admitted spectral measure and finite decoder, not a selected pole;
+it cannot replace another package's maximum-residue energy selector.
+
+The [quantum Higgs spectral join](../../model/native_higgs_spectral_join/PROOF.md)
+keeps the complete eight-cell Hamiltonian, its actual ground and the same
+charged bin. The elementary creator `A=c_ec†` and
+`B=-epsilon(phi† c_L)` obey `[h,A]=B+lambda[T,A]` on the full native
+carrier. Their gauge-current commutators agree: color/weak singlets,
+`Y=1`, integer link charge `6Y=6`. Both have raw lepton increment `-1`
+and odd parity. The scalar stays quantum.
+
+For the actual spectral projector `P`,
+`Re <PAg,PBg> > 0.28988126` and `||PBg||² > 0.19997942`.
+Finite-group Schur orthogonality gives a common `G1` doublet at at least
+one energy. The complete setting-dependent interference experiment has
+original hit contrast above `0.07247007595`, including the physical
+preparation error, all failures and retained apparatus doublets.
+
+The selector maximizing this positive cross residue is `E_H`. Its
+existence does not prove Higgs overlap at the independently defined
+largest-elementary-residue `E*`. The result identifies shared finite
+spectral support; it does not turn the original composite into a full CAR
+field or infer a physical weak interaction from its screened charge.
+
+The [refined native bins](../../model/native_charge_resolution/PROOF.md)
+also belong to the unchanged cube and its original reference. They
+retain positive probe weight in widths down to about `8.382e-8` source
+units. Their sharper selection is explicit and cannot silently replace
+`E*` or `E_H` in a different Hamiltonian's spectral matrix units.
+
+## Normalized elementary and composite preparations
+
+The [filtered-state theorem](../../model/native_higgs_filtered_state/PROOF.md)
+strengthens the elementary/composite comparison. For `a=PAg`, `b=PBg`,
+bin center `e` and half-width `d`, the full equation gives
+`||b-e*a|| <= (d+720*lambda/sqrt(w_lower))*||a||`.
+The resulting normalized-state trace bound includes a depth-three finite
+ground preparation, with eight retained trials and seven filters. For the
+narrower bin, **every common subsequent finite detector history differs
+by at most `1.68597220e-7` in total variation** between the successful
+elementary and composite preparations. Their original pump probabilities
+are different and remain visible; this comparison does not discard them.
+
+The positive cross residue selects an actual common `G1` doublet within
+`[0.6916566390288,0.6916567228480]` in source excitation units. Using that
+doublet in the parametric sixteen-occupation free Dirac construction is
+an explicit alternative selector and kinetic architecture. It does not
+replace the wider bin's maximum-residue member or transfer its affine
+interaction. The source composite agrees in the proved filtered response;
+it is not a canonical fermion operator on every occupation sector.
+
+## Opposite charge and the retained reference
 
 The [native conjugation proof](../../model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/PROOF.md)
 constructs an antiunitary reflection/particle-hole map on the full scalar,
@@ -230,6 +308,37 @@ records retain all failures and outside-bin weight. These are native charged
 field observations on a declared joined Hamiltonian. A momentum-dependent
 relativistic threshold and electromagnetic species assignment require their
 own comparison on that Hamiltonian.
+
+## Energy-resolved arrival and a free spinor construction
+
+The [native position/energy instrument](../../model/native_abelian_energy_records/PROOF.md)
+joins two actual records on the whole-bin charged-field Hamiltonian.
+The arrival measurement changes the source state. A direct spectral
+cluster estimate, followed by its actual finite energy clock, bounds
+arrival-and-ground acceptance above `4.50e-6` at the apex and `1.13e-6`
+at a boundary neighbor at time `1/4`, per original attempt. Accepted
+infidelities are below `0.001041` and `0.004354`. Every preparation,
+ground-admission, pump and clock failure stays in the law. This admitted
+bin's ground does not identify the full unpenalized charged ground.
+
+The [free Dirac code](../../model/native_block_dirac/PROOF.md) solves a
+different attachment. Actual odd source eigenstates at `E*`, their cubic
+spin doublets and their conjugates encode all four fermionic occupations
+per charge pair. Four complete constituents per macrocell supply the
+sixteen-state code; all native complements remain. A declared positive
+square-root spatial kinetic term preserves the full product ground and
+has dispersion `Omega_a²=E*²+4/a² sum_i sin²(a p_i/2)` on that code.
+Spinor filters supply a free Lorentz-covariant, causal CAR readout with
+controlled finite-record errors. The rest frequency is source-selected,
+not experimentally calibrated.
+
+These two Hamiltonians are distinct. The free code has full-range
+couplers and explicit programmable control; it does not acquire the
+affine attachment's interaction. Its two charges have native `Y=±1`,
+with integer link charges `6Y=±6`. The vectorlike `e^c` ancestry does not
+give the electron's left-handed weak representation. Observed currents,
+interactions, flavor content and an independent physical energy standard
+are required before attaching a Standard Model mass.
 
 ## Physical mass readout criterion
 

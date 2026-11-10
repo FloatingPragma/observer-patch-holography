@@ -1,0 +1,732 @@
+{
+  "all_pass": true,
+  "comparison_ancestry": {
+    "exposure": "retrospective_known_data",
+    "independently_predicted_absolute_masses": 0,
+    "new_eligible_physical_comparisons": 0,
+    "new_observations_or_mass_fits": 0,
+    "physical_species_assignments": 0,
+    "previous_dimer_equal_gap_test": "conditional retrospective equality; not physical identity",
+    "previous_dimer_excluded_assignments": 672,
+    "previous_dimer_exclusion_applied_to_new_cube": false,
+    "previous_mass_scale": "one supplied electron mass calibration"
+  },
+  "gates": [
+    "CP-07",
+    "CP-12"
+  ],
+  "grading": {
+    "complete_Fock_dimension": 65536,
+    "complete_number_sector_dimension": 8008,
+    "domain": "specified N6 reference, density/phase response and its H spectral components",
+    "even_parity_identified_as_Lorentz_spin_or_Bose_statistics": false,
+    "grading_preserving_single_odd_fermion_identification": "excluded",
+    "local_operator_parity": 1,
+    "number_charge_identified_as_electromagnetism": false,
+    "probe_squared_unnormalized_norm": 840,
+    "reference_and_probe_number": 6,
+    "reference_occupation_columns": 56,
+    "source_parity": 1,
+    "transition_number_change": 0
+  },
+  "identified_model_energies_and_inertial_mass": {
+    "cube_reference_energy_H": "3",
+    "energy_gap_and_weight_intervals_are_rationally_certified": true,
+    "exact_positive_probe_lines": [
+      {
+        "H_energy_approximation": 1.8164989204983994,
+        "H_energy_display_interval_12dp": [
+          "908249460249/500000000000",
+          "1816498920499/1000000000000"
+        ],
+        "H_energy_interval": [
+          "549003111573154182611075/302231454903657293676544",
+          "35136199140681867687108801/19342813113834066795298816"
+        ],
+        "factor": "C128",
+        "gap_to_minimum_probe_energy_interval": [
+          "0",
+          "0"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 2.183403074702295,
+        "normalized_probe_weight_approximation": 0.0024653663065,
+        "normalized_probe_weight_interval": [
+          "1232683153/500000000000",
+          "2465366307/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "4915505128123829795736949/2417851639229258349412352",
+          "47699724793608179723469183/19342813113834066795298816"
+        ],
+        "signed_gap_to_R_approximation": -1.1835010795016006,
+        "signed_gap_to_R_display_interval_12dp": [
+          "-591750539751/500000000000",
+          "-1183501079501/1000000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "-357691253137817698418557/302231454903657293676544",
+          "-22892240200820332698787647/19342813113834066795298816"
+        ],
+        "z_interval": [
+          "-55459798234160404742013/18889465931478580854784",
+          "-3549427086986265903488831/1208925819614629174706176"
+        ]
+      },
+      {
+        "H_energy_approximation": 1.8605375013914902,
+        "H_energy_display_interval_12dp": [
+          "1860537501391/1000000000000",
+          "116283593837/62500000000"
+        ],
+        "H_energy_interval": [
+          "35988029180695386303679755/19342813113834066795298816",
+          "8997007295173846575919939/4835703278458516698824704"
+        ],
+        "factor": "C64",
+        "gap_to_minimum_probe_energy_interval": [
+          "425915020006759308285477/9671406556917033397649408",
+          "212957510003379654142739/4835703278458516698824704"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 2.2274416555953858,
+        "normalized_probe_weight_approximation": 0.0056446235405,
+        "normalized_probe_weight_interval": [
+          "282231177/50000000000",
+          "5644623541/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "40175871065004156982466547/19342813113834066795298816",
+          "24275777416810849170020069/9671406556917033397649408"
+        ],
+        "signed_gap_to_R_approximation": -1.1394624986085098,
+        "signed_gap_to_R_display_interval_12dp": [
+          "-1139462498609/1000000000000",
+          "-71216406163/62500000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "-22040410160806814082216693/19342813113834066795298816",
+          "-5510102540201703520554173/4835703278458516698824704"
+        ],
+        "z_interval": [
+          "-2697597046972747286917877/1208925819614629174706176",
+          "-674399261743186821729469/302231454903657293676544"
+        ]
+      },
+      {
+        "H_energy_approximation": 1.9551376320574159,
+        "H_energy_display_interval_12dp": [
+          "1955137632057/1000000000000",
+          "977568816029/500000000000"
+        ],
+        "H_energy_interval": [
+          "37817861828710666999755521/19342813113834066795298816",
+          "18908930914355333499877761/9671406556917033397649408"
+        ],
+        "factor": "Q2",
+        "gap_to_minimum_probe_energy_interval": [
+          "41900979500449989260105/302231454903657293676544",
+          "1340831344014399656323361/9671406556917033397649408"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 2.3220417862613116,
+        "normalized_probe_weight_approximation": 0.0058812188945,
+        "normalized_probe_weight_interval": [
+          "2940609447/500000000000",
+          "1176243779/200000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "42005703713019437678542313/19342813113834066795298816",
+          "787209179400577797439311/302231454903657293676544"
+        ],
+        "signed_gap_to_R_approximation": -1.0448623679425841,
+        "signed_gap_to_R_display_interval_12dp": [
+          "-1044862367943/1000000000000",
+          "-522431183971/500000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "-20210577512791533386140927/19342813113834066795298816",
+          "-10105288756395766693070463/9671406556917033397649408"
+        ],
+        "z_interval": [
+          "-867764398957466590842111/1208925819614629174706176",
+          "-433882199478733295421055/604462909807314587353088"
+        ]
+      },
+      {
+        "H_energy_approximation": 2.108692846015387,
+        "H_energy_display_interval_12dp": [
+          "421738569203/200000000000",
+          "32948325719/15625000000"
+        ],
+        "H_energy_interval": [
+          "10197012908738627380454823/4835703278458516698824704",
+          "40788051634954509521819293/19342813113834066795298816"
+        ],
+        "factor": "C64",
+        "gap_to_minimum_probe_energy_interval": [
+          "5651852494272641834710491/19342813113834066795298816",
+          "5651852494272641834710493/19342813113834066795298816"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 2.475597000219283,
+        "normalized_probe_weight_approximation": 0.0071376635585,
+        "normalized_probe_weight_interval": [
+          "3568831779/500000000000",
+          "7137663559/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "11243973379815820050151521/4835703278458516698824704",
+          "53351577287880821558179675/19342813113834066795298816"
+        ],
+        "signed_gap_to_R_approximation": -0.8913071539846129,
+        "signed_gap_to_R_display_interval_12dp": [
+          "-178261430797/200000000000",
+          "-13926674281/15625000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "-4310096926636922716019289/4835703278458516698824704",
+          "-17240387706547690864077155/19342813113834066795298816"
+        ],
+        "z_interval": [
+          "525606351821593982805415/302231454903657293676544",
+          "2102425407286375931221661/1208925819614629174706176"
+        ]
+      },
+      {
+        "H_energy_approximation": 2.1676397339281825,
+        "H_energy_display_interval_12dp": [
+          "270954966741/125000000000",
+          "2167639733929/1000000000000"
+        ],
+        "H_energy_interval": [
+          "41928250271493834966525415/19342813113834066795298816",
+          "5241031283936729370815677/2417851639229258349412352"
+        ],
+        "factor": "C128",
+        "gap_to_minimum_probe_energy_interval": [
+          "3396025565405983639708307/9671406556917033397649408",
+          "849006391351495909927077/2417851639229258349412352"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 2.5345438881320783,
+        "normalized_probe_weight_approximation": 0.0045281230365,
+        "normalized_probe_weight_interval": [
+          "1132030759/250000000000",
+          "4528123037/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "46116092155802605645312207/19342813113834066795298816",
+          "27245887962210073501442899/9671406556917033397649408"
+        ],
+        "signed_gap_to_R_approximation": -0.8323602660718176,
+        "signed_gap_to_R_display_interval_12dp": [
+          "-104045033259/125000000000",
+          "-832360266071/1000000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "-16100189070008365419371033/19342813113834066795298816",
+          "-2012523633751045677421379/2417851639229258349412352"
+        ],
+        "z_interval": [
+          "3242624043825701375927783/1208925819614629174706176",
+          "405328005478212671990973/151115727451828646838272"
+        ]
+      },
+      {
+        "H_energy_approximation": 3.015861345573418,
+        "H_energy_display_interval_12dp": [
+          "3015861345573/1000000000000",
+          "1507930672787/500000000000"
+        ],
+        "H_energy_interval": [
+          "7291905298082845614182187/2417851639229258349412352",
+          "58335242384662764913457497/19342813113834066795298816"
+        ],
+        "factor": "C128",
+        "gap_to_minimum_probe_energy_interval": [
+          "23199043243980897226348695/19342813113834066795298816",
+          "23199043243980897226348697/19342813113834066795298816"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 3.3827654997773138,
+        "normalized_probe_weight_approximation": 0.4215779392285,
+        "normalized_probe_weight_interval": [
+          "105394484807/250000000000",
+          "421577939229/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "976923191702680243628817/302231454903657293676544",
+          "70898768037589076949817879/19342813113834066795298816"
+        ],
+        "signed_gap_to_R_approximation": 0.015861345573418048,
+        "signed_gap_to_R_display_interval_12dp": [
+          "15861345573/1000000000000",
+          "7930672787/500000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "38350380395070565945131/2417851639229258349412352",
+          "306803043160564527561049/19342813113834066795298816"
+        ],
+        "z_interval": [
+          "2456202019624328915357483/151115727451828646838272",
+          "19649616156994631322859865/1208925819614629174706176"
+        ]
+      },
+      {
+        "H_energy_approximation": 3.0307696525931225,
+        "H_energy_display_interval_12dp": [
+          "3030769652593/1000000000000",
+          "1515384826297/500000000000"
+        ],
+        "H_energy_interval": [
+          "58623610981188571741592663/19342813113834066795298816",
+          "7327951372648571467699083/2417851639229258349412352"
+        ],
+        "factor": "C64",
+        "gap_to_minimum_probe_energy_interval": [
+          "11743705920253352027241931/9671406556917033397649408",
+          "2935926480063338006810483/2417851639229258349412352"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 3.3976738067970182,
+        "normalized_probe_weight_approximation": 0.4157891414725,
+        "normalized_probe_weight_interval": [
+          "12993410671/31250000000",
+          "415789141473/1000000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "62811452865497342420379455/19342813113834066795298816",
+          "35593568317057441888976523/9671406556917033397649408"
+        ],
+        "signed_gap_to_R_approximation": 0.030769652593122657,
+        "signed_gap_to_R_display_interval_12dp": [
+          "30769652593/1000000000000",
+          "15384826297/500000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "595171639686371355696215/19342813113834066795298816",
+          "74396454960796419462027/2417851639229258349412352"
+        ],
+        "z_interval": [
+          "19937984753520438150995031/1208925819614629174706176",
+          "2492248094190054768874379/151115727451828646838272"
+        ]
+      },
+      {
+        "H_energy_approximation": 3.044862367942584,
+        "H_energy_display_interval_12dp": [
+          "1522431183971/500000000000",
+          "3044862367943/1000000000000"
+        ],
+        "H_energy_interval": [
+          "29448101870229833488369279/9671406556917033397649408",
+          "58896203740459666976738559/19342813113834066795298816"
+        ],
+        "factor": "Q2",
+        "gap_to_minimum_probe_energy_interval": [
+          "23760004599777799289629757/19342813113834066795298816",
+          "23760004599777799289629759/19342813113834066795298816"
+        ],
+        "gap_to_numerically_estimated_N6_ground": 3.41176652214648,
+        "normalized_probe_weight_approximation": 0.1369759239635,
+        "normalized_probe_weight_interval": [
+          "136975923963/1000000000000",
+          "34243980991/250000000000"
+        ],
+        "rigorous_gap_to_N6_ground_interval": [
+          "31542022812384218827762675/9671406556917033397649408",
+          "71459729393385979013098941/19342813113834066795298816"
+        ],
+        "signed_gap_to_R_approximation": 0.04486236794258419,
+        "signed_gap_to_R_display_interval_12dp": [
+          "22431183971/500000000000",
+          "44862367943/1000000000000"
+        ],
+        "signed_gap_to_R_interval": [
+          "433882199478733295421055/9671406556917033397649408",
+          "867764398957466590842111/19342813113834066795298816"
+        ],
+        "z_interval": [
+          "10105288756395766693070463/604462909807314587353088",
+          "20210577512791533386140927/1208925819614629174706176"
+        ]
+      }
+    ],
+    "ground_analysis": {
+      "full_Fock_ground_across_all_number_sectors_determined": false,
+      "lower_bound_reason": "six free one-particle energies are bounded below by -sqrt3/16 each; contact is positive",
+      "number_sector": 6,
+      "number_sector_dimension": 8008,
+      "numerical_eigenpair_admission": 1e-10,
+      "numerical_eigenpair_residuals": [
+        5.2662706450997635e-14,
+        8.071962455970524e-14
+      ],
+      "numerical_lowest_eigenvalue_estimate": -0.36690415420389577,
+      "numerical_next_eigenvalue_estimate": -0.36646299514552383,
+      "rigorous_ground_bounds_formula": "-3sqrt3/8 <= E0_N6 <= -sqrt3/8",
+      "rigorous_ground_interval": [
+        "-6281762826463156018180191/9671406556917033397649408",
+        "-523480235538596334848349/2417851639229258349412352"
+      ],
+      "sparse_estimate_is_an_interval_certified_ground": false,
+      "upper_bound_reason": "six fully spin-polarized orbitals have exact energy -sqrt3/8 and zero contact"
+    },
+    "inertial_mass_and_binding": {
+      "SI_or_GeV_mass_identified": false,
+      "conditional_energy_map": "E_phys=E_unit epsilon+E_offset, E_unit>0",
+      "conditional_inertial_mass": "M=2 hbar^2/(E_unit L_unit^2)",
+      "conditional_momentum_map": "p_phys=hbar P/L_unit",
+      "conditional_positive_binding_energy": "E_binding=E_unit gamma^2",
+      "generator_and_time_orientation": "global reflected J_a=6/a^2-H_a; the original H_a curvature has the opposite sign",
+      "mass_ratio_to_single_edge_particle": "2",
+      "model_dispersion": "epsilon(P)=|P|^2/4-gamma^2",
+      "model_inertial_mass_hbar_model_equal_one": "2",
+      "negative_binding_offset_is_rest_mass": false,
+      "relativistic_rest_energy_offset_fixed": false,
+      "required_time_map": "t_phys=T_unit t, E_unit T_unit=hbar",
+      "zero_momentum_energy": "E_offset-E_unit gamma^2"
+    },
+    "minimum_probe_energy_is_full_N6_ground": false,
+    "model_energy_unit": "the original cube contact coupling U=1; no physical joule or GeV calibration",
+    "normalization_of_weights": "normalized centered density probe; the local phase has15/16 times these weights and an additional1/16 elastic line at E=3",
+    "physical_rest_masses_or_particle_names_assigned": false,
+    "physical_unit_calibration_audit": {
+      "conditional_reuse_is_an_additional_hypothesis_not_a_prediction": true,
+      "measured_mass_used_to_fit_new_candidates": false,
+      "old_SI_helper": "requires supplied seconds per model unit, signal speed and E=hbar omega; it derives no physical clock calibration",
+      "old_defect_clock_lab_calibration_proved": false,
+      "old_defect_clock_scale": "Omega_ref=1/4 GeV is a declared calibration of a separate co-driven calibrated field/clock design",
+      "old_dimer_scale": {
+        "assigned_electron_energy": "0.51099895069",
+        "role": "one common energy calibration input; not an absolute mass prediction",
+        "unit": "MeV"
+      },
+      "old_scale_inherited_by_cube_or_moving_pair": false,
+      "same_cube_or_moving_pair_physical_clock_and_length_join_proved": false,
+      "sources_sha256": {
+        "model/clock_defect_energy/si_units.py": "16fb7de3cb2895ccef4a3fca080d3b2d238b538778d6a20611ccaca2f9d460fa",
+        "model/defect_field_clock/README.md": "7f36b748a1f2055b454f94cfb6880f5195b7378f44e15491420f00206dfa103e",
+        "model/defect_field_clock/clock.py": "4e8d4d954f93e59949002522fbae00e0cf759bb6a4281e6501682569deac39f2",
+        "model/moving_bound_pair/README.md": "10447440de65afd7a14a93d58e7058d82bad90a78af902a51f9061c39f03e48e",
+        "model/particle_comparison/README.md": "61831661e87194519b4b4020e162119e539688f20d07d306964f088394c027a1",
+        "model/particle_comparison/observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c"
+      }
+    },
+    "spectral_variable": "E_H=2+z/16"
+  },
+  "mass_shell": {
+    "Lorentz_shell_squared_residual_quartic": "alpha**2/16",
+    "allowed_energy_dictionary": "alpha*epsilon+beta, fixed real alpha != 0 and beta",
+    "allowed_momentum_dictionary": "p=L*P, fixed invertible real linear L",
+    "exact_massless_Lorentz_shell_on_open_momentum_set": "excluded",
+    "exact_positive_mass_Lorentz_shell_on_open_momentum_set": "excluded",
+    "nonrelativistic_approximation_excluded": false,
+    "other_source_scalings_excluded": false,
+    "physical_mass_charge_and_spin_identified": false,
+    "source_band": "|P|^2/4-gamma^2",
+    "source_comparison": "J_a=6/a^2-H_a on the specified two-body bound band",
+    "source_number": 2,
+    "source_parity": 1
+  },
+  "nonrelativistic_control_example": {
+    "constant_and_quadratic_terms_match": true,
+    "lower": "1/320800",
+    "rest_energy_and_units_are_assigned_inputs": true,
+    "upper": "1/320000"
+  },
+  "physical_target_sources": {
+    "Lorentz_mass_shell": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-kinematics.pdf",
+    "electron_spin": "https://pdg.lbl.gov/2025/listings/rpp2025-list-electron.pdf",
+    "quark_fermion_quantum_numbers": "https://pdg.lbl.gov/2025/reviews/rpp2025-rev-quark-model.pdf"
+  },
+  "remaining_identity_requirements": [
+    "physical vacuum and common Hamiltonian/clock identification",
+    "physical electric and other gauge charges with current couplings",
+    "Lorentz spin/helicity, chirality and appropriate exchange law",
+    "propagating mass shells and stable or resonant pole interpretation",
+    "common units independent of fitting the target species mass",
+    "complete interactions and independent dimensionless physical comparisons"
+  ],
+  "same_number_energy_origin": {
+    "global_time_reversal_repairs_mixed_frequency_signs": false,
+    "same_number": 6,
+    "scalar_or_common_number_chemical_potential_repairs_negative_gaps": false,
+    "transformed_gap": "E - R"
+  },
+  "schema": "oph.particle_identification.v1",
+  "scope": {
+    "accepted_physical_gates_added": 0,
+    "nonrelativistic_composite_interpretation_excluded": false,
+    "other_odd_excitations_or_scalings_excluded": false,
+    "source_readable_laws_admitted": true,
+    "whole_OPH_exclusion": false
+  },
+  "source_sha256": {
+    "model/clock_defect_energy/si_units.py": "16fb7de3cb2895ccef4a3fca080d3b2d238b538778d6a20611ccaca2f9d460fa",
+    "model/cube_eta_protection/cube.py": "153956b76b23bb71fc5fd77d05ae0b0b3e6251e25510c841ec42a0fc98193505",
+    "model/cube_eta_protection/repair.py": "2339f2d1a2c6e2aeef5a3451705e05812e9d0663c83a42e1afb224f23db501f4",
+    "model/cube_eta_protection/spectrum.py": "86c0c586c706476b48bf45b8c2681d3f840072eb595f9b79d3fb23c1948ae3ca",
+    "model/defect_field_clock/README.md": "7f36b748a1f2055b454f94cfb6880f5195b7378f44e15491420f00206dfa103e",
+    "model/defect_field_clock/clock.py": "4e8d4d954f93e59949002522fbae00e0cf759bb6a4281e6501682569deac39f2",
+    "model/field_symmetry/symmetry.py": "e0a6686d2ee273113c861b55377cd6ea3c4a08285a3b6cc175fe7d93430aba68",
+    "model/moving_bound_pair/README.md": "10447440de65afd7a14a93d58e7058d82bad90a78af902a51f9061c39f03e48e",
+    "model/moving_bound_pair/limit.py": "8c93b219a4e1826576e5d7e200f3bb9967f0662044c90e71b4acf34ab7b3adb1",
+    "model/particle_comparison/README.md": "61831661e87194519b4b4020e162119e539688f20d07d306964f088394c027a1",
+    "model/particle_comparison/observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c",
+    "model/particle_comparison/results.json": "48d21c97df7dd20939462e7d3758e5a77f265a555241334f2dc4348ae632f0d7",
+    "model/particle_identification/README.md": "49e5fc521ff20dba32ca580caa75faab63476f3fa39cb60cd83d89ac6169579c",
+    "model/particle_identification/audit.py": "5130c5ccf8cb7e07ff1ceebb245788df221d249b66f784e4adde542338faef4c",
+    "model/particle_identification/energy.py": "5297e1b421d982ac22b9038826e46428a4d39313915855f8cba989e9145af959",
+    "model/particle_identification/packet.py": "03695844312a1a6cdc273f7b8d4aad722a05375db2f13189ddf855c7e743e78d",
+    "model/particle_identification/test_audit.py": "c287a068ce6c7026e8822481abb3093e65e073cd90f7cfa538b7810a5def654c",
+    "model/particle_identification/test_energy.py": "883c8660cda1edfe1afc25100480dc546442d0fd434dc543998cb48ca569d811",
+    "model/particle_identification/test_vacuum.py": "48ffd0d5a01c2523ca5b7e019d4890e6900dece188e3adf047f78c99eb0e943e",
+    "model/particle_identification/vacuum.py": "429c97bb37612bb1ab1ca48091cfd581967ae0516afcb84fcc9b65cee1fe3deb",
+    "paper/tex_fragments/PARTICLE_IDENTIFICATION.tex": "0daedba45d8a28a5ed25e87b73c7196b2f0677b79d1e4de6f327ad930b7cbead"
+  },
+  "vacuum": {
+    "R_is_a_ground_state_of_the_admitted_field_algebra": false,
+    "R_is_passive_under_all_number_preserving_unitaries": false,
+    "actual_density_negative_mass_interval": [
+      "15394197201/640000000000",
+      "9621373251/400000000000"
+    ],
+    "exact_eight_column_cyclic_Gram_determinant": "1488395072912184839188800532906554156908544",
+    "excited_reference_or_thermal_response_inconsistent": false,
+    "global_time_reversal_removes_mixed_signs": false,
+    "greater_correlation_convention": "<R|delta_n(t) delta_n(0)|R>=(15/16) sum_j w_j exp(-i omega_j t)",
+    "lowering_witness": {
+      "energy_change_from_R": "-1/2-sqrt19/8 < -1",
+      "executed_local_F_mean_energy_change": "0",
+      "native_extraction_protocol_executed": false,
+      "orthogonal_to_R": true,
+      "passivity_scope": "full finite unitary algebra, already within the number-preserving protected sector",
+      "same_CAR_number": 6,
+      "state": "psi_minus=P_(H=5/2-sqrt19/8) q / sqrt(w_minus)",
+      "unitary": "U=I-|R><R|-|psi_minus><psi_minus|+|R><psi_minus|+|psi_minus><R|"
+    },
+    "measure_is_retarded_commutator": false,
+    "negative_frequency_lines": 5,
+    "normalized_centered_probe": "q=(4 n_origin-3)R/sqrt15",
+    "normalized_probe_negative_mass_interval": [
+      "5131399067/200000000000",
+      "3207124417/125000000000"
+    ],
+    "normalized_probe_negative_mass_simple_bounds": [
+      "1/40",
+      "13/500"
+    ],
+    "other_vacuum_candidates_excluded": false,
+    "physical_particle_identification_established": false,
+    "positive_affine_energy_conversion_removes_obstruction": false,
+    "positive_frequency_lines": 3,
+    "positive_measure_convention": "Fourier transform with exp(+i omega t); omega_j=E_j-E_R=z_j/16-1",
+    "quadratic_lower_line": {
+      "H_energy": "5/2-sqrt19/8",
+      "actual_density_weight": "(15/16)*(1-4/sqrt19)/14",
+      "normalized_probe_weight": "(1-4/sqrt19)/14 = 1/14-2sqrt19/133",
+      "normalized_probe_weight_rational_bounds": [
+        "1/174",
+        "9/1526"
+      ],
+      "omega": "-1/2-sqrt19/8",
+      "omega_strictly_less_than": "-1",
+      "z": "8-2 sqrt19"
+    },
+    "reference": "the actually prepared fixed-N6 cube eta reference R",
+    "reference_energy_H": "3",
+    "retarded_caution": "a ground-state retarded commutator also contains both signs; that fact is not this obstruction",
+    "root_count_proof": "degree-many disjoint strict rational sign changes for each exact factor",
+    "same_number_chemical_potential_removes_obstruction": false,
+    "spectral_rows": [
+      {
+        "coarse_z_bracket": [
+          -1,
+          0
+        ],
+        "endpoint_polynomial_values": [
+          "5",
+          "-12"
+        ],
+        "factor": "Q2",
+        "frequency_sign": -1,
+        "omega_interval": [
+          "-20210577512791533386140927/19342813113834066795298816",
+          "-10105288756395766693070463/9671406556917033397649408"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "2940609447/500000000000",
+          "1176243779/200000000000"
+        ],
+        "z_interval": [
+          "-867764398957466590842111/1208925819614629174706176",
+          "-433882199478733295421055/604462909807314587353088"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          16,
+          17
+        ],
+        "endpoint_polynomial_values": [
+          "-12",
+          "5"
+        ],
+        "factor": "Q2",
+        "frequency_sign": 1,
+        "omega_interval": [
+          "433882199478733295421055/9671406556917033397649408",
+          "867764398957466590842111/19342813113834066795298816"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "136975923963/1000000000000",
+          "34243980991/250000000000"
+        ],
+        "z_interval": [
+          "10105288756395766693070463/604462909807314587353088",
+          "20210577512791533386140927/1208925819614629174706176"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          -3,
+          -2
+        ],
+        "endpoint_polynomial_values": [
+          "-71",
+          "16"
+        ],
+        "factor": "C64",
+        "frequency_sign": -1,
+        "omega_interval": [
+          "-22040410160806814082216693/19342813113834066795298816",
+          "-5510102540201703520554173/4835703278458516698824704"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "282231177/50000000000",
+          "5644623541/1000000000000"
+        ],
+        "z_interval": [
+          "-2697597046972747286917877/1208925819614629174706176",
+          "-674399261743186821729469/302231454903657293676544"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          1,
+          2
+        ],
+        "endpoint_polynomial_values": [
+          "37",
+          "-16"
+        ],
+        "factor": "C64",
+        "frequency_sign": -1,
+        "omega_interval": [
+          "-4310096926636922716019289/4835703278458516698824704",
+          "-17240387706547690864077155/19342813113834066795298816"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "3568831779/500000000000",
+          "7137663559/1000000000000"
+        ],
+        "z_interval": [
+          "525606351821593982805415/302231454903657293676544",
+          "2102425407286375931221661/1208925819614629174706176"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          16,
+          17
+        ],
+        "endpoint_polynomial_values": [
+          "-128",
+          "149"
+        ],
+        "factor": "C64",
+        "frequency_sign": 1,
+        "omega_interval": [
+          "595171639686371355696215/19342813113834066795298816",
+          "74396454960796419462027/2417851639229258349412352"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "12993410671/31250000000",
+          "415789141473/1000000000000"
+        ],
+        "z_interval": [
+          "19937984753520438150995031/1208925819614629174706176",
+          "2492248094190054768874379/151115727451828646838272"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          -3,
+          -2
+        ],
+        "endpoint_polynomial_values": [
+          "-7",
+          "80"
+        ],
+        "factor": "C128",
+        "frequency_sign": -1,
+        "omega_interval": [
+          "-357691253137817698418557/302231454903657293676544",
+          "-22892240200820332698787647/19342813113834066795298816"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "1232683153/500000000000",
+          "2465366307/1000000000000"
+        ],
+        "z_interval": [
+          "-55459798234160404742013/18889465931478580854784",
+          "-3549427086986265903488831/1208925819614629174706176"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          2,
+          3
+        ],
+        "endpoint_polynomial_values": [
+          "48",
+          "-25"
+        ],
+        "factor": "C128",
+        "frequency_sign": -1,
+        "omega_interval": [
+          "-16100189070008365419371033/19342813113834066795298816",
+          "-2012523633751045677421379/2417851639229258349412352"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "1132030759/250000000000",
+          "4528123037/1000000000000"
+        ],
+        "z_interval": [
+          "3242624043825701375927783/1208925819614629174706176",
+          "405328005478212671990973/151115727451828646838272"
+        ]
+      },
+      {
+        "coarse_z_bracket": [
+          16,
+          17
+        ],
+        "endpoint_polynomial_values": [
+          "-64",
+          "213"
+        ],
+        "factor": "C128",
+        "frequency_sign": 1,
+        "omega_interval": [
+          "38350380395070565945131/2417851639229258349412352",
+          "306803043160564527561049/19342813113834066795298816"
+        ],
+        "positive_normalized_probe_weight_interval": [
+          "105394484807/250000000000",
+          "421577939229/1000000000000"
+        ],
+        "z_interval": [
+          "2456202019624328915357483/151115727451828646838272",
+          "19649616156994631322859865/1208925819614629174706176"
+        ]
+      }
+    ],
+    "zero_frequency_lines": 0
+  }
+}

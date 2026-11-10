@@ -100,6 +100,7 @@ EVIDENCE_MEDIA_BY_SUFFIX = {
     ".cpp": "executed_program",
     ".json": "emitted_record",
     ".npz": "emitted_record",
+    ".npy": "numeric_data",
     ".tex": "paper_prose",
     ".md": "markdown_prose",
 }

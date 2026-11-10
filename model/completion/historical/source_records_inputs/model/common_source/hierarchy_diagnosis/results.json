@@ -1,0 +1,4547 @@
+{
+  "schema": "oph.hierarchy_diagnosis.v1",
+  "source_algebra": {
+    "eigenvalues_ascending": [
+      {
+        "exact": "61/450",
+        "float_diagnostic": 0.13555555555555557
+      },
+      {
+        "exact": "41/225 - 7*sqrt(5)/750",
+        "float_diagnostic": 0.16135225443222417
+      },
+      {
+        "exact": "7*sqrt(5)/750 + 41/225",
+        "float_diagnostic": 0.20309219001222026
+      }
+    ],
+    "linear_mass_ratios": [
+      {
+        "exact": "1",
+        "float_diagnostic": 1.0
+      },
+      {
+        "exact": "82/61 - 21*sqrt(5)/305",
+        "float_diagnostic": 1.1903035163032931
+      },
+      {
+        "exact": "21*sqrt(5)/305 + 82/61",
+        "float_diagnostic": 1.4982210738606412
+      }
+    ],
+    "source_spread": {
+      "exact": "21*sqrt(5)/305 + 82/61",
+      "float_diagnostic": 1.4982210738606412
+    },
+    "affine_eigenvalue_spacing": {
+      "exact": "sqrt(5)/2 + 3/2",
+      "float_diagnostic": 2.618033988749895
+    },
+    "complex_affine_relation": "z3 - phi^2*z2 + phi*z1 = 0; phi=(1+sqrt(5))/2",
+    "sorted_affine_singular_value_bound": "m_max <= phi^2*m_middle + phi*m_min",
+    "affine_scope": "Y=u*I+v*F, arbitrary complex u,v; canonical common kinetic form and Higgs factor",
+    "all_phases_and_eigenaxis_assignments_covered": true,
+    "spectral_projectors_exact": [
+      [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    ],
+    "single_feature_function_algebra_dimension": 3,
+    "arbitrary_symbolic_values_interpolate_at_degree_at_most_two": true,
+    "current_Y_Ydagger_commutators_zero_exact": true,
+    "all_functions_of_F_share_family_axes": true,
+    "functional_maps_alone_produce_nontrivial_CKM_mixing": false,
+    "empirical_inputs": []
+  },
+  "retained_observer_readout": {
+    "record_count": 64,
+    "decoded_gaps_over_clock_ascending": [
+      0.0907450442015857,
+      0.1080141452000785,
+      0.13595613757083577
+    ],
+    "decoded_ascending_ratios": [
+      1.0,
+      1.190303516301456,
+      1.498221073856285
+    ],
+    "independent_action_gaps_over_clock": [
+      0.09074504420111197,
+      0.10801414519968133,
+      0.13595613757052133
+    ],
+    "maximum_absolute_record_action_residual": 4.737321646075543e-13,
+    "common_clock_lapse_units_or_Higgs_scaling_change_family_ratios": false,
+    "phase_window_is_admitted_prior_contract": true,
+    "finite_shot_or_physical_preparation_error_bound": false,
+    "dynamics_replayed_in_this_audit": false
+  },
+  "separate_benchmark": {
+    "scope": "empirical comparison only; no source coefficient changed",
+    "charged_lepton_ratio_windows": [
+      [
+        "206",
+        "207"
+      ],
+      [
+        "3470",
+        "3485"
+      ]
+    ],
+    "benchmark_source": "https://pdg.lbl.gov/2025/download/db2024.pdf",
+    "maximum_affine_heavy_ratio_at_admitted_middle_ratio": {
+      "exact": "104*sqrt(5) + 311",
+      "float_diagnostic": 543.5510696599781
+    },
+    "heavy_ratio_lower_bound": "3470",
+    "affine_class_excluded_exact": true,
+    "constant_kinetic_or_additive_correction_requirements": {
+      "required_sqrt_kinetic_condition_product_at_least": {
+        "exact": "86784700/33179 - 4445070*sqrt(5)/33179",
+        "float_diagnostic": 2316.0800902756264
+      },
+      "required_kinetic_condition_product_at_least": {
+        "exact": "7630377390614500/1100846041 - 771528132858000*sqrt(5)/1100846041",
+        "float_diagnostic": 5364226.984571154
+      },
+      "required_epsilon_if_both_Z_within_epsilon_of_identity_at_least": {
+        "exact": "24891212369/24910505231 - 2963380*sqrt(5)/74731515693",
+        "float_diagnostic": 0.9991368446829293
+      },
+      "required_additive_norm_over_original_minimum_at_least": {
+        "exact": "16276/16287 - 7*sqrt(5)/352885",
+        "float_diagnostic": 0.9992802589818898
+      },
+      "kinetic_inequality": "kappa(Mcanonical) <= kappa(M)*sqrt(kappa(ZL)*kappa(ZR))",
+      "additive_inequality": "kappa(M+dM) <= (kappa(M)+delta)/(1-delta), delta=norm(dM)/s_min(M)<1",
+      "arbitrary_strong_or_momentum_dependent_dynamics_excluded": false,
+      "mere_coordinate_change_alters_poles": false
+    }
+  },
+  "fixed_nonlinear_controls": {
+    "schema": "oph.hierarchy_diagnosis.nonlinear_shapes.v1",
+    "definition": "Q=log(m3/m2)/log(m2/m1)",
+    "fixed_source_controls": [
+      {
+        "prescription": "a_Hubbard_function",
+        "original_ratio_intervals": [
+          {
+            "lower_exact": "365375409332497680306195469528598661610621314825/365375409332725729550921208179070754913983135744",
+            "upper_exact": "1461501637331815115182588356666372630496717146169/1461501637330902918203684832716283019655932542976",
+            "lower": 0.9999999999993758,
+            "upper": 1.0000000000006242,
+            "midpoint": 1.0,
+            "width": 1.24830100165903e-12
+          },
+          {
+            "lower_exact": "37446388861626817700392355221471811789721850908873/182687704666362864775460604089535377456991567872",
+            "upper_exact": "74892777723524113923880198609157029099371697912435/365375409332725729550921208179070754913983135744",
+            "lower": 204.97487189963903,
+            "upper": 204.97487190037933,
+            "midpoint": 204.9748719000092,
+            "width": 7.402756622002972e-10
+          },
+          {
+            "lower_exact": "48042440984327986550579003904552335222748006430034065/730750818665451459101842416358141509827966271488",
+            "upper_exact": "24021220492746111281321046733175451830272347533924323/365375409332725729550921208179070754913983135744",
+            "lower": 65743.94411499458,
+            "upper": 65743.94411658781,
+            "midpoint": 65743.9441157912,
+            "width": 1.593205210757477e-06
+          }
+        ],
+        "ascending_ratios": [
+          1.0,
+          204.9748719000092,
+          65743.9441157912
+        ],
+        "next_family_ratio_enclosure": {
+          "lower_exact": "234382100298017463876934443033236823403096555583637/730750818665451459101842416358141509827966271488",
+          "upper_exact": "468764200609087682603000777677926154884347657993901/1461501637330902918203684832716283019655932542976",
+          "lower": 320.7414816531612,
+          "upper": 320.7414816620923,
+          "midpoint": 320.74148165762676,
+          "width": 8.931057287742592e-09
+        },
+        "next_family_ratio": 320.74148165762676,
+        "adjacent_log_spacing_enclosure": {
+          "lower_exact": "1584439520400019361511669485185501318143632858109/1461501637330902918203684832716283019655932542976",
+          "upper_exact": "396109880102184946341046923224875380964013720911/365375409332725729550921208179070754913983135744",
+          "lower": 1.0841175130625471,
+          "upper": 1.0841175130685141,
+          "midpoint": 1.0841175130655307,
+          "width": 5.9667561292945655e-12
+        },
+        "adjacent_log_spacing_diagnostic": 1.0841175130655307,
+        "benchmark_shape_disjoint_exact": true,
+        "necessary_individual_mass_correction_factor": {
+          "necessary_threshold_enclosure": {
+            "lower_exact": "3173918690008393246787890147912809187402012658737/730750818665451459101842416358141509827966271488",
+            "upper_exact": "6347837380016786493575780295825618374804025317475/1461501637330902918203684832716283019655932542976",
+            "lower": 4.3433665880865195,
+            "upper": 4.34336658808652,
+            "midpoint": 4.34336658808652,
+            "width": 6.842277657836021e-49
+          },
+          "C_must_be_at_least_lower_endpoint_exact": "3173918690008393246787890147912809187402012658737/730750818665451459101842416358141509827966271488",
+          "scope": "necessary only; each individual mass changes by a factor in[1/C,C], with any common scale allowed",
+          "bound_on_coupling_perturbations": false,
+          "sufficiency_or_successful_corrected_action_claimed": false
+        },
+        "three_dimensional_dynamical_gap_derived": false
+      },
+      {
+        "prescription": "b_Hubbard_function",
+        "original_ratio_intervals": [
+          {
+            "lower_exact": "1461501637329792639344392553842168449112652449701/1461501637330902918203684832716283019655932542976",
+            "upper_exact": "730750818666006598531488977525532140322151340107/730750818665451459101842416358141509827966271488",
+            "lower": 0.9999999999992403,
+            "upper": 1.0000000000007598,
+            "midpoint": 1.0,
+            "width": 1.5193672465812218e-12
+          },
+          {
+            "lower_exact": "129211376515379079750514422645239372386781848122847607/365375409332725729550921208179070754913983135744",
+            "upper_exact": "516845506061909497361506413004691906086296225885191199/1461501637330902918203684832716283019655932542976",
+            "lower": 353640.0458677664,
+            "upper": 353640.0458680355,
+            "midpoint": 353640.045867901,
+            "width": 2.690235504400614e-07
+          },
+          {
+            "lower_exact": "518742372861539038962936728975579136481912933273030655785683/1461501637330902918203684832716283019655932542976",
+            "upper_exact": "259371186430968697272231320685641597316343324483047921061357/730750818665451459101842416358141509827966271488",
+            "lower": 354937934800.3351,
+            "upper": 354937934800.6077,
+            "midpoint": 354937934800.4714,
+            "width": 0.2725659495349026
+          }
+        ],
+        "ascending_ratios": [
+          1.0,
+          353640.045867901,
+          354937934800.4714
+        ],
+        "next_family_ratio_enclosure": {
+          "lower_exact": "1466865472173118093592052108945909048474830051494761121/1461501637330902918203684832716283019655932542976",
+          "upper_exact": "1466865472175360421484873309865096889067375848372404399/1461501637330902918203684832716283019655932542976",
+          "lower": 1003670.0847301211,
+          "upper": 1003670.0847316554,
+          "midpoint": 1003670.0847308883,
+          "width": 1.5342630042593027e-06
+        },
+        "next_family_ratio": 1003670.0847308883,
+        "adjacent_log_spacing_enclosure": {
+          "lower_exact": "790415240170005235232828326883369092735947172965/730750818665451459101842416358141509827966271488",
+          "upper_exact": "1580830480340279466989694982183831374174014556791/1461501637330902918203684832716283019655932542976",
+          "lower": 1.0816481076456637,
+          "upper": 1.081648107645848,
+          "midpoint": 1.0816481076457558,
+          "width": 1.8405489064630046e-13
+        },
+        "adjacent_log_spacing_diagnostic": 1.0816481076457558,
+        "benchmark_shape_disjoint_exact": true,
+        "necessary_individual_mass_correction_factor": {
+          "necessary_threshold_enclosure": {
+            "lower_exact": "921837012439888470494167139834733705494676447209623/91343852333181432387730302044767688728495783936",
+            "upper_exact": "14749392199038215527906674237355739287914823155353969/1461501637330902918203684832716283019655932542976",
+            "lower": 10091.943671014007,
+            "upper": 10091.943671014009,
+            "midpoint": 10091.943671014007,
+            "width": 6.842277657836021e-49
+          },
+          "C_must_be_at_least_lower_endpoint_exact": "921837012439888470494167139834733705494676447209623/91343852333181432387730302044767688728495783936",
+          "scope": "necessary only; each individual mass changes by a factor in[1/C,C], with any common scale allowed",
+          "bound_on_coupling_perturbations": false,
+          "sufficiency_or_successful_corrected_action_claimed": false
+        },
+        "three_dimensional_dynamical_gap_derived": false
+      },
+      {
+        "prescription": "J_Hubbard_function",
+        "original_ratio_intervals": [
+          {
+            "lower_exact": "730750818665447637817095716928758734812684158585/730750818665451459101842416358141509827966271488",
+            "upper_exact": "730750818665455280386589115807506769627905067295/730750818665451459101842416358141509827966271488",
+            "lower": 0.9999999999999947,
+            "upper": 1.0000000000000053,
+            "midpoint": 1.0,
+            "width": 1.045851649862846e-14
+          },
+          {
+            "lower_exact": "11802084196325441077037480609447219601188853884705581/1461501637330902918203684832716283019655932542976",
+            "upper_exact": "11802084196325798439631394126364869559931147923849873/1461501637330902918203684832716283019655932542976",
+            "lower": 8075.3137012417155,
+            "upper": 8075.31370124196,
+            "midpoint": 8075.313701241837,
+            "width": 2.4451740920807837e-10
+          },
+          {
+            "lower_exact": "199971873561556972836442444581063993523247262488358454807/1461501637330902918203684832716283019655932542976",
+            "upper_exact": "199971873561597661637932912798277572228914303493332079545/1461501637330902918203684832716283019655932542976",
+            "lower": 136826308.26658508,
+            "upper": 136826308.26661295,
+            "midpoint": 136826308.26659903,
+            "width": 2.7840407736235567e-05
+          }
+        ],
+        "ascending_ratios": [
+          1.0,
+          8075.313701241837,
+          136826308.26659903
+        ],
+        "next_family_ratio_enclosure": {
+          "lower_exact": "24763356689264204400190735153931881397761657923149343/1461501637330902918203684832716283019655932542976",
+          "upper_exact": "24763356689269992890278028602238769833465859296222719/1461501637330902918203684832716283019655932542976",
+          "lower": 16943.776220797663,
+          "upper": 16943.776220801625,
+          "midpoint": 16943.776220799646,
+          "width": 3.960645639689324e-09
+        },
+        "next_family_ratio": 16943.776220799646,
+        "adjacent_log_spacing_enclosure": {
+          "lower_exact": "1581892291908523087118820012633132347118672980223/1461501637330902918203684832716283019655932542976",
+          "upper_exact": "1581892291908566384564891758444209408254231261029/1461501637330902918203684832716283019655932542976",
+          "lower": 1.0823746286028704,
+          "upper": 1.0823746286029001,
+          "midpoint": 1.0823746286028852,
+          "width": 2.9625314789806636e-14
+        },
+        "adjacent_log_spacing_diagnostic": 1.0823746286028852,
+        "benchmark_shape_disjoint_exact": true,
+        "necessary_individual_mass_correction_factor": {
+          "necessary_threshold_enclosure": {
+            "lower_exact": "289589439072767794462291999514417036212424264826783/1461501637330902918203684832716283019655932542976",
+            "upper_exact": "9049669971023993576946624984825532381638258275837/45671926166590716193865151022383844364247891968",
+            "lower": 198.14513489128646,
+            "upper": 198.1451348912865,
+            "midpoint": 198.14513489128646,
+            "width": 6.842277657836021e-49
+          },
+          "C_must_be_at_least_lower_endpoint_exact": "289589439072767794462291999514417036212424264826783/1461501637330902918203684832716283019655932542976",
+          "scope": "necessary only; each individual mass changes by a factor in[1/C,C], with any common scale allowed",
+          "bound_on_coupling_perturbations": false,
+          "sufficiency_or_successful_corrected_action_claimed": false
+        },
+        "three_dimensional_dynamical_gap_derived": false
+      }
+    ],
+    "benchmark_Q_window_enclosure": {
+      "lower_exact": "772636349041673116340642173051444440671923303755/1461501637330902918203684832716283019655932542976",
+      "upper_exact": "24245319958106510979240637768054137459172383871/45671926166590716193865151022383844364247891968",
+      "lower": 0.5286592428679833,
+      "upper": 0.5308582753806015,
+      "midpoint": 0.5297587591242924,
+      "width": 0.0021990325126180947
+    },
+    "benchmark_Q_window_diagnostic": [
+      0.5286592428679834,
+      0.5308582753806015
+    ],
+    "benchmark_ratio_windows": [
+      [
+        "206",
+        "207"
+      ],
+      [
+        "3470",
+        "3485"
+      ]
+    ],
+    "benchmark_source": "https://pdg.lbl.gov/2025/download/db2024.pdf",
+    "all_fixed_controls_have_disjoint_benchmark_shape_exact": true,
+    "log_method": "exact dyadic range reduction, finite positive atanh sum and rigorous geometric remainder; outward rational interval arithmetic",
+    "floating_logarithms_are_not_directed_interval_certificates": false,
+    "float_displays_authoritative": false,
+    "weak_coupling_explanation": {
+      "threshold_asymptotic": "Delta/2 ~ (4/pi)*sqrt(t*s*lambda)*exp(-2*pi*t/(s*lambda)), U=s*lambda",
+      "log_threshold_asymptotic": "constant + (1/2)log(lambda) - (pi*Omega/s)/lambda, t=Omega/2",
+      "reciprocal_spacing_limit_definition": "(1/lambda2-1/lambda3)/(1/lambda1-1/lambda2)",
+      "reciprocal_spacing_limit_enclosure": {
+        "lower_exact": "197297261822104754586607441439648489945217983183/182687704666362864775460604089535377456991567872",
+        "upper_exact": "1578378094576838036692859531517187919561743866095/1461501637330902918203684832716283019655932542976",
+        "lower": 1.0799701172140888,
+        "upper": 1.079970117214089,
+        "midpoint": 1.079970117214089,
+        "width": 4.317477202094529e-46
+      },
+      "primary_source": "https://arxiv.org/html/cond-mat/9911281",
+      "asymptotic_used_for_exact_exclusion": false,
+      "exclusion_for_every_possible_repulsion_scale_claimed": false
+    },
+    "original_exact_interval_comparisons": [
+      {
+        "prescription": "linear_F",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ],
+        "both_ratios_pass": false
+      },
+      {
+        "prescription": "a_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ],
+        "both_ratios_pass": false
+      },
+      {
+        "prescription": "b_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ],
+        "both_ratios_pass": false
+      },
+      {
+        "prescription": "J_Hubbard_function",
+        "ratio_intersects_comparison_windows": [
+          false,
+          false
+        ],
+        "both_ratios_pass": false
+      }
+    ],
+    "new_parameters_fitted_or_scanned": false,
+    "source_predictions_changed": false,
+    "empirical_data_used_only_for_comparison": true
+  },
+  "native_connected_covariance": {
+    "schema": "oph.hierarchy_diagnosis.native_covariance.v1",
+    "source": {
+      "binary_fixed_total": 2,
+      "states": 66,
+      "ports": 12,
+      "protected_core": [
+        0,
+        1
+      ],
+      "ideal_faithful_reference_used": true,
+      "finite_preparation_error_propagated": false,
+      "empirical_mass_or_coupling_inputs": []
+    },
+    "definition": "C_ij=E_sigma[n_i n_j]-E_sigma[n_i]E_sigma[n_j]",
+    "occupation_means": [
+      "29/90",
+      "29/90",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450",
+      "61/450"
+    ],
+    "second_moment": [
+      [
+        "29/90",
+        "2/45",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36"
+      ],
+      [
+        "2/45",
+        "29/90",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36",
+        "1/36"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450",
+        "2/225"
+      ],
+      [
+        "1/36",
+        "1/36",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "2/225",
+        "61/450"
+      ]
+    ],
+    "port_covariance": [
+      [
+        "1769/8100",
+        "-481/8100",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125"
+      ],
+      [
+        "-481/8100",
+        "1769/8100",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125",
+        "-161/10125"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500",
+        "-1921/202500"
+      ],
+      [
+        "-161/10125",
+        "-161/10125",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "-1921/202500",
+        "23729/202500"
+      ]
+    ],
+    "port_covariance_spectrum": [
+      {
+        "eigenvalue": "0",
+        "multiplicity": 1
+      },
+      {
+        "eigenvalue": "19/150",
+        "multiplicity": 9
+      },
+      {
+        "eigenvalue": "644/3375",
+        "multiplicity": 1
+      },
+      {
+        "eigenvalue": "5/18",
+        "multiplicity": 1
+      }
+    ],
+    "port_rank": 11,
+    "port_kernel": "span of the all-ones vector; total occupation is exactly two",
+    "family_compression": {
+      "definition": "C_family=(B^T B)^(-1) B^T C B",
+      "basis_Gram": [
+        [
+          "2*sqrt(5) + 10",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2*sqrt(5) + 10",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "2*sqrt(5) + 10"
+        ]
+      ],
+      "basis_column_sum_is_zero_exact": true,
+      "canonical_family_normalization_leaves_matrix_unchanged": true,
+      "matrix": [
+        [
+          "37/225 - 17*sqrt(5)/2250",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "433*sqrt(5)/112500 + 3283/22500",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "19/150"
+        ]
+      ],
+      "rank": 3,
+      "ascending_eigenvalues": [
+        "19/150",
+        "37/225 - 17*sqrt(5)/2250",
+        "433*sqrt(5)/112500 + 3283/22500"
+      ],
+      "ascending_eigenvalues_float_diagnostic": [
+        0.12666666666666668,
+        0.14754970861444602,
+        0.15451748830451031
+      ],
+      "positive_definite_exact": true,
+      "largest_over_smallest": "433*sqrt(5)/14250 + 3283/2850",
+      "largest_over_smallest_float_diagnostic": 1.2198749076671866,
+      "largest_over_smallest_less_than_5_over_4_exact": true
+    },
+    "comparison_to_existing_feature": {
+      "F": [
+        [
+          "41/225 - 7*sqrt(5)/750",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "7*sqrt(5)/750 + 41/225",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "61/450"
+        ]
+      ],
+      "commutator": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "commutes_with_F_exact": true,
+      "same_diagonal_source_coordinate_axes": true,
+      "every_separate_spectral_function_of_F_and_C_family_commutes": true
+    },
+    "scope": {
+      "connected_reference_statistic_computed": true,
+      "new_coherent_interaction_or_mass_selected": false,
+      "raw_covariance_linear_texture_has_large_family_hierarchy": false,
+      "covariance_and_F_alone_supply_nontrivial_quark_mixing": false,
+      "arbitrary_interacting_native_histories_excluded": false,
+      "reason": "Both supplied family matrices are diagonal; a linear covariance texture has spread below5/4. Assigning covariance to a Yukawa or interaction channel remains a separate architecture choice."
+    }
+  },
+  "quadratic_poles_and_state_independence": {
+    "schema": "oph.hierarchy_diagnosis.quadratic_response.v1",
+    "exact_finite_CAR_identities": {
+      "Hamiltonian": "H=d*a^dagger*b^dagger+conjugate(d)*b*a",
+      "Fock_basis": [
+        "00",
+        "10",
+        "01",
+        "11"
+      ],
+      "characteristic_polynomial": "E^2*(E^2-|d|^2)",
+      "Fock_energies": [
+        "-|d|",
+        "0",
+        "0",
+        "+|d|"
+      ],
+      "ground_to_odd_CAR_excitation_cost": "|d|",
+      "ground_to_even_pair_excitation_cost": "2*|d|",
+      "Nambu_order": [
+        "a",
+        "b",
+        "a^dagger",
+        "b^dagger"
+      ],
+      "equal_time_CAR_exact": true,
+      "Heisenberg_commutator_identity_exact": "[xi,H]=B*xi",
+      "Nambu_square_exact": "B^2=|d|^2*I4",
+      "reference_independent_operator_identity": "{xi_i(t),xi_j^dagger}=[exp(-i*B*t)]_ij*I_Fock",
+      "reference_independence_proof": "Finite linear Heisenberg evolution and equal-time CAR; the anticommutator is a scalar operator before taking any state expectation.",
+      "retarded_resolvent": "G_R(z)=(z*I4+B)/(z^2-|d|^2), Im(z)>0",
+      "normal_local_resolvent": "G_aa(z)=z/(z^2-|d|^2)=(1/2)/(z-|d|)+(1/2)/(z+|d|)",
+      "normal_local_signed_poles": [
+        "-|d|",
+        "+|d|"
+      ],
+      "normal_local_residues_exact": [
+        "1/2",
+        "1/2"
+      ],
+      "ground_addition_and_removal_weights_exact": [
+        "1/2",
+        "1/2"
+      ],
+      "complex_phase_scope": "An onsite phase changes arg(d) without changing |d| or either normal residue.",
+      "blank_pair_occupation_signal": "P_empty(t)-P_occupied(t)=cos(2*|d|*t)",
+      "blank_quench_frequency_is_twice_CAR_gap": true
+    },
+    "actual_lepton_pair_rows": [
+      {
+        "pairing_coefficient": [
+          0.17384206036352895,
+          0.0
+        ],
+        "charged_CAR_gap": 0.17384206036352895,
+        "Fock_energy_eigenvalues": [
+          -0.17384206036352895,
+          0.0,
+          0.0,
+          0.17384206036352895
+        ],
+        "ground_to_odd_gap": 0.17384206036352895,
+        "ground_to_even_pair_gap": 0.3476841207270579,
+        "normal_signed_poles": [
+          -0.17384206036352895,
+          0.17384206036352895
+        ],
+        "normal_pole_residues": [
+          0.4999999999999999,
+          0.4999999999999999
+        ],
+        "maximum_normal_residue_error_from_one_half": 1.1102230246251565e-16,
+        "blank_pair_occupation_cosine_residual": 0.0,
+        "Nambu_squared_gap_residual": 0.0,
+        "reference_independence": {
+          "model_parameter": 0.37,
+          "operator_anticommutator_residual": 1.3877787807814457e-17,
+          "reference_expectation_residuals": {
+            "encoded_blank": 1.3877787807814457e-17,
+            "illustrative_pair_ground": 2.2215299868541707e-16,
+            "maximally_mixed": 1.3877787807814457e-17,
+            "nonGaussian_even_pair_mixture": 1.3877787807814457e-17
+          },
+          "reference_stationarity_residuals": {
+            "encoded_blank": 0.17384206036352895,
+            "illustrative_pair_ground": 0.0,
+            "maximally_mixed": 0.0,
+            "nonGaussian_even_pair_mixture": 0.0
+          },
+          "normal_greater_correlations_do_depend_on_reference": {
+            "encoded_blank": [
+              0.9979320814172525,
+              0.0
+            ],
+            "illustrative_pair_ground": [
+              0.49896604070862616,
+              -0.03213860948388246
+            ],
+            "maximally_mixed": [
+              0.49896604070862627,
+              0.0
+            ],
+            "nonGaussian_even_pair_mixture": [
+              0.49896604070862627,
+              0.0
+            ]
+          },
+          "all_references_are_physical_vacuum_candidates": false,
+          "Gaussian_reference_required_for_operator_identity": false,
+          "independent_Fock_matrix_exponential_evaluated": true,
+          "native_source_history_replayed": false,
+          "floating_residuals_outward_certified": false
+        },
+        "native_family_axis": 0,
+        "original_mode_pair": [
+          33,
+          72
+        ],
+        "pairing_coefficient_exact": "log((2**(-820 + 42*sqrt(5))*5**(410 - 21*sqrt(5)))**log(5**(1/750)))",
+        "charged_CAR_gap_exact": "(410 - 21*sqrt(5))*(-log(2)/375 + log(5)/750)*log(5)"
+      },
+      {
+        "pairing_coefficient": [
+          0.2188129622341032,
+          0.0
+        ],
+        "charged_CAR_gap": 0.2188129622341032,
+        "Fock_energy_eigenvalues": [
+          -0.2188129622341032,
+          0.0,
+          0.0,
+          0.2188129622341032
+        ],
+        "ground_to_odd_gap": 0.2188129622341032,
+        "ground_to_even_pair_gap": 0.4376259244682064,
+        "normal_signed_poles": [
+          -0.2188129622341032,
+          0.2188129622341032
+        ],
+        "normal_pole_residues": [
+          0.4999999999999999,
+          0.4999999999999999
+        ],
+        "maximum_normal_residue_error_from_one_half": 1.1102230246251565e-16,
+        "blank_pair_occupation_cosine_residual": 0.0,
+        "Nambu_squared_gap_residual": 0.0,
+        "reference_independence": {
+          "model_parameter": 0.37,
+          "operator_anticommutator_residual": 1.3877787807814457e-17,
+          "reference_expectation_residuals": {
+            "encoded_blank": 1.3877787807814457e-17,
+            "illustrative_pair_ground": 2.2215299868541707e-16,
+            "maximally_mixed": 1.3877787807814457e-17,
+            "nonGaussian_even_pair_mixture": 1.3877787807814457e-17
+          },
+          "reference_stationarity_residuals": {
+            "encoded_blank": 0.2188129622341032,
+            "illustrative_pair_ground": 0.0,
+            "maximally_mixed": 0.0,
+            "nonGaussian_even_pair_mixture": 0.0
+          },
+          "normal_greater_correlations_do_depend_on_reference": {
+            "encoded_blank": [
+              0.9967244645057505,
+              0.0
+            ],
+            "illustrative_pair_ground": [
+              0.4983622322528751,
+              -0.04043619002739052
+            ],
+            "maximally_mixed": [
+              0.49836223225287524,
+              0.0
+            ],
+            "nonGaussian_even_pair_mixture": [
+              0.49836223225287524,
+              0.0
+            ]
+          },
+          "all_references_are_physical_vacuum_candidates": false,
+          "Gaussian_reference_required_for_operator_identity": false,
+          "independent_Fock_matrix_exponential_evaluated": true,
+          "native_source_history_replayed": false,
+          "floating_residuals_outward_certified": false
+        },
+        "native_family_axis": 1,
+        "original_mode_pair": [
+          34,
+          73
+        ],
+        "pairing_coefficient_exact": "log((2**(-820 - 42*sqrt(5))*5**(21*sqrt(5) + 410))**log(5**(1/750)))",
+        "charged_CAR_gap_exact": "(21*sqrt(5) + 410)*(-log(2)/375 + log(5)/750)*log(5)"
+      },
+      {
+        "pairing_coefficient": [
+          0.1460485145027778,
+          0.0
+        ],
+        "charged_CAR_gap": 0.1460485145027778,
+        "Fock_energy_eigenvalues": [
+          -0.1460485145027778,
+          0.0,
+          0.0,
+          0.1460485145027778
+        ],
+        "ground_to_odd_gap": 0.1460485145027778,
+        "ground_to_even_pair_gap": 0.2920970290055556,
+        "normal_signed_poles": [
+          -0.1460485145027778,
+          0.1460485145027778
+        ],
+        "normal_pole_residues": [
+          0.4999999999999999,
+          0.4999999999999999
+        ],
+        "maximum_normal_residue_error_from_one_half": 1.1102230246251565e-16,
+        "blank_pair_occupation_cosine_residual": 0.0,
+        "Nambu_squared_gap_residual": 0.0,
+        "reference_independence": {
+          "model_parameter": 0.37,
+          "operator_anticommutator_residual": 6.938893903907228e-18,
+          "reference_expectation_residuals": {
+            "encoded_blank": 6.938893903907228e-18,
+            "illustrative_pair_ground": 2.220717083251841e-16,
+            "maximally_mixed": 6.938893903907228e-18,
+            "nonGaussian_even_pair_mixture": 6.938893903907228e-18
+          },
+          "reference_stationarity_residuals": {
+            "encoded_blank": 0.1460485145027778,
+            "illustrative_pair_ground": 0.0,
+            "maximally_mixed": 0.0,
+            "nonGaussian_even_pair_mixture": 0.0
+          },
+          "normal_greater_correlations_do_depend_on_reference": {
+            "encoded_blank": [
+              0.9985403052165581,
+              0.0
+            ],
+            "illustrative_pair_ground": [
+              0.49927015260827895,
+              -0.027005827417535756
+            ],
+            "maximally_mixed": [
+              0.49927015260827906,
+              0.0
+            ],
+            "nonGaussian_even_pair_mixture": [
+              0.49927015260827906,
+              0.0
+            ]
+          },
+          "all_references_are_physical_vacuum_candidates": false,
+          "Gaussian_reference_required_for_operator_identity": false,
+          "independent_Fock_matrix_exponential_evaluated": true,
+          "native_source_history_replayed": false,
+          "floating_residuals_outward_certified": false
+        },
+        "native_family_axis": 2,
+        "original_mode_pair": [
+          35,
+          74
+        ],
+        "pairing_coefficient_exact": "61*(-2*log(2) + log(5))*log(5)/150",
+        "charged_CAR_gap_exact": "61*(-2*log(2) + log(5))*log(5)/150"
+      }
+    ],
+    "interpretation": {
+      "same_quadratic_generator_reference_change_moves_linear_retarded_poles": false,
+      "constant_linear_probe_can_hide_poles_by_zero_overlap": true,
+      "constant_linear_probe_moves_remaining_poles": false,
+      "factor_two_changes_family_ratios": false,
+      "normal_residue_anisotropy_explains_the_trial_hierarchy": false,
+      "time_dependent_background_or_selfenergy_changes_covered": false,
+      "nonlinear_composite_field_poles_classified": false,
+      "physical_interacting_vacuum_selected": false,
+      "observed_particles_or_masses_identified": false,
+      "each_pair_is_one_rest_block_not_a_new_complete_Dirac_species": true
+    },
+    "source_parameters_or_mass_maps_changed": false,
+    "empirical_mass_inputs": [],
+    "native_source_evolution_replayed": false
+  },
+  "native_family_dynamics": {
+    "schema": "oph.hierarchy_diagnosis.native_family_dynamics.v1",
+    "source": {
+      "reference": "existing ideal protected-core66-state reference",
+      "update": "existing finite mixed-cap completion selector and native fair endpoint repair",
+      "caps": [
+        [
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          2,
+          8
+        ]
+      ],
+      "selector_rounds": 32,
+      "time_parameter": "one completion proposal; not native elapsed attempts, modular time or physical time",
+      "finite_reference_preparation_errors_propagated": false,
+      "new_empirical_mass_or_coupling_inputs": []
+    },
+    "complete_reduced_instrument": {
+      "rows": 2706,
+      "input_states": 66,
+      "accepted_seam_coin_current_and_timeout_outcomes_retained": true,
+      "terminal_timeout_probability": "18446744073709551617/680564733841876926926749214863536422912",
+      "accepted_probability": "680564733841876926908302470789826871295/680564733841876926926749214863536422912",
+      "terminal_timeout_work_map": "tau Id with a retained terminal flag; never continued",
+      "unread_work_marginal": "T=sum_e w_e E_e + tau I, for one proposal only",
+      "all_columns_normalized_exact": true,
+      "full_diagonal_reference_stationary_exact_for_C_and_E": true,
+      "reference_constant_on_every_accepted_local_swap_block": true,
+      "C_E_diagonal_fix_reason": "Both native instruments have the same half-identity plus half-swap population map; sigma is constant on each swap block.",
+      "success_reference_output": "(1-tau)*sigma",
+      "timeout_reference_output": "tau*sigma",
+      "fine_auxiliary_selector_tapes_enumerated": false,
+      "existing_exact_reduced_selector_contract_used": true,
+      "branch_table_sha256": "67f0612f6e527334e6592f0fd49ace65692cf10806eb964bdbe948650c72cf09"
+    },
+    "static_reference_obstruction": {
+      "reference_proper_stabilizer_size": 2,
+      "nonidentity_port_permutation": [
+        1,
+        0,
+        3,
+        2,
+        6,
+        7,
+        4,
+        5,
+        11,
+        10,
+        9,
+        8
+      ],
+      "half_turn_on_family": [
+        [
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-1"
+        ]
+      ],
+      "commutant_complex_dimension": 5,
+      "commutant": "M2(C) on native(x,z) plus C on nativey",
+      "allowed_endomorphism_entries": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "any_covariant_endomorphism_of_static_reference_commutes_half_turn": true,
+      "quark_mixing_from_only_static_reference": "at most2plus1; one common unmixed familyline",
+      "weak_CP_Jarlskog_from_only_static_reference_vanishes": true
+    },
+    "full_preparation_context": {
+      "caps_after_static_half_turn": [
+        [
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          0,
+          1,
+          3,
+          11
+        ]
+      ],
+      "same_caps_after_half_turn": false,
+      "actual_T12": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1247702012043441032699040227249816775339/1361129467683753853853498429727072845824",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824"
+        ],
+        [
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "1162631420313206416837808261410302110379/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "289240011882797693945405644989812109039/340282366920938463463374607431768211456",
+          "6148914691236517205/295147905179352825856",
+          "0",
+          "0",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "6148914691236517205/295147905179352825856",
+          "276701161105643274241/295147905179352825856",
+          "0",
+          "0",
+          "0",
+          "6148914691236517205/295147905179352825856",
+          "0",
+          "6148914691236517205/295147905179352825856"
+        ],
+        [
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0",
+          "0",
+          "296329227860317245267174975476438331119/340282366920938463463374607431768211456",
+          "6148914691236517205/295147905179352825856",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "6148914691236517205/295147905179352825856",
+          "141425037898439895723/147573952589676412928",
+          "0",
+          "0",
+          "6148914691236517205/295147905179352825856",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "1293072994299566161160823508240719203533/1361129467683753853853498429727072845824",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "6148914691236517205/295147905179352825856",
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "1208002402569331545299591542401204538573/1361129467683753853853498429727072845824",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "0",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "6148914691236517205/295147905179352825856",
+          "0",
+          "0",
+          "1208002402569331545299591542401204538573/1361129467683753853853498429727072845824",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824"
+        ],
+        [
+          "0",
+          "0",
+          "22685491128062564230891640495451214097/1361129467683753853853498429727072845824",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "6148914691236517205/295147905179352825856",
+          "0",
+          "0",
+          "0",
+          "0",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824",
+          "1208002402569331545299591542401204538573/1361129467683753853853498429727072845824"
+        ]
+      ],
+      "first_moment_response_checked_on_all66_source_states": true,
+      "compressed_R3": [
+        [
+          "22685491128062564230891640495451214097*sqrt(5)/2722258935367507707706996859454145691648 + 2537939319951999373334845352110627400363/2722258935367507707706996859454145691648",
+          "-18446744073709551615/2361183241434822606848 + 8608480567731124087*sqrt(5)/2361183241434822606848",
+          "18446744073709551615/2361183241434822606848 - 6148914691236517205*sqrt(5)/2361183241434822606848"
+        ],
+        [
+          "-18446744073709551615/2361183241434822606848 + 8608480567731124087*sqrt(5)/2361183241434822606848",
+          "59903875010040208670180625550238880017*sqrt(5)/3402823669209384634633746074317682114560 + 624205466820596493917453254556610653935/680564733841876926926749214863536422912",
+          "-1229782938247303441*sqrt(5)/1180591620717411303424"
+        ],
+        [
+          "18446744073709551615/2361183241434822606848 - 6148914691236517205*sqrt(5)/2361183241434822606848",
+          "-1229782938247303441*sqrt(5)/1180591620717411303424",
+          "163760889080701635536560883055807640371*sqrt(5)/6805647338418769269267492148635364229120 + 1225725442513130423604014868617770093773/1361129467683753853853498429727072845824"
+        ]
+      ],
+      "F_R_commutator": [
+        [
+          "0",
+          "-60259363974117868609/177088743107611695513600 + 8608480567731124087*sqrt(5)/59029581035870565171200",
+          "8608480567731124087/17708874310761169551360 - 8608480567731124087*sqrt(5)/44272185776902923878400"
+        ],
+        [
+          "60259363974117868609/177088743107611695513600 - 8608480567731124087*sqrt(5)/59029581035870565171200",
+          "0",
+          "-8608480567731124087*sqrt(5)/177088743107611695513600 - 8608480567731124087/177088743107611695513600"
+        ],
+        [
+          "-8608480567731124087/17708874310761169551360 + 8608480567731124087*sqrt(5)/44272185776902923878400",
+          "8608480567731124087/177088743107611695513600 + 8608480567731124087*sqrt(5)/177088743107611695513600",
+          "0"
+        ]
+      ],
+      "half_turn_R_commutator": [
+        [
+          "0",
+          "18446744073709551615/1180591620717411303424 - 8608480567731124087*sqrt(5)/1180591620717411303424",
+          "0"
+        ],
+        [
+          "-18446744073709551615/1180591620717411303424 + 8608480567731124087*sqrt(5)/1180591620717411303424",
+          "0",
+          "-1229782938247303441*sqrt(5)/590295810358705651712"
+        ],
+        [
+          "0",
+          "1229782938247303441*sqrt(5)/590295810358705651712",
+          "0"
+        ]
+      ],
+      "nonzero_family_response_links": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "generated_complex_matrix_algebra_dimension": 9,
+      "algebra_proof": "Simple F gives all three spectral projectors; nonzero P_i R P_j divided by R_ij gives every offdiagonal matrix unit.",
+      "algebraic_three_family_mixing_capacity": true,
+      "all_retained_source_matrices_real": true,
+      "physical_CP_phase_generated": false
+    },
+    "projection_boundary": {
+      "slow_band_preserved_by_T12": false,
+      "outside_band_map_12_by3": [
+        [
+          "-198498047370547437015690168316770735445/2722258935367507707706996859454145691648 + 28356863910078205288307104884752191761*sqrt(5)/2722258935367507707706996859454145691648",
+          "-6148914691236517205/590295810358705651712 + 61676179004420096500622958171895435537*sqrt(5)/1701411834604692317316873037158841057280",
+          "6148914691236517205/590295810358705651712 - 1229782938247303441*sqrt(5)/590295810358705651712"
+        ],
+        [
+          "170141183460469231728612846370265847125/2722258935367507707706996859454145691648 - 17014118346046923173476176106150236433*sqrt(5)/2722258935367507707706996859454145691648",
+          "6148914691236517205/1180591620717411303424 + 49270051043760881687526629820299546897*sqrt(5)/1701411834604692317316873037158841057280",
+          "-6148914691236517205/1180591620717411303424 + 3689348814741910323*sqrt(5)/1180591620717411303424"
+        ],
+        [
+          "56713727820156410580303558584246293845/2722258935367507707706996859454145691648 - 28356863910078205288307104884752191761*sqrt(5)/2722258935367507707706996859454145691648",
+          "-6148914691236517205/1180591620717411303424 + 14887353552791057779404942836656976691*sqrt(5)/3402823669209384634633746074317682114560",
+          "6148914691236517205/1180591620717411303424 - 3689348814741910323*sqrt(5)/1180591620717411303424"
+        ],
+        [
+          "-170141183460469231728612846370265847125/2722258935367507707706996859454145691648 + 45370982256125128460553498052655124753*sqrt(5)/2722258935367507707706996859454145691648",
+          "96413337294265897979752243432858530611*sqrt(5)/3402823669209384634633746074317682114560",
+          "1229782938247303441*sqrt(5)/590295810358705651712 + 6148914691236517205/590295810358705651712"
+        ],
+        [
+          "1229782938247303441*sqrt(5)/1180591620717411303424 + 18446744073709551615/1180591620717411303424",
+          "86488434925738526126815614875087212817/1361129467683753853853498429727072845824 - 60967257406668141370905590999727420211*sqrt(5)/6805647338418769269267492148635364229120",
+          "-47497747049380993857084297198642991377*sqrt(5)/1701411834604692317316873037158841057280"
+        ],
+        [
+          "6148914691236517205/590295810358705651712 - 3689348814741910323*sqrt(5)/590295810358705651712",
+          "1417843195503910265583649035572547857/680564733841876926926749214863536422912 - 58131571015660320839738292928582324497*sqrt(5)/3402823669209384634633746074317682114560",
+          "6148914691236517205/590295810358705651712 + 60967257406668141370905590999727420211*sqrt(5)/3402823669209384634633746074317682114560"
+        ],
+        [
+          "-1229782938247303441*sqrt(5)/295147905179352825856",
+          "51042355038140769517968962441956102417/1361129467683753853853498429727072845824 - 68056473384187692692674921486353642291*sqrt(5)/6805647338418769269267492148635364229120",
+          "6148914691236517205/590295810358705651712 + 26230099116822339891776305738764325137*sqrt(5)/1701411834604692317316873037158841057280"
+        ],
+        [
+          "-13527612320720337851*sqrt(5)/1180591620717411303424 - 6148914691236517205/1180591620717411303424",
+          "12051667161783237248237644765511880977/680564733841876926926749214863536422912 - 61676179004420096500622958171895435537*sqrt(5)/3402823669209384634633746074317682114560",
+          "-89324121316746346657982912946232308531*sqrt(5)/3402823669209384634633746074317682114560"
+        ],
+        [
+          "6148914691236517205/295147905179352825856 + 6148914691236517205*sqrt(5)/590295810358705651712",
+          "-82234905339226795336213582459606086451/2722258935367507707706996859454145691648 - 19849804737054743702183908300800725265*sqrt(5)/2722258935367507707706996859454145691648",
+          "-104920396467289359560956308263820783343/2722258935367507707706996859454145691648 + 178648242633492693309816911201228099857*sqrt(5)/13611294676837538538534984297270728458240"
+        ],
+        [
+          "-18446744073709551615*sqrt(5)/1180591620717411303424 - 6148914691236517205/1180591620717411303424",
+          "-110591769249305000623290904406110974771/2722258935367507707706996859454145691648 - 42535295865117307931845765858004635921*sqrt(5)/2722258935367507707706996859454145691648",
+          "5671372782015641056185681451053674223/2722258935367507707706996859454145691648 + 34028236692093846343263003397558562543*sqrt(5)/13611294676837538538534984297270728458240"
+        ],
+        [
+          "6148914691236517205*sqrt(5)/1180591620717411303424 + 18446744073709551615/1180591620717411303424",
+          "-31192550301086025817014837079402680593*sqrt(5)/2722258935367507707706996859454145691648 - 53878041429148590049136260513101198131/2722258935367507707706996859454145691648",
+          "51042355038140769517968962441956102417/2722258935367507707706996859454145691648 - 34028236692093846343263003397558562543*sqrt(5)/13611294676837538538534984297270728458240"
+        ],
+        [
+          "6148914691236517205*sqrt(5)/590295810358705651712",
+          "-25521177519070384759599372690101702929*sqrt(5)/2722258935367507707706996859454145691648 - 53878041429148590049136260513101198131/2722258935367507707706996859454145691648",
+          "-65220786993179872161507623415208546577/2722258935367507707706996859454145691648 + 104920396467289359560956308263820783343*sqrt(5)/13611294676837538538534984297270728458240"
+        ]
+      ],
+      "outside_band_squared_norm_exact": "165051973867024460218582603336447463055477005198916178377286974673193902240491/18526734277970591267771357601390065256523197546502490246313213441266100742389760 - 43084306537051401045295188621178584427851596705946960636124503081163434406853*sqrt(5)/18526734277970591267771357601390065256523197546502490246313213441266100742389760",
+      "outside_band_squared_norm_float_diagnostic": 0.0037088315002413745,
+      "normalized_leakage_Gram": [
+        [
+          "5729296082054707585807098771075619867943791279799382595111444788967313657765/1852673427797059126777135760139006525652319754650249024631321344126610074238976 - 946841563034304306298734660946833347091051135639937789900745407013683807009*sqrt(5)/926336713898529563388567880069503262826159877325124512315660672063305037119488",
+          "3794159271167060372533672236193567869787559938998080036027/3213876088517980551083924184682325205044405987565585670602752 - 1841283175713426357284453572801419344692545975728191110877*sqrt(5)/3213876088517980551083924184682325205044405987565585670602752",
+          "-87181968547037232829162173283879042092728093951793975205/1606938044258990275541962092341162602522202993782792835301376 - 2615459056411116983135644212031574671935383764433812703*sqrt(5)/401734511064747568885490523085290650630550748445698208825344"
+        ],
+        [
+          "3794159271167060372533672236193567869787559938998080036027/3213876088517980551083924184682325205044405987565585670602752 - 1841283175713426357284453572801419344692545975728191110877*sqrt(5)/3213876088517980551083924184682325205044405987565585670602752",
+          "36237295149164266295229749550426120409420992240622919797513097727179965538559/9263367138985295633885678800695032628261598773251245123156606720633050371194880 - 3885869939162017460840448479792839783707597829575502474648109621878889367907*sqrt(5)/4631683569492647816942839400347516314130799386625622561578303360316525185597440",
+          "191800330803481912215082584773308866912628976846364102565/401734511064747568885490523085290650630550748445698208825344 - 209236724512889358779402653354880504382612457328792457125*sqrt(5)/803469022129495137770981046170581301261101496891396417650688"
+        ],
+        [
+          "-87181968547037232829162173283879042092728093951793975205/1606938044258990275541962092341162602522202993782792835301376 - 2615459056411116983135644212031574671935383764433812703*sqrt(5)/401734511064747568885490523085290650630550748445698208825344",
+          "191800330803481912215082584773308866912628976846364102565/401734511064747568885490523085290650630550748445698208825344 - 209236724512889358779402653354880504382612457328792457125*sqrt(5)/803469022129495137770981046170581301261101496891396417650688",
+          "35284422748148851770052116524839023557197107919676512831146331329160834585723/18526734277970591267771357601390065256523197546502490246313213441266100742389760 - 1720799103943449015191740296614111670240036534969238987903431290674840159009*sqrt(5)/3705346855594118253554271520278013051304639509300498049262642688253220148477952"
+        ]
+      ],
+      "second_step_identity": "left*T^2*B = R^2 + leakage^T*leakage/(B^T B)_00",
+      "second_step_identity_checked_exact": true,
+      "second_step_identity_scope": "Algebraic one-proposal marginal comparison; not a protocol that restarts after timeout.",
+      "autonomous_three_family_repair_dynamics_established": false,
+      "discarded_complement_or_failure_modes": false
+    },
+    "scope": {
+      "existing_full_update_context_supplies_more_than_static_F": true,
+      "Yukawa_map_selected": false,
+      "response_eigenvalues_identified_as_particle_masses": false,
+      "coherent_quartic_fermion_interaction_derived": false,
+      "Standard_Model_masses_or_CKM_derived": false
+    },
+    "source_bindings": {
+      "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
+      "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+      "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+      "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+      "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
+      "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+      "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+      "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
+      "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
+      "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
+      "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+      "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+      "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+      "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+      "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+      "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+      "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+      "model/common_source/hierarchy_diagnosis/native_family_dynamics.py": "4b518574d7c4371a05dc174047aa852b2dfc245b90a1801974ffc25e5d9202d9",
+      "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+      "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+      "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+      "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+      "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+      "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+      "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+      "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+      "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+      "model/event_circulation/__main__.py": "f8819b5e3b13a38ed3de801a1a0312f0729f70a22a1e6323d7f925598658966a",
+      "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+      "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+      "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+      "model/native_circulation/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+      "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+      "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+      "model/native_clock/__main__.py": "fd617457b5aa34100620a8cdde5bb841cf7cf4bbd95d92716e6d8412095b112a",
+      "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+      "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+      "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+      "model/native_equilibration/__main__.py": "22d1dd37b519734f9c4f7527a0c9598e173a00e658ba4602ceb908877fd3038f",
+      "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+      "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+      "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+      "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+      "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+      "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+      "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+      "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+      "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+      "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+      "model/native_relational_readout/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+      "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+      "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+      "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+      "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+      "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+      "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+      "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+      "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+      "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+      "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+      "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+      "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+      "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+      "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+      "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+      "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+      "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+      "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+      "model/observer_particles/results/family_naturality.json": "d3c6222739cd3f92652684b592533f48dcfa14a39181cf0e3784a2faca8183e5",
+      "model/observer_particles/results/family_naturality_operators.json": "6bd5f046c5fb16d9951a208810309da397736c2a98fe6df2d7dda2bcbfbc88ed",
+      "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+      "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+      "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+      "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+      "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+      "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+      "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+      "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+      "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+      "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+    }
+  },
+  "native_charged_sector_extension": {
+    "schema": "oph.hierarchy_diagnosis.charged_sector.v1",
+    "native_rule": "model.observer.native.native, unchanged on binary loads zero through three",
+    "sector_dimensions": [
+      1,
+      12,
+      66,
+      220
+    ],
+    "retained_total_two_branch_addresses_checked": 7920,
+    "field_representation": "ordered twelve-mode CAR restricted to insertions about total-two; no physical identification",
+    "one_proposal": {
+      "selector_rounds": 1,
+      "outcomes": {
+        "C": {
+          "accepted_response_diagonal_exact": [
+            "27/32",
+            "27/32",
+            "49/64",
+            "1649/2400",
+            "1573/2400",
+            "1123/1600",
+            "3107/4800",
+            "421/600",
+            "3331/4800",
+            "103/150",
+            "431/600",
+            "3/4"
+          ],
+          "terminal_response_diagonal_exact": [
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32"
+          ],
+          "off_port_entries_zero_exact": true
+        },
+        "E": {
+          "accepted_response_diagonal_exact": [
+            "27/32",
+            "27/32",
+            "11/16",
+            "1349/2400",
+            "1273/2400",
+            "131/200",
+            "1291/2400",
+            "1609/2400",
+            "1553/2400",
+            "1423/2400",
+            "1499/2400",
+            "21/32"
+          ],
+          "terminal_response_diagonal_exact": [
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32",
+            "5/32"
+          ],
+          "off_port_entries_zero_exact": true
+        }
+      },
+      "terminal_timeout_restarted": false,
+      "accepted_outcomes_conditioned_on_success": false
+    },
+    "exact_support_theorem": {
+      "identity": "x'=x-j(e_a-e_b), y'=y-j(e_a-e_b) implies x'-y'=x-y",
+      "domain": "all nonnegative integer loads for C/E records with the same placement coin",
+      "composition": "every finite recorded seam history and record-controlled schedule",
+      "diagonal_reference_cross_port_charged_two_point_response_zero": true,
+      "coherent_recombination_of_distinct_current_records_covered": false,
+      "arbitrary_encoded_collective_fields_excluded": false
+    },
+    "sector_phase_ambiguity": {
+      "conditional_witness": "H_kappa=H_0+kappa(N-2)^2 with [H_0,N]=0",
+      "faithful_reference_witnesses": [
+        {
+          "eta_exact": "1",
+          "full_binary_dimension": 4096,
+          "partition_function_exact": "25088/225",
+          "number_sector_probabilities_exact": [
+            "1/12544",
+            "65/50176",
+            "225/25088",
+            "1805/50176",
+            "1185/12544",
+            "4329/25088",
+            "405/1792",
+            "5385/25088",
+            "1845/12544",
+            "3565/50176",
+            "577/25088",
+            "225/50176",
+            "5/12544"
+          ],
+          "conditional_total_two_reference_identical_exact": true,
+          "per_configuration_weight": "w_q eta^((N-2)^2), q=protected-core occupation",
+          "modular_generator_difference_up_to_scalar": "-log(eta)*(N-2)^2",
+          "two_copy_pair_frequency_shift": "-2*log(eta)"
+        },
+        {
+          "eta_exact": "1/2",
+          "full_binary_dimension": 4096,
+          "partition_function_exact": "59811400236666261800904573568797/15845632502852867518708790067200",
+          "number_sector_probabilities_exact": [
+            "79228162514264337593543950336/538302602129996356208141162119173",
+            "10299661126854363887160713543680/538302602129996356208141162119173",
+            "15845632502852867518708790067200/59811400236666261800904573568797",
+            "286013666676494258712693660712960/538302602129996356208141162119173",
+            "31295124193134413349449860382720/179434200709998785402713720706391",
+            "595449158896267912226478751744/59811400236666261800904573568797",
+            "676998458984192337835458560/6645711137407362422322730396533",
+            "33906591347004052634337280/179434200709998785402713720706391",
+            "3781582535110458081280/59811400236666261800904573568797",
+            "2006916583946977280/538302602129996356208141162119173",
+            "19825569038336/538302602129996356208141162119173",
+            "3276800/59811400236666261800904573568797",
+            "5/538302602129996356208141162119173"
+          ],
+          "conditional_total_two_reference_identical_exact": true,
+          "per_configuration_weight": "w_q eta^((N-2)^2), q=protected-core occupation",
+          "modular_generator_difference_up_to_scalar": "-log(eta)*(N-2)^2",
+          "two_copy_pair_frequency_shift": "-2*log(eta)"
+        }
+      ],
+      "stationarity": "completion seams preserve N and protected-core q; each local population swap joins equal weights",
+      "all_total_two_histories_and_clocks_unchanged": true,
+      "addition_and_removal_energy_shift": "kappa each",
+      "two_copy_charge_conserving_pair_frequency_shift": "2*kappa",
+      "common_chemical_potential_contribution_to_pair_frequency": "0",
+      "admissibility_as_local_Lorentzian_OPH_dynamics_proved": false,
+      "purpose": "same-shell data cannot select an unmeasured coherent sector extension"
+    },
+    "native_port_charged_propagation_derived": false,
+    "Standard_Model_mass_prediction": false,
+    "empirical_inputs": []
+  },
+  "native_collective_charged_response": {
+    "schema": "oph.hierarchy_diagnosis.collective_response.v1",
+    "source": "unchanged total-two C/E instruments, mixed-cap selector and protected-core reference",
+    "modular_reference": "ideal prepared reference; finite preparation error is not propagated here",
+    "protected_pair_control": {
+      "algebra": {
+        "field": "X_j=|a,j><b,j|",
+        "pair": [
+          0,
+          1
+        ],
+        "common_occupation_sites": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conserved_core_number_charge": 0,
+        "total_native_number_charge": 0,
+        "products": "X_j X_k^dagger=delta_jk |a,j><a,j|; X_j^dagger X_k=delta_jk |b,j><b,j|; X_j X_k=0",
+        "same_site_anticommutator": "{X_j,X_j^dagger}=P_j, a rank-two projector, not the identity",
+        "different_site_commutator": "[X_j,X_k^dagger]=0 for j!=k",
+        "generated_field_algebra": "direct sum of ten M2(C) blocks, plus scalar identity on the 46-dimensional complement",
+        "global_sum_on_20_dimensional_support": "sum_j X_j is one CAR mode with tenfold coordinate multiplicity",
+        "ten_independent_CAR_modes_realized": false,
+        "odd_fermion_or_boson_statistics_derived": false,
+        "physical_electric_charge_or_spin_identified": false
+      },
+      "C_spectrum": {
+        "accepted_transfer_exact": [
+          [
+            "49/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "23/32",
+            "1/32",
+            "0",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "23/32",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "51/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "0",
+            "0",
+            "47/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "13/16",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "51/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/32",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "3/4",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "3/4",
+            "1/32"
+          ],
+          [
+            "1/64",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "3/4"
+          ]
+        ],
+        "incident_transfer_exact": [
+          [
+            "5/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "5/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "9/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "9/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/8",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "5/32",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "9/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "9/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "9/64"
+          ]
+        ],
+        "remote_transfer_exact": [
+          [
+            "39/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "9/16",
+            "1/32",
+            "0",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "37/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "0",
+            "0",
+            "19/32",
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "41/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "39/64",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "39/64",
+            "1/32"
+          ],
+          [
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "39/64"
+          ]
+        ],
+        "accepted_probability_exact": "27/32",
+        "selector_timeout_exact": "5/32",
+        "coherence_killing_per_proposal_exact": "0",
+        "graph_formula": "T_accepted=(q-killing)I-L_common/2",
+        "accepted_transfer_positive_floor_exact": "19/32",
+        "conditional_transfer_eigenvalues_diagnostic": [
+          0.7967295640776634,
+          0.8102338807898608,
+          0.8468957011389253,
+          0.8803236036933253,
+          0.8879360439958277,
+          0.9108004078693774,
+          0.9405160198908212,
+          0.9551495815523344,
+          0.9714151969918647,
+          1.0
+        ],
+        "conditional_log_decay_rates_diagnostic": [
+          0.2272399751160344,
+          0.21043233127764174,
+          0.16617773106354017,
+          0.12746570763684287,
+          0.11885556111093479,
+          0.09343149697822871,
+          0.0613265970093812,
+          0.04588732086885614,
+          0.029001304770521534
+        ],
+        "generating_resolvent": "sum_n z^n T_accepted^n=(I-z T_accepted)^(-1), |z| ||T_accepted||<1",
+        "local_return_measurement": "average the signed Ramsey return over ten separate coordinate preparations and local detectors, retaining every timeout",
+        "averaged_return_resolvent": "trace((I-z*T_accepted)^(-1))/10=sum_r (1/10)/(1-z*lambda_r), counting multiplicity",
+        "positive_return_spectral_weight_per_mode_exact": "1/10",
+        "return_residue_in_z_at_inverse_eigenvalue": "-multiplicity/(10*lambda); every accepted transfer eigenvalue has nonzero return residue",
+        "characteristic_polynomial_exact": [
+          "1",
+          "-243/32",
+          "106227/4096",
+          "-429723/8192",
+          "291876607/4194304",
+          "-33965643207/536870912",
+          "1371619031201/34359738368",
+          "-593109547917/34359738368",
+          "688983888228275/140737488355328",
+          "-1851577488604263/2251799813685248",
+          "8951351291854947/144115188075855872"
+        ],
+        "modular_weight_ratios_by_common_site": {
+          "2": "1",
+          "3": "1",
+          "4": "1",
+          "5": "1",
+          "6": "1",
+          "7": "1",
+          "8": "1",
+          "9": "1",
+          "10": "1",
+          "11": "1"
+        },
+        "phase_under_separately_implemented_modular_flow": "exp(i*s*log(weight_ratio)); s is the modular parameter",
+        "native_repair_transfer_oscillation_phase": 0,
+        "Lorentzian_dispersion_or_rest_mass_derived": false
+      },
+      "E_spectrum": {
+        "accepted_transfer_exact": [
+          [
+            "49/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "23/32",
+            "1/32",
+            "0",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "23/32",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "51/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "0",
+            "0",
+            "47/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "13/16",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "51/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/32",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "3/4",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "3/4",
+            "1/32"
+          ],
+          [
+            "1/64",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "3/4"
+          ]
+        ],
+        "incident_transfer_exact": [
+          [
+            "5/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "5/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "9/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "9/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/8",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "5/32",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "9/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "9/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "9/64"
+          ]
+        ],
+        "remote_transfer_exact": [
+          [
+            "39/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "1/64",
+            "9/16",
+            "1/32",
+            "0",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "37/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "1/32",
+            "0",
+            "0",
+            "19/32",
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "41/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "39/64",
+            "0",
+            "0"
+          ],
+          [
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "39/64",
+            "1/32"
+          ],
+          [
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "39/64"
+          ]
+        ],
+        "accepted_probability_exact": "27/32",
+        "selector_timeout_exact": "5/32",
+        "coherence_killing_per_proposal_exact": "0",
+        "graph_formula": "T_accepted=(q-killing)I-L_common/2",
+        "accepted_transfer_positive_floor_exact": "19/32",
+        "conditional_transfer_eigenvalues_diagnostic": [
+          0.7967295640776634,
+          0.8102338807898608,
+          0.8468957011389253,
+          0.8803236036933253,
+          0.8879360439958277,
+          0.9108004078693774,
+          0.9405160198908212,
+          0.9551495815523344,
+          0.9714151969918647,
+          1.0
+        ],
+        "conditional_log_decay_rates_diagnostic": [
+          0.2272399751160344,
+          0.21043233127764174,
+          0.16617773106354017,
+          0.12746570763684287,
+          0.11885556111093479,
+          0.09343149697822871,
+          0.0613265970093812,
+          0.04588732086885614,
+          0.029001304770521534
+        ],
+        "generating_resolvent": "sum_n z^n T_accepted^n=(I-z T_accepted)^(-1), |z| ||T_accepted||<1",
+        "local_return_measurement": "average the signed Ramsey return over ten separate coordinate preparations and local detectors, retaining every timeout",
+        "averaged_return_resolvent": "trace((I-z*T_accepted)^(-1))/10=sum_r (1/10)/(1-z*lambda_r), counting multiplicity",
+        "positive_return_spectral_weight_per_mode_exact": "1/10",
+        "return_residue_in_z_at_inverse_eigenvalue": "-multiplicity/(10*lambda); every accepted transfer eigenvalue has nonzero return residue",
+        "characteristic_polynomial_exact": [
+          "1",
+          "-243/32",
+          "106227/4096",
+          "-429723/8192",
+          "291876607/4194304",
+          "-33965643207/536870912",
+          "1371619031201/34359738368",
+          "-593109547917/34359738368",
+          "688983888228275/140737488355328",
+          "-1851577488604263/2251799813685248",
+          "8951351291854947/144115188075855872"
+        ],
+        "modular_weight_ratios_by_common_site": {
+          "2": "1",
+          "3": "1",
+          "4": "1",
+          "5": "1",
+          "6": "1",
+          "7": "1",
+          "8": "1",
+          "9": "1",
+          "10": "1",
+          "11": "1"
+        },
+        "phase_under_separately_implemented_modular_flow": "exp(i*s*log(weight_ratio)); s is the modular parameter",
+        "native_repair_transfer_oscillation_phase": 0,
+        "Lorentzian_dispersion_or_rest_mass_derived": false
+      }
+    },
+    "core_charged_collective_field": {
+      "algebra": {
+        "field": "X_j=|a,j><b,j|",
+        "pair": [
+          0,
+          5
+        ],
+        "common_occupation_sites": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conserved_core_number_charge": 1,
+        "total_native_number_charge": 0,
+        "products": "X_j X_k^dagger=delta_jk |a,j><a,j|; X_j^dagger X_k=delta_jk |b,j><b,j|; X_j X_k=0",
+        "same_site_anticommutator": "{X_j,X_j^dagger}=P_j, a rank-two projector, not the identity",
+        "different_site_commutator": "[X_j,X_k^dagger]=0 for j!=k",
+        "generated_field_algebra": "direct sum of ten M2(C) blocks, plus scalar identity on the 46-dimensional complement",
+        "global_sum_on_20_dimensional_support": "sum_j X_j is one CAR mode with tenfold coordinate multiplicity",
+        "ten_independent_CAR_modes_realized": false,
+        "odd_fermion_or_boson_statistics_derived": false,
+        "physical_electric_charge_or_spin_identified": false
+      },
+      "C_spectrum": {
+        "accepted_transfer_exact": [
+          [
+            "51/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "23/32",
+            "1/64",
+            "1/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "0",
+            "1/64",
+            "43/64",
+            "1/32",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "11/16",
+            "1/64",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "49/64",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "3/4",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "1/64",
+            "23/32",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "45/64",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "23/32"
+          ]
+        ],
+        "incident_transfer_exact": [
+          [
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "7/64",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/32",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "5/64",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/64",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "3/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "7/64"
+          ]
+        ],
+        "remote_transfer_exact": [
+          [
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "39/64",
+            "1/64",
+            "1/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "0",
+            "1/64",
+            "9/16",
+            "1/32",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "37/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "19/32",
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "41/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "1/64",
+            "39/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "39/64",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "39/64"
+          ]
+        ],
+        "accepted_probability_exact": "27/32",
+        "selector_timeout_exact": "5/32",
+        "coherence_killing_per_proposal_exact": "3/64",
+        "graph_formula": "T_accepted=(q-killing)I-L_common/2",
+        "accepted_transfer_positive_floor_exact": "35/64",
+        "conditional_transfer_eigenvalues_diagnostic": [
+          0.7460992215120672,
+          0.7668577983637708,
+          0.799421598234686,
+          0.8266375230046886,
+          0.8461577663082535,
+          0.8698503529639892,
+          0.8972578781164622,
+          0.9143845281627492,
+          0.9444444444444441,
+          0.9444444444444444
+        ],
+        "conditional_log_decay_rates_diagnostic": [
+          0.29289668291485327,
+          0.2654538945900246,
+          0.2238668150129949,
+          0.19038898354248304,
+          0.167049451764144,
+          0.1394340902159641,
+          0.108411968701563,
+          0.08950408685165169,
+          0.05715841383994899,
+          0.05715841383994864
+        ],
+        "generating_resolvent": "sum_n z^n T_accepted^n=(I-z T_accepted)^(-1), |z| ||T_accepted||<1",
+        "local_return_measurement": "average the signed Ramsey return over ten separate coordinate preparations and local detectors, retaining every timeout",
+        "averaged_return_resolvent": "trace((I-z*T_accepted)^(-1))/10=sum_r (1/10)/(1-z*lambda_r), counting multiplicity",
+        "positive_return_spectral_weight_per_mode_exact": "1/10",
+        "return_residue_in_z_at_inverse_eigenvalue": "-multiplicity/(10*lambda); every accepted transfer eigenvalue has nonzero return residue",
+        "characteristic_polynomial_exact": [
+          "1",
+          "-231/32",
+          "5999/256",
+          "-2952247/65536",
+          "119098141/2097152",
+          "-26338315669/536870912",
+          "2021038036291/68719476736",
+          "-13283379724435/1099511627776",
+          "114507745341399/35184372088832",
+          "-4676260436508357/9007199254740992",
+          "21468657673322073/576460752303423488"
+        ],
+        "modular_weight_ratios_by_common_site": {
+          "1": "8/5",
+          "2": "25/8",
+          "3": "25/8",
+          "4": "25/8",
+          "6": "25/8",
+          "7": "25/8",
+          "8": "25/8",
+          "9": "25/8",
+          "10": "25/8",
+          "11": "25/8"
+        },
+        "phase_under_separately_implemented_modular_flow": "exp(i*s*log(weight_ratio)); s is the modular parameter",
+        "native_repair_transfer_oscillation_phase": 0,
+        "Lorentzian_dispersion_or_rest_mass_derived": false
+      },
+      "E_spectrum": {
+        "accepted_transfer_exact": [
+          [
+            "3/4",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "43/64",
+            "1/64",
+            "1/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "0",
+            "1/64",
+            "5/8",
+            "1/32",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "41/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "41/64",
+            "1/64",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "23/32",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "45/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "1/64",
+            "43/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/32",
+            "1/64",
+            "0",
+            "0",
+            "21/32",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "43/64"
+          ]
+        ],
+        "incident_transfer_exact": [
+          [
+            "1/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "3/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0",
+            "1/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/16",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/16",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "3/64",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/16"
+          ]
+        ],
+        "remote_transfer_exact": [
+          [
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "39/64",
+            "1/64",
+            "1/64",
+            "1/64",
+            "0",
+            "0",
+            "0",
+            "1/64",
+            "1/64"
+          ],
+          [
+            "0",
+            "1/64",
+            "9/16",
+            "1/32",
+            "1/32",
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "37/64",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "1/32",
+            "0",
+            "19/32",
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "11/16",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/64",
+            "0",
+            "1/64",
+            "0",
+            "41/64",
+            "1/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/32",
+            "1/32",
+            "0",
+            "0",
+            "1/64",
+            "39/64",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "39/64",
+            "1/32"
+          ],
+          [
+            "0",
+            "1/64",
+            "0",
+            "1/32",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/32",
+            "39/64"
+          ]
+        ],
+        "accepted_probability_exact": "27/32",
+        "selector_timeout_exact": "5/32",
+        "coherence_killing_per_proposal_exact": "3/32",
+        "graph_formula": "T_accepted=(q-killing)I-L_common/2",
+        "accepted_transfer_positive_floor_exact": "1/2",
+        "conditional_transfer_eigenvalues_diagnostic": [
+          0.6905436659565118,
+          0.7113022428082151,
+          0.7438660426791305,
+          0.7710819674491332,
+          0.7906022107526982,
+          0.8142947974084329,
+          0.8417023225609065,
+          0.8588289726071936,
+          0.8888888888888888,
+          0.8888888888888891
+        ],
+        "conditional_log_decay_rates_diagnostic": [
+          0.3702760699620553,
+          0.34065784413613137,
+          0.2958943105224806,
+          0.25996059790605464,
+          0.23496033182609471,
+          0.20543281956491158,
+          0.17232886339939088,
+          0.15218547739472993,
+          0.11778303565638351,
+          0.11778303565638326
+        ],
+        "generating_resolvent": "sum_n z^n T_accepted^n=(I-z T_accepted)^(-1), |z| ||T_accepted||<1",
+        "local_return_measurement": "average the signed Ramsey return over ten separate coordinate preparations and local detectors, retaining every timeout",
+        "averaged_return_resolvent": "trace((I-z*T_accepted)^(-1))/10=sum_r (1/10)/(1-z*lambda_r), counting multiplicity",
+        "positive_return_spectral_weight_per_mode_exact": "1/10",
+        "return_residue_in_z_at_inverse_eigenvalue": "-multiplicity/(10*lambda); every accepted transfer eigenvalue has nonzero return residue",
+        "characteristic_polynomial_exact": [
+          "1",
+          "-27/4",
+          "83915/4096",
+          "-2412955/65536",
+          "363976771/8388608",
+          "-18808961947/536870912",
+          "1348885301695/68719476736",
+          "-2071228479553/274877906944",
+          "533872951961211/281474976710656",
+          "-159140171341809/562949953421312",
+          "85317493813587/4503599627370496"
+        ],
+        "modular_weight_ratios_by_common_site": {
+          "1": "8/5",
+          "2": "25/8",
+          "3": "25/8",
+          "4": "25/8",
+          "6": "25/8",
+          "7": "25/8",
+          "8": "25/8",
+          "9": "25/8",
+          "10": "25/8",
+          "11": "25/8"
+        },
+        "phase_under_separately_implemented_modular_flow": "exp(i*s*log(weight_ratio)); s is the modular parameter",
+        "native_repair_transfer_oscillation_phase": 0,
+        "Lorentzian_dispersion_or_rest_mass_derived": false
+      }
+    },
+    "collective_charge_continuity": {
+      "protected_port": 0,
+      "density": "Q_j=n_0 n_j, j!=0",
+      "total_density_identity": "sum_{j!=0} Q_j=n_0 on binary total-two states",
+      "current_on_recorded_seam": "I_uv=n_0*j_native",
+      "branchwise_continuity": "Q'_u-Q_u=-I_uv, Q'_v-Q_v=I_uv; other Q_j unchanged",
+      "local_charge_identity": "[Q_l,X_j]=delta_lj X_j for X_j=|0,j><5,j|",
+      "source_branch_input_addresses_checked": 2640,
+      "charge_density_and_Ramsey_quadrature_joint_classical_values_assumed": false,
+      "physical_electric_charge_identified": false
+    },
+    "complete_incident_clock_experiments": {
+      "C": {
+        "source_site": 2,
+        "input_relative_phase_sign": 1,
+        "clock_cap": [
+          0,
+          1,
+          5,
+          7
+        ],
+        "selector_rounds": 1,
+        "work_proposal_deadline": 2,
+        "clock": "first cap-incident work event; timeout flags have zero incident ticks",
+        "enumerated_terminal_paths": 4881,
+        "zero_probability_paths_retained": 3547,
+        "complete_record_and_detector_sha256": "23825560102918a25f168b117bb431fc066a4974d6fd79e376791ea07568a3e3",
+        "record_boundary": "complete work coin/current-or-contrast, accepted seam, stopping flag and detector law; auxiliary selector transcripts marginalized to seam/timeout",
+        "terminal_probabilities_exact": {
+          "deadline_timeout": "121/256",
+          "selector_timeout": "135/512",
+          "success": "135/512"
+        },
+        "terminal_signed_Ramsey_response_exact": {
+          "success": {
+            "1": "0",
+            "2": "721/4096",
+            "3": "7/4096",
+            "4": "7/4096",
+            "6": "3/2048",
+            "7": "1/2048",
+            "8": "0",
+            "9": "0",
+            "10": "3/2048",
+            "11": "7/4096"
+          },
+          "selector_timeout": {
+            "1": "0",
+            "2": "515/2048",
+            "3": "5/2048",
+            "4": "5/2048",
+            "6": "5/2048",
+            "7": "0",
+            "8": "0",
+            "9": "0",
+            "10": "5/2048",
+            "11": "5/2048"
+          },
+          "deadline_timeout": {
+            "1": "0",
+            "2": "763/2048",
+            "3": "79/4096",
+            "4": "5/256",
+            "6": "81/4096",
+            "7": "0",
+            "8": "1/2048",
+            "9": "1/1024",
+            "10": "41/2048",
+            "11": "41/2048"
+          }
+        },
+        "transported_site_7_signed_success_response_exact": "1/2048",
+        "shared_local_detector_joint_law_exact": {
+          "success": {
+            "+": "1/2048",
+            "-": "0",
+            "rest": "539/2048"
+          },
+          "selector_timeout": {
+            "+": "0",
+            "-": "0",
+            "rest": "135/512"
+          },
+          "deadline_timeout": {
+            "+": "0",
+            "-": "0",
+            "rest": "121/256"
+          }
+        },
+        "joint_law_interpretation": "each listed probability is on the equal-outcome diagonal for the two same-event local observers; all unequal pairs have probability zero",
+        "all_21_detector_outcomes_per_path_retained": true,
+        "source_selected_preparation_and_readout": false,
+        "native_pulse_compilation_reexecuted": false,
+        "physical_or_modular_time_calibrated": false
+      },
+      "E": {
+        "source_site": 2,
+        "input_relative_phase_sign": 1,
+        "clock_cap": [
+          0,
+          1,
+          5,
+          7
+        ],
+        "selector_rounds": 1,
+        "work_proposal_deadline": 2,
+        "clock": "first cap-incident work event; timeout flags have zero incident ticks",
+        "enumerated_terminal_paths": 10921,
+        "zero_probability_paths_retained": 9494,
+        "complete_record_and_detector_sha256": "d19f118ea4a33919d2ce35ae969e0e22cae272293dc8714071336cf6df7b1fec",
+        "record_boundary": "complete work coin/current-or-contrast, accepted seam, stopping flag and detector law; auxiliary selector transcripts marginalized to seam/timeout",
+        "terminal_probabilities_exact": {
+          "deadline_timeout": "121/256",
+          "selector_timeout": "135/512",
+          "success": "135/512"
+        },
+        "terminal_signed_Ramsey_response_exact": {
+          "success": {
+            "1": "0",
+            "2": "103/1024",
+            "3": "1/1024",
+            "4": "1/1024",
+            "6": "3/4096",
+            "7": "1/2048",
+            "8": "0",
+            "9": "0",
+            "10": "3/4096",
+            "11": "1/1024"
+          },
+          "selector_timeout": {
+            "1": "0",
+            "2": "515/2048",
+            "3": "5/2048",
+            "4": "5/2048",
+            "6": "5/2048",
+            "7": "0",
+            "8": "0",
+            "9": "0",
+            "10": "5/2048",
+            "11": "5/2048"
+          },
+          "deadline_timeout": {
+            "1": "0",
+            "2": "763/2048",
+            "3": "79/4096",
+            "4": "5/256",
+            "6": "81/4096",
+            "7": "0",
+            "8": "1/2048",
+            "9": "1/1024",
+            "10": "41/2048",
+            "11": "41/2048"
+          }
+        },
+        "transported_site_7_signed_success_response_exact": "1/2048",
+        "shared_local_detector_joint_law_exact": {
+          "success": {
+            "+": "1/2048",
+            "-": "0",
+            "rest": "539/2048"
+          },
+          "selector_timeout": {
+            "+": "0",
+            "-": "0",
+            "rest": "135/512"
+          },
+          "deadline_timeout": {
+            "+": "0",
+            "-": "0",
+            "rest": "121/256"
+          }
+        },
+        "joint_law_interpretation": "each listed probability is on the equal-outcome diagonal for the two same-event local observers; all unequal pairs have probability zero",
+        "all_21_detector_outcomes_per_path_retained": true,
+        "source_selected_preparation_and_readout": false,
+        "native_pulse_compilation_reexecuted": false,
+        "physical_or_modular_time_calibrated": false
+      }
+    },
+    "overlapping_observer_detector": {
+      "detector_support": [
+        0,
+        5,
+        7
+      ],
+      "observer_regions": [
+        [
+          0,
+          1,
+          5,
+          7
+        ],
+        [
+          0,
+          5,
+          7,
+          10
+        ]
+      ],
+      "shared_region": [
+        0,
+        5,
+        7
+      ],
+      "effects": "E_\u00b1=1/2 (|0,7>\u00b1|5,7>)(<0,7|\u00b1<5,7|); E_rest=I-E_+-E_-",
+      "local_embeddings_identical_on_actual_source_exact": true,
+      "number_preserving_local_instrument_exact": true,
+      "state_update": "rho -> E_o rho E_o / Tr(E_o rho), when the selected outcome has nonzero probability",
+      "repeatability": "E_v E_u=delta_uv E_u; two same-event reads give p(u,v)=delta_uv p(u)",
+      "all_terminal_flags_and_rest_outcomes_retained": true,
+      "later_native_evolution_of_work_state_allowed": true,
+      "archive_agreement_requires_protected_classical_records": true,
+      "same_quantity_unchanged_after_arbitrary_intervening_repairs": false,
+      "second_region_and_coherent_apparatus_are_declared": true,
+      "source_pulse_execution_or_physical_detector_calibration_claimed": false
+    },
+    "conditional_linear_color_attachment": {
+      "C": {
+        "linear_response_dimension": 10,
+        "one_double_eigenvalue_exact": "51/64",
+        "characteristic_polynomial_gcd_with_derivative_exact": "z - 51/64",
+        "other_simple_eigenvalues": 8,
+        "maximum_eigenspace_dimension": 2,
+        "unbroken_commuting_continuous_SU3_can_act_as_a_triplet": false,
+        "scope": "The ten X_j modes with the named accepted C/E transfer, assuming an unbroken unitary SU(3) action that commutes with it; no claim about composite, enlarged, gauge-dressed or alternate coherent fields."
+      },
+      "E": {
+        "linear_response_dimension": 10,
+        "one_double_eigenvalue_exact": "3/4",
+        "characteristic_polynomial_gcd_with_derivative_exact": "z - 3/4",
+        "other_simple_eigenvalues": 8,
+        "maximum_eigenspace_dimension": 2,
+        "unbroken_commuting_continuous_SU3_can_act_as_a_triplet": false,
+        "scope": "The ten X_j modes with the named accepted C/E transfer, assuming an unbroken unitary SU(3) action that commutes with it; no claim about composite, enlarged, gauge-dressed or alternate coherent fields."
+      }
+    },
+    "conditional_sharp_pole_attachment": {
+      "C": {
+        "clock_parameters": "native proposal count or finite incident-event stopping clock; separate modular parameter s",
+        "outer_response_modes": 9,
+        "graph_zero_modes_exact": 1,
+        "graph_positive_modes_exact": 8,
+        "graph_laplacian_trace_exact": "3/2",
+        "modular_frequency_for_every_outer_mode": "log(25/8)",
+        "native_transfer_phases_for_every_outer_mode": "0",
+        "tested_extra_dictionary": "one common calibrated modular frequency as E; positive common multiple of graph Laplacian eigenvalue as p^2; one sharp free field with nonzero propagation speed",
+        "contradiction": "equal E^2 at ell=0 and ell>0 cannot satisfy E^2=m^2+c^2*ell with c!=0",
+        "tested_sharp_free_dispersion_attachment_passes": false,
+        "graph_eigenvalue_identified_as_continuum_momentum": false,
+        "native_counter_identified_as_proper_or_Euclidean_time": false,
+        "interacting_thermal_or_alternative_continuum_fields_excluded": false
+      },
+      "E": {
+        "clock_parameters": "native proposal count or finite incident-event stopping clock; separate modular parameter s",
+        "outer_response_modes": 9,
+        "graph_zero_modes_exact": 1,
+        "graph_positive_modes_exact": 8,
+        "graph_laplacian_trace_exact": "3/2",
+        "modular_frequency_for_every_outer_mode": "log(25/8)",
+        "native_transfer_phases_for_every_outer_mode": "0",
+        "tested_extra_dictionary": "one common calibrated modular frequency as E; positive common multiple of graph Laplacian eigenvalue as p^2; one sharp free field with nonzero propagation speed",
+        "contradiction": "equal E^2 at ell=0 and ell>0 cannot satisfy E^2=m^2+c^2*ell with c!=0",
+        "tested_sharp_free_dispersion_attachment_passes": false,
+        "graph_eigenvalue_identified_as_continuum_momentum": false,
+        "native_counter_identified_as_proper_or_Euclidean_time": false,
+        "interacting_thermal_or_alternative_continuum_fields_excluded": false
+      }
+    },
+    "conditional_hierarchy_bounds": {
+      "C": {
+        "exact_log_inequalities": "1-u <= -log(lambda) <= (1-l)/l for 0<l<=lambda<=u<1",
+        "clock_spectral_argument": "J(I+R) similar to (I+R)^(1/2)J(I+R)^(1/2); J>=j_min I, R>=0",
+        "conventions": {
+          "accepted_proposal": {
+            "transfer_lower_exact": "35/64",
+            "transfer_upper_exact": "51/64",
+            "positive_log_rate_spread_upper_exact": "1856/455"
+          },
+          "surviving_proposal": {
+            "transfer_lower_exact": "35/54",
+            "transfer_upper_exact": "17/18",
+            "positive_log_rate_spread_upper_exact": "342/35"
+          },
+          "finite_first_incident_success": {
+            "transfer_lower_exact": "1/16",
+            "transfer_upper_exact": "189/1024",
+            "positive_log_rate_spread_upper_exact": "3072/167"
+          },
+          "conditional_finite_first_incident_success": {
+            "transfer_lower_exact": "32/135",
+            "transfer_upper_exact": "7/10",
+            "positive_log_rate_spread_upper_exact": "515/48"
+          }
+        },
+        "field_coordinate_spread_or_copy_normalization_changes_poles": false,
+        "outer_modular_frequency_count": 1,
+        "full_collective_positive_modular_frequency_count": 2,
+        "full_collective_modular_frequencies": [
+          "log(8/5)",
+          "log(25/8)"
+        ],
+        "physical_mass_assignment_established": false
+      },
+      "E": {
+        "exact_log_inequalities": "1-u <= -log(lambda) <= (1-l)/l for 0<l<=lambda<=u<1",
+        "clock_spectral_argument": "J(I+R) similar to (I+R)^(1/2)J(I+R)^(1/2); J>=j_min I, R>=0",
+        "conventions": {
+          "accepted_proposal": {
+            "transfer_lower_exact": "1/2",
+            "transfer_upper_exact": "3/4",
+            "positive_log_rate_spread_upper_exact": "4"
+          },
+          "surviving_proposal": {
+            "transfer_lower_exact": "16/27",
+            "transfer_upper_exact": "8/9",
+            "positive_log_rate_spread_upper_exact": "99/16"
+          },
+          "finite_first_incident_success": {
+            "transfer_lower_exact": "1/64",
+            "transfer_upper_exact": "27/256",
+            "positive_log_rate_spread_upper_exact": "16128/229"
+          },
+          "conditional_finite_first_incident_success": {
+            "transfer_lower_exact": "8/135",
+            "transfer_upper_exact": "2/5",
+            "positive_log_rate_spread_upper_exact": "635/24"
+          }
+        },
+        "field_coordinate_spread_or_copy_normalization_changes_poles": false,
+        "outer_modular_frequency_count": 1,
+        "full_collective_positive_modular_frequency_count": 2,
+        "full_collective_modular_frequencies": [
+          "log(8/5)",
+          "log(25/8)"
+        ],
+        "physical_mass_assignment_established": false
+      }
+    },
+    "finite_copy_bosonic_fluctuations": {
+      "independent_source_copies": 64,
+      "reference_contract": "tensor-independent ideal sigma copies; joint-history independence is an additional dynamical premise",
+      "active_weights_exact": [
+        "1/36",
+        "2/225"
+      ],
+      "polarization_exact": "17/900",
+      "fluctuation_field": "F_j=(M*delta)^(-1/2) sum_r X_j^(r), nine outer common sites",
+      "mean_commutator_exact": "< [F_j,F_k^dagger] >= delta_jk",
+      "off_site_commutators_exact": "[F_j,F_k^dagger]=0 for j!=k",
+      "mean_occupation_exact": "8/17",
+      "mean_creation_annihilation_reverse_exact": "25/17",
+      "commutator_mean_square_error_exact": "29411/18496",
+      "commutator_error_coefficient_over_M_exact": "29411/289",
+      "normal_ordered_fourth_moment_exact": "126/289",
+      "thermal_Gaussian_fourth_moment_limit_exact": "128/289",
+      "KMS_weight_ratio_exact": "25/8",
+      "modular_frequency": "log(25/8)",
+      "ordered_Weyl_limit_under_IID_contract": "exp(-(2*n_B+1)*|sum v|^2/4-i*sum_{r<s}symplectic(v_r,v_s)/2)",
+      "limit_justification": "same bounded IID ordered-Weyl product/Taylor argument as model/observer_time_fields/REFINEMENT.md, applied to this nonuniform native reference",
+      "finite_operator_norm_CCR_or_Lorentzian_limit_claimed": false,
+      "growing_copy_preparation_or_detector_executed": false,
+      "cost_contract": "M separate reference preparations and records; their independence, joint control and preparation error need accounted services",
+      "independent_copy_scaling_changes_two_point_transfer_poles": false,
+      "two_point_evolution_contract": "identical separate-copy native evolution at one declared per-copy parameter; cross-copy means vanish, leaving the same T poles"
+    },
+    "positive_result": "a core-charged even collective coherence propagates in its common-occupation coordinate through complete native recorded histories",
+    "native_raw_port_charge_support_moves": false,
+    "collective_field_has_nonzero_cross_coordinate_response": true,
+    "multiple_fermion_modes_or_3p1_Lorentzian_particles_identified": false,
+    "empirical_mass_or_coupling_inputs": []
+  },
+  "native_exterior_matter_attachment": {
+    "native_binary_two_load_dimension": 66,
+    "source_bands": {
+      "constant_rank": 1,
+      "antipodal_even_rank": 5,
+      "projected_protected_core_gram_determinant_exact": "1/6",
+      "core_plane_rank": 2,
+      "orthogonal_complement_rank": 3
+    },
+    "same_carrier_exterior_candidate": {
+      "projector_rank": 15,
+      "wedge_five_rank": 10,
+      "constant_wedge_five_rank": 5,
+      "all_projector_identities_exact": true
+    },
+    "conditional_additive_one_body_charge": {
+      "q6Y_on_core_defined_three_plane": -2,
+      "q6Y_on_core_defined_two_plane": 3,
+      "native_exterior_charge_multiplicities": {
+        "-4": 3,
+        "-2": 3,
+        "1": 6,
+        "3": 2,
+        "6": 1
+      },
+      "decoded_M15_charge_multiplicities": {
+        "-4": 3,
+        "-3": 2,
+        "1": 6,
+        "2": 3,
+        "6": 1
+      },
+      "ten_component_wedge_charges_match": true,
+      "five_component_wedge_charges_match": false,
+      "single_constant_line_charge_shift_needed_for_three_and_two": [
+        4,
+        -6
+      ],
+      "one_additive_one_body_charge_action_recovers_M15": false
+    },
+    "direct_native_transfer_attachment": {
+      "mixed_cap_one_round_accepted_weight_exact": "27/32",
+      "selector_timeout_weight_exact": "5/32",
+      "complete_map_with_timeout_has_same_projector_commutator": true,
+      "mixed_cap_projector_commutator": {
+        "rank_exact": 30,
+        "frobenius_norm_squared_exact": "961/8192",
+        "entry_0_1_exact": "1/64"
+      },
+      "complete_C_E_accepted_quantum_leakage_from_Q15_over_15_exact": {
+        "C": "379/2560",
+        "E": "703/2560"
+      },
+      "uniform_all_seam_control_projector_commutator": {
+        "rank_exact": 30,
+        "frobenius_norm_squared_exact": "29/600",
+        "entry_0_1_exact": "1/120"
+      },
+      "fifteen_dimensional_candidate_invariant_under_either_transfer": false
+    },
+    "fixed_work_carrier_invariant_rank_test": {
+      "finite_selector_same_positive_twenty_seam_support": true,
+      "selector_timeout_weight_exact": "5/32",
+      "ideal_common_cap_gap_lower_exact": "1/600",
+      "finite_selector_ideal_mix_minorization_exact": "3/4",
+      "finite_selector_gap_lower_exact": "1/800",
+      "C_and_E_complete_work_channels_bistochastic_exact": true,
+      "existing_fixed_algebra_blocks": "C*I45 direct_sum (M2 tensor I10) direct_sum C*I1",
+      "all_fixed_projector_ranks_exact": [
+        0,
+        1,
+        10,
+        11,
+        20,
+        21,
+        45,
+        46,
+        55,
+        56,
+        65,
+        66
+      ],
+      "rank_fifteen_noiseless_invariant_work_subspace_possible": false,
+      "proof_scope": "The unread finite C/E mixed-cap channel on the fixed binary 66-state work carrier. Its positive weighted seams have the same fixed algebra as the established connected ideal cap law; timeout adds identity. A projector invariant under every work Kraus branch is fixed because the complete channel is unital and trace preserving. No conclusion about record-dependent recovery, ancillas, noiseless subsystems, operator responses, or another coherent law."
+    },
+    "declared_signed_exterior_control": {
+      "one_body_operator": "the same native thirty-seam port Laplacian",
+      "constant_wedge_five_eigenvalue_exact": 6,
+      "wedge_five_eigenvalue_exact": 12,
+      "fifteen_dimensional_carrier_invariant_exact": true,
+      "this_CAR_lift_selected_by_recorded_native_repair": false
+    },
+    "interpretation": "A specified exterior vector-space map on the actual 66-state source gives a 15-dimensional 10+5 carrier from its rank-one/five bands and protected core. Exterior orientation signs are an additional representation choice; the native unordered-pair repair does not inherit them. The additive one-body charge gives 10+5 rather than the decoded 10+bar5. The complete finite C/E channel has no invariant rank-15 work subspace. This excludes the stated direct work-carrier attachment, not encoded, record-corrected, interacting or continuum field maps."
+  },
+  "conclusion": {
+    "linear_trial_and_entire_complex_affine_feature_class_excluded": true,
+    "clock_or_units_explain_current_hierarchy_failure": false,
+    "new_mass_generating_dynamics_implemented": false,
+    "all_OPH_architectures_excluded": false,
+    "observed_particle_masses_derived": false
+  },
+  "source_bindings": {
+    "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
+    "Lean/ObserverPatchHolography/CoreAxioms.lean": "addcea08fe55c0ccc3edbeb90ebd9df4b640c96bd20e9755417bcdb84f093fe4",
+    "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
+    "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
+    "Lean/Screen/A5FamilyBand.lean": "da86f97b63a871bedc4a5418c4b7b154ab3d354b7fdb41e9184f4c3b343e1521",
+    "Lean/Screen/ExteriorSelection.lean": "464f9606ef77cf911e1ea86544e4cca98056b4f67ebc7eba9aff8b03dab8c531",
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
+    "Lean/Screen/MatterGrammarIndexBridge.lean": "1f66250458e837de3f45f29a370ed4a4960ea55a4e3d9bdb8be2d1d7f74a4851",
+    "Lean/Screen/ObserverFieldInterfaces.lean": "eda13fa7242a6fccef281616458f7656bcf5b73044934802fbb6ad6802efd1af",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/Screen/SeamCurrentEdge30Moment.lean": "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+    "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
+    "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
+    "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
+    "code/a5_closure/echosahedral_selector_certificate.py": "e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7",
+    "code/a5_closure/family_band_attachment_certificate.py": "327a8913f2c725e123c98238c7a8a113f3913d89453d8d3e0e8c0162d733ce2e",
+    "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "code/a5_closure/manifests/family_band_attachment_reference.json": "3a02d02fd3bcd318535348186aad7008c861c7ff3b8c9558f64d36b7ee0eb64b",
+    "code/a5_closure/manifests/spin_statistics_semantic_artifact.json": "a757219196e18504488a93ac9dce0d4c599edba96b14f1c7ba52ae95e5b317ff",
+    "code/a5_closure/manifests/super_tannakian_matter_reference.json": "cb627653c332996adcec8f9d501299e0fcb272958b346316946b613253040c59",
+    "code/a5_closure/port_current_inner_certificate.py": "8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436",
+    "code/a5_closure/response_grammar_completeness_certificate.py": "5e3f0c52208619a1609fd3c002ed48bdfa480d8adaa92bf2c91b769c5e556338",
+    "code/a5_closure/source_current_order_sensitive_inventory.py": "e77c3bd7b4498acc7e6030ba6f1ebdfc0b0a9e4f24069902421114ec9ddd8d54",
+    "code/a5_closure/super_tannakian_matter_lift_certificate.py": "f6f3ed3f6d9b9bcfe3fd3c23663e97cb17db512d54c06c008a41e7ef2cc6b1fa",
+    "code/electromagnetism/cone_whitney_bridge.py": "638fcd8cc85fc9b6e844c2173f9015fcb2fbed1c47805693cc989daf7d340114",
+    "code/electromagnetism/verify_serial_maxwell_readout.py": "5432264f6d20fafaa186f546376ac9b9347300d8626bcc4a5d246f8fb83b5325",
+    "code/electromagnetism/verify_whitney_maxwell_dynamics.py": "a612f0c65158dc0ed2419916e9c1c5fb42e20f245daa2d8b10b3485e2e19ff43",
+    "code/equation_of_state/maxwell/maxwell_eos.py": "d48dce6793d88a489259ef34526fdb4fff60dee988002170ddffa2c75f847d96",
+    "code/m1_fermionic_source/__init__.py": "17f5265a29d46fa63a6c01ffecd6dac721ad7db15d9f8cc6c260a78501de5716",
+    "code/m1_fermionic_source/model.py": "809a1bbbe14611b1c31b7f222d3bf139408d4a3685cf13fab97570c7c707e04a",
+    "code/m1_fermionic_source/pauli.py": "7e1b9982fde343e8dff86ec8516804d9a13399f8ce4e6440901259c2efaf8256",
+    "code/m1_operational_clocks/__init__.py": "e875f6c2c895ba8fad9570bf1399196646b9a7aae79f8dcd9c959ffb29358ac5",
+    "code/m1_operational_clocks/check.py": "260651ef02bf010b0df2fa5f38750009508732a227d7451255dd3f11cd60de8e",
+    "code/m1_source_realization/__init__.py": "9c134076fe8893940d271f64a5628318e73c484a0641c6997706e4caee4ecd10",
+    "code/m1_source_realization/check.py": "fa466a0c2727355a60c5e318ee359ca07bf5eb8d0d67cf7bd4d765606e18a5d9",
+    "code/m1_source_realization/model.py": "c0089ba890db76ca9dc055c29800a328a3b6800dbb000247f38621288c5c03b2",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "code/particles/flavor/exterior_higgs_response_spec.json": "260c99f7c768c6507f10e993152def3af81a6940342dc4ce047c4133e2b82dac",
+    "code/source_gravity_admissibility/__init__.py": "9ac7a42527f951d4ea7e0f90e5d81832ca8609b61f6957ac6a3777ebe2eba8ab",
+    "code/source_gravity_admissibility/check.py": "a81c75b05771a9bd1120030e2cbdc4750e1024339f949db530e83835648318ac",
+    "code/source_gravity_admissibility/model.py": "720be90acd33b63f036b23f5b33f6faa00f17076e277c7c817670781cf024610",
+    "code/source_gravity_admissibility/receipt.json": "00ca9be9d4504b5608a2d7e8fc84e5ab6d6c4b9d4b5ba06ed13ec9c4eac2411e",
+    "code/source_selection_model/__init__.py": "0ef4f07dd260ca06c04365934aa374efff3cfa851e2967d8edf231f76b51080c",
+    "code/source_selection_model/geometry.py": "de47ae19dd4ae1677d0cefb0163513f2f1f6d24dfb4dd0264506d0b17fceb843",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400",
+    "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e",
+    "code/yang_mills/manifests/physical_compact_gauge_uninstantiated.json": "e512c4a67dc627789bd0450fedabfdc1dc81765021bc0b3eaab12763c7df979a",
+    "docs/research/OPH_PARTICLE_MASS_RESPONSE.md": "dbc776c4154f1a1e0fc357360f0ee7f02896c1d0660e043d2be09e3e3caaf207",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/chiral_candidate/ACTION.md": "5cc000a374aa5523e2ba1fa32bf68b346f65111b94ff8c293815879a638964aa",
+    "model/common_source/chiral_candidate/KINETIC.md": "0af4bd6cf81f8bbdcf6c37dc6eb4a4cf32758ec585da6a501e9bebc85a24b2f3",
+    "model/common_source/chiral_candidate/README.md": "05e6cfec98103d6c78f1f15d1da2f2a59906efa946e13c16ef5de683fbbee56c",
+    "model/common_source/chiral_candidate/REGULATOR_ROUTES.md": "b4306fbbf3507224879bb62ee3feaa3fe310b9636598e8398af1cba8d8a0bb96",
+    "model/common_source/chiral_candidate/SOURCE.md": "2b9c6bcb2e20815187736a457a867285d4d18241104bc435984b3a04adb8943b",
+    "model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/chiral_candidate/dispersion_identifiability.py": "e98eaaf0a963a23801cccc3c7563c2aee0fe47e8c3712f2663737f154ada4f31",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
+    "model/common_source/chiral_candidate/hierarchy_controls.py": "91baa39d1c8c950162c0aaf35228694110e5e738eb9ae84027a2ffc8545d9a46",
+    "model/common_source/chiral_candidate/history.py": "265e73ac87321ebd514b97af2c7c4c0bb376144f60e53d10bfd46662ce2d8db4",
+    "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
+    "model/common_source/chiral_candidate/protected_momentum.py": "2f1cd04f7c1d504b2ba6d9c4f1e32c4a825016e92b928af774edfbba6bd3aece",
+    "model/common_source/chiral_candidate/record_two_point.py": "4d36032bd94f4e66690cc1c2e45b17a21e80713f29401db9a94f415f758f4826",
+    "model/common_source/chiral_candidate/results.json": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+    "model/common_source/chiral_candidate/results.npz": "7d514cc2a4f631561449d6268175073cbd06a3db790f10f76730dc6dc8d7efcc",
+    "model/common_source/chiral_candidate/run.py": "3a6746e9ef8e0bb893927bbeefc7e9a764e77c32bf3033c8283f746914a8598c",
+    "model/common_source/chiral_candidate/spacetime_attachment.py": "fa1a55c076de8f4a79e96fb14f3a98644f62e712a43b4f78a3169d3d0c5495e4",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/hierarchy_diagnosis/README.md": "785b231b01718aa2af514d2b3a5cf0ed49ba6061d20e6150bdd63e5ccf6ae7a5",
+    "model/common_source/hierarchy_diagnosis/__init__.py": "405c9e9abaf890b8ec76716bf8a8fa777d8012ba0fa1e9adb0aabef5bfb91f57",
+    "model/common_source/hierarchy_diagnosis/audit.py": "9c19bdcdfc72438aed3c08264b6c02391054e5d0baffe0d5215c73baa1ba6b87",
+    "model/common_source/hierarchy_diagnosis/charged_sector.py": "bfa4c722d01ff06f3ab68addfc2a9c004687bb116d83e2bc437c080e48175491",
+    "model/common_source/hierarchy_diagnosis/collective_response.py": "0030c1a50cab9b09ae99a77171c294ca878758a2fa06de175891de83dac4dcb8",
+    "model/common_source/hierarchy_diagnosis/native_covariance.py": "a4b90a2e65f242a716fb203cf8d4b7579d00201a3b0e347c256d3e377905ff7f",
+    "model/common_source/hierarchy_diagnosis/native_exterior_attachment.py": "2f4001ea2a3b2c8a59b4fe8b6634a3f28304716f7e21665be2a966e6c91a2327",
+    "model/common_source/hierarchy_diagnosis/native_family_dynamics.py": "4b518574d7c4371a05dc174047aa852b2dfc245b90a1801974ffc25e5d9202d9",
+    "model/common_source/hierarchy_diagnosis/nonlinear_shapes.py": "2a8821536f6bc71995391e60e244780dd0c2dec64fa450ce5ea2ed43fb922f18",
+    "model/common_source/hierarchy_diagnosis/quadratic_response.py": "fc171dd30460bb23d74a74306a86a73c0d956aae671783651575e60dc2799713",
+    "model/common_source/hierarchy_diagnosis/test_audit.py": "dfbb5dc58bc24250a0cc242e670a3efbec23230f654bd41d1d94195e5882804c",
+    "model/common_source/hierarchy_diagnosis/test_charged_sector.py": "ee7f50a883b07d4ee6eecc3af6cf20ed4ee78a6c556f1c3a5aaaa8debef2fc79",
+    "model/common_source/hierarchy_diagnosis/test_collective_response.py": "98875a7988a735982ab5a1ab2b7f1f347cf6eefc9de62a18d5ef1976e418c76c",
+    "model/common_source/hierarchy_diagnosis/test_native_covariance.py": "ed2e78db3574df57399ca0704602c427d132c2ce24efdb026c9142811a68e6c5",
+    "model/common_source/hierarchy_diagnosis/test_native_exterior_attachment.py": "f2ceb1e30bc83cdfcfc84b6d3224f9c7b2f875f7af30704bc34df24dcf4f0bf5",
+    "model/common_source/hierarchy_diagnosis/test_native_family_dynamics.py": "fdd07c9979cf95654f5123a62565240d97a19d8c553086d1eb22ea3dd8ce254b",
+    "model/common_source/hierarchy_diagnosis/test_nonlinear_shapes.py": "f955bc299785705ed7cc9e4472907d8454a964235ed803b834cd452ffda59fe3",
+    "model/common_source/hierarchy_diagnosis/test_quadratic_response.py": "fad4d0703d69cc959261373abbcd4ec58b3800989b9d15baae463baff4a784aa",
+    "model/common_source/hierarchy_diagnosis/test_replay_portability.py": "9459eeb021754459150b12b8f7fab4eb34b92eeeac6518e02bd3b30816044c0d",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/mass_response/DERIVATION.md": "ab600dbb797a0aadcb0246e1893301959076674aa9bb13e9f9c48ce1c0d22867",
+    "model/common_source/mass_response/HUBBARD_GAP.md": "03815a1b50ce8723a0ced93f630654098e6507e1209ad1d28e21241433d32dc9",
+    "model/common_source/mass_response/README.md": "11065909c01d3bdc680813f0229a533f60988604101f9c2650913f487b0495f4",
+    "model/common_source/mass_response/__init__.py": "848f40bd5231002e7ac5e28ac9cab27481d47bab0f363c9f39c31f14b2656a7e",
+    "model/common_source/mass_response/dispersion.py": "de471a1ad966bb7f8de4666617350e291fad2eb09ad04d69e5a182077634f53d",
+    "model/common_source/mass_response/experiment.py": "9d465522ec54aefabd277e7d01d9f35248186365a8541797087b7502e900154b",
+    "model/common_source/mass_response/gap_certificate.py": "36c70dbb674099d4fdffdf2439413e875f7258971a39782adc277a6113149d23",
+    "model/common_source/mass_response/history.py": "1046f4be64b2ad6498df83b1949ec316449d0ce0d9b57ce4763d96a0ed3a2abb",
+    "model/common_source/mass_response/hubbard.py": "2e39da1dbed7dedc04065d2b2dc63d90ef472449695e286307f6ec6fc6b29ea4",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/common_source/mass_response/native_attachment.py": "e9a941e74ed90c5536b1094ffdf810cfa101a9a786c212e4906370e2092a1620",
+    "model/common_source/mass_response/results.json": "19491f2cafb68d7c96760b908071972e0a0ba69b4ef6baa6e6ebbce43280cfa1",
+    "model/common_source/mass_response/run.py": "6a8e0d4d8f41ae18e2ac84f0591bdc2e6d8d0168728fb69662f79c71589b5bb9",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/particle_identification/CLIFFORD.md": "93e7ed4792e6048d7ee08fc46fc97eeec1b9797b450a1a69fae4728c39a8fd23",
+    "model/common_source/particle_identification/README.md": "2c88e9d0a30c1a873f31c10ce29a24c8db9538f7c75e750c63a97645f1c0a68a",
+    "model/common_source/particle_identification/RESPONSE.md": "3697d384249531e95fc55c3418c301239d12badef6c711bd361e762fb88ca2df",
+    "model/common_source/particle_identification/SM_MATCH.md": "1f4b6305f1c137219262d9c144ac9660b1f69284e9b7352e089af1c2cb476a72",
+    "model/common_source/particle_identification/__init__.py": "2c4e2f313c769ba55d203887a92ba14e65bbe7145287c89c95614dcf667a9683",
+    "model/common_source/particle_identification/clifford.py": "5180f20f2152c69d41721e7a07c5fd9a4326f4c7be7cbeadece64533f3a20232",
+    "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "model/common_source/particle_identification/kinetic_response.py": "fb1cb1406389ffb6ec839c0403f714b05701a7a9ba101b70d61dff1309e35944",
+    "model/common_source/particle_identification/response.py": "c87db8964e5c414a1d899dc2ebcea3ddbdf531c21e686006a4fec23440193171",
+    "model/common_source/particle_identification/results.json": "ff4daa6e409eac28ecd982b9d679f806c4e72f628e67e495f0e03930658647f1",
+    "model/common_source/particle_identification/results.npz": "e1c46b2b03a8a99c1e8cd9c73f92dbd2a9895941dbece27caed753cc59e3be63",
+    "model/common_source/particle_identification/run.py": "37e66c873b1574093744d6d75c92669dfcebbafc28feaa40322bda7f234669a7",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/__main__.py": "f8819b5e3b13a38ed3de801a1a0312f0729f70a22a1e6323d7f925598658966a",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/__main__.py": "fd617457b5aa34100620a8cdde5bb841cf7cf4bbd95d92716e6d8412095b112a",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/__main__.py": "22d1dd37b519734f9c4f7527a0c9598e173a00e658ba4602ceb908877fd3038f",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_particles/evidence_contract.py": "2925e22820e59c8610610ae430a42fb46460341dcb6153447d287c025b69ec4f",
+    "model/observer_particles/family_naturality.py": "f351aaa5c074d2b89ee7cb93b2bafa0ac7caa18786662f44605ff0c48a522a9a",
+    "model/observer_particles/fermion_species_identification.py": "4bae29a4e320cc6e56bef11270ba8bdfa54bf2e5e61b1358fd0240b3fece1fe8",
+    "model/observer_particles/gauge_particle_identification.py": "a335cddbc8a4f402c83b4d2412f0bda03eb37172dc81b6d5a255cadc37aca42c",
+    "model/observer_particles/geometric_matter_join.py": "c13322ca350271efa70cba1a2822e7eac318c2875f6bef711c0448dbd103be54",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/family_naturality.json": "d3c6222739cd3f92652684b592533f48dcfa14a39181cf0e3784a2faca8183e5",
+    "model/observer_particles/results/family_naturality_operators.json": "6bd5f046c5fb16d9951a208810309da397736c2a98fe6df2d7dda2bcbfbc88ed",
+    "model/observer_particles/results/gauge_operator_multiplets.npz": "20f4b6bf042a296e738fd0227ae3be8b163d5e55344ca54b6b3d9b729cb1b9cf",
+    "model/observer_particles/results/gauge_particle_identification.json": "da272558360aa130b0c813102e42b72ea97944a9502299b50c0745a76d0b1d58",
+    "model/observer_particles/results/geometric_matter_join.json": "c51c4a39da95f04e681c6aea937f0995fb9d9ece0f0f1d79ba93d691813c8dfb",
+    "model/observer_particles/results/geometric_matter_join_arrays.npz": "565ce3bb8fa6d6e676bd5a2543847815bb41e8e1e03f86f1e2a195bb0b0c52bb",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/scalar_bilinear_operators.json": "9767c463c8eb923e1de3fa10aba6523b8fa9f14615a5daf0b6ec357760787ce4",
+    "model/observer_particles/results/shared_spatial_matter.json": "89fc2cef514af3605963cbd50fd877e581b5dc727481ed7930714ada1e4b22fe",
+    "model/observer_particles/results/shared_spatial_matter_arrays.npz": "dc18ff66017819ee048af33f8d967a0065ea941ba6007af4711d7066914f0a1f",
+    "model/observer_particles/results/spacetime_correspondence.json": "e6c5a1d141d102fa5a7dbae79b5e4c2b482b52b6820944f6e424bf3865b72b6a",
+    "model/observer_particles/results/spacetime_correspondence_arrays.npz": "aacc87dc4aed0aec088ec8b4e3221adbeb7029aa0c9b315831c278761316474a",
+    "model/observer_particles/results/spin_matter_join.json": "0e45fc30387ca00f6255fca41fee52e8be9a3cf048e32851d3bf2695b7b62735",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/scalar_bilinear_route.py": "23d449d9dd9f337d3749f0750963b36ad1f3e4b04cfa0bc323eef23baeab5ea3",
+    "model/observer_particles/shared_spatial_matter.py": "b527d396b1a113377af6b17de05073d511f5f7fc199e3e37dd4ca8b294aeee43",
+    "model/observer_particles/spacetime_correspondence.py": "bddb55e565bcc4d3184ba03ace39eaf21615212a058d745999eb7e7fb5859529",
+    "model/observer_particles/spectral_response.py": "8f2681c903015abbe789c5c348169fd343128fc29f3c090ccb856585dc3fc477",
+    "model/observer_particles/spin_matter_join.py": "e532cab53c049ad3f97ef89844318c88f886e4bfa5391e605e8ad8eda7fe00df",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/REFINEMENT.md": "d46924cf0fd3fd7afe947de6fc8ce6c0028c94f8197e4f24808852d8a1348cd0",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}

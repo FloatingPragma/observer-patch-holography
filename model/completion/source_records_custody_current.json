@@ -1,0 +1,362 @@
+{
+  "schema": "oph.source_records_custody_successor.v1",
+  "authority": {
+    "path": "model/completion/source_records_custody_authority.json",
+    "sha256": "8594f608e26e2086432ed417de1737f7aaf9e6f7bd5830e8c1c5656de0f9ba0e"
+  },
+  "immutable_checkpoint": "c7b09261853f5a3c5a67e21294c3d9511ed59fc7",
+  "scope": "Exact ten-package source-record ledger projection and replay-verified current custody; retained physical identities are unchanged.",
+  "new_mathematical_acceptance": false,
+  "gate_statuses_changed": false,
+  "canonical_physical_premises_discharged": [],
+  "historical_evidence_rewritten": false,
+  "old_review_signed_current_bytes": false,
+  "classification_counts": {
+    "domains": 156,
+    "realized": 151
+  },
+  "program_pointer_schema": {
+    "locations": 813,
+    "sha256": "4ad9f08dfedf380d77742eaae6b023f1d98fdce57a34b7ec9dfc0db96a363f33",
+    "targets": 342
+  },
+  "navigation": {
+    "claim_count": 392,
+    "lean_module_count": 681,
+    "contract_coverage_sha256": "8e5df95bdeabdf1f799214028ba4468e2e4035494a73e062d451867edcd4d89b"
+  },
+  "class_custody_successor": {
+    "role": "CUSTODY_ONLY_SUCCESSOR_OF_SEALED_C7_FIELD_REVIEW",
+    "retained_class": {
+      "path": "model/completion/historical/source_records_inputs/model/completion/program_class_v2.json",
+      "sha256": "69f733c937565473e23c7a103714cc5d94f3677f2dbe21ac3a8712d2106c607d"
+    },
+    "retained_review": {
+      "path": "model/completion/historical/source_records_inputs/model/completion/program_class_v2_review.json",
+      "sha256": "8df86aba9eeb178f1bc471e764df36642d42987a0aa073870f4b5da984b8de8e"
+    },
+    "retained_reviewed_contract_digest": "999ba2824cddd9abc8fbda54e06502b334a1f166ef4af0173e252ad173d9f1bd",
+    "current_reviewed_contract_digest": "aad2cc606725e39fe438bb36d0fb9890d3ac79289464e5f203ba69a7cf56fc07",
+    "interpreter_receipt": "model/native_program/results.json",
+    "retained_interpreter_receipt_sha256": "0a91e9f1608ec2f6047b09dfa5d375120a0992519447019e27e175ae1f71b859",
+    "current_interpreter_receipt_sha256": "9aae3c06d3d153a3a2de6d6147219e5d79f658f92e30972f115fe75c2cef5d6c",
+    "old_review_signed_current_bytes": false,
+    "scientific_clauses_and_gate_statuses_exactly_preserved": true
+  },
+  "executed_live_receipts": {
+    "model/charged_lepton_response/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "d84e19ecde29339801f34c2c5ba4a0d90ea1663f043ee89c09f345e74f1c852a",
+      "retained_path": "model/completion/historical/source_records_inputs/model/charged_lepton_response/results.json",
+      "retained_sha256": "94b8492ff673a2b6deecf1ceb86fdfad0eaba3b5a2426761e9376006c3bcdea2",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "certificates",
+            "conditional_P_dependence",
+            "authenticated_receipts_and_reference",
+            "model/mcpr_native_memory_bridge/results.json"
+          ],
+          "retained_path": "model/completion/historical/source_records_inputs/model/mcpr_native_memory_bridge/results.json",
+          "retained_sha256": "4c7e5f420c05d602bebf18c0e1535881bda818b27289c218972c196b956d9b91",
+          "target": "model/mcpr_native_memory_bridge/results.json"
+        }
+      ]
+    },
+    "model/common_source/chiral_candidate/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "a1ca3860d872be4a975e657c7d55480e89a28f67f23ebaf325c648f30a0220ab",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/chiral_candidate/results.json",
+      "retained_sha256": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85"
+    },
+    "model/common_source/full_repair_response/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "47bef593cc36e2e769245a7d2c0b479143527c9699d0d68147c6605dd5492450",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/full_repair_response/results.json",
+      "retained_sha256": "216ebe5f116338b421dc3d0cd4911fefaef9485eea2237ca274ab518e9c1bd36"
+    },
+    "model/common_source/hierarchy_diagnosis/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "b0c1bd3591b377fa8789cce463140d49d72a235e28e5aa27868d2ce1da863335",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/hierarchy_diagnosis/results.json",
+      "retained_sha256": "1d46b5625a1f85815a9a164ca202853025b775ed4cf8a57259d401ef397e09e1"
+    },
+    "model/common_source/native_defect_decision_live_results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/native_defect_decision_live_results.json",
+      "retained_sha256": "989f85e89f54b8d5ba01ccb88e8772bb3090bedea06a76df01cff3f271799cb9"
+    },
+    "model/common_source/native_defect_decision_results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/native_defect_decision_results.json",
+      "retained_sha256": "989f85e89f54b8d5ba01ccb88e8772bb3090bedea06a76df01cff3f271799cb9"
+    },
+    "model/common_source/native_repair_mass_results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "14a5f01d906f2998b7160430aed25afa25f7d4e51c321fa673036e2b63278b21",
+      "retained_path": "model/completion/historical/source_records_inputs/model/common_source/native_repair_mass_results.json",
+      "retained_sha256": "47703a1d8acc33999f79982e8788466557699d3a53e99ad02e4f90452e9da7e5"
+    },
+    "model/completion/campaign.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "68f52e7476741e6a8f7e1c7e943c6038c9e2ae34b8f7d203509c92c7e33f1da7",
+      "retained_path": "model/completion/historical/source_records_inputs/model/completion/campaign.json",
+      "retained_sha256": "def64508a68a37315b272c8bb7bd6a324dd6f1ec1dadd90d6026c468c8151fbf",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "retained_controls",
+            0,
+            "sha256"
+          ],
+          "retained_path": "model/completion/historical/source_records_inputs/model/common_source/native_defect_decision_results.json",
+          "retained_sha256": "989f85e89f54b8d5ba01ccb88e8772bb3090bedea06a76df01cff3f271799cb9",
+          "target": "model/common_source/native_defect_decision_results.json"
+        }
+      ]
+    },
+    "model/completion/source_flavor_comparison.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "395965e74b4db0aff240295e814db92b48435c24f85a4f61f766c185ef69f9de",
+      "retained_path": "model/completion/historical/source_records_inputs/model/completion/source_flavor_comparison.json",
+      "retained_sha256": "be1691f34ce1531895830ba834c160756dd900aece3dd30b5755d07c3a4cce7a"
+    },
+    "model/conditional_standard_model/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "1de8c8ed979468d6a93863badb23f7cadd1a2c2883155631dceaa0ea2fd49b02",
+      "retained_path": "model/completion/historical/source_records_inputs/model/conditional_standard_model/results.json",
+      "retained_sha256": "8bf0458b08f6a60f53da90bd716a9e1629b5e622d1abb8a1d4c7857be500401c"
+    },
+    "model/defect_current_bridge/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "4bb5e7f469cccf0d73ec4357f146bf5ad6f1115e1215f67dd4fd7caa74f4d293",
+      "retained_path": "model/completion/historical/source_records_inputs/model/defect_current_bridge/results.json",
+      "retained_sha256": "c4fd3ea1e6fca1caa849654a99e10d5392e0dfd5b507d133cfc952c2110189c0"
+    },
+    "model/empirical_diagnostics/cross_scale_results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "77cb607c6e33f66606de01afcbdf4721b66b062bd8d0a58bfb8c067d6c1bc3f1",
+      "retained_path": "model/completion/historical/source_records_inputs/model/empirical_diagnostics/cross_scale_results.json",
+      "retained_sha256": "2fc9458d63f9f45209c4dfb5516cfc52b4560887f06bbeaf41e6b99e98d9bf41"
+    },
+    "model/majorana_defect_bridge/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "3d4517eb0d08a8e965daab4936ecc7a40f78833dd3480a2b87e69b58e3046861",
+      "retained_path": "model/completion/historical/source_records_inputs/model/majorana_defect_bridge/results.json",
+      "retained_sha256": "70714c59dce14fc65c6ce1ce249ede3a39f7a2a2eb9e2ed509d86cca9e15fafa"
+    },
+    "model/mcpr_native_memory_bridge/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "bd0cec48a3b32e3961e69260c830b3a8cf9f040acaeb8d64877786a67ccc3185",
+      "retained_path": "model/completion/historical/source_records_inputs/model/mcpr_native_memory_bridge/results.json",
+      "retained_sha256": "4c7e5f420c05d602bebf18c0e1535881bda818b27289c218972c196b956d9b91"
+    },
+    "model/native_energy_identification/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "3bfd166d39e2b3d7b37d5aec3549f2c8c188f9006d22b51a54d86b9d4d4ce150",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_energy_identification/results.json",
+      "retained_sha256": "31baf93091609610c1183ac534fee3dfaff97dc8fe3b0247ceff96d292479f22"
+    },
+    "model/native_fair_local_clock/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "fe06f4655b73c9868bfe8f64b439bc8db1cf5f5b2857488c45c53ecef310e380",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_fair_local_clock/results.json",
+      "retained_sha256": "e9afeccdbd82ba3d4c997c2934260f5a1dda8edc744759843b4a5e714f3aab95"
+    },
+    "model/native_fair_local_preparation/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "b8ef5bf080eb8a50f2b55857d4355e1be6f962be033f9c39dfb21ff06693ad88",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_fair_local_preparation/results.json",
+      "retained_sha256": "863d95b14bb8d486cd4f6aab8cf1be60c952c899e3e57fd1efce1dc5fa964dce"
+    },
+    "model/native_fair_local_readout/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "fe8284a581db1e1ce46ac07e26894bdca8f6ee2ff4567b010f693879ad713270",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_fair_local_readout/results.json",
+      "retained_sha256": "2821510819ce3b3a4c24a4fdb61aef4f0aa8a9b294cf616a747eb7a4be068a7b"
+    },
+    "model/native_flavor_orbit/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "b8c10d4d93e8bd2bf041cba5406470d53ed4cfc2f6cd673bafc023f6f3ccbc1e",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_flavor_orbit/results.json",
+      "retained_sha256": "755a72bc04f65c0f6156ef55ec79bd341cf2b43b85e1a4ad48ee8c3b76e2d239"
+    },
+    "model/native_local_charge_history/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "a26ba77467ad90d8cbb29bcc81d672121c1b6733a96e27c32178e7c33555e831",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_local_charge_history/results.json",
+      "retained_sha256": "d5a8b3fddc427a644d400c179aa4f66b02221f14798f56d66116421917e8cfbe"
+    },
+    "model/native_noncentral_reference/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "ddab28a2ca3b0d76643a4539d55c6f9ff3a062ac2502ac286f4a98a2a8e09cf6",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_noncentral_reference/results.json",
+      "retained_sha256": "4bd30bbdc07783ee0491e8900a3ab4cdf3924e04e45426d71500ad6f1933ea52"
+    },
+    "model/native_program/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "9aae3c06d3d153a3a2de6d6147219e5d79f658f92e30972f115fe75c2cef5d6c",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_program/results.json",
+      "retained_sha256": "0a91e9f1608ec2f6047b09dfa5d375120a0992519447019e27e175ae1f71b859"
+    },
+    "model/native_quantum_defects/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "9beb7e7449ac2c425c58595142e1ac80b0b40e3e7c033ce52af6618e66c3dd92",
+      "retained_path": "model/completion/historical/source_records_inputs/model/native_quantum_defects/results.json",
+      "retained_sha256": "e5b74ee35951bffc67cd7b5491ff8e96686513d2fff96b751e91518f9e64d12f"
+    },
+    "model/particle_comparison/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "7a3dcf782f50e1ff1ecb3fb18b61003bfb7b044a2bd28dc395f8086d3e954e7d",
+      "retained_path": "model/completion/historical/source_records_inputs/model/particle_comparison/results.json",
+      "retained_sha256": "71d59d98fc8fef3da83a760e78912725357d4c0b44fb8a9d64d3d9eb3c0c1e47",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "actual_data_replay",
+            "full_replay_sha256"
+          ],
+          "retained_path": "model/completion/historical/source_records_inputs/model/empirical_diagnostics/cross_scale_results.json",
+          "retained_sha256": "2fc9458d63f9f45209c4dfb5516cfc52b4560887f06bbeaf41e6b99e98d9bf41",
+          "target": "model/empirical_diagnostics/cross_scale_results.json"
+        }
+      ]
+    },
+    "model/particle_identification/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "f6c00b8f3b0733315e3e329b4f584d317cb9512326d409086ba4c1a5ff4d066f",
+      "retained_path": "model/completion/historical/source_records_inputs/model/particle_identification/results.json",
+      "retained_sha256": "85075e2b242028419df7916bc88bfd2718e1928a7116f8febf6b6e7d27a235fb"
+    },
+    "model/resolved_particle_spectrum/results.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "6265d4afebc56ad1b679df3ef338302c6bd7668c0b7a7cc835b59a7e0bec2cef",
+      "retained_path": "model/completion/historical/source_records_inputs/model/resolved_particle_spectrum/results.json",
+      "retained_sha256": "a39e7a1b5453507d857961400290ce87a1a8caf6f85b6eb5dda3fd2225d8acbd"
+    },
+    "model/standard_model_source_map/particle_map.json": {
+      "actual_owner_executed": true,
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "4f93f7c7ecac9f1d8ed0cc281a620459fbd3f7bb6baf3c95b21e13dc8840a19c",
+      "retained_path": "model/completion/historical/source_records_inputs/model/standard_model_source_map/particle_map.json",
+      "retained_sha256": "feda317cc9cf6d8a8b5abf17283a1aab55cd1e739ec2b1e5804bff5573743960",
+      "reviewed_receipt_pointers": [
+        {
+          "json_path": [
+            "finite_source_attachments",
+            "source_action_masses",
+            "authenticated_source_bindings",
+            "model/common_source/chiral_candidate/results.json"
+          ],
+          "retained_path": "model/completion/historical/source_records_inputs/model/common_source/chiral_candidate/results.json",
+          "retained_sha256": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+          "target": "model/common_source/chiral_candidate/results.json"
+        },
+        {
+          "json_path": [
+            "finite_source_attachments",
+            "source_action_masses",
+            "authenticated_source_bindings",
+            "model/common_source/native_repair_mass_results.json"
+          ],
+          "retained_path": "model/completion/historical/source_records_inputs/model/common_source/native_repair_mass_results.json",
+          "retained_sha256": "47703a1d8acc33999f79982e8788466557699d3a53e99ad02e4f90452e9da7e5",
+          "target": "model/common_source/native_repair_mass_results.json"
+        }
+      ]
+    }
+  },
+  "maintenance_input_scope_append": {
+    "model/completion/source_records_custody.py": "e303faa262771249421a5775487ccb03d47ad0305980f0a64a819e5124a74d8a",
+    "model/completion/source_records_navigation.py": "423a6676c5c6462f2b6c22ff89f5a18dac68ffec4d5ff72d3686596148dd1288",
+    "model/completion/test_source_records_custody.py": "78426b8abadae6e02f48485ed52fc325339b74e31d2e17116544788115702be6",
+    "model/completion/test_source_records_navigation.py": "f4f45318b831d86a79b7b18cb6293458ac3aa8aba2b57d3083b6cba0b6176cb1"
+  },
+  "current_bindings": {
+    "model/biased_code_universality/campaign.json": "05d3fc0678409cdfe1f6fa696b6a7b1a50abb9ed929f9398b4c79b38e155d9fc",
+    "model/charged_lepton_response/results.json": "d84e19ecde29339801f34c2c5ba4a0d90ea1663f043ee89c09f345e74f1c852a",
+    "model/common_source/chiral_candidate/results.json": "a1ca3860d872be4a975e657c7d55480e89a28f67f23ebaf325c648f30a0220ab",
+    "model/common_source/full_repair_response/results.json": "47bef593cc36e2e769245a7d2c0b479143527c9699d0d68147c6605dd5492450",
+    "model/common_source/hierarchy_diagnosis/results.json": "b0c1bd3591b377fa8789cce463140d49d72a235e28e5aa27868d2ce1da863335",
+    "model/common_source/native_defect_decision_live_results.json": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+    "model/common_source/native_defect_decision_results.json": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+    "model/common_source/native_repair_mass_results.json": "14a5f01d906f2998b7160430aed25afa25f7d4e51c321fa673036e2b63278b21",
+    "model/completion/campaign.json": "68f52e7476741e6a8f7e1c7e943c6038c9e2ae34b8f7d203509c92c7e33f1da7",
+    "model/completion/component_interfaces.json": "e8efd95181cf1db6c309c5a27d5713dad57b77e23cbecdaed64cc6c14bc8b5dd",
+    "model/completion/finite_attachment_map.json": "325c90ef05b559dff716765248d850af20175a3f6d740dbad04a371240731be2",
+    "model/completion/source_flavor_comparison.json": "395965e74b4db0aff240295e814db92b48435c24f85a4f61f766c185ef69f9de",
+    "model/completion/source_records_additional_replays.json": "bcbdc11b0d889fe6127c2998a49bbb0b74bb1568db7bcaa8d0a2fb89e02b7129",
+    "model/completion/source_records_custody.py": "e303faa262771249421a5775487ccb03d47ad0305980f0a64a819e5124a74d8a",
+    "model/completion/source_records_custody_authority.json": "8594f608e26e2086432ed417de1737f7aaf9e6f7bd5830e8c1c5656de0f9ba0e",
+    "model/completion/source_records_navigation.py": "423a6676c5c6462f2b6c22ff89f5a18dac68ffec4d5ff72d3686596148dd1288",
+    "model/completion/source_records_navigation_authority.json": "e52da9fe4c7dd9e612351af36f1bf61e0168a46f1d054fc25e3f0e9fac2a8be0",
+    "model/completion/source_records_replays.json": "b257f27cbefe6b9cd274495e2d191cd542f38134a0ffd1585c1b9e529fa5e905",
+    "model/completion/test_source_records_custody.py": "78426b8abadae6e02f48485ed52fc325339b74e31d2e17116544788115702be6",
+    "model/completion/test_source_records_navigation.py": "f4f45318b831d86a79b7b18cb6293458ac3aa8aba2b57d3083b6cba0b6176cb1",
+    "model/completion/theorem_navigation_current.json": "9d4197f80a65e12f2addc93a1493a0f8abcd4f25695ac6faa0dccb75d5f2a4be",
+    "model/conditional_standard_model/results.json": "1de8c8ed979468d6a93863badb23f7cadd1a2c2883155631dceaa0ea2fd49b02",
+    "model/defect_current_bridge/results.json": "4bb5e7f469cccf0d73ec4357f146bf5ad6f1115e1215f67dd4fd7caa74f4d293",
+    "model/empirical_diagnostics/cross_scale_results.json": "77cb607c6e33f66606de01afcbdf4721b66b062bd8d0a58bfb8c067d6c1bc3f1",
+    "model/majorana_defect_bridge/results.json": "3d4517eb0d08a8e965daab4936ecc7a40f78833dd3480a2b87e69b58e3046861",
+    "model/mcpr_native_memory_bridge/results.json": "bd0cec48a3b32e3961e69260c830b3a8cf9f040acaeb8d64877786a67ccc3185",
+    "model/native_energy_identification/results.json": "3bfd166d39e2b3d7b37d5aec3549f2c8c188f9006d22b51a54d86b9d4d4ce150",
+    "model/native_fair_local_clock/results.json": "fe06f4655b73c9868bfe8f64b439bc8db1cf5f5b2857488c45c53ecef310e380",
+    "model/native_fair_local_preparation/results.json": "b8ef5bf080eb8a50f2b55857d4355e1be6f962be033f9c39dfb21ff06693ad88",
+    "model/native_fair_local_readout/results.json": "fe8284a581db1e1ce46ac07e26894bdca8f6ee2ff4567b010f693879ad713270",
+    "model/native_flavor_orbit/results.json": "b8c10d4d93e8bd2bf041cba5406470d53ed4cfc2f6cd673bafc023f6f3ccbc1e",
+    "model/native_local_charge_history/results.json": "a26ba77467ad90d8cbb29bcc81d672121c1b6733a96e27c32178e7c33555e831",
+    "model/native_noncentral_reference/results.json": "ddab28a2ca3b0d76643a4539d55c6f9ff3a062ac2502ac286f4a98a2a8e09cf6",
+    "model/native_program/results.json": "9aae3c06d3d153a3a2de6d6147219e5d79f658f92e30972f115fe75c2cef5d6c",
+    "model/native_quantum_defects/results.json": "9beb7e7449ac2c425c58595142e1ac80b0b40e3e7c033ce52af6618e66c3dd92",
+    "model/pair_cyclic_control/campaign.json": "b26353e3721654ee503fc34c6bf2baf7722fbdf988171e28d4695d099de56583",
+    "model/particle_comparison/results.json": "7a3dcf782f50e1ff1ecb3fb18b61003bfb7b044a2bd28dc395f8086d3e954e7d",
+    "model/particle_identification/results.json": "f6c00b8f3b0733315e3e329b4f584d317cb9512326d409086ba4c1a5ff4d066f",
+    "model/recovery_elision/campaign.json": "5363bc48ef3799832ddd3c281065793a6c6aa38d85445cf10fd7bcab10348166",
+    "model/resolved_particle_spectrum/results.json": "6265d4afebc56ad1b679df3ef338302c6bd7668c0b7a7cc835b59a7e0bec2cef",
+    "model/standard_model_source_map/particle_map.json": "4f93f7c7ecac9f1d8ed0cc281a620459fbd3f7bb6baf3c95b21e13dc8840a19c",
+    "tools/check_claim_registry.py": "d2c9b3872e84a6315ec981daeeeb7b0e4a88004a39fe41a301c8eb921558b265",
+    "tools/check_retained_field_custody.py": "55e94cd98d419e097121b2204d8f78c3248dcbc27990c3c8811ea279220d1f14",
+    "tools/renew_source_record_manifests.py": "52e031e50b5d5f395d647c40850c8bd9c27ab3be01cae054e767d3faf5956e38",
+    "tools/renew_source_record_readouts.py": "428e0e33a5ee3e2a785ae7050e7819a1c77c35894b6cc0667e9d251fe535cbf8",
+    "tools/renew_source_records_atlas.py": "2ff18d131cd59d4276c44e2833bef36b8bcf1e8270b4eeb2d16dc0f09bcde3d0",
+    "tools/renew_source_records_comparison.py": "d6da3661305bf60410e6f4a3b3d72efbf660735f8abe2c3eb3e9a7fa34315f66",
+    "tools/source_record_manifest_authority.json": "a7cb0c314049fc18212f3785e4b348b5816fb06b3b4562bcd28e69be539a8992",
+    "tools/source_record_readout_owners.json": "5ce926726f445fba143bd4b18936596fa72f9e12481185031e58184bb73b87dc",
+    "tools/source_records_atlas_authority.json": "95bb023c369a5e108992b624be65803b95dada499f06bbfccfcb55e7c84b9e82",
+    "tools/test_numeric_evidence_medium.py": "69fe689ade174e4264927d388aa943a5f61e163cc88e57499b5ed8cc44e3b4ec",
+    "tools/test_retained_custody_routing.py": "bb33e38470adc63c78aac466090d1529dc34afb62470b4a884b55c9689a6b59b",
+    "tools/test_retained_field_custody.py": "5e619f2e61be5015dcb090e2a89ecd633c19590632a38600bd625b2ac8b8d162",
+    "tools/test_source_record_manifests.py": "38fd6c5e90da3370ee70d4299953b9adc73f313d50df2391f687c2852a2d17a6",
+    "tools/test_source_record_readouts.py": "8b4e94e96b75053a50c8b5040d3ff4f0c5f187f55f50af1e862d42d06fc57103",
+    "tools/test_source_records_atlas.py": "c88d6fc9c3b9a237183de1c9a6fd79a18fd2f19acde7ce220d73dc8f3c682ceb",
+    "tools/test_source_records_comparison.py": "d5e1d3fd55a414b946a6e3faf3c88b2383bea4b7883b00fbc493e04530acb302"
+  }
+}

@@ -15,6 +15,14 @@ PATHS = {
     'collision': 'model/interacting_block_scattering/results.json',
     'charged_field': 'model/affine_gauss_full_spectrum/results.json',
     'charged_clock': 'model/affine_gauss_charged_clock/results.json',
+    'observed_charge': 'model/affine_gauss_clock_observables/results.json',
+    'native_energy': 'model/native_abelian_energy_records/results.json',
+    'dirac': 'model/native_block_dirac/results.json',
+    'higgs_join': 'model/native_higgs_spectral_join/results.json',
+    'resolution': 'model/native_charge_resolution/results.json',
+    'centroid': 'model/native_charge_centroid/results.json',
+    'higgs_state': 'model/native_higgs_filtered_state/results.json',
+    'weak_response': 'model/native_weak_current_response/results.json',
     'vector': 'model/interacting_block_proca/results.json',
     'conjugation': 'model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json',
 }
@@ -62,6 +70,42 @@ def validate(data):
         raise ValueError('Vector readout interpretation changed')
     if data['conjugation']['reference_boundary']['same_reference_total_energy_equality_claimed']:
         raise ValueError('Conjugate reference energy was silently changed')
+    observed=data['observed_charge']
+    if (observed['exact_ground_projection_or_stationary_post_clock_state_claimed']
+            or observed['positive_joint_record_lower_bounds']!=26):
+        raise ValueError('Prepared position record changed')
+    if data['native_energy']['physical_spin_Dirac_or_mass_identification']:
+        raise ValueError('Native energy promoted to mass')
+    spinor=data['dirac']['field_comparison']
+    if (spinor['interacting_continuum_or_electromagnetic_Gauss_law_claimed']
+            or spinor['SM_weak_chirality_or_observed_mass_identity_claimed']
+            or spinor['mass_parameter_is_empirically_calibrated']
+            or not spinor['same_source_state_reference_and_clock']):
+        raise ValueError('Native Dirac scope changed')
+    selector=data['higgs_join']['same_H_cross_residue_and_records']['positive_cross_selector']
+    if (not selector['same_energy_elementary_composite_G1_doublet']
+            or selector['maximum_elementary_E_star_common_composite_overlap_proved']
+            or selector['physical_SM_weak_chirality_interactions_or_GeV_identity_proved']):
+        raise ValueError('Higgs spectral join promoted')
+    if (data['resolution']['original_maximum_residue_eigenvalue_relocalized']
+            or data['resolution']['physical_spin_mass_or_SM_identity_claimed']):
+        raise ValueError('Nested energy selection promoted')
+    if (data['centroid']['actual_physical_preparation']['extra_P0_ground_projection_used']
+            or data['centroid']['relativistic_mass_spin_or_SM_identification']
+            or data['centroid']['clock']['exact_native_Eg_used_as_free_pointer_phase']):
+        raise ValueError('Centroid preparation or energy origin changed')
+    state=data['higgs_state']
+    if (state['physical_preparation']['exact_interacting_ground_projection_assumed']
+            or not state['complete_instruments']['every_fine_preparation_record_and_partner_retained']
+            or state['typed_free_Dirac_corollary']['interacting_native_Lorentz_or_SM_chirality_transfer']):
+        raise ValueError('Filtered-state domain changed')
+    weak=data['weak_response']
+    if (weak['actual_preparation']['exact_P0_added']
+            or not weak['source']['same_source_clock_on_all_branches']
+            or weak['scope']['weak_scattering_cross_section_or_SM_matching']
+            or weak['scope']['W_boson_or_Lorentz_vector_identified']
+            or Fraction(weak['finite_inelastic_experiment']['original_attempt_nonzero_phase_probability_lower'])<=0):
+        raise ValueError('Weak response or physical interpretation changed')
 
 
 def load():
@@ -75,6 +119,13 @@ def load():
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != expected:
                 raise ValueError('Field evidence changed: ' + key)
         pins.update(local)
+        owned=dict(data[name].get('local_sha256', {}))
+        owned.update(data[name].get('owned_source_sha256', {}))
+        for key, expected in owned.items():
+            target=(path.parent/key).resolve()
+            if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest()!=expected:
+                raise ValueError('Field implementation changed: '+key)
+            pins[target.relative_to(ROOT).as_posix()]=expected
         pins[relative] = hashlib.sha256(path.read_bytes()).hexdigest()
     validate(data)
     data['pins'] = pins
@@ -105,6 +156,8 @@ def draw(c, data, y):
            '../../'+PATHS['charge'].replace('results.json', 'PROOF.md'), 16)
     y += h+35
     y = charged_field_panel(c, d, y)+35
+    y = native_energy_panel(c, d, y)+35
+    y = dirac_panel(c, d, y)+35
     h = 640
     card(c, X0, y, CW, h, stroke=TEAL)
     c.text(X0+28, y+43, 'One computed neutral gap → a controlled relativistic field description', 27, TEXT, 700)
@@ -198,15 +251,15 @@ def charged_field_panel(c, d, y):
            'The fixed reference contributes exactly 1. The field dressing lowers the zero-field '
            'compression by about 0.0001750058. This correction is computed with the same Hamiltonian; '
            'it is unrelated to a fitted lepton formula.', 18, SOFT, 1.4)
-    c.text(X0+28, y+440, 'Where would a position detector click in this charged ground?', 20, TEXT, 600)
-    for i,row in enumerate(d['charged_field']['actual_ground_position_records']):
-        lo,hi=map(Fraction,row['actual_ground_position_probability'])
+    c.text(X0+28, y+440, 'Where would a position detector click after the finite energy clock accepts?', 20, TEXT, 600)
+    for i,row in enumerate(d['observed_charge']['post_clock_position_marginals']):
+        lo,hi=map(Fraction,row['conditional_post_clock_probability_interval'])
         p=float((lo+hi)/2);xx=X0+40+i*104; bh=310*p
         color=AMBER if row['source_vertex']==1 else BLUE
         c.rect(xx,y+570-bh,62,bh,color,r=3)
         c.text(xx+31,y+595,str(row['source_vertex']),16,MUTED,500,'middle')
         c.text(xx+31,y+556-bh,f'{100*p:.1f}%',15,SOFT,500,'middle')
-    c.text(X0+28,y+626,'All 13 locations are retained; vertex 1 contains the fixed compensating reference.',17,MUTED)
+    c.text(X0+28,y+626,'All 26 position/field outcomes remain. Field excitation: 70.9795–73.5248 per million accepted attempts.',17,MUTED)
     clock=d['charged_clock']['finite_rational_gate_record_bounds']
     fidelity_n=(Fraction(clock['accepted_source_ground_fidelity_lower'])*10**11).__floor__()
     fidelity_text=f'{fidelity_n//10**11}.{fidelity_n%10**11:011d}'
@@ -214,11 +267,101 @@ def charged_field_panel(c, d, y):
            f'A finite clock detector retains all 14 × 2²⁰ records, including 75% preparation failure. '
            f'Its accepted source has ground fidelity above {fidelity_text}. '
            'The full energy and numerical errors are bounded. This finite boundary problem '
-           'does not yet identify a relativistic particle, its spin or a GeV mass.',19,SOFT,1.4)
+           'does not identify a relativistic particle, its spin or a GeV mass.',19,SOFT,1.4)
     c.link(X0+28,y+h-20,'Full charged Hamiltonian and independent residual certificate',
            '../../'+PATHS['charged_field'].replace('results.json','PROOF.md'),16)
-    c.link(X0+810,y+h-20,'Complete finite clock detector',
-           '../../'+PATHS['charged_clock'].replace('results.json','PROOF.md'),16)
+    c.link(X0+810,y+h-20,'Complete finite clock and joint records',
+           '../../'+PATHS['observed_charge'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def native_energy_panel(c,d,y):
+    h=1160
+    card(c,X0,y,CW,h,stroke=TEAL)
+    c.text(X0+28,y+43,'Two probes can see the same native excitation',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'One probe adds an elementary charged fermion. Another combines the quantum Higgs '
+           'operator with a lepton operator. The actual interacting equation of motion links them. '
+           'Their positive spectral overlap proves that both can reach the same source energy.',19,SOFT,1.4)
+    for i,(title,body,color) in enumerate([
+            ('Elementary probe A','native eᶜ creator',BLUE),
+            ('Same actual energy','positive common G₁ doublet',TEAL),
+            ('Composite probe B','quantum Higgs × lepton',VIOLET)]):
+        xx=X0+28+i*460
+        c.rect(xx,y+188,414,94,'#132636',color,1.5,10)
+        c.text(xx+20,y+224,title,22,color,700)
+        c.text(xx+20,y+260,body,17,SOFT)
+    c.arrow(X0+449,y+235,X0+479,y+235,TEAL,2,7)
+    c.arrow(X0+942,y+235,X0+911,y+235,TEAL,2,7)
+    c.text(X0+28,y+331,'[h, A] = B + λ[T, A]     ·     complete interference contrast > 0.07247007595',23,TEAL,700)
+    c.para(X0+28,y+369,CW-56,
+           'The scalar remains quantum. The experiment retains both interference settings, '
+           'all spin/reference outcomes and failed preparations. A shared finite energy does '
+           'not turn the composite into a canonical field on every occupation or establish weak scattering.',19,SOFT,1.4)
+    c.text(X0+28,y+468,'Same prepared state: every common detector history differs by < 1.686 × 10⁻⁷',23,VIOLET,700)
+    c.para(X0+28,y+507,CW-56,
+           'A narrower energy window makes the elementary and composite preparations almost '
+           'indistinguishable after success. Eight retained source trials and seven finite filters '
+           'bound the preparation error. Their success rates differ and are kept in the records. '
+           'The exact energy-bin operation is a declared apparatus service.',19,SOFT,1.4)
+    c.text(X0+28,y+623,'A physical 20-bit clock: mean source energy 0.6916566792649 – 0.6916566826119',23,TEAL,700)
+    c.para(X0+28,y+663,CW-56,
+           'This predicted conditional average includes actual preparation and pointer errors, '
+           'with no extra ground projection. It retains every clock label and costs the reference '
+           'explicitly. A mean energy is not an identified mass or an individual spectral line.',19,SOFT,1.4)
+    c.text(X0+28,y+768,'A dressed weak current responds on this same native source',23,VIOLET,700)
+    c.para(X0+28,y+808,CW-56,
+           'The complete current pump and finite energy-agreement detector give a nonzero-phase '
+           'record with original probability above 3.79338%. A charged energy-filtered preparation '
+           'also has a positive current insertion. Every failure is counted. This is not a '
+           'W-boson line or a weak-scattering cross section.',19,SOFT,1.4)
+    c.para(X0+28,y+929,CW-56,
+           'On a distinct native charged-field attachment, position followed by the actual finite '
+           'energy clock has original arrival-and-energy-acceptance probability above 4.50 × 10⁻⁶ '
+           'at the apex and 1.13 × 10⁻⁶ at a boundary neighbor. Measurement backaction is included. '
+           'This is an admitted-bin energy, not an identified relativistic rest mass.',19,SOFT,1.4)
+    c.link(X0+28,y+h-52,'Quantum Higgs equation and complete interference detector',
+           '../../'+PATHS['higgs_join'].replace('results.json','PROOF.md'),16)
+    c.link(X0+810,y+h-52,'Same-H arrival then energy records',
+           '../../'+PATHS['native_energy'].replace('results.json','PROOF.md'),16)
+    c.link(X0+28,y+h-20,'Normalized state and complete-history bound',
+           '../../'+PATHS['higgs_state'].replace('results.json','PROOF.md'),16)
+    c.link(X0+810,y+h-20,'Finite prepared centroid and full phase clock',
+           '../../'+PATHS['centroid'].replace('results.json','PROOF.md'),16)
+    c.link(X0+810,y+h-84,'Actual weak-current moments and full inelastic detector',
+           '../../'+PATHS['weak_response'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def dirac_panel(c,d,y):
+    h=790
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'Native charged states → a complete free spin-½ field',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Four complete native constituents at each spatial site encode two spin states for '
+           'each conjugate charge. Every occupation is present. A declared positive spatial '
+           'coupling preserves the actual ground and moves these modes in the same source clock.',19,SOFT,1.4)
+    for word in range(16):
+        xx=X0+40+(word%8)*165; yy=y+191+(word//8)*61
+        c.rect(xx,yy,139,48,'#132636',VIOLET,1,8)
+        for bit in range(4):
+            occupied=(word>>bit)&1
+            c.circle(xx+25+bit*29,yy+24,7,VIOLET if occupied else '#253047',SOFT if occupied else MUTED,1)
+    c.text(X0+28,y+340,'4 fermionic modes · all 16 occupations · native exchange signs · all complements retained',20,SOFT,600)
+    c.text(X0+28,y+395,'Ωₐ² = E*² + (4/a²) Σ sin²(apᵢ/2)    →    ω² = E*² + |p|²',28,TEAL,700)
+    c.para(X0+28,y+432,CW-56,
+           'The rest frequency E* is an actual source-selected excitation, with no measured mass '
+           'input. Spinor filters combine particle annihilation and antiparticle creation. '
+           'Their opposite phases yield the free Dirac equation, spin-½ Lorentz action and causal '
+           'anticommutator in the controlled record limit. Both source charges have positive energy.',19,SOFT,1.4)
+    c.text(X0+28,y+560,'A two-time detector: second-only click 5% → 13.82355% at quarter-period pulse separation',22,VIOLET,700)
+    c.para(X0+28,y+600,CW-56,
+           'All 16 detector labels and preparation failures are retained; six complete attempts '
+           'bound preparation-related record error below 10⁻⁹. The kinetic couplers have full '
+           'spatial range and the apparatus uses declared programmable control. This vectorlike '
+           'eᶜ code supplies no electron weak chirality, interacting charged limit or GeV identity.',19,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Complete native Fock code, same-clock spinor filters, Lorentz limit and detector errors',
+           '../../'+PATHS['dirac'].replace('results.json','PROOF.md'),16)
     return y+h
 
 

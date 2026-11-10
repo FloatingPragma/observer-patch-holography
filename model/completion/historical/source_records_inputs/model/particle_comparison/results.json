@@ -1,0 +1,1887 @@
+{
+  "CP11": {
+    "OPH_universe_membership_confirmed": false,
+    "eligible_physical_comparisons_added": 0,
+    "eligible_physical_dictionary": false,
+    "global_likelihood_or_probability": null,
+    "prospective_comparisons_added": 0,
+    "status": "open: CP07/CP10 common physical dictionary and complete error contract absent"
+  },
+  "actual_data_replay": {
+    "ACT_posterior_lower_tail_mass": [
+      "3114/508985",
+      "3114/508985"
+    ],
+    "ACT_posterior_mass_is_p_value": false,
+    "cosmology_contract": {
+      "archive_product": "p-actbase-l-b_lcdm_camb",
+      "cosmological_model": "baseline six-parameter flat Lambda-CDM",
+      "data_combination": "P-ACT-LB: Planck, full multifrequency ACT DR6, ACT/Planck lensing, DESI 2024 DR1 BAO",
+      "documentation": "code/cosmology/tilt_posterior/README.md",
+      "native_primordial_embedding_derived": false,
+      "ns_prior": {
+        "bounds": [
+          "0.85",
+          "1.1"
+        ],
+        "family": "uniform"
+      },
+      "pivot_Mpc_inverse": "0.05",
+      "posterior_marginal_not_joint_model_likelihood": true,
+      "primary_parameter_paper": "https://arxiv.org/html/2503.14452v1",
+      "quantity": "primordial scalar power-law spectral index n_s",
+      "supplied_physics": "standard radiation transfer, recombination, foreground, calibration and nuisance models"
+    },
+    "coupling": {
+      "interpretation": "Retrospective scalar agreement; reported standard uncertainty is not a model-error bound or model probability.",
+      "inverse_alpha_decimal_enclosure": {
+        "hi": "137.03599918956615502918374402086679956640868467385426554124952443939012544588656",
+        "lo": "137.03599918956615502918374402086679956640868467385426554124946829116314913743238"
+      },
+      "signed_difference_over_reported_standard_uncertainty": {
+        "hi": "0.59838833472303542956508569363850879399306026386902497330429168789935981693336434",
+        "lo": "0.59838833472303542956508569363850879399306026386902229957919757797297075900149921"
+      },
+      "target": {
+        "citation": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+        "comparison_half_width_in_standard_uncertainties": "5",
+        "exposure": "retrospective_known_data",
+        "observable": "inverse_fine_structure_constant_thomson_limit",
+        "schema": "oph.predictions.empirical_endpoint.v1",
+        "source": "CODATA 2022 recommended values, NIST wall table",
+        "standard_uncertainty": "0.000000021",
+        "unit": "dimensionless",
+        "value": "137.035999177"
+      },
+      "within_one_reported_standard_uncertainty": true
+    },
+    "custody": {
+      "ACT_weighted_projection_recomputed_here": true,
+      "exact_spectral_enclosure_recomputed_here": true,
+      "input_sha256": {
+        "code/cosmology/tilt_posterior/README.md": "9d27696b3460f2aab794b8c94a53f66520af1c63474239f67fabb972efa26955",
+        "code/cosmology/tilt_posterior/act_dr6_ns_weight.json.gz": "13dab540b652300bd000cf1ac3b197af55c7c411de215682482ea55993f40485",
+        "model/common_source/chiral_candidate/results.json": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+        "model/empirical_diagnostics/cross_scale.py": "899a07e79a6943eaa801d42face356c0800a84d878e556e436e3c92d90bb68f3",
+        "model/observer_particles/results/entangled_alpha.json": "1536bdceda74bb6849ecdb1a9840c681d7dc1dbb83b74e97720ec776112927f0",
+        "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+        "model/predictions/shared_parameter.py": "fa3fb9161fdf1238e8e5058d14cce8029c2f137e0e82f7bb0d2eff1d3e601058",
+        "model/scalar_observations/experimental_readout/executable_results.json": "5c605c4ec5d6762cdc190ac49c5d2139b8cc8286dbe89a3101e9783faa6eb73b"
+      },
+      "upstream_histories_reexecuted_here": false
+    },
+    "full_replay_sha256": "2fc9458d63f9f45209c4dfb5516cfc52b4560887f06bbeaf41e6b99e98d9bf41",
+    "joint_status": {
+      "all_public_datasets_reproduced": false,
+      "declared_chiral_prescriptions": [
+        "linear_F",
+        "a_Hubbard_function",
+        "b_Hubbard_function",
+        "J_Hubbard_function"
+      ],
+      "declared_chiral_prescriptions_failing_both_ratio_requirement": [
+        "linear_F",
+        "a_Hubbard_function",
+        "b_Hubbard_function",
+        "J_Hubbard_function"
+      ],
+      "declared_chiral_prescriptions_passing_both_lepton_ratios": [],
+      "joint_likelihood_or_significance": null,
+      "missing_contracts": [
+        "spectral_scalar_to_Thomson_photon_residue",
+        "same_cell_P_alpha_identification",
+        "same_reconstructed_native_spacetime_field_history_proved",
+        "quantum_gauge_and_Higgs_dynamics_executed",
+        "observed_standard_model_mass_spectrum_derived",
+        "oscillator_apparatus_action_and_preparation_from_fixed_repair",
+        "physical_clock_for_quantum_comparison",
+        "native_curvature_to_CMB_transfer_and_background",
+        "common_physical_action_and_complete_comparison_error_contract"
+      ],
+      "source_only_measured_universe_established": false,
+      "status": "not_evaluable_as_one_complete_physical_construction"
+    }
+  },
+  "assigned_operator_dictionary": {
+    "Lorentz_representation_derived": false,
+    "OPH_universe_membership_confirmed": false,
+    "all_number_sectors_retained": true,
+    "assigned_units": {
+      "clock_parameter": "assigned Hamiltonian model time; not native incident or recovered modular clock",
+      "intervals_bound_arithmetic_not_physical_model_error": true,
+      "metres_per_model_length": {
+        "hi": "0.0000000000013990958142338038603982197277424590272748947931307880495691325590334861925351205",
+        "lo": "0.0000000000013990958142338038603982197277424590272748947931307880495691321728742175919662149"
+      },
+      "native_incident_or_modular_clock_intertwiner_supplied": false,
+      "relative_standard_uncertainty_first_order": "16/51099895069",
+      "seconds_per_model_time": {
+        "hi": "0.00000000000000000000058336016171302575780534634386235086143948907861233956124453794591185404026037925",
+        "lo": "0.00000000000000000000058336016171302575780534634386235086143948907861233956124453778490077024884921176"
+      },
+      "uncertainty_includes_physical_dictionary_error": false,
+      "uncertainty_rule": "energy scale follows the measured mass; time and length vary inversely, with common calibration fully correlated",
+      "units_derive_from_measured_energy_and_imposed_speed_correspondence": true
+    },
+    "axis": 0,
+    "calibration": {
+      "citation": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+      "independently_predicted_absolute_masses": 0,
+      "observable": "electron_mass_energy_equivalent",
+      "one_common_scale_for_all_states": true,
+      "scale_MeV_per_model_energy": {
+        "decimal_enclosure": {
+          "hi": "1.1283114620273005488197487299339354687481580622288085970149253731343283582089553",
+          "lo": "1.1283114620273005488197487299339354687481336563087756417910447761194029850746268"
+        },
+        "rational": "51099895069/418750000000",
+        "sqrt17_coefficient": "51099895069/209375000000"
+      },
+      "standard_uncertainty_MeV": "1/6250000000",
+      "value_MeV": "51099895069/100000000000"
+    },
+    "dimension": 16,
+    "dimensionless_resolution_check": {
+      "assigned_lattice_spacing_over_reduced_Compton_length": {
+        "decimal_enclosure": {
+          "hi": "3.6231056256176605498214098559740770251472",
+          "lo": "3.6231056256176605498214098559740770251471"
+        },
+        "rational": "-1/2",
+        "sqrt17_coefficient": "1"
+      },
+      "meaning": "one assigned lattice spacing exceeds the calibrated reduced Compton length; this dimer supplies no resolved relativistic rest dispersion",
+      "reduced_Compton_length_m": {
+        "hi": "0.00000000000038615926743656238698663932903568582027937530510297025086884808839809408989848684",
+        "lo": "0.00000000000038615926743656238698663932903568582027937530510297025086884808839809376862534749"
+      },
+      "reduced_Compton_length_over_assigned_lattice_spacing": {
+        "decimal_enclosure": {
+          "hi": "0.27600630600702451043709909587904937463565373134328358208955223880597014925373135",
+          "lo": "0.27600630600702451043709909587904937463564776119402985074626865671641791044776119"
+        },
+        "rational": "2/67",
+        "sqrt17_coefficient": "4/67"
+      },
+      "universal_no_go_claimed": false
+    },
+    "electromagnetic_dynamics_derived": false,
+    "eligible_CP11_physical_comparisons_added": 0,
+    "exact_SI_definitions": {
+      "MeV_to_J": "801088317/5000000000000000000000",
+      "c_m_per_s": "299792458",
+      "citation": "https://www.bipm.org/en/measurement-units/si-defining-constants",
+      "e_C": "801088317/5000000000000000000000000000",
+      "h_J_s": "132521403/200000000000000000000000000000000000000000",
+      "hbar_J_s_formula": "h/(2*pi)"
+    },
+    "numerical_operator_admission": {
+      "complete_matrices_checked": true,
+      "dimensionless_tolerance": "2e-11",
+      "floating_residuals_are_outward_physical_error_bounds": false
+    },
+    "operator_dictionary": {
+      "angular_momentum": "S=hbar*S_internal",
+      "charge": "Q=e*(N-2I)",
+      "energy": "H_SI=kappa_J*(K-E0 I)",
+      "length": "x_SI=(c_SI/c_model)*(hbar/kappa_J)*x_model",
+      "local_charge": "Q_x=e*(n_x-I)",
+      "oriented_current": "I_xy=-dQ_x/dt_SI=(e/hbar)*dH_SI(A_xy)/dA_xy",
+      "time": "t_SI=(hbar/kappa_J)*s_model"
+    },
+    "paired_charge_one_assignment": {
+      "calibrated_mass_energy_MeV": [
+        "51099895069/100000000000",
+        "51099895069/100000000000"
+      ],
+      "calibrated_mass_kg": [
+        "40935528939701808873/44937758936840882000000000000000000000000000000000",
+        "40935528939701808873/44937758936840882000000000000000000000000000000000"
+      ],
+      "calibration_correlation_matrix": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "charge_in_e": [
+        -1,
+        1
+      ],
+      "dimensionless_mass_ratio": "1",
+      "internal_spin_squared_in_hbar_squared": [
+        "3/4",
+        "3/4"
+      ],
+      "mass_energy_covariance_MeV_squared": [
+        [
+          "1/39062500000000000000",
+          "1/39062500000000000000"
+        ],
+        [
+          "1/39062500000000000000",
+          "1/39062500000000000000"
+        ]
+      ],
+      "model_gap": {
+        "decimal_enclosure": {
+          "hi": "0.4528882032022075687276762319967596281434",
+          "lo": "0.4528882032022075687276762319967596281433875"
+        },
+        "rational": "-1/16",
+        "sqrt17_coefficient": "1/8"
+      },
+      "names": [
+        "electron-like hole",
+        "positron-like particle"
+      ],
+      "normalized_mass_difference": "0",
+      "projectors": [
+        "charge_minus_one_hole",
+        "charge_plus_one_particle"
+      ],
+      "shared_standard_uncertainty_kg": "801088317/2808609933552555125000000000000000000000000000000"
+    },
+    "physical_clock_independently_calibrated": false,
+    "physical_dictionary_supplied": true,
+    "physical_identity_derived": false,
+    "reference": "same unique N=2 pure ground of K=H-N/2; not the faithful Gibbs reference",
+    "reference_is_faithful_on_full_algebra": false,
+    "scope": "ASSIGNED_SI_HALF_FILLED_DIMER_BENCHMARK",
+    "source_sha256": {
+      "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+      "model/particle_comparison/dictionary.py": "a1f72f68d8379cb2c55bdab706dace43903aff2eccb6ec838402e492c99bc327",
+      "model/particle_comparison/observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c",
+      "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
+      "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8"
+    },
+    "supplied_correspondences": [
+      "zero-temperature half-filled reference and chemical potential",
+      "physical charge equals excess CAR number times e",
+      "internal SU(2) assigned physical angular-momentum units",
+      "measured electron gap sets common energy and time units",
+      "model coordinate speed assigned to c_SI to set length",
+      "dimensionless link phase assigned Peierls electromagnetic coupling"
+    ],
+    "topological_defect_mapping_derived": false,
+    "unestablished": [
+      "Lorentz boosts and covariant spin/dispersion",
+      "dynamical electromagnetic fields and physical current/detector identification",
+      "same-excitation native topological defect and protection",
+      "independent physical clock and vacuum/reference selection",
+      "interacting chiral spatial continuum and independent measured predictions"
+    ]
+  },
+  "classification": "retrospective conditional benchmark",
+  "custody": {
+    "all_assignment_cases_recomputed": true,
+    "exact_current_Hamiltonian_certified": true,
+    "existing_actual_data_projection_recomputed": true,
+    "input_sha256": {
+      "model/common_source/chiral_candidate/results.json": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+      "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+      "model/gauged_field/links.py": "b3fa18ee10908a53c177877123bb80384282473c163b166da49f02d7288ca421",
+      "model/particle_comparison/README.md": "61831661e87194519b4b4020e162119e539688f20d07d306964f088394c027a1",
+      "model/particle_comparison/compare.py": "a3428c6f85f670eb79f95561c6acefe96e6795706a89561cd8cd65b33f60e57d",
+      "model/particle_comparison/dictionary.py": "a1f72f68d8379cb2c55bdab706dace43903aff2eccb6ec838402e492c99bc327",
+      "model/particle_comparison/electromagnetism.py": "411aaed0c05a2cb64dcee3ad2d9b5e3b0faea0455e370b61f9c590949e8ee02b",
+      "model/particle_comparison/observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c",
+      "model/particle_comparison/test_compare.py": "4adc39061b2b0a33e042c6ca6d33eb82697ef93e2dd04b82a26b136949806371",
+      "model/particle_comparison/test_dictionary.py": "12564e83f96e6a81d675b87c30a07dead9883f35c88dc9bf867da730596cd5a6",
+      "model/particle_comparison/test_electromagnetism.py": "246a9338a4a2c1c66ef84ece8d1148122e1a8881e2ff6304d94fbd9876b58927",
+      "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
+      "model/particle_response/dispersion.py": "519b95af7691e9a3990d4e4f555dfbe63856fd8959444858e1c8fdcbd376c628",
+      "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8",
+      "model/particle_response/test_dispersion.py": "b44480fccbce6b4eed74360a818bb5a52258057c7d3da91e9df5d63a3658186d"
+    },
+    "physical_experiment_performed": false
+  },
+  "electromagnetic_applicability": {
+    "QED_identification": "NOT_ESTABLISHED: external charge response does not supply Maxwell propagation, Coulomb exchange or annihilation photons",
+    "all_final_number_sectors_retained": true,
+    "bare_interaction_comparison": {
+      "Coulomb_normalized_shape": [
+        "1",
+        "1-1/sqrt(2)",
+        "1/2"
+      ],
+      "bare_contact_equals_nonzero_Coulomb_kernel": false,
+      "comparison_side": 8,
+      "contact_normalized_shape": [
+        "1",
+        "1",
+        "1"
+      ],
+      "dressed_or_emergent_photon_no_go": false,
+      "maximum_normalized_shape_difference": "1/sqrt(2)",
+      "nonzero_momentum_labels": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ]
+    },
+    "candidate_responses": [
+      {
+        "charge_in_supplied_units_e": -1,
+        "closed_formula_response": {
+          "current_total_weight": "1/256",
+          "dipole_first_frequency_moment": "1/32",
+          "dipole_total_weight": "1/4"
+        },
+        "complete_grouped_transition_display": [
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 0,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 1,
+            "final_states": 2,
+            "model_frequency": 0.0
+          },
+          {
+            "current_weight": 0.00390625,
+            "dipole_weight": 0.25,
+            "final_number": 1,
+            "final_states": 2,
+            "model_frequency": 0.125
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": -0.4528882032
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 3,
+            "model_frequency": -0.4375
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": 0.5778882032
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 3,
+            "final_states": 2,
+            "model_frequency": 0.0
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 3,
+            "final_states": 2,
+            "model_frequency": 0.125
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 4,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          }
+        ],
+        "final_states_retained": 16,
+        "initial_state": "equally mixed complete lowest charged doublet",
+        "nonzero_electric_transition_model_frequency": "1/8"
+      },
+      {
+        "charge_in_supplied_units_e": 1,
+        "closed_formula_response": {
+          "current_total_weight": "1/256",
+          "dipole_first_frequency_moment": "1/32",
+          "dipole_total_weight": "1/4"
+        },
+        "complete_grouped_transition_display": [
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 0,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 1,
+            "final_states": 2,
+            "model_frequency": 0.0
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 1,
+            "final_states": 2,
+            "model_frequency": 0.125
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": -0.4528882032
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 3,
+            "model_frequency": -0.4375
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 2,
+            "final_states": 1,
+            "model_frequency": 0.5778882032
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 3,
+            "final_states": 2,
+            "model_frequency": 0.0
+          },
+          {
+            "current_weight": 0.00390625,
+            "dipole_weight": 0.25,
+            "final_number": 3,
+            "final_states": 2,
+            "model_frequency": 0.125
+          },
+          {
+            "current_weight": 0.0,
+            "dipole_weight": 0.0,
+            "final_number": 4,
+            "final_states": 1,
+            "model_frequency": 0.5625
+          }
+        ],
+        "final_states_retained": 16,
+        "initial_state": "equally mixed complete lowest charged doublet",
+        "nonzero_electric_transition_model_frequency": "1/8"
+      }
+    ],
+    "carrier_dimension": 16,
+    "display_rounding_digits": 10,
+    "dynamical_gauge_field_status": "external link parameters, no photon canonical variables in this finite carrier",
+    "full_operator_continuity_and_charge_conjugation_checked": true,
+    "generator": "K=H-N/2; c=1/8,U=1; same half-filled dimer reference",
+    "magnetic_moment_or_gyromagnetic_ratio": null,
+    "magnetic_test_status": "not_determined: no loop flux or magnetic-field/spin coupling in this benchmark",
+    "normalized_operator_units": {
+      "charge": "e",
+      "current": "e/Tunit",
+      "dipole": "e*Lunit",
+      "frequency": "1/Tunit"
+    },
+    "numerical_admission_tolerance": "2e-10",
+    "numerical_display_is_interval_certificate": false,
+    "open_graph_cycle_rank": 0,
+    "physical_continuum_or_emergent_photon_excluded": false,
+    "physical_dictionary_is_supplied": true,
+    "pure_gauge_link_spectral_invariance_checked": true,
+    "references": {
+      "dynamical_QED_and_Coulomb_exchange": "https://www.damtp.cam.ac.uk/user/tong/qft/qfthtml/S6.html",
+      "external_Peierls_coupling": "https://quantum.lassp.cornell.edu/node/335"
+    },
+    "schema": "oph.particle_comparison.electromagnetism.v1",
+    "scope": "SAME_FULL_FOCK_DIMER_EXTERNAL_ELECTRIC_RESPONSE",
+    "source_histories_reexecuted_here": false
+  },
+  "particle_identity_verdict": {
+    "QED_identification": "NOT_ESTABLISHED: external charge response does not supply Maxwell propagation, Coulomb exchange or annihilation photons",
+    "adjusting_effective_velocity_would_be_an_additional_unverified_attachment": true,
+    "electron_positron_identification_established": false,
+    "finite_volume_shift_is_separate_from_same_volume_dispersion_test": true,
+    "fixed_dictionary_dispersion_benchmark_satisfied": false,
+    "whole_OPH_or_continuum_excluded": false
+  },
+  "periodic_dispersion_applicability": {
+    "benchmark": {
+      "all_spin_resolved_best_fit_max_squared_residual": 0.0651456782,
+      "all_spin_resolved_best_nonnegative_intercept": 0.1743444829,
+      "all_spin_resolved_best_nonnegative_slope": 0.1139223858,
+      "declared_dimer_anchor_and_speed_benchmark_satisfied": false,
+      "dimer_mass_anchor": 0.4528882032,
+      "distinct_sin_squared_coordinates": 2,
+      "effective_velocity_independently_recovered": false,
+      "emergent_Lorentz_with_renormalized_velocity_excluded": false,
+      "envelope_best_nonnegative_intercept": 0.1743444829,
+      "envelope_best_nonnegative_slope": 0.0487767076,
+      "envelope_fit_is_underdetermined_as_a_dispersion_test": true,
+      "envelope_fitted_slope_over_supplied_c_squared": 3.1217092863,
+      "envelope_fitted_velocity": 0.2208544942,
+      "fixed_dimer_anchor_max_squared_residual": 0.1326798223,
+      "formula": "E(k)^2=m^2+c^2 sin(k)^2",
+      "lowest_envelope": [
+        0.4175457854,
+        0.4723570583,
+        0.4175457854,
+        0.4723570583
+      ],
+      "lowest_envelope_same_volume_anchor_max_squared_residual": 0.0331517076,
+      "lowest_envelope_same_volume_benchmark_satisfied": false,
+      "periodic_to_dimer_rest_gap_ratio": 0.9219621585,
+      "periodic_zero_momentum_gap": 0.4175457854,
+      "same_volume_anchor_and_declared_speed_benchmark_satisfied": false,
+      "same_volume_zero_anchor_max_squared_residual": 0.163443064
+    },
+    "chemical_potential": 0.5,
+    "complete_Fock_dimension": 256,
+    "coordinate_speed": 0.125,
+    "exact_complete_field_translation_and_number_maps": true,
+    "free_control": {
+      "doublers_retained": true,
+      "grand_canonical_ground_degeneracy": 16,
+      "half_filled_ground_degeneracy": 6,
+      "massless_nodes": [
+        0,
+        2
+      ],
+      "reference": "state-independent free CAR anticommutator; no unique free vacuum supplied",
+      "signed_bands": [
+        {
+          "momentum_index": 0,
+          "signed_energies": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "momentum_index": 1,
+          "signed_energies": [
+            -0.125,
+            0.125
+          ]
+        },
+        {
+          "momentum_index": 2,
+          "signed_energies": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "momentum_index": 3,
+          "signed_energies": [
+            -0.125,
+            0.125
+          ]
+        }
+      ]
+    },
+    "ground_degeneracy": 1,
+    "ground_energy": -2.0451790201,
+    "ground_momentum_index": 2,
+    "ground_number": 4,
+    "momentum_indices": "k=2*pi*j/4; removal at probe index j transfers momentum -j",
+    "numerical_eigensystem_moments_symmetry_within_declared_tolerance": true,
+    "numerical_tolerance": 2e-10,
+    "onsite_interaction": 1.0,
+    "particle_hole_relation": "addition(j,spin)=removal(-j,spin), including all pole residues",
+    "physical_Lorentz_dispersion_established": false,
+    "physical_clock_recovered": false,
+    "poles": [
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 0,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 0,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          3,
+          2,
+          2
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 0,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 0,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          1,
+          2,
+          2
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 0,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 0,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          2,
+          3,
+          2
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 0,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 0,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          2,
+          1,
+          2
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 1,
+        "first_moment": 0.318579642,
+        "lowest_probe_residue": 0.6744136029,
+        "lowest_spin_half_gap": 0.4723570583,
+        "momentum": 1,
+        "poles": [
+          {
+            "maximum_gap": 0.4723570583,
+            "minimum_gap": 0.4723570583,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.6744136029
+          },
+          {
+            "maximum_gap": 0.6701790201,
+            "minimum_gap": 0.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.4201790201,
+            "minimum_gap": 1.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.618000982,
+            "minimum_gap": 1.618000982,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 9.6517e-06
+          }
+        ],
+        "sector": [
+          3,
+          2,
+          3
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.6744232546
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 3,
+        "first_moment": 0.193579642,
+        "lowest_probe_residue": 0.3255444458,
+        "lowest_spin_half_gap": 0.5944851107,
+        "momentum": 1,
+        "poles": [
+          {
+            "maximum_gap": 0.4201790201,
+            "minimum_gap": 0.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.5944851107,
+            "minimum_gap": 0.5944851107,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.3255444458
+          },
+          {
+            "maximum_gap": 1.4958729296,
+            "minimum_gap": 1.4958729296,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 3.22996e-05
+          },
+          {
+            "maximum_gap": 1.6701790201,
+            "minimum_gap": 1.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          }
+        ],
+        "sector": [
+          1,
+          2,
+          1
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.3255767454
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 1,
+        "first_moment": 0.193579642,
+        "lowest_probe_residue": 0.3255444458,
+        "lowest_spin_half_gap": 0.5944851107,
+        "momentum": 1,
+        "poles": [
+          {
+            "maximum_gap": 0.4201790201,
+            "minimum_gap": 0.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.5944851107,
+            "minimum_gap": 0.5944851107,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.3255444458
+          },
+          {
+            "maximum_gap": 1.4958729296,
+            "minimum_gap": 1.4958729296,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 3.22996e-05
+          },
+          {
+            "maximum_gap": 1.6701790201,
+            "minimum_gap": 1.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          }
+        ],
+        "sector": [
+          2,
+          3,
+          3
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.3255767454
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 3,
+        "first_moment": 0.318579642,
+        "lowest_probe_residue": 0.6744136029,
+        "lowest_spin_half_gap": 0.4723570583,
+        "momentum": 1,
+        "poles": [
+          {
+            "maximum_gap": 0.4723570583,
+            "minimum_gap": 0.4723570583,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.6744136029
+          },
+          {
+            "maximum_gap": 0.6701790201,
+            "minimum_gap": 0.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.4201790201,
+            "minimum_gap": 1.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.618000982,
+            "minimum_gap": 1.618000982,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 9.6517e-06
+          }
+        ],
+        "sector": [
+          2,
+          1,
+          1
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.6744232546
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 2,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 2,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          3,
+          2,
+          0
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 2,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 2,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          1,
+          2,
+          0
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 2,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 2,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          2,
+          3,
+          0
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 2,
+        "first_moment": 0.2447069612,
+        "lowest_probe_residue": 0.3345300321,
+        "lowest_spin_half_gap": 0.4175457854,
+        "momentum": 2,
+        "poles": [
+          {
+            "maximum_gap": 0.4175457854,
+            "minimum_gap": 0.4175457854,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.3345300321
+          },
+          {
+            "maximum_gap": 0.5451790201,
+            "minimum_gap": 0.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.6345983062,
+            "minimum_gap": 0.6345983062,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.1654485555
+          },
+          {
+            "maximum_gap": 1.4557597341,
+            "minimum_gap": 1.4557597341,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 1.76721e-05
+          },
+          {
+            "maximum_gap": 1.5451790201,
+            "minimum_gap": 1.5451790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.6728122549,
+            "minimum_gap": 1.6728122549,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 3.7403e-06
+          }
+        ],
+        "sector": [
+          2,
+          1,
+          0
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.5
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 3,
+        "first_moment": 0.193579642,
+        "lowest_probe_residue": 0.3255444458,
+        "lowest_spin_half_gap": 0.5944851107,
+        "momentum": 3,
+        "poles": [
+          {
+            "maximum_gap": 0.4201790201,
+            "minimum_gap": 0.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.5944851107,
+            "minimum_gap": 0.5944851107,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.3255444458
+          },
+          {
+            "maximum_gap": 1.4958729296,
+            "minimum_gap": 1.4958729296,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 3.22996e-05
+          },
+          {
+            "maximum_gap": 1.6701790201,
+            "minimum_gap": 1.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          }
+        ],
+        "sector": [
+          3,
+          2,
+          1
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.3255767454
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 1,
+        "first_moment": 0.318579642,
+        "lowest_probe_residue": 0.6744136029,
+        "lowest_spin_half_gap": 0.4723570583,
+        "momentum": 3,
+        "poles": [
+          {
+            "maximum_gap": 0.4723570583,
+            "minimum_gap": 0.4723570583,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.6744136029
+          },
+          {
+            "maximum_gap": 0.6701790201,
+            "minimum_gap": 0.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.4201790201,
+            "minimum_gap": 1.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.618000982,
+            "minimum_gap": 1.618000982,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 9.6517e-06
+          }
+        ],
+        "sector": [
+          1,
+          2,
+          3
+        ],
+        "spin": 0,
+        "zeroth_moment": 0.6744232546
+      },
+      {
+        "charge": 1,
+        "excitation_momentum_transfer": 3,
+        "first_moment": 0.318579642,
+        "lowest_probe_residue": 0.6744136029,
+        "lowest_spin_half_gap": 0.4723570583,
+        "momentum": 3,
+        "poles": [
+          {
+            "maximum_gap": 0.4723570583,
+            "minimum_gap": 0.4723570583,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.6744136029
+          },
+          {
+            "maximum_gap": 0.6701790201,
+            "minimum_gap": 0.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.4201790201,
+            "minimum_gap": 1.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 1.618000982,
+            "minimum_gap": 1.618000982,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 9.6517e-06
+          }
+        ],
+        "sector": [
+          2,
+          3,
+          1
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.6744232546
+      },
+      {
+        "charge": -1,
+        "excitation_momentum_transfer": 1,
+        "first_moment": 0.193579642,
+        "lowest_probe_residue": 0.3255444458,
+        "lowest_spin_half_gap": 0.5944851107,
+        "momentum": 3,
+        "poles": [
+          {
+            "maximum_gap": 0.4201790201,
+            "minimum_gap": 0.4201790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 0.0,
+            "weight": 0.0
+          },
+          {
+            "maximum_gap": 0.5944851107,
+            "minimum_gap": 0.5944851107,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 0.3255444458
+          },
+          {
+            "maximum_gap": 1.4958729296,
+            "minimum_gap": 1.4958729296,
+            "multiplicity": 2,
+            "spin_half_multiplicity": 2.0,
+            "weight": 3.22996e-05
+          },
+          {
+            "maximum_gap": 1.6701790201,
+            "minimum_gap": 1.6701790201,
+            "multiplicity": 1,
+            "spin_half_multiplicity": 1.0,
+            "weight": 0.0
+          }
+        ],
+        "sector": [
+          2,
+          1,
+          3
+        ],
+        "spin": 1,
+        "zeroth_moment": 0.3255767454
+      }
+    ],
+    "reference_is_open_dimer_reference": false,
+    "scope": "DECLARED_FOUR_SITE_PERIODIC_WEYL_CONTACT_COORDINATE_DIAGNOSTIC",
+    "source_preparation_or_probe_execution": false,
+    "supplied_boundary": "periodic four-site z-axis ring; no twist",
+    "translation_convention": "T c\u2020_(x,a) T*=c\u2020_(x+1,a); c\u2020_k=sum exp(-ikx)c\u2020_x/2; h(k)=+c sigma_z sin(k)",
+    "whole_OPH_or_continuum_no_go": false
+  },
+  "prediction_sha256_before_comparison": "508410b5e83733792d78cdeb70dc5a50295624af7d3a5725e0a09554d05e0d08",
+  "schema": "oph.particle_comparison.v1",
+  "sealing_after_prior_target_exposure_makes_prospective": false,
+  "source_bindings": {
+    "code/cosmology/tilt_posterior/README.md": "9d27696b3460f2aab794b8c94a53f66520af1c63474239f67fabb972efa26955",
+    "code/cosmology/tilt_posterior/act_dr6_ns_weight.json.gz": "13dab540b652300bd000cf1ac3b197af55c7c411de215682482ea55993f40485",
+    "model/common_source/chiral_candidate/results.json": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+    "model/empirical_diagnostics/cross_scale.py": "899a07e79a6943eaa801d42face356c0800a84d878e556e436e3c92d90bb68f3",
+    "model/full_fock_field/field.py": "70a17a7d129b328ec755cd11257c839c2cfc5ef1c1f2d215c8af9645b5b29709",
+    "model/gauged_field/links.py": "b3fa18ee10908a53c177877123bb80384282473c163b166da49f02d7288ca421",
+    "model/observer_particles/results/entangled_alpha.json": "1536bdceda74bb6849ecdb1a9840c681d7dc1dbb83b74e97720ec776112927f0",
+    "model/particle_comparison/README.md": "61831661e87194519b4b4020e162119e539688f20d07d306964f088394c027a1",
+    "model/particle_comparison/compare.py": "a3428c6f85f670eb79f95561c6acefe96e6795706a89561cd8cd65b33f60e57d",
+    "model/particle_comparison/dictionary.py": "a1f72f68d8379cb2c55bdab706dace43903aff2eccb6ec838402e492c99bc327",
+    "model/particle_comparison/electromagnetism.py": "411aaed0c05a2cb64dcee3ad2d9b5e3b0faea0455e370b61f9c590949e8ee02b",
+    "model/particle_comparison/observations.json": "44a8e4615c3497542c114d600ddde99973a9eb9400c379c6117c010204dabf1c",
+    "model/particle_comparison/test_compare.py": "4adc39061b2b0a33e042c6ca6d33eb82697ef93e2dd04b82a26b136949806371",
+    "model/particle_comparison/test_dictionary.py": "12564e83f96e6a81d675b87c30a07dead9883f35c88dc9bf867da730596cd5a6",
+    "model/particle_comparison/test_electromagnetism.py": "246a9338a4a2c1c66ef84ece8d1148122e1a8881e2ff6304d94fbd9876b58927",
+    "model/particle_response/dimer.py": "34fb85d008472cf338cd8e8222f2da2f85f9dac6901f95b65efd7322b73f7249",
+    "model/particle_response/dispersion.py": "519b95af7691e9a3990d4e4f555dfbe63856fd8959444858e1c8fdcbd376c628",
+    "model/particle_response/spectrum.py": "1e8932166a0038d5343835cedb3a4fed1a348ced8f263c23545c3433f6b344d8",
+    "model/particle_response/test_dispersion.py": "b44480fccbce6b4eed74360a818bb5a52258057c7d3da91e9df5d63a3658186d",
+    "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+    "model/predictions/shared_parameter.py": "fa3fb9161fdf1238e8e5058d14cce8029c2f137e0e82f7bb0d2eff1d3e601058",
+    "model/scalar_observations/experimental_readout/executable_results.json": "5c605c4ec5d6762cdc190ac49c5d2139b8cc8286dbe89a3101e9783faa6eb73b"
+  },
+  "source_spectrum": {
+    "geometry": {
+      "coordinate_speed": "1/8",
+      "interaction": "1",
+      "sides": [
+        2,
+        1,
+        1
+      ],
+      "unit": "dimensionless Hamiltonian model-coordinate energy"
+    },
+    "includes_dark_transitions": true,
+    "method": "exact characteristic polynomials of current source matrix in Gaussian rationals",
+    "number_sectors": [
+      {
+        "characteristic_polynomial": "x",
+        "dimension": 1,
+        "eigenvalues_with_multiplicity": [
+          {
+            "decimal_enclosure": {
+              "hi": "0",
+              "lo": "0"
+            },
+            "rational": "0",
+            "sqrt17_coefficient": "0"
+          }
+        ],
+        "number": 0
+      },
+      {
+        "characteristic_polynomial": "x**4 - x**2/128 + 1/65536",
+        "dimension": 4,
+        "eigenvalues_with_multiplicity": [
+          {
+            "decimal_enclosure": {
+              "hi": "-0.0625",
+              "lo": "-0.0625"
+            },
+            "rational": "-1/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "-0.0625",
+              "lo": "-0.0625"
+            },
+            "rational": "-1/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0.0625",
+              "lo": "0.0625"
+            },
+            "rational": "1/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0.0625",
+              "lo": "0.0625"
+            },
+            "rational": "1/16",
+            "sqrt17_coefficient": "0"
+          }
+        ],
+        "number": 1
+      },
+      {
+        "characteristic_polynomial": "x**6 - 2*x**5 + 63*x**4/64 + x**3/64",
+        "dimension": 6,
+        "eigenvalues_with_multiplicity": [
+          {
+            "decimal_enclosure": {
+              "hi": "-0.0153882032022075687276762319967596281433875",
+              "lo": "-0.0153882032022075687276762319967596281434"
+            },
+            "rational": "1/2",
+            "sqrt17_coefficient": "-1/8"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0",
+              "lo": "0"
+            },
+            "rational": "0",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0",
+              "lo": "0"
+            },
+            "rational": "0",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0",
+              "lo": "0"
+            },
+            "rational": "0",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "1",
+              "lo": "1"
+            },
+            "rational": "1",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "1.0153882032022075687276762319967596281434",
+              "lo": "1.0153882032022075687276762319967596281433875"
+            },
+            "rational": "1/2",
+            "sqrt17_coefficient": "1/8"
+          }
+        ],
+        "number": 2
+      },
+      {
+        "characteristic_polynomial": "x**4 - 4*x**3 + 767*x**2/128 - 255*x/64 + 65025/65536",
+        "dimension": 4,
+        "eigenvalues_with_multiplicity": [
+          {
+            "decimal_enclosure": {
+              "hi": "0.9375",
+              "lo": "0.9375"
+            },
+            "rational": "15/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "0.9375",
+              "lo": "0.9375"
+            },
+            "rational": "15/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "1.0625",
+              "lo": "1.0625"
+            },
+            "rational": "17/16",
+            "sqrt17_coefficient": "0"
+          },
+          {
+            "decimal_enclosure": {
+              "hi": "1.0625",
+              "lo": "1.0625"
+            },
+            "rational": "17/16",
+            "sqrt17_coefficient": "0"
+          }
+        ],
+        "number": 3
+      },
+      {
+        "characteristic_polynomial": "x - 2",
+        "dimension": 1,
+        "eigenvalues_with_multiplicity": [
+          {
+            "decimal_enclosure": {
+              "hi": "2",
+              "lo": "2"
+            },
+            "rational": "2",
+            "sqrt17_coefficient": "0"
+          }
+        ],
+        "number": 4
+      }
+    ],
+    "numerical_eigenvalue_tolerance": null,
+    "signed_charge_one_frequency_superset": [
+      {
+        "decimal_enclosure": {
+          "hi": "-0.0778882032022075687276762319967596281433875",
+          "lo": "-0.0778882032022075687276762319967596281434"
+        },
+        "rational": "7/16",
+        "sqrt17_coefficient": "-1/8"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "-0.0625",
+          "lo": "-0.0625"
+        },
+        "rational": "-1/16",
+        "sqrt17_coefficient": "0"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "0.0471117967977924312723237680032403718566125",
+          "lo": "0.0471117967977924312723237680032403718566"
+        },
+        "rational": "9/16",
+        "sqrt17_coefficient": "-1/8"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "0.0625",
+          "lo": "0.0625"
+        },
+        "rational": "1/16",
+        "sqrt17_coefficient": "0"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "0.9375",
+          "lo": "0.9375"
+        },
+        "rational": "15/16",
+        "sqrt17_coefficient": "0"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "0.9528882032022075687276762319967596281434",
+          "lo": "0.9528882032022075687276762319967596281433875"
+        },
+        "rational": "7/16",
+        "sqrt17_coefficient": "1/8"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "1.0625",
+          "lo": "1.0625"
+        },
+        "rational": "17/16",
+        "sqrt17_coefficient": "0"
+      },
+      {
+        "decimal_enclosure": {
+          "hi": "1.0778882032022075687276762319967596281434",
+          "lo": "1.0778882032022075687276762319967596281433875"
+        },
+        "rational": "9/16",
+        "sqrt17_coefficient": "1/8"
+      }
+    ],
+    "source_dimension": 16,
+    "visibility_threshold": null
+  },
+  "three_lepton_exhaustive_comparison": {
+    "attachment": "m_i=kappa*abs(omega_i-mu), common kappa>0 and arbitrary common real mu",
+    "cases_above_tau_window": 64,
+    "cases_below_tau_window": 608,
+    "distinct_ordered_assignments": 336,
+    "electron_sign_choices": 2,
+    "feasible_cases": 0,
+    "full_case_sha256": "afcfba6eb4e769c99e98b2005b675cdc4cdd5da2f2ae2570358ecbb6f9d69de9",
+    "largest_rejected_upper_tau_ratio": {
+      "decimal_enclosure": {
+        "hi": "2163.007462660591742953566562553260026538272",
+        "lo": "2163.007462660591742953566562553260026538246"
+      },
+      "rational": "1091",
+      "sqrt17_coefficient": "260"
+    },
+    "repeated_frequency_assignments": "excluded because equal frequencies give equal masses, contrary to disjoint target ratios",
+    "scope": "fixed two-site action and charge-one transitions, including dark transitions; no sector-dependent shifts or nonlinear dictionary",
+    "smallest_rejected_lower_tau_ratio": {
+      "decimal_enclosure": {
+        "hi": "11655.656572761342888993723143322800531086232",
+        "lo": "11655.6565727613428889937231433228005310860885"
+      },
+      "rational": "5739",
+      "sqrt17_coefficient": "1435"
+    },
+    "status": "bounded_three_lepton_attachment_rejected",
+    "target_ratios": [
+      [
+        "206",
+        "207"
+      ],
+      [
+        "3470",
+        "3485"
+      ]
+    ],
+    "target_windows_are_joint_confidence_region": false,
+    "total_cases": 672,
+    "universe_or_OPH_program_rejected": false,
+    "zero_mu_absolute_frequency_dynamic_range": {
+      "decimal_enclosure": {
+        "hi": "22.879369424787367676428519601158982531176861538461538461538461538461538461538462",
+        "lo": "22.879369424787367676428519601158982531176584615384615384615384615384615384615384"
+      },
+      "rational": "149/13",
+      "sqrt17_coefficient": "36/13"
+    }
+  },
+  "two_candidate_assignment": {
+    "calibrated_energy_scale_MeV_per_model_energy": {
+      "decimal_enclosure": {
+        "hi": "1.1283114620273005488197487299339354687481580622288085970149253731343283582089553",
+        "lo": "1.1283114620273005488197487299339354687481336563087756417910447761194029850746268"
+      },
+      "rational": "51099895069/418750000000",
+      "sqrt17_coefficient": "51099895069/209375000000"
+    },
+    "calibration": {
+      "citation": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+      "observable": "electron_mass_energy_equivalent",
+      "role": "one common energy calibration input; not an absolute mass prediction",
+      "source": "CODATA 2022 recommended values",
+      "standard_uncertainty": "0.00000000016",
+      "unit": "MeV",
+      "value": "0.51099895069"
+    },
+    "calibration_errors_fully_correlated": true,
+    "candidate_mass_energy_MeV": [
+      "0.51099895069",
+      "0.51099895069"
+    ],
+    "candidate_mass_uncertainty_MeV_from_shared_calibration": [
+      "0.00000000016",
+      "0.00000000016"
+    ],
+    "comparison": {
+      "assumption": "positronium Rydberg constant exactly half the hydrogen one",
+      "citation": "https://pdgweb.lbl.gov/2025/listings/rpp2025-list-electron.pdf",
+      "confidence_level_percent": 90,
+      "is_g_factor_equality_measurement": false,
+      "measurement_citation": "https://doi.org/10.1103/PhysRevA.48.192",
+      "observable": "absolute_mass_difference_divided_by_average_mass",
+      "role": "conditional retrospective equality check; not a second absolute mass measurement",
+      "source": "PDG 2025 electron listing, Fee 1993 positronium spectroscopy",
+      "unit": "dimensionless",
+      "upper_bound": "0.000000008"
+    },
+    "independently_predicted_absolute_masses": 0,
+    "missing_identity_contracts": [
+      "physical vacuum and chemical-potential selection",
+      "physical electric charge and Lorentz spin representation",
+      "same observer proper clock and physical energy calibration independent of target mass",
+      "spatial continuum dispersion and isolated stable pole",
+      "common topological defect, transport, interactions and mass on the same excitation"
+    ],
+    "normalized_difference_prediction": "0",
+    "prediction": {
+      "Lorentz_spin_or_physical_particle_identity_derived": false,
+      "candidates": [
+        {
+          "assignment": "electron-like hole",
+          "multiplicity": 2,
+          "number_sector": 1,
+          "relative_number_charge": -1
+        },
+        {
+          "assignment": "positron-like particle",
+          "multiplicity": 2,
+          "number_sector": 3,
+          "relative_number_charge": 1
+        }
+      ],
+      "chemical_potential": "1/2",
+      "exact_normalized_mass_difference": "0",
+      "gap": {
+        "decimal_enclosure": {
+          "hi": "0.4528882032022075687276762319967596281434",
+          "lo": "0.4528882032022075687276762319967596281433875"
+        },
+        "rational": "-1/16",
+        "sqrt17_coefficient": "1/8"
+      },
+      "gap_unit": "inverse Hamiltonian model coordinate; hbar_model=1",
+      "ground_energy": {
+        "decimal_enclosure": {
+          "hi": "-1.0153882032022075687276762319967596281433875",
+          "lo": "-1.0153882032022075687276762319967596281434"
+        },
+        "rational": "-1/2",
+        "sqrt17_coefficient": "-1/8"
+      },
+      "ground_multiplicity": 1,
+      "hamiltonian": "K=H-(1/2)N",
+      "physical_electric_charge_identification_supplied": true,
+      "physical_rest_mass_interpretation_derived": false,
+      "reference": "supplied zero-temperature unique N=2 ground of K",
+      "reference_is_executed_beta1_mu0_Gibbs_state": false,
+      "time_parameter": "Hamiltonian model coordinate, not calibrated observer proper time"
+    },
+    "status": "retrospective_conditional_equality_compatible_after_one_mass_calibration",
+    "unique_OPH_signature": false,
+    "within_reported_conditional_bound": true
+  }
+}

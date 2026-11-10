@@ -1,0 +1,310 @@
+{
+  "all_policies_conditionally_disjoint": true,
+  "benchmark": {
+    "charged_lepton_yukawas_exact": [
+      "34714199207373/12500000000000000000",
+      "58504384681003/100000000000000000",
+      "99377637841527/10000000000000000"
+    ],
+    "common_scale": {
+      "matching_reexecuted_here": true,
+      "mu": "M_Z",
+      "reference_MZ_GeV": "91.1876",
+      "reference_mass_convention": "LEP-only Breit-Wigner Z input of the pinned SMDR1.3 reference, not an asserted tree-level action pole",
+      "scheme": "MSbar Standard Model"
+    },
+    "values_are": "fixed empirical calibration constants; not exact measurements or a joint likelihood"
+  },
+  "calculation_passed": true,
+  "canonical_physical_premises_discharged": [],
+  "comparisons": [
+    {
+      "correction_bound_is_sufficient_for_joint_matching": false,
+      "direct_common_scale_identification_excluded": true,
+      "exact_zero_source_mode_against_positive_benchmark": false,
+      "finite_multiplicative_correction_possible": true,
+      "necessary_uniform_delta_lower_bound_exact": "2501471955943832854803603/3159732141437858187169228",
+      "policy": "always",
+      "ratios": {
+        "lightest_over_heaviest": {
+          "benchmark_exact": "11571399735791/41407349100636250",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "2501471955943832854803603/3159732141437858187169228",
+          "source_interval_exact": [
+            "31794364/978482158883",
+            "31794365/978482158882"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_heaviest": {
+          "benchmark_exact": "58504384681003/993776378415270",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "17946585448539768342792533/39298911178191055990326113",
+          "source_interval_exact": [
+            "21486046753/978482158883",
+            "10743023377/489241079441"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_lightest": {
+          "benchmark_exact": "7313048085125375/34714199207373",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "256678593540772288398997/489192313621799531910872",
+          "source_interval_exact": [
+            "21486046753/31794365",
+            "10743023377/15897182"
+          ],
+          "undefined_reason": null
+        }
+      },
+      "source_rank": 3,
+      "source_singular_value_intervals_exact": [
+        [
+          "7948591/250000000000",
+          "6358873/200000000000"
+        ],
+        [
+          "21486046753/1000000000000",
+          "10743023377/500000000000"
+        ],
+        [
+          "489241079441/500000000000",
+          "978482158883/1000000000000"
+        ]
+      ]
+    },
+    {
+      "correction_bound_is_sufficient_for_joint_matching": false,
+      "direct_common_scale_identification_excluded": true,
+      "exact_zero_source_mode_against_positive_benchmark": false,
+      "finite_multiplicative_correction_possible": true,
+      "necessary_uniform_delta_lower_bound_exact": "48568760279867474954514/81040221651372558689111",
+      "policy": "C",
+      "ratios": {
+        "lightest_over_heaviest": {
+          "benchmark_exact": "11571399735791/41407349100636250",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "48568760279867474954514/81040221651372558689111",
+          "source_interval_exact": [
+            "31300961/28061826670",
+            "10433654/9353942223"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_heaviest": {
+          "benchmark_exact": "58504384681003/993776378415270",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "208790629225567922640635/537138609696229808190637",
+          "source_interval_exact": [
+            "1876501734/14030913335",
+            "3753003469/28061826669"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_lightest": {
+          "benchmark_exact": "7313048085125375/34714199207373",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "49311461427403061804219/179593971476230981181156",
+          "source_interval_exact": [
+            "625500578/5216827",
+            "3753003469/31300961"
+          ],
+          "undefined_reason": null
+        }
+      },
+      "source_rank": 3,
+      "source_singular_value_intervals_exact": [
+        [
+          "31300961/1000000000000",
+          "15650481/500000000000"
+        ],
+        [
+          "938250867/250000000000",
+          "3753003469/1000000000000"
+        ],
+        [
+          "28061826669/1000000000000",
+          "2806182667/100000000000"
+        ]
+      ]
+    },
+    {
+      "correction_bound_is_sufficient_for_joint_matching": false,
+      "direct_common_scale_identification_excluded": true,
+      "exact_zero_source_mode_against_positive_benchmark": true,
+      "finite_multiplicative_correction_possible": false,
+      "necessary_uniform_delta_lower_bound_exact": null,
+      "policy": "E",
+      "ratios": {
+        "lightest_over_heaviest": {
+          "benchmark_exact": "11571399735791/41407349100636250",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": null,
+          "source_interval_exact": [
+            "0",
+            "0"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_heaviest": {
+          "benchmark_exact": "58504384681003/993776378415270",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "7556934227256127042468177/7735261117696035659461777",
+          "source_interval_exact": [
+            "89721839/130692728660",
+            "89721840/130692728659"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_lightest": {
+          "benchmark_exact": "7313048085125375/34714199207373",
+          "benchmark_outside_source_interval": null,
+          "necessary_delta_lower_bound_exact": null,
+          "source_interval_exact": null,
+          "undefined_reason": "exactly zero source denominator"
+        }
+      },
+      "source_rank": 2,
+      "source_singular_value_intervals_exact": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "89721839/1000000000000",
+          "1121523/12500000000"
+        ],
+        [
+          "130692728659/1000000000000",
+          "6534636433/50000000000"
+        ]
+      ]
+    },
+    {
+      "correction_bound_is_sufficient_for_joint_matching": false,
+      "direct_common_scale_identification_excluded": true,
+      "exact_zero_source_mode_against_positive_benchmark": true,
+      "finite_multiplicative_correction_possible": false,
+      "necessary_uniform_delta_lower_bound_exact": null,
+      "policy": "CE",
+      "ratios": {
+        "lightest_over_heaviest": {
+          "benchmark_exact": "11571399735791/41407349100636250",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": null,
+          "source_interval_exact": [
+            "0",
+            "0"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_heaviest": {
+          "benchmark_exact": "58504384681003/993776378415270",
+          "benchmark_outside_source_interval": true,
+          "necessary_delta_lower_bound_exact": "74884242250127356735753/163561076916179600954893",
+          "source_interval_exact": [
+            "89232181/4075682883",
+            "44616091/2037841441"
+          ],
+          "undefined_reason": null
+        },
+        "middle_over_lightest": {
+          "benchmark_exact": "7313048085125375/34714199207373",
+          "benchmark_outside_source_interval": null,
+          "necessary_delta_lower_bound_exact": null,
+          "source_interval_exact": null,
+          "undefined_reason": "exactly zero source denominator"
+        }
+      },
+      "source_rank": 2,
+      "source_singular_value_intervals_exact": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "89232181/1000000000000",
+          "44616091/500000000000"
+        ],
+        [
+          "2037841441/500000000000",
+          "4075682883/1000000000000"
+        ]
+      ]
+    }
+  ],
+  "conditional_identification": {
+    "family_order": "ascending source singular values identified with electron, muon, tau",
+    "normalization": "one common positive scale, including a common Higgs norm or clock conversion",
+    "not_supplied": "source-to-MSbar scale, RG and threshold transport, physical species and running-to-pole matching",
+    "required_transport": "same physical fields, canonical kinetic normalization, renormalization scheme and scale"
+  },
+  "correction_model": {
+    "combination": "take the maximum necessary lower bound over the three retained ratios",
+    "domain": "alpha > 0; |e_i| <= delta < 1; the same alpha for all three families",
+    "formula": "y_i = alpha * sigma_i * (1 + e_i)",
+    "meaning": "y_i is the fixed empirical running Yukawa; sigma_i is the source singular value",
+    "necessary_bound": "delta >= (R-1)/(R+1), R=max(1,target/upper,lower/target), for each positive ratio interval",
+    "not_asserted": "the lower bound is not a computed RG correction, fitted correction, or sufficient matching condition",
+    "ratio_bound": "(1-delta)/(1+delta) <= (y_i/y_j)/(sigma_i/sigma_j) <= (1+delta)/(1-delta)",
+    "zero_case": "a zero source singular value cannot become positive under any finite multiplicative correction"
+  },
+  "external_data_fetched_during_calculation": false,
+  "physical_predictions_added": 0,
+  "primary_source_metadata": [
+    {
+      "role": "published common-scale running-parameter and matching conventions",
+      "url": "https://arxiv.org/html/2510.01312v2#S2"
+    },
+    {
+      "role": "SMDR renormalization-group and on-shell matching formulation",
+      "url": "https://arxiv.org/abs/1907.02500"
+    },
+    {
+      "role": "electron experimental mass convention; not an additional numerical input",
+      "url": "https://pdg.lbl.gov/2025/listings/rpp2025-list-electron.pdf"
+    },
+    {
+      "role": "muon experimental mass convention; not an additional numerical input",
+      "url": "https://pdg.lbl.gov/2025/listings/rpp2025-list-muon.pdf"
+    },
+    {
+      "role": "tau experimental mass convention; not an additional numerical input",
+      "url": "https://pdg.lbl.gov/2025/listings/rpp2025-list-tau.pdf"
+    }
+  ],
+  "schema": "oph.source_flavor_comparison.v1",
+  "scope": {
+    "all_four_declared_duties_retained": true,
+    "all_source_angles_or_feedback_laws_excluded": false,
+    "common_positive_normalization_cancels_from_ratios": true,
+    "empirical_input_used_only_in_downstream_comparison": true,
+    "interacting_continuum_or_Einstein_join_established": false,
+    "physical_mass_prediction_or_unconditional_nature_exclusion": false,
+    "renormalization_group_or_threshold_map_computed": false,
+    "retained_source_intervals_used_without_producer_import": true,
+    "running_to_pole_mass_map_computed": false,
+    "same_current_canonical_kinetic_basis_changes_preserve_ratios": true,
+    "same_scale_physical_identification_established": false,
+    "source_parameters_fitted_or_modified": false,
+    "statistical_confidence_or_joint_likelihood_computed": false
+  },
+  "source_bindings": {
+    "model/common_source/calibrated_matter_parameters.json": "2e48d4199d48e9c9d4520d060f68043a4ff569cd87fdad6990ae5bc7b99539f8",
+    "model/completion/source_flavor_comparison.py": "53e2ab5f1602b0b10790debc5dd3dda979214e3952362cdf89faa44ca734ca56",
+    "model/completion/test_source_flavor_comparison.py": "5b41a3143f03d677658bbcab28e4fbc95604d1642fe1c3e8768f192abdb3b516",
+    "model/native_flavor_orbit/results.json": "755a72bc04f65c0f6156ef55ec79bd341cf2b43b85e1a4ad48ee8c3b76e2d239",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "source_protocol": {
+    "angle_exact": "pi/5",
+    "coefficient": "stationary first-order real-projector feedback, canonical kinetic form and unit Higgs norm",
+    "policies": [
+      "always",
+      "C",
+      "E",
+      "CE"
+    ],
+    "reset_port": 2
+  }
+}

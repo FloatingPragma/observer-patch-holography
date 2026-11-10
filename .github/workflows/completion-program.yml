@@ -15,6 +15,10 @@ on:
       - 'model/completion/**'
       - 'pytest.ini'
       - 'tools/check_retained_completion_custody.py'
+      - 'tools/check_retained_field_custody.py'
+      - 'tools/test_retained_field_custody.py'
+      - 'tools/*source_record*'
+      - 'tools/test_numeric_evidence_medium.py'
       - 'tools/test_retained_custody_routing.py'
       - 'tools/renew_diagnostic_parent_custody.py'
       - 'tools/diagnostic_parent_custody_authority.json'
@@ -149,6 +153,10 @@ on:
       - 'model/completion/**'
       - 'pytest.ini'
       - 'tools/check_retained_completion_custody.py'
+      - 'tools/check_retained_field_custody.py'
+      - 'tools/test_retained_field_custody.py'
+      - 'tools/*source_record*'
+      - 'tools/test_numeric_evidence_medium.py'
       - 'tools/test_retained_custody_routing.py'
       - 'tools/renew_diagnostic_parent_custody.py'
       - 'tools/diagnostic_parent_custody_authority.json'
@@ -296,6 +304,24 @@ jobs:
 
   # These commands ran serially in one job of about 30 minutes; the same
   # commands run here as parallel jobs.
+  retained-field-custody:
+    name: Retained c7 field custody regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Fetch the immutable field checkpoint
+        run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git c7b09261853f5a3c5a67e21294c3d9511ed59fc7
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install the field checkpoint requirements
+        run: |
+          git show c7b09261853f5a3c5a67e21294c3d9511ed59fc7:model/requirements.txt > "$RUNNER_TEMP/oph-retained-field-requirements.txt"
+          python -m pip install -r "$RUNNER_TEMP/oph-retained-field-requirements.txt"
+      - name: Run all 31 original field tests in their authenticated tree
+        run: python tools/check_retained_field_custody.py
+
   program-contract:
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -309,7 +335,9 @@ jobs:
           python-version: '3.12'
       - run: pip install -r requirements.txt
       - run: python tools/build_completion_program_current.py --check
-      - run: python -m pytest -q -W error tools/test_retained_custody_routing.py tools/test_diagnostic_parent_custody.py
+      - run: python -m pytest -q -W error tools/test_retained_custody_routing.py tools/test_retained_field_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
+      - run: python -m model.completion.source_records_navigation --check
+      - run: python -m model.completion.source_records_custody --check
       - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
       - run: python -m model.completion.acceptance_audit --check
       - run: python -m model.completion.program_class_v2 --check

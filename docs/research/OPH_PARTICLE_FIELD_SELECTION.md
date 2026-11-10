@@ -102,6 +102,25 @@ stationarity alone does not give `rho proportional exp(-beta*H)`.
 
 ## Quantum services and complete observer laws
 
+The [physical centroid readout](../../model/native_charge_centroid/PROOF.md)
+does not require an extra exact ground projection. It uses the admitted
+finite preparation and propagates its error through the complete pump/bin
+instrument. A declared exact spectral bin admission precedes an explicitly
+bounded twenty-bit rational clock. The clock subtracts a known rational
+source-energy baseline, with an error bound; unknown exact ground energy
+is not a hidden phase input. Its `536870400` rational factors specify a
+finite realization, not an efficient or fully executed native circuit.
+
+The [current-map audit](../../model/native_weak_current_interface/PROOF.md)
+separates a valid state-independent CAR/current change of variables from
+the additional constant-scalar Hamiltonian assumption. The actual local
+scalar matrices are nilpotent, so an exact nonzero scalar eigenbackground
+cannot be supplied at that fixed cap. Repeating finite registers with a
+specified product preparation gives an average whose variance decays as
+`1/n`; the state, averaging and coupling then belong to a new construction.
+This distinguishes a local obstruction from a prohibition of all finite
+collective field limits.
+
 The [native compiler](../../model/native_quantum_service_bridge/PROOF.md)
 separates exact intertwiners from actuator bounds and binary64 replay.
 Its complete 320-state Yukawa parent has a two-state code with
@@ -159,7 +178,27 @@ keep return-normalization, approximation and sampling costs separate.
 <a id="gauge-bands-and-local-field-dynamics"></a>
 <a id="finite-gauge-higgs-and-spatial-controls"></a>
 
-## Regulators and collective limits
+## Filtered states and finite apparatus services
+
+The [elementary/composite filtered-state construction](../../model/native_higgs_filtered_state/PROOF.md)
+retains eight source trials, seven agreement filters, all reference states
+and all sixteen final apparatus labels. Its exact energy-bin projector
+is a declared finite spectral service. With a programmable finite drive,
+preparation, pump and admission each occupy one source-clock interval;
+the source also evolves on failure branches. The successful normalized
+states have a common-history error below `1.686e-7` in the narrow bin.
+The unconditioned success rates are not equated. Approximate drive errors
+require the stated success-dependent error allowance.
+
+The [dressed current experiment](../../model/native_weak_current_response/PROOF.md)
+uses the same native Hamiltonian, full charge reference and physical
+preparation. Its neutral apparatus retains an eight-position reference
+and is covariant under native translations. The charged apparatus is
+located at the origin with a fixed compensator. These are explicit
+settings; moving the neutral apparatus does not restore source-only
+translation invariance of the charged one.
+
+## Regulators and their field limits
 
 The [free spectral chiral regulator](../../model/coherent_defect_wave/chiral_regulator/PROOF.md)
 retains the entire antiperiodic momentum menu and negative-band filled
@@ -244,6 +283,43 @@ bounds prove a free spin-one description; a source triplet alone does not
 force that description or select a named vector boson. Stating the readout
 is an allowed construction choice, while its native record approximation
 and transformation identities are proof obligations supplied by the package.
+
+## Charged spinor code and explicit control
+
+The [native Dirac construction](../../model/native_block_dirac/PROOF.md)
+selects an actual native energy `E*` by largest per-spin residue in the
+specified charged bin, with a lower-energy tie break. Its code uses two
+full constituents for each charge's vacuum, spin doublet and occupied
+singlet. A conjugate pair completes all sixteen occupations; a single
+three-state hard-core doublet cannot supply that CAR algebra.
+
+The declared macro law is `K_a=sqrt(E*² I+L_a)-E* I`. Positivity retains
+the complete native ground and lower-bounds every complementary sector.
+The resulting free Dirac field uses the actual source clock, complete
+apparatus doublets and a retained spatial reference. Its square-root
+couplers are nonzero at every spatial separation on the connected finite
+box. Continuum causal field records do not imply a finite-range primitive
+implementation.
+
+Preparation and readout are explicit interventions. For raw complete
+Hamiltonian `H_ext`, target unitary `U` and duration `tau`, the declared
+drive uses `L=i Log(exp(-i H_ext tau)U)/tau` and `V=L-H_ext`. Its full
+propagator is `exp(-i H_ext tau)U`; reference phases and free elapsed time
+are retained. Norm, work and coefficient errors have separate bounds.
+This is a programmable finite-matrix service, without a passive C/E
+compilation or autonomous local controller. Capacity counts include all
+retained sources and flags, with extra synthesis workspace excluded.
+
+No empirical mass selects `E*`. The
+[refined-bin calculation](../../model/native_charge_resolution/PROOF.md)
+and [Higgs cross-residue selector](../../model/native_higgs_spectral_join/PROOF.md)
+give additional source-only selections. They have proved positive
+weights, but neither is proved equal to the original `E*` maximizer.
+Selecting another native line, using a
+narrower bin or coupling to the affine field changes the relevant
+construction and requires its own comparison. A full weak-current
+attachment and a surviving interacting relativistic limit are distinct
+from this free vectorlike code.
 
 ## Which selection tests constrain a mass model
 

@@ -17,6 +17,7 @@ preparation and control choices that the proofs use.
 | Calculated quantity | Supported interpretation | Extra information needed for a measured mass |
 | --- | --- | --- |
 | Finite source energy transfer | Difference of energies visible to the specified complete detector | Ground-relative excitation, spatial branch and physical channel |
+| Finite energy-pointer mean | Conditional mean of a complete specified apparatus, including preparation and decoder errors | Relation to a threshold, pole or resonance and the actual momentum response |
 | Background Yukawa singular value | Rest parameter of that canonical quadratic action | Quantum vacuum, interacting/infrared or resonance matching |
 | Whole charged-sector infimum | Lower energy in a stated charge/reference sector | Populated near-edge response, dressing and spatial threshold |
 | Collective block rest frequency | Delta in the declared dilute free field clock | Physical species and independently fixed energy/length standards |
@@ -190,6 +191,77 @@ There is no W/Z identification or absolute energy calibration in that
 construction. Both results are source-derived within their stated
 architectures; they solve different spectral problems.
 
+## Refined native line windows and a shared Higgs response
+
+The [physical centroid calculation](../../model/native_charge_centroid/PROOF.md)
+gives the complete twenty-bit pointer mean in
+`[0.6916566792649, 0.6916566826119]` source units without an extra ideal
+ground filter. More than `0.419706188794` of original preparation attempts
+reach its admitted bin. The proof uses the selected atomic component's
+zero first hopping moment, controls all spectral-tail weight and includes
+the actual preparation error. Every phase label remains. Admission to the
+bin is an explicit exact spectral service, and the neutral-energy
+subtraction is a known rational baseline with bounded uncertainty.
+The precision concerns this mean; it neither narrows every individual
+eigenvalue nor fixes a relativistic mass or a GeV conversion.
+
+The [same-source charged-window calculation](../../model/native_charge_resolution/PROOF.md)
+encloses more than `0.4197064484` original probe weight in
+`[0.6916539987293,0.6916593631475]` source excitation units.
+A narrower choice retains more than `0.31477359` weight in
+`[0.6916566390288,0.6916567228480]`. These are enclosures above the actual
+neutral ground, with reference cost four subtracted explicitly. They
+derive from complete local residues, a quadratic ground-shift bound and
+the full hopping norm. They are not GeV values or identified particles.
+
+A positive bin can contain many eigenvalues. Its aggregate residue does
+not select the same individual line as a larger bin's maximum residue.
+The exact counterexample in that package prevents transferring the
+sharper enclosure to the free Dirac construction's frozen `E*` without
+an additional rank/separation argument or an explicit selector change.
+
+The [quantum Higgs join](../../model/native_higgs_spectral_join/PROOF.md)
+proves an actual common energy for the elementary `e^c` probe and its
+quantum Higgs–lepton composite, with a positive complete interference
+record. Its full equation of motion retains hopping and the scalar
+operator. It supplies no classical Higgs expectation, generation hierarchy,
+relativistic mass correction or observed weak-current form factor.
+
+The [normalized filtered-state bound](../../model/native_higgs_filtered_state/PROOF.md)
+also proves that the two successful probes prepare almost the same state.
+With actual depth-three preparation, all common subsequent detector
+histories differ by at most `1.68597220e-7` in the narrow bin. Original
+elementary and composite pump/bin success bounds are respectively
+`0.3147735248783` and `0.0376460324440`, before the fair-setting factor.
+An actual common-residue doublet in that bin can supply the mass parameter
+of the separately declared free Dirac code. It supplies no generation
+hierarchy, interacting pole correction or GeV standard.
+
+## Native rest frequency and complete energy records
+
+The [free Dirac readout](../../model/native_block_dirac/PROOF.md) has
+`m=E*`, where `E*` is an actual native charged eigenenergy selected by
+its per-spin residue. The known source enclosure is approximately
+`[0.6906800974,0.6926332644]`. Its complete occupation code and positive
+square-root kinetic law give a relativistic rest-frequency interpretation
+in that explicitly declared free construction. The native neutral gap
+and the energy `E*` belong to different sectors; neither is discarded.
+No measured mass fixes the source coefficient or its selection.
+
+The field has two spin states for each conjugate charge, fermionic CAR,
+induced Lorentz transformations and a causal anticommutator in its
+controlled free record limit. Its inherited `e^c` pair is vectorlike and
+does not identify the observed electron's weak couplings. The full-range
+spatial law and programmable apparatus are explicit architecture. The
+affine charged-field interaction is not part of this free Hamiltonian.
+
+Separately, the [joined native energy experiment](../../model/native_abelian_energy_records/PROOF.md)
+gives a finite energy clock after a position record, with positive
+original arrival-and-acceptance probabilities and bounded backaction.
+Its result is an admitted-bin boundary energy. A relative kinetic or
+rest-mass formula cannot be transferred between these two sources by
+subtracting their different reference costs.
+
 ## Canonical action masses and calibrated controls
 
 The [one-family background dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)
@@ -262,6 +334,29 @@ event probability `2/9` does not select that coherent phase without the
 declared clock coupling. The calculation supplies no absolute energy unit.
 Three neutral register characters are sectors of a C3 memory. Independent
 fermion generations require the different algebra `F(K tensor C3)`.
+
+The [retained construction replay](../../model/particle_construction_scope/PROOF.md)
+distinguishes the native optional quarter-turn from the added joint
+analyzer, family register, controlled shift and tail preparation. The
+listed separate-object readout grammar does not implement that particular
+Schmidt-rank-two analyzer. A declared joint controller is a separate
+construction choice, not a prohibited operation.
+
+In the tested transport dressing, all three analyzer flags carry one
+active agreeing load. Retaining each flag's clock energy gives the same
+self-energy shift `d=(omega-sqrt(omega^2+4w))/2` and the same residue in
+every flag, leaving the ratios unchanged. The separate omitted-clock
+reading yields unequal residues. Its target-fitting weight
+`4.7826280155537237e-7` is an empirical input, and none of its registered
+unfitted choices passes the complete comparison. These statements concern
+the specified finite second-order self-energy model.
+
+The two-seam mixing candidate does produce nonzero CP violation. Its
+tested native assignment has `|Vus|=0.07994105`, `|Vcb|=0.02311042`,
+`|Vub|=0.01860003` and `J=-0.00003424005`. No tested native, conditional
+or fitted assignment passes the registered four-observable comparison.
+The single-site first-order hierarchy calculation does not exclude every
+coupling strength or different junction operator.
 
 The same package's quantum scalar memory retains the full `5*2^18` carrier
 and actual family Yukawa tensors. On its stationary vacuum-generated

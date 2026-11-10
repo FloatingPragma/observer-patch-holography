@@ -1,0 +1,78 @@
+{
+  "executed_owner_replays": {
+    "path": "model/completion/source_records_replays.json",
+    "sha256": "b257f27cbefe6b9cd274495e2d191cd542f38134a0ffd1585c1b9e529fa5e905"
+  },
+  "only_live_artifact_entries": [
+    {
+      "artifact_key": "chiral_candidate/results.json",
+      "executed_current_sha256": "a1ca3860d872be4a975e657c7d55480e89a28f67f23ebaf325c648f30a0220ab",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "a31d852a17afdda9b653a3913fd806221c6787188be906aba4da84b7da00ce48",
+      "target": "model/common_source/chiral_candidate/results.json"
+    },
+    {
+      "artifact_key": "full_repair_response/results.json",
+      "executed_current_sha256": "47bef593cc36e2e769245a7d2c0b479143527c9699d0d68147c6605dd5492450",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "ec647db5e412d32aa0051fc30b450ebe5a1e3c8a48a7e19a85302a0f78d01f36",
+      "target": "model/common_source/full_repair_response/results.json"
+    },
+    {
+      "artifact_key": "hierarchy_diagnosis/results.json",
+      "executed_current_sha256": "b0c1bd3591b377fa8789cce463140d49d72a235e28e5aa27868d2ce1da863335",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "7caad3ad1cd4d4b761bc4de240af71172678b4ace257050469bb1f5cf96056f0",
+      "target": "model/common_source/hierarchy_diagnosis/results.json"
+    },
+    {
+      "artifact_key": "native_defect_decision_live_results.json",
+      "executed_current_sha256": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "1218b63bb48802aa5d4079b9d4fd265bf908bfae94c57dcf327caeddc737e5cc",
+      "target": "model/common_source/native_defect_decision_live_results.json"
+    },
+    {
+      "artifact_key": "native_defect_decision_results.json",
+      "executed_current_sha256": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "1218b63bb48802aa5d4079b9d4fd265bf908bfae94c57dcf327caeddc737e5cc",
+      "target": "model/common_source/native_defect_decision_results.json"
+    },
+    {
+      "artifact_key": "native_repair_mass_results.json",
+      "executed_current_sha256": "14a5f01d906f2998b7160430aed25afa25f7d4e51c321fa673036e2b63278b21",
+      "manifest": "model/common_source/manifest.json",
+      "retained_pointer_sha256": "cfb33ce8419bd255edc21a23d4124e2ec2ef6f454b0a89df29d57832aa2af30c",
+      "target": "model/common_source/native_repair_mass_results.json"
+    },
+    {
+      "artifact_key": "cross_scale_results.json",
+      "executed_current_sha256": "77cb607c6e33f66606de01afcbdf4721b66b062bd8d0a58bfb8c067d6c1bc3f1",
+      "manifest": "model/empirical_diagnostics/manifest.json",
+      "retained_pointer_sha256": "8111df57a10a42b49b0ca4926c3a025b972d48315bbc75cb7ff9208da0641291",
+      "target": "model/empirical_diagnostics/cross_scale_results.json"
+    }
+  ],
+  "retained_canonical_receipt_sha256": {
+    "model/common_source/chiral_candidate/results.json": "a5bbdaaf83a4960b8e9918278c462da82b785bc3822e687ebc9fd607bbbedb85",
+    "model/common_source/full_repair_response/results.json": "216ebe5f116338b421dc3d0cd4911fefaef9485eea2237ca274ab518e9c1bd36",
+    "model/common_source/hierarchy_diagnosis/results.json": "1d46b5625a1f85815a9a164ca202853025b775ed4cf8a57259d401ef397e09e1",
+    "model/common_source/native_defect_decision_live_results.json": "989f85e89f54b8d5ba01ccb88e8772bb3090bedea06a76df01cff3f271799cb9",
+    "model/common_source/native_defect_decision_results.json": "989f85e89f54b8d5ba01ccb88e8772bb3090bedea06a76df01cff3f271799cb9",
+    "model/common_source/native_repair_mass_results.json": "47703a1d8acc33999f79982e8788466557699d3a53e99ad02e4f90452e9da7e5",
+    "model/empirical_diagnostics/cross_scale_results.json": "2fc9458d63f9f45209c4dfb5516cfc52b4560887f06bbeaf41e6b99e98d9bf41"
+  },
+  "retained_manifests": {
+    "model/common_source/manifest.json": {
+      "path": "model/completion/historical/source_records_inputs/model/common_source/manifest.json",
+      "sha256": "3344d6be98bcf6b9be11494f5d1a45fdf2208f4d3e5905db46a66ac10d402905"
+    },
+    "model/empirical_diagnostics/manifest.json": {
+      "path": "model/completion/historical/source_records_inputs/model/empirical_diagnostics/manifest.json",
+      "sha256": "40baf6149142f8ddd0ae96bdb19c2cd3f721f4ef12719adc1b4c9796901cd71c"
+    }
+  },
+  "schema": "oph.source_records_manifest_transition.v1",
+  "scientific_statuses_changed": false
+}

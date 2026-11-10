@@ -31,6 +31,7 @@ gives the mass definitions, units and tested hierarchy mechanisms.
 | Native quantum chiral source | Full local CAR algebra, quantum scalars/links, Gauss constraints and the actual finite interacting H | Physical preparation, same-ground neutral/odd energy records and charged arrival effects | Finite source results require their own spatial/refinement and physical dictionary |
 | Affine Gauss field source | Thirteen CAR modes, finite transverse oscillators, distributed longitudinal flux and a static charge reference | A certified full interacting charged ground and complete field/arrival records | Distinct declared source; finite boundary energy is not a relativistic mass |
 | Collective block extensions | Full interacting blocks coupled by declared dressed exchange or paired quadratures | A moving neutral band; a separately scaled dilute free Klein–Gordon record limit | Their inter-block couplings, replication and clock are additional architecture |
+| Native charged Dirac code | Four complete native constituents per macrocell, full occupation code and a positive square-root kinetic law | Source-selected rest frequency, complete spin-half CAR field records and a controlled free Dirac limit | Full-range couplers and programmable control are declared; the vectorlike code supplies no observed weak chirality or interacting charged limit |
 | Prepared Dirac viewer mode | A separately prepared finite spinor box with a supplied free Hamiltonian and complete detector | Position and energy-band records, measurement work and exported histories | Four spinor components do not contain the full R15 gauge module or many-fermion antisymmetrization |
 | Primary Wilson family | Sixty CAR modes per cell, product-cutoff links, its own Gauss preparation and idle reference | Uniform local-output bounds, selected spectral measures and finite responses | Its source, state and clock are distinct from the thirty-mode chiral source |
 
@@ -79,6 +80,39 @@ The right singlets appear through their left-handed conjugates. The extra
 central native degree current is separate. Cell-local antisymmetrization
 preserves the declared graded support of even gates. A dimension or centre
 count alone would not establish this current/CAR map.
+
+The [full weak-current interface](../../model/native_weak_current_interface/PROOF.md)
+also transfers the canonical particle/hole field map to the quantum source:
+all twelve current identities are independent of the state and scalar
+background. The designated left components carry the weak matrices; both
+charged-lepton halves have `Q=T3+Y=-1`. This does not transfer the separate
+Dirac Hamiltonian identity obtained with a prescribed classical scalar.
+The literal five-state scalar has `phi_k^3=0` and norm one, hence
+`||(phi_k-v)eta|| >= |v|^3/(1+|v|+|v|^2)` for every normalized state,
+including entangled references. No exact nonzero scalar eigenbackground
+exists at that cap. An explicitly computed average over `n` finite copies
+has variance proportional to `1/n`, so this fixed-cap obstruction does
+not prohibit collective limits or a quantum dressed-field route.
+
+The same interface supplies the gauge-invariant dressed weak density
+`W=sum_a tr(sigma_a phi phi^dagger) j_a`. Its exact full spectrum is among
+`{-1,-1/2,0,3/2,2}`, with norm two; `(I +/- W/2)/2` are complete physical
+effects. Gauge-singlet dressed fermions can have nonzero weak-current
+correlations. Neither their singlet gauge commutator nor this operator's
+nonzero norm settles a physical weak-scattering amplitude.
+
+The [same-source current experiment](../../model/native_weak_current_response/PROOF.md)
+calculates that response on the actual prepared source. Its interacting
+ground has `0.0495974 < <W> < 0.0506134` and
+`0.1517363 < Var(W) < 0.1531928`. A complete current pump followed by the
+finite two-source energy-agreement detector has original-attempt
+nonzero-phase probability above `0.0379338`, including preparation error.
+The energy-selected compensated charged preparation has conditional
+`0.0903329 < <W> < 0.0928015` after its two finite control intervals.
+All current eigenvalues, failed preparations and outside-bin records
+are retained. The current measurement can change energy; these are ordered
+records, without a commuting joint energy/current assumption. This is a
+nonzero dressed weak response, without a W-boson line or a weak cross section.
 
 The [quantum scalar](../../model/coherent_defect_wave/chiral_higgs/PROOF.md)
 has five states and actual invariant Yukawa tensors. The
@@ -177,6 +211,88 @@ thirteen outcomes. An explicit screened remote pair disproves extending the
 single-charge separation bound to every state. This is a finite constrained
 localization result, without thermodynamic confinement or a Coulomb phase.
 
+## Refined native energies and the quantum Higgs probe
+
+The [physical charged centroid](../../model/native_charge_centroid/PROOF.md)
+uses the original two-copy preparation, full charged reference and actual
+Hamiltonian, with **no additional ground projection**. A radius-`128v` bin
+admits more than `0.419706188794` of original attempts. The twenty-bit
+pointer's conditional source-energy mean lies within
+`[0.6916566792649, 0.6916566826119]`. Every pointer label and every preparation,
+pump and bin failure remains. This is a bound on an apparatus mean, not an
+individual eigenvalue or a mass assignment.
+
+The exact blank-link identity `P_blank T P_blank=0` gives zero first
+centered moment for the selected atomic component. Its complete second
+moment bounds the lost spectral tail; the actual interacting-ground error
+and all other atoms are then restored. After the complete flagged filter,
+the actual prepared state's centroid error is bounded by `2r delta/w_lo`,
+using the bin's width rather than the absolute Hamiltonian norm. The phase
+clock adds less than `1.04e-10` source units. Its decoder subtracts a known
+rational neutral-energy baseline with a separately bounded error, rather
+than accessing the unknown exact ground energy. The prior bin admission
+remains an explicit exact spectral service; controller synthesis and full
+source-plus-pointer execution are not claimed.
+
+The [charged-window refinement](../../model/native_charge_resolution/PROOF.md)
+uses the complete local resolvent and the same eight-cell Hamiltonian.
+With `v=360*2^-34`, the atomic identity `PTP=0` bounds the neutral-ground
+shift by `v²/(g_atomic-v)`. Orthogonal spectral projection retains more
+weight than a triangle estimate. A radius `128v` bin has source excitation
+enclosure approximately `[0.6916539987293,0.6916593631475]`, more than 364
+times narrower than the coarse bin, with unnormalized weight above
+`0.4197064484`. Radius `2v` gives
+`[0.6916566390288,0.6916567228480]`, with weight above `0.31477359`.
+The reference cost four is explicit; unseen source states are retained.
+
+Positive nested weight does not prove that the largest individual residue
+of the original wider bin lies inside it. An exact perturbation
+counterexample retains almost all total weight inside while putting the
+largest individual line outside. A refined-bin selector `E*_sharp` is an
+explicit alternative to `E*`, with corresponding different spectral
+couplers. The frozen free Dirac and affine constructions retain their
+specified selectors.
+
+The [same-H Higgs join](../../model/native_higgs_spectral_join/PROOF.md)
+uses `A=c_ec†` and its actual quantum scalar/lepton composite
+`B=-epsilon(phi† c_L)`. The full operator identity is
+`[h,A]=B+lambda[T,A]`. Both probes have the same native gauge currents,
+raw lepton increment `-1` and odd parity. On the actual ground and its
+original charged bin `P`,
+
+```
+Re <P A g, P B g> >= L*w_lower - 720*lambda > 0.28988126.
+```
+
+Thus at least one actual source energy has nonzero elementary and
+composite residue. The complete pumps `(A±B/2)/2`, retained charged/spin
+references and physical preparation give an original setting-hit contrast
+above `0.07247007595`. The selected common energy `E_H` need not be the
+maximum-elementary-residue `E*`. This is a spectral connection on the
+interacting quantum source, without replacing the scalar by a vacuum
+expectation. The weak-screened composite is not a full canonical field
+on every occupied state and does not supply observed weak scattering.
+
+The [filtered-state comparison](../../model/native_higgs_filtered_state/PROOF.md)
+also controls the prepared states themselves. For a bin with center `e`
+and half-width `d`, `a=PAg` and `b=PBg` obey
+`||b-e*a|| <= (d+720*lambda/sqrt(w_lower))*||a||`.
+After eight retained preparation trials and seven finite agreement filters,
+the narrow-bin elementary and composite preparations differ by at most
+`1.68597220e-7` in normalized-state trace distance. Every common subsequent
+finite detector history inherits that total-variation bound, including
+adaptive policies with all outcomes retained. Original success bounds are
+`0.3147735248783` for A and `0.0376460324440` for B/2, before the fair-setting
+factor. Different success rates are part of the complete observation law.
+
+The corresponding positive-cross-residue selector chooses a common
+actual native doublet in the narrow bin. Reusing the free occupation-code
+theorem at this energy requires explicitly redeclaring its spectral matrix
+units and kinetic law. This supplies a typed free-field construction with
+that source rest frequency; it does not transfer the affine interaction,
+prove observed weak chirality or equate the full composite operator with
+a canonical fermion field.
+
 ## A full charged ground with dynamical transverse fields
 
 The [affine Gauss source](../../model/affine_gauss_source/PROOF.md) is a
@@ -234,6 +350,15 @@ synthesis workspace is outside that count. This is an exact finite service
 specification with bounded implementation error, not an efficient native
 local circuit claim.
 
+The [subsequent joint instrument](../../model/affine_gauss_clock_observables/PROOF.md)
+measures thirteen positions and two transverse-field flags on the actual
+accepted source. Its conditional nonvacuum probability lies in
+`[0.00007097950051,0.00007352479694]`; all 26 original-attempt outcomes
+have positive lower bounds. The fidelity-to-record inequality retains
+the finite clock error instead of replacing acceptance by an exact ground
+projection. Its finite-duration controller leaves the autonomous source
+running, and its position record refers to the start of that interval.
+
 ## Native charged probes coupled to the finite field
 
 The [native Abelian field join](../../model/native_abelian_field_join/PROOF.md)
@@ -271,6 +396,46 @@ map; an antiunitary symmetry alone would reverse time.
 This supplies an explicit native-current attachment and an interacting
 finite arrival law. A cubic `G1` doublet does not select a unique continuous
 Lorentz spin, and this fixed cone has no proved charged relativistic limit.
+
+The [successive native position/energy experiment](../../model/native_abelian_energy_records/PROOF.md)
+uses this joined Hamiltonian for both observations. A cluster-separation
+bound controls its actual admitted-bin ground. At time `1/4`, original
+arrival followed by ground-energy acceptance exceeds `4.50e-6` at the apex
+and `1.13e-6` at an adjacent boundary site. Accepted infidelity is below
+`0.001041` and `0.004354`, respectively. A coherent spatial pump gives
+accepted infidelity below `2.14e-8`. The position measurement's backaction,
+ground-admission service and all phase outcomes are retained. This is an
+energy-resolved arrival record, without identifying the unpenalized full
+charged-sector ground or a relativistic threshold.
+
+## A native occupation code with a free Dirac readout
+
+The [charged Dirac construction](../../model/native_block_dirac/PROOF.md)
+uses actual odd native eigenstates and their conjugates at a selected
+energy `E*`. Two complete constituents encode each spin doublet's vacuum,
+up, down and occupied singlet. A conjugate pair completes four canonical
+modes and all sixteen occupations at every macrocell. Native grading and
+the finite cubic `G1` action are exact on this code; every complementary
+native state remains in the full carrier.
+
+With `m=E*`, the declared positive kinetic matrix is
+`K_a=sqrt(m² I+L_a)-m I`. It preserves the actual unique product ground
+and gives exactly `dGamma(sqrt(m²+ell_a(p)))` on the reducing code. Its
+couplers have full spatial range. Spinor filters combine annihilation of
+one charge with creation of its conjugate, both using the same actual
+Hamiltonian clock. Fixed-window, finite-volume and momentum-tail bounds
+give a free Dirac record limit with the induced spin-half Lorentz action
+and causal anticommutator. A finite box or momentum cutoff has no exact
+Lorentz symmetry or strict continuum locality.
+
+A literal sixteen-state active circuit retains sixteen doublet-detector
+records inside the complete 256-state source/apparatus mode carrier.
+Six retained preparation attempts give complete record error below `1e-9`
+for the specified `32³`-site example, with about `2.40e9` nats of displayed
+capacity. Exact spectral services and a programmable finite-matrix drive
+are explicit; additional synthesis workspace is separate. This source
+differs from the affine field attachment. Its vectorlike `e^c` pair does
+not supply the electron's left-handed weak representation or a GeV mass.
 
 ## Moving neutral blocks and the relativistic comparison
 
@@ -585,17 +750,25 @@ references do not acquire that relation by notation.
 
 ## Smallest unresolved constructions
 
-For the charged source, the first unresolved join is **energy-resolved spatial
-response**. Construct the complete matrix measure
+For the charged source, the first unresolved join is **a growing spatial
+energy response on one refinement**. Construct the complete matrix measure
 `M_xy(I)=<g|D_x^dag P_I(H-E_g)D_y|g>` with the actual dressing and retained
 compensator, then bound moving packets from those same bins. The existing
 low-bin localization theorem constrains the unit-penalty source. A Coulomb
 route has a declared finite electric/magnetic source with a certified full
 charged ground, complete finite energy detector and positive field-coupled
 arrival. The native Abelian join attaches the odd current and its whole
-spectral bin to that finite field. The coupled requirements are an
-energy-resolved arrival record on this joined H and a controlled
-spatial/refinement comparison with the same reference and energy detector.
+spectral bin to that finite field. The complete native position/energy
+experiment supplies an energy-resolved arrival record on that joined H.
+A growing spatial/refinement comparison with the same reference and energy
+detector requires proof. Its finite boundary energy does not become a rest
+mass by subtracting the reference.
+
+The free Dirac code supplies a distinct controlled spin-half field route.
+Joining its full occupation algebra, Lorentz readout and actual chiral
+currents to a surviving gauge/Higgs interaction requires a common source
+construction. Its free kinetic law cannot inherit the affine attachment's
+interaction by sharing the same elementary probe.
 
 For the neutral collective route, the free relativistic record theorem
 supplies a precise comparison target. A nonzero interacting relativistic
@@ -614,6 +787,18 @@ remaining problem simultaneously.
 
 ## Source catalogue
 
+The [finite-construction comparison](../../model/particle_construction_scope/PROOF.md)
+replays the family, mixing, lepton-clock and scalar-cap calculations from
+their retained original producers. The two-seam candidate has nonzero
+CP violation but fails its full mixing comparison. Keeping the virtual
+state's family clock in the tested self-energy law gives a common shift
+and residue, with unchanged ratios. Omitting that energy defines a
+different model; fitting its weight to the muon ratio is calibration.
+The native quarter-turn supplies an optional oriented phase gate, while
+the family register, joint analyzer and tail preparation are additional
+operations. A fixed finite scalar cap does not exclude a controlled
+collective limit or determine a universal Higgs quartic coupling.
+
 The grouped index retains the distinct primary proofs, operators, receipts and
 comparison inputs. A link records that branch's evidence; it does not transfer
 its reference, clock or physical interpretation to another construction.
@@ -623,6 +808,11 @@ its reference, clock or physical interpretation to another construction.
 
 | Source package | Primary evidence |
 | --- | --- |
+| native charged centroid | [PROOF.md](../../model/native_charge_centroid/PROOF.md) |
+| native elementary/composite spectral join | [PROOF.md](../../model/native_higgs_spectral_join/PROOF.md) |
+| native filtered elementary/composite states | [PROOF.md](../../model/native_higgs_filtered_state/PROOF.md) |
+| native weak-current interface and records | [Interface](../../model/native_weak_current_interface/PROOF.md), [response](../../model/native_weak_current_response/PROOF.md) |
+| finite candidate construction scopes | [PROOF.md](../../model/particle_construction_scope/PROOF.md) |
 | coherent defect wave | [PARTICLE PATH.md](../../model/coherent_defect_wave/PARTICLE_PATH.md), [PROOF.md](../../model/coherent_defect_wave/PROOF.md) |
 | coherent defect wave/chiral higgs | [GAUSS APPARATUS.md](../../model/coherent_defect_wave/chiral_higgs/GAUSS_APPARATUS.md), [PROOF.md](../../model/coherent_defect_wave/chiral_higgs/PROOF.md) |
 | coherent defect wave/chiral joint | [PROOF.md](../../model/coherent_defect_wave/chiral_joint/PROOF.md) |

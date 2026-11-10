@@ -13,7 +13,9 @@ def test_current_collection_excludes_only_named_history_and_keeps_current_tests(
     sources = {
         'model/completion/historical/snapshot/test_archive.py': 'raise RuntimeError("archived bytes are not current modules")\n',
         'model/completion/test_custody_renewal.py': 'raise RuntimeError("dated suite must use its own checkout")\n',
-        'model/completion/test_field_custody.py': 'def test_current_field_custody(): pass\n',
+        'model/completion/test_field_custody.py': 'raise RuntimeError("field suite needs its c7 view")\n',
+        'model/completion/test_field_navigation.py': 'raise RuntimeError("field navigation needs its c7 view")\n',
+        'model/completion/test_source_records_custody.py': 'def test_current_source_record_custody(): pass\n',
         'model/another_package/test_history.py': 'def test_unrelated_history_named_module_is_retained(): pass\n',
     }
     for name, text in sources.items():
@@ -23,7 +25,7 @@ def test_current_collection_excludes_only_named_history_and_keeps_current_tests(
     result = subprocess.run([sys.executable, '-m', 'pytest', '--collect-only', '-q', 'model'],
                             cwd=tmp_path, capture_output=True, text=True)
     assert result.returncode == 0, result.stdout + result.stderr
-    assert 'test_current_field_custody' in result.stdout
+    assert 'test_current_source_record_custody' in result.stdout
     assert 'test_unrelated_history_named_module_is_retained' in result.stdout
     assert '2 tests collected' in result.stdout
 
