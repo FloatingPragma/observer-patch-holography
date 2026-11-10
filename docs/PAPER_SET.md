@@ -41,6 +41,15 @@ in the specialist paper that owns the result.
   positive continuum screen generator of spectral dimension two; the compact
   Lie type of the complete response under its premises; the conditional
   null-balance and tensor-completion implication.
+- **Selected Wilson readouts:** an isolated empty-matter gauge transition
+  near 63 source-energy units; populated regional charge and native spin
+  increments with retained pair energy; a selected energy-moment bound
+  `M2 <= 4000000/a`; and nonzero finite energy-current response with the
+  applied-work term in its Ward identity. The transition's original sector
+  weight vanishes under refinement. Physical charged thresholds or particle
+  branches, relativistic dispersion and GeV masses remain open. The
+  [common dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
+  binds these results to the same source, preparation, reference and clock.
 - **Conditional on declared inputs:** the smooth 1+3 scalar description
   (declared radial extension), the candidate modular clocks (declared
   reference and controls), the one-generation matter representation and

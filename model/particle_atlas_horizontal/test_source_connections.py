@@ -60,7 +60,8 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
                   'particle_primary_coherent_odd_response',
                   'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
-                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'):
+                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation',
+                  'particle_primary_reduced_sector', 'particle_primary_regional_fermion', 'particle_primary_weighted_spectral_tail', 'particle_primary_energy_response'):
         assert '../../model/'+owner+'/PROOF.md' in hrefs
     assert '../../model/particle_primary_coherent_odd_response/KERNEL_PROOF.md' in hrefs
     assert 'Filtered and unfiltered probes share positive time dynamics' in text
@@ -72,13 +73,12 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'sinc² energy/momentum weight may vanish' in text
     assert 'weight escapes every fixed upper energy band' in text
     assert 'G1g ⊕ Hg' in text and 'G1u ⊕ Hu' in text
-    assert 'disjoint-site fermionic exchange are exact' in text
-    assert 'finite Fourier labels, not exact momentum projections' in text
-    assert 'opposite Q6=±6 transfers' in text
-    assert 'radix-five coherent meters' in text
-    assert 'original joint success weight >1/4' in text
-    assert 'without reading initial absolute charges' in text
-    assert 'Absolute terminal charge is a separate disturbing readout' in text
+    assert 'disjoint-site fermionic exchange is exact' in text
+    assert 'Finite Fourier labels are not exact momentum projections' in text
+    assert 'Radix-five charge and radix-three spin counters' in text
+    assert 'source spin increments ±1/2' in text
+    assert 'each of four complete spin rows has original energy-band weight >1/16' in text
+    assert 'Terminal spin/charge readout is a separate disturbing operation' in text
     assert '104.806' not in text and '5.913111' not in text
     assert 'Fourier-to-momentum map require proof' not in text
     assert 'Proper geometry, Lorentz stress' in text
@@ -98,16 +98,23 @@ def test_dependency_panel_retains_graph_edges_domains_and_height(graph):
     assert 'Native Γ5 is not established Lorentz chirality' in text
     assert 'equivariant field/current dictionary' in text
     assert 'one-handed sector' in text
-    assert 'Cube symmetry forces multiplicity ≥2' in text
-    assert 'Exact G1/G2/H matrix units remove those forced partners' in text
-    assert '43 admitted coordinates' in text
-    assert 'c_low=2⁻⁵⁵²⁹⁵³' in text
-    assert '[−722.222,−715.10018] source units' in text
-    assert 'No isolated pole, rest frame or GeV mass follows' in text
-    assert 'P(reverse) = e⁻κ P(forward)' in text
-    assert 'positive work moment does not guarantee surviving fixed-energy probability' in text
-    assert 'J + C_center ≤ 2β‖V_cut‖ + r' in text
-    assert 'finite polynomial correction r cannot be dropped' in text
+    assert 'true finite gauge transition is isolated near 63 source units' in text
+    assert 'ΔE ∈ [63−59/1351350, 63+1/45675]' in text
+    assert 'original weight >c_g/13' in text
+    assert 'sector weight vanishes under the selected refinement' in text
+    assert 'neither a surviving particle nor a GeV mass' in text
+    assert 'The global ground is below −723' in text
+    assert 'Each of four raw spin rows has original pair-energy weight >1/16' in text
+    assert 'A separate A1/T1 coefficient readout has weights >5/64 and >15/64' in text
+    assert 'Pair transfer energy cannot be divided by two' in text
+    assert 'no electron or Lorentz spin is identified' in text
+    assert 'M₂ ≤ 4,000,000/a' in text
+    assert 'electric energy ≤91V/a' in text
+    assert 'floor of order a and an upper endpoint of order 1/a' in text
+    assert 'does not give a nonzero fixed-energy limit' in text
+    assert 'Controlled energy conservation includes the work supplied by the pulse' in text
+    assert 'A=h′₀ • B=i[H,A] • applied work retained' in text
+    assert 'J+C_center≤2β‖V_cut‖+r' in text
     assert 'All 96 successes and 8 failures remain' in text
 
 

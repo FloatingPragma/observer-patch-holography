@@ -94,12 +94,23 @@ proof shows that the whole class of laws cannot work.
   spin-resolved energy readouts in all eight rows of a finite spatial analyzer.
   Complete total-cube and native-number measurements give conserved labels
   and populated original-state branches. Density probes have distinct spatial
-  energy moments; these are not particle masses. Complete filters preserve original probability. Part of the
-  response moves toward the cutoff as capacity grows. The
+  energy moments. An [isolated gauge transition](model/particle_primary_reduced_sector/PROOF.md)
+  lies within $0.000044$ of 63 in source units, but its original sector weight
+  vanishes under refinement. [Regional charged spinors](model/particle_primary_regional_fermion/PROOF.md)
+  have populated charge, native spin-increment and pair-energy records; the
+  compensating endpoint is retained. Neither result supplies a physical
+  single-particle mass. The
   [defect catalogue](model/protected_defect_catalog/CATALOG.md)
   distinguishes source charges from physical species; a surviving
   relativistic branch and GeV rest masses require further proof.
   [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
+  The [best-guess map](model/standard_model_source_map/candidates/CANDIDATES.md)
+  lists the source IDs, gauge weights and spin comparisons behind lepton,
+  quark and gauge-field candidates. Flavor assignments and physical masses
+  remain unproved. A [static source fusion experiment](model/particle_primary_loop_fusion/PROOF.md)
+  distinguishes adjacent from disjoint loop energies. A separate
+  [executed contact interaction](model/contact_scattering/README.md) uses
+  22,531 native pulses; neither establishes Standard Model scattering.
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete
@@ -132,17 +143,19 @@ proof shows that the whole class of laws cannot work.
   has a [common observable algebra](model/particle_primary_field_algebra/PROOF.md),
   a stationary limiting state, positive energy and convergent finite detector
   histories on one subsequence. Its energy currents obey exact finite
-  conservation. [Local phase experiments](model/particle_primary_work_spectrum/PROOF.md)
-  have a controlled spatial work limit and complete finite fluctuation records.
-  [Exact symmetry reduction](model/particle_primary_branch_certificate/PROOF.md)
-  sharpens the finite odd-sector calculation; the
-  [native chirality audit](model/particle_primary_odd_sum_rules/PROOF.md)
+  conservation. A [controlled energy pulse](model/particle_primary_energy_response/PROOF.md)
+  produces a nonzero original current response and positive cyclic work;
+  its Ward identity includes the work supplied by the pulse.
+  [Selected energy moments](model/particle_primary_weighted_spectral_tail/PROOF.md)
+  obey a bound of 4000000/a, independent of link degree, where a is the source spacing.
+  The positive finite-window probability deteriorates with capacity. An
+  [equal-work control](model/particle_primary_equal_work_control/PROOF.md)
+  on the same source has an elastic limit, so mean work alone cannot prove
+  particle survival.
+  The [native chirality audit](model/particle_primary_odd_sum_rules/PROOF.md)
   identifies a paired response that a physical chiral assignment must resolve.
-  A [regional correlation bound](model/particle_primary_boundary_correlation/PROOF.md)
-  retains boundary representations and the actual polynomial-state error.
-  These results do not show
-  that excitations survive the limit or identify physical particles,
-  Lorentz symmetry or gravity. The
+  Lorentz covariance, surviving interacting particles and proper geometric
+  stress remain requirements on this same source and state. The
   [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
   records the precise remaining physical requirements.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than

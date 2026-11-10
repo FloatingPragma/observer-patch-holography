@@ -18,21 +18,21 @@ SUMMARIES = {
     'physical_preparation':
         'The exact Gauss-polynomial state retains regional boundary charges. Wilson loops establish 11 sectors with positive weight. At degree one the complete charge detector retains all 1,331 outcomes; the enormous spatial preparation tape is not claimed as executed.',
     'local_records':
-        'Five coherent qutrit meters attach native occupation increments to G1/H records without reading initial numbers; all probe, pointer and failure labels remain. Separate radix-five coherent meters attach opposite Q6=±6 transfers with original joint success weight >1/4 without reading initial absolute charges. Absolute terminal charge is a separate disturbing readout. Coherent offsets give finite Fourier labels, not exact momentum projections.',
+        'Five coherent qutrit meters attach native increments to G1/H trions. Charged regional G1 factors retain the opposite endpoint and Wilson link outside. Radix-five charge and radix-three spin counters record Q6=±6 and source spin increments ±1/2 without initial readout; each of four complete spin rows has original energy-band weight >1/16. Terminal spin/charge readout is a separate disturbing operation. Finite Fourier labels are not exact momentum projections.',
     'joint_refinement':
         'Filtered and unfiltered probes share positive time dynamics. The relative-observation sector has commuting H≥0 and P, HΩ=PΩ=0; sinc² energy/momentum weight may vanish. Complete selector sums preserve the original energy law. A finite blank centered at 9/a retains weight >1/80 at energy scale 1/a. Odd weight escapes every fixed upper energy band; fixed-band survival and spatial momentum require proof.',
     'relativistic_field':
-        'An admitted 43-coordinate trial bounds the odd-sector bottom below −715.10018 source units. Original sector-energy records have positive weight from an energy-local density floor c_low=2⁻⁵⁵²⁹⁵³. Cube symmetry forces multiplicity ≥2, so a rank-one complement in the full sector retains a ground partner. Exact G1/G2/H matrix units remove those forced partners before the complementary-spectrum test. No isolated pole, rest frame or GeV mass follows.',
+        'A true finite gauge transition is isolated near 63 source units in the empty-matter reducing sector. The exact A1u level has transition residue >4/49 and a positive original atom. Its rare-sector probability is retained and vanishes on the selected refinement. The global ground is below −723; this gauge-sector origin cannot replace it. Odd trion matrix units reduce forced spin degeneracy, but their isolated branch is unproved. No relativistic dispersion or GeV mass follows.',
     'chiral_species_attachment':
-        'Local gauge-singlet trions give G1g ⊕ Hg; conjugates give G1u ⊕ Hu. Native increments and disjoint-site fermionic exchange are exact. Parity exchanges native Γ± with the same gauge representation and identical reflected records. An equivariant field/current dictionary needs an explicit parity-breaking state/selection or changed attachment for a one-handed sector. Native Γ5 is not established Lorentz chirality; no named species is identified.',
+        'Neutral trions give G1g ⊕ Hg and conjugate G1u ⊕ Hu; disjoint-site fermionic exchange is exact. Charged G1 endpoints retain an outside compensator; the even pair has A1 ⊕ T1 coefficients. Parity pairs native Γ± with the same gauge representation and identical reflected records. An equivariant field/current dictionary needs explicit breaking or changed attachment for a one-handed sector. Native Γ5 is not established Lorentz chirality.',
     'particle_observables':
-        'Each complete Walsh spatial row has original positive-energy weight >1/24 in [0.25,17.75] source units; G1/H parts exceed 5/384 and 11/384. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/3. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Relativistic dispersion, an isolated rest branch and a GeV mass require proof.',
+        'Each complete Walsh spatial row has original positive-energy weight >1/24 in [0.25,17.75] source units; G1/H parts exceed 5/384 and 11/384. All 96 successes and 8 failures remain. A separately chosen normalized phase has weight >1/3. Four uncomputed spectral measures determine each summed multiplet’s spatial response. These finite labels are not total-spin or conserved-momentum eigenvalues. Dispersion, a rest branch or threshold and a GeV mass require proof.',
     'independent_comparison':
-        'SI units may be declared immediately. Finite mass comparison needs a resolved branch, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
+        'SI units may be declared immediately. Finite mass comparison needs a resolved branch or threshold, momentum and initial-momentum control, and dispersion/readout errors. A continuum mass additionally needs uniform fixed-band survival. The primary physical-mass table in GeV is empty; calibrated inputs keep their ancestry.',
     'pure_gauge_gap':
         'Instantiate nodes 1–5 for an actual pure compact-simple gauge source or a proved source map. Dense local Euclidean decay plus finite-energy noncollapse implies a positive finite gap. Its physical hypotheses are conditional; it is separate from the photon-containing theory.',
     'geometric_gravity':
-        "The selected polynomial state has I_ambient=H(p)+2S_edge+J+C_center. A physical comparison preserves both regional marginals and Gauss pairing, giving J+C_center≤2β‖V_cut‖+r. Actual crossing terms obey ‖V_cut‖≤(30+2/7)b/a; r is the finite polynomial correction. This controls source boundary information, while its upper coefficient grows under refinement. Proper geometry, Lorentz stress, a finite universal area coefficient and Einstein dynamics require proof.",
+        "The actual corner energy A=h′₀ generates a finite control pulse. The net incoming energy current B=i[H,A] has a strictly positive original susceptibility and a complete binary record contrast; source-clock duration and original rare weights are retained. Controlled energy balance includes applied work. A source-relative derivative gives integrated energy, without assuming a proper metric. Boundary information obeys J+C_center≤2β‖V_cut‖+r with the finite polynomial correction r. Proper geometry, Lorentz stress, a finite universal area coefficient and Einstein dynamics require proof.",
 }
 
 
@@ -109,7 +109,7 @@ def render(c, data, y):
                'model/particle_joint_reconstruction/DEPENDENCIES.md', 49)
         theorem = {'local_records': 'model/particle_primary_selected_spin_response/PROOF.md',
                    'joint_refinement': 'model/particle_primary_odd_low_energy/PROOF.md',
-                   'relativistic_field': 'model/particle_primary_branch_certificate/PROOF.md',
+                   'relativistic_field': 'model/particle_primary_reduced_sector/PROOF.md',
                    'chiral_species_attachment': 'model/particle_primary_odd_sum_rules/PROOF.md',
                    'particle_observables': 'model/particle_primary_original_branch/PROOF.md',
                    'independent_comparison': 'model/particle_primary_mass_readout/PROOF.md'}.get(
@@ -153,7 +153,8 @@ def render(c, data, y):
             'chiral_species_attachment': (
                 ('Literal conjugation', 'model/particle_primary_charge_conjugation/PROOF.md'),
                 ('Actual trion multiplets', 'model/particle_primary_composite_spin/PROOF.md'),
-                ('Populated odd response', 'model/particle_primary_selected_odd_response/PROOF.md')),
+                ('Populated odd response', 'model/particle_primary_selected_odd_response/PROOF.md'),
+                ('Charged regional spinor', 'model/particle_primary_regional_fermion/PROOF.md')),
             'particle_observables': (
                 ('Local [4,8] response', 'model/particle_primary_branch_resolution/PROOF.md'),
                 ('Charged endpoint band', 'model/particle_primary_charged_string/PROOF.md'),
@@ -183,28 +184,30 @@ def render(c, data, y):
            'model/particle_primary_geometric_cut/PROOF.md', 49)
     c.link(M+9000, top+420, 'Covariant source energy and boundary improvement',
            'model/particle_primary_covariant_stress/PROOF.md', 45)
+    c.link(M+17000, top+420, 'Boundary interaction and information bound',
+           'model/particle_primary_boundary_correlation/PROOF.md', 45)
     # Four original-state results have different observable domains. Their own
     # cards prevent a density wave or an energy moment from being read as mass.
     c.text(M, y+3350, 'EXACT FINITE SOURCE RECORDS: FOUR DISTINCT TESTS',
            76, TEAL, 700, serif=True)
     card_width=(W-2*M)/4
     cards=(
-        ('Native handedness is parity paired',
-         'Γ+ ↔ Γ− • same gauge representation',
-         'On every selected capacity, physical inversion pairs complete native-chirality and reflected-position records with identical energy laws. The entire dressing/controller must be reflected. An equivariant physical dictionary needs a specified parity-breaking state/selection, changed source or changed attachment for a one-handed sector. Native Γ5 is not established Lorentz chirality. A separate odd four-point experiment proves finite spatial contrast; its two-point dispersion is uncomputed.',
-         'particle_primary_odd_sum_rules'),
-        ('Odd sector: reduce symmetry first',
-         '43 admitted coordinates • c_low=2⁻⁵⁵²⁹⁵³',
-         'The actual sector bottom lies in [−722.222,−715.10018] source units. A complete final-energy clock records that sector with positive original weight. Forced cube degeneracy blocks rank-one full-sector isolation; diagonal G1/G2/H matrix units remove those partners. The reduced complementary-spectrum estimate remains to be calculated. The analysis vector is not substituted for the selected density, and no isolated particle or GeV rest mass follows.',
-         'particle_primary_branch_certificate'),
-        ('Work records and spectral survival',
-         'P(reverse) = e⁻κ P(forward)',
-         'The complete origin/sign phase menu obeys this exact polynomial-state fluctuation identity; κ is the change in −log p(E). It gives a strong negative-energy tail bound and positive finite record contrast. The full-CAR second-moment cap improves but grows as a⁻⁴. A positive work moment does not guarantee surviving fixed-energy probability. The separate polynomial control demonstrates that missing implication without replacing the primary source.',
-         'particle_primary_work_spectrum'),
-        ('Boundary interactions bound information',
-         'J + C_center ≤ 2β‖V_cut‖ + r',
-         'A physical comparison retains both regional marginals and gauge-representation pairing. J is conditional correlation; C_center is lost boundary-sector coherence. Only actual interactions crossing the cut contribute, with ‖V_cut‖≤(30+2/7)b/a. The finite polynomial correction r cannot be dropped: even uncoupled systems can have polynomial-state correlations. This finite bound supplies no universal proper-area law or Einstein equation.',
-         'particle_primary_boundary_correlation'),
+        ('An isolated interacting source line',
+         'ΔE ∈ [63−59/1351350, 63+1/45675]',
+         'In the actual empty-matter sector, the spatial-odd A1u gauge level is simple within its symmetry sector. Its Wilson-loop transition residue exceeds 4/49. Complete clocks retain original weight >c_g/13; the rare population c_g is not divided out. This is an actual spectral atom at interaction one. Its sector weight vanishes under the selected refinement, so the line is neither a surviving particle nor a GeV mass. The global vacuum is not the empty-matter vacuum.',
+         'particle_primary_reduced_sector'),
+        ('A charged spinor with its compensator',
+         'Q6=±6 • source spin increment ±1/2',
+         'One odd G1 factor lies inside the region; the opposite endpoint and Wilson link remain outside. Coherent counters record the probe’s charge and chosen-axis spin increments without reading initial values. Each of four raw spin rows has original pair-energy weight >1/16. A separate A1/T1 coefficient readout has weights >5/64 and >15/64. The complete pair is even. Pair transfer energy cannot be divided by two to obtain an endpoint mass; no electron or Lorentz spin is identified.',
+         'particle_primary_regional_fermion'),
+        ('Selected energy tails grow more slowly',
+         'M₂ ≤ 4,000,000/a • no cutoff-degree factor',
+         'The unchanged polynomial state has electric energy ≤91V/a. Native derivatives and the signed third-moment identity bound the original second moment. Complete positive-energy windows have a floor of order a and an upper endpoint of order 1/a. This does not give a nonzero fixed-energy limit. A different complete parity apparatus on this same source exactly matches the critical mean work, yet its nonelastic probability tends to zero. Critical-phase survival needs its actual current correlations.',
+         'particle_primary_weighted_spectral_tail'),
+        ('A local pulse changes energy-current records',
+         'A=h′₀ • B=i[H,A] • applied work retained',
+         'An exact finite Cayley pulse of H+A gives nonzero original contrast in the complete two-outcome current detector. A physical one-word witness proves susceptibility on the selected state; its tiny source-density factor remains in the bound. Controlled energy conservation includes the work supplied by the pulse. The source-relative derivative gives integrated energy. Identifying the control as a proper metric or obtaining Einstein dynamics requires additional geometry.',
+         'particle_primary_energy_response'),
     )
     for i,(title,equation,body,owner) in enumerate(cards):
         x=M+i*card_width;top=y+3420
@@ -224,6 +227,14 @@ def render(c, data, y):
            'model/particle_primary_boundary_information/PROOF.md',42)
     c.link(M+card_width*.74,y+3995,'Positive window',
            'model/particle_positive_window/PROOF.md',42)
+    c.link(M+card_width*.31,y+4075,'Odd branch and exact matrix units',
+           'model/particle_primary_branch_certificate/PROOF.md',42)
+    c.link(M+card_width*1.31,y+4075,'Native parity and charged-sector scope',
+           'model/particle_primary_odd_sum_rules/PROOF.md',42)
+    c.link(M+card_width*2.31,y+4075,'Polynomial fluctuation and survival boundary',
+           'model/particle_primary_work_spectrum/PROOF.md',42)
+    c.link(M+card_width*2.70,y+4075,'Equal work ≠ spectral survival',
+           'model/particle_primary_equal_work_control/PROOF.md',42)
     c.para(M, y+4160, W-2*M,
            'Conditional candidate: a declared chiral gauge-Higgs action supplies calibrated tree/running coefficients, with a separately calibrated neutrino extension. These coefficients are not physical pole masses, full radiative matching or independent predictions. The massless photon excludes a positive global vacuum gap for the full theory.',
            60, BLUE, max_y=y+4270)
@@ -233,3 +244,169 @@ def render(c, data, y):
            graph['conditional_candidate']['proof'], 51)
     c.items.append('</g>')
     return y+4430
+
+
+def render_candidate_wings(c,data):
+    """Use the outer panels' unused lower space for a scoped named dictionary."""
+    from fractions import Fraction as F
+    from .drawing import INK, MUTED, TEAL, ORANGE, BLUE, RED, LINE
+    value=data['candidate_correspondence'];targets={r['target']:r for r in value['target_rows']}
+    left=360;right=38360;y=30400;w=9120
+    c.items.append('<g id="candidate-particle-map">')
+    for x,title,subtitle in (
+        (left,'BEST-GUESS PARTICLE MAP','EXACT SOURCE LABELS → TESTABLE FAMILY HYPOTHESES'),
+        (right,'WHAT THE CALCULATIONS SAY','SOURCE ENERGIES, COMPENSATORS AND COLLISIONS')):
+        c.rect(x,y,w,16400,'#fffdf7',LINE,35)
+        c.para(x+120,y+220,w-240,title,132,INK,700,max_y=y+480)
+        c.para(x+120,y+650,w-240,subtitle,74,TEAL,700,max_y=y+890)
+    c.para(left+140,y+1080,w-280,
+        'Gold names are physical comparison targets. Green source facts are exact in their declared domain. Orange arrows are hypotheses: a matching charge or finite spin label does not yet identify a relativistic particle. No fitted GeV mass is added here.',
+        76,INK,max_y=y+1590)
+    groups=(
+        (('electron','muon','tau'),'Electron • muon • tau',
+         'Exact lepton-doublet and conjugate-singlet weights. Actual Q6=+6 regional G1 factor: charged-lepton-singlet-type lead. The other endpoint stays outside.',
+         'charged_lepton_left + charged_lepton_right_conjugate'),
+        (('electron_neutrino','muon_neutrino','tau_neutrino'),'Electron • muon • tau neutrinos',
+         'Exact neutral member of the native lepton doublet. Flavor labels are not mass eigenstates. No neutrino mass or Dirac/Majorana choice follows.',
+         'neutrino_left'),
+        (('up','charm','top'),'Up • charm • top quarks',
+         'The color-triplet weak-doublet and conjugate weak-singlet weights fit one up-type family pattern. Three names do not supply three source flavors.',
+         'up_left + up_right_conjugate'),
+        (('down','strange','bottom'),'Down • strange • bottom quarks',
+         'The native color triplet and conjugate component weights fit one down-type family pattern. Propagating chiral quark fields remain to be attached.',
+         'down_left + down_right_conjugate'),
+        (('photon',),'Photon',
+         'Q=T3+Y is the candidate unbroken direction under a neutral Higgs vacuum. A massless transverse field and its measured propagation require proof.',
+         'Q=T3+Y'),
+        (('gluon',),'Gluons',
+         'Eight color-current directions have the adjoint pattern. This does not turn eight rows or a neutral Wilson loop into eight observed free particles.',
+         'color_current_1..8'),
+        (('W_plus','W_minus'),'W⁺ and W⁻ bosons',
+         'The native weak raising and lowering currents have opposite charges. Their massive vector branches need the selected vacuum and physical readout.',
+         'T_plus + T_minus'),
+        (('Z',),'Z boson',
+         'The neutral weak/hypercharge span supports a Z-type hypothesis. Its mixing angle, massive field and detector identity are separate calculations.',
+         'span(T3,Y)'),
+        (('Higgs',),'Higgs boson',
+         'The declared doublet has a candidate radial scalar direction. Its vacuum, interactions and physical scalar mass are not fixed by naming it.',
+         'declared_Higgs_doublet_radial_direction'),
+    )
+    for i,(ids,title,body,source) in enumerate(groups):
+        top=y+1780+i*1170;example=targets[ids[0]]['benchmark']
+        charge='±1' if len(ids)==2 else example['charge']
+        c.rect(left+120,top,w-240,1080,'#f8f1dc',LINE,25)
+        c.text(left+270,top+150,title,94,INK,700)
+        c.text(left+270,top+300,'BENCHMARK: spin '+example['spin']+' • Q='+charge+' • color '+example['color'],70,BLUE,700)
+        c.para(left+270,top+460,w-560,body,76,TEAL,max_y=top+760)
+        c.para(left+270,top+870,w-560,'Source ID: '+source,60,MUTED,max_y=top+1000)
+    c.para(left+150,y+12490,w-300,
+        'POSSIBLE FAMILY CORRESPONDENCE, NOT IDENTIFICATION. The same source IDs recur under several generation names. Exact gauge weights are internal labels; source G1 is a finite spinor, not a proved Lorentz-spin assignment. Antiparticle and flavor readouts need the same physical field dictionary.',
+        76,ORANGE,700,max_y=y+13020)
+    c.text(left+150,y+13320,'EXACT INTERNAL GAUGE WEIGHTS',92,INK,700)
+    c.para(left+150,y+13540,w-300,
+        'All-left-Weyl comparison convention: Y=Q6/6 and Q=T3+Y. These internal labels match one fermion-family pattern. Physical chirality and Lorentz spin require their own attachment.',
+        75,MUTED,max_y=y+13930)
+    c.text(left+170,y+14100,'COMPONENT',70,BLUE,700)
+    c.text(left+2300,y+14100,'(SU3, SU2) with Y',70,BLUE,700)
+    c.text(left+5800,y+14100,'Q6',70,BLUE,700)
+    c.text(left+6950,y+14100,'Q components',70,BLUE,700)
+    for i,row in enumerate(value['internal_gauge_multiplets']):
+        yy=y+14400+i*230
+        c.text(left+170,yy,row['comparison_label'],82,INK,700)
+        color='3̅' if row['SU3']=='3bar' else row['SU3']
+        c.text(left+2300,yy,'('+color+', '+str(row['SU2_dimension'])+')   Y='+row['Y'],82,TEAL,700)
+        c.text(left+5800,yy,row['Q6'],82,TEAL)
+        c.text(left+6950,yy,', '.join(row['component_Q']),82,TEAL)
+    c.para(left+170,y+15570,w-340,
+        'Eleven protected-object IDs retain their original source domains. They are separate from these internal weights and actual excitation IDs; none has a proved named-particle map.',
+        70,ORANGE,max_y=y+15770)
+    c.link(left+170,y+15900,'Complete 18-target map, source IDs and exclusions',
+           'model/standard_model_source_map/candidates/CANDIDATES.md',72)
+    c.link(left+170,y+16100,'Machine-readable map and exact rational energy comparisons',
+           'model/standard_model_source_map/candidates/correspondence.json',66)
+    c.link(left+170,y+16300,'Protected-defect catalogue with original source domains',
+           'model/protected_defect_catalog/CATALOG.md',66)
+
+    # Regional spinor: draw both endpoints so the compensator cannot disappear.
+    top=y+1050
+    c.text(right+160,top+150,'ONE CHARGED FACTOR, ONE COMPLETE PAIR',94,INK,700)
+    c.rect(right+260,top+410,3700,1080,'#e7f1ec',TEAL,35)
+    c.rect(right+5100,top+410,3700,1080,'#e9eef7',BLUE,35)
+    c.circle(right+2100,top+850,220,'#d4ece5',TEAL,8)
+    c.circle(right+6950,top+850,220,'#d9e4f6',BLUE,8)
+    c.line(right+2350,top+850,right+6700,top+850,ORANGE,16)
+    c.text(right+4520,top+690,'Wilson link',72,ORANGE,700,anchor='middle')
+    c.text(right+2100,top+870,'+6',92,TEAL,700,anchor='middle')
+    c.text(right+6950,top+870,'−6',92,BLUE,700,anchor='middle')
+    c.text(right+2100,top+1160,'ΔQ6',70,TEAL,700,anchor='middle')
+    c.text(right+6950,top+1160,'ΔQ6',70,BLUE,700,anchor='middle')
+    c.text(right+2100,top+1270,'REGION • odd G1',84,TEAL,700,anchor='middle')
+    c.text(right+6950,top+1270,'OUTSIDE • compensator',78,BLUE,700,anchor='middle')
+    c.para(right+160,top+1750,w-320,
+        'Coherent counters attach Q6 and source-spin increments to original energy records. The full apparatus is neutral and even, with A1/T1 pair coefficients. A single endpoint is a charged-lepton-singlet-type candidate; the pair is not automatically a photon. Its transfer energy includes the link and cannot be divided by two to obtain a lepton mass. Terminal one-particle occupation is not guaranteed.',
+        82,INK,max_y=top+2420)
+    c.link(right+160,top+2690,'Actual charged regional source, spin and complete energy records',
+           'model/particle_primary_regional_fermion/PROOF.md',68)
+    top=y+4100
+    c.text(right+160,top+150,'NEUTRAL COMPOSITE HYPOTHESES',94,INK,700)
+    c.para(right+160,top+420,w-320,
+        'LL eᶜ: neutral gauge-singlet odd trion. A neutral-lepton-composite or sterile-like analogy is plausible; a direct unbroken weak-current map to an active neutrino fails. A different dressed current dictionary needs proof.',
+        82,TEAL,max_y=top+940)
+    c.para(right+160,top+1170,w-320,
+        'uᶜ(dᶜ)²: neutral color-singlet odd trion. It suggests an antineutron-type composite channel; the opposite increment is neutron-type. This is a family analogy, with baryon number, physical spin and named identity unproved. It is not an elementary color-triplet quark.',
+        82,TEAL,max_y=top+1810)
+    c.link(right+160,top+2080,'Exact gauge kernels, G1/H multiplets and graded exchange',
+           'model/particle_primary_composite_spin/PROOF.md',68)
+    top=y+6500
+    c.rect(right+120,top,w-240,2500,'#fbefeb',RED,30)
+    c.text(right+280,top+190,'A DIRECT LEPTON-RATIO GUESS FAILS',94,RED,700)
+    c.para(right+280,top+440,w-560,
+        'Actual neutral-sector thresholds above one common ground, in source units. These are rigorous intervals, not point masses:',
+        80,INK,max_y=top+820)
+    ratios=value['finite_sector_ratio_control']['result']
+    def outward(q,upper=False):
+        q=F(q)*10000;n=-((-q.numerator)//q.denominator) if upper else q.numerator//q.denominator
+        return f'{n/10000:.4f}'
+    for i,row in enumerate(ratios['source_sector_rows']):
+        lo,hi=row['sector_bottom_excitation_interval'];yy=top+1040+i*270
+        label={'weak_pair_charge_six':'Weak trion','color_triple':'Color trion','color_determinant_charge_six_hole':'Even four-body composite'}[row['source_id']]
+        c.text(right+280,yy,label,76,INK,700)
+        c.text(right+4000,yy,'['+outward(lo)+', '+outward(hi,True)+']',80,TEAL,700)
+        c.line(right+6700+float(F(lo))*100,yy-25,right+6700+float(F(hi))*100,yy-25,TEAL,20)
+    c.para(right+280,top+1900,w-560,
+        'Every family ratio <21.16; odd-family ratios <15.31. Measured μ/e =206.7682827(46). One common unit conversion cancels. This excludes only that member-zero assignment, not other excitations, capacities or effective dictionaries.',
+        82,RED,700,max_y=top+2320)
+    c.link(right+250,top+2650,'Exact shared-ground ratio bounds and CODATA comparison',
+           'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md',68)
+    top=y+9530
+    c.text(right+160,top+150,'STATIC FUSION IS COMPUTED',94,INK,700)
+    c.para(right+160,top+410,w-320,
+        'Adjacent outward square loops cancel their common edge: two four-edge words become one six-edge loop. Their interacting 44-level cluster lies in [1311/14,1335/14], about 93.64–95.36 source units. Opposite loops retain eight edges and a separate [124,128] window.',
+        82,TEAL,max_y=top+1050)
+    for j,label in enumerate(('□ + □','shared edge cancels','6-edge word')):
+        xx=right+200+j*2940;c.rect(xx,top+1220,2700,550,'#e5efea',TEAL,25)
+        c.text(xx+1350,top+1550,label,76,TEAL,700,anchor='middle')
+        if j<2:c.line(xx+2730,top+1500,xx+2880,top+1500,TEAL,6,arrow=True)
+    c.para(right+160,top+2020,w-320,
+        'Each complete pair row retains original weight >c_g/40. The rare sector factor remains. No moving incoming packets or physical binding mass follow from this static energy contrast.',
+        80,ORANGE,max_y=top+2400)
+    c.link(right+160,top+2590,'Full source loop fusion, omitted spectrum and complete clocks',
+           'model/particle_primary_loop_fusion/PROOF.md',68)
+    top=y+12450
+    c.text(right+160,top+150,'EXECUTED INTERACTION, SEPARATE SOURCE',88,INK,700)
+    c.para(right+160,top+410,w-320,
+        'The supplied Weyl/contact extension executes a four-mode echo: 22,531 native pulses at c=1/8, U=1, t=4. Its numerical signal is about 0.046915; the ideal-word bound is >0.0361998125 versus free 0. All failures and the reference remain. Floating and hardware errors are separate from the rational bound.',
+        80,TEAL,max_y=top+1020)
+    c.para(right+160,top+1260,w-320,
+        'The moving-packet route proves a complete finite observation theorem and executes 32-row five-qubit controls. Its fine-grid incoming-packet program is not executed. Neither route identifies CERN particles or primary-source cross sections.',
+        80,ORANGE,max_y=top+1760)
+    c.link(right+160,top+1950,'Executed contact echo', 'model/contact_scattering/README.md',68)
+    c.link(right+4150,top+1950,'Moving packets and native controls', 'model/scattering_packet_readout/PROOF.md',68)
+    top=y+14880
+    c.text(right+160,top+150,'WHAT A DEFENSIBLE GeV MASS REQUIRES',90,INK,700)
+    c.para(right+160,top+420,w-320,
+        'Attach physical currents and spin; resolve the correct charged threshold, resonance or branch; control spatial momentum and dispersion on the same state and clock; quantify finite errors and capacity dependence; then attach the declared energy unit. SI conventions do not supply the missing dimensionless spectrum.',
+        80,INK,max_y=top+1050)
+    c.link(right+160,top+1280,'Physical mass-readout criterion and remaining source calculations',
+           'docs/research/OPH_PARTICLE_MASS_RESPONSE.md#physical-mass-readout-criterion',66)
+    c.items.append('</g>')

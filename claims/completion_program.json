@@ -1182,9 +1182,9 @@
         {
           "id": "joint_field_spectrum_dependency_contract",
           "path": "model/particle_joint_reconstruction/dependencies.json",
-          "sha256": "363ece2a13e5938fb043187cc7a3882fcd1baae4fc9488ed55a72527a72197e7",
+          "sha256": "55af921d12a0e463bfa53dd55bcc6ce6628799a41dfc982bbba3485287013b1a",
           "independent_check": "model/particle_joint_reconstruction/test_dependencies.py",
-          "scope": "The ten-node common-source map retains three accepted finite domains. A 43-coordinate admitted two-link trial improves the odd-sector upper and an energy-local polynomial floor gives original complete final-energy events. Exact binary-cube matrix units remove compulsory partners before multiplicity-space isolation tests. Original odd sum rules and a finite graded propagation experiment retain the selected state; native inversion pairs opposite-chirality projectors with identical gauge representations and energy laws, constraining a physical chiral attachment. The actual critical phase apparatus instantiates finite fluctuation premises and has a positive finite energy band whose weight bound decays with capacity. A physical boundary comparison bounds correlations and center coherence by crossing interactions plus the required polynomial remainder. Isolated particle poles, fixed-energy continuum survival, physical chiral species, GeV masses, proper area and Einstein dynamics remain unproved.",
+          "scope": "The ten-node common-source map retains three accepted finite domains. An isolated empty-matter gauge transition and actual adjacent/disjoint loop fusion have complete original clock records; their rare-sector weight vanishes under refinement and they are not moving-particle collisions. Regional charged G1 factors have charge, native spin-increment and pair-energy histories with retained compensation. The critical apparatus has a selected second moment at most4000000/a, independent of link degree. A distinct parity apparatus on the same source exactly matches its work while all fixed positive-energy probabilities vanish, so the original critical current covariance or joint spectral weight remains required. Nonzero controlled energy-current response retains applied work in its Ward identity. A separately scoped candidate map compares exact internal weights with named families; finite common-ground sector ratios exclude only their direct member-zero lepton hierarchy. Physical thresholds/branches and dispersion, chiral species, GeV masses, proper area and Einstein dynamics remain unproved.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -2161,7 +2161,7 @@
           "path": "model/winding_sector_search/results.json",
           "sha256": "e37d26394945123752809399a3b6c2bd7054e89901b8631728638943f347b384",
           "independent_check": "model/winding_sector_search/test_search.py",
-          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately±0.165782 and±0.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
           "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04"
         },
         {
@@ -4276,7 +4276,35 @@
         "model/particle_primary_branch_certificate/PROOF.md",
         "model/particle_primary_branch_certificate/model.py",
         "model/particle_primary_branch_certificate/test_model.py",
-        "model/particle_primary_branch_certificate/results.json"
+        "model/particle_primary_branch_certificate/results.json",
+        "model/particle_primary_weighted_spectral_tail/PROOF.md",
+        "model/particle_primary_weighted_spectral_tail/model.py",
+        "model/particle_primary_weighted_spectral_tail/test_model.py",
+        "model/particle_primary_weighted_spectral_tail/results.json",
+        "model/particle_primary_reduced_sector/PROOF.md",
+        "model/particle_primary_reduced_sector/model.py",
+        "model/particle_primary_reduced_sector/test_model.py",
+        "model/particle_primary_reduced_sector/results.json",
+        "model/particle_primary_regional_fermion/PROOF.md",
+        "model/particle_primary_regional_fermion/model.py",
+        "model/particle_primary_regional_fermion/test_model.py",
+        "model/particle_primary_regional_fermion/results.json",
+        "model/particle_primary_equal_work_control/PROOF.md",
+        "model/particle_primary_equal_work_control/model.py",
+        "model/particle_primary_equal_work_control/test_model.py",
+        "model/particle_primary_equal_work_control/results.json",
+        "model/particle_primary_loop_fusion/PROOF.md",
+        "model/particle_primary_loop_fusion/model.py",
+        "model/particle_primary_loop_fusion/test_model.py",
+        "model/particle_primary_loop_fusion/results.json",
+        "model/standard_model_source_map/candidates/PROOF.md",
+        "model/standard_model_source_map/candidates/model.py",
+        "model/standard_model_source_map/candidates/test_model.py",
+        "model/standard_model_source_map/candidates/correspondence.json",
+        "model/standard_model_source_map/candidates/CANDIDATES.md",
+        "model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md",
+        "model/standard_model_source_map/candidates/finite_sector_ratios.py",
+        "model/standard_model_source_map/candidates/test_finite_sector_ratios.py"
       ],
       "legacy_issues": [
         1026,
@@ -4784,7 +4812,7 @@
           "path": "model/winding_sector_search/results.json",
           "sha256": "e37d26394945123752809399a3b6c2bd7054e89901b8631728638943f347b384",
           "independent_check": "model/winding_sector_search/test_search.py",
-          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately±0.165782 and±0.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
           "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04"
         },
         {
@@ -5210,6 +5238,62 @@
           "independent_check": "model/particle_primary_branch_certificate/test_model.py",
           "scope": "An exact 43-coordinate physical trial retaining admitted distinct-link virtual pairs lowers the full weak odd-sector upper below -715.10018 at interaction coefficient one. The actual energy-local polynomial floor is c_low=2^(-552953), giving complete original occupation-sector/final-energy probability at least 2*c_low*(1-delta) per sign and 4*c_low*(1-delta) for the conjugate union, delta<1/512. This is not a creation-probe or transfer-energy law. Every odd-sector energy has compulsory binary-cube multiplicity at least two, so a rank-one complement in the whole sector retains a sector ground vector. Exact G1/G2/H matrix units supply diagonal multiplicity-block reduction. No invariant trial compression, reduced complementary isolation, original creation residue, dispersion or GeV mass is established.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_selected_weighted_spectral_tail",
+          "path": "model/particle_primary_weighted_spectral_tail/PROOF.md",
+          "sha256": "92cfb55f13a044f60cd1f63bf80ca951ac6769c051924a197a6d0eed6f7e7a5a",
+          "independent_check": "model/particle_primary_weighted_spectral_tail/test_model.py",
+          "scope": "The actual critical phase apparatus obeys an original selected second-moment cap M2<=4000000/a, independent of the link-cutoff degree. Stationary third moments, local current commutators, polynomial adjoint balance and the actual electric expectation below91V/a close a quadratic moment inequality; no trial-state expectation replaces rho. The original positive window [w/4,4C/w] has probability at least w^2/(4C), and unchanged complete clocks retain more than half. Certified lower floors are of order at least a and upper endpoints O(1/a). No uniform integrability, fixed-positive-energy survival, field action, mass gap, elastic limit or GeV mass is proved.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_isolated_extreme_gauge_transition",
+          "path": "model/particle_primary_reduced_sector/PROOF.md",
+          "sha256": "8aaf53fb4229a74edb535a90cef9e4ba44ec31aef1b2a6c92ed5477e26ea65f3",
+          "independent_check": "model/particle_primary_reduced_sector/test_model.py",
+          "scope": "The actual empty-matter reducing sector at member zero has an isolated twelve-level gauge cluster, including a simple A1u level within that symmetry. Its transition from the sector ground lies in [63-59/1351350,63+1/45675] source units with squared Wilson-loop matrix element above4/49. The selected density gives an original transfer atom and a complete finite clock event above2^(-32406376)/13, without success normalization. This is CAR even and measured from a rare-sector ground, not the global primary vacuum. The extreme-sector weight vanishes along refinement. No physical particle assignment or GeV mass follows.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_regional_charged_fermion_records",
+          "path": "model/particle_primary_regional_fermion/PROOF.md",
+          "sha256": "5ae9266b2f06f22824dd199f8073b262d47ef752aa9a218683d35c3ea77d27cf",
+          "independent_check": "model/particle_primary_regional_fermion/test_model.py",
+          "scope": "A physical Wilson-linked charged endpoint has the actual G1 source transformation, while the opposite endpoint, link and reference remain in the complete experiment. The Pauli pair analyzer has scalar/vector recorded weights above5/64 and15/64 in[69/8,279/8]. A separate96-row raw-spin menu records each of four endpoint-spin entries with weight above1/16 in[77/8,271/8], actual spin increments+/-1/2 and opposite Q6 increments+/-6, without measuring initial spin or charge. These are probe-time increments and source representations, not terminal Lorentz spin or electron identification. The intervention energy is the pair energy, not an isolated charged endpoint mass.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_actual_source_equal_work_control",
+          "path": "model/particle_primary_equal_work_control/PROOF.md",
+          "sha256": "f0c162592d8015403572a8e57bca3e38d68501095988237f456764c1758cb068",
+          "independent_check": "model/particle_primary_equal_work_control/test_model.py",
+          "scope": "A distinct complete apparatus on the identical selected source, state, reference, H and clock applies local fermion parity with probability p=kbar/4. Its original mean work equals the critical phase mean exactly at every capacity, including all fixed profile settings once p<=1. At member zero p=1; for n>=1 p<=45a/32. Its complete transfer law is (1-p)delta0+p nu_parity, so nonelastic probability vanishes while positive work survives and M2 is bounded on both sides by constants/a. Recorded reference-inclusive output distance from the matching idle experiment is at most p; an unread coherent pointer has the distinct2sqrt(p) bound. Unchanged complete clocks preserve positive mean and vanishing fixed positive bands. This is not a proof of collapse of the original critical phase apparatus, whose selected current correlations remain unevaluated.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_full_source_static_loop_fusion",
+          "path": "model/particle_primary_loop_fusion/PROOF.md",
+          "sha256": "bf177879093b31fbe615f0d0b8cfdd8e87a155a82cb5ce313dae8c17ab2faa7f",
+          "independent_check": "model/particle_primary_loop_fusion/test_model.py",
+          "scope": "Actual sequential charge-six loop creation on member-zero physical empty-matter support cancels an adjacent shared edge and retains all source and reference outputs. Full-sector electric classification and actual magnetic norm isolate a rank44 cluster in[1311/14,1335/14], while disjoint opposite loops have a complete energy window[124,128]. The static energy deficit is enclosed by[30.642769,32.357165] source units. Each complete30-pair row has original clock probability above2^(-32406376)/40. The rare-sector probability is retained and vanishes under refinement. This is static source fusion, not moving-particle scattering, a physical binding mass or a CERN cross section. The separate executed Weyl/contact pulse and finite five-qubit controls have different source/action domains.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_candidate_particle_correspondence",
+          "path": "model/standard_model_source_map/candidates/PROOF.md",
+          "sha256": "634aed7c0f0797d32879a32bf03768ac0529ec78626e2c59c8e9756345656973",
+          "independent_check": "model/standard_model_source_map/candidates/test_model.py",
+          "scope": "A checked candidate dictionary retains16 source-excitation rows,18 named elementary comparison targets and11 existing protected-catalogue IDs, without merging their domains. Exact gauge weights and the actual Q6=+6 regional G1 endpoint motivate charged-lepton-conjugate-singlet-type hypotheses but select no flavor. Neutral trion analogies remain separate from identified elementary particles. Six scoped rejection controls distinguish direct-map exclusions from unsupported assignments; other dressings and physical current dictionaries are not excluded. Finite cube spin is not Lorentz spin. Named physical assignments, fitted inputs and GeV mass predictions remain empty. Static primary loop creation and separately executed collision controls keep their distinct complete records and source domains.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_finite_neutral_threshold_ratio_control",
+          "path": "model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md",
+          "sha256": "c908d5c61a1b122f4013e9ebaa6aedcb0a47d9ac1161ca58c95b97f94f909dd3",
+          "independent_check": "model/standard_model_source_map/candidates/test_finite_sector_ratios.py",
+          "scope": "Exact rational interval optimization keeps one shared full-source ground in ratios of the three member-zero neutral sector bottoms. Every ordered ratio is below21.16; among the two odd families it is below15.31. Same-sector and exact charge-conjugate threshold ratios equal one. A positive common clock or unit conversion cancels. Comparing with the separately supplied CODATA muon/electron ratio excludes direct identification of those particular thresholds with the charged-lepton hierarchy. It does not exclude other excitations, capacities, source dictionaries or OPH, and it does not compute point eigenvalues, physical rest masses or a generation count.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
     },
@@ -5561,7 +5645,11 @@
         "model/particle_primary_boundary_correlation/PROOF.md",
         "model/particle_primary_boundary_correlation/model.py",
         "model/particle_primary_boundary_correlation/test_model.py",
-        "model/particle_primary_boundary_correlation/results.json"
+        "model/particle_primary_boundary_correlation/results.json",
+        "model/particle_primary_energy_response/PROOF.md",
+        "model/particle_primary_energy_response/model.py",
+        "model/particle_primary_energy_response/test_model.py",
+        "model/particle_primary_energy_response/results.json"
       ],
       "legacy_issues": [
         1026,
@@ -5977,6 +6065,14 @@
           "sha256": "dc64f85b5d38c1030d70558bc156b6071ceb5d16a730f355c2e8ca5d01de209a",
           "independent_check": "model/particle_primary_boundary_correlation/test_model.py",
           "scope": "A physical Schur-block comparison preserves both source regional marginals and the mandatory representation singlets while removing conditional multiplicity correlations and global center coherence. Exact source relative entropy gives sum p_lambda I(tau_lambda)+C_center<=2 beta ||V_cut||+r, with actual polynomial remainder r=beta delta(U-L). Only crossing hopping and mixed plaquettes enter V_cut, with norm at most (30b+p_mix/7)/a and p_mix<=2b. Crossing representation dimensions also bound center and edge information. A separate noninteracting polynomial control proves the remainder cannot be omitted. The finite boundary coefficient diverges along the selected refinement; no pure-reference entropy, proper area, geometric modular kernel, Newton coefficient or Einstein dynamics is inferred.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "primary_original_local_energy_current_response",
+          "path": "model/particle_primary_energy_response/PROOF.md",
+          "sha256": "5e0e8b40a5b3df1095a2718a74c3998b2b3cd3865e0f0551097d0205fb56c9bd",
+          "independent_check": "model/particle_primary_energy_response/test_model.py",
+          "scope": "For the same physical source A=hprime_0 and B=i[H,A] are the actual local energy and incoming current. A full-CAR witness and selected polynomial slope prove Tr rho[A,[H,A]]>=c beta_low27/(2a^4)>0. An explicit finite Cayley control pulse with both binary current outcomes has positive original record contrast and cyclic work, retaining the idle reference. Source-relative evolution is generated by integrated local energy, and the finite coarse Ward identities retain the applied-control work term. The small bounds use the deteriorating source floor. The control is not identified with a proper lapse or geometric relative Cauchy evolution; no Einstein, proper-area or Lorentz-stress conclusion follows.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]

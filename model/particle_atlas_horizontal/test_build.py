@@ -17,6 +17,8 @@ def test_every_family_and_each_owed_bridge_survives(data):
     assert len(data['families']['calibration_paths'])==10
     assert len(data['theorems']['roles'])==5
     assert data['v1']['physical_particle_map']==[]
+    assert len(data['candidate_correspondence']['target_rows'])==18
+    assert data['candidate_correspondence']['physical_particle_map']==[]
 
 
 @pytest.mark.parametrize('kind',['missing_target','duplicate_target','promoted_identity','promoted_edge','lost_strategy'])
@@ -65,6 +67,10 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
     assert 'ModularClockComparison.lean#L40' in text
     assert 'FiniteBuschGleason.lean#L1133' in text
     assert '>Ten dependencies</button>' in text
+    assert 'max-height:40vh;overflow:auto' in text
+    assert '>Best-guess map</button>' in text
+    assert '>Masses & collisions</button>' in text
+    assert 'bestguess:[0,30400]' in text and 'comparisons:[38000,30400]' in text
     assert 'model/particle_primary_locality/PROOF.md' in text
     assert 'model/particle_joint_reconstruction/DEPENDENCIES.md' in text
     assert 'model/particle_joint_reconstruction/CANDIDATE.md' in text
@@ -89,8 +95,35 @@ def test_reader_embeds_the_vector_and_preserves_every_reference_anchor(data):
                   'particle_primary_odd_low_energy', 'particle_primary_geometric_cut',
                   'particle_primary_coherent_odd_response',
                   'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
-                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'):
+                  'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation',
+                  'particle_primary_reduced_sector', 'particle_primary_regional_fermion', 'particle_primary_weighted_spectral_tail', 'particle_primary_energy_response',
+                  'particle_primary_loop_fusion', 'particle_primary_equal_work_control'):
         assert 'model/'+owner+'/PROOF.md' in text
+
+
+def test_named_candidate_wings_preserve_exact_weights_and_separate_collision_domains(data):
+    canvas=drawing.Canvas()
+    build.source_connections.render_candidate_wings(canvas,data)
+    root=ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg">'+''.join(canvas.items)+'</svg>')
+    text=' '.join(' '.join(root.itertext()).split())
+    assert 'BEST-GUESS PARTICLE MAP' in text
+    assert 'Q6=+6 regional G1' in text and 'the pair is not automatically a photon' in text
+    assert 'physical spin and named identity unproved' in text
+    assert 'Antiparticle and flavor readouts need the same physical field dictionary' in text
+    assert 'Y=1/6' in text and 'Y=-2/3' in text and 'Y=-1/2' in text
+    assert 'Every family ratio <21.16; odd-family ratios <15.31' in text
+    assert 'Measured μ/e =206.7682827(46)' in text
+    assert 'excludes only that member-zero assignment' in text
+    assert 'Each complete pair row retains original weight >c_g/40' in text
+    assert '22,531 native pulses' in text and 'fine-grid incoming-packet program is not executed' in text
+    assert '32-row five-qubit controls' in text
+    assert 'No fitted GeV mass is added here' in text
+    assert max(b for _,b,_,_ in canvas.text_boxes)<47865
+    hrefs=[n.get('href') for n in root.iter('{http://www.w3.org/2000/svg}a')]
+    for path in ('model/standard_model_source_map/candidates/CANDIDATES.md',
+                 'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md',
+                 'model/contact_scattering/README.md','model/scattering_packet_readout/PROOF.md'):
+        assert '../../'+path in hrefs
 
 
 def test_primary_response_audit_authenticates_receipt_and_source_bytes(tmp_path,monkeypatch):

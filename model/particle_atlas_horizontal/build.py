@@ -17,6 +17,7 @@ AUDIT = HERE/'audit.json'
 V1 = ROOT/'model/particle_candidate_atlas/audit.json'
 OUTPUTS = ROOT/'model/particle_observer_outputs/results.json'
 DEPENDENCIES = ROOT/'model/particle_joint_reconstruction/dependencies.json'
+CANDIDATES = ROOT/'model/standard_model_source_map/candidates/correspondence.json'
 PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_field_algebra', 'particle_filtered_probe',
     'particle_primary_stress', 'particle_positive_window',
@@ -42,7 +43,9 @@ PRIMARY_PROOFS = tuple('model/'+owner+'/PROOF.md' for owner in (
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
     'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
     'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
-    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'))
+    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation',
+    'particle_primary_reduced_sector', 'particle_primary_regional_fermion', 'particle_primary_weighted_spectral_tail', 'particle_primary_energy_response',
+    'particle_primary_loop_fusion', 'particle_primary_equal_work_control'))
 PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_branch_resolution', 'particle_primary_energy_tightness',
     'particle_primary_origin_momentum', 'particle_primary_open_coframe',
@@ -57,7 +60,9 @@ PRIMARY_RESPONSE_RECEIPTS = tuple('model/'+owner+'/results.json' for owner in (
     'particle_primary_odd_resolvent', 'particle_primary_odd_low_energy',
     'particle_primary_geometric_cut', 'particle_primary_coherent_odd_response',
     'particle_primary_original_shell_moments', 'particle_primary_original_branch', 'particle_primary_critical_refinement', 'particle_primary_boundary_information',
-    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation'))
+    'particle_primary_odd_sum_rules', 'particle_primary_branch_certificate', 'particle_primary_work_spectrum', 'particle_primary_boundary_correlation',
+    'particle_primary_reduced_sector', 'particle_primary_regional_fermion', 'particle_primary_weighted_spectral_tail', 'particle_primary_energy_response',
+    'particle_primary_loop_fusion', 'particle_primary_equal_work_control'))
 CONTENT = ('story.json','families.json','measurement_content.json','theorems.json','field_nature.json')
 
 
@@ -120,6 +125,14 @@ def load():
     data['joint_dependencies']=json.loads(DEPENDENCIES.read_text())
     data['observer_outputs']=json.loads(OUTPUTS.read_text())
     data['primary_response_receipt_records'],response_paths=scientific_receipt_records()
+    data['candidate_correspondence']=json.loads(CANDIDATES.read_text())
+    candidate=data['candidate_correspondence']
+    from model.standard_model_source_map.candidates.model import validate as validate_candidates
+    validate_candidates(candidate)
+    for path,expected in candidate['source_sha256'].items():
+        resolved=(ROOT/path).resolve()
+        if not resolved.is_relative_to(ROOT) or not resolved.is_file() or sha(resolved)!=expected:
+            raise ValueError('stale candidate map input: '+path)
     for rel,expected in data['observer_outputs']['input_sha256'].items():
         if sha(ROOT/rel)!=expected:raise ValueError('stale observer-output input: '+rel)
     pins=data['v1']['input_sha256']
@@ -139,6 +152,9 @@ def load():
                   data['joint_dependencies']['conditional_candidate']['producer']})
     paths.update(PRIMARY_PROOFS)
     paths.update(response_paths)
+    paths.update(candidate['source_sha256'])
+    paths.update((str(CANDIDATES.relative_to(ROOT)),
+                  'model/standard_model_source_map/candidates/CANDIDATES.md'))
     for node in data['joint_dependencies']['nodes']:
         for evidence in node['evidence']:
             name=evidence['path']
@@ -284,6 +300,10 @@ def reader(svg,data):
         ('CANDIDATE.md','Conditional chiral gauge-Higgs candidate and calibrated spectrum conventions'))]
     extra.append({'label':'All-time gap control from conserved energy and its refinement boundary',
                   'path':'model/particle_field_preparation/REFINEMENT.md'})
+    extra += [{'label':'Best-guess named-particle map and scoped source IDs','path':'model/standard_model_source_map/candidates/CANDIDATES.md'},
+              {'label':'Exact finite-sector ratio exclusion','path':'model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md'},
+              {'label':'Static Wilson-loop fusion on the primary source','path':'model/particle_primary_loop_fusion/PROOF.md'},
+              {'label':'Same-source exact work with an elastic spectral limit','path':'model/particle_primary_equal_work_control/PROOF.md'}]
     for item in links([data[k] for k in ('story','families','measurement_content','theorems','field_nature')]+[extra]):
         href=item['path']+('#'+item['anchor'] if item.get('anchor') else '')
         if href in seen:continue
@@ -292,15 +312,15 @@ def reader(svg,data):
         full_links.append(f'<li><a href="{escape(url,quote=True)}" target="_blank">{escape(item["label"])}</a></li>')
     return '''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OPH particle atlas v2: illustrated reader</title>
-<style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
-<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Ten dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
+<style>*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;overflow:hidden;background:#fbf8f0;color:#142c3c;font:15px Arial,sans-serif}header{min-height:76px;flex-shrink:0;background:#142c3c;color:white;display:flex;gap:10px;align-items:center;padding:12px 18px;flex-wrap:wrap;position:relative;z-index:3}header strong{font:22px Georgia,serif;margin-right:12px}button,a.download{border:1px solid #789ba7;background:#244454;color:white;border-radius:6px;padding:9px 13px;cursor:pointer;text-decoration:none;font-size:14px}button:hover,a.download:hover{background:#397078}#hint{font-size:12px;color:#b9d2db;margin-left:auto}#viewport{flex:1;min-height:0;overflow:hidden;touch-action:none;cursor:grab;position:relative}#art{transform-origin:0 0;position:absolute;left:0;top:0}#art svg{display:block;max-width:none}#zoom{min-width:48px;text-align:center}#refs{display:none;position:fixed;right:0;top:0;width:min(560px,90vw);height:100vh;overflow:auto;background:#fffaf0;border-left:1px solid #ccd5d5;z-index:4;padding:22px}#refs a{color:#285b9f}#refs li{margin:11px 0}#refs h2{font:26px Georgia,serif}#nav{position:fixed;bottom:20px;right:22px;z-index:3;display:flex;gap:8px}#nav button{box-shadow:0 3px 12px #0002}@media(max-width:850px){header{min-height:118px;max-height:40vh;overflow:auto;align-content:flex-start}#hint{display:none}}@media print{header,#nav,#refs{display:none}#viewport{overflow:visible;height:auto}#art{position:static;transform:none!important}#art svg{width:100%;height:auto}}</style>
+<header><strong>Simulation-generated observables</strong><button data-row="origin">Defect origins</button><button data-row="story">Derivation chain</button><button data-row="observers">Observers & meaning</button><button data-row="experiment">The experiment</button><button data-row="theorems">Theorem bridges</button><button data-row="endpoints">Endpoints & slits</button><button data-row="families">Every family</button><button data-row="particles">Mass references</button><button data-row="bestguess">Best-guess map</button><button data-row="comparisons">Masses & collisions</button><button data-row="fieldnature">Photon, Higgs & matter</button><button data-row="requirements">Ten dependencies</button><button data-row="readouts">Actual field readouts</button><button data-row="contract">One program</button><button data-row="ground">Ground states &amp; cones</button><button data-row="refinement">Refinement & pressure</button><button data-row="calibrations">Remove calibrations</button><button id="overview">Overview</button><button id="references">Proofs & papers</button><a class="download" href="OPH_PARTICLE_ATLAS_V2.svg" download>SVG ↓</a><span style="flex-basis:100%;font-size:13px;color:#f2d79a">Named fields: photon · Higgs · W and Z · gluons · electron, muon, tau · quarks · neutrinos. Gold boxes show comparison particles; arrows show the construction and its proof boundaries.</span><span id="hint">Drag to pan · wheel to zoom · click blue proof links</span></header>
 <main id="viewport" aria-label="Draggable and zoomable particle atlas"><div id="art">'''+svg+'''</div></main><aside id="refs"><button id="closeRefs">Close</button><h2>Exact proofs and paper sections</h2><p>Full references behind the illustrated steps. Supplied hypotheses and unproved bridges are labeled in the spread.</p><ul>'''+''.join(full_links)+'''</ul></aside>
 <nav id="nav"><button id="left" aria-label="Pan left">←</button><button id="right" aria-label="Pan right">→</button><button id="out" aria-label="Zoom out">−</button><button id="in" aria-label="Zoom in">+</button><button id="zoom">100%</button></nav>
 <script>
 const viewport=document.querySelector('#viewport'),art=document.querySelector('#art');let scale=.25,x=0,y=0,drag=null;
 function draw(){art.style.transform=`translate(${x}px,${y}px) scale(${scale})`;document.querySelector('#zoom').textContent=Math.round(scale*100)+'%'}
 function zoom(f,cx=viewport.clientWidth/2,cy=viewport.clientHeight/2){const b=art.querySelector('svg').viewBox.baseVal;const floor=Math.min(.035,.97*viewport.clientWidth/b.width,.97*viewport.clientHeight/b.height);const next=Math.min(1.8,Math.max(floor,scale*f));x=cx-(cx-x)*next/scale;y=cy-(cy-y)*next/scale;scale=next;draw()}
-function row(name){const places={origin:[0,0],observers:[38000,0],story:[10320,680],experiment:[10320,2320],theorems:[10320,4500],families:[10320,6150],particles:[26800,6150],calibrations:[32000,6150],endpoints:[10320,11500],fieldnature:[10320,13900],requirements:[10320,25400],readouts:[10320,29200],refinement:[10320,33800],ground:[10320,38950],contract:[10320,43850]};scale=Math.min(.43,viewport.clientWidth/(['origin','observers'].includes(name)?9900:5600));x=35-places[name][0]*scale;y=35-places[name][1]*scale;draw()}
+function row(name){const places={origin:[0,0],observers:[38000,0],story:[10320,680],experiment:[10320,2320],theorems:[10320,4500],families:[10320,6150],particles:[26800,6150],calibrations:[32000,6150],endpoints:[10320,11500],fieldnature:[10320,13900],requirements:[10320,25400],readouts:[10320,29200],refinement:[10320,33800],ground:[10320,38950],contract:[10320,43850],bestguess:[0,30400],comparisons:[38000,30400]};scale=Math.min(.43,viewport.clientWidth/(['origin','observers','bestguess','comparisons'].includes(name)?9900:5600));x=35-places[name][0]*scale;y=35-places[name][1]*scale;draw()}
 viewport.addEventListener('wheel',e=>{e.preventDefault();const r=viewport.getBoundingClientRect();zoom(Math.exp(-e.deltaY*.0015),e.clientX-r.left,e.clientY-r.top)},{passive:false});
 viewport.addEventListener('pointerdown',e=>{if(e.target.closest('a'))return;drag={px:e.clientX,py:e.clientY,x,y};viewport.setPointerCapture(e.pointerId);viewport.style.cursor='grabbing'});
 viewport.addEventListener('pointermove',e=>{if(!drag)return;x=drag.x+e.clientX-drag.px;y=drag.y+e.clientY-drag.py;draw()});
@@ -336,6 +356,14 @@ def build():
         'named_field_meanings':data['field_nature'],
         'finite_observer_output_connections':data['observer_outputs']['finite_output_connections'],
         'primary_response_receipt_records':data['primary_response_receipt_records'],
+        'candidate_correspondence':{
+            'path':str(CANDIDATES.relative_to(ROOT)),
+            'sha256':sha(CANDIDATES),
+            'source_excitation_ids':[r['id'] for r in data['candidate_correspondence']['source_excitation_rows']],
+            'named_targets':[r['target'] for r in data['candidate_correspondence']['target_rows']],
+            'protected_catalogue_ids':[r['id'] for r in data['candidate_correspondence']['protected_catalogue_rows']],
+            'finite_sector_ratio_result_sha256':data['candidate_correspondence']['finite_sector_ratio_control']['result_sha256'],
+            'physical_particle_map':[], 'mass_predictions_GeV':[]},
         'common_construction_specification_resolved':True,
         'finite_physical_preparation_including_boundary_charges_resolved':True,
         'finite_primary_local_records_and_uniform_influence_constructed':True,

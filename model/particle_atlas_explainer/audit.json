@@ -1,0 +1,47 @@
+{
+  "candidate_mass_predictions_GeV": [],
+  "candidate_target_count": 18,
+  "dependency_status": {
+    "chiral_species_attachment": "physical_proof_required",
+    "fixed_program": "finite_constructed",
+    "geometric_gravity": "physical_proof_required",
+    "independent_comparison": "physical_proof_required",
+    "joint_refinement": "physical_proof_required",
+    "local_records": "finite_constructed",
+    "particle_observables": "physical_proof_required",
+    "physical_preparation": "finite_constructed",
+    "pure_gauge_gap": "conditional_criterion",
+    "relativistic_field": "physical_proof_required"
+  },
+  "evidence_domains": {
+    "executed_contact_echo": "separate supplied contact action and preparation",
+    "isolated_gauge_transition": "rare empty-matter reducing sector, source units",
+    "named_roster": "measured comparison inputs and candidate assignments",
+    "static_loop_fusion": "same primary source, no moving collision"
+  },
+  "input_sha256": {
+    "model/particle_candidate_atlas/reference_values.json": "4be774c393a46957f97decbe83e11b4f42525e451a4d5293fd146e33cadef0cc",
+    "model/particle_joint_reconstruction/dependencies.json": "55af921d12a0e463bfa53dd55bcc6ce6628799a41dfc982bbba3485287013b1a",
+    "model/particle_observer_outputs/results.json": "ee5d817c0547075ca6d47f03c2074d593dcdf73a8f54dce49700b4006098e4c7",
+    "model/particle_primary_momentum/PROOF.md": "3826a1cb7eeda3927415ee95b81e244f5ea3ed77d6815250c2eeddbee9f31e7f",
+    "model/particle_primary_reduced_sector/results.json": "dde219138ca8f8aa7447b10a14c69beb905d2e9782b491a2cbabb0047e9befa4",
+    "model/standard_model_source_map/candidates/correspondence.json": "d8eb3059031bea372b840151d19c410953da707de0c0b32ddb6c9f39d597aa82"
+  },
+  "layout": {
+    "height": "11289",
+    "width": "1600"
+  },
+  "protected_catalogue_count": 11,
+  "reference_masses_are_predictions": false,
+  "renderer_sha256": {
+    "__init__.py": "19ad6d36d8e6f5a107c85298751ee57f05587427970a4c125e1af1c03dc21e27",
+    "build.py": "b3f827a1a55b6ed3cd1cf9c8d0f5deeb60820817eaf11619baea7851958bf8c1",
+    "canvas.py": "d27e63198ab2581ccb23bc9b94bab4554909382584b78a69603f1fdd4900a49b",
+    "parts.py": "78ae3232eeae31aab4f00cea67aa009db0451069175e924ac8ba8d164672d2e6",
+    "scenes_a.py": "a44049ecc14275887d45b347e7df75382df806846f847e78196b8e2ddad57d3e",
+    "scenes_b.py": "121b3a79205777eb7e0cf5b93137c2c009e535d3b9a954bdd0e217786a841c19"
+  },
+  "schema": "oph.particle_atlas_explainer.v3",
+  "source_physical_identifications": [],
+  "svg_sha256": "03cc34c667f4d63e60e2f3458926f422d9ce19ace0408d664b9b2b7919bbf314"
+}

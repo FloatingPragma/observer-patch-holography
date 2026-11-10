@@ -29,6 +29,13 @@ quadratics, the pixel-dependent mass law and its memory realization, the common
 localized current/mass operator, the compact finite-energy defect pair and its
 quartic interaction, the twelve mass comparison values and the exact exclusions.
 It takes the gauge type and matter module from the gauge paper.
+The selected Wilson source also supplies an isolated finite gauge transition,
+regional charged spin and pair-energy records, a controlled energy-current
+response and a capacity-dependent bound on measured energy moments. The gauge
+line loses original weight under refinement; these results do not identify
+physical particle masses. The [Markdown dependency map](../model/particle_joint_reconstruction/DEPENDENCIES.md)
+and [research account](../docs/research/OPH_NATIVE_PARTICLE_MASS_JOIN.md)
+state their source domains and remaining physical requirements.
 The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
 states the corresponding conditional stress and generalized-volume entropy
 relation. The [source particle map](../model/completion/SOURCE_PARTICLE_MAP.md)

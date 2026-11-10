@@ -62,6 +62,12 @@ from model.particle_primary_branch_certificate import model as branch_certificat
 from model.particle_primary_odd_sum_rules import model as odd_sum_rules
 from model.particle_primary_work_spectrum import model as work_spectrum
 from model.particle_primary_boundary_correlation import model as boundary_correlation
+from model.particle_primary_reduced_sector import model as reduced_sector
+from model.particle_primary_regional_fermion import model as regional_fermion
+from model.particle_primary_weighted_spectral_tail import model as weighted_spectral_tail
+from model.particle_primary_energy_response import model as energy_response
+from model.particle_primary_loop_fusion import model as loop_fusion
+from model.particle_primary_equal_work_control import model as equal_work_control
 from tools import strict_json
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -163,8 +169,11 @@ def validate_dependencies(graph):
 
 def build():
     stored_candidate = strict_json.load(candidate.OUTPUT)
+    graph = strict_json.load(HERE / 'dependencies.json')
+    validate_dependencies(graph)
     paths = (set(stored_candidate['source_sha256']) | set(contract.SOURCE_INPUTS)
              | set(positive_energy.SOURCE_INPUTS))
+    paths.update(item['path'] for node in graph['nodes'] for item in node['evidence'])
     for module in (algebra, stress, window, filtered_probe, survival,
                    mass_readout, spatial, capacity, compact, momentum, channels, scale,
                    endpoint, variational, spectroscopy, occupation, local_residual,
@@ -176,7 +185,9 @@ def build():
                    composite_transport, composite_spin, selected_odd_response, covariant_stress,
                    selected_spin, odd_resolvent, odd_filter, geometric_cut, coherent_odd,
                    original_shells, original_branch, critical_refinement, boundary_information,
-                   branch_certificate, odd_sum_rules, work_spectrum, boundary_correlation):
+                   branch_certificate, odd_sum_rules, work_spectrum, boundary_correlation,
+                   reduced_sector, regional_fermion, weighted_spectral_tail, energy_response,
+                   loop_fusion, equal_work_control):
         paths.update(module.SOURCE_INPUTS)
         paths.update(str(path.relative_to(ROOT)) for path in Path(module.__file__).parent.iterdir()
                      if path.is_file() and path.suffix in ('.py', '.md'))
@@ -184,8 +195,6 @@ def build():
                  if path.suffix in ('.py', '.md') or path.name in
                  ('dependencies.json', 'candidate_results.json'))
     pins = provenance.definition_hashes(provenance.definition_inputs(paths))
-    graph = strict_json.load(HERE / 'dependencies.json')
-    validate_dependencies(graph)
     common = contract.certificate()
     member = common['fixed_primary_member']
     conditional = candidate.build_candidate()
@@ -359,6 +368,21 @@ def build():
     boundary_correlations = boundary_correlation.certificate()
     for level, receipt in zip((0, 1, 2, 8), boundary_correlations['members'], strict=True):
         boundary_correlation.verify_bound(contract.member(level), receipt)
+    reduced_transitions = reduced_sector.certificate()
+    reduced_sector.verify_bound(member, reduced_transitions['selected_member_bound'])
+    regional_fermions = regional_fermion.certificate()
+    regional_fermion.verify_bound(member, regional_fermions['members'][0])
+    weighted_tails = weighted_spectral_tail.certificate()
+    for level, receipt in zip((0, 1, 2, 8), weighted_tails['members'], strict=True):
+        weighted_spectral_tail.verify_bound(contract.member(level), receipt)
+    controlled_energy = energy_response.certificate()
+    for level, receipt in zip((0, 1, 2, 8), controlled_energy['members'], strict=True):
+        energy_response.verify_bound(contract.member(level), receipt)
+    fused_loops = loop_fusion.certificate()
+    loop_fusion.verify_bound(member, fused_loops['selected_member_bound'])
+    equal_work_records = equal_work_control.certificate()
+    for level, receipt in zip((0, 1, 2, 8), equal_work_records['members'], strict=True):
+        equal_work_control.verify_bound(contract.member(level), receipt)
     if any(hashlib.sha256((ROOT/path).read_bytes()).hexdigest() != value for path, value in pins.items()):
         raise ValueError('reconstruction inputs changed during replay')
     return {
@@ -423,6 +447,18 @@ def build():
         'primary_original_odd_sum_rules_and_native_chirality_pairing': odd_sum_records,
         'primary_critical_work_spectrum_and_fluctuation_records': phase_spectra,
         'primary_physical_boundary_correlation_upper_bound': boundary_correlations,
+        'primary_extreme_gauge_isolated_transition': reduced_transitions,
+        'primary_regional_charged_spin_and_pair_energy_records': regional_fermions,
+        'primary_selected_weighted_spectral_tail': weighted_tails,
+        'primary_original_energy_current_response': controlled_energy,
+        'primary_extreme_gauge_isolated_transition_proved': True,
+        'primary_regional_charged_spin_records_proved': True,
+        'primary_selected_weighted_spectral_tail_proved': True,
+        'primary_original_energy_current_response_proved': True,
+        'primary_static_loop_fusion_energy_records': fused_loops,
+        'primary_same_source_equal_work_elastic_control': equal_work_records,
+        'primary_static_loop_fusion_energy_records_proved': True,
+        'primary_same_source_equal_work_control_proved': True,
         'primary_original_finite_graded_neighbor_contrast_proved': True,
         'primary_selected_native_parity_chirality_pairing_proved': True,
         'primary_odd_sector_exact_multiplicity_space_reduction_proved': True,
@@ -472,6 +508,7 @@ def build():
         'primary_interacting_endpoint_gap_proved': False,
         'primary_interacting_ground_energy_enclosure_proved': True,
         'primary_isolated_excitation_branch_proved': False,
+        'primary_isolated_excitation_branch_domain': 'A physical-vacuum particle branch with controlled dispersion and original spectral weight; the separately certified extreme-gauge finite transition does not establish this branch.',
         'declared_SI_and_GeV_comparison_conversion_available': True,
         'source_derived_particle_mass_table_GeV': [],
         'primary_proper_geometry_or_Einstein_limit_proved': False,

@@ -26,6 +26,82 @@ or time units may be declared immediately; the declaration supplies no
 missing spectrum or species identification. Pure Yang-Mills and gravity
 are deferred for this mass calculation.
 
+## Physical mass readout criterion
+
+Native gauge weights, binary-cube spin labels and finite transition energies
+are source observables. They do not identify nature's particles or their
+relative rest masses. The missing first spectral test is positive original
+weight at fixed physical energy and momentum, on the same source, selected
+state, reference and clock. A finite-capacity effective mass can be tested
+with certified volume, cutoff and detector errors; the uniform criterion
+below is required for survival along refinement, rather than for reporting
+a finite source transition.
+
+The [joint spectral dictionary, §4](../../model/particle_primary_momentum_transfer/PROOF.md#4-the-joint-spectral-dictionary)
+already connects its admitted regular neutral seed `A` to a complete
+coherent-offset detector. On the common relative-observation subsequence,
+its original, unconditioned success probability has limit
+
+\[
+ p=\int \operatorname{sinc}^2(S(E-\nu))
+       \prod_{i=1}^3\operatorname{sinc}^2(Q(p_i-q_i))\,d\mu_A(E,p).
+\]
+
+Take a fixed rectangle `G` with energy half-width `dE`, momentum
+half-widths `dp_i` and `nu-dE>0`. With
+
+\[
+ \ell=\min\!\left(1,\max\!\left\{(S\,dE)^{-2},
+                    \max_i(Q\,dp_i)^{-2}\right\}\right),
+ \qquad \mu_A(G)\ge p-\ell,
+\]
+
+a sufficient source estimate is `p_n >= ell+delta+e_n` for all sufficiently
+large admitted capacities, with fixed `delta>0` and the validated finite
+implementation/comparison error `e_n -> 0`. This would prove
+`mu_A(G)>=delta`. All aperture, failure and reference records must remain;
+conditioning on a rare outcome does not establish this bound. The
+primary construction supplies the dictionary and error schedules, but
+not this positive lower bound. A charged probe needs its own controlled
+attachment to this same joint spectral construction.
+
+Two distinct mass routes then remain. For the
+[charged regional endpoint, §6](../../model/particle_primary_regional_fermion/PROOF.md#6-what-this-energy-can-identify),
+control the dressing and retained opposite-charge endpoint as their
+separation grows. Derive a populated charged-sector threshold
+`E_ch(p)`, including weight arbitrarily close to its lower edge.
+After establishing the common effective speed and physical reference,
+its relativistic mass relation must satisfy
+`E_ch(p)^2-c_*^2 |p|^2=m^2 c_*^4`, with `0<m<infinity` and controlled
+finite-capacity errors. No isolated pole is required. For a neutral
+isolated-multiplet route, prove original weight in the proposed branch,
+separation from its full same-symmetry complement and the corresponding
+momentum-dependent dispersion. The
+[weak-sector matrix units, §3](../../model/particle_primary_branch_certificate/PROOF.md#3-compulsory-degeneracy-and-its-exact-symmetry-reduction)
+remove compulsory cube degeneracy; they do not prove this separation.
+Both routes require the physical field/current dictionary before a
+Standard Model name or a measured mass ratio is assigned.
+
+There is no proved universal exclusion on the selected trajectory
+`H_n=Hhat_n/a_n`. A uniform positive dimensionless gap would obstruct
+fixed positive physical energies for bounded original probes under the
+selected cooling law, but that gap is
+[unproved at the actual couplings, §4](../../model/particle_primary_critical_refinement/PROOF.md#4-energy-probability-and-the-actual-criticality-boundary).
+The narrower exclusion is exact: the
+[combined empty/filled sector weight](../../model/particle_primary_survival/PROOF.md#exact-invariant-sectors-with-vanishing-selected-weight)
+is at most `7/(627*2^(8n+7))`. Consequently the isolated empty-sector
+line near63 cannot survive this preparation. The
+[selected moment bound, §5](../../model/particle_primary_weighted_spectral_tail/PROOF.md#5-complete-original-finite-windows-and-the-remaining-limit-question)
+`M2<=4000000/a` permits a finite-energy component or rare ultraviolet
+weight carrying all positive work; it decides neither alternative.
+A uniform selected current-double-commutator bound would give uniform
+`M2` and finite-energy survival for the critical phase probe. Survival
+under the spatial regularization and the mass/dispersion tests above
+would remain separate requirements. SI/GeV conversion can be declared;
+it does not supply those spectral statements.
+
+## Finite source evidence
+
 The [positive-sector construction](../../model/particle_primary_sector_threshold/PROOF.md)
 certifies whole physical occupation sectors above the full ground on member
 zero. In charge order `(-4,-3,1,2,6)`, the opposite increments
@@ -156,7 +232,71 @@ for their union, in the widened final-energy band around
 before the tiny density factor. There is no creation probe, initial
 energy clock or success normalization in this event.
 
-Every energy in this odd sector has binary-cube multiplicity at least
+The [candidate correspondence](../../model/standard_model_source_map/candidates/CANDIDATES.md)
+compares 16 source-excitation rows and 11 existing protected-catalogue rows
+with 18 named elementary targets. Exact gauge weights motivate family
+hypotheses; they do not assign flavors, Lorentz spin or particle masses.
+The actual `Q6=+6`, `G1` endpoint is a charged-lepton-conjugate-singlet-type
+lead, shared by the electron, muon and tau hypotheses. The protected
+catalogue and source-excitation identifiers remain distinct. The
+[common-ground ratio calculation](../../model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md)
+bounds every ordered ratio of the three member-zero neutral sector
+thresholds below21.16, and the two odd-family ratios below15.31.
+One common unit conversion cannot turn those particular thresholds into
+the measured charged-lepton hierarchy. This excludes that direct mapping,
+not other source excitations, capacities or dictionaries. The physical
+particle and GeV-mass maps remain empty.
+
+The [isolated gauge-sector transition](../../model/particle_primary_reduced_sector/PROOF.md)
+is an actual source atom at member zero. In the empty-matter reducing
+sector, the twelve-level first gauge cluster contains a simple `A1u`
+level within that symmetry. Its transition from the sector gauge ground
+lies in `[63-59/1351350,63+1/45675]` source units, with squared Wilson-loop
+matrix element above `4/49`. The original selected transfer atom retains
+its rare-sector weight; the complete clock event exceeds
+`2^(-32406376)/13`. This is CAR even, and the initial gauge ground is
+not the global primary vacuum. The extreme-sector weight vanishes along
+refinement, so this exact finite line is not a surviving particle or a GeV
+mass. It demonstrates full-complement isolation on an actual reducing
+carrier without replacing the source state.
+
+The [loop-fusion calculation](../../model/particle_primary_loop_fusion/PROOF.md)
+retains the full empty-sector complement. Adjacent outward charge-six
+loops cancel their shared edge and populate an isolated 44-level cluster
+in `[1311/14,1335/14]`; disjoint opposite loops have a complete window
+`[124,128]`. Their static energy deficit relative to twice the isolated
+line lies between `30.642769` and `32.357165` source units. Each row of
+the complete 30-pair menu retains original clock probability above
+`2^(-32406376)/40`. These are static sequential loop-creation records,
+not moving collisions or a physical binding mass; their rare-sector
+weight vanishes on refinement.
+
+The [separate collision controls](../../model/contact_scattering/README.md#a-complete-source-operated-interaction-experiment)
+have 17 replayed regression tests. Their full four-mode, two-site
+Weyl/contact experiment executes 22,531 native pulses and 45,062
+load/export events, with every failure and the quantum reference retained.
+It uses declared `c=1/8`, `U=1` and duration4 on a different action and
+preparation from the primary Wilson source. Its nonzero interaction echo
+is an executed interaction control, not a CERN cross section or a
+collision of identified primary particles. The
+[moving-packet family](../../model/scattering_packet_readout/PROOF.md) has a
+controlled nonrelativistic collision detector; its fine-spacing packet
+experiment is distinct from its executed finite five-qubit control.
+
+The [regional fermion instrument](../../model/particle_primary_regional_fermion/PROOF.md)
+retains a charged `G1` endpoint, its opposite-charge endpoint, their Wilson
+link and the original reference. The complete Pauli pair analyzer has
+original recorded weights above `5/64` and `15/64` in
+`[69/8,279/8]` for scalar and vector coefficients. An alternative complete
+96-row raw-spin menu records actual endpoint spin increments `+/-1/2`
+and charge increments `+/-6` without initial spin or charge measurement.
+Each of its four endpoint-spin entries has recorded weight above `1/16`
+in `[77/8,271/8]`. These are source transformation and probe-time increment
+labels. The pair intervention's energy is not an isolated endpoint mass;
+Lorentz spin, a charged one-particle dressing and dispersion need proof.
+
+Every energy in the weak-trion native occupation sector has binary-cube
+multiplicity at least
 two. A rank-one complement in the entire sector therefore retains a sector
 ground vector and cannot have a raised bottom. Exact `G1`, `G2` and `H`
 matrix units remove these compulsory partners while preserving the source
@@ -228,17 +368,45 @@ marginal, with a symmetric doubly stochastic kernel. Its entropy variable
 `log p_i-log q_j` differs from modular work `Delta K`;
 `E exp(-Delta K)=1` and the source affinity is `E exp(-Delta K/2)`.
 Paired source transitions sharpen the negative first moment to
-`1/(3 beta_low)`. The full-CAR second-moment cap improves to
-`C_n=O(a^-4)`. For the actual positive work floor `w_n`, the original
-band `[w_n/4,4 C_n/w_n]` has probability at least `w_n^2/(4 C_n)`;
-the unchanged complete clocks retain more than half this floor in a
-slightly widened positive band. Its ideal member-zero floor exceeds
-`2.58e-5`. The bound decreases as `a^4` and its upper endpoint grows,
-so it does not prove fixed-energy survival. Source affinity and complete
-record distinguishability have positive finite bounds too. A separate
-faithful control with the literal cooling polynomial proves that these
-modular identities and positive work alone permit an elastic limit;
-it is not a collapse proof for the primary source.
+`1/(3 beta_low)`. The [selected spectral-tail bound](../../model/particle_primary_weighted_spectral_tail/PROOF.md)
+uses the exact stationary third-moment identity and the actual electric
+expectation `<H_E><91 V/a` to prove `M2<=4,000,000/a`, independently
+of link-cutoff degree. The positive first moment and negative-moment
+bounds close a quadratic inequality for the original second moment;
+no reference-state domination or trial-state expectation is substituted.
+For the positive work floor `w_n` and certified second-moment cap `C_n`,
+the original band `[w_n/4,4 C_n/w_n]` has probability at least
+`w_n^2/(4 C_n)`. The unchanged complete clocks retain more than half
+this floor in a slightly widened positive band. The guaranteed floor is
+of order at least `a`, while the upper endpoint is `O(1/a)`.
+Uniform fixed-energy survival requires further control of the selected
+current double commutators; this bound permits rare cutoff-scale weight
+carrying finite work. Source affinity and complete record distinguishability
+also have positive finite bounds. The [equal-work parity control](../../model/particle_primary_equal_work_control/PROOF.md)
+uses this same source, state, reference and H with a different complete
+apparatus: apply local parity `(-1)^N_x` with probability `p_n=kbar/4`,
+and otherwise idle, retaining the origin and coin. Its selected work
+matches the critical probe exactly. Yet `p_n<=45a/32` for `n>=1`, its
+original law is `(1-p_n)delta_0+p_n nu_parity`, and its second moment
+is bounded on both sides by constants divided by `a`. The same clocks
+retain positive mean work while every fixed positive-energy band loses
+probability. Fixed-profile spatial work ratios are also reproduced.
+This is an actual-source insufficiency result, not a collapse proof for
+the original critical phase apparatus. Its selected current correlations
+or original fixed-band detector probabilities require evaluation.
+
+The [original local-energy response](../../model/particle_primary_energy_response/PROOF.md)
+uses `A=h'_0` and the actual incoming current `B=i[H,A]`.
+A full-CAR physical witness and the selected polynomial slope give
+`Tr rho[A,[H,A]]>=c beta_low 27/(2a^4)>0`.
+An explicit finite Cayley control pulse and both binary current outcomes
+therefore have strictly positive original probability contrast and cyclic
+work, with the reference retained. The finite source-relative derivative
+is generated by the integrated same-source energy, and its coarse Ward
+law retains the applied-control work term. These bounds deteriorate with
+the source faithfulness floor. Identifying the control as a proper lapse,
+or deriving a geometric modular kernel and Einstein response, requires
+additional physical attachment.
 
 The [covariant regional energy](../../model/particle_primary_covariant_stress/PROOF.md)
 preserves H while replacing its owner convention by a cube-covariant

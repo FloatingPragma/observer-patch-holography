@@ -1642,6 +1642,83 @@ $\delta<1/512$. The clock loss is applied to each eligible eigenvector
 before multiplying the small density floor. This event has no initial
 energy measurement or creation-probe interpretation.
 
+\paragraph{An isolated finite gauge transition on the original source.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_reduced_sector/PROOF.md}{empty-matter reduction}
+commutes with the actual member-zero Hamiltonian. Matter terms vanish
+there, leaving the native product-group electric and magnetic action.
+Gauss support has no dangling nonconstant edge. On the cube, its least
+nonconstant electric states are the twelve oriented charge-six face
+loops, at energy $63$; every other electric excitation is at least
+$189/2$. The actual magnetic norm is at most $6/7$, so the vacuum and
+this twelve-state cluster remain isolated. The cluster's cubic $A_{1u}$
+component is one-dimensional. Exact native Haar moments and Temple
+bounds give a transition from the sector ground $g$ to that state $u$:
+\[
+ 63-\frac{59}{1351350}\le E_u-E_g
+       \le63+\frac1{45675},\qquad
+ |\langle u,Ag\rangle|^2>\frac4{49},\qquad
+ A=\frac1{12i}\sum_p(\chi_6(U_p)-\overline{\chi_6(U_p)}).
+\]
+This is an actual finite transition, not a Rayleigh estimate. The original
+polynomial density has $p(E_g)\ge2^{-32406376}$. Complete initial and
+final clocks with resolution $1/64$, the contraction $AP_{\rm empty}$
+and its retained failure give original event weight above
+$2^{-32406376}/13$, in the displayed interval widened by $1/32$.
+No conditional empty-sector state replaces the preparation. The selected
+refinement makes the entire empty-sector weight vanish. Its ground is
+also far above the full-source ground. Thus this line establishes neither
+a physical-vacuum particle mass nor a pure Yang--Mills continuum gap.
+
+\paragraph{Static loop fusion and its complete records.}
+Two sequential outward charge-six face loops on adjacent faces cancel
+their common edge, leaving a six-edge electric loop. Opposite faces
+retain eight edges. The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_loop_fusion/PROOF.md}{full-source fusion calculation}
+counts all sixteen hexagons and six weak-character squares, isolating
+an actual 44-level cluster in $[1311/14,1335/14]$. Adjacent-loop creation
+from the exact empty-sector ground has weight above $99/100$ there;
+opposite-loop creation has weight above $4/5$ in $[124,128]$. The
+complete 30-pair, 90-outcome menu and two unchanged clocks retain
+original probability above $2^{-32406376}/40$ for each recorded pair.
+Relative to twice the isolated $A_{1u}$ transition, every fused-cluster
+energy has a static deficit in
+\[
+ \left[\frac{429}{14}-\frac{118}{1351350},
+       \frac{453}{14}+\frac1{45675}\right].
+\]
+The connecting flux explains the energy difference: cancellation removes
+two excited links. These are static creation records on the full source,
+not an asymptotic binding mass or an executed collision of moving packets.
+Their original rare-sector weight vanishes under refinement.
+
+\paragraph{Candidate names and finite threshold ratios.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/standard_model_source_map/candidates/PROOF.md}{candidate dictionary}
+compares exact internal gauge weights and source rotation labels with
+named particle families. The charge-six regional spinor is a
+charged-lepton-singlet-type lead; the opposite endpoint has conjugate
+charge. It does not distinguish electron, muon and tau. Neutral
+$LL e^c$ and $u^c(d^c)^2$ singlet composites motivate, respectively,
+neutral-lepton and neutral-antibaryon hypotheses, conditional on their
+physical current and Lorentz-spin attachment. Protected source-object
+IDs remain separate from these excitation IDs.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/standard_model_source_map/candidates/FINITE_SECTOR_RATIOS.md}{common-ground comparison}
+uses sector energy intervals $[L_i,U_i]$ and one ground interval
+$[L_0,U_0]$, rather than assigning independent energy zeros. Positive
+thresholds $D_i=E_i-E_0$ obey
+\[
+ \min_{e\in\{L_0,U_0\}}\frac{L_i-e}{U_j-e}
+ \le\frac{D_i}{D_j}\le
+ \max_{e\in\{L_0,U_0\}}\frac{U_i-e}{L_j-e}.
+\]
+All ratios among the three conjugate sector families are below $21.16$;
+those among the two odd families are below $15.31$. Thus these particular
+member-zero thresholds cannot directly reproduce the charged-lepton
+hierarchy under a common scale. The observed muon/electron ratio is
+$206.7682827(46)$\footnote{2022 CODATA, \url{https://physics.nist.gov/cuu/Constants/Table/allascii.txt}.},
+used only for comparison. The exclusion applies neither to other
+excitations nor to other capacities. These are rigorous finite
+threshold ratios, not physical rest-mass ratios.
+
 \paragraph{Original odd sum rules and the chirality constraint.}
 For local trions $F_{xj}$, combine their creation kernel with the reflected,
 transposed adjoint-annihilation kernel to form $S_{xy}$. Exact CAR gives
@@ -1719,17 +1796,70 @@ Its entropy production $\log p_i-\log q_j$, $q=Tp$, differs from
 $\kappa$ by the relative-entropy term in
 $\mathbb E\kappa=H(q)-H(p)+D(q\Vert p)$.
 
-A sharper local full-Fock estimate gives a source second-moment bound
-$M_2\le C_n=O(a^{-4})$. If the original work has lower bound $w_n>0$,
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_weighted_spectral_tail/PROOF.md}{selected-state moment calculation}
+uses $D_\pm=U_\pm^*HU_\pm-H=C\pm S$. Exact sign averaging gives
+$M_2=\langle C^2+S^2\rangle$ and
 \[
- \mu_n([w_n/4,4C_n/w_n])\ge\frac{w_n^2}{4C_n}.
+ m_3=\tfrac12\langle[C,[H,C]]+[S,[H,S]]\rangle
+       +\langle C^3+3SCS+[S,[S,C]]\rangle.
 \]
-The same complete clocks retain more than half this floor in the
-widened band at the certified capacities. The floor decays as $a^4$;
-the upper endpoint grows. A separate two-level control using the
-literal source polynomial has $W\to1$ while every fixed positive-energy
-band loses all weight. These finite fluctuation and work estimates
-therefore do not establish continuum particle survival.
+The actual electric expectation is at most $91V/a$. Native link
+derivatives preserve the word cutoff, and their Casimir form bounds the
+electric double commutators without a link-degree factor. Reverse-path
+population bounds control the negative moments. Positive-part
+Cauchy--Schwarz then closes a quadratic bound on $M_2$, yielding
+\[
+ M_2\le C_n=4000000/a,\qquad
+ \mu_n([w_n/4,4C_n/w_n])\ge\frac{w_n^2}{4C_n},
+\]
+where $w_n>0$ is the uniform original work lower bound. The same complete
+clocks retain more than half the finite floor in the widened band.
+Its lower weight scales as $a$ and its upper endpoint as $1/a$.
+This improves the actual finite readout without proving uniform
+integrability or a nonzero fixed-energy limit. The remaining quantity
+is the selected expectation of the current double commutators; a
+uniform bound would close the same quadratic estimate uniformly.
+
+\paragraph{Equal work does not determine the spectrum.}
+A \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_equal_work_control/PROOF.md}{distinct apparatus on the actual source}
+uses local parity $P_x=(-1)^{N_x}$ and a retained coin. Its mean parity
+work is $-4\operatorname{Tr}(\rho H_{\rm hop})/V$. The source-defined
+probability $p=\bar k/4$ therefore matches the critical phase work
+exactly, with every inactive branch retained. For the unit tent,
+$p_0=1$ and $p_n\le45a/32$ for $n\ge1$. Its transfer law is
+\[
+ \mu_n=(1-p_n)\delta_0+p_n\nu_{\rm parity},\qquad
+ M_2=\Theta(a^{-1}),\qquad W_n=W_{{\rm critical},n}\ge w_*>0.
+\]
+Every fixed positive-energy probability vanishes. Recorded outputs,
+including arbitrary references, approach the matching idle experiment
+within $p_n$ in half trace distance; unchanged complete clocks retain
+the positive mean work. Every fixed finite set of profile-work settings
+can be matched eventually. This leaves the original critical apparatus's
+spectrum undetermined: its selected current correlations or positive
+joint detector weight must be calculated. A work form alone does not
+establish a surviving field or its mass.
+
+\paragraph{Regional charged spinors with retained compensation.}
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_regional_fermion/PROOF.md}{same-source regional construction}
+uses $B_{xy,ab}=c^\dagger(p_{xa})c(m_{yb})\chi_6(U_{xy})P_{0,xy}$.
+The inside factor is CAR odd, has charge increment $+6$ and carries
+native binary-cube $G_1$; its outside conjugate carries $-6$.
+The complete pair is even and gauge invariant. Coherent scalar/Pauli
+combinations transform as $A_1\oplus T_1$. Their full 97-outcome
+apparatus has original scalar energy-band weight above $5/64$ and
+three-vector weight above $15/64$ in $[69/8,279/8]$.
+A separate raw-spin basis resolves charge and native spin-projection
+increments together: each of four rows has original weight above
+$1/16$ in $[77/8,271/8]$, with increments $\pm1/2$ at the endpoints.
+Finite coherent counters cancel unknown initial occupations; every
+source, boundary, reference and failure output is retained. The two
+apparatus bases are not simultaneously assigned incompatible outcomes.
+These are populated regional spin and pair-energy records. The transfer
+center $87/4=6+63/4$ includes link electric energy, so neither halving it
+nor retaining only its onsite part gives a lepton mass. A controlled
+charged threshold or branch, dispersion, physical spin and statistics
+remain required on the same state and clock.
 
 \paragraph{Physical charged endpoints and energy records.}
 For a directed interior bond, the native weak/color singlet character
@@ -2460,6 +2590,33 @@ coin and reference. The coin-plus-region entropy is instead
 $H_2(s)+S(\sigma_R)$, with singular derivative at zero. Neither entropy
 is identified with proper area or Einstein generalized entropy, and the
 finite support floor is not uniform under refinement.
+
+\paragraph{Actual controlled energy-current response.}
+For the cube-covariant local energies $H=\sum_xh'_x$, set
+$A=h'_0$ and $B=i[H,A]=-\sum_yJ'_{0y}$. A
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_energy_response/PROOF.md}{literal neutral source witness}
+has six orthogonal one-hop components and
+$\|[H,A]\phi\|^2\ge27/(2a^4)$. The original polynomial slope therefore gives
+\[
+ q=\operatorname{Tr}\rho[A,[H,A]]
+   \ge q_0=2^{-N}\beta_{\rm low}\frac{27}{2a^4}>0.
+\]
+With $R\ge\|H\|$, $K\ge\|A\|$, $C=2RK$, $G=R+K$ and
+$\tau=q_0/(16G^2C)$, the finite Cayley pulse for $H+A$ followed by
+complete effects $(I\pm B/C)/2$ changes the original output law by
+at least $d_0=\tau q_0/(4C)>0$ in total variation. Its cyclic source
+work is at least $2d_0^2/\beta$. These floors are finite and not uniform
+under refinement. For the declared control $H_f=\sum_xf_xh'_x$, the
+actual Ward identity is
+\[
+ \frac{d}{dt}\langle f_xh'_x\rangle
+   +\sum_y f_xf_y\langle J'_{xy}\rangle
+       =\dot f_x\langle h'_x\rangle.
+\]
+Subtracting the integrated applied work supplies the finite energy-Ward
+consumer's endpoint term. A source-relative Duhamel derivative follows
+on the same dynamics. Neither this driven identity nor that derivative
+identifies a metric coupling, proper stress tensor or Einstein response.
 
 On the scalar source with $d=1$, the preparation
 $(\Omega+ib)/\sqrt2$ has exact component exchange and a complete current

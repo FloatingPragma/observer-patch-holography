@@ -1,0 +1,118 @@
+"""Scope, certified inputs and layout regressions for the explainer atlas."""
+from copy import deepcopy
+import hashlib
+import json
+import struct
+import xml.etree.ElementTree as ET
+
+import pytest
+
+from . import build
+from .canvas import Canvas, text_width
+
+
+@pytest.fixture(scope='module')
+def data():
+    return build.load()
+
+
+def test_render_is_dark_compact_and_complete(data):
+    svg = build.render(data)
+    root = ET.fromstring(svg)
+    assert root.get('width') == '1600'
+    assert 9000 < int(root.get('height')) < 12000
+    text = ' '.join(''.join(root.itertext()).split())
+    for phrase in ('From a twist to a particle', 'Topological defect:', 'Why nothing local can erase it',
+                   'Position is where a record is written', 'Velocity is the slope of the records',
+                   'Mass is the price of standing still', 'Observers compress the records into fields'):
+        assert phrase in text
+    assert text.count('Computed in the model'.upper()) >= 9
+    assert '—' not in text
+
+
+def test_every_label_meets_a_minimum_size(data):
+    svg = build.render(data)
+    sizes = [float(n.get('font-size')) for n in ET.fromstring(svg).iter('{http://www.w3.org/2000/svg}text')]
+    assert min(sizes) >= 11.5
+
+
+def test_detector_inset_reads_the_certified_sector_law(data):
+    bad = deepcopy(data)
+    bad['attachment']['same_time_scalar_records']['-1']['occupied'] = '1/2'
+    assert '1 of 2 runs, twist present' in build.render(bad)
+    assert '3 of 4 runs, twist present' in build.render(data)
+
+
+def test_dependency_strip_follows_the_register(data):
+    done = [n['status'] == 'finite_constructed' for n in data['nodes']]
+    assert done[:3] == [True, True, True] and not any(done[3:])
+
+
+def test_evidence_panel_uses_receipts_and_keeps_domains_separate(data):
+    svg = build.render(data)
+    text = ' '.join(''.join(ET.fromstring(svg).itertext()).split())
+    assert '22,531 native pulses' in text
+    assert 'Source-derived GeV mass table: empty' in text
+    assert 'rare empty-matter sector' in text
+    assert 'separate supplied contact action' in text
+    assert 'Static fusion is not a moving collision' in text
+    assert '18 named targets; no identified species' in text
+    changed = deepcopy(data)
+    changed['candidates']['collision_status']['separate_contact_extension']['native_pulses'] = 12345
+    assert '12,345 native pulses' in build.render(changed)
+    assert 'Repair treats every seam alike, so momentum is conserved' not in text
+    assert 'that standing cost is the defect’s rest energy' not in text
+
+
+def test_candidate_mass_promotion_is_rejected(monkeypatch):
+    original = build.receipt
+
+    def promoted(path):
+        value = original(path)
+        if path == build.CANDIDATES:
+            value['mass_predictions_GeV'] = [{'electron': '0.000511'}]
+        return value
+    monkeypatch.setattr(build, 'receipt', promoted)
+    with pytest.raises(ValueError, match='candidate map changed'):
+        build.load()
+
+
+def test_broken_producer_custody_is_rejected(monkeypatch):
+    monkeypatch.setattr(build, 'sha', lambda _: '0' * 64)
+    with pytest.raises(ValueError, match='stale source custody'):
+        build.receipt(build.CANDIDATES)
+
+
+def test_a_physical_promotion_is_rejected(data, monkeypatch):
+    original = build.json.loads
+
+    def promoted(text):
+        value = original(text)
+        if isinstance(value, dict) and 'holonomy_transport' in value:
+            value['holonomy_transport']['physical_particle_assignments'] = ['electron']
+        return value
+    monkeypatch.setattr(build.json, 'loads', promoted)
+    with pytest.raises(ValueError):
+        build.load()
+
+
+def test_overflowing_text_fails_the_build():
+    c = Canvas()
+    c.text(0, 0, 'a label that is far too long for its slot', 20, maxw=40)
+    assert c.overflow and text_width('abc', 20) > 0
+
+
+def test_generated_outputs_match_their_inputs():
+    svg, audit = build.build()
+    assert build.SVG.read_text() == svg
+    assert build.AUDIT.read_text() == audit
+    assert json.loads(audit)['source_physical_identifications'] == []
+
+
+def test_png_binds_the_same_svg_and_dimensions():
+    raw = build.PNG.read_bytes()
+    assert raw[:8] == b'\x89PNG\r\n\x1a\n'
+    root = ET.fromstring(build.SVG.read_bytes())
+    assert struct.unpack('>II', raw[16:24]) == (int(root.get('width')), int(root.get('height')))
+    provenance = b'Source SVG SHA256\0' + hashlib.sha256(build.SVG.read_bytes()).hexdigest().encode()
+    assert provenance in raw

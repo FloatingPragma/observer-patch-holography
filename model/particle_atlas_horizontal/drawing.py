@@ -241,6 +241,7 @@ def render(data):
     c.items.append('</g>')
     from . import observer_wings
     observer_wings.render(c,data,height)
+    source_connections.render_candidate_wings(c,data)
     defs='<defs><marker id="arrow" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,5 L0,10 Z" fill="context-stroke"/></marker></defs>'
     # Explicit titles and descriptive text support screen readers and text search.
     total_width=W+20000
