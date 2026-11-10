@@ -59,8 +59,9 @@ not an unrestricted confinement claim.
 
 The [finite electric/magnetic source](affine_gauss_full_spectrum/PROOF.md)
 has a certified full charged ground, including transverse-field dressing.
-A [complete finite clock](affine_gauss_charged_clock/PROOF.md) measures that
-energy with every preparation and detector outcome retained. The
+A [complete finite instrument](affine_gauss_clock_observables/PROOF.md)
+measures energy, then charge position and field occupation, with every
+preparation and detector outcome retained. The
 [native attachment](native_abelian_field_join/PROOF.md) couples actual odd
 native probes to the field and proves positive original-attempt arrivals.
 These are finite source energies and motion; a relativistic species and
