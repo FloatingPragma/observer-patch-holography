@@ -14,7 +14,7 @@ def pinned_receipts(tmp_path):
     source.write_text("# fixture source\n")
     pins = {"source.py": hashlib.sha256(source.read_bytes()).hexdigest()}
     inputs = {
-        "native_defect_decision_results.json": ("scope", "sectors", "collision_candidate", "quantum_collision_survival", "transport_cost", "corrected_memory_control", "decision"),
+        "native_defect_decision_live_results.json": (),
         "particle_identification/results.json": ("verdict", "finite_inverse_response_kinetics"),
         "chiral_candidate/record_two_point_results.json": ("scope", "joint_response", "held_out_validation"),
         "chiral_candidate/results.json": ("verdict", "kinematics"),
@@ -23,6 +23,15 @@ def pinned_receipts(tmp_path):
         original = json.loads((ledger.REPO/"model/common_source"/name).read_text())
         packet = {key: deepcopy(original[key]) for key in ("schema", *fields)}
         packet["source_bindings"] = pins
+        if name == 'native_defect_decision_live_results.json':
+            packet = deepcopy(original)
+            for relative in packet['source_sha256']:
+                target = tmp_path / relative
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes((ledger.REPO / relative).read_bytes())
+            retained = tmp_path / 'model/common_source/native_defect_decision_results.json'
+            retained.parent.mkdir(parents=True, exist_ok=True)
+            retained.write_bytes((ledger.REPO / retained.relative_to(tmp_path)).read_bytes())
         if "finite_inverse_response_kinetics" in packet:
             packet["finite_inverse_response_kinetics"]["source_sha256"] = pins
         path = tmp_path/"model/common_source"/name
@@ -46,6 +55,8 @@ def test_projection_preserves_separate_objects_and_replay_boundary(pinned_receip
     assert rows["native_active_matching_memory"]["evidence"]["passive_code_escape_probability"] == {"C": "31/108", "E": "55/108"}
     assert rows["supplied_four_mode_CAR_benchmark"]["parent"] != collision["parent"]
     assert "not a fresh scientific replay" in result["verification"]
+    assert result['native_retained_evidence']['historical_documentation_pin_claimed_current'] is False
+    assert result['native_retained_evidence']['scientific_payload_exactly_preserved'] is True
 
 
 @pytest.mark.parametrize("damage", ["source", "artifact", "missing_pins", "mass_claim", "record_claim"])
@@ -62,6 +73,24 @@ def test_projection_rejects_custody_or_scope_damage(pinned_receipts, damage):
         packet["verdict"]["physical_particle_identification_complete"] = True
     else:
         packet["finite_inverse_response_kinetics"]["response_inferred_from_observer_records"] = True
+    path.write_text(json.dumps(packet))
+    with pytest.raises(ValueError):
+        ledger._particle_reconstruction_decisions(repo=pinned_receipts)
+
+
+@pytest.mark.parametrize('damage', ('science', 'type', 'coverage', 'retained'))
+def test_live_native_projection_cannot_rewrite_retained_science(pinned_receipts, damage):
+    path = pinned_receipts / 'model/common_source/native_defect_decision_live_results.json'
+    packet = json.loads(path.read_text())
+    if damage == 'science':
+        packet['carrier']['states'] = 79
+    elif damage == 'type':
+        packet['carrier']['states'] = 78.0
+    elif damage == 'coverage':
+        del packet['source_sha256'][next(iter(packet['source_sha256']))]
+    else:
+        retained = path.with_name('native_defect_decision_results.json')
+        retained.write_text(retained.read_text() + '\n')
     path.write_text(json.dumps(packet))
     with pytest.raises(ValueError):
         ledger._particle_reconstruction_decisions(repo=pinned_receipts)

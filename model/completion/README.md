@@ -148,7 +148,7 @@ Use the public repository's Python environment and run from its root:
 ```sh
 python -m model.completion.family
 python -m pytest -q -W error model/completion tools/test_completion_program.py
-python tools/build_completion_program.py --check
+python tools/build_completion_program_current.py --check
 ```
 
 The focused tests independently reconstruct native branch supports, compare
@@ -156,3 +156,12 @@ explicit history outputs with the compressed runner, check exact stationary
 residuals and support structure, verify altered-support controls and replay
 the retained receipts. Source hashes bind each result to this campaign;
 changed contracts need a new version rather than a reset of prior evidence.
+
+The current completion interface uses `tools/build_completion_program_current.py`.
+The original builder remains byte-identical for retained scientific source closures;
+the successor adds the typed joint dependency owner without accepting any gate.
+The November 11 custody record preserves the earlier dated proof records and
+authenticates the accepted-main pointer schema plus explicitly reviewed navigation
+assumption unions. Run `python -m model.completion.current_custody_renewal --check`
+for read-only custody verification; `--renew` is explicit maintenance and rejects
+source changes outside that reviewed boundary.

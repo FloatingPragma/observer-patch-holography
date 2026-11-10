@@ -1,6 +1,6 @@
 """Tests for the canonical completion-issue printer."""
 
-import build_completion_program as program
+import build_completion_program_current as program
 import print_completion_issue
 
 

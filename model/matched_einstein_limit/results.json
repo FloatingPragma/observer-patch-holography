@@ -1,21 +1,6 @@
 {
-  "schema": "oph.matched_einstein_limit.v1",
   "all_pass": true,
-  "issues": [
-    1145,
-    1146
-  ],
-  "gates": [
-    "CP-09",
-    "CP-10"
-  ],
   "frame_and_bounds": {
-    "signature": [
-      -1,
-      1,
-      1,
-      1
-    ],
     "coordinate_pairs": [
       [
         0,
@@ -57,337 +42,6 @@
         3,
         3
       ]
-    ],
-    "timelike_frame": [
-      [
-        "1",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "5/3",
-        "4/3",
-        "0",
-        "0"
-      ],
-      [
-        "5/3",
-        "-4/3",
-        "0",
-        "0"
-      ],
-      [
-        "5/3",
-        "0",
-        "4/3",
-        "0"
-      ],
-      [
-        "5/3",
-        "0",
-        "-4/3",
-        "0"
-      ],
-      [
-        "5/3",
-        "0",
-        "0",
-        "4/3"
-      ],
-      [
-        "5/3",
-        "0",
-        "0",
-        "-4/3"
-      ],
-      [
-        "3",
-        "2",
-        "2",
-        "0"
-      ],
-      [
-        "3",
-        "2",
-        "0",
-        "2"
-      ],
-      [
-        "3",
-        "0",
-        "2",
-        "2"
-      ]
-    ],
-    "design": [
-      [
-        "1",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "25/9",
-        "40/9",
-        "0",
-        "0",
-        "16/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "25/9",
-        "-40/9",
-        "0",
-        "0",
-        "16/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "25/9",
-        "0",
-        "40/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "16/9",
-        "0",
-        "0"
-      ],
-      [
-        "25/9",
-        "0",
-        "-40/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "16/9",
-        "0",
-        "0"
-      ],
-      [
-        "25/9",
-        "0",
-        "0",
-        "40/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "16/9"
-      ],
-      [
-        "25/9",
-        "0",
-        "0",
-        "-40/9",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "16/9"
-      ],
-      [
-        "9",
-        "12",
-        "12",
-        "0",
-        "4",
-        "8",
-        "0",
-        "4",
-        "0",
-        "0"
-      ],
-      [
-        "9",
-        "12",
-        "0",
-        "12",
-        "4",
-        "0",
-        "8",
-        "0",
-        "0",
-        "4"
-      ],
-      [
-        "9",
-        "0",
-        "12",
-        "12",
-        "0",
-        "0",
-        "0",
-        "4",
-        "8",
-        "4"
-      ]
-    ],
-    "inverse": [
-      [
-        "1",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "0",
-        "9/80",
-        "-9/80",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "0",
-        "0",
-        "0",
-        "9/80",
-        "-9/80",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "9/80",
-        "-9/80",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "-25/16",
-        "9/32",
-        "9/32",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "7/16",
-        "-99/320",
-        "9/320",
-        "-99/320",
-        "9/320",
-        "0",
-        "0",
-        "1/8",
-        "0",
-        "0"
-      ],
-      [
-        "7/16",
-        "-99/320",
-        "9/320",
-        "0",
-        "0",
-        "-99/320",
-        "9/320",
-        "0",
-        "1/8",
-        "0"
-      ],
-      [
-        "-25/16",
-        "0",
-        "0",
-        "9/32",
-        "9/32",
-        "0",
-        "0",
-        "0",
-        "0",
-        "0"
-      ],
-      [
-        "7/16",
-        "0",
-        "0",
-        "-99/320",
-        "9/320",
-        "-99/320",
-        "9/320",
-        "0",
-        "0",
-        "1/8"
-      ],
-      [
-        "-25/16",
-        "0",
-        "0",
-        "0",
-        "0",
-        "9/32",
-        "9/32",
-        "0",
-        "0",
-        "0"
-      ]
-    ],
-    "inverse_row_l1_norms": [
-      "1",
-      "9/40",
-      "9/40",
-      "9/40",
-      "17/8",
-      "99/80",
-      "99/80",
-      "17/8",
-      "99/80",
-      "17/8"
-    ],
-    "sharp_coordinate_infinity_norm": "17/8",
-    "sharp_charges": [
-      "-1",
-      "1",
-      "1",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0",
-      "0"
     ],
     "deleted_probe_witnesses": [
       {
@@ -541,62 +195,407 @@
         ]
       }
     ],
-    "normalizations": {
-      "radial_kernel_integral": "4*pi*ell^4/15",
-      "bulk_entropy_coefficient": "8*pi^2*ell^4/15",
-      "fixed_volume_area_coefficient": "-4*pi*ell^4/15",
-      "einstein_coupling": "2*pi/eta_star",
-      "Newton_constant_in_hbar_c_equal_one_units": "1/(4*eta_star)",
-      "component_error_bound": "255*(e_bulk+eta*e_area+e_stationarity)/(32*pi*eta*ell^4)"
-    },
+    "design": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "25/9",
+        "40/9",
+        "0",
+        "0",
+        "16/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "25/9",
+        "-40/9",
+        "0",
+        "0",
+        "16/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "25/9",
+        "0",
+        "40/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "16/9",
+        "0",
+        "0"
+      ],
+      [
+        "25/9",
+        "0",
+        "-40/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "16/9",
+        "0",
+        "0"
+      ],
+      [
+        "25/9",
+        "0",
+        "0",
+        "40/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "16/9"
+      ],
+      [
+        "25/9",
+        "0",
+        "0",
+        "-40/9",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "16/9"
+      ],
+      [
+        "9",
+        "12",
+        "12",
+        "0",
+        "4",
+        "8",
+        "0",
+        "4",
+        "0",
+        "0"
+      ],
+      [
+        "9",
+        "12",
+        "0",
+        "12",
+        "4",
+        "0",
+        "8",
+        "0",
+        "0",
+        "4"
+      ],
+      [
+        "9",
+        "0",
+        "12",
+        "12",
+        "0",
+        "0",
+        "0",
+        "4",
+        "8",
+        "4"
+      ]
+    ],
     "finite_algebraic_profiles": [
       {
-        "radius": "1",
         "area_coefficient": "2",
         "normalized_error_each": "1",
         "pi_times_component_bound": "255/16",
+        "radius": "1",
         "source_premise_instance": false
       },
       {
-        "radius": "1/2",
         "area_coefficient": "2",
         "normalized_error_each": "1/2",
         "pi_times_component_bound": "255/32",
+        "radius": "1/2",
         "source_premise_instance": false
       },
       {
-        "radius": "1/4",
         "area_coefficient": "2",
         "normalized_error_each": "1/4",
         "pi_times_component_bound": "255/64",
+        "radius": "1/4",
         "source_premise_instance": false
       },
       {
-        "radius": "1/8",
         "area_coefficient": "2",
         "normalized_error_each": "1/8",
         "pi_times_component_bound": "255/128",
+        "radius": "1/8",
         "source_premise_instance": false
       },
       {
-        "radius": "1/16",
         "area_coefficient": "2",
         "normalized_error_each": "1/16",
         "pi_times_component_bound": "255/256",
+        "radius": "1/16",
         "source_premise_instance": false
       },
       {
-        "radius": "1/32",
         "area_coefficient": "2",
         "normalized_error_each": "1/32",
         "pi_times_component_bound": "255/512",
+        "radius": "1/32",
         "source_premise_instance": false
       }
     ],
-    "profile_checks_prove_a_source_refinement": false
+    "inverse": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "9/80",
+        "-9/80",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "9/80",
+        "-9/80",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "9/80",
+        "-9/80",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-25/16",
+        "9/32",
+        "9/32",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "7/16",
+        "-99/320",
+        "9/320",
+        "-99/320",
+        "9/320",
+        "0",
+        "0",
+        "1/8",
+        "0",
+        "0"
+      ],
+      [
+        "7/16",
+        "-99/320",
+        "9/320",
+        "0",
+        "0",
+        "-99/320",
+        "9/320",
+        "0",
+        "1/8",
+        "0"
+      ],
+      [
+        "-25/16",
+        "0",
+        "0",
+        "9/32",
+        "9/32",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "7/16",
+        "0",
+        "0",
+        "-99/320",
+        "9/320",
+        "-99/320",
+        "9/320",
+        "0",
+        "0",
+        "1/8"
+      ],
+      [
+        "-25/16",
+        "0",
+        "0",
+        "0",
+        "0",
+        "9/32",
+        "9/32",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "inverse_row_l1_norms": [
+      "1",
+      "9/40",
+      "9/40",
+      "9/40",
+      "17/8",
+      "99/80",
+      "99/80",
+      "17/8",
+      "99/80",
+      "17/8"
+    ],
+    "normalizations": {
+      "Newton_constant_in_hbar_c_equal_one_units": "1/(4*eta_star)",
+      "bulk_entropy_coefficient": "8*pi^2*ell^4/15",
+      "component_error_bound": "255*(e_bulk+eta*e_area+e_stationarity)/(32*pi*eta*ell^4)",
+      "einstein_coupling": "2*pi/eta_star",
+      "fixed_volume_area_coefficient": "-4*pi*ell^4/15",
+      "radial_kernel_integral": "4*pi*ell^4/15"
+    },
+    "profile_checks_prove_a_source_refinement": false,
+    "sharp_charges": [
+      "-1",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "sharp_coordinate_infinity_norm": "17/8",
+    "signature": [
+      -1,
+      1,
+      1,
+      1
+    ],
+    "timelike_frame": [
+      [
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "5/3",
+        "4/3",
+        "0",
+        "0"
+      ],
+      [
+        "5/3",
+        "-4/3",
+        "0",
+        "0"
+      ],
+      [
+        "5/3",
+        "0",
+        "4/3",
+        "0"
+      ],
+      [
+        "5/3",
+        "0",
+        "-4/3",
+        "0"
+      ],
+      [
+        "5/3",
+        "0",
+        "0",
+        "4/3"
+      ],
+      [
+        "5/3",
+        "0",
+        "0",
+        "-4/3"
+      ],
+      [
+        "3",
+        "2",
+        "2",
+        "0"
+      ],
+      [
+        "3",
+        "2",
+        "0",
+        "2"
+      ],
+      [
+        "3",
+        "0",
+        "2",
+        "2"
+      ]
+    ]
   },
+  "gates": [
+    "CP-09",
+    "CP-10"
+  ],
+  "issues": [
+    1145,
+    1146
+  ],
   "lean": {
-    "module": "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
+    "Lean_kernel_reexecuted_by_Python_receipt": false,
     "audited_theorems": [
       "tensor_bound",
       "residual_bound",
@@ -605,35 +604,36 @@
       "tensor_tendsto_zero",
       "lambda_constant"
     ],
-    "source_bound": true,
-    "Lean_kernel_reexecuted_by_Python_receipt": false,
+    "constructs_source_premise_instance": false,
     "kernel_check_command": "python -m model.matched_einstein_limit --lean-check",
-    "constructs_source_premise_instance": false
+    "module": "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
+    "source_bound": true
   },
+  "schema": "oph.matched_einstein_limit.v1",
   "scope": {
-    "status": "CONDITIONAL_MATCHED_REGIONAL_LIMIT",
-    "same_source_state_and_refinement_required": true,
-    "actual_metric_curvature_and_action_stress_identification_required": true,
-    "common_proper_clock_and_fixed_volume_regions_required": true,
-    "regional_modular_and_entropy_area_estimates_required": true,
-    "all_ten_probes_share_one_isotropic_vacuum_reference": true,
-    "positive_spacetime_constant_area_coefficient_limit_required": true,
-    "actual_finite_deficits_required_for_nonlinear_conclusion": true,
-    "single_vacuum_tangents_imply_only_linearized_equation": true,
-    "independent_Ward_and_Bianchi_required_for_constant_Lambda": true,
-    "separate_null_tensor_balance_hypothesis_required": false,
-    "regional_source_premises_instantiated": false,
-    "reciprocal_thermal_coefficient_is_Newton_coefficient": false,
-    "finite_profiles_prove_refinement": false,
     "Einstein_dynamics_derived_from_executable_source": false,
-    "physical_gate_accepted": false
+    "actual_finite_deficits_required_for_nonlinear_conclusion": true,
+    "actual_metric_curvature_and_action_stress_identification_required": true,
+    "all_ten_probes_share_one_isotropic_vacuum_reference": true,
+    "common_proper_clock_and_fixed_volume_regions_required": true,
+    "finite_profiles_prove_refinement": false,
+    "independent_Ward_and_Bianchi_required_for_constant_Lambda": true,
+    "physical_gate_accepted": false,
+    "positive_spacetime_constant_area_coefficient_limit_required": true,
+    "reciprocal_thermal_coefficient_is_Newton_coefficient": false,
+    "regional_modular_and_entropy_area_estimates_required": true,
+    "regional_source_premises_instantiated": false,
+    "same_source_state_and_refinement_required": true,
+    "separate_null_tensor_balance_hypothesis_required": false,
+    "single_vacuum_tangents_imply_only_linearized_equation": true,
+    "status": "CONDITIONAL_MATCHED_REGIONAL_LIMIT"
   },
   "source_bindings": {
     "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean": "f0631f3c7a5ed129984d8831cc957aed870a0e63a19a4dd31e0c358081d11ecc",
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean": "4cf17368329e6237e5b3f71b444d9b95dc6607a05b24ce24ae655b7da2478971",
     "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean": "203d765793cce7050a08baf7537e6e1a98fd26217f0bdcc886c9a084cc851c67",
     "Lean/lake-manifest.json": "65c7120947e5a3ad487de7311a46f792f62dd92718e220f82fefbda2d7d3f59d",
-    "Lean/lakefile.lean": "f24f664deb382e807aadc7f0aa176671989b07f83887d2e8b78a1257d7548399",
+    "Lean/lakefile.lean": "bab220d390af699ec517bb1421f1f94484e48b4a84c776dee40bf2da7ba8b9df",
     "Lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/matched_einstein_limit/PROOF.md": "4068c59b0a3bdca143e06b5f50a338623b4810d0f20444364c4a7eac86030738",

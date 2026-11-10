@@ -15,7 +15,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import build_completion_program as builder
+import build_completion_program_current as builder
 
 
 def issue_body(stage: dict, program: dict) -> str:

@@ -6,7 +6,27 @@ from pathlib import Path
 
 import pytest
 
-import build_completion_program as program
+import build_completion_program_current as program
+
+
+def test_successor_preserves_every_retained_validation_check():
+    """The explicit owner insertion is the only load_program code change."""
+    import ast
+    import inspect
+    original = ast.parse(inspect.getsource(program.retained.load_program)).body[0]
+    current = ast.parse(inspect.getsource(program.load_program)).body[0]
+    expected = ast.parse("""
+dependency_owner = joint_dependency_owner(root, stages)
+require(dependency_owner['id'] not in campaign_by_id, 'dependency owner cannot be recast as a component campaign')
+campaign_by_id[dependency_owner['id']] = dependency_owner
+campaign_ids.add(dependency_owner['id'])
+""").body
+    index = next(i for i, row in enumerate(current.body)
+                 if isinstance(row, ast.Assign) and isinstance(row.targets[0], ast.Name)
+                 and row.targets[0].id == 'dependency_owner')
+    assert [ast.dump(r) for r in current.body[index:index + 4]] == [ast.dump(r) for r in expected]
+    del current.body[index:index + 4]
+    assert ast.dump(current) == ast.dump(original)
 
 
 @pytest.fixture
@@ -47,6 +67,16 @@ def fixture_root(tmp_path):
                 target = tmp_path/dependency
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes((program.ROOT/dependency).read_bytes())
+    # The existing joint owner is a dependency contract, with scoped local
+    # evidence, rather than a component-campaign JSON schema.
+    joint = json.loads((program.ROOT / program.JOINT_DEPENDENCY_PATH).read_text())
+    (tmp_path / program.JOINT_DEPENDENCY_PATH).write_bytes((program.ROOT / program.JOINT_DEPENDENCY_PATH).read_bytes())
+    for node in joint['nodes']:
+        for evidence in node['evidence']:
+            target = tmp_path / evidence['path']
+            if not target.exists():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text('Scoped dependency evidence: ' + evidence['path'] + '\n')
     for row in bound_rows:
         row["sha256"] = hashlib.sha256((tmp_path / row["path"]).read_bytes()).hexdigest()
     for name, value in ((program.PROGRAM, source), (program.HYPOTHESIS, hypothesis),
@@ -74,6 +104,43 @@ def test_retained_foundations_do_not_promote_integrated_gates(fixture_root):
     assert all(row["status"] in {"OPEN", "IN_PROGRESS"} for row in view["program"]["stages"])
     assert view["hypothesis"]["comparison_count_added"] == 0
     assert "not scientific gate acceptance" in view["verification"]
+
+
+@pytest.mark.parametrize('damage', ('unknown_id', 'unsupported_gate', 'node_status', 'finite_domain',
+                                  'assumption_omission', 'extension', 'recast'))
+def test_joint_dependency_owner_is_typed_and_cannot_promote_physics(fixture_root, damage):
+    path = fixture_root / program.PROGRAM
+    data = json.loads(path.read_text())
+    rows = [row for stage in data['stages'] for row in stage.get('progress_evidence', [])
+            if row.get('campaign_id') == program.JOINT_DEPENDENCY_ID]
+    if damage == 'unknown_id':
+        rows[-1]['campaign_id'] = 'UNREGISTERED-CONTRACT'
+    elif damage == 'unsupported_gate':
+        stage = next(s for s in data['stages'] if s['id'] == 'CP-02')
+        stage.setdefault('progress_evidence', []).append(deepcopy(rows[-1]))
+    elif damage == 'recast':
+        duplicate = deepcopy(data['component_campaigns'][0])
+        duplicate['id'] = program.JOINT_DEPENDENCY_ID
+        data['component_campaigns'].append(duplicate)
+    else:
+        graph_path = fixture_root / program.JOINT_DEPENDENCY_PATH
+        graph = json.loads(graph_path.read_text())
+        if damage == 'node_status':
+            graph['nodes'][4]['status'] = 'finite_constructed'
+        elif damage == 'finite_domain':
+            graph['nodes'][0]['domain'] = 'All physical continuum theories'
+        elif damage == 'assumption_omission':
+            for node in graph['nodes']:
+                node['conditional_assumptions'] = []
+        else:
+            graph['conditional_candidate']['discharges_primary_physical_dependencies'] = True
+        graph_path.write_text(json.dumps(graph))
+        for row in rows:
+            if row['path'] == program.JOINT_DEPENDENCY_PATH:
+                row['sha256'] = hashlib.sha256(graph_path.read_bytes()).hexdigest()
+    path.write_text(json.dumps(data))
+    with pytest.raises(ValueError):
+        program.load_program(fixture_root, allow_unlinked=True)
 
 
 @pytest.mark.parametrize("damage", ["cycle", "missing_dependency", "duplicate_owner",

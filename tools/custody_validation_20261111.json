@@ -1,0 +1,140 @@
+{
+  "schema": "oph.custody_maintenance_validation.v1",
+  "authority_date": "2026-11-11",
+  "immutable_custody_anchor": "bd5e6ba80bb3e24c09c6e2289e9b72a627a039fa",
+  "science_checkpoint": "28fca39d1",
+  "validation_python": "3.13.7",
+  "whole_CI_passed": false,
+  "scientific_gate_statuses_changed": false,
+  "historical_evidence_rewritten": false,
+  "source_renewal": "Only enumerated live targets; all nonrenewable binding values retain immutable accepted-main hashes.",
+  "checks": {
+    "focused_interface_tests": {
+      "status": "PASS",
+      "passed": 112,
+      "session_log": "oph-custody-successor-final-tests.log",
+      "log_sha256": "794e2d9c247b19e51424d23eea6e095bbdfbddd57ee1a04b62dc4323d54dde14",
+      "last_line": "112 passed in 304.92s (0:05:04)"
+    },
+    "complete_completion_and_clock_subset": {
+      "status": "FAIL_EXISTING_CUSTODY_CONTRACTS",
+      "passed": 703,
+      "failed": 20,
+      "errors": 28,
+      "session_log": "oph-custody-completion-final-tests.log",
+      "log_sha256": "18b259bb44426a322fd74a565ef0de96167608652cf5f839735816dc30d1c143",
+      "last_line": "20 failed, 703 passed, 28 errors in 185.85s (0:03:05)"
+    },
+    "native_live_and_projection_tests": {
+      "status": "PASS",
+      "passed": 22,
+      "session_log": "oph-custody-native-live-final-tests.log",
+      "log_sha256": "3c1f4990a6d304c6b2a2a39f427ca6d26488d4d4246b0f9d46c372db9bab2874",
+      "last_line": "22 passed in 3.55s"
+    },
+    "current_contract_checks": {
+      "status": "PASS",
+      "commands": 10,
+      "session_log": "oph-custody-final-contract-checks.log",
+      "log_sha256": "d877fe30b849afbda42f3fb95236e62ecec82657c08089d5c0c894de8564e3b6",
+      "last_line": "Verified live source custody and exact retained native-defect scientific payload"
+    },
+    "independent_complete_observer_review": {
+      "status": "PASS",
+      "complete_endpoint_instruments": 120,
+      "raw_blocks_including_zeros": 3000,
+      "checked_branch_matrix_units": 802080,
+      "session_log": "oph-custody-independent-program-review.log",
+      "log_sha256": "dc29e3f282ad665b8552c8fd6165c299575712cba17f98b55089357bad6e8c20",
+      "last_line": "}"
+    },
+    "matched_einstein_tests": {
+      "status": "PASS",
+      "passed": 36,
+      "session_log": "oph-matched-einstein-custody-tests.log",
+      "log_sha256": "9c76e6aa47cffc45e279b65657b575c8a975b9bc6ef23928d08c82ad9dafc50a",
+      "last_line": "36 passed in 0.25s"
+    },
+    "matched_einstein_lean_replay": {
+      "status": "PASS",
+      "session_log": "oph-matched-einstein-custody-lean.log",
+      "log_sha256": "7a483522a6f06d370a954e95d877604b9884705c21204e89f49950ff11068931",
+      "last_line": "}"
+    },
+    "independent_postdictions_tests": {
+      "status": "PASS",
+      "passed": 145,
+      "session_log": "oph-custody-independent-postdictions-final.log",
+      "log_sha256": "b05e8244fdc2dd9a768a5aee07affee88a1bf4a8c4d2b169a0cb324b3abf42bc",
+      "last_line": "145 passed in 28.20s"
+    },
+    "ledger_regeneration": {
+      "status": "FAIL_EXISTING_CUSTODY_CONTRACT",
+      "session_log": "oph-custody-postdiction-ledger-final.log",
+      "log_sha256": "0512ea3055f940d83e14bdf9e5e569f0c64d8a4d75ce175b273deb4799772a48",
+      "last_line": "ValueError: particle reconstruction source custody changed: docs/research/OPH_PARTICLE_MASS_RESPONSE.md"
+    },
+    "root_native_program_tests": {
+      "status": "PASS",
+      "passed": 138,
+      "session_log": "oph-native-programs-final-tests.log",
+      "log_sha256": "cf1661ae21a30b548603476ee5c27ae74176a20fadb15afff44ce435fe66af75",
+      "last_line": "138 passed in 33.82s"
+    },
+    "root_whitney_tests": {
+      "status": "PASS",
+      "passed": 61,
+      "session_log": "oph-whitney-final-tests.log",
+      "log_sha256": "299129d58a4c91fd20503d35e22541efac16f1b2965177a61b10526668539a4d",
+      "last_line": "61 passed in 298.99s (0:04:58)"
+    },
+    "root_read_selection_updates_tests": {
+      "status": "PASS",
+      "passed": 329,
+      "session_log": "oph-read-selection-updates-tests.log",
+      "log_sha256": "fc2d3bea3abe4b98d6f776731eba46236e58e9a8d5a4a8bfdd14fe8dfb3ad13f",
+      "last_line": "329 passed in 29.22s"
+    },
+    "root_read_acceptance_tests": {
+      "status": "PASS",
+      "passed": 226,
+      "session_log": "oph-read-acceptance-tests.log",
+      "log_sha256": "9d81399397431c5e3c170852868573b13fefe2bceb0c36b03f59d97c619aa44d",
+      "last_line": "226 passed in 106.64s (0:01:46)"
+    }
+  },
+  "historical_files_unchanged_from_science_checkpoint": {
+    "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
+    "model/completion/custody_renewal.py": "530bb2b93fcb7753cc3ed251b5c1ff076c48fafb49fdbf7d4436592a65abc56e",
+    "model/completion/custody_renewal_20261107.json": "7105f90d98135976add47d11d2b371d3e1bbb20fe54b21141eca00d7dfc44bbf",
+    "model/common_source/native_defect_decision_results.json": "77065a134b14867e5e5426172249608a17ff19413fa7e8b89043c2377bfcb862",
+    "model/native_quantum_defects/results.json": "3a34a40b3f5857c442d8934f29f7392189b02291f0ecc948c8baa3321a155418",
+    "model/completion/campaign.json": "3328d8bc91e58bcb6643a79db451a8cd9217650d860b44aa6edcea9fdc209b75",
+    "model/completion/theorem_map.json": "4c64cec4dd0252f7b3d8c8e16b26a8498404cd1e9c496bc679555b33a92ed05d",
+    "model/clock_defect_energy/contract.py": "c6ca5b9964c9958f482d55458c3cad7503b7e3c7398ddfb9c88c6348e56935f2",
+    "model/clock_defect_energy/campaign.json": "4bd2fe9e3905f66170587af34bffbd5328f98d6cd7f26392eb541aaeb9ed9910",
+    "model/common_source/chiral_candidate/results.json": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a"
+  },
+  "remaining_blockers": [
+    {
+      "owner": "model/completion/theorem_map.json",
+      "source": "model/CONSTRUCTION.md",
+      "consequence": "1 failure in model/completion; retained reviewed-source digest differs from document bytes."
+    },
+    {
+      "owner": "model/clock_defect_energy/contract.py",
+      "source": "docs/research/OPH_FIELD_RECONSTRUCTION.md",
+      "consequence": "19 failures and28 setup errors: frozen predecessor compatibility requires the retained native control documentation pin to match the worktree. Its retained bytes are preserved."
+    },
+    {
+      "owner": "model/common_source/chiral_candidate/results.json",
+      "source": "docs/research/OPH_PARTICLE_MASS_RESPONSE.md",
+      "consequence": "Postdiction ledger regeneration refuses the changed source digest; generated ledger outputs were not written."
+    }
+  ],
+  "live_native_command": "python3 tools/renew_native_defect_live.py --renew",
+  "live_native_check": "python3 tools/renew_native_defect_live.py --check",
+  "current_completion_check": "python3 tools/build_completion_program_current.py --check",
+  "custody_check": "python3 -m model.completion.current_custody_renewal --check",
+  "independent_postdictions_command": "PYTHONPATH=code python3 -m independent_postdictions.build"
+}

@@ -10,6 +10,7 @@ on:
       - 'docs/COMPLETION_PROGRAM.md'
       - 'docs/OPH_EXECUTABLE_HYPOTHESIS.md'
       - 'tools/build_completion_program.py'
+      - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
       - 'model/charged_composite_search/**'
@@ -137,6 +138,7 @@ on:
       - 'docs/COMPLETION_PROGRAM.md'
       - 'docs/OPH_EXECUTABLE_HYPOTHESIS.md'
       - 'tools/build_completion_program.py'
+      - 'tools/build_completion_program_current.py'
       - 'tools/test_completion_program.py'
       - 'model/completion/**'
       - 'model/charged_composite_search/**'
@@ -276,7 +278,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
-      - run: python tools/build_completion_program.py --check
+      - run: python tools/build_completion_program_current.py --check
       - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
       - run: python -m model.completion.acceptance_audit --check
       - run: python -m model.completion.program_class_v2 --check

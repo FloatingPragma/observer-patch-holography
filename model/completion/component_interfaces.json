@@ -245,7 +245,7 @@
     "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
     "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
     "Lean/lake-manifest.json": "65c7120947e5a3ad487de7311a46f792f62dd92718e220f82fefbda2d7d3f59d",
-    "Lean/lakefile.lean": "f24f664deb382e807aadc7f0aa176671989b07f83887d2e8b78a1257d7548399",
+    "Lean/lakefile.lean": "bab220d390af699ec517bb1421f1f94484e48b4a84c776dee40bf2da7ba8b9df",
     "Lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
     "code/P_derivation/interval_contraction_certificate.py": "4c8191fce843fb3ef69e1a12b690682744c94c6669b68239ea3192fbff2a8493",
     "code/P_derivation/paper_math.py": "bda031185dca55e54f4c6c0c020e9fac2e2ba5db5193998135f294898af620b8",
@@ -1299,7 +1299,7 @@
     "model/matched_einstein_limit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
     "model/matched_einstein_limit/frame.py": "c6b8923316be288842746f92fb7d99063f2e39bf44c6e2c8b00d98d208bee25e",
     "model/matched_einstein_limit/packet.py": "a1333f72808e4b634514e821602911f184494e85c47de1848ae1e14cb4e1f739",
-    "model/matched_einstein_limit/results.json": "1fc551892b67f4378890e823a26e6ad1f2092b081506654928275fb76e7c324f",
+    "model/matched_einstein_limit/results.json": "95dafeb989960a6c7b66580f90150b6680e661f768bb7da69a635c75e80eb635",
     "model/matched_einstein_limit/test_frame.py": "344fe966c6f6937ab2b83985d450f2a12d288243b51ed8a095e61c3ca0e67e9e",
     "model/matrix_spectral_response/README.md": "deb3f2ae6bebb053a2897ee8176d623e7c7f6cc97f4121274cb340d9df0a9dcd",
     "model/matrix_spectral_response/__init__.py": "c7dbf55cd96961d9331b63900035e25a5705060afcdb483d2847812dca82ed9b",
@@ -1993,12 +1993,15 @@
     "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
     "tools/build_completion_program.py": "eb7e45529a4abe19f34cf21cf93c39bfbbb9b976a5d46045dac666258a13a9ab",
     "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89",
-    "tools/test_completion_program.py": "804d39e919fc2e3fcaffba16b53fb719cb4e2ba184464b758f152564362c8087",
+    "tools/test_completion_program.py": "750c3d046a356df9731e27f611866e800980852f3e34410c2373d22fb6d5fe77",
     "model/completion/finite_observable_campaign.py": "3d3fe0bd102f2b837e75fe6cb32ba2019f23bfeb7f3d458d207d6e97383f90e8",
     "model/completion/test_finite_observable_campaign.py": "244ebbb04bc18354b68ad9db15525dd712f716d92b4f1220f03dd35de754d94a",
     "model/completion/native_observation_campaign.py": "2e6a6be5589d8d3d1fed052dcd505c9a819edba922d29f231e9142ba88630d1f",
     "model/completion/test_native_observation_campaign.py": "501748916cb3bcabb75e05b14c41039b895ed9614c5d67294641198fac16b8d0",
     "model/completion/custody_renewal.py": "530bb2b93fcb7753cc3ed251b5c1ff076c48fafb49fdbf7d4436592a65abc56e",
-    "model/completion/test_custody_renewal.py": "2b4f3f231d7d746e9496eb356edeef388d286b8b839ba48c8dcf85f0f3aac18a"
+    "model/completion/test_custody_renewal.py": "8f64dfde052af8125cb9ded76f8f57581e32203b2a90ca31bcbbb14f5ef8d703",
+    "model/completion/current_custody_renewal.py": "9b8004ddb4ae0d1d0d2136d589a83864ad80ff7bccb80e2a0a5221e0c0df3da9",
+    "model/completion/custody_authority_20261111.json": "9537d11b1c352da10f0531f9bee002cc9695a307a86f1aefe831a386b45b19d4",
+    "tools/build_completion_program_current.py": "ec0a32805d7f9476b4324e977c95c08ad4faa9e3ad77bf18d6b6bfd126dbe686"
   }
 }

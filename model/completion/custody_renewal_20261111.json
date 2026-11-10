@@ -1,0 +1,59 @@
+{
+  "schema": "oph.current_custody_renewal.v2",
+  "date": "2026-11-11",
+  "authority": {
+    "path": "model/completion/custody_authority_20261111.json",
+    "sha256": "9537d11b1c352da10f0531f9bee002cc9695a307a86f1aefe831a386b45b19d4",
+    "base_commit": "bd5e6ba80bb3e24c09c6e2289e9b72a627a039fa"
+  },
+  "scope": "Live source custody and the exact owner-approved navigation append/union; no historical proof replay or new gate acceptance.",
+  "new_mathematical_acceptance": false,
+  "gate_statuses_changed": false,
+  "canonical_physical_premises_discharged": [],
+  "historical_evidence_rewritten": false,
+  "conserved_semantics": {
+    "class": "feac37c29e1fde91153d1ef0a756e439b77a009ec3a37b037939dbb9df440651",
+    "finite": "68e75807aff2f46a60bf77e82b01ba01067f393213141b12a8fe29a5948ce843",
+    "interfaces": "814aa8ca294343f3d9167cec0e1f82587517d363c15a846c2cbe8ef55b594bb0",
+    "program": "21323c62ce0341f0455f8d04390dafaa16a1635bab3d1e59516461f15ee98710",
+    "review": "04a6285b703ae7dce54fa5cd49b547860596de8edca5d5a6ea96b20cd53a0bc2",
+    "tracking": "5d1578a45759971c193332c4d71ef66b4d7cc525b020b35c38e771bdb6a2743c"
+  },
+  "live_child_evidence": {
+    "component": "matched_einstein_limit",
+    "path": "model/completion/spectrum_einstein_campaign.json",
+    "semantic_sha256": "677fc0b7245c2150b330e2812443f32853d87bdb951088db9d6a0ade505196ca",
+    "target": "model/matched_einstein_limit/results.json"
+  },
+  "classification_counts": {
+    "domains": 156,
+    "realized": 151
+  },
+  "program_pointer_schema": {
+    "locations": 813,
+    "sha256": "4ad9f08dfedf380d77742eaae6b023f1d98fdce57a34b7ec9dfc0db96a363f33",
+    "targets": 342
+  },
+  "navigation": {
+    "claim_count": 392,
+    "lean_module_count": 681,
+    "contract_coverage_sha256": "c9890a3e700e1dc24d4db148a0534045e86c8582ebe5513851cfb217f6f839b3"
+  },
+  "current_bindings": {
+    "code/a5_closure/manifests/source_current_order_sensitive_inventory.json": "85c1f49cbdcfcf4169c226e2e177298ab5e453dc969f4289fdf15a4b69376d38",
+    "model/completion/component_interfaces.json": "54ad98329500588ad09dd090a7f82c2807a77817752cbf28f14360b73055a064",
+    "model/completion/current_custody_renewal.py": "9b8004ddb4ae0d1d0d2136d589a83864ad80ff7bccb80e2a0a5221e0c0df3da9",
+    "model/completion/custody_authority_20261111.json": "9537d11b1c352da10f0531f9bee002cc9695a307a86f1aefe831a386b45b19d4",
+    "model/completion/finite_attachment_map.json": "7a7522c463229132c5e08ce982b7dd408ccf47754ac2814daca32ebe7c3dfcd8",
+    "model/completion/spectrum_einstein_campaign.json": "24d45b41a103135a1310a90bb09fba51f120af96a97cee0493b39be7a1a4403a",
+    "model/completion/test_custody_renewal.py": "8f64dfde052af8125cb9ded76f8f57581e32203b2a90ca31bcbbb14f5ef8d703",
+    "model/matched_einstein_limit/results.json": "95dafeb989960a6c7b66580f90150b6680e661f768bb7da69a635c75e80eb635",
+    "tools/build_completion_program_current.py": "ec0a32805d7f9476b4324e977c95c08ad4faa9e3ad77bf18d6b6bfd126dbe686"
+  },
+  "owning_producer": {
+    "module": "model.matched_einstein_limit.packet",
+    "scientific_payload_sha256": "6dc5b5c84b61be9eefd9862c11a52ec4be2c4497a7e5f00fffce9859e1039d27",
+    "scientific_payload_exactly_preserved": true,
+    "fresh_Lean_kernel_execution_claimed_by_this_record": false
+  }
+}

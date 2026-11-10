@@ -45,7 +45,8 @@ from typing import Any
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS.parents[2] / "tools"))
 from closed_lanes import live_owners, owner_text  # noqa: E402
-from build_completion_program import ledger_view as completion_program_view  # noqa: E402
+from build_completion_program_current import ledger_view as completion_program_view  # noqa: E402
+from renew_native_defect_live import validate_live as validate_native_defect_live  # noqa: E402
 PARTICLES = SCRIPTS.parent
 CODE = PARTICLES.parent
 REPO = CODE.parent
@@ -7212,7 +7213,7 @@ def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
     """Custody/readout projection only; canonical model.verify owns replay."""
     repo = repo.resolve()
     paths = {
-        "native": ("native_defect_decision_results.json", "oph.native_defect_decision.v1"),
+        "native": ("native_defect_decision_live_results.json", "oph.native_defect_decision.v1"),
         "particle": ("particle_identification/results.json", "oph.particle_identification.v1"),
         "record": ("chiral_candidate/record_two_point_results.json", "oph.record_two_point_joint_response.v1"),
         "chiral": ("chiral_candidate/results.json", "oph.chiral_candidate.v1"),
@@ -7232,6 +7233,8 @@ def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
         packet = json.loads(payload)
         if packet.get("schema") != schema:
             raise ValueError(f"wrong particle reconstruction schema: {name}")
+        if key == "native":
+            native_retained = validate_native_defect_live(packet, repo)
         check_pins(packet.get("source_bindings", packet.get("source_sha256")))
         if key != "native":
             artifact = packet["artifact"]
@@ -7278,7 +7281,8 @@ def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
     ]
     return {"verification": "source custody and retained artifact hashes checked; retained readout summary, not a fresh scientific replay",
             "replay_owner": "python -m model.verify", "scope": "separate object contracts; no composite spectrum or physical identification",
-            "parents": parents, "rows": rows}
+            "parents": parents, "rows": rows, "native_retained_evidence": native_retained,
+            "native_live_replay": "python3 tools/renew_native_defect_live.py --check"}
 
 
 def _finite_spectrum_comparison_rows() -> dict[str, dict[str, Any]]:
