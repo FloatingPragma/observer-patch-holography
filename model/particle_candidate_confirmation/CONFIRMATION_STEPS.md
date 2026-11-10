@@ -5,7 +5,7 @@ Candidate tests within the existing joint dependency map; no additional physical
 The six tests use one source, state, reference and clock. A finite source
 result supports a test without establishing its physical interpretation.
 
-1. **Source operator and records.** Bind the actual creation operator, conserved currents, conjugate channel and complete detector, including failure and boundary compensation.
+1. **Source operator and records.** Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.
 2. **Joint energy and momentum response.** Calculate the original populated joint spectral response using the operational translation generator and the same clock.
 3. **Physical transformation and statistics.** Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.
 4. **Interactions and distinct species.** Test the current vertices, distinguish flavors or polarizations, and retain extra modes, compensation and competing assignments.
@@ -104,7 +104,7 @@ A neutral weak/hypercharge span exists, without a physical mixing-angle or Z ass
 
 ## Higgs
 
-A Higgs-conjugate scalar composite and an even scalar loop channel exist in their stated source domains.
+The Higgs-conjugate composite supplies a neutral radial scalar with a capacity-uniform total detector bound and a separate nonzero original dynamical response. Total success includes elastic events.
 
 | Test | Required calculation |
 | --- | --- |

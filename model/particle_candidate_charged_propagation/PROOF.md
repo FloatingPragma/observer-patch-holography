@@ -27,7 +27,7 @@ weak/color singlet, with charge-six increment−6. Its constituent
 normalization and transformation matrices are those of the actual
 source; no physical lepton name is assumed.
 
-For a forward interior edge xy, take the seed
+For a source edge xy with both endpoints in the box, take the seed
 
 \[
  O_{xyps}=\chi_6(U_{xy})P_{0,xy}c_{x,p}^\dagger D_{y,s}/3.
@@ -37,8 +37,9 @@ For a forward interior edge xy, take the seed
 The charge-six character and the constant-link projector close the
 endpoint Gauss constraints. Both endpoints, the link and the opposite
 charge are retained. Compression to the native word cutoff preserves
-gauge covariance and norm. Equation(1) is defined in every member;
-outside an admitted interior bond it is zero. Its first constant-link
+gauge covariance and norm. Equation(1) is defined on actual edges in every
+member; outside the box it is zero. A bulk-aperture experiment imposes its
+additional collar below. Its first constant-link
 action is exact at word degree one.
 
 Writing N_p for the two positive-beta occupations at x, the exact
@@ -260,6 +261,13 @@ The finite Fourier labels are aperture records rather than exact
 conserved finite-box momenta. The finite theorem
 [`PeriodicMomentum`](../../Lean/QFT/PeriodicMomentum.lean) cannot replace
 the state-invariance and continuous-action proofs with a cyclic label.
+
+For an explicit finite comparison, take member10, R=Q=1, T=1/128,
+S=1/1000, k=(1,0,0) and m=0. The two-owner collar is admitted and(11)
+gives an original probability comparison error less than1/50. This
+controls the specified apparatus relative to the infinite-lattice
+regular operator at that regulator. It does not supply a state-convergence
+rate, a positive distinguished-bin probability or a particle branch.
 
 ## 6. The precise particle and capacity boundary
 

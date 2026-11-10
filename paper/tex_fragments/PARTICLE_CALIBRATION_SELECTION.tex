@@ -1224,7 +1224,10 @@ independent link characters, is
  \quad\hbox{for }YP_{D_6=2}Y\phi,\;YP_{D_6=4}Y\phi.
 \]
 Combining it with the other native and magnetic moments puts an
-$A_{1u}$ eigenvalue in $[-723.219872248,-712.489545054]$.
+$A_{1u}$ eigenvalue in
+\[
+ [-723.219872248,-712.489545054].
+\]
 Its lower endpoint exceeds the certified ground upper. With the same
 source's ground lower bound, some strictly excited $A_{1u}$ energy lies
 in $[0.54794769,15.00864937]$. This is neither a global gap nor an
@@ -1577,8 +1580,11 @@ original mixed-state detector residue is assigned to it.
 
 \paragraph{An exact checkerboard cancellation.}
 The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_staggered_response/PROOF.md}{checkerboard scalar outcome}
-uses $T_w=\sum_{x,\alpha}(-1)^{x_1+x_2+x_3}B_{x\alpha}$ and
-$K_w=T_w/(16\sqrt2)$ on the unchanged selected state. The opposite signs
+uses the unchanged selected state with
+\[
+ T_w=\sum_{x,\alpha}(-1)^{x_1+x_2+x_3}B_{x\alpha},\qquad K_w=T_w/(16\sqrt2).
+\]
+The opposite signs
 on every bond cancel the pair-creation block of $[H,T_w]-6T_w$.
 The remaining trace-zero number operator has full-Fock squared form bound
 $36D_6$, giving
@@ -1758,6 +1764,56 @@ No additional clock error is subtracted. This is a populated original
 pair-transfer window at member zero, with the connecting flux and opposite
 endpoint included. Its spatial dispersion, capacity survival and
 single-particle mass require separate estimates.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_candidate_charged_propagation/PROOF.md}{time-filtered pair calculation}
+instead starts from the ideal bare transfer weight above $37/120$ in
+$I=[39/4,135/4]$. The same occupation residual gives dressed ideal weight
+above $160801/4000000$. A normalized triangular time filter of width
+$T=1/128$ multiplies that measure by
+$\operatorname{sinc}^4(T\omega/2)$ and retains weight above $39/1000$.
+Positive midpoint weights, coherent control of the complete instrument
+and the declared Cayley clocks give original reported probability above
+$3/80$ in $[311/32,1081/32]$, after each implementation error is subtracted
+once. The retained-origin construction admits this bounded two-cell seed
+to the common regular energy/momentum algebra. Its bulk-aperture recipe
+is inactive at member zero, so the local positive weight is not a lower
+bound on that aperture or on a limiting particle residue.
+
+The \href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_candidate_composite_spectrum/PROOF.md}{complete composite spatial experiment}
+uses all forty signed components. For a normalized local contraction $A$
+of parity $p$, its neighboring graded first action is
+$G=A_x^\dagger[H,A_y]-(-1)^p[H,A_y]A_x^\dagger$.
+Exact two-cell CAR and Haar calculations give a physical witness with
+$\|G\phi_x\|^2\ge\gamma=1/972$ in every component.
+Let $\rho\ge cP_G$, $c=2^{-582407133}$, and $R\ge\|H\|$.
+At $t=c\gamma/(64R^2)$, the complete success/failure experiment followed
+by native-occupation and final-energy clocks has neighbor-minus-nonneighbor
+probability at least $ct^2\gamma/32>0$ for each fixed component and
+apparatus setting. Uniform retained component and setting labels divide
+the joint weight by forty and two, respectively. The final-energy interval lies
+above the full ground enclosure. This extremely small original-state
+bound concerns a final energy, without an initial-energy measurement;
+it supplies neither a transfer mass nor the signed original two-point
+first moment. No source preparation is replaced by the witness.
+
+For the same local composite, put $S=\sum_a\Phi_a^\dagger\Phi_a$,
+$A=S/2$ and $h=6-N_L-N_e$. The
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_candidate_scalar_gauge_response/PROOF.md}{full radial calculation}
+gives $0\le2I-S\le h$ and $0\le I-A^2\le3h/4$.
+The complete site menu $A_x/\sqrt V$, with failure retained, has total
+original probability at least $3481/160000$ for every source member,
+and greater than $383/500$ at member zero. This includes elastic response.
+The actual corner witness also obeys
+$\|[H,A]\Omega\|^2=9/(16a^2)$ and
+$\|[A,[H,A]]\Omega\|^2=27/(256a^2)$.
+For $Q_\tau=(I+i\tau H/2)^{-1}(I-i\tau H/2)$,
+$\tau=1/(64aR^2)$, use the corresponding member's bounds
+$\rho\ge cP_G$ and $R\ge\|H\|$. The complete two-record commutator instrument
+$[A,Q_\tau^\dagger A Q_\tau]/2$ has original success probability
+greater than $c\tau^2/(256a^2)$, with zero success at zero delay.
+This finite dynamical response supplies no resolved scalar mass or
+capacity-uniform inelastic residue. A physical Higgs interpretation
+requires the scalar branch and its vector and fermion interaction records.
 
 The exact local commutant of the gauge generators and every Wilson spin
 coefficient has dimension five, with one scalar per native gauge block;

@@ -9,7 +9,7 @@ from urllib.parse import unquote
 import xml.etree.ElementTree as ET
 import zlib
 
-from . import scenes_a, scenes_b
+from . import families, scenes_a, scenes_b
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
 
@@ -25,7 +25,7 @@ MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
-SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'build.py')
+SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'build.py')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -101,8 +101,8 @@ def render(data):
     y = scenes_a.hero(c, data)
     for step in (scenes_a.step1, scenes_a.step2, scenes_a.step3, scenes_a.step4,
                  scenes_b.step5, scenes_b.step67, scenes_b.step8, scenes_b.step9,
-                 scenes_b.dictionary, scenes_b.roster, scenes_b.evidence,
-                 scenes_b.standing, scenes_b.footer):
+                 scenes_b.dictionary, scenes_b.roster, families.catalogue, scenes_b.evidence, families.responses,
+                 families.confirmation, families.chronology, scenes_b.standing, scenes_b.footer):
         y = step(c, data, y + 70)
     height = round(y + 56)
     if c.overflow:

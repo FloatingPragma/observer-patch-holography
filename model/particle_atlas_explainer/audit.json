@@ -22,7 +22,7 @@
   },
   "input_sha256": {
     "model/particle_candidate_atlas/reference_values.json": "4be774c393a46957f97decbe83e11b4f42525e451a4d5293fd146e33cadef0cc",
-    "model/particle_candidate_confirmation/results.json": "078792e8dd7638297ca48fa44044ca46cdc81999fefc3d762615f4e0b5c5cae8",
+    "model/particle_candidate_confirmation/results.json": "fce0dcb30fd5b1b58a7a83fe2533feee7a241da5cf6ee9505c0ef50d69a83263",
     "model/particle_joint_reconstruction/dependencies.json": "55af921d12a0e463bfa53dd55bcc6ce6628799a41dfc982bbba3485287013b1a",
     "model/particle_observer_outputs/results.json": "ee5d817c0547075ca6d47f03c2074d593dcdf73a8f54dce49700b4006098e4c7",
     "model/particle_primary_momentum/PROOF.md": "3826a1cb7eeda3927415ee95b81e244f5ea3ed77d6815250c2eeddbee9f31e7f",
@@ -30,20 +30,21 @@
     "model/standard_model_source_map/candidates/correspondence.json": "d8eb3059031bea372b840151d19c410953da707de0c0b32ddb6c9f39d597aa82"
   },
   "layout": {
-    "height": "11685",
+    "height": "16609",
     "width": "1600"
   },
   "protected_catalogue_count": 11,
   "reference_masses_are_predictions": false,
   "renderer_sha256": {
     "__init__.py": "19ad6d36d8e6f5a107c85298751ee57f05587427970a4c125e1af1c03dc21e27",
-    "build.py": "e0235457cefbeee3af36ae624b1e056fafd3c34c69566de4a05a3c57052ed816",
+    "build.py": "5b1ae8bdaa7471c6efa92d7aa0bab7a8c117a0101147617b4b46b47ecfedd971",
     "canvas.py": "d27e63198ab2581ccb23bc9b94bab4554909382584b78a69603f1fdd4900a49b",
+    "families.py": "4f8e04d0da37f3276d4bab9e47eda6bc437ae33af4d897038c023ace03fde32d",
     "parts.py": "78ae3232eeae31aab4f00cea67aa009db0451069175e924ac8ba8d164672d2e6",
     "scenes_a.py": "a44049ecc14275887d45b347e7df75382df806846f847e78196b8e2ddad57d3e",
-    "scenes_b.py": "cdb074798c42fd4824418413d497c3208d0ea2ea07111044fc8f102e709e6e16"
+    "scenes_b.py": "7dcf4a43dd84e0a08b67bc0f020f8123c799f2e6bc91a6df9bec056f33a517fe"
   },
   "schema": "oph.particle_atlas_explainer.v3",
   "source_physical_identifications": [],
-  "svg_sha256": "9b4d65db3af7534e99ada0c26170214ec269fbdac193bc3f46d454531f90ce1c"
+  "svg_sha256": "898fe25eb65ea33d948d4c7f85d75a9195a84bf855ec7c5587cca9383f4ecdf0"
 }

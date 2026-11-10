@@ -227,6 +227,275 @@
         "zero_charged_one_point_excludes_gauge_invariant_Higgs_phase": false
       }
     },
+    "charged_propagation": {
+      "charged_joint_momentum_plan": {
+        "Cayley_subdivisions": 15725,
+        "active_source_aperture": false,
+        "bulk_error_usable_upper": "2",
+        "canonical_H_P_strongly_commute": true,
+        "canonical_energy_nonnegative": true,
+        "canonical_joint_kernel": "sinc^2(S(E-nu)) product_i sinc^2(Q(P_i-q_i))",
+        "common_countable_algebra_extension_and_subsequence": true,
+        "complete_analyzer": "positive inner triangle weights then Cartesian outer space/time Fourier rows",
+        "complete_fine_outcomes_with_retained_origin": 856875008,
+        "complete_node_instrument_half_trace_error_upper": "42407767602544041/86851112320000000000",
+        "distinguished_Fourier_bin": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "fine_outcomes_per_origin": 107109376,
+        "finite_Fourier_bin_is_a_conserved_momentum_eigenvalue": false,
+        "finite_open_source_translation_invariant": false,
+        "fixed_origin_state_replaced_by_translation_invariant_state": false,
+        "frequency_centers": {
+          "nu_over_pi": "0",
+          "q_over_pi": [
+            "1",
+            "0",
+            "0"
+          ]
+        },
+        "inactive_convention": "zero success; complete failure retained",
+        "inner_analyzer_dimension": 3347168,
+        "inner_quadrature_operator_error_upper": "22881/93720704",
+        "inner_triangle_cells": 418396,
+        "large_source_or_selector_executed": false,
+        "limiting_joint_spectral_weight_lower_proved": false,
+        "old_GNS_cyclic_subspace_embeds_and_H_P_intertwine": true,
+        "one_common_origin_retained_across_history": true,
+        "one_source_evolution_operator_error_upper": "42407767602544041/173702224640000000000",
+        "origin_geometry": {
+          "classical_origin_register_dimension": 8,
+          "collar_cells": 0,
+          "discarded_fraction": "0",
+          "large_origin_register_allocated": false,
+          "origin_H": 0,
+          "origin_count": 8,
+          "origin_distribution": "uniform on the integer cube; one origin per complete history",
+          "origin_label_bits_sufficient": 3,
+          "origin_lower_corner": [
+            0,
+            0,
+            0
+          ],
+          "origin_register_retained": true,
+          "origin_side": 2,
+          "origin_upper_exclusive": [
+            2,
+            2,
+            2
+          ],
+          "physical_collar": "0",
+          "retained_fraction": "1",
+          "source_cells": 8,
+          "source_level": 0,
+          "source_side": 2,
+          "source_spacing": "1"
+        },
+        "original_probability_comparison_upper": null,
+        "outer_Fourier_shape": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "outer_analyzer_dimension": 16,
+        "parameters": {
+          "spatial_aperture": "1",
+          "spatial_index": [
+            1,
+            0,
+            0
+          ],
+          "spatial_width": "1",
+          "time_aperture": "1/1000",
+          "time_index": 0,
+          "time_width": "1/128"
+        },
+        "quantum_reference_retained": true,
+        "regular_outer_grid_operator_error_upper": "2",
+        "same_source_bulk_bound": {
+          "Duhamel_prefactor": "22419/875",
+          "all_origins_bulk_admitted": false,
+          "all_origins_support_distance_lower": -5,
+          "crossing_interaction_norm_upper": "5088/7",
+          "finite_physical_norm_embedding_assumed": false,
+          "fixed_history_bound": "sum of the per-stage complete bounds, capped at one",
+          "one_binary_effect_complete_half_trace_bound": "min(1,sqrt(2*operator_error))",
+          "operator_error": {
+            "base": 2,
+            "exact_zero": false,
+            "negative_exponent": -1
+          },
+          "origin_conditioned_quantum_reference_retained": true,
+          "origin_count_multiplier_in_error": false,
+          "rational_exponential_margin": "-54857/3500",
+          "seed_owner_count": 2,
+          "source_time_extent": "141/16000",
+          "support_radius": "3",
+          "weighted_rate_times_spacing_upper": "5232/7"
+        },
+        "same_source_clock_energy_zero_and_preparation": true,
+        "seed": "actual Gauss-even scalar-dressed charged bond; each chosen spin/axis row has norm at most one",
+        "seed_extra_radius": "1",
+        "seed_support_owners": 2,
+        "selector_dimension": 53554688,
+        "source_norm_upper": "71340/7",
+        "source_spectral_interval": [
+          "-20184/7",
+          "71340/7"
+        ],
+        "spatial_regular_Lipschitz_per_coordinate": "2",
+        "state_subsequence_convergence_modulus_supplied": false,
+        "success_amplitude_comparison_upper": null,
+        "time_regular_Lipschitz": "256",
+        "whole_extended_GNS_Hilbert_space_equals_old_space": false
+      },
+      "filtered_original_window": {
+        "all_other_temporal_analyzer_rows_and_reference_retained": true,
+        "bare_ideal_source_result_sha256": "ea6508e0bbe889fc05c4d78914106de521c32d88adfca320d40e409522bb5630",
+        "bare_original_ideal_weight_lower": "67927786759569377667023034330548532806720434853237248185653533078220697774081832210208943531063756808071098162358127123202297104701115475962194559019321378022393763457333566905873610210020493556001036435785041986831636556096185032298404028435998699973328807526591664016223979143599537569431990846218347485789766587099846214166536826028438813496165919549321772947870851503763552349798156765250101525408261573020449037374481226055854075077172227355563525293223287231445511120758651767118704076477127518703045338688130213838924533858134849700322906213043685850546795318579292281041011947027835962291910019729005829023862911974905254852090266973857888347986381175346197769247384159319629026730264016285447664184447936839472896319912667986833676067306438482456947840906440922163855303448349014062949575025621180034966878381195328899761878640238870724894412364776429509099852097509913751427467824277691830178301813978979017648393503083952586772905035505397800166343608255715034391111222832871280581/220290542349683983622888242359789178021817491658964305956472770820273036282998904755486944381692165755623452765056557133490398210368951183457955428111539339143129397404682302401411306648898989301561930431862381160950063468178787761952373821649922291478142339325807801605552707762150876379982357617875791918328837664486323386942812160568662409962627086883805874240016798853958334548681408408950176749194261429566160451030440599728901861685539603760922607424347455453120263780948031308404249249024448434946157399588833918313023572410550769649860759248569418764130277389297671117373394420719849668780602453270320013723049748867691104220808820628853240395603969139180545050196841731203444257078077239261564333375298007704182352999165046618456996140400219566406347154252987396250575376946383795873114227117977971481548757374232766648937060089713706521468368945937081793085062906026830945016626840734027684451986907787921786444004056403333217231686308429319993764647250728006304036816442041678430208",
+        "complete_source_clock_plan": {
+          "Cayley_substeps_per_base_tick": 6849270,
+          "alias_probability_upper": 0,
+          "clock_histogram_executed": false,
+          "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+          "clock_plan": {
+            "clock_qubits": 40,
+            "clock_size": 1099511627776,
+            "complete_clock_tail_upper": "19150503518265/2305843009213693952",
+            "controlled_binary_duration_sum_over_tau": 1099511627775,
+            "maximum_clock_time_over_tau": 1099511627775,
+            "turn_margin": "1/18263040"
+          },
+          "clock_step": "7/285360",
+          "energy_resolution": "1/64",
+          "maximum_source_time_per_readout": "12514766495/464",
+          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+          "one_complete_clock_error_upper": "14660155037/480383995216896",
+          "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+          "signed_energy_center_formula": "2pi*(a if 2a<J else a-J)/(J*tau)",
+          "source_energy_zero_changed": false,
+          "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+          "source_norm_upper": "71340/7",
+          "source_spectrum_phase_radius_upper": "1/4",
+          "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e",
+          "two_complete_clock_error_upper": "14660155037/240191997608448"
+        },
+        "complete_two_clock_event_loss_upper": "41995714254467516190978361/540864295463390739597417775104",
+        "conditioned_on_temporal_success_or_probe_success": false,
+        "dressed_source_result_sha256": "3abf0c4998646f6db0721631523aae6769e27535e87c2385a515127fbb4431d3",
+        "filter_compiler": {
+          "Cayley_subdivisions": 52504,
+          "all_temporal_analyzer_and_probe_failure_records_retained": true,
+          "analyzer": "exact weighted Householder with distinguished row sqrt(weights)",
+          "comparison_failure_channels_assumed_equal": false,
+          "complete_finite_node_instrument_half_trace_error_upper": "1891028552625/61966766275821568",
+          "continuous_success_column_quadrature_error_upper": "22881/1499529472",
+          "distinguished_original_event_probability_error_upper": "2373613072662814599/25926616159355502854144",
+          "distinguished_success_column_amplitude_error_upper": "2373613072662814599/51853232318711005708288",
+          "energy_zero_changed": false,
+          "fine_outcomes": 649349816,
+          "inner_time_cells": 6694328,
+          "large_source_or_selector_executed": false,
+          "local_complete_instrument_outcomes": 97,
+          "one_source_evolution_operator_error_upper": "1891028552625/123933532551643136",
+          "source_clock_changed": false,
+          "source_norm_upper": "71340/7",
+          "source_spectral_width": "91524/7",
+          "time_nodes": "even midpoint grid on [-T,T]; exact positive triangular cell weights",
+          "triangle_width": "1/128"
+        },
+        "fixed_triangle_width": "1/128",
+        "full_clock_probe_records": 785015758524408645503687239663616,
+        "ideal_transfer_interval": [
+          "39/4",
+          "135/4"
+        ],
+        "original_dressed_ideal_simple_strict_lower": "1/25",
+        "original_dressed_ideal_weight_strict_lower": "160801/4000000",
+        "original_filtered_recorded_simple_strict_lower": "3/80",
+        "original_filtered_recorded_weight_strict_lower": "17754979943578738419919720835949902935621092827896730282633/448728991448946417373414142773631212867770569805791232000000",
+        "original_residual_squared_upper": "297527459103202804254149280571176397756625146636922077968535671031552690528221407618117583026181353511842700561168188240239026912455186535704097369241180498102165362266532293931612268809986364524852963965833599295191942010695103626847336427656206107237316825272126958062481613068689038543550180736014791179500675576521478714168348405853482318810985439950312277799173238925154342836882849252506742191902555141059208775063884285408001894209509827804630024388807771251013993406224253301464026679937653468203974500486153862513174331785438499764535998055573047625901053990672278071023779169535335907142414407968620966754495413280977490796231854467356162264868496802946563950246260723431721886425982518452342601525376747544151667575895259048503789508897166901969206012528484319210344209324893907383747552316427210901478033273937160119237699887657322628705626951085568382261545045129406552367188746835318009124389786758162043403230070225259419404527637766130699887416174660605309173178907999886365653379170514457869/2861312567189597971633089811843360728561445493778137844282286957095610524924420161217020154298338062397508685103009813246414879988103999309933588107142710467806448012061193014810983693139312478648126496212909910399680566936261988584462043417406383286013205873855905772125662912500752747584141445850456366900471012350965097799859708848430868822462624092725327755874501014370078265348789405644962558264891854871493343076033281545781388313789650415159675117250653699745726486853627545264095368733787707127003851035504517926188220172191861694020554974037853962229426259900471202345695928291525836557650105757475534422879590549718034260319049751951714463878508430030820089070137646116632655239941576632706863529774495631078901055389094685654404499698573812609305934636251279056383003272816456704887116264660070041579583302690776988137742731807176902690957975779121643570938162392153785080586376875357199570599801288724504937256026235711835290285484050746274698754105587468037982932068053907006108122516981731557376",
+        "original_time_filtered_ideal_simple_strict_lower": "39/1000",
+        "original_time_filtered_ideal_weight_strict_lower": "3074459992575837384214109757841/77371252455336267181195264000000",
+        "pair_energy_divided_into_endpoint_masses": false,
+        "positive_fixed_capacity_record_is_a_surviving_continuum_pole": false,
+        "reported_transfer_interval": [
+          "311/32",
+          "1081/32"
+        ],
+        "spectral_amplitude_multiplier": "sinc^2(T omega/2)",
+        "spectral_probability_multiplier": "sinc^4(T omega/2)",
+        "time_filter_is_spatial_regularization": false,
+        "triangle_band_retention_lower": "19119657169892210771165041/19342813113834066795298816"
+      }
+    },
+    "composite_spectrum": {
+      "clock_histogram_executed": false,
+      "common_original_spatial_energy_contrast": {
+        "all_forty_components_uniform_setting_joint_weight_multiplier": "1/40",
+        "common_witness_lower": "1/972",
+        "density_floor_negative_exponent": 582407133,
+        "exponential_size_integer_or_full_source_matrix_allocated": false,
+        "neighbor_minus_nonneighbor_original_joint_probability_lower": {
+          "base": 2,
+          "negative_exponent": 1747221399,
+          "rational_prefactor": "2401/3117748945981470774023851868160000"
+        },
+        "neighbor_original_joint_event_probability_lower": {
+          "base": 2,
+          "negative_exponent": 1747221399,
+          "rational_prefactor": "2401/1558874472990735387011925934080000"
+        },
+        "nonneighbor_original_joint_event_probability_upper": {
+          "base": 2,
+          "negative_exponent": 2329628532,
+          "rational_prefactor": "2401/43099761429247851980105728225443840000"
+        },
+        "nonneighbor_to_neighbor_bound_ratio_upper": "1/27648",
+        "retained_uniform_setting_bit_joint_weight_multiplier": "1/2",
+        "same_source_clock_formula": "U_t=(I+i*t*H/2)^(-1)*(I-i*t*H/2)",
+        "source_energy_zero_changed": false,
+        "source_norm_upper": "71340/7",
+        "source_time_formula": "t=c*gamma/(64*R^2), c=2^(-N)",
+        "time": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "rational_prefactor": "49/316601121484800"
+        },
+        "uniform_in_capacity": false
+      },
+      "complete_instrument": {
+        "CAR_parity": 0,
+        "all_failed_interventions_other_sectors_and_energy_records_retained": true,
+        "failure": "sqrt(I-K* K)",
+        "final_native_occupation_projectors_complete": true,
+        "followup_records": [
+          "all five final native occupations",
+          "every final energy-clock outcome"
+        ],
+        "gauge_invariant": true,
+        "graded_success": "K=(A_x* U_t* A_y U_t - (-1)^p U_t* A_y U_t A_x*)/2",
+        "intervention_outcomes": 2,
+        "net_native_increment": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonselective_output_density_claimed_unchanged": false,
+        "original_input_density_replaced": false,
+        "quantum_reference_retained": true,
+        "scalar_event_probability_bound_is_not_joint_reference_domination": true,
+        "source_marginal_Loewner_floor_only": true
+      },
+      "component_count": 40,
+      "original_odd_neighboring_two_point_m1_value_or_sign_computed": false
+    },
     "composites": {
       "cyclic_radix": 7,
       "multiple_excitation_alias": {
@@ -262,9 +531,287 @@
         "weak_pair_charge_six+": 1,
         "weak_pair_charge_six-": -1
       }
+    },
+    "scalar_response": {
+      "local_radial_spectrum": {
+        "0": 29,
+        "1": 10,
+        "1/2": 16,
+        "2": 1,
+        "3/2": 8
+      },
+      "member_zero_simple_strict_lower": "383/500",
+      "original_radial_dynamics": {
+        "Cayley_logarithm_replaces_source_H": false,
+        "Higgs_phase_or_Lorentz_scalar_pole_proved": false,
+        "all_native_sectors_and_reference_retained": true,
+        "complete_clock_duration": "49/325721318400",
+        "complete_dynamical_outcomes": 2,
+        "dynamical_failure": "sqrt(I-K_tau^dagger K_tau)",
+        "dynamical_success_row": "K_tau=[A,Q_tau^dagger A Q_tau]/2",
+        "explicit_two_record_unitary": "[[K_tau,F],[F,K_tau]], F=sqrt(I-K_tau^dagger K_tau)",
+        "finite_time_success_is_an_energy_transfer_bin": false,
+        "ideal_positive_transfer_weight_is_a_resolved_clock_bin": false,
+        "ideal_strict_positive_transfer_weight_lower": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "rational_multiplier": "135666053737903317513622028948033233819426302014654706536792595083928593740311035904/441453032004293495587441994516117223068656498265382153343711406129791613875515836555"
+        },
+        "original_A_first_transfer_moment_lower": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "rational_multiplier": "13489081914511529855640133163975875819760100886028525107086806596916328749036640141312/2153429424411187783353375583005449868627592674465278796798592225023373726222028471"
+        },
+        "original_A_second_transfer_moment_lower": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "rational_multiplier": "9/16"
+        },
+        "original_finite_time_success_strict_lower": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "rational_multiplier": "2401/27160160578619949711360000"
+        },
+        "physical_witness": {
+          "A_double_norm_squared_coefficient": "27/256",
+          "A_first_norm_squared_coefficient": "9/16",
+          "Gauss_physical_witness": true,
+          "S_double_norm_squared_coefficient": "27/16",
+          "S_first_norm_squared_coefficient": "9/4",
+          "actual_two_cell_modes": 120,
+          "all_native_blocks_included": 5,
+          "anchor_substituted_for_selected_state": false,
+          "axes": [
+            {
+              "S_double_commutator_norm_squared": "9/16",
+              "S_first_commutator_norm_squared": "3/4",
+              "axis": 0,
+              "nonzero_native_charges": [
+                -3,
+                6
+              ],
+              "one_link_coordinates": 10
+            },
+            {
+              "S_double_commutator_norm_squared": "9/16",
+              "S_first_commutator_norm_squared": "3/4",
+              "axis": 1,
+              "nonzero_native_charges": [
+                -3,
+                6
+              ],
+              "one_link_coordinates": 10
+            },
+            {
+              "S_double_commutator_norm_squared": "9/16",
+              "S_first_commutator_norm_squared": "3/4",
+              "axis": 2,
+              "nonzero_native_charges": [
+                -3,
+                6
+              ],
+              "one_link_coordinates": 10
+            }
+          ],
+          "corner_degree": 3,
+          "one_link_cutoff_admission": true,
+          "spacing_power": -2,
+          "these_are_full_commutators_on_anchor": true
+        },
+        "selected_modular_slope": {
+          "Taylor_order": 11,
+          "beta": "22272",
+          "compared_source_time": "minus beta times the modular parameter",
+          "dyadic_scale": 536870912,
+          "exact_derivative": "K_prime(E)=beta*T_(m-1)(y(E))/T_m(y(E))",
+          "global_modular_affine_defect_range_upper": "48949243299559199965417553219666507573384213605516480241183687782445878232064/15074005970878314483473629081038149080393148721256951577590145575163616083554199297",
+          "global_modular_clock_comparison_retains_arbitrary_idle_reference": true,
+          "global_modular_clock_half_trace_error_per_unit_parameter": "24474621649779599982708776609833253786692106802758240120591843891222939116032/15074005970878314483473629081038149080393148721256951577590145575163616083554199297",
+          "modular_slope_lower": "47961180140485439486720473471914225136924803150323644825197534566813613329908053835776/2153429424411187783353375583005449868627592674465278796798592225023373726222028471",
+          "modular_slope_upper": "22272",
+          "regional_or_proper_clock_identification": false,
+          "relative_modular_slope_defect_upper": "24013295883060020795363557333912327902502563789128453078587486932663/2153429424411187783353375583005449868627592674465278796798592225023373726222028471",
+          "scaled_argument_upper": "1990647/7340032",
+          "source_state_replaced_by_exact_Gibbs": false
+        },
+        "source_H_norm_upper": "71340/7",
+        "source_clock_unitary": "Q_tau=(I+i tau H/2)^(-1)(I-i tau H/2)",
+        "source_density_floor": {
+          "base": 2,
+          "negative_exponent": 582407133,
+          "operator": "P_G"
+        },
+        "source_state_reference_clock_changed": false,
+        "success_at_time_zero": 0,
+        "uniform_centered_variance_or_inelastic_residue_proved": false,
+        "witness_is_selected_preparation": false
+      },
+      "uniform_original_total_success_lower": "3481/160000",
+      "uniform_positive_energy_success_lower_proved": false
     }
   },
-  "content_sha256": "bfcdb6b1a7c4f69943eb343d233ddff03cfee58afc10815658b062d6fbb21696",
+  "confirmation_plan": {
+    "common_sequence": [
+      {
+        "id": "operator",
+        "joint_nodes": [
+          3,
+          6
+        ],
+        "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+        "title": "Source operator and records"
+      },
+      {
+        "id": "response",
+        "joint_nodes": [
+          4,
+          5,
+          7
+        ],
+        "requirement": "Calculate the original populated joint spectral response using the operational translation generator and the same clock.",
+        "title": "Joint energy and momentum response"
+      },
+      {
+        "id": "transformation",
+        "joint_nodes": [
+          5,
+          6
+        ],
+        "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+        "title": "Physical transformation and statistics"
+      },
+      {
+        "id": "interaction",
+        "joint_nodes": [
+          5,
+          6,
+          7
+        ],
+        "requirement": "Test the current vertices, distinguish flavors or polarizations, and retain extra modes, compensation and competing assignments.",
+        "title": "Interactions and distinct species"
+      },
+      {
+        "id": "mass",
+        "joint_nodes": [
+          4,
+          7
+        ],
+        "requirement": "Use the appropriate threshold, resonance or renormalized mass definition and bound volume, cutoff, capacity and numerical errors.",
+        "title": "Controlled mass observable"
+      },
+      {
+        "id": "comparison",
+        "joint_nodes": [
+          8
+        ],
+        "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+        "title": "Independent physical comparison"
+      }
+    ],
+    "families": {
+      "Higgs": {
+        "interaction": "Construct consistent scalar, vector and fermion vertices. The native-number obstruction to one sharp scalar serving every bare Yukawa channel requires an explicit resolution.",
+        "mass": "Extract a scalar resonance and width around the selected physical phase; neither a scalar operator nor a zero one-point function establishes or excludes that phase.",
+        "response": "Measure a gauge-invariant scalar response and establish its populated branch in a demonstrated Higgs phase.",
+        "source_evidence": "The Higgs-conjugate composite supplies a neutral radial scalar with a capacity-uniform total detector bound and a separate nonzero original dynamical response. Total success includes elastic events.",
+        "targets": [
+          "Higgs"
+        ]
+      },
+      "W_minus": {
+        "interaction": "Test charged-current couplings, the conjugate W channel, Higgs-phase relations and inclusive decay records.",
+        "mass": "Determine a charged-vector complex-pole or specified experimental mass/width convention with radiative and finite-detector errors.",
+        "response": "Construct a charged vector resonance with its compensating charge and three physical massive-vector polarizations.",
+        "source_evidence": "The native weak lowering direction is defined; a physical massive charged vector is unassigned.",
+        "targets": [
+          "W_minus"
+        ]
+      },
+      "W_plus": {
+        "interaction": "Test charged-current couplings, the conjugate W channel, Higgs-phase relations and inclusive decay records.",
+        "mass": "Determine a charged-vector complex-pole or specified experimental mass/width convention with radiative and finite-detector errors.",
+        "response": "Construct a charged vector resonance with its compensating charge and three physical massive-vector polarizations.",
+        "source_evidence": "The native weak raising direction is defined; a physical massive charged vector is unassigned.",
+        "targets": [
+          "W_plus"
+        ]
+      },
+      "Z": {
+        "interaction": "Calculate weak/hypercharge mixing and neutral-current vertices on the same Higgs-phase construction used for the charged vectors.",
+        "mass": "Determine a neutral-vector complex-pole or specified experimental mass/width convention with controlled corrections.",
+        "response": "Construct the neutral massive vector resonance and separate it from the transverse massless electromagnetic channel.",
+        "source_evidence": "A neutral weak/hypercharge span exists, without a physical mixing-angle or Z assignment.",
+        "targets": [
+          "Z"
+        ]
+      },
+      "active_neutrinos": {
+        "interaction": "Derive the production/detection flavor dictionary, mass eigenchannels and oscillation probabilities. Specify the neutrino operator and test its lepton-number consequences.",
+        "mass": "Extract mass eigenvalues or controlled splittings and the mixing matrix; flavor names are not mass eigenstates.",
+        "response": "Construct a populated neutral weak-current channel and its energy-momentum response; a singlet composite name does not supply it.",
+        "source_evidence": "The internal weak-doublet neutral component exists. The tested neutral singlet trion has different unbroken weak-current transformations.",
+        "targets": [
+          "electron_neutrino",
+          "muon_neutrino",
+          "tau_neutrino"
+        ]
+      },
+      "charged_leptons": {
+        "interaction": "Identify electromagnetic and weak current responses and three distinct source flavor channels. Test conjugate records and allowed decays.",
+        "mass": "Specify the charged infrared threshold or resonance convention; distinguish stable electron and unstable muon/tau readouts.",
+        "response": "Resolve a charged energy-momentum threshold while retaining the opposite endpoint and flux; their total energy cannot be divided by two to define a lepton mass.",
+        "source_evidence": "A charged source spinor and its scalar dressing have complete compensated pair-energy records. Flavor labels are unassigned.",
+        "targets": [
+          "electron",
+          "muon",
+          "tau"
+        ]
+      },
+      "down_type_quarks": {
+        "interaction": "Test non-Abelian color and weak vertices, three distinct down-type flavors and charged-current mixing with the up-type channels.",
+        "mass": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; finite neutral sector bottoms are different observables.",
+        "response": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+        "source_evidence": "Exact down-type internal weights exist, with one local copy per native representation.",
+        "targets": [
+          "down",
+          "strange",
+          "bottom"
+        ]
+      },
+      "gluon": {
+        "interaction": "Derive non-Abelian self-interactions and their coupling, plus the color responses of matter. Eight algebra directions are not eight free observed particles.",
+        "mass": "Control the massless short-distance gauge-field description and infrared gauge-invariant spectrum without assigning a free gluon pole mass.",
+        "response": "Construct gauge-invariant color-field correlation and scattering records with an explicit field/gauge dictionary.",
+        "source_evidence": "Eight color-current directions exist; their undressed local adjoint currents vanish under physical Gauss compression.",
+        "targets": [
+          "gluon"
+        ]
+      },
+      "photon": {
+        "interaction": "Identify the two physical helicities and electromagnetic vertices, with longitudinal gauge redundancy and charged infrared records treated explicitly.",
+        "mass": "Bound the invariant mass at zero in the same energy-momentum convention; a finite loop energy gap is not a photon mass.",
+        "response": "Identify an unbroken electromagnetic current and populated transverse response with a massless dispersion law that survives refinement.",
+        "source_evidence": "Finite polar and axial loop channels have controlled source transitions in a rare empty-matter sector.",
+        "targets": [
+          "photon"
+        ]
+      },
+      "up_type_quarks": {
+        "interaction": "Test non-Abelian color and weak vertices, three distinct up-type flavors and charged-current mixing with the down-type channels.",
+        "mass": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; an isolated colored rest-energy pole is not required.",
+        "response": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+        "source_evidence": "Exact up-type internal weights exist, with one local copy per native representation.",
+        "targets": [
+          "up",
+          "charm",
+          "top"
+        ]
+      }
+    },
+    "neutral_composite_requirement": "Use the six signed conserved-increment labels, calculate populated joint energy/momentum responses, attach physical currents and spin, and test interactions before any neutrino or baryon assignment. Retain the explicit multiple-excitation alias of the seven-state counter.",
+    "scope": "Candidate tests within the existing joint dependency map; no additional physical gates."
+  },
+  "content_sha256": "4cfbf5b9aa02c3990c6e64973a4eadcd7965902fb454f1b1fa260b4cfc899d5f",
   "evidence": {
     "bosons": {
       "path": "model/particle_candidate_bosons/results.json",
@@ -276,6 +823,16 @@
       "schema": "oph.particle_candidate_charged_certificate.v1",
       "sha256": "29e3c780ffbe49ca560d9e6e89cf819a28f20ece18e46759753109267beb1fad"
     },
+    "charged_propagation": {
+      "path": "model/particle_candidate_charged_propagation/results.json",
+      "schema": "oph.particle_candidate_charged_propagation.v1",
+      "sha256": "69c38ffb46b3116935e1608da9911191c928f268c26280b5459986f877c7d574"
+    },
+    "composite_spectrum": {
+      "path": "model/particle_candidate_composite_spectrum/results.json",
+      "schema": "oph.particle_candidate_composite_spectrum.v1",
+      "sha256": "0f19fb2150fe335e017bc5a55e3b8223cdab40fb76c96d20e113ce239f78e2d2"
+    },
     "composites": {
       "path": "model/particle_candidate_composites/results.json",
       "schema": "oph.particle_candidate_composites_certificate.v1",
@@ -285,9 +842,838 @@
       "path": "model/standard_model_source_map/candidates/correspondence.json",
       "schema": "oph.particle_candidate_correspondence.v1",
       "sha256": "d8eb3059031bea372b840151d19c410953da707de0c0b32ddb6c9f39d597aa82"
+    },
+    "scalar_response": {
+      "path": "model/particle_candidate_scalar_gauge_response/results.json",
+      "schema": "oph.particle_candidate_scalar_gauge_response.v1",
+      "sha256": "599001d73b4ba6bbeed68321de0a4fa1a038373d7144651c9056df3aedba99ad"
     }
   },
   "fit_parameters_used": [],
+  "labelled_catalogue": {
+    "chronology_scope": "Source stationarity is not a cosmological preparation or production history.",
+    "excitation_families": [
+      {
+        "id": "internal",
+        "label": "Internal matter weights",
+        "rows": [
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Up-type doublet component",
+            "physical_particle_id": null,
+            "source_id": "up_left",
+            "source_record": {
+              "exact": {
+                "Q6": "1",
+                "SU2_dimension": 2,
+                "SU3": "3",
+                "T3": "1/2",
+                "Y": "1/6",
+                "comparison_Q": "2/3",
+                "source_masks": [
+                  9,
+                  10,
+                  12
+                ]
+              },
+              "id": "up_left",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Down-type doublet component",
+            "physical_particle_id": null,
+            "source_id": "down_left",
+            "source_record": {
+              "exact": {
+                "Q6": "1",
+                "SU2_dimension": 2,
+                "SU3": "3",
+                "T3": "-1/2",
+                "Y": "1/6",
+                "comparison_Q": "-1/3",
+                "source_masks": [
+                  17,
+                  18,
+                  20
+                ]
+              },
+              "id": "down_left",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Conjugate up-type singlet",
+            "physical_particle_id": null,
+            "source_id": "up_right_conjugate",
+            "source_record": {
+              "exact": {
+                "Q6": "-4",
+                "SU2_dimension": 1,
+                "SU3": "3bar",
+                "T3": "0",
+                "Y": "-2/3",
+                "comparison_Q": "-2/3",
+                "source_masks": [
+                  3,
+                  5,
+                  6
+                ]
+              },
+              "id": "up_right_conjugate",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Conjugate down-type singlet",
+            "physical_particle_id": null,
+            "source_id": "down_right_conjugate",
+            "source_record": {
+              "exact": {
+                "Q6": "2",
+                "SU2_dimension": 1,
+                "SU3": "3bar",
+                "T3": "0",
+                "Y": "1/3",
+                "comparison_Q": "1/3",
+                "source_masks": [
+                  27,
+                  29,
+                  30
+                ]
+              },
+              "id": "down_right_conjugate",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Neutral lepton-doublet component",
+            "physical_particle_id": null,
+            "source_id": "neutrino_left",
+            "source_record": {
+              "exact": {
+                "Q6": "-3",
+                "SU2_dimension": 2,
+                "SU3": "1",
+                "T3": "1/2",
+                "Y": "-1/2",
+                "comparison_Q": "0",
+                "source_masks": [
+                  15
+                ]
+              },
+              "id": "neutrino_left",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Charged lepton-doublet component",
+            "physical_particle_id": null,
+            "source_id": "charged_lepton_left",
+            "source_record": {
+              "exact": {
+                "Q6": "-3",
+                "SU2_dimension": 2,
+                "SU3": "1",
+                "T3": "-1/2",
+                "Y": "-1/2",
+                "comparison_Q": "-1",
+                "source_masks": [
+                  23
+                ]
+              },
+              "id": "charged_lepton_left",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          },
+          {
+            "description": "Exact internal weights; physical Lorentz spin and flavor are unassigned.",
+            "first_physical_appearance": null,
+            "label": "Conjugate charged-lepton singlet",
+            "physical_particle_id": null,
+            "source_id": "charged_lepton_right_conjugate",
+            "source_record": {
+              "exact": {
+                "Q6": "6",
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "T3": "0",
+                "Y": "1",
+                "comparison_Q": "1",
+                "source_masks": [
+                  24
+                ]
+              },
+              "id": "charged_lepton_right_conjugate",
+              "id_origin": "existing complete_internal_component_match key",
+              "kind": "native_internal_component",
+              "native_spin_statement": "primary Dirac spin fiber; regional Gauss-complete G1 records explicitly attached only for Q6=6",
+              "physical_Lorentz_spin": null,
+              "physical_flavor": null,
+              "protected_defect_id": null,
+              "same_source_particle_sector_identified": false,
+              "source_domain": "declared M15 exterior register; same native gauge representation in the primary Wilson source"
+            }
+          }
+        ]
+      },
+      {
+        "id": "charged",
+        "label": "Charged endpoint and pair records",
+        "rows": [
+          {
+            "description": "charged-lepton-singlet-type component; conjugate endpoint has opposite charge",
+            "first_physical_appearance": null,
+            "label": "Charged regional endpoint",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_regional_fermion:regional_endpoint_irrep",
+            "source_record": {
+              "best_guess": "charged-lepton-singlet-type component; conjugate endpoint has opposite charge",
+              "comparison_hypotheses": [
+                "Q=T3+Q6/6 is the physical current dictionary",
+                "finite G1 factor becomes a relativistic spin-one-half field",
+                "a chiral, flavor and dressed charged-threshold attachment"
+              ],
+              "exact": {
+                "Q6": 6,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "Y": "1",
+                "comparison_Q": "1",
+                "complete_pair_CAR_parity": 0,
+                "regional_CAR_parity": 1,
+                "source_cube_spin": "G1"
+              },
+              "flavor_assignment": null,
+              "id": "particle_primary_regional_fermion:regional_endpoint_irrep",
+              "id_origin": "existing regional receipt field",
+              "internal_component_id": "charged_lepton_right_conjugate",
+              "kind": "actual_charged_regional_CAR_factor",
+              "mass_readout_domain": "complete pair transfer, not an endpoint mass",
+              "physical_particle_identified": false,
+              "possible_named_targets": [
+                "electron",
+                "muon",
+                "tau"
+              ],
+              "protected_defect_id": null,
+              "source_domain": "original primary member zero; complement and reference retained",
+              "source_readout": "Q6=\u00b16 and chosen-axis source-spin increments\u00b11/2; each of four raw joint rows has original pair-energy weight>1/16",
+              "status": "possible"
+            }
+          },
+          {
+            "description": "pair apparatus with retained charged endpoints; no single-photon assignment",
+            "first_physical_appearance": null,
+            "label": "Compensated pair probe",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_regional_fermion:internal_pair_probe_irreps",
+            "source_record": {
+              "best_guess": "pair apparatus with retained charged endpoints; no single-photon assignment",
+              "exact": {
+                "CAR_parity": 0,
+                "internal_probe_irreps": {
+                  "A1": 1,
+                  "T1": 3
+                },
+                "total_Q6_increment": 0
+              },
+              "id": "particle_primary_regional_fermion:internal_pair_probe_irreps",
+              "id_origin": "existing regional receipt field",
+              "kind": "complete_compensated_pair_probe",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "status": "unsupported"
+            }
+          }
+        ]
+      },
+      {
+        "id": "weak_composite",
+        "label": "Neutral weak composites",
+        "rows": [
+          {
+            "description": "neutral lepton-composite or sterile-like channel from LL e^c; not an identified active neutrino",
+            "first_physical_appearance": null,
+            "label": "Weak-pair trion (direct)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:weak_pair_charge_six:0,2,0,0,1",
+            "source_record": {
+              "best_guess": "neutral lepton-composite or sterile-like channel from LL e^c; not an identified active neutrino",
+              "exact": {
+                "CAR_parity": 1,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  0,
+                  2,
+                  0,
+                  0,
+                  1
+                ],
+                "source_cube_irreps": {
+                  "G1": 1,
+                  "H": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:weak_pair_charge_six:0,2,0,0,1",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          },
+          {
+            "description": "conjugate neutral-lepton-composite or sterile-like channel; physical antiparticle identity unproved",
+            "first_physical_appearance": null,
+            "label": "Weak-pair trion (conjugate)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:weak_pair_charge_six:0,-2,0,0,-1",
+            "source_record": {
+              "best_guess": "conjugate neutral-lepton-composite or sterile-like channel; physical antiparticle identity unproved",
+              "exact": {
+                "CAR_parity": 1,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  0,
+                  -2,
+                  0,
+                  0,
+                  -1
+                ],
+                "source_cube_irreps": {
+                  "G1": 1,
+                  "H": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:weak_pair_charge_six:0,-2,0,0,-1",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          }
+        ]
+      },
+      {
+        "id": "color_composite",
+        "label": "Neutral color composites",
+        "rows": [
+          {
+            "description": "neutral-antibaryon (antineutron-type) composite channel from u^c(d^c)^2, with the opposite increment the neutron-type conjugate",
+            "first_physical_appearance": null,
+            "label": "Color-singlet trion (direct)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:color_triple:1,0,0,2,0",
+            "source_record": {
+              "best_guess": "neutral-antibaryon (antineutron-type) composite channel from u^c(d^c)^2, with the opposite increment the neutron-type conjugate",
+              "exact": {
+                "CAR_parity": 1,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  1,
+                  0,
+                  0,
+                  2,
+                  0
+                ],
+                "source_cube_irreps": {
+                  "G1": 1,
+                  "H": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:color_triple:1,0,0,2,0",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          },
+          {
+            "description": "neutral-baryon (neutron-type) conjugate channel; physical baryon identity unproved",
+            "first_physical_appearance": null,
+            "label": "Color-singlet trion (conjugate)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:color_triple:-1,0,0,-2,0",
+            "source_record": {
+              "best_guess": "neutral-baryon (neutron-type) conjugate channel; physical baryon identity unproved",
+              "exact": {
+                "CAR_parity": 1,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  -1,
+                  0,
+                  0,
+                  -2,
+                  0
+                ],
+                "source_cube_irreps": {
+                  "G1": 1,
+                  "H": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:color_triple:-1,0,0,-2,0",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          }
+        ]
+      },
+      {
+        "id": "even_composite",
+        "label": "Neutral even composites",
+        "rows": [
+          {
+            "description": "neutral even composite channel; no selected named-particle hypothesis",
+            "first_physical_appearance": null,
+            "label": "Color determinant with singlet hole (direct)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,3,-1",
+            "source_record": {
+              "best_guess": "neutral even composite channel; no selected named-particle hypothesis",
+              "exact": {
+                "CAR_parity": 0,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  0,
+                  0,
+                  0,
+                  3,
+                  -1
+                ],
+                "source_cube_irreps": {
+                  "E": 1,
+                  "T1": 1,
+                  "T2": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,3,-1",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          },
+          {
+            "description": "neutral even composite channel; no selected named-particle hypothesis",
+            "first_physical_appearance": null,
+            "label": "Color determinant with singlet hole (conjugate)",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,-3,1",
+            "source_record": {
+              "best_guess": "neutral even composite channel; no selected named-particle hypothesis",
+              "exact": {
+                "CAR_parity": 0,
+                "Q6": 0,
+                "SU2_dimension": 1,
+                "SU3": "1",
+                "native_occupation_increment": [
+                  0,
+                  0,
+                  0,
+                  -3,
+                  1
+                ],
+                "source_cube_irreps": {
+                  "E": 1,
+                  "T1": 1,
+                  "T2": 1
+                }
+              },
+              "hypothesis_scope": "composite-family analogy conditional on physical current, baryon/lepton number and Lorentz-spin dictionaries; sign reverses the conjugate assignment",
+              "id": "particle_primary_composite_spin:color_determinant_charge_six_hole:0,0,0,-3,1",
+              "id_origin": "existing multiplet family label and signed native increment",
+              "kind": "actual_local_gauge_singlet_composite",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "Gauge-singlet and finite cube labels do not establish active weak interactions, Lorentz spin or a neutrino mass/flavor field.",
+              "status": "unsupported"
+            }
+          }
+        ]
+      },
+      {
+        "id": "gauge",
+        "label": "Gauge-sector response",
+        "rows": [
+          {
+            "description": "finite neutral collective gauge line; no named photon, gluon, Z or Higgs assignment",
+            "first_physical_appearance": null,
+            "label": "Isolated odd-parity cube-scalar cluster",
+            "physical_particle_id": null,
+            "source_id": "particle_primary_reduced_sector:isolated_A1u_cluster",
+            "source_record": {
+              "best_guess": "finite neutral collective gauge line; no named photon, gluon, Z or Higgs assignment",
+              "exact": {
+                "CAR_parity": 0,
+                "native_gauge_representation": "singlet",
+                "source_cube_irrep": "A1u",
+                "transition_interval_source_units": [
+                  "85134991/1351350",
+                  "2877526/45675"
+                ],
+                "transition_matrix_element_squared_lower": "4/49"
+              },
+              "id": "particle_primary_reduced_sector:isolated_A1u_cluster",
+              "id_origin": "existing reduced-sector receipt field",
+              "kind": "actual_isolated_gauge_transition",
+              "physical_particle_identified": false,
+              "possible_named_targets": [],
+              "protected_defect_id": null,
+              "reason": "This rare empty-matter-sector line has no physical momentum or Lorentz-spin dictionary; its original weight vanishes under the selected refinement.",
+              "status": "unsupported"
+            }
+          }
+        ]
+      }
+    ],
+    "first_appearance_order": null,
+    "physical_particle_map": [],
+    "protected_families": [
+      {
+        "id": "exchange_cover",
+        "label": "Exchange-cover memory",
+        "rows": [
+          {
+            "description": "A coherent orientation bit carries two protected charge sectors under the specified ordered-cover repair.",
+            "evidence": "model/defect_protection/README.md",
+            "first_physical_appearance": null,
+            "label": "Exchange-orientation bit",
+            "physical_particle_id": null,
+            "source_id": "ordered_exchange_charge",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/defect_protection/README.md",
+              "id": "ordered_exchange_charge",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "protected_memory_charge",
+              "protected_object": "Q=I66 tensor X, two sharp eigenvalue sectors",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "H66 with a coherent orientation bit; complete ordered-cover repair",
+              "topology": "Z2 character of the ordered exchange cover"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spin_and_memory",
+        "label": "Spin, symmetry and memory sectors",
+        "rows": [
+          {
+            "description": "A local spin operation creates two opposite conserved internal-charge channels. This charge is not identified with electric charge.",
+            "evidence": "model/defect_localization_readout/PROOF.md",
+            "first_physical_appearance": null,
+            "label": "Spin-rotation charge",
+            "physical_particle_id": null,
+            "source_id": "selected_spin_charge",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/defect_localization_readout/PROOF.md",
+              "id": "selected_spin_charge",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "conserved_symmetry_charge",
+              "protected_object": "integer U1 spin charge Q; global X parity is exp(i pi Q); local Z creates two sharp Q=+/-1 channels",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "actual eight-site selected spin cube, J=1, B=1/4; inherited two-flavor repair",
+              "topology": "global internal U1 symmetry, not a winding number or identified electric charge"
+            }
+          },
+          {
+            "description": "Repair preserves the spin information in a fixed-occupation code. Identity repair supplies no winding invariant.",
+            "evidence": "model/defect_localization_readout/PROOF.md",
+            "first_physical_appearance": null,
+            "label": "One-particle-per-site spin memory",
+            "physical_particle_id": null,
+            "source_id": "single_occupancy_spin_memory",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/defect_localization_readout/PROOF.md",
+              "id": "single_occupancy_spin_memory",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "repair_protected_algebra",
+              "protected_object": "full M256 operator algebra under repair alone",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "eight-site one-particle-per-site spin code with complete C/E repair",
+              "topology": "no topological label supplied by identity repair"
+            }
+          },
+          {
+            "description": "A specified spin family admits two canonical field pairs with one positive-energy clock. Its physical particle dictionary is unassigned.",
+            "evidence": "model/spin_joint_field_limit/PROOF.md",
+            "first_physical_appearance": null,
+            "label": "Canonical spin fields",
+            "physical_particle_id": null,
+            "source_id": "joint_positive_field_canonical_sector",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/spin_joint_field_limit/PROOF.md",
+              "id": "joint_positive_field_canonical_sector",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "constructive_field_family",
+              "protected_object": "two regular canonical pairs (Q3,P2) and (Q2,P3), with common positive-energy time and full internal U1 on their bounded histories",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "protected spin interaction H_B=J sum(S_x.S_y-1/4)-B sum epsilon_x S_x^1; supplied p=n^-2 and B=J n^-5; positive-B ground and retained H_B clock",
+              "topology": "internal source spin rotation, no spatial winding or identified electromagnetic charge"
+            }
+          },
+          {
+            "description": "A qutrit spin factor survives both the stated field dynamics and repair, with 105 multiplicity states.",
+            "evidence": "model/common_spin_protection/README.md",
+            "first_physical_appearance": null,
+            "label": "Shared spin subsystem",
+            "physical_particle_id": null,
+            "source_id": "common_hidden_spin_factor",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/common_spin_protection/README.md",
+              "id": "common_hidden_spin_factor",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "joint_noiseless_subsystem",
+              "protected_object": "at N=4, S=1, a qutrit with 105 multiplicity states, total dimension315",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "same six-site Weyl/contact field and complete charged-block repair",
+              "topology": "internal spin factor, no topological boundary invariant"
+            }
+          },
+          {
+            "description": "A rank-1820 symmetry sector is protected by the specified dynamics and repair. Its label is internal eta symmetry.",
+            "evidence": "model/cube_eta_protection/README.md",
+            "first_physical_appearance": null,
+            "label": "Eta-pairing sector",
+            "physical_particle_id": null,
+            "source_id": "cube_eta_range",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/cube_eta_protection/README.md",
+              "id": "cube_eta_range",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "joint_protected_sector",
+              "protected_object": "rank1820 image of eta+ from N4 to N6; eta>=2 sector",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "original eight-site Weyl/contact field with the stated four-dimer repair",
+              "topology": "eta symmetry representation, no spatial winding invariant"
+            }
+          }
+        ]
+      },
+      {
+        "id": "occupation_response",
+        "label": "Occupation and current responses",
+        "rows": [
+          {
+            "description": "One missing occupation can be located, while recorded transport carries the remaining spin information.",
+            "evidence": "model/source_family_compatibility/REPAIR_TRAJECTORY.md",
+            "first_physical_appearance": null,
+            "label": "Mobile vacancy with a spin record",
+            "physical_particle_id": null,
+            "source_id": "one_hole_spin_readout",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/source_family_compatibility/REPAIR_TRAJECTORY.md",
+              "id": "one_hole_spin_readout",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "scoped_repair_sector",
+              "protected_object": "hole-position projectors and internal spin information carried by the recorded signed transport; conditional block dimension 2^(V-1)",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "full two-flavour CAR repair on H_h: one empty site and one fermion at every other site; dimension V 2^(V-1)",
+              "topology": "one-unit occupation deficit, without a topological invariant or physical particle assignment"
+            }
+          },
+          {
+            "description": "Particle addition, removal and spin probes share an interacting fermion algebra with conserved source occupation.",
+            "evidence": "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md",
+            "first_physical_appearance": null,
+            "label": "Conserved-number response family",
+            "physical_particle_id": null,
+            "source_id": "centered_full_CAR_charge_response",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/source_family_compatibility/CHARGED_SPECTRAL_BANDS.md",
+              "id": "centered_full_CAR_charge_response",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "scoped_interacting_response_family",
+              "protected_object": "odd addition/removal responses and even spin observables on the same full CAR algebra; total occupation is conserved under source propagation and repair",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "fixed-coupling original Weyl/contact action with bare full-domain repair; invariant centered full-ground subsequence; the signed Hubbard chart is a separate direct local instance",
+              "topology": "source U1 charge grading, without an assigned winding invariant or Standard Model charge"
+            }
+          }
+        ]
+      },
+      {
+        "id": "spatial_winding",
+        "label": "Spatial winding textures",
+        "rows": [
+          {
+            "description": "A prescribed two-core texture has shell degrees +1 and -1 and four localized band modes. Spontaneous production from repair is not established.",
+            "evidence": "model/compact_defect_pair/PROOF.md",
+            "first_physical_appearance": null,
+            "label": "Opposite winding cores",
+            "physical_particle_id": null,
+            "source_id": "compact_opposite_texture_cores",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/compact_defect_pair/PROOF.md",
+              "id": "compact_opposite_texture_cores",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "specified_topological_background",
+              "protected_object": "opposite shell degrees +1 and -1, constant exterior, four localized band modes",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "prescribed two-core texture in the declared cubic two-spin field",
+              "topology": "genuine shell winding of the prescribed order-parameter field"
+            }
+          }
+        ]
+      },
+      {
+        "id": "momentum_winding",
+        "label": "Momentum-space winding",
+        "rows": [
+          {
+            "description": "Eight kinetic nodes have four positive and four negative windings. A stated scaling family has a conditional free-field map; this does not identify eight observed massless species.",
+            "evidence": "model/source_family_compatibility/KINETIC_NODE_MAP.md",
+            "first_physical_appearance": null,
+            "label": "Oppositely wound Weyl nodes",
+            "physical_particle_id": null,
+            "source_id": "kinetic_Weyl_nodes_and_free_fields",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "unsupported",
+              "evidence": "model/source_family_compatibility/KINETIC_NODE_MAP.md",
+              "id": "kinetic_Weyl_nodes_and_free_fields",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "kinetic_topology_and_conditional_field_map",
+              "protected_object": "eight isolated kinetic nodes, four of winding +1 and four of winding -1; conditional free vacuum map to eight Weyl fields",
+              "reason": "This source charge or texture has no same-source Standard Model current/spin/detector attachment.",
+              "source_domain": "original cubic Weyl symbol -c sum sigma_j sin(k_j); centered full-ground family c=v/a and 0<=U=o(c^(2/7))",
+              "topology": "momentum-space kinetic winding with explicit boundary-gap stability; period-two onsite mass channels couple opposite winding sectors"
+            }
+          }
+        ]
+      },
+      {
+        "id": "exclusion",
+        "label": "Exclusion control",
+        "rows": [
+          {
+            "description": "The full branch commutant is scalar in the specified bare source-only domain. This entry is an exclusion, not a protected defect.",
+            "evidence": "model/completion/defect_algebra.py",
+            "first_physical_appearance": null,
+            "label": "Bare source has no nontrivial reducing charge",
+            "physical_particle_id": null,
+            "source_id": "bare_native_source",
+            "source_record": {
+              "candidate_named_targets": [],
+              "comparison_status": "excluded",
+              "evidence": "model/completion/defect_algebra.py",
+              "id": "bare_native_source",
+              "id_origin": "existing protected_defect_catalog entry",
+              "kind": "exhaustive_exclusion",
+              "protected_object": "only scalar branch-commuting charges",
+              "reason": "The complete source-only branch commutant is scalar in this specified bare domain.",
+              "source_domain": "complete all-seam C/E on H66 or H78; source-only charges",
+              "topology": "no protected source-only reducing charge in this domain"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "mass_predictions_GeV": [],
   "physical_gate_promotions": [],
   "physical_particle_map": [],
@@ -337,9 +1723,11 @@
     "Lean/ObserverPatchHolography/RepairWordSchedule.lean": "7272e15fbea5a4c1239a76f135c025221ced393a3370df706433d90b0bc6b232",
     "Lean/QFT/CPRestrictionNet.lean": "b3ed269db07de2ca6e062cf54b86762ab8d35259268d0f987d49a3ed738af146",
     "Lean/QFT/CoarseEnergyWard.lean": "b4528a425cfad5bc1a34c127023916e9de4d4b3b6d854abf9b2614709d07fa43",
+    "Lean/QFT/ColimitSelectedStateGNS.lean": "2c5e94d4676192cc3b98fe05b6a409d1f8acf4b3192dd11873a5e9360cf18932",
     "Lean/QFT/GaugeIrreducibleBorn.lean": "6e502184ce65b5133a12235ea5304c923c2934d34bd5d73b684f240e90cb43f2",
     "Lean/QFT/GroundRecordTail.lean": "650c3f7908f203e43361249f47d25210f675530d962a1a00d3bb3243e7ad5952",
     "Lean/QFT/PeriodicMomentum.lean": "140d4116b69bd777afa59ce4dc7f850a659f9d89f28f835993c830251eaeef69",
+    "Lean/QFT/ScalarRegionalTimeSlice.lean": "44a2cc2cc1b2789f6c9e694287236e8acaf0abbbd2e7ef7d1423be365fa091a7",
     "Lean/QFT/SectorInheritance.lean": "20c81f3aea240a5e96f41a8897c5b582d9bb874e197c02393a6199dd9d50e492",
     "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
     "Lean/Screen/A5FamilyBand.lean": "da86f97b63a871bedc4a5418c4b7b154ab3d354b7fdb41e9184f4c3b343e1521",
@@ -347,6 +1735,7 @@
     "Lean/Screen/A5PortModule.lean": "6bd28a569e34b9214085ed9fe8d0cbfb4cbaebf6e0d73c9626e03a28af768f17",
     "Lean/Screen/A5ResponseWordAlgebra.lean": "5575c8e696c6d0b672daa349c650f4d028194b025f1318a6b27b7526286fb0df",
     "Lean/Screen/AssembledActionComposition.lean": "c368400073a23174dc0f13c2baa44eb23e143080ef71ca582c3a3b326a5b2f9a",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "7fb6eb5e6545817d4e5c208caa36f21fa379f218c744ffbb49364e7033436579",
     "Lean/Screen/DiscreteGauss.lean": "d276dbb8d1c1fcb9a2dfba64750b93c5a7afda889d30c0e3dbed764fedfd9f55",
     "Lean/Screen/ElectroweakBreakingComposition.lean": "fc99eaaca6b0782595ed24289ee4fd1e9080e8108f81b4d2e6c823da72d9fc3d",
     "Lean/Screen/ExteriorComponentBridge.lean": "f33a18a2ab340e4d9862758937c4db8c6abe689fb37a4aa97c4b47e7c624726e",
@@ -1443,6 +2832,20 @@
     "model/particle_candidate_charged/model.py": "2b32c184642c902d6d00b53fd258fe60c7177795814649e025924589bbe3202d",
     "model/particle_candidate_charged/results.json": "29e3c780ffbe49ca560d9e6e89cf819a28f20ece18e46759753109267beb1fad",
     "model/particle_candidate_charged/test_model.py": "13f7e430c869285beb7a9f2907b8bbbf9a262683d3618d095a1d4fbd96b52c75",
+    "model/particle_candidate_charged_propagation/PROOF.md": "c5f11d3e4a165f0093c725b2807030360f26fa57caec353878e3d91f9877954e",
+    "model/particle_candidate_charged_propagation/README.md": "e4de121850232d67f168f4cc5e46179ee22ba809893d6ab4e06110652d92cd26",
+    "model/particle_candidate_charged_propagation/__init__.py": "eeba3c6d5072d968f5419631cac64f9b818be0968da5698c7c0d9f3ccca48940",
+    "model/particle_candidate_charged_propagation/__main__.py": "357803ae2c66eaba332e54d48d797e4d629a04488121290b12b964d0d43d519e",
+    "model/particle_candidate_charged_propagation/model.py": "47ad99c5f01cf9c305963cf9da3288a94f04b1024ce002f47be35452005646cc",
+    "model/particle_candidate_charged_propagation/results.json": "69c38ffb46b3116935e1608da9911191c928f268c26280b5459986f877c7d574",
+    "model/particle_candidate_charged_propagation/test_model.py": "be42db6a16c3fd44d5c88606d90cfb64aa767f6d2db0e7298ef7bb8ce58c658c",
+    "model/particle_candidate_composite_spectrum/PROOF.md": "e3798f69fcec1d14531c0f649d0c047089b62a498045538e204b192f53ad08a2",
+    "model/particle_candidate_composite_spectrum/README.md": "654b232194b940c82cc5f553b35cacb96e4cbf6f3d4984dadc4ee5a07ec6cd1b",
+    "model/particle_candidate_composite_spectrum/__init__.py": "29605c71d74b188bc78cef8aa6cbc49db40f34c8d5fe462b0af95b85e60ff805",
+    "model/particle_candidate_composite_spectrum/__main__.py": "442dcc880beafa0762a55731960862f571604af1aa7aca164c62a6aa97ee52ad",
+    "model/particle_candidate_composite_spectrum/model.py": "12dad583ff05c035c7d85025fc7bf2660b7437b10b6f46590cbb9c02517add94",
+    "model/particle_candidate_composite_spectrum/results.json": "0f19fb2150fe335e017bc5a55e3b8223cdab40fb76c96d20e113ce239f78e2d2",
+    "model/particle_candidate_composite_spectrum/test_model.py": "6872aadc10f07d27f8b37f4bda9f51c05c49fb7a496ad6fde39920054aa7c24f",
     "model/particle_candidate_composites/PROOF.md": "287b18417ee57b7cb03e69412eac4d8c90e9e004681e59e9beb7fc4575a05692",
     "model/particle_candidate_composites/README.md": "810e25cb4d3a45c6db3d4b04256bce5f3f554a695941b35f0cc20ebbb999828d",
     "model/particle_candidate_composites/__init__.py": "28cec7c12254a84d63998e40980918852103ffae8b044df0ca3f042dcdf0f115",
@@ -1450,12 +2853,21 @@
     "model/particle_candidate_composites/model.py": "434f6bc0d371217b794d606bbd01fbfd35d890a86c8d24a6e2644fb8db307cdc",
     "model/particle_candidate_composites/results.json": "5f657086257211742d5bb0b40378be6ebbeba24a6d7b53317f80c1dfd693f6d0",
     "model/particle_candidate_composites/test_model.py": "b33533587c7660fe4a69ce3312f7c2210f226790e53d7058c75ab52b8563afb3",
-    "model/particle_candidate_confirmation/PROOF.md": "558d7f2320ad7654238b13f266fa8e8b5410e085ef59a677f7f2955c5cdbbfb5",
-    "model/particle_candidate_confirmation/README.md": "9f3071cf869a260aad9a29c9552bca80b4c097d2da265275cc1f6c5699e2eb2c",
+    "model/particle_candidate_confirmation/PROOF.md": "a9c6b4f2d1fea0e1714f68988985648ecf4642caf1dc4efaef546ada02ee5337",
+    "model/particle_candidate_confirmation/README.md": "0338c1da2180e20641e3c549274c7c2095f0a9a26784602d3cbb8830bf3e9209",
     "model/particle_candidate_confirmation/__init__.py": "27d2753887ee5dd13e84a2df06102b1f4c99f9436a7b2af24dfb1ed67ea32c26",
-    "model/particle_candidate_confirmation/__main__.py": "17669cdcca2f153d0d98cbed43e34baa5469cd542ec2e3aa54990d249f2f6fd3",
-    "model/particle_candidate_confirmation/model.py": "27126d0ed8b3bbaf510c55b3f5bfdd85f0f6e637965408ffff18495fa48d3dec",
-    "model/particle_candidate_confirmation/test_model.py": "a9181ace406d10eabd39616ec35be8da47042d5be1b37443d1036af6208ba6cb",
+    "model/particle_candidate_confirmation/__main__.py": "5a934f7245dd50d62a7d2ade57bb6f87d3d15f348917d826e4d9e22f24ceac89",
+    "model/particle_candidate_confirmation/catalogue.py": "84f57b576fe3da239b6ff38eb7f846d4e6356e1ef49f688cf3dca177e27775c8",
+    "model/particle_candidate_confirmation/model.py": "f199ac30b53d825a176c27846ba43e62431c84e2208ccc30392c90243fadba9a",
+    "model/particle_candidate_confirmation/steps.py": "f8236538ac87049f58458c3bc12823619d4e1b96a78bf4c96f9aea6d15adf5ae",
+    "model/particle_candidate_confirmation/test_model.py": "b50c5e0652a814ce0ff490a3d5772902b9e315045357dd9140338cde7cf590d7",
+    "model/particle_candidate_scalar_gauge_response/PROOF.md": "a1496d16bba56571b8a69502b6f2ca4fe8a319bdf34b8461d87a9d9832c921a8",
+    "model/particle_candidate_scalar_gauge_response/README.md": "128f767504abc6f221d10924f9b35170c084d137626c6deb2356de248b683543",
+    "model/particle_candidate_scalar_gauge_response/__init__.py": "5cbca01fe24fdd791c46fc097eb5efa5935f02f8f75e4ee6041eb9a4255a199a",
+    "model/particle_candidate_scalar_gauge_response/__main__.py": "3e50456c5fc5eaca30db832ab3ea25cf1e020a886feebedcff06fd3d774c8040",
+    "model/particle_candidate_scalar_gauge_response/model.py": "42f88b22d0c9068e19559bcd1fc390edec7841d98c3df5c310521e43d7e9520a",
+    "model/particle_candidate_scalar_gauge_response/results.json": "599001d73b4ba6bbeed68321de0a4fa1a038373d7144651c9056df3aedba99ad",
+    "model/particle_candidate_scalar_gauge_response/test_model.py": "7ab41a9c84cf9b6f2e46d98c010ebcb3e7a41764a8cc651a835b2d27a756b24c",
     "model/particle_common_contract/PROOF.md": "50f3a5c9fe227314a00a6e79a18ca2124a7821b682a4680d86dfc5eff1082b6e",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
     "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
@@ -1490,6 +2902,7 @@
     "model/particle_identification/README.md": "49e5fc521ff20dba32ca580caa75faab63476f3fa39cb60cd83d89ac6169579c",
     "model/particle_identification/__init__.py": "823a83bed70c4eeefc4a0f25705906c0e678fc17ce2a89753368d23d66d6cd6f",
     "model/particle_identification/vacuum.py": "429c97bb37612bb1ab1ca48091cfd581967ae0516afcb84fcc9b65cee1fe3deb",
+    "model/particle_joint_reconstruction/POSITIVE_ENERGY.md": "03c489202231153fe39ae672362cd283be880cd627b47c94646d2a7c95ba7b8b",
     "model/particle_joint_reconstruction/__init__.py": "9d8121b692e8a537b2e50dfb8c125d1657547e0bf801bcd0e345cf34f3239517",
     "model/particle_joint_reconstruction/positive_energy.py": "13b9f604ce1cc7be72fde967882865afbc442f612b0c5919bf0ea07c484aa73d",
     "model/particle_local_gauge_state/__init__.py": "95dcbcf1231b08092c55beddeed565dac9f1d70b54785a52cb687ff096c3982d",
@@ -1588,6 +3001,9 @@
     "model/particle_primary_endpoint_bounds/PROOF.md": "52f2662689c49b1149a9b6d6ed67afaa88b1de1cd2fc3bc155a1dda67ce69291",
     "model/particle_primary_endpoint_bounds/__init__.py": "7fc57cc9146cdbb394e384cea53bf0ec82d35d5499ce6610ea6dfd30bfaf6c59",
     "model/particle_primary_endpoint_bounds/endpoint.py": "d72f53fae0c40604f7d4dfb515de34f4b3e6153dde352360acf0f25b27ca0d43",
+    "model/particle_primary_energy_response/PROOF.md": "5e0e8b40a5b3df1095a2718a74c3998b2b3cd3865e0f0551097d0205fb56c9bd",
+    "model/particle_primary_energy_response/__init__.py": "8015d89b91a985b0f89583bdfb0d4c3c3c5f809c646e806933611ddca84f4cea",
+    "model/particle_primary_energy_response/model.py": "313e61c21626e2f5115cd89c320d30db16dd6aecebbb13cdbedea065699aec2e",
     "model/particle_primary_field_algebra/PROOF.md": "a053b3bf69ae2c8ae3d3889429d8301669fbd3b322d781c7fd59055edee613b2",
     "model/particle_primary_field_algebra/__init__.py": "076801719ce833650e2a40e24dd0a390e84de338b8e9333488b23c7aa9f75a87",
     "model/particle_primary_field_algebra/algebra.py": "0c00d26ae7db566ecefcaaf3ee4bf90b7aa9ca5bcb12637fc907d49bc689173a",
@@ -1623,6 +3039,12 @@
     "model/particle_primary_momentum/PROOF.md": "3826a1cb7eeda3927415ee95b81e244f5ea3ed77d6815250c2eeddbee9f31e7f",
     "model/particle_primary_momentum/__init__.py": "68632ac3f52756ea362dc0a5dcfa6114d99961bf6a66dcafe182c6171a49892f",
     "model/particle_primary_momentum/momentum.py": "14cf1000c3a9c282c8184caed2a1c856ce71a96172453e04ba8f65d71017f6b8",
+    "model/particle_primary_momentum_transfer/PROOF.md": "ba7d9f3c7ee82fca314f6e569a70bf841b902a17acda7540570ceb3d83db4d61",
+    "model/particle_primary_momentum_transfer/README.md": "50cc1d3af86dc3b87523ccf6836c300e4bbd6b57fb4b5d310fc7a582930f7542",
+    "model/particle_primary_momentum_transfer/__init__.py": "f07eb884c0f0769d6aaf43fc0f446615c0c769fef2dac458d81ffb4313380151",
+    "model/particle_primary_momentum_transfer/__main__.py": "5a93d1ba38c66b22180c3b7c2c1a615f1f9a81628a517cfedf1c8c5e6d7bd869",
+    "model/particle_primary_momentum_transfer/model.py": "174b91165b139efeb04c9f547a18b239257899ee7748a67dc145c3bbb088dee2",
+    "model/particle_primary_momentum_transfer/test_model.py": "8e3370dd486093108efe9ed19b6c25f513e56f34ccd0263bf61a0e9b5e335970",
     "model/particle_primary_occupation_bound/PROOF.md": "a5f9852fbb730ed6e8ff12c48df9af31203972e4a160d6c0f4cb7e4370023188",
     "model/particle_primary_occupation_bound/__init__.py": "592441e691b97f8fd7261ad40b88067e8898524ef604cad8e4aafaf58fbc81fb",
     "model/particle_primary_occupation_bound/model.py": "b3a507b180a1ad9e9c939bc6555494374e4b8d8ff3a65e67ff9f847b4141786c",
@@ -1643,6 +3065,12 @@
     "model/particle_primary_odd_sum_rules/__main__.py": "3078e79127a96144d6c14139b1d6495c87d7f4b148146740ce0bb2a997f2c1dd",
     "model/particle_primary_odd_sum_rules/model.py": "4c65b5ba8245566ab0601a4ae40bc78f7e5dd942c6282db9e447ecdeb4826c20",
     "model/particle_primary_odd_sum_rules/test_model.py": "28dffefa5c9d1c5bf616c794c7c212e1b935c3d86f70b7e8b4b050a05f6c73a1",
+    "model/particle_primary_origin_momentum/PROOF.md": "ce11106d035d89d0c2aa74cf9935897f97cdedda73fd1a44ee6e45819187a021",
+    "model/particle_primary_origin_momentum/README.md": "f89d72c320233be2d243741fd1474554686da12aaa3c064e21760a0f52e0b354",
+    "model/particle_primary_origin_momentum/__init__.py": "2750ce9cb120bd3137b457ef26ae5e52110606e114a02f6059f94159be268f23",
+    "model/particle_primary_origin_momentum/__main__.py": "3b642cdac56b4e9bd1fae94d7c0eda36771013e23e4ab1a165cf71f020925b86",
+    "model/particle_primary_origin_momentum/model.py": "e077874dde674fdf0ec38c4babb2a88e1d9267349ffde0abeaeabc7d40a937b1",
+    "model/particle_primary_origin_momentum/test_model.py": "88fa900b0f7e43d6ff7022d693712c0c3cbf58a2219c84a6cd34fbeb8bb6a8ef",
     "model/particle_primary_original_branch/PROOF.md": "5f57fa93243ca75127f976dceb419c8612d16a4ab116dea99cd884ac8ceb19e0",
     "model/particle_primary_original_branch/README.md": "b4c0ce701c1a80a8a205e5330a440ae0ccba71297ffb3780c43479da3ef97f04",
     "model/particle_primary_original_branch/__init__.py": "5c3fd861963ab5d2101f25b8a092c41e2be4227a612fe169742ae8348ae967c3",
@@ -1696,6 +3124,7 @@
     "model/particle_primary_selected_spin_response/__main__.py": "75005be4bf980375c5011ff9d81568925d531afe0bd9967ecdef05f041c8c430",
     "model/particle_primary_selected_spin_response/model.py": "cc9c749c5d3904e8a8b124c5629aa0359f3fbea99843dfcb2b1471c9cd0dd89f",
     "model/particle_primary_selected_spin_response/test_model.py": "ce54378a37900edcfeaed77a14f1724ac8f4a6d29f46c079a7b1e0b1d0b5a9b8",
+    "model/particle_primary_spatial_algebra/PROOF.md": "178c978079a3a06be4cd37d0bc00b82428d5ba063dc6342e1594b905245852de",
     "model/particle_primary_spatial_algebra/__init__.py": "c9edba5d397e579e4385839ba0e6a2f555e2909ff8733e609021f4f16c0bca84",
     "model/particle_primary_spatial_algebra/spatial.py": "91f922f128910986d09899d2be3ce3116a584661870ecfe40a682547171eefa3",
     "model/particle_primary_spectral_resolution/PROOF.md": "6792b62cddd8b368d0d31a8cd7beb34da10b3e1f2276676279800eef9641f8ba",
@@ -2226,6 +3655,70 @@
       "actual_primary_excitation_ids": [
         "particle_primary_regional_fermion:regional_endpoint_irrep"
       ],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "A charged source spinor and its scalar dressing have complete compensated pair-energy records. Flavor labels are unassigned.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Resolve a charged energy-momentum threshold while retaining the opposite endpoint and flux; their total energy cannot be divided by two to define a lepton mass.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Identify electromagnetic and weak current responses and three distinct source flavor channels. Test conjugate records and allowed decays.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Specify the charged infrared threshold or resonance convention; distinguish stable electron and unstable muon/tau readouts.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "charged_leptons",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2235,8 +3728,10 @@
       ],
       "source_derived_mass_GeV": null,
       "source_flavor_index": null,
-      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.",
-      "supporting_receipts": [],
+      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original time-filtered pair-energy records and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.",
+      "supporting_receipts": [
+        "model/particle_candidate_charged_propagation/results.json"
+      ],
       "target": "electron",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
@@ -2244,6 +3739,70 @@
       "actual_primary_excitation_ids": [
         "particle_primary_regional_fermion:regional_endpoint_irrep"
       ],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "A charged source spinor and its scalar dressing have complete compensated pair-energy records. Flavor labels are unassigned.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Resolve a charged energy-momentum threshold while retaining the opposite endpoint and flux; their total energy cannot be divided by two to define a lepton mass.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Identify electromagnetic and weak current responses and three distinct source flavor channels. Test conjugate records and allowed decays.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Specify the charged infrared threshold or resonance convention; distinguish stable electron and unstable muon/tau readouts.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "charged_leptons",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2253,8 +3812,10 @@
       ],
       "source_derived_mass_GeV": null,
       "source_flavor_index": null,
-      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.",
-      "supporting_receipts": [],
+      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original time-filtered pair-energy records and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.",
+      "supporting_receipts": [
+        "model/particle_candidate_charged_propagation/results.json"
+      ],
       "target": "muon",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
@@ -2262,6 +3823,70 @@
       "actual_primary_excitation_ids": [
         "particle_primary_regional_fermion:regional_endpoint_irrep"
       ],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "A charged source spinor and its scalar dressing have complete compensated pair-energy records. Flavor labels are unassigned.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Resolve a charged energy-momentum threshold while retaining the opposite endpoint and flux; their total energy cannot be divided by two to define a lepton mass.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Identify electromagnetic and weak current responses and three distinct source flavor channels. Test conjugate records and allowed decays.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Specify the charged infrared threshold or resonance convention; distinguish stable electron and unstable muon/tau readouts.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "charged_leptons",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2271,13 +3896,79 @@
       ],
       "source_derived_mass_GeV": null,
       "source_flavor_index": null,
-      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.",
-      "supporting_receipts": [],
+      "source_test_summary": "A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original time-filtered pair-energy records and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.",
+      "supporting_receipts": [
+        "model/particle_candidate_charged_propagation/results.json"
+      ],
       "target": "tau",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact up-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct up-type flavors and charged-current mixing with the down-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; an isolated colored rest-energy pole is not required.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "up_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2294,6 +3985,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact up-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct up-type flavors and charged-current mixing with the down-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; an isolated colored rest-energy pole is not required.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "up_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2310,6 +4065,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact up-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct up-type flavors and charged-current mixing with the down-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; an isolated colored rest-energy pole is not required.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "up_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2326,6 +4145,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact down-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct down-type flavors and charged-current mixing with the up-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; finite neutral sector bottoms are different observables.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "down_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2342,6 +4225,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact down-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct down-type flavors and charged-current mixing with the up-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; finite neutral sector bottoms are different observables.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "down_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2358,6 +4305,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Exact down-type internal weights exist, with one local copy per native representation.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct color-dressed, gauge-invariant production/current records in a specified effective dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test non-Abelian color and weak vertices, three distinct down-type flavors and charged-current mixing with the up-type channels.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate renormalized quark masses in a declared scheme and scale with controlled physical matching; finite neutral sector bottoms are different observables.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "down_type_quarks",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2374,6 +4385,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The internal weak-doublet neutral component exists. The tested neutral singlet trion has different unbroken weak-current transformations.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct a populated neutral weak-current channel and its energy-momentum response; a singlet composite name does not supply it.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Derive the production/detection flavor dictionary, mass eigenchannels and oscillation probabilities. Specify the neutrino operator and test its lepton-number consequences.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Extract mass eigenvalues or controlled splittings and the mixing matrix; flavor names are not mass eigenstates.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "active_neutrinos",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2384,13 +4459,78 @@
       "source_flavor_index": null,
       "source_test_summary": "The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.",
       "supporting_receipts": [
-        "model/particle_candidate_composites/results.json"
+        "model/particle_candidate_composites/results.json",
+        "model/particle_candidate_composite_spectrum/results.json"
       ],
       "target": "electron_neutrino",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The internal weak-doublet neutral component exists. The tested neutral singlet trion has different unbroken weak-current transformations.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct a populated neutral weak-current channel and its energy-momentum response; a singlet composite name does not supply it.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Derive the production/detection flavor dictionary, mass eigenchannels and oscillation probabilities. Specify the neutrino operator and test its lepton-number consequences.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Extract mass eigenvalues or controlled splittings and the mixing matrix; flavor names are not mass eigenstates.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "active_neutrinos",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2401,13 +4541,78 @@
       "source_flavor_index": null,
       "source_test_summary": "The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.",
       "supporting_receipts": [
-        "model/particle_candidate_composites/results.json"
+        "model/particle_candidate_composites/results.json",
+        "model/particle_candidate_composite_spectrum/results.json"
       ],
       "target": "muon_neutrino",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The internal weak-doublet neutral component exists. The tested neutral singlet trion has different unbroken weak-current transformations.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct a populated neutral weak-current channel and its energy-momentum response; a singlet composite name does not supply it.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Derive the production/detection flavor dictionary, mass eigenchannels and oscillation probabilities. Specify the neutrino operator and test its lepton-number consequences.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Extract mass eigenvalues or controlled splittings and the mixing matrix; flavor names are not mass eigenstates.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "active_neutrinos",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2418,13 +4623,78 @@
       "source_flavor_index": null,
       "source_test_summary": "The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.",
       "supporting_receipts": [
-        "model/particle_candidate_composites/results.json"
+        "model/particle_candidate_composites/results.json",
+        "model/particle_candidate_composite_spectrum/results.json"
       ],
       "target": "tau_neutrino",
       "test_receipt": "model/particle_candidate_charged/results.json"
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Finite polar and axial loop channels have controlled source transitions in a rare empty-matter sector.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Identify an unbroken electromagnetic current and populated transverse response with a massless dispersion law that survives refinement.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Identify the two physical helicities and electromagnetic vertices, with longitudinal gauge redundancy and charged infrared records treated explicitly.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bound the invariant mass at zero in the same energy-momentum convention; a finite loop energy gap is not a photon mass.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "photon",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2440,6 +4710,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "Eight color-current directions exist; their undressed local adjoint currents vanish under physical Gauss compression.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct gauge-invariant color-field correlation and scattering records with an explicit field/gauge dictionary.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Derive non-Abelian self-interactions and their coupling, plus the color responses of matter. Eight algebra directions are not eight free observed particles.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Control the massless short-distance gauge-field description and infrared gauge-invariant spectrum without assigning a free gluon pole mass.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "gluon",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2455,6 +4789,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The native weak raising direction is defined; a physical massive charged vector is unassigned.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct a charged vector resonance with its compensating charge and three physical massive-vector polarizations.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test charged-current couplings, the conjugate W channel, Higgs-phase relations and inclusive decay records.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Determine a charged-vector complex-pole or specified experimental mass/width convention with radiative and finite-detector errors.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "W_plus",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2470,6 +4868,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The native weak lowering direction is defined; a physical massive charged vector is unassigned.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct a charged vector resonance with its compensating charge and three physical massive-vector polarizations.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Test charged-current couplings, the conjugate W channel, Higgs-phase relations and inclusive decay records.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Determine a charged-vector complex-pole or specified experimental mass/width convention with radiative and finite-detector errors.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "W_minus",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2485,6 +4947,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "A neutral weak/hypercharge span exists, without a physical mixing-angle or Z assignment.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct the neutral massive vector resonance and separate it from the transverse massless electromagnetic channel.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Calculate weak/hypercharge mixing and neutral-current vertices on the same Higgs-phase construction used for the charged vectors.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Determine a neutral-vector complex-pole or specified experimental mass/width convention with controlled corrections.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "Z",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2500,6 +5026,70 @@
     },
     {
       "actual_primary_excitation_ids": [],
+      "confirmation_steps": [
+        {
+          "finite_source_evidence": "The Higgs-conjugate composite supplies a neutral radial scalar with a capacity-uniform total detector bound and a separate nonzero original dynamical response. Total success includes elastic events.",
+          "id": "operator",
+          "joint_nodes": [
+            3,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.",
+          "title": "Source operator and records"
+        },
+        {
+          "id": "response",
+          "joint_nodes": [
+            4,
+            5,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Measure a gauge-invariant scalar response and establish its populated branch in a demonstrated Higgs phase.",
+          "title": "Joint energy and momentum response"
+        },
+        {
+          "id": "transformation",
+          "joint_nodes": [
+            5,
+            6
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach physical Lorentz spin, chirality, exchange and current transformations; finite cube labels alone do not establish these.",
+          "title": "Physical transformation and statistics"
+        },
+        {
+          "id": "interaction",
+          "joint_nodes": [
+            5,
+            6,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Construct consistent scalar, vector and fermion vertices. The native-number obstruction to one sharp scalar serving every bare Yukawa channel requires an explicit resolution.",
+          "title": "Interactions and distinct species"
+        },
+        {
+          "id": "mass",
+          "joint_nodes": [
+            4,
+            7
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Extract a scalar resonance and width around the selected physical phase; neither a scalar operator nor a zero one-point function establishes or excludes that phase.",
+          "title": "Controlled mass observable"
+        },
+        {
+          "id": "comparison",
+          "joint_nodes": [
+            8
+          ],
+          "physical_confirmation_status": "unproved",
+          "requirement": "Attach one common unit convention, preserve calibration ancestry and compare complete records with experimental uncertainties.",
+          "title": "Independent physical comparison"
+        }
+      ],
       "family": "Higgs",
       "physical_identity_status": "unresolved",
       "scope": "source representation, conserved-charge and detector selection tests",
@@ -2508,9 +5098,10 @@
       ],
       "source_derived_mass_GeV": null,
       "source_flavor_index": null,
-      "source_test_summary": "An even scalar loop channel couples and a separate Higgs-conjugate composite exists; a common vacuum and radial-Higgs response are unproved.",
+      "source_test_summary": "A neutral radial scalar made from the Higgs-conjugate composite has uniform total detection and a separate nonzero finite dynamical response; a surviving inelastic Higgs branch and common physical phase are unproved.",
       "supporting_receipts": [
-        "model/particle_candidate_charged/results.json"
+        "model/particle_candidate_charged/results.json",
+        "model/particle_candidate_scalar_gauge_response/results.json"
       ],
       "target": "Higgs",
       "test_receipt": "model/particle_candidate_bosons/results.json"

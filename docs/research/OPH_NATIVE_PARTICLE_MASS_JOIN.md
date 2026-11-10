@@ -1,35 +1,36 @@
 # Native particles, currents and mass operators
 
-The [candidate confirmation steps](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
-give the required tests for each named target within the common dependency map.
+The [labelled catalogue](../../model/particle_candidate_confirmation/CATALOGUE.md)
+groups eleven protected-object entries and sixteen source excitation IDs into
+families. Conserved charges, protected memory, spatial winding and kinetic
+winding retain their distinct meanings and construction domains. The bare
+source entry is an exclusion control. No protected-object entry is identified
+with a named Standard Model particle.
+
+The [candidate confirmation plan](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
+attaches six tests to every elementary target: source operator and charges;
+populated energy-momentum response; physical transformations and statistics;
+interactions and flavor; the appropriate mass observable; and independent
+experimental comparison. These specialize the existing dependency map.
 Charged thresholds, unstable-particle resonances and renormalized quark masses
-have distinct observable definitions; a source pair-energy window supplies
-none of these identifications by unit conversion alone.
+have distinct definitions. Unit conversion supplies no species identification.
 
-The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
-separate source-channel confirmation from physical particle identification.
-A coherent seven-state counter distinguishes the six signed neutral-composite
-interventions and failure through the conserved increment of
-`S=N_-4+N_2+N_6`; it does not measure a particle name or absolute initial charge.
-A local Higgs-conjugate scalar composite gives a charged-singlet dressing with
-the same native occupation increment as a charged singlet hole. Its existence
-permits a correlation channel. A complete nine-record compensated comparison
-has original plus/minus contrast at least `2 sqrt(2) c/3`, with `rho>=c P_G`.
-This proves a shared finite source transition without locating its energy,
-supplying a Higgs-phase response or calculating a rest mass. The proved
-overlap can include elastic response; its frequency is unresolved.
-A separate full-occupation residual estimate transfers the original bare
-clock event to the dressed menu: its unconditioned reported pair-transfer
-probability is greater than `1/40` in `[77/8,271/8]` source units at member
-zero. The 96 success rows and failure keep the opposite charge and flux.
-This broad energy-window result supplies neither a rest-frame energy nor
-a uniform capacity bound.
-The six gauge-sector cube multiplets have complete loop readouts with the
-original rare-sector probability retained. Their symmetry selection rules
-identify which detector can excite a channel; physical mass requires the
-energy-momentum and population criteria below.
+| Source family | Verified calculation on the declared source | Physical attachment required |
+| --- | --- | --- |
+| Dressed charged pair | [Time-filtered complete records](../../model/particle_candidate_charged_propagation/PROOF.md) have original probability greater than `3/80` in `[311/32,1081/32]` source units at member zero. The same local seed is admitted to the canonical energy/momentum algebra. | A populated momentum-dependent branch and endpoint interpretation. The member-zero bulk aperture is inactive, so its weight cannot be inferred from the distinct local experiment. |
+| Six signed neutral composite families | [Forty component tests](../../model/particle_candidate_composite_spectrum/PROOF.md) give nonzero original neighbor-versus-nonneighbor records with retained final-energy and occupation labels. | The original two-point dispersion, physical currents and Lorentz spin. These final energies are not transfer energies or rest masses; the rigorous event floor is extremely small. |
+| Neutral radial scalar | [The complete radial detector](../../model/particle_candidate_scalar_gauge_response/PROOF.md) has total original success at least `3481/160000` throughout the family and greater than `383/500` at member zero. A separate complete two-time experiment has nonzero original response. | A surviving inelastic scalar branch and a demonstrated Higgs phase with consistent fermion/vector vertices. Total detection includes elastic response and supplies no Higgs mass. |
 
-The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+All failures, compensators and quantum references stay in their respective
+complete records. These are finite analytic and executable certificates;
+the enormous full histograms are not explicitly sampled. Physical species
+and source-derived GeV outputs are empty in the
+[checked confirmation receipt](../../model/particle_candidate_confirmation/results.json).
+
+The [particle explainer](OPH_PARTICLE_ATLAS_V3.svg) ([PNG](OPH_PARTICLE_ATLAS_V3.png))
+and [candidate atlas](OPH_PARTICLE_CANDIDATE_ATLAS.svg) show the family labels,
+finite results and physical confirmation requirements. Their maintained
+renderer is [the atlas package](../../model/particle_atlas_explainer/README.md).
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)
@@ -1039,9 +1040,9 @@ states the other source-selection requirements.
 The native loop preserves each sharp memory charge sector. Its sign
 arises from a selected moving history; every other outcome is retained.
 A localized winding core and a fermion occupying its bound mode are
-separate objects. The [endpoint close-up](OPH_PARTICLE_ATLAS_V2.html)
-shows the literal record-adaptive repair and an exact, supplied double-path
-apparatus. The declared finite link/work extension supplies an exact
+separate objects. The [particle explainer](OPH_PARTICLE_ATLAS_V3.svg)
+separates the repair examples, detector records and physical interpretation.
+The declared finite link/work extension supplies an exact
 curvature-defect creation and transport law. Identifying that curvature
 with the native protected memory, the compact winding background or a
 physical particle is a separate map.

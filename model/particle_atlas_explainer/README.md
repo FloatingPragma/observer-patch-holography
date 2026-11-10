@@ -14,8 +14,10 @@ Model spectrum. A candidate dictionary, measured roster and the ten-node
 
 Every step carries a two-part line. The teal half states what the finite
 model computes; the amber half states the link the program has to derive.
-The [horizontal atlas](../../docs/research/OPH_PARTICLE_ATLAS_V2.html) keeps
-every family chain, calibration path and proof link.
+The [source catalogue](../particle_candidate_confirmation/CATALOGUE.md) gives
+each protected object its label, family, source domain and proof. The six
+[confirmation tests](../particle_candidate_confirmation/CONFIRMATION_STEPS.md)
+specify the physical evidence required for each named candidate.
 
 The carrier drawings use the certified icosahedral coordinates and the
 recorded creation and transport run of
@@ -45,5 +47,18 @@ python -m pytest -q model/particle_atlas_explainer
 both outputs. The PNG embeds its source SVG digest. `--slices DIR` writes
 1000-unit viewBox slices for visual review. The SVG is standalone and dark;
 its animations stop under reduced-motion settings. The renderer consumes
-`build.py`, `canvas.py`, `parts.py`, `scenes_a.py` and `scenes_b.py`. The
+`build.py`, `canvas.py`, `parts.py`, `scenes_a.py`, `scenes_b.py` and `families.py`. The
 separate `card.py` is not part of this atlas or its source closure.
+
+The public [candidate atlas](../../docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg)
+is owned by the leaf renderer below. It retains the numerical atlas produced by
+`model.particle_candidate_atlas` with unchanged rendered contents inside its enlarged canvas and
+adds the authenticated source-family catalogue and confirmation steps. The
+immutable numerical producer and its audit retain their scientific domain;
+its standalone SVG comparison command does not own this augmented public view.
+The leaf audit binds both the numerical rendering and the candidate receipt.
+
+```sh
+python -m model.particle_atlas_explainer.candidate_view --write
+python -m model.particle_atlas_explainer.candidate_view --check
+```

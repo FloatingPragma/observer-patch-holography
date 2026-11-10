@@ -692,7 +692,7 @@ LINKS = (('Book, chapter 6: the leftover', '../../book/07-chapter-06.md'),
          ('Source charge and spin records', '../../model/particle_primary_regional_fermion/PROOF.md'),
          ('Equal work need not preserve finite energy', '../../model/particle_primary_equal_work_control/PROOF.md'),
          ('The executable-model hypothesis', '../OPH_EXECUTABLE_HYPOTHESIS.md'),
-         ('Atlas V2: every family and proof link', 'OPH_PARTICLE_ATLAS_V2.html'))
+         ('Labelled source families and chronology', '../../model/particle_candidate_confirmation/CATALOGUE.md'))
 
 
 def footer(c, data, y):

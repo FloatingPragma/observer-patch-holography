@@ -20,7 +20,7 @@ def test_render_is_dark_compact_and_complete(data):
     svg = build.render(data)
     root = ET.fromstring(svg)
     assert root.get('width') == '1600'
-    assert 9000 < int(root.get('height')) < 12000
+    assert 12000 < int(root.get('height')) < 19000
     text = ' '.join(''.join(root.itertext()).split())
     for phrase in ('From a twist to a particle', 'Topological defect:', 'Why nothing local can erase it',
                    'Position is where a record is written', 'Velocity is the slope of the records',
@@ -126,3 +126,19 @@ def test_png_binds_the_same_svg_and_dimensions():
     assert struct.unpack('>II', raw[16:24]) == (int(root.get('width')), int(root.get('height')))
     provenance = b'Source SVG SHA256\0' + hashlib.sha256(build.SVG.read_bytes()).hexdigest().encode()
     assert provenance in raw
+
+
+def test_grouped_catalogue_and_current_response_bounds(data):
+    text = ' '.join(' '.join(ET.fromstring(build.render(data)).itertext()).split())
+    catalogue = data['identity_tests']['labelled_catalogue']
+    for family in catalogue['protected_families']:
+        for row in family['rows']:
+            assert row['label'] in text and row['source_id'] in text
+    assert 'Probability > 3/80' in text
+    assert 'Total probability ≥ 3481/160000' in text
+    assert '40 component witnesses' in text
+    assert 'Final energy is not transfer energy or rest mass' in text
+    assert 'A catalogue is not a cosmological birth order' in text
+    assert 'Source ID: bare_native_source' in text
+    assert 'Six tests connect a source response to a particle' in text
+    assert 'OPH_PARTICLE_ATLAS_V2' not in build.render(data)

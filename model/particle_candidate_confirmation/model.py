@@ -14,18 +14,24 @@ INPUTS = {
     'charged': 'model/particle_candidate_charged/results.json',
     'composites': 'model/particle_candidate_composites/results.json',
     'bosons': 'model/particle_candidate_bosons/results.json',
+    'charged_propagation': 'model/particle_candidate_charged_propagation/results.json',
+    'composite_spectrum': 'model/particle_candidate_composite_spectrum/results.json',
+    'scalar_response': 'model/particle_candidate_scalar_gauge_response/results.json',
 }
 SCHEMAS = {
     'dictionary': 'oph.particle_candidate_correspondence.v1',
     'charged': 'oph.particle_candidate_charged_certificate.v1',
     'composites': 'oph.particle_candidate_composites_certificate.v1',
     'bosons': 'oph.particle_candidate_bosons_certificate.v1',
+    'charged_propagation': 'oph.particle_candidate_charged_propagation.v1',
+    'composite_spectrum': 'oph.particle_candidate_composite_spectrum.v1',
+    'scalar_response': 'oph.particle_candidate_scalar_gauge_response.v1',
 }
 SOURCE_INPUTS = tuple('model/particle_candidate_confirmation/' + name for name in
                      ('__init__.py', '__main__.py', 'model.py', 'test_model.py',
                       'PROOF.md', 'README.md', 'steps.py', 'catalogue.py'))
 SOURCE_TESTS = {
-    'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.',
+    'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing with positive original time-filtered pair-energy records and an admitted canonical energy/momentum kernel; its populated particle branch and flavor are unproved.',
     'up_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
     'down_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
     'active_neutrinos': 'The native weak doublet differs from the tested neutral singlet trion; a direct current-preserving identification fails.',
@@ -34,7 +40,7 @@ SOURCE_TESTS = {
     'W_plus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
     'W_minus': 'Native charged weak directions exist; neutral loop multiplets do not identify a charged W field.',
     'Z': 'A neutral source-vector channel couples; its weak/hypercharge mixture and physical Z attachment are unproved.',
-    'Higgs': 'An even scalar loop channel couples and a separate Higgs-conjugate composite exists; a common vacuum and radial-Higgs response are unproved.',
+    'Higgs': 'A neutral radial scalar made from the Higgs-conjugate composite has uniform total detection and a separate nonzero finite dynamical response; a surviving inelastic Higgs branch and common physical phase are unproved.',
 }
 
 
@@ -124,9 +130,11 @@ def target_family(name):
 
 def supporting_receipts(name):
     if target_family(name) == 'active_neutrinos':
-        return [INPUTS['composites']]
+        return [INPUTS['composites'], INPUTS['composite_spectrum']]
+    if target_family(name) == 'charged_leptons':
+        return [INPUTS['charged_propagation']]
     if name == 'Higgs':
-        return [INPUTS['charged']]
+        return [INPUTS['charged'], INPUTS['scalar_response']]
     return []
 
 
@@ -135,6 +143,11 @@ def calculated_summary(values):
                    if b['result']['member_id'] == next(iter(expected_bindings())))
     composites = values['composites']['selected_member_bound']['result']
     bosons = values['bosons']['selected_member_bound']['result']
+    selected = lambda role: next(b['result'] for b in values[role]['members']
+                                if b['result']['member_id'] == next(iter(expected_bindings())))
+    propagation = selected('charged_propagation')
+    spectrum = values['composite_spectrum']['selected_member_bound']['result']
+    scalar = selected('scalar_response')
     return {
         'charged': {
             'local_coefficient_commutant_dimension': charged['native_coefficient_control']['gauge_and_each_Wilson_coefficient_commutant_dimension'],
@@ -156,6 +169,25 @@ def calculated_summary(values):
             'full_source_spectral_bounds': bosons['full_source_interacting_multiplet_bounds'],
             'original_row_weight': bosons['each_row_original_reported_weight_strict_lower_factored'],
             'forbidden_record_categories': bosons['forbidden_original_record_categories'],
+        },
+        'charged_propagation': {
+            'filtered_original_window': propagation['filtered_original_window'],
+            'charged_joint_momentum_plan': propagation['charged_joint_momentum_plan'],
+        },
+        'composite_spectrum': {
+            'component_count': len(spectrum['component_rows']),
+            'common_original_spatial_energy_contrast': spectrum['common_original_spatial_energy_contrast'],
+            'complete_instrument': spectrum['complete_instrument'],
+            'clock_histogram_executed': spectrum['complete_final_energy_clock']['clock_histogram_executed'],
+            'original_odd_neighboring_two_point_m1_value_or_sign_computed':
+                spectrum['original_odd_neighboring_two_point_m1_value_or_sign_computed'],
+        },
+        'scalar_response': {
+            'local_radial_spectrum': scalar['local_radial_control']['spectrum'],
+            'uniform_original_total_success_lower': scalar['complete_radial_records']['uniform_original_total_success_lower'],
+            'member_zero_simple_strict_lower': scalar['complete_radial_records']['member_zero_simple_strict_lower'],
+            'uniform_positive_energy_success_lower_proved': scalar['complete_radial_records']['uniform_positive_energy_success_lower_proved'],
+            'original_radial_dynamics': scalar['original_radial_dynamics'],
         },
     }
 
@@ -268,6 +300,8 @@ def render(value):
     facts = value['calculated_source_results']
     join = facts['charged']['original_coherent_bare_dressed_join']
     window = facts['charged']['original_compensated_dressed_energy_window']
+    filtered = facts['charged_propagation']['filtered_original_window']
+    scalar = facts['scalar_response']
     lines = ['# Candidate identity tests', '',
              'These tests distinguish source excitations and constrain their physical',
              'interpretations. No named particle or GeV mass is certified by this table.', '',
@@ -285,7 +319,19 @@ def render(value):
              '- A coherent ' + str(facts['composites']['cyclic_radix']) + '-state increment counter '
              'for the six signed composite interventions plus failure, with an explicit multiple-excitation alias.',
              '- Six interacting gauge multiplets: ' + ', '.join('`' + label + '`' for label in facts['bosons']['multiplet_dimensions'])
-             + '. Their complete source menu retains the original rare-sector probability.', '',
+             + '. Their complete source menu retains the original rare-sector probability.',
+             '- A time-filtered dressed pair has original reported probability above `'
+             + filtered['original_filtered_recorded_simple_strict_lower'] + '` in `['
+             + ','.join(filtered['reported_transfer_interval']) + ']` at member zero. '
+             'Its seed admits a canonical energy/momentum kernel. '
+             'The distinct bulk aperture is inactive at member zero, and no limiting residue is transferred.',
+             '- All ' + str(facts['composite_spectrum']['component_count'])
+             + ' neutral composite components have nonzero original spatial/final-energy '
+             'records, with explicit rare-state probability floors. Final energy is not transfer energy.',
+             '- The neutral radial scalar detector has total success at least `'
+             + scalar['uniform_original_total_success_lower'] + '` throughout the family and above `'
+             + scalar['member_zero_simple_strict_lower'] + '` at member zero. Its separate finite dynamical '
+             'response is nonzero; uniform total detection includes elastic records.', '',
              '| Target | Shared source test | Calculated discriminator | Physical identity |',
              '| --- | --- | --- | --- |']
     for row in value['target_rows']:

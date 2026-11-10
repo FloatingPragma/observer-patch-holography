@@ -70,6 +70,13 @@ def test_complete_multichannel_temporal_analyzer_retains_all_failures():
     rho=s.diag(s.Rational(2,3),s.Rational(1,3))
     probs=[s.simplify(s.trace(rho*K.H*K)) for K in rows]
     assert sum(probs)==1 and 0<probs[0]+probs[3]<1
+    purification=s.Matrix([s.sqrt(s.Rational(2,3)),0,0,s.sqrt(s.Rational(1,3))])
+    joint=s.zeros(4)
+    for K in rows:
+        vector=s.kronecker_product(K,s.eye(2))*purification
+        joint+=vector*vector.H
+    reference=s.Matrix(2,2,lambda i,j:s.simplify(sum(joint[2*k+i,2*k+j] for k in range(2))))
+    assert reference==rho
     # The distinguished failure does not complete just the distinguished success rows.
     assert s.simplify(sum((rows[k].H*rows[k] for k in (0,3,6)),s.zeros(2)))!=s.eye(2)
 
@@ -152,3 +159,11 @@ def test_joint_plan_uses_forward_bond_collar_and_complete_cartesian_bins():
     assert r['one_common_origin_retained_across_history'] and r['quantum_reference_retained']
     with pytest.raises(ValueError):m.joint_plan(member,spatial_index=(0,0,False))
     with pytest.raises(ValueError):m.joint_plan(member,spatial_width='1/513')
+
+
+def test_resolved_apparatus_error_is_not_a_state_or_weight_estimate():
+    plan=m.joint_plan(m.contract.member(10))
+    assert plan['active_source_aperture']
+    assert plan['original_probability_comparison_upper']<F(1,50)
+    assert not plan['state_subsequence_convergence_modulus_supplied']
+    assert not plan['limiting_joint_spectral_weight_lower_proved']

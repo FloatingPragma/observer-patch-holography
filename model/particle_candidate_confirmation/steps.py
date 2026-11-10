@@ -4,7 +4,7 @@ from copy import deepcopy
 
 COMMON = (
     ('operator', 'Source operator and records', [3, 6],
-     'Bind the actual creation operator, conserved currents, conjugate channel and complete detector, including failure and boundary compensation.'),
+     'Bind the actual source operator and accessible current/field records, conserved charges, conjugate channel and complete detector, including failure and boundary compensation.'),
     ('response', 'Joint energy and momentum response', [4, 5, 7],
      'Calculate the original populated joint spectral response using the operational translation generator and the same clock.'),
     ('transformation', 'Physical transformation and statistics', [5, 6],
@@ -83,7 +83,7 @@ FAMILIES = {
     },
     'Higgs': {
         'targets': ['Higgs'],
-        'source_evidence': 'A Higgs-conjugate scalar composite and an even scalar loop channel exist in their stated source domains.',
+        'source_evidence': 'The Higgs-conjugate composite supplies a neutral radial scalar with a capacity-uniform total detector bound and a separate nonzero original dynamical response. Total success includes elastic events.',
         'response': 'Measure a gauge-invariant scalar response and establish its populated branch in a demonstrated Higgs phase.',
         'interaction': 'Construct consistent scalar, vector and fermion vertices. The native-number obstruction to one sharp scalar serving every bare Yukawa channel requires an explicit resolution.',
         'mass': 'Extract a scalar resonance and width around the selected physical phase; neither a scalar operator nor a zero one-point function establishes or excludes that phase.',

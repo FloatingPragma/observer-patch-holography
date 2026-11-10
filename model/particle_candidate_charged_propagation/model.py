@@ -53,7 +53,8 @@ def seed_control():
         'zero_intertwiner_requires_preserved_native_charge_and_CAR_parity_dictionary':True,
         'unbroken_charge_parity_intertwiner_to_single_charged_fermion':'zero',
         'boundary_superselection_or_extended_field_algebra_excluded':False,
-        'seed_zero_outside_admitted_interior_bonds':True,
+        'seed_zero_outside_actual_source_bonds':True,
+        'bulk_aperture_collar_is_a_separate_admission_test':True,
         'native_C6_collective_seed_identified_with_dressed_seed':False}
 
 

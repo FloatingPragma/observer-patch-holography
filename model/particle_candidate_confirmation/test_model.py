@@ -96,6 +96,8 @@ def test_member_order_does_not_change_the_selected_calculation():
     values, _ = m.read_inputs()
     expected = m.calculated_summary(values)
     values['charged']['members'].reverse()
+    values['charged_propagation']['members'].reverse()
+    values['scalar_response']['members'].reverse()
     assert m.calculated_summary(values) == expected
 
 
@@ -157,3 +159,13 @@ def test_catalogue_cannot_invent_species_or_cosmological_order(value, field, rep
     changed['content_sha256'] = m.content_digest(changed)
     with pytest.raises(ValueError, match='labelled catalogue'):
         m.validate(changed)
+
+
+def test_response_summaries_retain_elastic_and_rare_state_boundaries(value):
+    facts = value['calculated_source_results']
+    assert facts['composite_spectrum']['component_count'] == 40
+    assert facts['composite_spectrum']['clock_histogram_executed'] is False
+    assert facts['scalar_response']['uniform_positive_energy_success_lower_proved'] is False
+    assert facts['scalar_response']['uniform_original_total_success_lower'] == '3481/160000'
+    assert facts['charged_propagation']['filtered_original_window'][
+        'original_filtered_recorded_simple_strict_lower'] == '3/80'

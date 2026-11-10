@@ -1,30 +1,36 @@
 # Particle construction: source laws, mass operators and physical matching
 
-The [candidate confirmation steps](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
-give the required tests for each named target within the common dependency map.
+The [labelled catalogue](../../model/particle_candidate_confirmation/CATALOGUE.md)
+groups eleven protected-object entries and sixteen source excitation IDs into
+families. Conserved charges, protected memory, spatial winding and kinetic
+winding retain their distinct meanings and construction domains. The bare
+source entry is an exclusion control. No protected-object entry is identified
+with a named Standard Model particle.
+
+The [candidate confirmation plan](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
+attaches six tests to every elementary target: source operator and charges;
+populated energy-momentum response; physical transformations and statistics;
+interactions and flavor; the appropriate mass observable; and independent
+experimental comparison. These specialize the existing dependency map.
 Charged thresholds, unstable-particle resonances and renormalized quark masses
-have distinct observable definitions; a source pair-energy window supplies
-none of these identifications by unit conversion alone.
+have distinct definitions. Unit conversion supplies no species identification.
 
-The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
-retain eighteen named comparison targets while testing their source families.
-Conserved occupations forbid scalar source-marginal normal spectral kernels
-between unequal native increments; explicit composite dressing can move an
-operator into the same permitted charge channel.
-A seven-state counter distinguishes the selected six signed composite
-interventions and failure without changing their energy marginals. Complete
-loop probes resolve six interacting gauge multiplets in the rare empty-matter
-sector. None of these source energies is a physical rest mass: the same
-channel needs a populated momentum-dependent threshold or branch and its
-physical current/spin attachment.
+| Source family | Verified calculation on the declared source | Physical attachment required |
+| --- | --- | --- |
+| Dressed charged pair | [Time-filtered complete records](../../model/particle_candidate_charged_propagation/PROOF.md) have original probability greater than `3/80` in `[311/32,1081/32]` source units at member zero. The same local seed is admitted to the canonical energy/momentum algebra. | A populated momentum-dependent branch and endpoint interpretation. The member-zero bulk aperture is inactive, so its weight cannot be inferred from the distinct local experiment. |
+| Six signed neutral composite families | [Forty component tests](../../model/particle_candidate_composite_spectrum/PROOF.md) give nonzero original neighbor-versus-nonneighbor records with retained final-energy and occupation labels. | The original two-point dispersion, physical currents and Lorentz spin. These final energies are not transfer energies or rest masses; the rigorous event floor is extremely small. |
+| Neutral radial scalar | [The complete radial detector](../../model/particle_candidate_scalar_gauge_response/PROOF.md) has total original success at least `3481/160000` throughout the family and greater than `383/500` at member zero. A separate complete two-time experiment has nonzero original response. | A surviving inelastic scalar branch and a demonstrated Higgs phase with consistent fermion/vector vertices. Total detection includes elastic response and supplies no Higgs mass. |
 
-The scalar-dressed compensated menu has original reported probability greater
-than `1/40` in `[77/8,271/8]` source units at member zero, by an exact
-full-occupation residual bound on the same complete clock histories. This
-is a pair-transfer record with the opposite charge and flux retained; no
-single-particle rest mass or uniform capacity limit is assigned.
+All failures, compensators and quantum references stay in their respective
+complete records. These are finite analytic and executable certificates;
+the enormous full histograms are not explicitly sampled. Physical species
+and source-derived GeV outputs are empty in the
+[checked confirmation receipt](../../model/particle_candidate_confirmation/results.json).
 
-The [horizontal particle atlas](OPH_PARTICLE_ATLAS_V2.html) ([SVG](OPH_PARTICLE_ATLAS_V2.svg)) illustrates the source, field and detector connections for every elementary target. Solid and dashed arrows distinguish proved conditional steps from physical identifications without a source proof.
+The [particle explainer](OPH_PARTICLE_ATLAS_V3.svg) ([PNG](OPH_PARTICLE_ATLAS_V3.png))
+and [candidate atlas](OPH_PARTICLE_CANDIDATE_ATLAS.svg) show the family labels,
+finite results and physical confirmation requirements. Their maintained
+renderer is [the atlas package](../../model/particle_atlas_explainer/README.md).
 
 The [unified field-and-spectrum dependency graph](../../model/particle_joint_reconstruction/DEPENDENCIES.md)
 and its [machine-readable acceptance conditions](../../model/particle_joint_reconstruction/dependencies.json)

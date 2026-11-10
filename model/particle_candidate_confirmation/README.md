@@ -19,6 +19,8 @@ accepted physical dependency.
 
 The [confirmation steps](CONFIRMATION_STEPS.md) attach six physical tests
 to each target within the common field-and-particle dependency map.
+The [labelled catalogue](CATALOGUE.md) groups protected objects and source
+excitations separately, with their original identifiers and domains.
 
 ## Charged elementary families
 
@@ -35,6 +37,12 @@ and connecting flux are included. Its physical vacuum, chirality and mass are se
 requirements; a single matched internal row does not distinguish three
 generations.
 
+The [time-filtered pair construction](../particle_candidate_charged_propagation/PROOF.md)
+retains original probability above `3/80` in `[311/32,1081/32]` at member
+zero and admits this local seed to the canonical energy/momentum algebra.
+The bulk-aperture member-zero apparatus is inactive, so the local bound
+does not prove a positive continuum residue.
+
 ## Neutral composites
 
 The [composite identity counter](../particle_candidate_composites/PROOF.md)
@@ -44,6 +52,20 @@ channels and failure, preserving their original energy histories. The
 counter records an occupation increment, without assuming a physical
 baryon or lepton name. Multiple excitations outside the admitted alphabet
 can alias modulo seven.
+
+The [spatial/final-energy experiment](../particle_candidate_composite_spectrum/PROOF.md)
+has nonzero original neighbor-versus-nonneighbor contrast in all forty
+components. Its complete final-energy records have explicit, extremely
+small probability bounds. They supply no rest mass or two-point dispersion.
+
+## Neutral scalar candidate
+
+The [radial response](../particle_candidate_scalar_gauge_response/PROOF.md)
+of the Higgs-conjugate composite has total detection probability at least
+`3481/160000` throughout the source family and above `383/500` at member
+zero. A separate two-time experiment has nonzero original dynamical
+response. Total detection includes elastic records; a surviving inelastic
+branch and Higgs-phase interaction dictionary require separate proofs.
 
 ## Gauge-sector candidates
 

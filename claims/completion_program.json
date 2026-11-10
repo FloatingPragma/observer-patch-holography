@@ -2161,7 +2161,7 @@
           "path": "model/winding_sector_search/results.json",
           "sha256": "e37d26394945123752809399a3b6c2bd7054e89901b8631728638943f347b384",
           "independent_check": "model/winding_sector_search/test_search.py",
-          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately±0.165782 and±0.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
           "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04"
         },
         {
@@ -3899,7 +3899,7 @@
           "path": "model/source_mass_shell/results.json",
           "sha256": "52cadfb2779236a9c7c629f7b7894094e759c92515d33890124c72290a74702c",
           "independent_check": "model/source_mass_shell/test_packet.py",
-          "scope": "The exact period-two source has E_a,s,±(p)=±sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E²-v²|p|²=m² with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
+          "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
         },
         {
@@ -4308,7 +4308,10 @@
         "model/particle_candidate_charged/PROOF.md",
         "model/particle_candidate_composites/PROOF.md",
         "model/particle_candidate_bosons/PROOF.md",
-        "model/particle_candidate_confirmation/PROOF.md"
+        "model/particle_candidate_confirmation/PROOF.md",
+        "model/particle_candidate_charged_propagation/PROOF.md",
+        "model/particle_candidate_composite_spectrum/PROOF.md",
+        "model/particle_candidate_scalar_gauge_response/PROOF.md"
       ],
       "legacy_issues": [
         1026,
@@ -4808,7 +4811,7 @@
           "path": "model/source_mass_shell/results.json",
           "sha256": "52cadfb2779236a9c7c629f7b7894094e759c92515d33890124c72290a74702c",
           "independent_check": "model/source_mass_shell/test_packet.py",
-          "scope": "The exact period-two source has E_a,s,±(p)=±sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E²-v²|p|²=m² with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
+          "scope": "The exact period-two source has E_a,s,\u00b1(p)=\u00b1sqrt((v/a)^2*sum_j sin(a*p_j)^2+(m0+s*|m|)^2), with two Dirac copies per mass sector and all16 rows retained. On |a*p_j|<=1 the shell defect lies in[-v^2*a^2*sum_j p_j^4/3,0] and absolute energy error is at most v*a^2*sum_j|p_j|^3/6, including massless tuning. For the unchanged bounded radial one-body profile, normalized compact exterior packets establish the pure-spin asymptotic shell E\u00b2-v\u00b2|p|\u00b2=m\u00b2 with explicit finite residual. Its exact translation obstruction has norm at least m for every nonzero lattice shift. With m64,v1,a1/64,p=(1,1,1), the continuum energy is approximately64.0234332100; an analytic large-packet witness has residual below0.000606 without claiming execution of16*10^18 rows. Exact SI conversion preserves the one undetermined absolute time scale and keeps physical GeV masses null absent an identified common-generator clock.",
           "campaign_id": "OPH-COMMON-FIELD-INTERFACES-v1"
         },
         {
@@ -4816,7 +4819,7 @@
           "path": "model/winding_sector_search/results.json",
           "sha256": "e37d26394945123752809399a3b6c2bd7054e89901b8631728638943f347b384",
           "independent_check": "model/winding_sector_search/test_search.py",
-          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately±0.165782 and±0.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
+          "scope": "The complete native sixteen-row Clifford action has Callias index2d for a supplied degree-d mass texture, with all eight valleys retained. Degree3 guarantees at least six continuum zero modes; it does not identify three particle families. On the literal lattice every unit inversion-odd texture in the strong-mass domain has exactly two zeros, independently of odd degree. The28-case complete search retains initial degrees1-4/radii1-3/masses1,4 and four larger-volume controls. At m1,d3,radii4,5 the |E|<1/4 window has rank6, with nonzero doublets at approximately\u00b10.165782 and\u00b10.145190 and falling boundary weight. These numerical levels are not interacting rest masses.",
           "campaign_id": "OPH-DEFECT-SELECTION-CONSTRAINTS-2026-11-04"
         },
         {
@@ -5326,9 +5329,33 @@
         {
           "id": "candidate_identity_confirmation_dictionary",
           "path": "model/particle_candidate_confirmation/PROOF.md",
-          "sha256": "558d7f2320ad7654238b13f266fa8e8b5410e085ef59a677f7f2955c5cdbbfb5",
+          "sha256": "a9c6b4f2d1fea0e1714f68988985648ecf4642caf1dc4efaef546ada02ee5337",
           "independent_check": "model/particle_candidate_confirmation/test_model.py",
-          "scope": "A checked consumer retains all 18 elementary comparison targets, 16 source excitation IDs and 11 protected-object IDs. It authenticates all producer ancestry, selects member zero by source ID, checks summaries against producer data and retains cross-family support. Shared family tests avoid inventing generation distinctions. All physical species, mass predictions, fits and physical gate promotions remain empty. The readable table and both atlases consume the same scoped calculations.",
+          "scope": "The checked consumer retains all 18 elementary targets, 16 source excitation IDs and 11 protected-object IDs with human labels, families and original construction domains. Six candidate-specific tests specialize the common dependency map. Authenticated charged, neutral and scalar response receipts retain all physical interpretation boundaries. The bare-source entry remains an exclusion control, source excitation defect attachments are null, and no cosmological appearance order is supplied. Physical species, mass predictions, fits and gate promotions are empty.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_filtered_charged_propagation",
+          "path": "model/particle_candidate_charged_propagation/PROOF.md",
+          "sha256": "c5f11d3e4a165f0093c725b2807030360f26fa57caec353878e3d91f9877954e",
+          "independent_check": "model/particle_candidate_charged_propagation/test_model.py",
+          "scope": "The actual dressed compensated bond seed admits a canonical energy/momentum kernel and a complete time-filtered local member-zero event. Its original recorded probability exceeds 3/80 in [311/32,1081/32] source units. The distinct bulk aperture is inactive at member zero; no positive limiting residue, endpoint rest mass, flavor or physical charged-particle identity is transferred.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_composite_spatial_final_energy",
+          "path": "model/particle_candidate_composite_spectrum/PROOF.md",
+          "sha256": "e3798f69fcec1d14531c0f649d0c047089b62a498045538e204b192f53ad08a2",
+          "independent_check": "model/particle_candidate_composite_spectrum/test_model.py",
+          "scope": "All forty signed composite components have nonzero original joint spatial/final-energy records with complete failure and native-occupation outcomes. Exact full-source first-action norm squared is at least 1/972 after contraction normalization. The source-density floor gives an explicit tiny neighbor-versus-nonneighbor contrast. These are final-energy events; the signed original two-point first moment, dispersion, physical species and GeV masses are not determined.",
+          "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
+        },
+        {
+          "id": "candidate_radial_scalar_response",
+          "path": "model/particle_candidate_scalar_gauge_response/PROOF.md",
+          "sha256": "a1496d16bba56571b8a69502b6f2ca4fe8a319bdf34b8461d87a9d9832c921a8",
+          "independent_check": "model/particle_candidate_scalar_gauge_response/test_model.py",
+          "scope": "The gauge-invariant radial scalar S/2 has a complete detector with original total success at least 3481/160000 throughout the source family and above 383/500 at member zero. Full-source commutator witnesses give separate nonzero original ideal transfer and finite two-time records. Total detection includes elastic response, and the dynamical floor is not capacity-uniform. No Higgs phase, physical scalar mass or species is identified.",
           "campaign_id": "OPH-JOINT-FIELD-SPECTRUM-CONTRACT-v1"
         }
       ]
@@ -5561,7 +5588,7 @@
           "path": "model/matter_geometry_response/results.json",
           "sha256": "43cc7092c24141ceff0648636464576d80935b1f507a1861cdb264c002ae61a7",
           "independent_check": "model/matter_geometry_response/test_response.py",
-          "scope": "Actual source histories give p1=1/50+(24/25)<E²> and M=I−[L+theta(D_(0,1)−D_(0,5))]/64 with theta=(3/25)(1−2<E²>). The rank-three band is separated from the next band by at least sqrt5+1/2, and its projector diagonals are at least 1/20. The exact normalized-Gram derivative is G01prime(0)=(-33+29sqrt5)/100>3/10; rational integer spectral enclosures prove G01(energy0)−G01(energy1)>3/40. All 79,872 native histories and raw emitted quantum words are checked. The native kinetic quadratic form has energy derivative−3/800 times its two-edge contrast. A correlated-probe countercontrol invalidates product-marginal closure by an exact 3/800 load-mean discrepancy.",
+          "scope": "Actual source histories give p1=1/50+(24/25)<E\u00b2> and M=I\u2212[L+theta(D_(0,1)\u2212D_(0,5))]/64 with theta=(3/25)(1\u22122<E\u00b2>). The rank-three band is separated from the next band by at least sqrt5+1/2, and its projector diagonals are at least 1/20. The exact normalized-Gram derivative is G01prime(0)=(-33+29sqrt5)/100>3/10; rational integer spectral enclosures prove G01(energy0)\u2212G01(energy1)>3/40. All 79,872 native histories and raw emitted quantum words are checked. The native kinetic quadratic form has energy derivative\u22123/800 times its two-edge contrast. A correlated-probe countercontrol invalidates product-marginal closure by an exact 3/800 load-mean discrepancy.",
           "campaign_id": "OPH-DEFECT-GEOMETRY-CLOSURE-2026-11-04"
         },
         {
