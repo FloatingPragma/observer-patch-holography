@@ -13,7 +13,7 @@ import xml.etree.ElementTree as ET
 
 from model.particle_candidate_atlas import builder as base
 from . import build, families, field_panels, joint_panels, repair_panels
-from . import retained_source_equivalence as retained
+from . import current_retained_source_equivalence as retained
 from .canvas import BG, Canvas, MUTED, TEAL, TEXT
 from .parts import CW, W, X0
 
@@ -21,7 +21,7 @@ ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
 OUTPUT = ROOT/'docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg'
 AUDIT = HERE/'candidate_view_audit.json'
-SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py', 'retained_source_equivalence.py')
+SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py', 'retained_source_equivalence.py', 'current_retained_source_equivalence.py')
 
 
 def load():

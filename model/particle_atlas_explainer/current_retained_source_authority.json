@@ -1,0 +1,75 @@
+{
+  "actual_owner_replay": "model/completion/field_current_records_replays.json",
+  "additional_live_receipt_transitions": {
+    "model/protected_defect_catalog/catalog.json": {
+      "actual_unchanged_producer_executed": "model.protected_defect_catalog.packet:build",
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "e0dfee37a0679aa39f844995ace4f7fc486d6822b105217c41fdba4404004116",
+      "owner": "protected_defect_catalog",
+      "receipt": "model/protected_defect_catalog/catalog.json",
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/protected_defect_catalog/catalog.json",
+      "retained_sha256": "66efda6d5d2c22cb0fd77a165f6ed267c7d9732b217cf53ddf68f3b3b9ef264b",
+      "reviewed_nested_receipt_pointers": [],
+      "scientific_statuses_changed": false
+    },
+    "model/spin_charge_dispersion/results.json": {
+      "actual_unchanged_producer_replayed": "model.spin_charge_dispersion.packet:build",
+      "comparison": "exact",
+      "current_sha256": "3ec0bd77e24b9090492ff87406997f9adf461a540d967daac60fa08d3c3b30cf",
+      "fresh_binary64_science_byte_equality_claimed": true,
+      "only_admitted_source_change": "model/protected_defect_catalog/PROOF.md",
+      "owner": "spin_charge_dispersion",
+      "physical_statuses_changed": false,
+      "receipt": "model/spin_charge_dispersion/results.json",
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/spin_charge_dispersion/results.json",
+      "retained_sha256": "7fe78ea88136ac6f2eb3fe5279108a76d8820045d0fa8b68050afbb9225a985b",
+      "reviewed_nested_receipt_pointers": [],
+      "reviewed_source_scope_append": {
+        "Lean/Dynamics/PrivateInner.lean": "05d3ef9300bb4e34ca25031d6c3bfb47b2dcbb065930354eb5a080e96f7f036f",
+        "model/spin_dynamical_memory/RESOLVENT_CLOSURE.md": "a8e5a975d1dd0656f0ac80c4964aa1227085cd06587549e1bb44189495d4796c",
+        "model/spin_dynamical_memory/SPECTRAL_BRANCH.md": "0766d5caa2207e2e36d41e5e4e8c05e03818902069ca35a26aa951258433bbb3",
+        "model/spin_dynamical_memory/branch.py": "d93056e558a918200f72b8c2211fc229ffd008f09a180e8d8574999b8f5d928e",
+        "model/spin_dynamical_memory/closure.py": "a7ca06c52e9773f04b2516fb69eee7718ba6815de14e6b866bb5d989a5370ae1",
+        "model/spin_dynamical_memory/test_branch.py": "baf07320196d4646f435393e30f84cde5f81f5b5c7d8d7fcc82570058ba69e0d",
+        "model/spin_dynamical_memory/test_closure.py": "07a9f9d03353cadab652bd8eb3deba3b0dd8ff77d60b7e501b2a85a2a721db98",
+        "model/spin_fixed_field_locality/PROOF.md": "443abbac724e800f559582558aa994b903689f75f8d98b169980ebbec3570bb2",
+        "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
+        "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
+        "model/spin_twist_closure/FINITE_FIELD_GAP.md": "e65f87ee6fec35c1f3a07b61bb3022739491206c5b8bf867e882e176d2d75b35"
+      },
+      "scientific_payload_exactly_preserved": true,
+      "source_scope_exactly_preserved": false
+    },
+    "model/spin_joint_field_limit/results.json": {
+      "actual_unchanged_producer_executed": "model.spin_joint_field_limit.packet:build",
+      "canonical_scientific_payload_exactly_preserved": true,
+      "current_sha256": "646630799a8f14b043f030528e6ddb7b3bdd37927ee085d225c21b8b9564b677",
+      "owner": "spin_joint_field_limit",
+      "receipt": "model/spin_joint_field_limit/results.json",
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/spin_joint_field_limit/results.json",
+      "retained_sha256": "a6375b0fa8c04fd10fffe8f1c916e1fe17ae4c83db699cbe5c6ffd07ffb2162f",
+      "reviewed_nested_receipt_pointers": [],
+      "scientific_statuses_changed": false
+    }
+  },
+  "new_physical_gate_claimed": false,
+  "physical_ids_rewritten": false,
+  "retained_authority": "model/particle_atlas_explainer/retained_source_equivalence_authority.json",
+  "schema": "oph.atlas_field_current_custody_authority.v1",
+  "scientific_payload_changed": false,
+  "source_clock_changed": false,
+  "unchanged_source_sha256": {
+    "model/completion/field_current_records_replays.json": "035fe1c307cdae86e309881536c407334ac6dcd724611577c13834c2b5863503",
+    "model/particle_atlas_explainer/retained_source_equivalence.py": "d3c555adbfde7f49ee067db7b41ee3a41190d481223c293e392196208cec9784",
+    "model/particle_atlas_explainer/retained_source_equivalence_authority.json": "a5cad7a312b7588507bff6472fe5bf54b685a11e3e8cf831cc2ec4499cdbd527",
+    "model/particle_atlas_explainer/retained_source_replay.json": "f6b8dcc383f2deaaf5375e6c9015c2466a6b21ad4c919db835ac47b54eb3f533",
+    "model/particle_atlas_explainer/test_retained_source_equivalence.py": "b6e30cddc8aed14c91173cb6914851677e645dc7d30bae4372f62561b408d9a3",
+    "tools/field_current_documentary_owners.json": "69f75432e4c00cef6fc9771e3fbe14d10ed0b9410a0c22731886424fc91128f6",
+    "tools/field_current_secondary_owners.json": "95ae02d71a43f02b57c5ab961033491312807084ad5d048ae236b02dd3e857e4",
+    "tools/renew_canonical_live_receipts.py": "9b04569aa9f5429372576b789b9d5aee6ab46660642e8e7822fa0cc1af557315",
+    "tools/renew_field_current_documentary_owners.py": "556dcea53b19c2780b7c6c64fbafdaa454bbd43fd2ffed3bd0182ae58903b29e",
+    "tools/renew_field_current_secondary_owners.py": "620c827a4db40ef110443072f83800100696e6b68e79b72ae0a47070ccc69ebd",
+    "tools/replay_model_receipts.py": "8361935365489bd44e71d9c1ff15de47ce5cde1f03475df1d056b3a50333ed87",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  }
+}

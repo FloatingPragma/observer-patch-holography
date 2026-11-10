@@ -1,0 +1,22 @@
+{
+  "model/particle_identification/completion_results.json": {
+    "actual_unchanged_owner_executed": true,
+    "admitted_sha256": "b333c85ffe5a6f90655ce7697438607bf319a40a79920ab28d5bcc6b536d42cd",
+    "class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+    "copied_child_addition_explicitly_reviewed": true,
+    "fresh_sha256": "b333c85ffe5a6f90655ce7697438607bf319a40a79920ab28d5bcc6b536d42cd",
+    "producer": "model.particle_identification.completion_certificate:report",
+    "producer_source_sha256": "91b78a5bc168efece4a1a6436a907a0ffc7d5b44261132cb10685a15cfcae091"
+  },
+  "model/regional_clock/results.json": {
+    "actual_unchanged_owner_executed": true,
+    "admitted_sha256": "3a06d5708d20691d73aba83bcc1665aaf4db367b69cefd8a0e3da8aefdd0ca0a",
+    "class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+    "fresh_report_sha256": "0056f9b46f806e8420edf9f95ef64ca6175323bf61ce60b65a5dc5556f8c7d80",
+    "numerical_diagnostics_admitted_only_by_original_owner": true,
+    "original_complete_checker_executed": true,
+    "producer": "model.regional_clock.verify:report",
+    "producer_source_sha256": "07862ddf012af7384605be6a31ad02aa3b17ac52f666fc8ea952ab9189c024b8",
+    "scientific_payload_exactly_preserved": true
+  }
+}

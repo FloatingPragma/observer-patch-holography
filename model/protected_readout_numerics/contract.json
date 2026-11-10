@@ -1,0 +1,24 @@
+{
+  "backend_caps_are_declared_numerical_admission_not_hardware_error": true,
+  "exact_control_terminal_probabilities_set_to_zero": false,
+  "numerical_reference": "complete160-bit interval replay of ideal Strang template; exact eta\u00b2 lift120->8008->131072",
+  "original_producer": "model/protected_particle_readout/packet.py",
+  "original_producer_sha256": "326eed48c76648460668fc433da41ef132f549e6199201d5388233f4f7cca71f",
+  "original_replay_admission_retained": true,
+  "physical_statuses_changed": false,
+  "retained_array": "model/protected_particle_readout/results.npz",
+  "retained_array_sha256": "1e9c9f6fd024032cae0ce63eef5f0adc1027ecf17eab479a95b59cde449116c8",
+  "retained_receipt": "model/protected_readout_numerics/retained.json",
+  "retained_receipt_sha256": "56e97b68cd0ef6d04279b271a1c36a1abac38aeeb887b88946f7095f97f1a7b8",
+  "schema": "oph.protected_readout_numerics.contract.v1",
+  "typed_parent_metadata_transitions": {
+    "model/particle_comparison/results.json": {
+      "current": "8a39fa3759282669770cda300b076dbd0e1aa77ff1f83742755d840f33c9bc94",
+      "retained": "48d21c97df7dd20939462e7d3758e5a77f265a555241334f2dc4348ae632f0d7"
+    },
+    "model/particle_identification/results.json": {
+      "current": "dbe3f8dbc86d02fa32928150939a459d081ba74c6cac610a0a750141f5e96a1a",
+      "retained": "85075e2b242028419df7916bc88bfd2718e1928a7116f8febf6b6e7d27a235fb"
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "additional_executed_receipts": [
+    "model/protected_defect_catalog/catalog.json",
+    "model/spin_charge_dispersion/results.json",
+    "model/spin_joint_field_limit/results.json"
+  ],
+  "authority_sha256": "a5cad7a312b7588507bff6472fe5bf54b685a11e3e8cf831cc2ec4499cdbd527",
+  "current_custody_authority_sha256": "952c01e174966c74c1ef3d0658d2bca03e6fc3eb50fd0c8f38372ceb1d715315",
+  "current_custody_source_sha256": "8aed460f90d4d7e9c6cdac98865baff8fb4c25b4e54b2f40674899667306879a",
+  "historical_replay_sha256": "f6b8dcc383f2deaaf5375e6c9015c2466a6b21ad4c919db835ac47b54eb3f533",
+  "identity_intertwiner_domain": "same complete finite basis, Hamiltonian, prepared state, reference and clock formulas",
+  "live_custody_transitions": {
+    "model/charged_lepton_response/results.json": {
+      "current_sha256": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_atlas_inputs/model/charged_lepton_response/results.json",
+      "retained_sha256": "0c786509e865b96d5c0470183ace9aa67a12d3c838b554db05d9d5dbe9336f65"
+    },
+    "model/common_source/chiral_candidate/results.json": {
+      "current_sha256": "5594b66a30a5f9a0c76dc40c750b4409bb14a25c0b5ec4a2906bc6061ee8f999",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/common_source/chiral_candidate/results.json",
+      "retained_sha256": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a"
+    },
+    "model/common_source/native_repair_mass_results.json": {
+      "current_sha256": "5c04fb23123ec1d05555e01d526fdef675a9a1451c52c5a3493814a79db2c9e1",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/common_source/native_repair_mass_results.json",
+      "retained_sha256": "4d4e789aa6953d296d22f9925fde01c7dcd562e72ddc6405dbd7d258bcb03b2f"
+    },
+    "model/mcpr_native_memory_bridge/results.json": {
+      "current_sha256": "b4670804994a2eff44cd5a93f63a8433551e837305282a1006c5623598dd21c2",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/mcpr_native_memory_bridge/results.json",
+      "retained_sha256": "0c42b29446868115a7e12d2ca07f3c11ad72e77d06e9eff5a61453eac04d8652"
+    },
+    "model/native_flavor_orbit/results.json": {
+      "current_sha256": "8830ced81f56758435cde9f56a0b1d2175b708b263d1bc0e2242c1d0c0099f77",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/native_flavor_orbit/results.json",
+      "retained_sha256": "0fbbc27b9a89a9ab016f6d34307ea9456b79f5ec95e267871ac1ed52a29365c8"
+    },
+    "model/protected_defect_catalog/catalog.json": {
+      "actual_unchanged_owner_execution_authenticated": true,
+      "current_sha256": "e0dfee37a0679aa39f844995ace4f7fc486d6822b105217c41fdba4404004116",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/protected_defect_catalog/catalog.json",
+      "retained_sha256": "66efda6d5d2c22cb0fd77a165f6ed267c7d9732b217cf53ddf68f3b3b9ef264b",
+      "reviewed_source_scope_append": {}
+    },
+    "model/spin_charge_dispersion/results.json": {
+      "actual_unchanged_owner_execution_authenticated": true,
+      "current_sha256": "3ec0bd77e24b9090492ff87406997f9adf461a540d967daac60fa08d3c3b30cf",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/spin_charge_dispersion/results.json",
+      "retained_sha256": "7fe78ea88136ac6f2eb3fe5279108a76d8820045d0fa8b68050afbb9225a985b",
+      "reviewed_source_scope_append": {
+        "Lean/Dynamics/PrivateInner.lean": "05d3ef9300bb4e34ca25031d6c3bfb47b2dcbb065930354eb5a080e96f7f036f",
+        "model/spin_dynamical_memory/RESOLVENT_CLOSURE.md": "a8e5a975d1dd0656f0ac80c4964aa1227085cd06587549e1bb44189495d4796c",
+        "model/spin_dynamical_memory/SPECTRAL_BRANCH.md": "0766d5caa2207e2e36d41e5e4e8c05e03818902069ca35a26aa951258433bbb3",
+        "model/spin_dynamical_memory/branch.py": "d93056e558a918200f72b8c2211fc229ffd008f09a180e8d8574999b8f5d928e",
+        "model/spin_dynamical_memory/closure.py": "a7ca06c52e9773f04b2516fb69eee7718ba6815de14e6b866bb5d989a5370ae1",
+        "model/spin_dynamical_memory/test_branch.py": "baf07320196d4646f435393e30f84cde5f81f5b5c7d8d7fcc82570058ba69e0d",
+        "model/spin_dynamical_memory/test_closure.py": "07a9f9d03353cadab652bd8eb3deba3b0dd8ff77d60b7e501b2a85a2a721db98",
+        "model/spin_fixed_field_locality/PROOF.md": "443abbac724e800f559582558aa994b903689f75f8d98b169980ebbec3570bb2",
+        "model/spin_joint_field_limit/PROOF.md": "24cf1ebf8ceb0ca0aabf2cc8e990ca7e3bfd545514cf3cfe0a7e82abb57b9121",
+        "model/spin_joint_field_limit/SECOND_PAIR.md": "55f25e8675ae5c06d62444a2ab141eba39c83e29b8921699b5d7fab141d39db8",
+        "model/spin_twist_closure/FINITE_FIELD_GAP.md": "e65f87ee6fec35c1f3a07b61bb3022739491206c5b8bf867e882e176d2d75b35"
+      }
+    },
+    "model/spin_joint_field_limit/results.json": {
+      "actual_unchanged_owner_execution_authenticated": true,
+      "current_sha256": "646630799a8f14b043f030528e6ddb7b3bdd37927ee085d225c21b8b9564b677",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/spin_joint_field_limit/results.json",
+      "retained_sha256": "a6375b0fa8c04fd10fffe8f1c916e1fe17ae4c83db699cbe5c6ffd07ffb2162f",
+      "reviewed_source_scope_append": {}
+    },
+    "model/standard_model_source_map/particle_map.json": {
+      "current_sha256": "48ce0a0a736430ebd61a8b24ce315a5f5a29fca8ec8bb2716542c4384cde7dcf",
+      "non_provenance_payload_equal": true,
+      "retained_path": "model/completion/historical/r2063_live_inputs/model/standard_model_source_map/particle_map.json",
+      "retained_sha256": "5161f7811334a6b0e5d22a248df9ef0b17eefc1a446624b4840d0ee4564b284c"
+    }
+  },
+  "live_producer_receipts_claimed_for_retained_primary_evidence": false,
+  "navigation_digest": "27816114a9f5fa546f0dff9c4c1b81165ec941da841002ca6e92986005ff88ff",
+  "physical_ids_rewritten": false,
+  "physical_specification_changed": false,
+  "projection_source_sha256": "d3c555adbfde7f49ee067db7b41ee3a41190d481223c293e392196208cec9784",
+  "retained_authority_bytes_changed": false,
+  "retained_physical_ids": [
+    {
+      "clock_id": "1d9c029111783d4092d36d986824565931ea377deafa6976f94c705aa2cf0c3c",
+      "level": 0,
+      "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
+      "physical_specification_sha256": "478632334258e3e619a46313cac30c8348cda29ab1e56e8c15d22d49f3d39bf1",
+      "reference_id": "786e7cb66f083545553e2ce8d3b715c1c97a9eaec1b1130016a2d3a3732851ce",
+      "source_id": "ef09c2015ad8c7dd5ffca63fa7eeb8d98a2fc0187c6224abec5eff11bf77b250",
+      "state_id": "4a47db7865fed39523d86aac106185beac8b312439799983a9221afea4e8433e"
+    },
+    {
+      "clock_id": "688a89b4f39197179be5b54794939b575c4150a017c293a4a746732f02f01920",
+      "level": 1,
+      "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
+      "physical_specification_sha256": "44f3246c0d6d4be398444950bb38533bee47043caf1af2a7c147cf99fdbc1be1",
+      "reference_id": "bcbb53e29ca80cb8b5de801182d2d51c52d7878f93ee374624b0a10ad73f686e",
+      "source_id": "a34a52763e9b24a1ef064b0b39e81824fe022ca083a6150c4996fe10787527a5",
+      "state_id": "f34adcfa2a8a871111e9b31abb84276e1f79ad6ba37af48d005ea54ed7f4095f"
+    }
+  ],
+  "schema": "oph.current_retained_primary_navigation.v1"
+}

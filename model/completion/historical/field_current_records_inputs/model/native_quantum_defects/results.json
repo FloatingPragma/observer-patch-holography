@@ -1,0 +1,2296 @@
+{
+  "all_pass": true,
+  "compact_support_search": {
+    "all_positive_dimensions_attained_by_exact_rational_basis": true,
+    "automorphism_representatives": 82,
+    "classification": [
+      {
+        "core_count": 1,
+        "dimension": 0,
+        "ports": 0
+      },
+      {
+        "core_count": 12,
+        "dimension": 0,
+        "ports": 1
+      },
+      {
+        "core_count": 66,
+        "dimension": 0,
+        "ports": 2
+      },
+      {
+        "core_count": 220,
+        "dimension": 0,
+        "ports": 3
+      },
+      {
+        "core_count": 495,
+        "dimension": 0,
+        "ports": 4
+      },
+      {
+        "core_count": 792,
+        "dimension": 0,
+        "ports": 5
+      },
+      {
+        "core_count": 924,
+        "dimension": 0,
+        "ports": 6
+      },
+      {
+        "core_count": 792,
+        "dimension": 0,
+        "ports": 7
+      },
+      {
+        "core_count": 495,
+        "dimension": 0,
+        "ports": 8
+      },
+      {
+        "core_count": 220,
+        "dimension": 0,
+        "ports": 9
+      },
+      {
+        "core_count": 60,
+        "dimension": 0,
+        "ports": 10
+      },
+      {
+        "core_count": 6,
+        "dimension": 3,
+        "ports": 10
+      },
+      {
+        "core_count": 12,
+        "dimension": 3,
+        "ports": 11
+      },
+      {
+        "core_count": 1,
+        "dimension": 66,
+        "ports": 12
+      }
+    ],
+    "cores_checked": 4096,
+    "minimum_nonzero_compact_core_ports": 10,
+    "modular_prime": 65521,
+    "quantified_class": "all complex invariant subspaces of P supported on configurations with both loads in a fixed port core",
+    "representatives": [
+      {
+        "compact_invariant_dimension": 0,
+        "core": [],
+        "mask": 0,
+        "modular_rank_sequence": [],
+        "orbit_size": 1
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0
+        ],
+        "mask": 1,
+        "modular_rank_sequence": [],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1
+        ],
+        "mask": 3,
+        "modular_rank_sequence": [
+          1
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2
+        ],
+        "mask": 5,
+        "modular_rank_sequence": [
+          1
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2
+        ],
+        "mask": 6,
+        "modular_rank_sequence": [
+          1
+        ],
+        "orbit_size": 6
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2
+        ],
+        "mask": 7,
+        "modular_rank_sequence": [
+          3
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "mask": 15,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 15
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4
+        ],
+        "mask": 19,
+        "modular_rank_sequence": [
+          3
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "mask": 23,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          2,
+          3,
+          4
+        ],
+        "mask": 28,
+        "modular_rank_sequence": [
+          3
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "mask": 29,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "mask": 31,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          4,
+          5
+        ],
+        "mask": 49,
+        "modular_rank_sequence": [
+          3
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "mask": 51,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5
+        ],
+        "mask": 53,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "mask": 54,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ],
+        "mask": 55,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "mask": 63,
+        "modular_rank_sequence": [
+          14,
+          15
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          4,
+          6
+        ],
+        "mask": 81,
+        "modular_rank_sequence": [
+          3
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          6
+        ],
+        "mask": 83,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "mask": 85,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          4,
+          6
+        ],
+        "mask": 86,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          6
+        ],
+        "mask": 87,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "mask": 92,
+        "modular_rank_sequence": [
+          6
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          3,
+          4,
+          6
+        ],
+        "mask": 93,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "mask": 95,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6
+        ],
+        "mask": 111,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 10
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          5,
+          6
+        ],
+        "mask": 115,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5,
+          6
+        ],
+        "mask": 117,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "mask": 118,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6
+        ],
+        "mask": 119,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "mask": 124,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "mask": 125,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "mask": 127,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          5,
+          6,
+          7
+        ],
+        "mask": 243,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "mask": 245,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "mask": 246,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 10
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "mask": 247,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "mask": 255,
+        "modular_rank_sequence": [
+          21,
+          26,
+          27,
+          28
+        ],
+        "orbit_size": 15
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          5,
+          8
+        ],
+        "mask": 307,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5,
+          8
+        ],
+        "mask": 309,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          8
+        ],
+        "mask": 311,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          3,
+          4,
+          5,
+          8
+        ],
+        "mask": 314,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          8
+        ],
+        "mask": 315,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "mask": 319,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8
+        ],
+        "mask": 343,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          2,
+          3,
+          4,
+          6,
+          8
+        ],
+        "mask": 348,
+        "modular_rank_sequence": [
+          10
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          3,
+          4,
+          6,
+          8
+        ],
+        "mask": 349,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ],
+        "mask": 350,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ],
+        "mask": 351,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          8
+        ],
+        "mask": 375,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "mask": 382,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "mask": 383,
+        "modular_rank_sequence": [
+          25,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          6,
+          7,
+          8
+        ],
+        "mask": 459,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7,
+          8
+        ],
+        "mask": 463,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "mask": 475,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 120
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "mask": 479,
+        "modular_rank_sequence": [
+          25,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "mask": 503,
+        "modular_rank_sequence": [
+          25,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "mask": 507,
+        "modular_rank_sequence": [
+          26,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "mask": 511,
+        "modular_rank_sequence": [
+          24,
+          34,
+          35,
+          36
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 819,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 821,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 823,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 826,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 827,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9
+        ],
+        "mask": 831,
+        "modular_rank_sequence": [
+          23,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          6,
+          8,
+          9
+        ],
+        "mask": 853,
+        "modular_rank_sequence": [
+          15
+        ],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          8,
+          9
+        ],
+        "mask": 855,
+        "modular_rank_sequence": [
+          21
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9
+        ],
+        "mask": 861,
+        "modular_rank_sequence": [
+          20,
+          21
+        ],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          9
+        ],
+        "mask": 863,
+        "modular_rank_sequence": [
+          24,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          8,
+          9
+        ],
+        "mask": 887,
+        "modular_rank_sequence": [
+          26,
+          28
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ],
+        "mask": 894,
+        "modular_rank_sequence": [
+          23,
+          28
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ],
+        "mask": 895,
+        "modular_rank_sequence": [
+          24,
+          36
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mask": 1013,
+        "modular_rank_sequence": [
+          25,
+          28
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mask": 1015,
+        "modular_rank_sequence": [
+          24,
+          36
+        ],
+        "orbit_size": 60
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mask": 1019,
+        "modular_rank_sequence": [
+          24,
+          36
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "mask": 1023,
+        "modular_rank_sequence": [
+          19,
+          37,
+          44,
+          45
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          10
+        ],
+        "mask": 1407,
+        "modular_rank_sequence": [
+          24,
+          36
+        ],
+        "orbit_size": 20
+      },
+      {
+        "compact_invariant_dimension": 0,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10
+        ],
+        "mask": 1535,
+        "modular_rank_sequence": [
+          19,
+          37,
+          44,
+          45
+        ],
+        "orbit_size": 30
+      },
+      {
+        "compact_invariant_dimension": 3,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ],
+        "mask": 1791,
+        "modular_rank_sequence": [
+          19,
+          28,
+          37,
+          42
+        ],
+        "orbit_size": 6
+      },
+      {
+        "compact_invariant_dimension": 3,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "mask": 2047,
+        "modular_rank_sequence": [
+          11,
+          22,
+          31,
+          40,
+          48,
+          52
+        ],
+        "orbit_size": 12
+      },
+      {
+        "compact_invariant_dimension": 66,
+        "core": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "mask": 4095,
+        "modular_rank_sequence": [
+          0
+        ],
+        "orbit_size": 1
+      }
+    ]
+  },
+  "constructed_modes": {
+    "coherent_mode_preparation_or_native_measurement_implemented": false,
+    "core": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10
+    ],
+    "full_exterior_reference_comparison": [
+      {
+        "closed_length": 1,
+        "full_exterior_trace_distance": "107/336"
+      },
+      {
+        "closed_length": 2,
+        "full_exterior_trace_distance": "5473/17172"
+      },
+      {
+        "closed_length": 4,
+        "full_exterior_trace_distance": "402489/1260836"
+      }
+    ],
+    "full_raw_C_E_slots": 720,
+    "ground_reference_exterior_trace_distance": "7/22",
+    "modes": [
+      {
+        "all_positive_nonuniform_schedule_control": {
+          "one_attempt_exterior_amplitude_norm_squared": "1/80",
+          "schedule": "one-half uniform plus one-half this seam; every seam has positive weight",
+          "seam": [
+            0,
+            11
+          ]
+        },
+        "full_recorded_instrument": {
+          "C": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "266/275",
+            "initial_mode_fidelity_after_one_attempt": "147/200"
+          },
+          "E": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "3119/3300",
+            "initial_mode_fidelity_after_one_attempt": "319/600"
+          }
+        },
+        "integer_eigenvalue": 48,
+        "integer_mode": [
+          {
+            "pair": [
+              7,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              6,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              5,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              5,
+              7
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              4,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              4,
+              6
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              3,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              3,
+              5
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              7
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              4
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              0,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              7
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              6
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "value": 1
+          }
+        ],
+        "integrated_normalized_autocorrelation": "5",
+        "normalized_native_autocorrelation_at_n": "(4/5)^n",
+        "reconstructed_energy": "log(60/48)",
+        "squared_norm": 20,
+        "stationary_native_variance": "10/33",
+        "transfer_eigenvalue": "4/5"
+      },
+      {
+        "all_positive_nonuniform_schedule_control": {
+          "one_attempt_exterior_amplitude_norm_squared": "1/80",
+          "schedule": "one-half uniform plus one-half this seam; every seam has positive weight",
+          "seam": [
+            0,
+            11
+          ]
+        },
+        "full_recorded_instrument": {
+          "C": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "266/275",
+            "initial_mode_fidelity_after_one_attempt": "437/600"
+          },
+          "E": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "3097/3300",
+            "initial_mode_fidelity_after_one_attempt": "21/40"
+          }
+        },
+        "integer_eigenvalue": 50,
+        "integer_mode": [
+          {
+            "pair": [
+              7,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              6,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              6,
+              7
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              5,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              4,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              4,
+              5
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              3,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              3,
+              7
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              3,
+              6
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              2,
+              5
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              4
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              1,
+              7
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              1,
+              6
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              3
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              5
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              4
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              0,
+              2
+            ],
+            "value": 1
+          }
+        ],
+        "integrated_normalized_autocorrelation": "6",
+        "normalized_native_autocorrelation_at_n": "(5/6)^n",
+        "reconstructed_energy": "log(60/50)",
+        "squared_norm": 20,
+        "stationary_native_variance": "10/33",
+        "transfer_eigenvalue": "5/6"
+      },
+      {
+        "all_positive_nonuniform_schedule_control": {
+          "one_attempt_exterior_amplitude_norm_squared": "1/80",
+          "schedule": "one-half uniform plus one-half this seam; every seam has positive weight",
+          "seam": [
+            0,
+            11
+          ]
+        },
+        "full_recorded_instrument": {
+          "C": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "266/275",
+            "initial_mode_fidelity_after_one_attempt": "437/600"
+          },
+          "E": {
+            "complete_probability": "1",
+            "correlation_sector_weight_after_one_attempt": "41/44",
+            "initial_mode_fidelity_after_one_attempt": "21/40"
+          }
+        },
+        "integer_eigenvalue": 52,
+        "integer_mode": [
+          {
+            "pair": [
+              7,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              6,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              5,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              5,
+              7
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              4,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              4,
+              6
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              3,
+              10
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              3,
+              5
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              3,
+              4
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              9
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              2,
+              7
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              6
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              2,
+              3
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              10
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              1,
+              5
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              1,
+              4
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              9
+            ],
+            "value": 1
+          },
+          {
+            "pair": [
+              0,
+              7
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              6
+            ],
+            "value": -1
+          },
+          {
+            "pair": [
+              0,
+              1
+            ],
+            "value": 1
+          }
+        ],
+        "integrated_normalized_autocorrelation": "15/2",
+        "normalized_native_autocorrelation_at_n": "(13/15)^n",
+        "reconstructed_energy": "log(60/52)",
+        "squared_norm": 20,
+        "stationary_native_variance": "10/33",
+        "transfer_eigenvalue": "13/15"
+      }
+    ],
+    "native_classical_readout": "the integer mode is an explicit signed function of the two occupied ports; its equilibrium autocorrelation follows from native counts",
+    "omitted_ports": [
+      8,
+      11
+    ],
+    "small_localized_reference_like_protected_particle": false,
+    "zero_raw_slots_retained": 420
+  },
+  "localized_positive_energy_functional": {
+    "all_12_one_port_phase_locality_and_energy_norms_checked": true,
+    "commutator_P_D_Frobenius_squared": "1/9",
+    "configuration_probabilities_exactly_equal": true,
+    "core": [
+      0
+    ],
+    "exact_initial_half_trace_distance": "(sqrt(8)+4sqrt(3)+6sqrt(5))/1680",
+    "excited_functional": "rho_prime=D rho D; D[x,x]=(-1)^x_0",
+    "faithful_and_same_entropy": true,
+    "full_11_port_exterior_exactly_equal": true,
+    "full_native_record_plus_exterior_equal_at_every_finite_history": true,
+    "hamiltonian": "H=-log(P)",
+    "native_decay_comparison": {
+      "C": {
+        "all_history_entrywise_norm_multiplier": "5/6",
+        "all_history_half_trace_distance_upper_prefactor": "5/168",
+        "reference_for_comparison": "the same native evolution of rho, not a fixed stationary rho",
+        "unread_difference_multiplier": "5/6"
+      },
+      "E": {
+        "all_history_entrywise_norm_multiplier": "7/10",
+        "all_history_half_trace_distance_upper_prefactor": "5/168",
+        "reference_for_comparison": "the same native evolution of rho, not a fixed stationary rho",
+        "unread_difference_multiplier": "7/10"
+      }
+    },
+    "native_nonzero_raw_displacement_branches_checked": 300,
+    "physical_localized_particle_or_mass": false,
+    "reconstructed_phase_functional_has_native_history_count_dictionary": true,
+    "reference": "rho=P/Tr(P)",
+    "state_prepared_by_native_phase_control": false,
+    "strict_positive_energy_excess_interval": [
+      "1/1008",
+      "1/672"
+    ],
+    "trace_P": "56"
+  },
+  "schema": "oph.native_quantum_defects.v1",
+  "scope": {
+    "all_complex_compact_subspaces_on_this_fixed_carrier_exhausted": true,
+    "all_refinements_or_history_observers_exhausted": false,
+    "existing_collision_and_classical_shell_exclusions_retained": true,
+    "native_unitary_time_identified": false,
+    "noncompact_local_density_perturbations_excluded": false,
+    "physical_particle_or_mass_identified": false,
+    "supplied_coherent_service_used": false,
+    "surviving_routes": [
+      "controlled noncompact or approximate localization",
+      "different admitted scheduler or reference with its own proof",
+      "relational history observables and explicitly accounted active recovery",
+      "refining carriers with proved compatible source maps"
+    ]
+  },
+  "source": {
+    "complete_endpoint_branches": 3960,
+    "law": "native fair endpoint repair; independent uniform seam attempts",
+    "placement_coins": 2,
+    "seams": 30,
+    "state_and_field_dictionary": "binary total-two configurations and explicit occupation functions",
+    "states": 66
+  },
+  "source_sha256": {
+    "Lean/EventAlgebra/FiniteBuschGleason.lean": "8415021dea47b15d924949c344456a7e9ce0111bdff8e50deeb05a4c93514bd2",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/native_defect_decision.py": "d3c9293c3494b104f3a0926d088377984ec296f127bf29b60bb7d4a7cde81373",
+    "model/common_source/native_defect_decision_results.json": "37c6db66965ecd1f540a4a8d4b5e21fe74682004b64202c6ca31fbb37e9c711f",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_quantum_defects/PROOF.md": "2c724068d527102a1ebd2bbb98fdea038b0788294412758c97400d1146c4af8a",
+    "model/native_quantum_defects/certificate.py": "5e06446a659041ce33cc185e2cbf9035c55f64de88fcb678cc7ab6da48e49f31",
+    "model/native_quantum_defects/test_certificate.py": "786f255ba0146adde106e44ccb939dbeee4fd5a81ebe102d3b640ea7b1ae239a",
+    "model/native_quantum_reconstruction/PROOF.md": "b89daf641232a3a7e696c870e4b0f282a0e723f9a7b607cf87e274f076e68f86",
+    "model/native_quantum_reconstruction/certificate.py": "ffc51c1ab3b09dee9d5a004896b80ec40747a893a2ef1e05ae67cf7e123bf75b",
+    "model/native_quantum_reconstruction/results.json": "64ca7bf6321535a1cd6bbd13ac015721dd6824e4d84fe126ae59d8f415021df0",
+    "model/native_quantum_reconstruction/test_certificate.py": "a723daabc63a8ae3be98b7f17100243177cc1bb9e1df882162f885c8e252f9af",
+    "model/native_thermal_return/certificate.py": "ae0e2d8e2a15aa0e3f900c1ddaa30d2eca8bc5f92dc5d98f775df29b28e2c6e3",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb"
+  },
+  "spectrum": {
+    "all_66_Newton_trace_coefficients_checked": true,
+    "characteristic_factors": [
+      {
+        "coefficients": [
+          1,
+          -60
+        ],
+        "multiplicity": 1
+      },
+      {
+        "coefficients": [
+          1,
+          -54
+        ],
+        "multiplicity": 5
+      },
+      {
+        "coefficients": [
+          1,
+          -52
+        ],
+        "multiplicity": 5
+      },
+      {
+        "coefficients": [
+          1,
+          -50
+        ],
+        "multiplicity": 11
+      },
+      {
+        "coefficients": [
+          1,
+          -48
+        ],
+        "multiplicity": 5
+      },
+      {
+        "coefficients": [
+          1,
+          -110,
+          3020
+        ],
+        "multiplicity": 3
+      },
+      {
+        "coefficients": [
+          1,
+          -100,
+          2488
+        ],
+        "multiplicity": 1
+      },
+      {
+        "coefficients": [
+          1,
+          -100,
+          2490
+        ],
+        "multiplicity": 4
+      },
+      {
+        "coefficients": [
+          1,
+          -100,
+          2498
+        ],
+        "multiplicity": 4
+      },
+      {
+        "coefficients": [
+          1,
+          -150,
+          7480,
+          -124024
+        ],
+        "multiplicity": 5
+      }
+    ],
+    "distinct_eigenvalues": 16,
+    "eigenvalue_intervals": [
+      {
+        "integer_transfer_interval": [
+          "8386/181",
+          "8525/184"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "9726/209",
+          "8423/181"
+        ],
+        "multiplicity": 1
+      },
+      {
+        "integer_transfer_interval": [
+          "10679/228",
+          "12412/265"
+        ],
+        "multiplicity": 4
+      },
+      {
+        "integer_transfer_interval": [
+          "48",
+          "48"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "3401/70",
+          "8211/169"
+        ],
+        "multiplicity": 4
+      },
+      {
+        "integer_transfer_interval": [
+          "4041/83",
+          "16943/348"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "50",
+          "50"
+        ],
+        "multiplicity": 11
+      },
+      {
+        "integer_transfer_interval": [
+          "8689/169",
+          "3599/70"
+        ],
+        "multiplicity": 4
+      },
+      {
+        "integer_transfer_interval": [
+          "52",
+          "52"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "3799/72",
+          "12294/233"
+        ],
+        "multiplicity": 3
+      },
+      {
+        "integer_transfer_interval": [
+          "14088/265",
+          "12121/228"
+        ],
+        "multiplicity": 4
+      },
+      {
+        "integer_transfer_interval": [
+          "9677/181",
+          "11174/209"
+        ],
+        "multiplicity": 1
+      },
+      {
+        "integer_transfer_interval": [
+          "54",
+          "54"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "9017/164",
+          "12041/219"
+        ],
+        "multiplicity": 5
+      },
+      {
+        "integer_transfer_interval": [
+          "13336/233",
+          "4121/72"
+        ],
+        "multiplicity": 3
+      },
+      {
+        "integer_transfer_interval": [
+          "60",
+          "60"
+        ],
+        "multiplicity": 1
+      }
+    ],
+    "largest_nonconstant_transfer_eigenvalue": "(55+sqrt(5))/60",
+    "physical_masses_identified": false,
+    "rational_nonconstant_contraction_upper": "229/240",
+    "reconstructed_energy_rule": "-log(integer_transfer_eigenvalue/60)",
+    "stationary_eigenvalue_multiplicity": 1,
+    "transfer_denominator": 60
+  },
+  "transfer_sectors": {
+    "B_definition": "B[x,a]=native occupation at port a",
+    "all_30_native_seam_transfers_checked": true,
+    "common_seam_transfer_commutant_dimension": 3,
+    "full_occupation_effect_algebra_preserves_these_sectors": false,
+    "matrix_entry_orbit_sizes": [
+      66,
+      1320,
+      2970
+    ],
+    "nonzero_subspace_invariant_under_every_seam_requires_all_12_ports": true,
+    "particle_or_gauge_group_identification": false,
+    "projector_denominator": 330,
+    "projector_formulas": [
+      "5J",
+      "33BB^T-11J",
+      "330I-33BB^T+6J"
+    ],
+    "ranks": [
+      1,
+      11,
+      54
+    ]
+  }
+}

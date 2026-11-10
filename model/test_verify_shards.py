@@ -23,7 +23,8 @@ def completion_program_commands(workflow):
                     'program-fields', 'program-native')
     other_jobs = {'particle-services', 'protected-defects', 'native-field-readout',
                   'native-field-dynamics', 'native-field-thermodynamics',
-                  'finite-observables', 'native-observations'}
+                  'finite-observables', 'native-observations',
+                  'retained-custody', 'retained-field-custody'}
     assert set(workflow['jobs']) == set(program_jobs) | other_jobs
     return [step['run'] for name in program_jobs
             for step in workflow['jobs'][name]['steps'] if 'run' in step]
@@ -485,13 +486,13 @@ def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     # hours-long scientific replay runs nightly, on tags and on dispatch.
     assert 'if' not in hashes and 'if' not in regression
     assert hashes['runs-on'] == 'ubuntu-latest'
-    assert any(step.get('run') == 'python -m model.verify --hashes-only' for step in hashes['steps'])
+    assert any(step.get('run') == 'python -m model.verify_current --hashes-only' for step in hashes['steps'])
     assert observer['if'] == ("github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' "
                               "|| startsWith(github.ref, 'refs/tags/')")
     assert observer['strategy']['matrix']['os'] == ['ubuntu-latest']
     assert observer['strategy']['matrix']['shard'] == [0,1,2,3,4,5]
     assert observer['timeout-minutes'] == 90
-    assert any(step.get('run') == 'python -m model.verify --shard-index ${{ matrix.shard }} --shard-count 6'
+    assert any(step.get('run') == 'python -m model.verify_current --shard-index ${{ matrix.shard }} --shard-count 6'
                for step in observer['steps'])
     scalar = [step for step in observer['steps'] if 'verify_source_scalar_time_refinement.py' in step.get('run','')]
     assert len(scalar) == 1 and scalar[0]['if'] == 'matrix.shard == 2'
@@ -499,10 +500,25 @@ def test_ci_checks_custody_per_push_and_replays_all_six_shards_nightly():
     assert regression['strategy']['matrix']['shard'] == list(range(16))
     assert regression['timeout-minutes'] == 90
     commands = [step for step in regression['steps'] if 'run' in step]
-    pytest_steps = [step for step in commands if 'python -m pytest' in step['run']]
+    pytest_steps = [step for step in commands if '-p model.pytest_shards' in step['run']]
     assert len(pytest_steps) == 1 and 'if' not in pytest_steps[0]
     assert pytest_steps[0]['run'] == ('python -m pytest -q -W error --durations=30 -p model.pytest_shards '
         '--model-shard-index ${{ matrix.shard }} --model-shard-count 16 model')
+    custody_steps = [step for step in commands if step.get('name') == 'Check current custody maintenance routes']
+    assert len(custody_steps) == 1 and custody_steps[0]['if'] == 'matrix.shard == 0'
+    assert custody_steps[0]['run'] == ('python -m pytest -q -W error '
+        'tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py '
+        'tools/test_field_current_record_manifests.py tools/test_retained_source_records_custody.py')
+    assert sum('python -m pytest' in step['run'] for step in commands) == 2
+    retained = [step for step in commands if step.get('name') == 'Execute three immutable custody suites']
+    assert len(retained) == 1 and retained[0]['if'] == 'matrix.shard == 0'
+    assert retained[0]['run'].splitlines() == [
+        'python tools/check_retained_completion_custody.py',
+        'python tools/check_retained_field_custody.py',
+        'python tools/check_retained_source_records_custody.py']
+    for job in (hashes, observer, regression):
+        checkout = [step for step in job['steps'] if step.get('uses', '').startswith('actions/checkout@')]
+        assert len(checkout) == 1 and checkout[0]['with']['fetch-depth'] == 0
     extra = [step for step in commands if 'model.common_source.repair_field_attachment' in step['run']
              or 'native_staggered_field' in step['run'] or 'observer_particles/run.py' in step['run']]
     assert len(extra) == 4

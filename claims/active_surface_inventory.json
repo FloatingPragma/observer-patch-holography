@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1721,
+  "surface_count": 1790,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1766,6 +1766,31 @@
       "allowlisted": false
     },
     {
+      "path": "model/affine_gauss_charged_clock/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_charged_clock/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_charged_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_clock_observables/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_clock_observables/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/affine_gauss_full_spectrum/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3091,6 +3116,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/completion/FIELD_CURRENT_CUSTODY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/completion/GAPLESS_NATIVE_SPATIAL_RESPONSE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3162,6 +3192,21 @@
     },
     {
       "path": "model/completion/defect_algebra.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/historical/field_current_records_inputs/claims/assumption_dictionary.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/historical/field_current_records_inputs/model/protected_defect_catalog/PROOF.receipt-bound.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/completion/historical/source_records_inputs/claims/assumption_dictionary.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3452,6 +3497,11 @@
     },
     {
       "path": "model/field_cone_compatibility/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_current_late_custody/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3916,12 +3966,62 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_abelian_energy_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abelian_energy_records/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abelian_energy_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abelian_field_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abelian_field_join/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_abelian_field_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_action/INCIDENT_REFINEMENT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/native_action/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_block_dirac/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_block_dirac/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_block_dirac/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_block_dirac/SOURCE_AUDIT.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3952,6 +4052,36 @@
     },
     {
       "path": "model/native_causal_dataflow/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_centroid/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_centroid/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_centroid/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_resolution/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_resolution/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_charge_resolution/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4271,6 +4401,46 @@
       "allowlisted": false
     },
     {
+      "path": "model/native_higgs_current_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_current_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_filtered_state/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_filtered_state/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_filtered_state/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_spectral_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_spectral_join/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_higgs_spectral_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/native_interface/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4287,6 +4457,16 @@
     },
     {
       "path": "model/native_local_charge_history/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_current_readout/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_local_current_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4442,6 +4622,36 @@
     },
     {
       "path": "model/native_quantum_service_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_higgs_join/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_higgs_join/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_higgs_join/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_response/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_quark_response/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4612,6 +4822,116 @@
     },
     {
       "path": "model/native_vacuum_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_interface/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_interface/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_interface/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_response/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_response/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_weak_current_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/CURRENT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/EXACT_CURRENT_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/FIELD_PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/FIELD_REUSE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground_refinement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground_refinement/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_ground_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_refinement/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_refinement/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/native_wilson_maxwell_refinement/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4797,6 +5117,11 @@
     },
     {
       "path": "model/particle_atlas_explainer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_atlas_explainer/RETAINED_SOURCE_EQUIVALENCE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5077,6 +5402,16 @@
     },
     {
       "path": "model/particle_comparison/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_construction_scope/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/particle_construction_scope/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6252,6 +6587,16 @@
     },
     {
       "path": "model/protected_particle_readout/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_readout_numerics/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/protected_readout_numerics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

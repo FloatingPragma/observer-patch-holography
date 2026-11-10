@@ -1,0 +1,11 @@
+# Class-dependent receipt admission
+
+This downstream authority admits the unchanged particle-completion and regional-clock owners on the sealed current class. The class does not bind these outputs back. The sixteen internal parent receipts have already executed in dependency order, and their execution record remains an input.
+
+The completion result copies exactly `native_record_response/results.json`'s `short_record_population_realization` into its embedded response. This is an explicit additive scientific subtree, not metadata-only renewal. It establishes finite stationary H66 population reconstruction with the supplied source, 721 complete attempt slots, and the stated four/five-event calibration. It does not establish coherent-instrument tomography, empirical sampling, unrestricted hidden-dimension identification, physical clock selection, or particle energy. The source proof is [SHORT_RECORD_RECONSTRUCTION.md](../native_record_response/SHORT_RECORD_RECONSTRUCTION.md).
+
+Every older scientific field and status is preserved exactly. Four source paths are added only at the four named source-map locations in `authority.json`; no other map may expand. The actual full original completion report must agree with this projection, including the copied child result. The regional-clock receipt retains the original owner's complete numerical checker and canonical diagnostics. Its scientific fields are unchanged.
+
+`python -m model.field_current_late_custody --check` authenticates the admitted receipts, full live source maps, execution records, and sealed class. `--replay` additionally executes both unchanged original owners again. `--admit-executed DIR` consumes the saved outputs and execution records of those actual owners, verifies all fixed inputs and exact comparisons, and writes only the two admitted receipts and the downstream execution record. It is not a substitute for running the owners.
+
+The output is `model/completion/field_current_class_consumer_replays.json`. The original generic renewal helper remains immutable; this authority handles only the two explicitly enumerated late consumers and the exact copied child result. No old class review, physical source identity, physical gate, or release identity is changed.

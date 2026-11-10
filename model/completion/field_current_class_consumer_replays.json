@@ -1,0 +1,81 @@
+{
+  "added_child_result_is_metadata_only": false,
+  "authority_sha256": "803db6ccf068a02841c834ecc62d731a119487a3a940137ee3a7e1b124b52282",
+  "class_does_not_bind_consumers_back": true,
+  "class_modified": false,
+  "complete_scientific_payload_unchanged": false,
+  "current_class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+  "exact_added_scientific_subtree": {
+    "canonical_sha256": "6c22681c900163218eaea3f14e1f00c4715f57425c5fd58569f6cf304ba8a928",
+    "scope": "Configured finite stationary H66 population realization with complete native attempt records; no coherent instrument, particle energy, empirical sampling, or unrestricted hidden-dimension identification.",
+    "source_json_path": [
+      "short_record_population_realization"
+    ],
+    "source_receipt": "model/native_record_response/results.json",
+    "target_json_path": [
+      "weighted_native_complete_record_response",
+      "short_record_population_realization"
+    ]
+  },
+  "exact_source_additions_by_location": {
+    "root.native_clock_comparison.source_bindings": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.native_controlled_transfer_experiment.source_bindings": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.source_sha256": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.weighted_native_complete_record_response.source_sha256": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    }
+  },
+  "executed": {
+    "model/particle_identification/completion_results.json": {
+      "actual_unchanged_owner_executed": true,
+      "admitted_sha256": "b333c85ffe5a6f90655ce7697438607bf319a40a79920ab28d5bcc6b536d42cd",
+      "class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+      "copied_child_addition_explicitly_reviewed": true,
+      "fresh_sha256": "b333c85ffe5a6f90655ce7697438607bf319a40a79920ab28d5bcc6b536d42cd",
+      "producer": "model.particle_identification.completion_certificate:report",
+      "producer_source_sha256": "91b78a5bc168efece4a1a6436a907a0ffc7d5b44261132cb10685a15cfcae091"
+    },
+    "model/regional_clock/results.json": {
+      "actual_unchanged_owner_executed": true,
+      "admitted_sha256": "3a06d5708d20691d73aba83bcc1665aaf4db367b69cefd8a0e3da8aefdd0ca0a",
+      "class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+      "fresh_report_sha256": "0056f9b46f806e8420edf9f95ef64ca6175323bf61ce60b65a5dc5556f8c7d80",
+      "numerical_diagnostics_admitted_only_by_original_owner": true,
+      "original_complete_checker_executed": true,
+      "producer": "model.regional_clock.verify:report",
+      "producer_source_sha256": "07862ddf012af7384605be6a31ad02aa3b17ac52f666fc8ea952ab9189c024b8",
+      "scientific_payload_exactly_preserved": true
+    }
+  },
+  "internal_parent_execution_sha256": "c9bd1024ccd1edcda7c03c0651a9e84df4ab94d4d035472b98bd74bf36b0edef",
+  "old_scientific_fields_and_statuses_exactly_preserved": true,
+  "physical_statuses_changed": false,
+  "schema": "oph.field_current_late_class_consumer_admission.v1",
+  "source_sha256": {
+    "model/field_current_late_custody/README.md": "960d7dd619918675d1c8848ffb345e2a7c138f2b324e11be8493867b0914955a",
+    "model/field_current_late_custody/__init__.py": "0b49dee3265bd398c45c2b7f0c9ba39a36f307223ead9b998a6dec07e8bae7c7",
+    "model/field_current_late_custody/__main__.py": "e4db4863ed7d0bfb92355cd38eb426d3daf28fb04c52cb11c69b634a0a487f1a",
+    "model/field_current_late_custody/authority.json": "803db6ccf068a02841c834ecc62d731a119487a3a940137ee3a7e1b124b52282",
+    "model/field_current_late_custody/executions.json": "12102016c656dde121ea86ec6f15629fa9501ad61f2b1f3fa7eac8b4812fd0e0",
+    "model/field_current_late_custody/model.py": "4299de03c6f328a87506f4dd20d0fa3a98a70b34c54d15301bc05f17be9aec25",
+    "model/field_current_late_custody/test_model.py": "f187e640e1500a7aa399449fa0a9330a66b6796d6467276eff70187c75129ff1"
+  }
+}

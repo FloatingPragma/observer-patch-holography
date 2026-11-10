@@ -1,0 +1,150 @@
+{
+  "actual_cold_replays": {
+    "native_higgs_current_response": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_higgs_current_response",
+        "--check"
+      ],
+      "actual_stdout": "PASS: same elementary/Higgs excitation, original quantum current and all finite records\n",
+      "module": "model.native_higgs_current_response",
+      "receipt": "model/native_higgs_current_response/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "55fea7f49b3683fb34f3a72aa686cab58646608a3267db02f7f6d3a943b9352a",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_local_current_readout": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_local_current_readout",
+        "--check"
+      ],
+      "actual_stdout": "PASS: complete local400-state current pointer, unchanged native drift, all retained histories and resources\n",
+      "module": "model.native_local_current_readout",
+      "receipt": "model/native_local_current_readout/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "15428032377feb91b213d1b13be01badcb7997082220d0e0d9a880a855cff2ab",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_quark_higgs_join": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_quark_higgs_join",
+        "--check"
+      ],
+      "actual_stdout": "PASS native quark/Higgs complete same-source records 3eaa996b2ac49a222168aef03118c67fbab9df68a5de5c996fd5cc82b5d214a4\n",
+      "module": "model.native_quark_higgs_join",
+      "receipt": "model/native_quark_higgs_join/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "3eaa996b2ac49a222168aef03118c67fbab9df68a5de5c996fd5cc82b5d214a4",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_quark_response": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_quark_response",
+        "--check"
+      ],
+      "actual_stdout": "PASS: exact native quark CAR images, local measures and complete prepared eight-cell bins\n",
+      "module": "model.native_quark_response",
+      "receipt": "model/native_quark_response/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "06c336e1f691db866896de6123fea34937dcd462d92765f594600744c54fd40f",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_wilson_maxwell": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_wilson_maxwell",
+        "--check"
+      ],
+      "actual_stdout": "PASS: shared finite native/Dirac/Maxwell source, complete Gauss and nonzero connected records\n",
+      "module": "model.native_wilson_maxwell",
+      "receipt": "model/native_wilson_maxwell/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_wilson_maxwell_ground": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_wilson_maxwell_ground",
+        "--check"
+      ],
+      "actual_stdout": "PASS: full-source obstruction, positive macrocell completion and complete ground records\n",
+      "module": "model.native_wilson_maxwell_ground",
+      "receipt": "model/native_wilson_maxwell_ground/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "0e9edccffa2d8571f0b325feaee7c49408714d7b838e3e1c57ec6a183c15fa17",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_wilson_maxwell_ground_refinement": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_wilson_maxwell_ground_refinement",
+        "--check"
+      ],
+      "actual_stdout": "PASS: uniform fixed-cube interacting ground and complete photon-capacity records\n",
+      "module": "model.native_wilson_maxwell_ground_refinement",
+      "receipt": "model/native_wilson_maxwell_ground_refinement/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    },
+    "native_wilson_maxwell_refinement": {
+      "actual_cold_producer_exit_code": 0,
+      "actual_command": [
+        "python",
+        "-B",
+        "-W",
+        "error",
+        "-m",
+        "model.native_wilson_maxwell_refinement",
+        "--check"
+      ],
+      "actual_stdout": "PASS: fixed-source photon cutoff and complete-record receipt\n",
+      "module": "model.native_wilson_maxwell_refinement",
+      "receipt": "model/native_wilson_maxwell_refinement/results.json",
+      "receipt_changed": false,
+      "receipt_sha256": "49da49cb0745d1f78563f50fd4f6829e45e957d2bec7e4a87064075ce0a202ec",
+      "source_binding_scope_and_scientific_fields_checked_by_owning_producer": true
+    }
+  },
+  "schema": "oph.field_current_science_replays.v1",
+  "scientific_acceptance_scope": "exact frozen owner domains; no physical gate promotion"
+}

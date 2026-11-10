@@ -32,6 +32,7 @@ gives the mass definitions, units and tested hierarchy mechanisms.
 | Affine Gauss field source | Thirteen CAR modes, finite transverse oscillators, distributed longitudinal flux and a static charge reference | A certified full interacting charged ground and complete field/arrival records | Distinct declared source; finite boundary energy is not a relativistic mass |
 | Collective block extensions | Full interacting blocks coupled by declared dressed exchange or paired quadratures | A moving neutral band; a separately scaled dilute free Klein–Gordon record limit | Their inter-block couplings, replication and clock are additional architecture |
 | Native charged Dirac code | Four complete native constituents per macrocell, full occupation code and a positive square-root kinetic law | Source-selected rest frequency, complete spin-half CAR field records and a controlled free Dirac limit | Full-range couplers and programmable control are declared; the vectorlike code supplies no observed weak chirality or interacting charged limit |
+| Native Wilson–Maxwell extension | Thirty-two complete native constituents, a charged code, five transverse modes and full boundary Gauss reference | A certified finite matter–field response and fixed-cube photon-capacity comparison | Its uncompleted ground lies outside the code; a declared positive macrocell completion selects a prepared interacting code ground, without an SM or spatial-continuum identification |
 | Prepared Dirac viewer mode | A separately prepared finite spinor box with a supplied free Hamiltonian and complete detector | Position and energy-band records, measurement work and exported histories | Four spinor components do not contain the full R15 gauge module or many-fermion antisymmetrization |
 | Primary Wilson family | Sixty CAR modes per cell, product-cutoff links, its own Gauss preparation and idle reference | Uniform local-output bounds, selected spectral measures and finite responses | Its source, state and clock are distinct from the thirty-mode chiral source |
 
@@ -211,6 +212,54 @@ thirteen outcomes. An explicit screened remote pair disproves extending the
 single-charge separation bound to every state. This is a finite constrained
 localization result, without thermodynamic confinement or a Coulomb phase.
 
+## Complete quark-current spectral records
+
+The [literal quark calculation](../../model/native_quark_response/PROOF.md)
+uses the actual interacting local reference and the same full eight-cell
+Hamiltonian and preparation as the lepton probes. Its 140-state quark
+module maps through the actual CAR operators into a complete 224-state
+image. The normalized tensor split contributes a target metric factor
+`1/6`; omitting it changes probabilities even when energies look correct.
+Every target Hamiltonian image, gauge weight and spectral residue is checked.
+
+| Removed native field | Hypercharge change | Local target roots / visible lines | Strong full-source excitation bin | Original-attempt probability lower bound |
+| --- | --- | --- | --- | --- |
+| `u^c` | `+2/3` | 13 / 13 | `[0.7815710013291, 0.7815763657472]` | `0.4953979660650` |
+| `d^c` | `-1/3` | 13 / 13 | `[0.7815710013291, 0.7815763657472]` | `0.4953979660650` |
+| `Q` | `-1/6` | 25 / 13 | `[0.7819863054154, 0.7819916698335]` | `0.4957017902099` |
+
+The twelve zero local `Q` residues are proved by exact resolvent cancellation,
+not discarded numerical weights. Every corresponding full-source bin and
+its possible hopping leakage remains. Each complete local probe measure
+has weight `1/2`; color, spin and weak multiplicities introduce no further
+factor `1/2`. The static quantum reference costs four on success. Preparation
+failure, pump failure, all bins and the outside-all-bins event form the
+complete physical law. The local `u^c` and `d^c` measures coincide exactly
+at the configured equal Yukawa couplings; their interacting lattice bounds
+do not assert an exact global degeneracy. These results complete the five
+internal fermion-current probe families with `e^c` and `L`. Energy lines
+are not a count of particle species, and static color compensation does
+not identify a propagating quark, confinement scale or GeV mass.
+
+The [quark–Higgs join](../../model/native_quark_higgs_join/PROOF.md)
+uses each actual quark annihilator `A_i=c_i` and quantum composite
+`C_i=[H_local,c_i]`. Their full-current covariance is checked on all
+occupations, then contracted with the complete thirty-mode reference.
+The literal target image satisfies `C=H_target A-A H_source`; this is
+stronger than comparing eigenvalues. On the same interacting source,
+`[h,A]=C+[2^-34 T,A]`, with `||[2^-34 T,A]||<=720*2^-34`.
+The dominant bins have positive elementary/composite cross contribution
+above `0.3871888488` for `u^c,d^c` and `0.3876321760` for Q.
+Complete fair-setting pumps `(A±C/2)/2` give original signed hit contrasts
+above `0.0967969710` and `0.0969078028`, respectively. Every pump/bin and
+preparation failure remains. The scalar is quantum; no vacuum expectation,
+isolated colored particle or physical mass is inferred from the shared bin.
+The separately chosen elementary and composite pumps also prepare admitted
+states within `5.193e-6` in trace distance for all three families, including
+the retained preparation environment and static reference. Every subsequent
+common detector history inherits that bound. This comparison excludes the
+different initial setting labels and keeps their unequal success rates.
+
 ## Refined native energies and the quantum Higgs probe
 
 The [physical charged centroid](../../model/native_charge_centroid/PROOF.md)
@@ -292,6 +341,30 @@ units and kinetic law. This supplies a typed free-field construction with
 that source rest frequency; it does not transfer the affine interaction,
 prove observed weak chirality or equate the full composite operator with
 a canonical fermion field.
+
+The [same-excitation current instrument](../../model/native_higgs_current_response/PROOF.md)
+calculates an actual subsequent measurement on these preparations. In the
+wider `128v` bin, the original dressed current has mean in
+`[-0.07004020,-0.00539719]` for A and
+`[-0.07005609,-0.00538131]` for B/2. The five current labels, energy
+rejection, pump failure and preparation flags form a complete 80-label
+instrument. Charge conjugation changes the current itself; copying the
+opposite-charge value gives the wrong response. The four-interval clock
+and pointer capacity include the retained failure branches. This is a
+finite quantum-current measurement, not a W-boson identification.
+
+The [local current pointer](../../model/native_local_current_readout/PROOF.md)
+replaces that last full-matrix service by a declared Gauss-invariant local
+coupling. On the complete 80-state current carrier,
+`f(W)=(4W^4-4W^3-13W^2+25W)/15` assigns five integer pointer shifts.
+A rational five-state pointer generator and a pulse of duration `2^-20`
+give total clock `3+2^-20`, with the native Hamiltonian running throughout.
+The full onsite Yukawa terms, including both quark terms, and all incident
+hops give complete-history error below `0.000268446640`. Both decoded
+current means remain below `-0.0043`; all 80 labels and fine preparation
+flags remain. The explicit polynomial control has a large bounded work
+cost. Earlier preparation and spectral-bin services remain assumptions;
+this construction does not supply their native repair compiler.
 
 ## A full charged ground with dynamical transverse fields
 
@@ -436,6 +509,124 @@ capacity. Exact spectral services and a programmable finite-matrix drive
 are explicit; additional synthesis workspace is separate. This source
 differs from the affine field attachment. Its vectorlike `e^c` pair does
 not supply the electron's left-handed weak representation or a GeV mass.
+
+## One finite spinor and transverse-field interaction
+
+The [native Wilson–Maxwell construction](../../model/native_wilson_maxwell/PROOF.md)
+uses eight spatial vertices, 32 complete native constituents and five
+transverse modes with total occupation at most three. Its 16-state local
+fermion codes use the common elementary/Higgs excitation `m=E_H`.
+The source includes the complete native occupation complement, boundary
+charge reference, Coulomb energy and finite Peierls link operators.
+The same charge density satisfies the normalized Gauss constraints and
+enters the electric and current terms. The full zero-coupling Wilson
+one-body operator has `|H_W|>=m`; the actual negative-band vacuum and
+conjugate fermions are used in its Fock representation.
+
+At the declared settings `g=1/64`, `mT=1/64`, a deterministic unfiltered
+native trial has a proved original-attempt probability above
+`4.7505588428e-8` for one charged excitation, one conjugate excitation
+and one transverse quantum. The binary connected matter–field response
+is above `4.7113168411e-8`. These bounds include the complete nonlinear
+evolution remainder and the actual source preparation weight. Two
+independent exact current calculations agree. All 1,161 count and
+failure labels remain, with less than 10,479 nats in the displayed
+source, reference and record registers. Control synthesis workspace is
+an additional resource.
+
+The input is a free-state preparation evolved by the coupled Hamiltonian;
+it is not the coupled ground state. The result therefore proves a finite
+interaction response, without identifying vacuum radiation or a scattering
+cross section. Spacing `a=1/m`, coupling, regulator, global code controls
+and finite photon cap are explicit choices. The spatial continuum,
+physical chiral-current match and measured mass require their own bounds
+on this source. The separate free Lorentz theorem does not establish them
+merely because the same charged doublet supplies m.
+
+The [fixed-cube photon refinement](../../model/native_wilson_maxwell_refinement/PROOF.md)
+bounds the literal finite link exponentials against the unbounded-oscillator
+mathematical comparison. At total cap three, `g=mT=1/64`, the complete
+prepared-state error is below `1.863e-9`; overflow probability is below
+`3.468e-18`. The same actual native trial has comparison pair-plus-field
+probability above `4.7504776747e-8` and connected response above
+`4.7112356073e-8`. A displacement-word estimate with a factorial Dyson
+tail proves convergence as the photon cap grows, on this fixed cube.
+The comparison retains an explicit overflow outcome and every source
+complement. No infinite register is inserted into a finite member.
+
+On the exact reducing code, the comparison's electric flux combines
+transverse momentum and the longitudinal charge field. Their two
+commutator contributions sum to the local identity
+`[E_e,F_f]=g delta_ef F_f`; magnetic curl and charge/current commutators
+have the corresponding incidence coefficients. The same algebra gives
+finite-graph Maxwell equations. Complete bounded electric/magnetic
+Hadamard records have controlled cutoff errors. The finite cap itself
+has boundary commutator defects; no uniform operator-norm convergence
+or spatial propagation cone is inferred. Growing volume, shrinking
+spacing requires separate estimates. The actual coupled ground is treated
+by the explicit source completion below.
+
+## Full ground audit and a positive macrocell completion
+
+The [full-ground proof](../../model/native_wilson_maxwell_ground/PROOF.md)
+finds the uncompleted Wilson–Maxwell source's lowest active physical
+states **outside its particle code**. Relative to
+`E_base=32E_g+m(3+sqrt(6))`, the entire interacting code has energy at
+least `m/50000`. A single native neutral triplet in any of the 32
+constituents costs only `[8.20758,8.21035]e-22`. Thus 96 active complement
+states lie below the whole code. Retained zero-energy preparation
+references multiply this degeneracy. A code-only positive gap would
+have missed this comparison.
+
+An explicit changed Hamiltonian resolves that ordering:
+
+```
+H_completed = H_original + m c(g) sum_x (I-P_x),
+c(g) = g^2 2^-48 ceil[2^48(C0 + h v/2)].
+```
+
+Here `P_x` is the full sixteen-occupation code projector at macrovertex
+`x`, `C0=0.157147436579493...` and `h=5.250687698400934...` are exact
+filled-band Coulomb and hopping contractions, and
+`v=1/16+1/(12sqrt(6))`. The positive coefficient is calculated from this
+source, without a measured mass or a silent energy subtraction. **Choosing
+this completion is an architecture decision.** It vanishes at `g=0`,
+leaves all code energies unchanged, and raises a complement with `q`
+defective macrovertices by `q m c(g)`. Every original count history
+preserving these code patterns has exactly the same probabilities;
+cross-pattern energy and phase comparisons change.
+
+The completed source has a unique active interacting ground, full
+physical gap above `2.52078609e-10`, and internal code gap above
+`1.7170018m`. Four physical trials and three finite energy-agreement
+filters prepare it with success above `0.9995943286660` and conditional
+trace error below `1.417923e-7`. Every filter output and partner source is
+retained; no exact ground projection or unknown ground energy enters the
+apparatus. Capacity is below `42006.105` nats before the final count pointer,
+with synthesis workspace separate. Its original-attempt `(1,1,1)` free-frame
+count probability exceeds `1.41692895e-6`. This is stationary virtual
+occupation in the interacting ground, not vacuum emission. The local
+penalty does not remove the parent kinetic terms' global code guard or
+prove a uniform full-source spatial propagation cone.
+
+The [interacting-ground capacity theorem](../../model/native_wilson_maxwell_ground_refinement/PROOF.md)
+extends the same completion to every photon cap `K>=3`. A relative form
+bound, rather than a cap-dependent operator norm, gives a uniform code
+gap above `1.3284353m` and the same full physical gap above `2.52078609e-10`.
+The ground remains unique and neutral. A common finite Cayley pointer uses
+only a uniform bound on the raw ground energy, so arbitrarily high excited
+energies do not invalidate its energy-agreement test. Four trials and three
+filters retain success above `0.999324855` at every cap. Stationary
+matter/field occupation has original-attempt probability above `4.51023e-7`.
+
+There are two distinct constructive comparisons. Ideal-ground electric
+and magnetic histories have error below `3.094e-9` at `K=1024`, using
+heat evolution only as a proof device. The actual preparation and complete
+count/field histories have error below `9.549e-9` at `K=2^96`, with the
+same finite filter alphabet, all partners and all failures. Those huge
+source matrices are not enumerated; finite control strength and work grow
+with K. This proves a fixed-cube interacting-ground and record limit,
+not spatial refinement or an interacting relativistic field limit.
 
 ## Moving neutral blocks and the relativistic comparison
 
@@ -764,11 +955,18 @@ A growing spatial/refinement comparison with the same reference and energy
 detector requires proof. Its finite boundary energy does not become a rest
 mass by subtracting the reference.
 
-The free Dirac code supplies a distinct controlled spin-half field route.
-Joining its full occupation algebra, Lorentz readout and actual chiral
-currents to a surviving gauge/Higgs interaction requires a common source
-construction. Its free kinetic law cannot inherit the affine attachment's
-interaction by sharing the same elementary probe.
+The charged Wilson–Maxwell code supplies a common finite spinor/field
+interaction and complete original-attempt records. Its next requirements
+are spatial refinement and uniform local-observable propagation bounds
+on that same source. The fixed-cube photon-cutoff comparison, including
+the completed ground and its actual finite preparation histories, is proved.
+The explicit positive macrocell completion supplies an actual prepared
+interacting ground; its excitation thresholds and momentum dependence
+must then replace the free-input count experiment when claiming particle
+masses. This completion changes the source and keeps its global kinetic
+guard explicit. Matching the native chiral currents
+and proving a surviving relativistic interaction require explicit transfer;
+the separate free Lorentz theorem supplies no automatic identification.
 
 For the neutral collective route, the free relativistic record theorem
 supplies a precise comparison target. A nonzero interacting relativistic
@@ -811,6 +1009,13 @@ its reference, clock or physical interpretation to another construction.
 | native charged centroid | [PROOF.md](../../model/native_charge_centroid/PROOF.md) |
 | native elementary/composite spectral join | [PROOF.md](../../model/native_higgs_spectral_join/PROOF.md) |
 | native filtered elementary/composite states | [PROOF.md](../../model/native_higgs_filtered_state/PROOF.md) |
+| native Higgs-current records | [PROOF.md](../../model/native_higgs_current_response/PROOF.md) |
+| native local current pointer | [PROOF.md](../../model/native_local_current_readout/PROOF.md) |
+| complete native quark spectral records | [PROOF.md](../../model/native_quark_response/PROOF.md) |
+| same-source quark and quantum-Higgs response | [PROOF.md](../../model/native_quark_higgs_join/PROOF.md) |
+| coupled ground and positive onsite completion | [PROOF.md](../../model/native_wilson_maxwell_ground/PROOF.md) |
+| fixed-cube interacting-ground capacity limit | [PROOF.md](../../model/native_wilson_maxwell_ground_refinement/PROOF.md) |
+| native Wilson–Maxwell interaction and photon refinement | [Interaction](../../model/native_wilson_maxwell/PROOF.md), [refinement](../../model/native_wilson_maxwell_refinement/PROOF.md) |
 | native weak-current interface and records | [Interface](../../model/native_weak_current_interface/PROOF.md), [response](../../model/native_weak_current_response/PROOF.md) |
 | finite candidate construction scopes | [PROOF.md](../../model/particle_construction_scope/PROOF.md) |
 | coherent defect wave | [PARTICLE PATH.md](../../model/coherent_defect_wave/PARTICLE_PATH.md), [PROOF.md](../../model/coherent_defect_wave/PROOF.md) |

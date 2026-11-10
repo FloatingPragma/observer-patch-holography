@@ -95,6 +95,31 @@ compensating one-particle reference costs four source units. These are visible
 spectral windows with positive complementary weight, without an isolated-pole
 or observed lepton assignment.
 
+The [native quark measures](../../model/native_quark_response/PROOF.md)
+add the other three internal current families on this same source.
+The strongest `u^c/d^c` removal bins are
+`[0.7815710013291,0.7815763657472]`; the `Q` bin is
+`[0.7819863054154,0.7819916698335]`, with reference cost four separate.
+All local roots and residues, full hopping errors and original preparation
+weights are retained. The two local singlet measures coincide at equal
+configured couplings; this is not a physical up/down mass equality.
+The weak-doublet target has 25 distinct roots but only thirteen visible
+local lines. Such a spectral catalogue describes probes, not 25 particles.
+Neither a static colored energy nor a ratio of these three strong bins
+is automatically a running quark mass or a relativistic rest-energy ratio.
+
+The [quantum-Higgs commutator](../../model/native_quark_higgs_join/PROOF.md)
+does connect those elementary quark probes to their actual scalar/matter
+composites. The same interacting bins have strictly positive cross weight;
+complete fair-setting interference has original contrast above `0.0967969710`
+for `u^c,d^c` and `0.0969078028` for Q. This identifies a shared contribution
+to a finite spectral measure. It neither inserts a classical scalar
+expectation nor converts that contribution into a physical quark mass.
+The original preparation also gives elementary/composite admitted states
+within `5.193e-6`, including their common retained environment. This bounds
+every subsequent common detector history, while their distinct initial
+settings and unequal success rates remain explicit.
+
 The [same-H transport](../../model/coherent_defect_wave/chiral_joint/interacting_charged_transport/PROOF.md)
 gives positive six-route arrival after an explicit P0 localization. The
 [low-bin localization](../../model/coherent_defect_wave/chiral_joint/interacting_charge_localization/PROOF.md)
@@ -227,6 +252,15 @@ record. Its full equation of motion retains hopping and the scalar
 operator. It supplies no classical Higgs expectation, generation hierarchy,
 relativistic mass correction or observed weak-current form factor.
 
+An actual [local current readout](../../model/native_local_current_readout/PROOF.md)
+then couples the admitted excitation to a neutral five-state pointer.
+The Hamiltonian evolves uninterrupted during the final pulse; the complete
+record law is within `0.000268446640` of the ideal current measurement.
+Both elementary and composite negative means survive. These are decoded
+current values at the start of the pulse, not negative energies or masses.
+Preparation, spectral admission, local control and its work costs remain
+explicit in the instrument.
+
 The [normalized filtered-state bound](../../model/native_higgs_filtered_state/PROOF.md)
 also proves that the two successful probes prepare almost the same state.
 With actual depth-three preparation, all common subsequent detector
@@ -261,6 +295,61 @@ original arrival-and-acceptance probabilities and bounded backaction.
 Its result is an admitted-bin boundary energy. A relative kinetic or
 rest-mass formula cannot be transferred between these two sources by
 subtracting their different reference costs.
+
+The [Wilson–Maxwell experiment](../../model/native_wilson_maxwell/PROOF.md)
+uses the common native energy `m=E_H` in an interacting finite matter–field
+Hamiltonian. At zero coupling its complete Wilson operator has absolute
+spectrum at least m. A positive pair-plus-field response at nonzero
+coupling is certified on the same occupation code, physical charge
+reference and clock. The finite experiment controls its nonlinear
+remainder and all 1,161 outcomes. It does not establish the dressed
+rest mass: that requires the coupled state's spectral response,
+spatial-momentum dependence and a controlled regulator comparison.
+No GeV standard is supplied by the choice `a=1/m` or `mT=1/64`.
+
+The [Higgs-current readout](../../model/native_higgs_current_response/PROOF.md)
+provides a further same-energy check: the elementary and quantum-Higgs
+preparations have compatible signed current distributions after their
+recorded successes. Their different preparation probabilities remain in
+the observation law. Equal response in this finite bin is not a derivation
+of three generations or an empirical lepton mass ratio.
+
+The [fixed-cube photon refinement](../../model/native_wilson_maxwell_refinement/PROOF.md)
+controls the quantum-field truncation for the finite response. The
+pair-plus-field signal stays strictly positive after an error below
+`1.863e-9` in the prepared vector. This is a controlled interacting
+record, without a mass renormalization or GeV conversion: it uses the
+same free-input preparation and does not replace it by the coupled
+physical ground. Photon-cap convergence and spatial continuum control
+are distinct requirements.
+
+The [complete ground comparison](../../model/native_wilson_maxwell_ground/PROOF.md)
+also changes the interpretation of a code-only gap. Before completion,
+96 active neutral native excitations outside the code lie below the
+whole interacting code. The declared positive macrocell penalty
+`m c(g) sum_x(I-P_x)` selects the actual unique code ground without
+changing its internal energies or fitting a measured mass. It gives
+a full physical gap above `2.52078609e-10`, with a distinct code gap
+above `1.7170018m`. The first number measures separation from native
+complement states; neither number is an identified electron mass.
+
+The completed source's four-trial preparation has success above
+`0.9995943286660` and ground trace error below `1.417923e-7`.
+Its positive stationary `(1,1,1)` free-frame count is virtual dressing,
+not spontaneous radiation. An energy/momentum probe on this prepared
+ground, followed by a controlled spatial comparison and an observed
+current assignment, is the mass calculation to perform. The coefficient
+of the chosen completion is source-computed; choosing that architecture
+is distinct from a theorem that primitive repair forces it.
+
+The [interacting-ground photon refinement](../../model/native_wilson_maxwell_ground_refinement/PROOF.md)
+proves a uniform code gap above `1.3284353m` and retains the same positive
+full physical gap for every cap `K>=3`. Complete physical preparation and
+count/field records converge at fixed cube; an explicit `K=2^96` gives a
+history error below `9.549e-9`. The ideal-ground field comparison already
+has error below `3.094e-9` at `K=1024`. Neither budget identifies those finite
+gaps with a particle mass: spatial momentum dependence, the physical
+current channel and the common energy standard still require attachment.
 
 ## Canonical action masses and calibrated controls
 

@@ -7210,7 +7210,7 @@ def _observer_particle_contracts() -> dict[str, Any]:
 
 
 def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
-    """Custody/readout projection only; canonical model.verify owns replay."""
+    """Custody/readout projection only; model.verify_current owns replay."""
     repo = repo.resolve()
     paths = {
         "native": ("native_defect_decision_live_results.json", "oph.native_defect_decision.v1"),
@@ -7280,7 +7280,7 @@ def _particle_reconstruction_decisions(*, repo: Path = REPO) -> dict[str, Any]:
           "residue_sum_error_Frobenius": spectral["residue_sum_error_Frobenius"]}},
     ]
     return {"verification": "source custody and retained artifact hashes checked; retained readout summary, not a fresh scientific replay",
-            "replay_owner": "python -m model.verify", "scope": "separate object contracts; no composite spectrum or physical identification",
+            "replay_owner": "python -m model.verify_current", "scope": "separate object contracts; no composite spectrum or physical identification",
             "parents": parents, "rows": rows, "native_retained_evidence": native_retained,
             "native_live_replay": "python3 tools/renew_native_defect_live.py --check"}
 
@@ -7642,7 +7642,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
         add("## Native defect and finite field reconstruction decisions")
         add("")
         add(reconstruction["verification"] + ". Canonical scientific replay belongs to "
-            "`python -m model.verify`. These rows retain separate object contracts; "
+            "`python -m model.verify_current`, including the protected readout's "
+            "complete interval validator. These rows retain separate object contracts; "
             "they do not assemble a particle spectrum. See the "
             "[field-reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md).")
         add("")

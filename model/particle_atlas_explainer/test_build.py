@@ -21,7 +21,7 @@ def test_render_is_dark_compact_and_complete(data):
     root = ET.fromstring(svg)
     assert root.get('width') == '1600'
     # Includes the mobile-object, common-clock and complete charged-response panels.
-    assert 12000 < int(root.get('height')) < 32000
+    assert 12000 < int(root.get('height'))
     text = ' '.join(''.join(root.itertext()).split())
     for phrase in ('From a twist to a particle', 'Topological defect:', 'Why nothing local can erase it',
                    'Position is where a record is written', 'Velocity is the slope of the records',
@@ -124,7 +124,8 @@ def test_png_binds_the_same_svg_and_dimensions():
     raw = build.PNG.read_bytes()
     assert raw[:8] == b'\x89PNG\r\n\x1a\n'
     root = ET.fromstring(build.SVG.read_bytes())
-    assert struct.unpack('>II', raw[16:24]) == (int(root.get('width')), int(root.get('height')))
+    assert struct.unpack('>II', raw[16:24]) == build.png_dimensions(build.SVG.read_text())
+    assert max(struct.unpack('>II', raw[16:24])) <= 32000
     provenance = b'Source SVG SHA256\0' + hashlib.sha256(build.SVG.read_bytes()).hexdigest().encode()
     assert provenance in raw
 

@@ -1,0 +1,31 @@
+{
+  "dependencies": [
+    "Python 3.11+",
+    "model/requirements.txt",
+    "model/primitive_observer/runtime.py and anharmonic.py",
+    "model/occupation_control/experiment.py, solver.py and intervals.py",
+    "model/anharmonic_transfer/data/calibration_receipt.json.gz (frozen preparation)",
+    "model/scalar_observations/experimental_readout/executable_source.py and canonical_source.py",
+    "model/observer/source_scalar/compiler.py",
+    "tools/strict_json.py"
+  ],
+  "description": "Complete native preparation/readout diagnostics and a fixed spectral-coupling cross-scale comparison with explicit physical-attachment limits.",
+  "files": {
+    "README.md": "c29f17a4a502f27253f37d075a3d79a23343c7d7261f01bfe9715cc6f406e1ac",
+    "__init__.py": "282d23c35edf3490493c4eb4f87287c9de53290d5dbce6aa73384e968ebb256a",
+    "__main__.py": "8caa8e281b4a538dd70ebf8690b7ba897220f4504a3c6ca18dcc2901fbed14c0",
+    "cross_scale.py": "899a07e79a6943eaa801d42face356c0800a84d878e556e436e3c92d90bb68f3",
+    "cross_scale_results.json": "77cb607c6e33f66606de01afcbdf4721b66b062bd8d0a58bfb8c067d6c1bc3f1",
+    "experiment.py": "dff4e5c8de16739026bc0cfdbe70ba64cc30cb725c5c2cac9d2ab157b90a2904",
+    "protocol.json": "c0629456f3d95acdabbeb43e16e417d27680c0623c1753379e725ef6edc87999",
+    "results.json": "0067051b0eba867fc2be9782657e30c410e79cc1d7bbe35ff3932266f259eee8",
+    "test_cross_scale.py": "0ffc8641f067bd9e3b62fd1b504c8b8fb3f9e69836f0907607e194b312b0a946",
+    "test_diagnostics.py": "41f5c807ab83eb32634d09d4b6a42d500e8eca9f5aef77b957b5b157bfe1f45b"
+  },
+  "reproduce": [
+    "python -m model.empirical_diagnostics --check model/empirical_diagnostics/results.json",
+    "python -m pytest -q -W error model/empirical_diagnostics",
+    "python -m model.empirical_diagnostics.cross_scale --check model/empirical_diagnostics/cross_scale_results.json"
+  ],
+  "schema": "oph.empirical_diagnostics.manifest.v1"
+}

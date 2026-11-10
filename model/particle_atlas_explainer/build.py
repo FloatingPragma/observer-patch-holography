@@ -10,7 +10,7 @@ import xml.etree.ElementTree as ET
 import zlib
 
 from . import families, field_panels, joint_panels, repair_panels, scenes_a, scenes_b
-from . import retained_source_equivalence as retained
+from . import current_retained_source_equivalence as retained
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
 
@@ -26,7 +26,7 @@ MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
-SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py', 'retained_source_equivalence.py')
+SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py', 'retained_source_equivalence.py', 'current_retained_source_equivalence.py')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -216,9 +216,22 @@ def build():
     return svg, json.dumps(audit, ensure_ascii=False, indent=2, sort_keys=True) + '\n'
 
 
+def png_dimensions(svg):
+    """Keep the vector poster full size; fit its raster preview below Cairo's limit."""
+    root = ET.fromstring(svg)
+    width, height = int(root.get('width')), int(root.get('height'))
+    longest = max(width, height)
+    if longest <= 32000:
+        return width, height
+    raster_width = max(1, width * 32000 // longest)
+    return raster_width, max(1, (height * raster_width + width - 1) // width)
+
+
 def png_bytes(svg):
-    """Rasterize the SVG and bind its exact bytes in a standard PNG text chunk."""
-    raw = subprocess.run(['rsvg-convert', '--format=png'], input=svg.encode(),
+    """Rasterize the complete SVG and bind its exact bytes in a PNG text chunk."""
+    width, height = png_dimensions(svg)
+    raw = subprocess.run(['rsvg-convert', '--format=png', '--keep-aspect-ratio',
+                          '--width', str(width)], input=svg.encode(),
                          stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True).stdout
     if raw[:8] != b'\x89PNG\r\n\x1a\n':
         raise ValueError('renderer did not produce PNG')

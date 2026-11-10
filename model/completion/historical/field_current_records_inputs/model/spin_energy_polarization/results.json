@@ -1,0 +1,410 @@
+{
+  "all_pass": true,
+  "claims": {
+    "Lorentz_stress_mass_shell_or_Einstein_dynamics_proved": false,
+    "Schwartz_weighted_twist_tail_control": true,
+    "actual_translation_energy_affine_law": true,
+    "annular_test_assumed_compact_spatial_support": false,
+    "coherent_charged_energy_replaced_by_mixture": false,
+    "compact_preparation_increment_cutoff_independence": true,
+    "complete_charged_preparation_truncation_bound": true,
+    "current_remainder_proved_to_vanish": false,
+    "exact_directional_current_scalar_field_remainder": true,
+    "first_energy_escape_removed": false,
+    "growing_native_tape_executed": false,
+    "same_ordered_source_state_clock_retained": true,
+    "source_kappa_numerical_value_selected": false,
+    "source_weighted_twist_limit_with_explicit_errors": true,
+    "vacuum_and_full_history_boost_covariance_proved": false,
+    "weighted_source_energy_identified_as_continuum_boost": false
+  },
+  "complete_charge_truncation_examples": [
+    {
+      "actual_configuration_variance_upper": "2629/84672",
+      "complement_retained": true,
+      "complete_isometry_error_squared_upper": "2629/21168",
+      "operator_norm_error_claimed": false,
+      "tail_L1_upper": "11/21",
+      "tail_L2_squared_upper": "11/4032"
+    },
+    {
+      "actual_configuration_variance_upper": "16181/43352064",
+      "complement_retained": true,
+      "complete_isometry_error_squared_upper": "16181/10838016",
+      "operator_norm_error_claimed": false,
+      "tail_L1_upper": "11/168",
+      "tail_L2_squared_upper": "11/2064384"
+    },
+    {
+      "actual_configuration_variance_upper": "991925/11364483465216",
+      "complement_retained": true,
+      "complete_isometry_error_squared_upper": "991925/2841120866304",
+      "operator_norm_error_claimed": false,
+      "tail_L1_upper": "11/10752",
+      "tail_L2_squared_upper": "11/541165879296"
+    }
+  ],
+  "exact_source_algebra": {
+    "bounded_creator_function_global_Lipschitz_one": true,
+    "complete_creator_isometry_error_coefficient": 4,
+    "inherited_source_twist_algebra": {
+      "all_three_double_commutators": true,
+      "both_transverse_quadratic_coefficients": true,
+      "canonical_sign": true,
+      "exact_single_axis_rotation_energy": true,
+      "mixed_quadratic_rotation_term_zero": true,
+      "transverse_bond_eigenvalues": {
+        "-1/2": 1,
+        "0": 2,
+        "1/2": 1
+      },
+      "transverse_bond_norm_one_half": true
+    },
+    "scalar_cutoff_edge_identity": true,
+    "weighted_current_identities": [
+      {
+        "axis": 0,
+        "current_norm": "1/2",
+        "exact_weighted_current_commutator": true
+      },
+      {
+        "axis": 1,
+        "current_norm": "1/2",
+        "exact_weighted_current_commutator": true
+      },
+      {
+        "axis": 2,
+        "current_norm": "1/2",
+        "exact_weighted_current_commutator": true
+      }
+    ]
+  },
+  "finite_complete_score_controls": [
+    {
+      "assign_constant_to_every_record": true,
+      "exact_increment": "0",
+      "increment_error_upper": "0",
+      "nonconstant_terms": 0
+    },
+    {
+      "absolute_score_upper": "7/2",
+      "all_failure_records_retained_with_zero_score": true,
+      "assign_constant_to_every_record": false,
+      "increment_error_upper": "7/500",
+      "nonconstant_terms": 2
+    }
+  ],
+  "general_mesh_bounds_per_kappa": [
+    {
+      "channel": "Q",
+      "cosine_remainder_per_kappa": "6561/4096",
+      "cutoff_plateau_radius_required": "9/4",
+      "edge_sampling_error_per_kappa": "19683/16",
+      "midpoint_quadrature_error_per_kappa": "373977/16",
+      "spacing": "1/4",
+      "support_radius": "2",
+      "total_error_per_kappa": "100783521/4096"
+    },
+    {
+      "channel": "Q",
+      "cosine_remainder_per_kappa": "1185921/268435456",
+      "cutoff_plateau_radius_required": "33/16",
+      "edge_sampling_error_per_kappa": "3557763/65536",
+      "midpoint_quadrature_error_per_kappa": "33960465/32768",
+      "spacing": "1/16",
+      "support_radius": "2",
+      "total_error_per_kappa": "292777912449/268435456"
+    },
+    {
+      "channel": "Q",
+      "cosine_remainder_per_kappa": "69257922561/1152921504606846976",
+      "cutoff_plateau_radius_required": "513/256",
+      "edge_sampling_error_per_kappa": "207773767683/1099511627776",
+      "midpoint_quadrature_error_per_kappa": "1986608831355/549755813888",
+      "spacing": "1/256",
+      "support_radius": "2",
+      "total_error_per_kappa": "4384087339373692929/1152921504606846976"
+    },
+    {
+      "channel": "P",
+      "cosine_remainder_per_kappa": "6561/16",
+      "cutoff_plateau_radius_required": "9/4",
+      "edge_sampling_error_per_kappa": "6561",
+      "midpoint_quadrature_error_per_kappa": "373977",
+      "spacing": "1/4",
+      "support_radius": "2",
+      "total_error_per_kappa": "6095169/16"
+    },
+    {
+      "channel": "P",
+      "cosine_remainder_per_kappa": "1185921/1048576",
+      "cutoff_plateau_radius_required": "33/16",
+      "edge_sampling_error_per_kappa": "1185921/4096",
+      "midpoint_quadrature_error_per_kappa": "33960465/2048",
+      "spacing": "1/16",
+      "support_radius": "2",
+      "total_error_per_kappa": "17692539777/1048576"
+    },
+    {
+      "channel": "P",
+      "cosine_remainder_per_kappa": "69257922561/4503599627370496",
+      "cutoff_plateau_radius_required": "513/256",
+      "edge_sampling_error_per_kappa": "69257922561/68719476736",
+      "midpoint_quadrature_error_per_kappa": "1986608831355/34359738368",
+      "spacing": "1/256",
+      "support_radius": "2",
+      "total_error_per_kappa": "264927749214242817/4503599627370496"
+    }
+  ],
+  "inherited_producer_scope": {
+    "all_prior_native_experiments_replayed": false,
+    "analytic_ground_and_field_premises_reused_explicitly": true,
+    "source_twist_algebra_recomputed": true
+  },
+  "scalar_action_residual_bound": {
+    "Q_current_remainder_operator_norm_upper": "35937/256",
+    "source_four_spin_correlation_control_still_required": true,
+    "this_bound_vanishes_as_spacing_tends_to_zero": false
+  },
+  "schema": "oph.spin_energy_polarization.v1",
+  "source_bindings": {
+    "Lean/Dynamics/WardLimitManifest.lean": "6bae06ce219aa104014a3094298c3f376586cc54d03223b534b94a95565a6b0d",
+    "Lean/QFT/CoarseEnergyWard.lean": "b4528a425cfad5bc1a34c127023916e9de4d4b3b6d854abf9b2614709d07fa43",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/native_ordered_ground/source.py": "e0ca9a40181637bc9263b55ff41dc9b6aa895f723a6d497d182a011b80097dc2",
+    "model/native_spin_clock_join/energy.py": "67ad6f8014cc69d1f7a96dc5a374ee620c42a76d7b648bcef83bc23e86ff8595",
+    "model/protected_defect_catalog/PROOF.md": "7160c1ea101f7dc9d2be6703fa9ccb37c5c2f4d92bfb8a9dca5b0025dbc66813",
+    "model/protected_spin_limit/README.md": "b8ba8f5d826efcc47eb534c90c3ef206b910c9be1617bd2043974294acd32ea1",
+    "model/source_energy_effort/PROOF.md": "284eca498c8f12aec21be03f3390cd2e4b28c9da14bf5f4089dc3d0c68bf78d8",
+    "model/spin_boost_stress/PROOF.md": "b7cf1657d86bb29231b752748fc87891555d2e86d4059d72b392fc082f22e406",
+    "model/spin_canonical_energy/README.md": "31313866afdbf8240e9ea85daa3887d13e38d06cbf91c968d3b89427d2e04036",
+    "model/spin_canonical_energy/__init__.py": "8570d911006ff29d1febaab74e1aa1ff3400ab2859f318f6f381ff4f5d980e3c",
+    "model/spin_canonical_energy/algebra.py": "8d2dd09cdb54665a85d230a4f792fea7a7ce13389bc2f770c424ee6ba890dd11",
+    "model/spin_canonical_field/README.md": "4cd54565d710d3bfe5956664d93266cdb86f6a714e7f18cf2c20d1fd637fa19f",
+    "model/spin_charge_dispersion/PROOF.md": "4b8a586622b6bc121da30d94866df90ea8e4820f7c60ad380d78ac566702270b",
+    "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
+    "model/spin_energy_polarization/PROOF.md": "4f754d106b8e41ad334b2215cd72d4d46753772a9b7b42c4cc90e7f15448ca33",
+    "model/spin_energy_polarization/README.md": "6164c9bbdba8cf88620de3eec9ee491c316b8c3e59a357d8c605bc53c43c8dce",
+    "model/spin_energy_polarization/__init__.py": "ea304431d444ab898c8799a000c391fdc7db7507cd6df67325463b576a9c33bb",
+    "model/spin_energy_polarization/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/spin_energy_polarization/algebra.py": "124027dccf8c1c972aefbdbaa517713e63cf3ea1f87bee7838e8da4a94e6f138",
+    "model/spin_energy_polarization/bounds.py": "1660db31816f42aa9aee9ed63f4a525bd4722eef6444c53557c34b6f79f58d1f",
+    "model/spin_energy_polarization/packet.py": "93111f9c6a03f574035c23bc26e09a47f7a7e22628fa271df679808117ae5bfe",
+    "model/spin_energy_polarization/samples.py": "d6b3945f787e9106302834896a7e38cad40a5a31ebb952130d1a8d9192ee8b84",
+    "model/spin_energy_polarization/test_polarization.py": "927eca67a321390182a6037f9d2dfaef204e6615d4b58d7e599e17d790b91245",
+    "paper/tex_fragments/OPERATIONAL_CAUSAL_SELECTION.tex": "b28948cd48c5066b7a797e9f8af7a688b37a9ed49e31c0b3099f1c64caf30c26",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "symmetric_Weyl_polarization_controls": [
+    {
+      "mixed_quadratic_term_vanishes_by_actual_bond_covariance": true,
+      "nonlinear_rotation_absolute_error": "5019165/128",
+      "separate_mesh_errors_per_kappa": "1661146785/4096",
+      "source_small_angle_upper": "5/16"
+    },
+    {
+      "mixed_quadratic_term_vanishes_by_actual_bond_covariance": true,
+      "nonlinear_rotation_absolute_error": "3084580521/524288",
+      "separate_mesh_errors_per_kappa": "4822068095361/268435456",
+      "source_small_angle_upper": "17/256"
+    },
+    {
+      "mixed_quadratic_term_vanishes_by_actual_bond_covariance": true,
+      "nonlinear_rotation_absolute_error": "2723290773021081/8796093022208",
+      "separate_mesh_errors_per_kappa": "72205591138219854081/1152921504606846976",
+      "source_small_angle_upper": "257/65536"
+    }
+  ],
+  "translated_rational_source_meshes": [
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "Q",
+      "continuum_energy_per_kappa": "562949953421312/436386355601625",
+      "continuum_polarization_per_kappa": "562949953421312/436386355601625",
+      "cosine_remainder_per_kappa": "31048112731347371896997156801/5070602400912917605986812821504",
+      "divisions": 2,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "4989929788012497070323352201279/5070602400912917605986812821504",
+      "exact_source_polarization_upper_per_kappa": "5052026013475191814117346514881/5070602400912917605986812821504",
+      "quadratic_energy_per_kappa": "278720263576995/281474976710656",
+      "quadratic_polarization_per_kappa": "278720263576995/281474976710656"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "Q",
+      "continuum_energy_per_kappa": "562949953421312/436386355601625",
+      "continuum_polarization_per_kappa": "562949953421312/436386355601625",
+      "cosine_remainder_per_kappa": "3322944800248687203968258423347021143984679203012568850625/6427752177035961102167848369364650410088811975131171341205504",
+      "divisions": 4,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "7701884659427676046414804583062558332054399441266741228166975/6427752177035961102167848369364650410088811975131171341205504",
+      "exact_source_polarization_upper_per_kappa": "7708530549028173420822741099909252374342368799672766365868225/6427752177035961102167848369364650410088811975131171341205504",
+      "quadratic_energy_per_kappa": "94974016337297880864327850275/79228162514264337593543950336",
+      "quadratic_polarization_per_kappa": "94974016337297880864327850275/79228162514264337593543950336"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "Q",
+      "continuum_energy_per_kappa": "562949953421312/436386355601625",
+      "continuum_polarization_per_kappa": "562949953421312/436386355601625",
+      "cosine_remainder_per_kappa": "306902474217005604605581101788949897953060487843005953930579840182786424411322764354753/8148143905337944345073782753637512644205873574663745002544561797417525199053346824733589504",
+      "divisions": 8,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "10315047822539605460662975834753494964486200371301272243153982614969140219982454555594070847/8148143905337944345073782753637512644205873574663745002544561797417525199053346824733589504",
+      "exact_source_polarization_upper_per_kappa": "10315661627488039471872186996957072864282106492276958255061843774649505792831277201122780353/8148143905337944345073782753637512644205873574663745002544561797417525199053346824733589504",
+      "quadratic_energy_per_kappa": "28232208467046123257944721671193066128234275/22300745198530623141535718272648361505980416",
+      "quadratic_polarization_per_kappa": "28232208467046123257944721671193066128234275/22300745198530623141535718272648361505980416"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "Q",
+      "continuum_energy_per_kappa": "562949953421312/436386355601625",
+      "continuum_polarization_per_kappa": "562949953421312/436386355601625",
+      "cosine_remainder_per_kappa": "25272149652472159324302991740006527645275101452809109282563896653781491360929632669925940412875853834107837064475841/10328999512347634358623676688012047497318823171316894051322637426162590488067364778518581413120551325743612687890989973504",
+      "divisions": 16,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "13261731542209824990647315435057025978170291879192526783827777577750326530346846759235632505765975513294768592667307871039/10328999512347634358623676688012047497318823171316894051322637426162590488067364778518581413120551325743612687890989973504",
+      "exact_source_polarization_upper_per_kappa": "13261782086509129934965964041040505991225582429395432402046342705543634093329568618500972357646801265002436808341436822721/10328999512347634358623676688012047497318823171316894051322637426162590488067364778518581413120551325743612687890989973504",
+      "quadratic_energy_per_kappa": "8059386256546692687854478844510244192839787965823767432995/6277101735386680763835789423207666416102355444464034512896",
+      "quadratic_polarization_per_kappa": "8059386256546692687854478844510244192839787965823767432995/6277101735386680763835789423207666416102355444464034512896"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "P",
+      "continuum_energy_per_kappa": "281474976710656/179688499365375",
+      "continuum_polarization_per_kappa": "281474976710656/179688499365375",
+      "cosine_remainder_per_kappa": "2353476307222639821222204353/316912650057057350374175801344",
+      "divisions": 2,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "386204927540818231377491504191/316912650057057350374175801344",
+      "exact_source_polarization_upper_per_kappa": "390911880155263511019935912897/316912650057057350374175801344",
+      "quadratic_energy_per_kappa": "86277297272739/70368744177664",
+      "quadratic_polarization_per_kappa": "86277297272739/70368744177664"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "P",
+      "continuum_energy_per_kappa": "281474976710656/179688499365375",
+      "continuum_polarization_per_kappa": "281474976710656/179688499365375",
+      "cosine_remainder_per_kappa": "15324186847040572049918825009103236423648218252606610625/25108406941546723055343157692830665664409421777856138051584",
+      "divisions": 4,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "36684777034432738931387343540493434386332964515129977299775/25108406941546723055343157692830665664409421777856138051584",
+      "exact_source_polarization_upper_per_kappa": "36715425408126820075487181190511640859180260951635190521025/25108406941546723055343157692830665664409421777856138051584",
+      "quadratic_energy_per_kappa": "7237818767780381936747549475/4951760157141521099596496896",
+      "quadratic_polarization_per_kappa": "7237818767780381936747549475/4951760157141521099596496896"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "P",
+      "continuum_energy_per_kappa": "281474976710656/179688499365375",
+      "continuum_polarization_per_kappa": "281474976710656/179688499365375",
+      "cosine_remainder_per_kappa": "85250638454389939270270912986307297219627983536539268672679370407154567942663889089/1989292945639146568621528992587283360401824603189390869761855907572637988050133502132224",
+      "divisions": 8,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "3061904813030048737630942748489347197734876681758846324418114585077713115925022538407743/1989292945639146568621528992587283360401824603189390869761855907572637988050133502132224",
+      "exact_source_polarization_upper_per_kappa": "3062075314306957517509483290315319812329315937725919402955459943818527425060907866185921/1989292945639146568621528992587283360401824603189390869761855907572637988050133502132224",
+      "quadratic_energy_per_kappa": "536345246749565285190212874871856888549667/348449143727040986586495598010130648530944",
+      "quadratic_polarization_per_kappa": "536345246749565285190212874871856888549667/348449143727040986586495598010130648530944"
+    },
+    {
+      "actual_kappa_numerical_value_assigned": false,
+      "axis": 0,
+      "center": [
+        "1",
+        "0",
+        "0"
+      ],
+      "channel": "P",
+      "continuum_energy_per_kappa": "281474976710656/179688499365375",
+      "continuum_polarization_per_kappa": "281474976710656/179688499365375",
+      "cosine_remainder_per_kappa": "434817608173705736876206421818538018343296387997364465294871936792741866911965662293208077456755931265829171393/157608024785577916849116160400574455220318957081861786671793173616982887085988842445657065019539662563226511961227264",
+      "divisions": 16,
+      "exact_affine_translation_identity": true,
+      "exact_source_polarization_lower_per_kappa": "245804448377100111468972796259035506108353843571943626642137264366877427988399622734122635837941094249933109268320063/157608024785577916849116160400574455220318957081861786671793173616982887085988842445657065019539662563226511961227264",
+      "exact_source_polarization_upper_per_kappa": "245805318012316458880446548671879143184390530164719621371067854110751013472133446665447222254096007761795640926662849/157608024785577916849116160400574455220318957081861786671793173616982887085988842445657065019539662563226511961227264",
+      "quadratic_energy_per_kappa": "38241188587338576523483231494164476954820837187159656739/24519928653854221733733552434404946937899825954937634816",
+      "quadratic_polarization_per_kappa": "38241188587338576523483231494164476954820837187159656739/24519928653854221733733552434404946937899825954937634816"
+    }
+  ],
+  "weighted_Schwartz_tail_bounds_per_kappa": [
+    {
+      "channel": "Q",
+      "power": 6,
+      "radius": "2",
+      "weighted_tail_per_kappa": "33/896"
+    },
+    {
+      "channel": "Q",
+      "power": 6,
+      "radius": "4",
+      "weighted_tail_per_kappa": "33/229376"
+    },
+    {
+      "channel": "Q",
+      "power": 6,
+      "radius": "16",
+      "weighted_tail_per_kappa": "33/15032385536"
+    },
+    {
+      "channel": "P",
+      "power": 6,
+      "radius": "2",
+      "weighted_tail_per_kappa": "11/896"
+    },
+    {
+      "channel": "P",
+      "power": 6,
+      "radius": "4",
+      "weighted_tail_per_kappa": "55/1835008"
+    },
+    {
+      "channel": "P",
+      "power": 6,
+      "radius": "16",
+      "weighted_tail_per_kappa": "715/1924145348608"
+    }
+  ]
+}

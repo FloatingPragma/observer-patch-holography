@@ -1,0 +1,1820 @@
+{
+  "biased_control": {
+    "classical_stationary_law_unique": true,
+    "full_quantum_stationary_uniqueness_claimed": false,
+    "modular_covariance": "sigma^it K_b sigma^-it = (sigma_out/sigma_in)^it K_b; branch scalar cancels in the CP map",
+    "parameters": {
+      "c_weight": "1/2",
+      "port_weights": [
+        25,
+        25,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "repair_probability": "1",
+      "seam_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "physical_clock_or_energy_selected": false,
+    "quantum_instruments": {
+      "C": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 120,
+        "binary_raw_slots": 180,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "8/25",
+          "1",
+          "25/8"
+        ]
+      },
+      "E": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 180,
+        "binary_raw_slots": 300,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "8/25",
+          "1",
+          "25/8"
+        ]
+      }
+    },
+    "reference": [
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "125/1501"
+    ],
+    "regional_factorization": {
+      "all_bare_two_port_algebras_invariant": true,
+      "factor_scale": "125/1501",
+      "noninvariance_four_port_witness": null,
+      "relative_factors": [
+        "1",
+        "1",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25"
+      ]
+    },
+    "source_independent_scheduler_required": true
+  },
+  "biased_reference_sector_masses": [
+    "576/1501",
+    "800/1501",
+    "125/1501"
+  ],
+  "biased_reference_trace_distance_from_old_target": "2623/67545",
+  "campaign_id": "OPH-LOCAL-PLACEMENT-FAMILY-2026-10-28-v1",
+  "contract_sha256": "83334963514064b24be063f9afec26eb0463a512e28a03fd9b5232fadbc51c20",
+  "held_nonuniform_scheduler_control": {
+    "classical_stationary_law_unique": true,
+    "full_quantum_stationary_uniqueness_claimed": false,
+    "modular_covariance": "sigma^it K_b sigma^-it = (sigma_out/sigma_in)^it K_b; branch scalar cancels in the CP map",
+    "parameters": {
+      "c_weight": "1/3",
+      "port_weights": [
+        25,
+        25,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "repair_probability": "3/4",
+      "seam_weights": [
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3,
+        1,
+        2,
+        3
+      ]
+    },
+    "physical_clock_or_energy_selected": false,
+    "quantum_instruments": {
+      "C": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 120,
+        "binary_raw_slots": 180,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "8/25",
+          "1",
+          "25/8"
+        ]
+      },
+      "E": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 180,
+        "binary_raw_slots": 300,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "8/25",
+          "1",
+          "25/8"
+        ]
+      }
+    },
+    "reference": [
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "64/7505",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "40/1501",
+      "125/1501"
+    ],
+    "regional_factorization": {
+      "all_bare_two_port_algebras_invariant": true,
+      "factor_scale": "125/1501",
+      "noninvariance_four_port_witness": null,
+      "relative_factors": [
+        "1",
+        "1",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25",
+        "8/25"
+      ]
+    },
+    "source_independent_scheduler_required": true
+  },
+  "old_reference_boundary": {
+    "all_66_core_witnesses": [
+      {
+        "core": [
+          0,
+          1
+        ],
+        "directed_seam": [
+          0,
+          5
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          1,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          2
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          3
+        ]
+      },
+      {
+        "core": [
+          0,
+          3
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          4
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          5
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          5,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          6
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          7
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          7,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          8
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          9
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          10
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          10,
+          2
+        ]
+      },
+      {
+        "core": [
+          0,
+          11
+        ],
+        "directed_seam": [
+          0,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          11,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          2
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          3
+        ]
+      },
+      {
+        "core": [
+          1,
+          3
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          4
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          5
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          5,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          6
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          7
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          7,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          8
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          9
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          10
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          10,
+          2
+        ]
+      },
+      {
+        "core": [
+          1,
+          11
+        ],
+        "directed_seam": [
+          1,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          11,
+          2
+        ]
+      },
+      {
+        "core": [
+          2,
+          3
+        ],
+        "directed_seam": [
+          2,
+          4
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          0
+        ]
+      },
+      {
+        "core": [
+          2,
+          4
+        ],
+        "directed_seam": [
+          2,
+          3
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          0
+        ]
+      },
+      {
+        "core": [
+          2,
+          5
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          1
+        ]
+      },
+      {
+        "core": [
+          2,
+          6
+        ],
+        "directed_seam": [
+          2,
+          3
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          0
+        ]
+      },
+      {
+        "core": [
+          2,
+          7
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          1
+        ]
+      },
+      {
+        "core": [
+          2,
+          8
+        ],
+        "directed_seam": [
+          8,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          0
+        ]
+      },
+      {
+        "core": [
+          2,
+          9
+        ],
+        "directed_seam": [
+          9,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          0
+        ]
+      },
+      {
+        "core": [
+          2,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          1
+        ]
+      },
+      {
+        "core": [
+          2,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          2,
+          1
+        ]
+      },
+      {
+        "core": [
+          3,
+          4
+        ],
+        "directed_seam": [
+          3,
+          2
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          0
+        ]
+      },
+      {
+        "core": [
+          3,
+          5
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          1
+        ]
+      },
+      {
+        "core": [
+          3,
+          6
+        ],
+        "directed_seam": [
+          3,
+          2
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          0
+        ]
+      },
+      {
+        "core": [
+          3,
+          7
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          1
+        ]
+      },
+      {
+        "core": [
+          3,
+          8
+        ],
+        "directed_seam": [
+          8,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          0
+        ]
+      },
+      {
+        "core": [
+          3,
+          9
+        ],
+        "directed_seam": [
+          9,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          0
+        ]
+      },
+      {
+        "core": [
+          3,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          1
+        ]
+      },
+      {
+        "core": [
+          3,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          3,
+          1
+        ]
+      },
+      {
+        "core": [
+          4,
+          5
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          1
+        ]
+      },
+      {
+        "core": [
+          4,
+          6
+        ],
+        "directed_seam": [
+          4,
+          2
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          0
+        ]
+      },
+      {
+        "core": [
+          4,
+          7
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          1
+        ]
+      },
+      {
+        "core": [
+          4,
+          8
+        ],
+        "directed_seam": [
+          8,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          0
+        ]
+      },
+      {
+        "core": [
+          4,
+          9
+        ],
+        "directed_seam": [
+          9,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          0
+        ]
+      },
+      {
+        "core": [
+          4,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          1
+        ]
+      },
+      {
+        "core": [
+          4,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          4,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          6
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          7
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          7,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          8
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          9
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          10
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          10,
+          1
+        ]
+      },
+      {
+        "core": [
+          5,
+          11
+        ],
+        "directed_seam": [
+          5,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          11,
+          1
+        ]
+      },
+      {
+        "core": [
+          6,
+          7
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          1
+        ]
+      },
+      {
+        "core": [
+          6,
+          8
+        ],
+        "directed_seam": [
+          8,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          0
+        ]
+      },
+      {
+        "core": [
+          6,
+          9
+        ],
+        "directed_seam": [
+          9,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          0
+        ]
+      },
+      {
+        "core": [
+          6,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          1
+        ]
+      },
+      {
+        "core": [
+          6,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          6,
+          1
+        ]
+      },
+      {
+        "core": [
+          7,
+          8
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          1
+        ]
+      },
+      {
+        "core": [
+          7,
+          9
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          1
+        ]
+      },
+      {
+        "core": [
+          7,
+          10
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          10,
+          1
+        ]
+      },
+      {
+        "core": [
+          7,
+          11
+        ],
+        "directed_seam": [
+          7,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          11,
+          1
+        ]
+      },
+      {
+        "core": [
+          8,
+          9
+        ],
+        "directed_seam": [
+          8,
+          1
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          0
+        ]
+      },
+      {
+        "core": [
+          8,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          1
+        ]
+      },
+      {
+        "core": [
+          8,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          8,
+          1
+        ]
+      },
+      {
+        "core": [
+          9,
+          10
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          1
+        ]
+      },
+      {
+        "core": [
+          9,
+          11
+        ],
+        "directed_seam": [
+          11,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          9,
+          1
+        ]
+      },
+      {
+        "core": [
+          10,
+          11
+        ],
+        "directed_seam": [
+          10,
+          0
+        ],
+        "required_forward_reverse_ratios": [
+          "5/8",
+          "8/25"
+        ],
+        "spectators": [
+          11,
+          1
+        ]
+      }
+    ],
+    "excluded": "positive reversible endpoint-only jump rates with a fixed core and no spectator input",
+    "nonproduct_ratio_w1_squared_over_w0_w2": "125/64",
+    "not_excluded": [
+      "irreversible stationary currents",
+      "larger local neighborhoods or interactions",
+      "record/controller-correlated references",
+      "co-moving reference metadata",
+      "different references",
+      "refining carriers"
+    ],
+    "target_weights_by_core_occupation": [
+      "2/225",
+      "1/36",
+      "2/45"
+    ]
+  },
+  "quantum_distinction": {
+    "input_matrix_unit_pairs": [
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "population_agreement_does_not_identify_quantum_record_laws": true,
+    "seam": [
+      0,
+      1
+    ],
+    "unread_output_matrix_unit_coefficient": {
+      "C": "1/2",
+      "E": "0"
+    }
+  },
+  "remaining_full_issue_requirements": [
+    {
+      "id": "carrier_refinement",
+      "requirement": "Freeze the physical carrier/refinement and scalable source/memory/service class."
+    },
+    {
+      "id": "interpretation_calibration",
+      "requirement": "Fix allowed state/access/clock/energy/length interpretation maps and calibration ancestry."
+    },
+    {
+      "id": "physical_target_menu",
+      "requirement": "Declare field, particle, neutrino and gravity targets with exposure, uncertainty and covariance conventions."
+    },
+    {
+      "id": "program_decision_contract",
+      "requirement": "Declare class-wide budgets, success thresholds and stopping coverage; retain candidate/class/program distinctions."
+    }
+  ],
+  "schema": "oph.local_repair_family.v1",
+  "scope": {
+    "CP00_accepted": false,
+    "modular_action_executed": false,
+    "new_native_placement_law_declared": true,
+    "new_physical_comparisons": 0,
+    "particle_or_stress_derived": false,
+    "weights_selected_from_native_law": false,
+    "whole_program_frozen": false
+  },
+  "source_sha256": {
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/completion/defect_algebra.py": "1a19f00c64e89a65eb18bd335f59776ee522c1e6c35ae53508ee4b57aa9c7cf3",
+    "model/completion/defect_algebra_results.json": "9320c7faa8889b9b064530a46d715f7c62f31c4e350d5b3c4f557a824716e581",
+    "model/local_repair_family/README.md": "b687fdd3940a09506349e1cee0086e5cb313445d9805d63e56e926b11bd928ad",
+    "model/local_repair_family/campaign.json": "83334963514064b24be063f9afec26eb0463a512e28a03fd9b5232fadbc51c20",
+    "model/local_repair_family/local_bias.py": "4902174ac8b27c1d8111bc3942cf5cd1024a07999d77f272cbfa1f1242876755",
+    "model/local_repair_family/test_local_bias.py": "0f62c06c68d7948807ad04f29d50abb326a6eadfaf81591fd69559ebb17e08cd",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "theorem_reuse": [
+    {
+      "application": "Actual product-pair weights satisfy every four-port identity, so all bare two-port number-preserving algebras are modular invariant.",
+      "new_result": "The explicitly changed local placement coin fixes that same nonuniform reference and is modular covariant, removing the unchanged symmetric-law restriction for this finite control.",
+      "path": "model/native_modular_reference/common_caps.py",
+      "result": "factor_characterization"
+    },
+    {
+      "application": "Population seam repair resamples its one-load endpoint conditional from the independently declared product reference; binary0/2 endpoint totals are fixed.",
+      "boundary": "No identification of the C/E quantum instrument with an arbitrary conditional expectation or physical equilibrium is made.",
+      "path": "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+      "theorems": [
+        "heatBath_row_sum",
+        "heatBath_detailedBalance",
+        "heatBath_stationary",
+        "mixture_stationary"
+      ]
+    },
+    {
+      "application": "All admitted seam and coin probabilities remain strictly positive. Each changed Kraus map is a nonzero scalar multiple of the same native partial injection; the generated branch star algebra and scalar commutant are unchanged. Each law endpoint has this property; positive tagged mixtures and identity holds preserve it.",
+      "boundary": "No nontrivial Hermitian bare-source charge commuting with every active branch is gained. This does not exclude nonreducing invariant subspaces, arbitrary expectation-fixed observables, history/controller charges, metastability, active recovery or refining carriers.",
+      "path": "model/completion/defect_algebra.py",
+      "result": "complete C/E branch star algebras M78 and M66"
+    }
+  ],
+  "uniform_control": {
+    "classical_stationary_law_unique": true,
+    "full_quantum_stationary_uniqueness_claimed": false,
+    "modular_covariance": "sigma^it K_b sigma^-it = (sigma_out/sigma_in)^it K_b; branch scalar cancels in the CP map",
+    "parameters": {
+      "c_weight": "1/2",
+      "port_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "repair_probability": "1",
+      "seam_weights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "physical_clock_or_energy_selected": false,
+    "quantum_instruments": {
+      "C": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 120,
+        "binary_raw_slots": 180,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "1"
+        ]
+      },
+      "E": {
+        "H78_and_H66_complete": true,
+        "all_reference_extensions_admitted": true,
+        "binary_columns": 3960,
+        "binary_nonzero_slots": 180,
+        "binary_raw_slots": 300,
+        "faithful_binary_reference_fixed_by_every_seam": true,
+        "record_modular_weight_ratios": [
+          "1"
+        ]
+      }
+    },
+    "reference": [
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66",
+      "1/66"
+    ],
+    "regional_factorization": {
+      "all_bare_two_port_algebras_invariant": true,
+      "factor_scale": "1/66",
+      "noninvariance_four_port_witness": null,
+      "relative_factors": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    },
+    "source_independent_scheduler_required": true
+  }
+}

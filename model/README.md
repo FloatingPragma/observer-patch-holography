@@ -82,7 +82,7 @@ an observed mass by fitting it.
 The [finite charged centroid](native_charge_centroid/PROOF.md) uses the
 actual physical preparation without an extra ground projection. It bounds
 the complete twenty-bit detector's conditional source-energy mean by
-`[0.6916566792649156, 0.6916566826118845]`, retaining preparation failures,
+`[0.6916566792649, 0.6916566826119]`, retaining preparation failures,
 the charged reference and the explicit neutral-energy baseline error.
 Admission to the narrow bin remains a declared spectral service. The mean
 does not identify a single pole or a GeV mass.
@@ -92,8 +92,58 @@ preserves the full canonical field/current map on the quantum source.
 An exact constant-scalar replacement fails at its five-state cap; the
 proved nilpotency bound does not forbid controlled collective limits.
 A gauge-invariant dressed weak-current operator has full norm two and
-a complete two-outcome measurement. Its field interpretation requires
-the actual source correlators and propagation.
+a complete two-outcome measurement. The
+[prepared response](native_weak_current_response/PROOF.md) has a positive
+original inelastic record and a nonzero charged-state current insertion.
+The [filtered-state comparison](native_higgs_filtered_state/PROOF.md)
+also bounds every common detector history after elementary or composite
+preparation. Their spatial weak-interaction interpretation requires its
+own field construction.
+
+The [same-excitation current readout](native_higgs_current_response/PROOF.md)
+measures the original dressed current after either elementary or Higgs
+preparation. Exact charge conjugation and full-source error bounds give
+strictly negative means in the admitted bin, with all 80 apparatus labels
+retained. The opposite-charge detector value cannot be copied without
+transforming the operator.
+The [local pointer](native_local_current_readout/PROOF.md) realizes that
+last readout with a declared local polynomial coupling, without cancelling
+the source Hamiltonian. Its complete-history error is below `0.000268446640`;
+both negative means survive. Earlier preparation and energy-bin services
+retain their own control requirements.
+
+The [complete quark probes](native_quark_response/PROOF.md) calculate all
+local roots and residues for `u^c`, `d^c` and `Q`, including twelve exact
+zero-residue Q roots. The actual compensated preparation has strong source
+energy windows near `0.781574` and `0.781989`, with original-attempt weights
+above `0.4953`. Exact local `u^c`/`d^c` equality at the chosen equal Yukawa
+couplings does not identify observed up/down masses.
+The [quark–Higgs join](native_quark_higgs_join/PROOF.md) connects each
+family's elementary operator to its literal scalar/matter commutator.
+All three have positive shared-bin interference on the same interacting
+Hamiltonian, with every reference and failed preparation retained.
+Their admitted elementary/composite states give common subsequent detector
+histories within `5.193e-6`, including the retained preparation environment;
+the original setting labels and unequal success rates remain distinct.
+
+The [native Wilson–Maxwell source](native_wilson_maxwell/PROOF.md) couples
+a complete charged spinor code to a finite transverse field on one
+Hamiltonian. Exact Gauss constraints, actual preparation and nonlinear
+error bounds give a positive pair-plus-field probability and connected
+response. Its 1,161-label detector retains every complement. Spatial
+refinement and the coupled particle spectrum require separate calculations.
+The [photon-cap comparison](native_wilson_maxwell_refinement/PROOF.md)
+bounds complete records on that fixed graph, with cap-three error below
+`1.863e-9`. The [full ground audit](native_wilson_maxwell_ground/PROOF.md)
+finds the unchanged source's ground outside its intended code. An explicit
+positive onsite completion gives a unique active interacting ground,
+prepared by four complete trials and three finite filters. Its stationary
+free-frame occupation is virtual dressing, not vacuum emission or a mass.
+The [uniform ground refinement](native_wilson_maxwell_ground_refinement/PROOF.md)
+keeps that completion at every photon cap and bounds the complete actual
+preparation and field/count histories. It supplies a fixed-cube oscillator
+comparison, with explicit large-cap and control-resource budgets; spatial
+refinement and observed mass identification remain distinct.
 
 A separate [free Dirac construction](native_block_dirac/PROOF.md) uses
 the actual odd native states in a complete fermionic occupation code.
@@ -1224,11 +1274,18 @@ or newer:
 python3 -m venv .venv-model
 . .venv-model/bin/activate
 python3 -m pip install -r model/requirements.txt
-python3 -m model.verify
+python3 -m model.verify_current
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 -m pytest -q -W error model
 ```
 
-`model.verify` checks artifact hashes and replays retained results. Individual
+`model.verify_current` preserves the original artifact checks and replay order.
+It routes the protected-readout experiment through its
+[complete interval validator](protected_readout_numerics/PROOF.md), which runs
+the unchanged producer and preserves every failure branch and raw archive.
+Two complete-measurement consumers likewise use the authenticated current
+parent receipt through a private import view of their unchanged producers.
+The original `model.verify` remains available with its backend-sensitive raw
+comparison. Individual
 current constructions can also be checked directly:
 
 ```sh

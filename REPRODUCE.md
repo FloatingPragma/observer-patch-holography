@@ -12,12 +12,19 @@ reproduction gate. From the repository root:
 
 ```sh
 python -m pip install -r model/requirements.txt
-python -m model.verify
+python -m model.verify_current
 python -m pytest -q -W error model
 ```
 
-The verifier checks the artifact manifests and replays every receipt declared
-in `model/verify.py`. Its replay inventory is narrower than the set of all
+The current verifier preserves the artifact checks and replay order in
+`model/verify.py`, replacing one backend-sensitive protected-readout comparison
+with its [complete interval validator](model/protected_readout_numerics/PROOF.md).
+The original producer, raw archive and verifier remain unchanged. The validator
+executes that producer and checks every output against the same finite circuit;
+it does not relax physical claims. Two complete-measurement consumers also run
+their unchanged producers with the explicitly authenticated current parent
+receipt; their retained scientific records and original verifier stay intact.
+This replay inventory is narrower than all
 retained results: native-link selection and holonomy reconstruction, for
 example, are replayed by their model regression tests. Run both commands;
 neither artifact hashing nor one replay command replaces the other tests.
@@ -129,7 +136,7 @@ python -B model/observer_particles/run.py
 ```
 
 Together these commands reproduce the workflow's separate gates; running
-only `model.verify` does not. They supplement the source-frozen mandatory runner below.
+only `model.verify_current` does not. They supplement the source-frozen mandatory runner below.
 Neither that runner nor a bare `python -m pytest` includes the new `model/`
 tests: invoke the model commands explicitly when changing this implementation.
 The finite observer construction is executable with declared apparatus and
@@ -368,7 +375,7 @@ Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The live
-observer implementation requires the separate `python -m model.verify` and
+observer implementation requires the separate `python -m model.verify_current` and
 `python -m pytest -q -W error model` gate above. Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:

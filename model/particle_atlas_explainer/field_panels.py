@@ -23,6 +23,14 @@ PATHS = {
     'centroid': 'model/native_charge_centroid/results.json',
     'higgs_state': 'model/native_higgs_filtered_state/results.json',
     'weak_response': 'model/native_weak_current_response/results.json',
+    'higgs_current': 'model/native_higgs_current_response/results.json',
+    'coupled_field': 'model/native_wilson_maxwell/results.json',
+    'photon_cutoff': 'model/native_wilson_maxwell_refinement/results.json',
+    'quark_response': 'model/native_quark_response/results.json',
+    'quark_higgs': 'model/native_quark_higgs_join/results.json',
+    'coupled_ground': 'model/native_wilson_maxwell_ground/results.json',
+    'ground_refinement': 'model/native_wilson_maxwell_ground_refinement/results.json',
+    'local_current': 'model/native_local_current_readout/results.json',
     'vector': 'model/interacting_block_proca/results.json',
     'conjugation': 'model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json',
 }
@@ -107,6 +115,80 @@ def validate(data):
             or Fraction(weak['finite_inelastic_experiment']['original_attempt_nonzero_phase_probability_lower'])<=0):
         raise ValueError('Weak response or physical interpretation changed')
 
+    hc=data['higgs_current']
+    if (hc['conjugation']['W_invariant']
+            or hc['preparation']['exact_interacting_ground_projection_assumed']
+            or hc['scope']['weak_boson_chiral_Lorentz_interaction_or_SM_identification']
+            or not hc['apparatus']['full_fine_preparation_records_retained']
+            or hc['apparatus']['complete_setting_pump_energy_current_alphabet_size']!=80):
+        raise ValueError('Higgs current or complete detector changed')
+    wm=data['coupled_field']
+    if (wm['boundaries']['interacting_Lorentz_or_four_dimensional_QED_limit_proved']
+            or wm['boundaries']['SM_particle_or_weak_chirality_identification']
+            or wm['complete_interaction_records']['source_state_is_actual_coupled_ground']
+            or not wm['actual_preparation']['no_initial_P0_or_code_measurement']
+            or wm['count_instrument']['full_pointer_dimension']!=1161
+            or Fraction(wm['complete_interaction_records']['exact']['actual_unconditional_target_probability_lower'])<=0):
+        raise ValueError('Common field source or physical interpretation changed')
+    cut=data['photon_cutoff']
+    if (any(cut['boundaries'].values())
+            or not cut['construction']['same_native_trial_state_reference_density_Gauss_and_clock']
+            or cut['cap3_pair_photon_transfer']['finite_executed_pointer_labels']!=1161
+            or cut['cap3_pair_photon_transfer']['common_overflow_padded_labels']!=1451
+            or cut['cap3_pair_photon_transfer']['padding_changes_parent_executed_apparatus']
+            or Fraction(cut['cap3_complete_state_and_record_bound']['complete_record_TV_upper'])<=0):
+        raise ValueError('Photon cutoff source, records or interpretation changed')
+    q=data['quark_response']
+    if (not q['scope']['all_local_probe_roots_and_exact_zero_residues_retained']
+            or any(v for k,v in q['scope'].items()if k!='all_local_probe_roots_and_exact_zero_residues_retained')
+            or q['same_source']['additional_exact_ground_projection']
+            or not q['computed_equal_coupling_uc_dc_resolvent_equality']):
+        raise ValueError('Quark spectral source or interpretation changed')
+    ground=data['coupled_ground'];completion=ground['declared_onsite_completion']
+    if (ground['unchanged_source']['ground_in_code']
+            or ground['unchanged_source']['active_ground_multiplicity']!=96
+            or completion['global_scalar_energy_subtraction']!='none'
+            or completion['old_source_receipt_or_H_mutated']
+            or completion['actual_ground_radiation_or_SM_mass_claim']
+            or not completion['complete_pattern_preserving_count_laws_exactly_invariant']
+            or ground['complete_repaired_ground_preparation']['ground_energy_or_exact_ground_projector_used']
+            or ground['exact_macrocell_and_Gauss_completion_control']['counterterm_is_forced_by_primitive_repair_law']):
+        raise ValueError('Coupled ground, explicit completion or preparation changed')
+    local=data['local_current']
+    if (local['source']['full_Hext_cancellation_used_for_final_readout']
+            or not local['source']['source_hamiltonian_continues_through_final_pulse']
+            or local['control_resources']['full_matrix_preparation_and_exact_spectral_bin_premises_removed']
+            or not local['control_resources']['coupling_is_declared_not_compiled_from_native_C_E']
+            or local['complete_prepared_records']['complete_setting_pump_energy_current_alphabet_size']!=80
+            or local['scope']['Standard_Model_species_or_GeV_mass_identified']):
+        raise ValueError('Local current control or interpretation changed')
+    qh=data['quark_higgs']
+    if (qh['same_source']['additional_P0']
+            or not qh['same_source']['all_complements_and_failure_records_retained']
+            or qh['scope']['canonical_composite_CAR']
+            or qh['scope']['physical_Lorentz_chirality_or_Standard_Model_matching']
+            or qh['scope']['source_energies_are_calibrated_rest_masses']
+            or qh['full_static_reference_controls']['full_joint_CAR_modes']!=60
+            or any(Fraction(r['original_attempt_joint_contrast_lower'])<=0
+                   for r in qh['full_interacting_interference_records'].values())):
+        raise ValueError('Quark Higgs operator or complete record interpretation changed')
+    qs=qh['normalized_admitted_states_and_histories']
+    if (qs['additional_P0'] or qs['unconditional_complete_laws_claimed_close']
+            or any(r['same_history_policy_may_read_pump_setting']
+                   or r['original_pump_success_rates_equated']
+                   or not r['bound_applies_to_source_and_common_retained_preparation_environment']
+                   for r in qs['rows'].values())):
+        raise ValueError('Quark admitted-state comparison domain changed')
+    gr=data['ground_refinement'];gc=gr['fixed_complete_energy_clock']
+    if (gr['same_source_family']['spatial_volume_or_spacing_refinement']
+            or gr['boundaries']['ground_radiation_or_SM_mass_identification']
+            or gr['boundaries']['uniform_spatial_or_relativistic_cone']
+            or gc['imaginary_heat_time_is_physical_clock']
+            or not gc['same_pointer_alphabet_for_all_K_and_mathematical_comparison']
+            or not gc['all_M_basis_records_and_all_noop_failure_branches_retained']
+            or gr['constructive_complete_preparation_history']['matrices_enumerated_or_resource_feasibility_claimed']):
+        raise ValueError('Ground refinement clock, records or scope changed')
+
 
 def load():
     data, pins = {}, {}
@@ -157,7 +239,13 @@ def draw(c, data, y):
     y += h+35
     y = charged_field_panel(c, d, y)+35
     y = native_energy_panel(c, d, y)+35
+    y = higgs_current_panel(c, d, y)+35
+    y = local_current_panel(c, d, y)+35
+    y = quark_response_panel(c, d, y)+35
     y = dirac_panel(c, d, y)+35
+    y = coupled_field_panel(c, d, y)+35
+    y = photon_cutoff_panel(c, d, y)+35
+    y = coupled_ground_panel(c, d, y)+35
     h = 640
     card(c, X0, y, CW, h, stroke=TEAL)
     c.text(X0+28, y+43, 'One computed neutral gap → a controlled relativistic field description', 27, TEXT, 700)
@@ -394,4 +482,234 @@ def vector_panel(c,d,y):
            'capacity bounds. This readout does not identify W, Z or an interacting Standard Model sector.',19,MUTED,1.4)
     c.link(X0+28,y+h-20,'Same-source vector filters, boosts, full records and capacity bounds',
            '../../'+PATHS['vector'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def higgs_current_panel(c,d,y):
+    h=600
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'Ask the same excitation the same current question',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Prepare the elementary excitation or its quantum-Higgs composite, admit the same '
+           'energy window, then read the same dressed current. The detector has five signed '
+           'answers. Negative current is a detector value, not negative energy.',19,SOFT,1.4)
+    for i,(name,prob,col) in enumerate([
+            ('Elementary A','at least 2.488191% of original attempts',BLUE),
+            ('Higgs composite B/2','at least 0.297229% of original attempts',VIOLET)]):
+        xx=X0+28+i*690
+        c.rect(xx,y+185,650,150,'#132636',col,1.5,10)
+        c.text(xx+22,y+224,name,23,col,700)
+        c.text(xx+22,y+267,'Admitted current = −½',24,TEAL,700)
+        c.text(xx+22,y+307,prob,19,SOFT)
+    c.para(X0+28,y+373,CW-56,
+           'Both conditional current means are strictly negative. Their successful readouts '
+           'differ by less than 4 × 10⁻⁶ in total variation in this wider certified bin. '
+           'Their different original success rates remain. Choosing a setting with probability '
+           'one half halves its joint rate.',19,SOFT,1.4)
+    c.para(X0+28,y+478,CW-56,
+           'Conjugating the source also transforms the current operator: copying the opposite-charge '
+           'value is incorrect. Four source intervals, all 80 apparatus labels and every preparation '
+           'failure are retained. W names this current, not an identified W boson.',19,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Exact conjugation, current blocks, full-source bounds and complete apparatus',
+           '../../'+PATHS['higgs_current'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def coupled_field_panel(c,d,y):
+    h=850
+    card(c,X0,y,CW,h,stroke=TEAL)
+    c.text(X0+28,y+43,'A common finite spinor and quantum field: the interaction is calculated',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Eight spatial vertices contain 32 complete native constituents. Their fermion codes '
+           'couple to five transverse modes. The same charge density enters the current, electric '
+           'energy and Gauss constraints, including the boundary reference.',19,SOFT,1.4)
+    steps=[('Prepare','deterministic native trial',BLUE),('Evolve','one coupled source clock',VIOLET),('Record','charge + conjugate + field quantum',TEAL)]
+    for i,(title,desc,col) in enumerate(steps):
+        xx=X0+28+i*460
+        c.rect(xx,y+185,414,130,'#132636',col,1.5,10)
+        c.text(xx+20,y+225,title,24,col,700)
+        c.para(xx+20,y+253,374,desc,18,SOFT,1.35)
+        if i<2:c.arrow(xx+420,y+250,xx+450,y+250,col,2,7)
+    response=d['coupled_field']['complete_interaction_records']['exact']
+    def lower(key):
+        x=Fraction(response[key]);scale=10**13;return f'{(x*scale).__floor__()/scale:.5e}'
+    c.text(X0+28,y+374,'Pair + field probability ≥ '+lower('actual_unconditional_target_probability_lower'),26,TEAL,700)
+    c.text(X0+28,y+421,'Connected matter–field response ≥ '+lower('actual_unconditional_binary_connected_response_lower'),24,VIOLET,700)
+    c.para(X0+28,y+461,CW-56,
+           'These original-attempt bounds include the full nonlinear evolution remainder and the '
+           'actual preparation weight. Two independent algebraic current calculations agree. '
+           'With coupling zero the target record has probability zero. All 1,161 outcomes '
+           'remain, including source complements and Gauss failure.',19,SOFT,1.4)
+    c.text(X0+28,y+588,'g = 1/64 · mT = 1/64 · m = the shared native energy · displayed capacity < 10,479 nats',21,TEAL,700)
+    c.para(X0+28,y+633,CW-56,
+           'The input is a free-state preparation, not the coupled ground. This proves a finite '
+           'interaction response, not vacuum radiation, an asymptotic scattering cross section '
+           'or a GeV mass. Spacing a = 1/m, coupling, regulator, finite photon cap and full-matrix '
+           'controls are declared choices; control synthesis workspace is counted separately.',19,SOFT,1.4)
+    c.para(X0+28,y+744,CW-56,
+           'A physical particle interpretation requires the coupled spectrum and a controlled '
+           'spatial refinement with its local currents. The free Lorentz readout alone does '
+           'not supply these interaction properties.',18,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Same-source Gauss, current, preparation and complete interaction proof',
+           '../../'+PATHS['coupled_field'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def photon_cutoff_panel(c,d,y):
+    h=565
+    card(c,X0,y,CW,h,stroke=TEAL)
+    c.text(X0+28,y+43,'More field memory: a controlled comparison on the same cube',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Matter, native preparation, gauge reference and clock stay fixed. Only the total '
+           'photon cap grows. Each finite program has an error bound against five unbounded '
+           'comparison oscillators; no infinite register is physically executed.',19,SOFT,1.4)
+    rows=[r for r in d['photon_cutoff']['cutoff_table']if r['cap']in(1,2,3,4,8)]
+    for i,row in enumerate(rows):
+        xx=X0+28+i*275
+        cap=row['cap'];value=Fraction(row['state_vector_error_upper'])
+        # Fixed decimal exponent and integer ceiling keep every printed upper bound outward.
+        exponent=-1
+        while value<Fraction(10)**exponent:exponent-=1
+        scale=Fraction(10)**(3-exponent)
+        shown=f'{-(-(value*scale).numerator//(value*scale).denominator)/1000:.3f}e{exponent}'
+        c.rect(xx,y+200,255,118,'#15383d'if cap==3 else '#132636',TEAL if cap==3 else BLUE,1.5,10)
+        c.text(xx+16,y+235,f'cap {cap}'+(' · current'if cap==3 else ''),19,SOFT,700)
+        c.text(xx+16,y+283,'error ≤ '+shown,20,TEAL,700)
+    c.para(X0+28,y+357,CW-56,
+           'At cap three, complete-record error is below 1.863e-9; the positive pair-plus-field '
+           'response survives. The comparison keeps photon overflow: 1,161 executed labels '
+           'are padded to 1,451 labels. Bounded electric/magnetic test histories also have '
+           'complete-output bounds, with the actual finite commutator correction retained.',19,SOFT,1.4)
+    c.para(X0+28,y+468,CW-56,
+           'This closes an occupation-cutoff question on a fixed graph. Spatial refinement, '
+           'a uniform local propagation cone and an interacting Lorentz limit remain distinct.',18,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Fixed-source photon capacity, field algebra and complete histories',
+           '../../'+PATHS['photon_cutoff'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def decimal_bound(value, places=9, upper=False):
+    """Print an outward rational bound without a binary64 rounding step."""
+    v=Fraction(value);scale=10**places
+    n=-(-(v*scale).numerator//(v*scale).denominator) if upper else (v*scale).__floor__()
+    sign='−' if n<0 else '';a=abs(n)
+    return f'{sign}{a//scale}.{a%scale:0{places}d}'
+
+
+def quark_response_panel(c,d,y):
+    h=830
+    card(c,X0,y,CW,h,stroke=AMBER)
+    c.text(X0+28,y+43,'Three color-current families: every local spectral line is retained',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Use the actual quark operators and their compensating quantum reference. Each family '
+           'has a complete energy-response measure. A strong line means that this apparatus '
+           'often prepares that energy; counting lines does not count particle species.',19,SOFT,1.4)
+    for i,(key,label,nroots) in enumerate([('uc','uᶜ current',13),('dc','dᶜ current',13),('Q','Q doublet current',25)]):
+        xx=X0+28+i*460
+        rows=d['quark_response']['full_interacting_prepared_records'][key]['records']
+        row=max(rows,key=lambda r:Fraction(r['original_attempt_probability_lower']))
+        lo,hi=row['source_excitation_relative_actual_ground']
+        c.rect(xx,y+200,420,185,'#2c251e',AMBER,1.5,10)
+        c.text(xx+20,y+237,label,24,AMBER,700)
+        c.text(xx+20,y+276,f'{nroots} local roots · strongest source bin',18,SOFT)
+        c.text(xx+20,y+314,'['+decimal_bound(lo)+', '+decimal_bound(hi,upper=True)+']',20,TEXT,600)
+        prob=decimal_bound(100*Fraction(row['original_attempt_probability_lower']),6)
+        c.text(xx+20,y+358,'original attempts ≥ '+prob+'%',19,TEAL,700)
+    c.para(X0+28,y+426,CW-56,
+           'Equal chosen local Yukawa couplings give exactly equal uᶜ and dᶜ local measures. '
+           'Q has 13 visible roots and 12 exact local zeros; the interacting detector still '
+           'retains every bin, leakage, pump failure and preparation failure. Its static '
+           'reference costs 4 source-energy units and has no spatial hopping.',19,SOFT,1.4)
+    c.text(X0+28,y+556,'Actual Higgs dynamics: [h, A] = C + the bounded hopping term',23,VIOLET,700)
+    c.para(X0+28,y+595,CW-56,
+           'The elementary quark probe A and its quantum scalar/matter composite C share '
+           'a positive contribution in the same bin. Complete interference contrasts exceed '
+           '0.096796971 for uᶜ/dᶜ and 0.096907802 for Q, including actual preparation failures. '
+           'Their successful states give common later histories within 5.193e-6; different '
+           'initial setting labels and success rates remain. The scalar stays quantum.',19,SOFT,1.4)
+    c.para(X0+28,y+699,CW-56,
+           'These are source-energy windows with controlled native hopping errors. Their '
+           'spin and gauge operator algebra is checked, but moving quark poles, observed '
+           'up/down masses, generations and GeV conversion are not identified by this spectrum.',18,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Complete quark spectral records',
+           '../../'+PATHS['quark_response'].replace('results.json','PROOF.md'),16)
+    c.link(X0+650,y+h-20,'Actual quantum-Higgs operators and interference',
+           '../../'+PATHS['quark_higgs'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def coupled_ground_panel(c,d,y):
+    h=1030
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'Which state is really lowest? Audit the entire source',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'An interacting code can have a positive gap while another retained sector lies '
+           'below it. The ground audit includes all native complements, Gauss constraints '
+           'and reference costs before choosing a preparation.',19,SOFT,1.4)
+    for i,(title,body,col) in enumerate([
+            ('Original field source','96 active lowest states lie outside the intended code. A code-only gap cannot make its vacuum the ground.',AMBER),
+            ('Explicit completed source','Add a positive onsite cost to each code complement. The active coupled ground is now unique; code energies stay unchanged.',TEAL)]):
+        xx=X0+28+i*690
+        c.rect(xx,y+185,650,165,'#132636',col,1.5,10)
+        c.text(xx+22,y+224,title,23,col,700)
+        c.para(xx+22,y+254,606,body,19,SOFT,1.4)
+    c.text(X0+28,y+403,'H completed = H original + m c(g) Σₓ (I − Pₓ)',27,VIOLET,700)
+    prep=d['coupled_ground']['complete_repaired_ground_preparation']
+    success=decimal_bound(100*Fraction(prep['complete_tree_success_lower']),4)
+    c.text(X0+28,y+452,'4 complete source trials → 3 finite filters → success ≥ '+success+'%',22,TEAL,700)
+    c.para(X0+28,y+490,CW-56,
+           'Conditional ground-state error is below 1.418e-7. All failed filters, partner sources '
+           'and pointer labels remain. The complete physical gap is above 2.5207e-10 source units; '
+           'it differs from the much larger gap inside the code.',19,SOFT,1.4)
+    c.para(X0+28,y+590,CW-56,
+           'The ground detector can record virtual matter–field occupation in its declared free '
+           'basis. This is stationary dressing, not radiation from a vacuum. The penalty is an '
+           'explicit architecture choice, not a primitive-repair consequence. Existing global '
+           'kinetic guards remain; spatial locality and particle masses still need their proofs.',19,MUTED,1.4)
+    c.text(X0+28,y+732,'The same interacting ground family survives increasing photon capacity',23,TEAL,700)
+    for i,(title,body) in enumerate([
+            ('K = 1024 · ideal ground','Two complete field-test histories: error < 3.094e-9.'),
+            ('K = 2⁹⁶ · actual preparation','All preparation/count or field histories: error < 9.549e-9.')]):
+        xx=X0+28+i*690
+        c.rect(xx,y+766,650,100,'#132636',TEAL,1.2,10)
+        c.text(xx+20,y+800,title,21,TEAL,700)
+        c.text(xx+20,y+840,body,18,SOFT)
+    c.para(X0+28,y+905,CW-56,
+           'One fixed finite filter alphabet retains every failure at every cap. These huge '
+           'matrices are not enumerated, and control/work costs grow with capacity. This is '
+           'a fixed-cube field-occupation limit, not a spatial or relativistic continuum.',18,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Full-ground audit and actual preparation',
+           '../../'+PATHS['coupled_ground'].replace('results.json','PROOF.md'),16)
+    c.link(X0+650,y+h-20,'Uniform ground and complete-record capacity limit',
+           '../../'+PATHS['ground_refinement'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def local_current_panel(c,d,y):
+    h=550
+    card(c,X0,y,CW,h,stroke=BLUE)
+    c.text(X0+28,y+43,'A local apparatus reads a current while the source keeps running',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Couple the current at one carrier to a neutral five-state pointer for a short '
+           'pulse. Different current values shift the pointer to different records. The '
+           'source Hamiltonian continues throughout; the detector does not cancel it.',19,SOFT,1.4)
+    for i,(title,body,col) in enumerate([
+            ('One native carrier','all 80 current states',BLUE),
+            ('Local coupling','f(W) × pointer generator',VIOLET),
+            ('Five records','every current and failure kept',TEAL)]):
+        xx=X0+28+i*460
+        c.rect(xx,y+188,414,110,'#132636',col,1.5,10)
+        c.text(xx+20,y+225,title,23,col,700)
+        c.text(xx+20,y+266,body,18,SOFT)
+        if i<2:c.arrow(xx+420,y+245,xx+450,y+245,col,2,7)
+    c.para(X0+28,y+340,CW-56,
+           'Complete-record error < 0.000268446640 at clock 3 + 2⁻²⁰. Both negative current '
+           'means survive, including the quark terms in the drift bound. The source and '
+           'apparatus preserve every Gauss constraint during the pulse.',19,SOFT,1.4)
+    c.para(X0+28,y+438,CW-56,
+           'This polynomial coupling is a declared local control. Its strong, short pulse '
+           'has an explicit work bound. Earlier state preparation and spectral-bin services '
+           'remain separate controls; efficient compilation from primitive repairs is open.',18,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Exact local pointer, uninterrupted source clock and complete-history error',
+           '../../'+PATHS['local_current'].replace('results.json','PROOF.md'),16)
     return y+h

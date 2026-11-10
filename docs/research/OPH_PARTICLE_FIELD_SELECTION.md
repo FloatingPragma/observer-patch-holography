@@ -180,6 +180,21 @@ keep return-normalization, approximation and sampling costs separate.
 
 ## Filtered states and finite apparatus services
 
+For the [quark composite probe](../../model/native_quark_higgs_join/PROOF.md),
+the positive common-energy contribution is selected by the literal
+commutator `C=[H_local,A]`, not by matching two unrelated spectra. The
+complete thirty-mode reference contracts all color, weak and spin indices;
+its energy four is retained. The fair interference setting has six
+potentially nonzero pump/bin records, two explicit zero labels and the
+complete preparation failure law. No extra spin orientation is supplied.
+Its origin apparatus and spectral-bin service do not establish a
+translation-covariant interacting particle field.
+The normalized elementary/composite admitted-state bound is below
+`5.193e-6`, using the original two-source preparation and its retained
+environment. Common subsequent detector policies may use those retained
+systems and their own later records, but not the differing initial pump
+setting labels. Both complete success/failure laws remain separate.
+
 The [elementary/composite filtered-state construction](../../model/native_higgs_filtered_state/PROOF.md)
 retains eight source trials, seven agreement filters, all reference states
 and all sixteen final apparatus labels. Its exact energy-bin projector
@@ -197,6 +212,27 @@ and is covariant under native translations. The charged apparatus is
 located at the origin with a fixed compensator. These are explicit
 settings; moving the neutral apparatus does not restore source-only
 translation invariance of the charged one.
+
+The [Higgs-current apparatus](../../model/native_higgs_current_response/PROOF.md)
+adds a complete five-state current pointer to the filtered construction.
+Four source intervals implement preparation, pump, energy admission and
+current readout. A constant full-matrix drive has norm at most
+`8(600+360*2^-34)+pi`; its net source work and gross switching work are
+bounded separately. The current pointer adds `ln5` nats and no source
+energy. This is an explicit programmable-control architecture, with no
+claim that a local repair scheduler compiles the full matrix service.
+
+The [local current apparatus](../../model/native_local_current_readout/PROOF.md)
+instead uses the explicit polynomial `f(W)` and a neutral five-state
+pointer, with a rational 40-bit generator. It retains native evolution
+through a `2^-20` pulse and preserves all Gauss constraints. Its complete
+record error is below `0.000268446640`, including all onsite Yukawa terms
+and incident hops. The clock becomes `3+2^-20`; it does not reuse the
+parent's time-four receipt. The final drive norm is below `5,270,718`
+and gross switching work below `10,541,436` in source units. This trades
+a shorter local measurement for stronger control. Full-matrix preparation
+and exact spectral admission remain declared services, and synthesis
+workspace is separate from the retained register capacity.
 
 ## Regulators and their field limits
 
@@ -320,6 +356,75 @@ narrower bin or coupling to the affine field changes the relevant
 construction and requires its own comparison. A full weak-current
 attachment and a surviving interacting relativistic limit are distinct
 from this free vectorlike code.
+
+The [finite Wilson–Maxwell source](../../model/native_wilson_maxwell/PROOF.md)
+uses the common Higgs/elementary selector for m, spacing `a=1/m`, and
+an explicitly chosen Wilson kinetic term. The actual finite link phase
+is `exp(i g Q_K)` on the total-photon-number cutoff; it is not replaced
+by the projection of an infinite-dimensional exponential. The Gauss
+isometry retains every native charge and the full boundary reference.
+Its normalized charge constraints do not depend on g. The same g enters
+the Peierls current and Coulomb energy. The code complement remains in
+the Hamiltonian and complete detector; it is never silently discarded.
+
+A deterministic native trial supplies the input. Its code component is
+the free fermion vacuum with a field vacuum, with code weight above
+`0.999999`; the complement is retained. At `g=mT=1/64`, controlled
+whole-operator evolution gives a strictly positive connected response.
+This choice defines a finite interaction experiment without fitting a
+measured mass. The full-ground audit requires the explicit completion
+below; spatial locality and refinement remain separate calculations.
+
+The [photon-cap comparison](../../model/native_wilson_maxwell_refinement/PROOF.md)
+changes only total occupation cap K, keeping source, density, reference,
+Gauss map, trial state and clock fixed. The actual finite exponential
+is compared by a displacement-word estimate, rather than replaced by
+a projected infinite exponential. Its K=3 vector error is below
+`1.863e-9` at the declared wait. An explicit finite pointer can record
+overflow, while mathematical padding of a record law does not pretend
+that the original apparatus executed a larger pointer. Finite controller
+norms grow with K and remain explicit. A spatial or ultraviolet limit
+is not part of this cap-only theorem.
+
+The [positive macrocell completion](../../model/native_wilson_maxwell_ground/PROOF.md)
+is a declared change of source, not a state relabelling. The uncompleted
+Hamiltonian has its active ground in the native code complement, with
+multiplicity 96. Choosing
+`m c(g) sum_x(I-P_x)` as an added positive local-code penalty selects
+the unique interacting code ground. The coefficient is the quadratic
+free-vacuum shift rounded upward to a declared dyadic precision; it uses
+no measured mass and vanishes at zero coupling. Code energies stay
+unchanged, while energies and coherent phases between code patterns change.
+Every `P_x` reduces the native Hamiltonian, port density, Gauss map and
+count effects. Consequently complete pattern-preserving count histories
+are invariant under the completion.
+
+Its full physical gap supports a constructive four-copy, three-filter
+preparation with all references and failures retained. It uses finite
+algebraic Cayley and pointer services, no unknown ground projector or
+ground-energy phase. The capacity bound below `42006.105` nats excludes
+control-synthesis workspace and the subsequent `ln(1161)` count register.
+The completion is local in macrocell spectral projectors; the parent
+kinetic/current terms retain their global code guard. These statements
+must not be replaced by a full-native local propagation theorem.
+
+The [uniform ground construction](../../model/native_wilson_maxwell_ground_refinement/PROOF.md)
+retains that same completion at every photon cap `K>=3`. Its common pointer
+has `M=315179904752653412` states. The fixed Cayley scale bounds only the
+raw ground energy; an explicit chord inequality covers arbitrarily high
+excited energies. All filter outcomes, partners and conditional no-op
+branches share clock five after readout. The ideal-ground `K=1024` field
+comparison and actual-preparation `K=2^96` comparison have distinct error
+budgets. Imaginary heat time is a proof device, never the apparatus clock.
+Large matrices are not executed, control norms grow with cap, and the
+infinite oscillator is only a mathematical comparison.
+
+The [quark source calculation](../../model/native_quark_response/PROOF.md)
+needs no additional source Hamiltonian. It reuses the existing actual
+ground, full static reference and source clock. Its thirteen visible
+lines per probe are detector support, not a choice of thirteen species.
+The exact finite energy-bin service remains declared; the enormous
+full-source pointer matrix is not claimed executed or efficiently compiled.
 
 ## Which selection tests constrain a mass model
 

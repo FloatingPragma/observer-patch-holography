@@ -127,6 +127,43 @@ operator-and-state comparison as any other local calculation.
 <a id="charge-creation-work-and-persistence-on-that-source"></a>
 <a id="same-candidate-transport-and-number-conserving-reads"></a>
 
+## Quark probe measures on the same reference
+
+The [complete quark response](../../model/native_quark_response/PROOF.md)
+calculates literal `u^c`, `d^c` and `Q` removal from the native local
+ground, including all scalar/lepton factors and the actual CAR tensor
+normalization. The 140-state source quark module has a complete 224-state
+probe image. The singlet targets each have thirteen visible energies;
+`Q` has thirteen visible energies and twelve exact zero residues.
+Each local measure sums to `1/2`. A normalized gauge/spin contraction
+with the thirty-mode static reference keeps that weight, with reference
+cost four on success. Color multiplicity is not an extra probability
+division.
+
+All atomic lines transfer to disjoint bins of the unchanged full
+eight-cell Hamiltonian, retaining hopping leakage and actual physical
+preparation error. The strongest source bins are
+`[0.7815710013291,0.7815763657472]` for each singlet and
+`[0.7819863054154,0.7819916698335]` for `Q`, with original-attempt lower
+probabilities `0.4953979660650` and `0.4957017902099`, respectively.
+Local `u^c/d^c` resolvents coincide at the equal configured couplings;
+exact equality of the full hopping-source spectra is not asserted.
+These are complete operator-resolved source measures, without an
+asymptotic color state, momentum-dependent quark mass or SM assignment.
+
+The [quark–Higgs equations and records](../../model/native_quark_higgs_join/PROOF.md)
+also join every quark family to its actual quantum scalar composite on
+that same source. Literal thirty-mode operator identities and full
+sixty-mode source/reference covariance give a positive shared spectral
+contribution, with complete original-attempt interference contrast above
+`0.0967969710` for `u^c,d^c` and `0.0969078028` for Q. The reference cost
+four remains separate. A positive common contribution does not equate the
+full composite with a canonical fermion or identify a continuum pole.
+After choosing the elementary or composite pump, the normalized admitted
+states and every later common detector history agree within `5.193e-6`,
+including the same retained environment. Their initial setting labels and
+different original success rates are not identified by this comparison.
+
 ## Elementary and Higgs-composite response at the same native energy
 
 The [finite centroid experiment](../../model/native_charge_centroid/PROOF.md)
@@ -185,6 +222,28 @@ an explicit alternative selector and kinetic architecture. It does not
 replace the wider bin's maximum-residue member or transfer its affine
 interaction. The source composite agrees in the proved filtered response;
 it is not a canonical fermion operator on every occupation sector.
+
+The [original-current detector](../../model/native_higgs_current_response/PROOF.md)
+further joins both preparations to the same measured quantum response.
+In the `128v` bin both current means are strictly negative, while the
+opposite-charge removal branch has a positive mean. The full
+charge/reflection transformation sends `W` to a distinct `Wbar`; it
+preserves the energy spectrum but does not preserve the original detector.
+Exact 7-, 17- and 7-dimensional charged blocks, followed by full-source
+error bounds, establish this distinction. The original A and B/2 attempts
+produce the admitted `W=-1/2` record with probability at least
+`0.02488191844` and `0.00297229547`, respectively. The fair-setting
+choice halves each joint rate. All 80 apparatus labels remain.
+
+The [local detector variant](../../model/native_local_current_readout/PROOF.md)
+keeps the same first three preparation/pump/bin intervals and replaces only
+the final current service. A neutral five-state pointer couples to a local
+polynomial in W while the full native Hamiltonian continues evolving.
+At clock `3+2^-20`, complete-history error is below `0.000268446640`.
+The elementary and composite decoded means remain negative, respectively
+within `[-0.071113983,-0.004323411]` and
+`[-0.071129869,-0.004307525]`. This is a finite current response with
+declared local control, not an interacting relativistic mass measurement.
 
 ## Opposite charge and the retained reference
 
@@ -339,6 +398,55 @@ with integer link charges `6Y=±6`. The vectorlike `e^c` ancestry does not
 give the electron's left-handed weak representation. Observed currents,
 interactions, flavor content and an independent physical energy standard
 are required before attaching a Standard Model mass.
+
+The [common Wilson–Maxwell source](../../model/native_wilson_maxwell/PROOF.md)
+attaches the `E_H` occupation code to an explicit finite transverse field.
+Its actual current produces a positive pair-plus-field record and connected
+matter–field response at fixed coupling and source time. The charge
+compensator and Coulomb energy use the same density. This supplies a
+finite interacting continuation of the charged code. Its free-input
+response does not calculate the coupled ground's particle mass or prove
+that the code's vectorlike charge is the observed lepton current.
+
+The [same-source photon-cutoff bound](../../model/native_wilson_maxwell_refinement/PROOF.md)
+shows that the finite interaction signal survives comparison with the
+unbounded transverse oscillator on the fixed cube. Its actual-trial
+pair-plus-field probability remains above `4.7504776747e-8` and its
+connected response above `4.7112356073e-8`. The compared observable
+laws include overflow and native complements. Local electric/current
+incidence relations hold in the constrained comparison algebra, with
+controlled bounded detector records. These results do not identify the
+coupled spectral threshold or prove a spatial continuum mass shell.
+
+The [full ground audit](../../model/native_wilson_maxwell_ground/PROOF.md)
+also retains the native complement in the energy comparison. In the
+uncompleted source, its 96 active one-triplet states lie below the
+whole interacting code. The chosen completion
+`H_completed=H_original+m c(g) sum_x(I-P_x)` raises each defective
+macrocell by a positive coefficient computed from the source's filled-band
+contractions. There is no scalar energy subtraction. It selects a unique
+active code ground with full physical gap above `2.52078609e-10`;
+the much larger internal code gap is a different statement.
+
+Four physical trials and three complete filters prepare this ground
+with success above `0.9995943286660` and trace error below `1.417923e-7`.
+The prepared `(1,1,1)` count has original probability above
+`1.41692895e-6`. This is a stationary free-frame occupation, not radiation.
+The completion is an explicit architecture choice; it preserves the old
+pattern-preserving count laws while changing cross-pattern energies and
+phases. It supplies an actual interacting reference for subsequent
+spectral probes, not the excitation threshold or physical particle map.
+
+The [same-ground capacity comparison](../../model/native_wilson_maxwell_ground_refinement/PROOF.md)
+keeps this completion and every physical reference fixed for all photon
+caps `K>=3`. The full physical gap remains positive, and a single finite
+Cayley pointer prepares each actual ground with success above `0.999324855`.
+The complete preparation/count or electric/magnetic history converges to
+the fixed-cube oscillator comparison; an explicit, very large `K=2^96`
+gives error below `9.549e-9`. Those source matrices are not enumerated, and
+control/work bounds grow with K. This closes a field-occupation refinement
+for the interacting reference, while spatial dispersion and a physical
+rest-mass interpretation remain separate requirements.
 
 ## Physical mass readout criterion
 

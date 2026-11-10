@@ -1,0 +1,68 @@
+{
+  "all_original_cases_executed": 157,
+  "executed": {
+    "completion": {
+      "checkpoint": "0194fc685be3f7ba5f732681713c9cfd04e5290f",
+      "current_live_source_custody_validated_by_this_historical_run": false,
+      "current_worktree_sources_injected": false,
+      "original_pytest_configuration_used": true,
+      "original_source_sha256": {
+        "model/completion/custody_authority_r2063.json": "0f47735b000df58b670f9ae4b217f5dcfe8e404868adb3b502f9aa8b37d41f81",
+        "model/completion/r2063_custody_renewal.py": "a19fc6ab5e88a9b75a5a2221f06e61d61acde2f6faeb9ad57688408337649fcc",
+        "model/completion/test_custody_renewal.py": "8ff269ae43229ba3f0f7e41663d090314400b42ff33eb6b461415acd59dd7e0d",
+        "pytest.ini": "38ee02e44262432ef0ec05ae311b3d05236687723fbbb6c77cba9edec32bbc9e"
+      },
+      "schema": "oph.retained_completion_test_execution.v1",
+      "tests_passed": 53
+    },
+    "field": {
+      "checkpoint": "c7b09261853f5a3c5a67e21294c3d9511ed59fc7",
+      "current_live_source_custody_validated_by_this_historical_run": false,
+      "current_worktree_sources_injected": false,
+      "original_pytest_configuration_used": true,
+      "original_source_sha256": {
+        "model/completion/field_custody.py": "3708ccbaa0bb2e10e15d0d43a388b7db0a7dbcbfffa7877e710b2eb13a14e930",
+        "model/completion/field_custody_authority.json": "2417e7a60e23516d44603838d4f248b20fd221e47c4732d5ba53a401d8e5b49b",
+        "model/completion/field_navigation.py": "5e3cd590e56ebbd2cb5b1e9b75114aad5eb0cfe61829bb7f42961ce52fd35d64",
+        "model/completion/field_navigation_authority.json": "0b8c5169a4396a62fd324c6109a4a677331b9a6ac4fec943321d77afbd47987a",
+        "model/completion/test_field_custody.py": "f8828194c39da3968a5d4ca970dd1cf8823346b658eda4ec0b9d8f776cf2c22a",
+        "model/completion/test_field_navigation.py": "3e0c38e1b2fb945257824502831b3094ad74c81b723b915397d69ca8a4d6b7ec",
+        "pytest.ini": "38ee02e44262432ef0ec05ae311b3d05236687723fbbb6c77cba9edec32bbc9e"
+      },
+      "schema": "oph.retained_field_custody_test_execution.v1",
+      "tests_passed": 31
+    },
+    "source_records": {
+      "checkpoint": "7fc48ae176316cb6d2b7ef6decb2060dab9f7db8",
+      "current_live_source_custody_validated_by_this_historical_run": false,
+      "current_worktree_sources_injected": false,
+      "original_pytest_configuration_used": true,
+      "original_source_sha256": {
+        "model/completion/source_records_custody.py": "e303faa262771249421a5775487ccb03d47ad0305980f0a64a819e5124a74d8a",
+        "model/completion/source_records_custody_authority.json": "8594f608e26e2086432ed417de1737f7aaf9e6f7bd5830e8c1c5656de0f9ba0e",
+        "model/completion/source_records_navigation.py": "423a6676c5c6462f2b6c22ff89f5a18dac68ffec4d5ff72d3686596148dd1288",
+        "model/completion/source_records_navigation_authority.json": "e52da9fe4c7dd9e612351af36f1bf61e0168a46f1d054fc25e3f0e9fac2a8be0",
+        "model/completion/test_source_records_custody.py": "78426b8abadae6e02f48485ed52fc325339b74e31d2e17116544788115702be6",
+        "model/completion/test_source_records_navigation.py": "f4f45318b831d86a79b7b18cb6293458ac3aa8aba2b57d3083b6cba0b6176cb1",
+        "pytest.ini": "e2e34163f479f213fca5a6d39fdde600e884e020f56b1387f2d288c441e1a695",
+        "tools/renew_source_record_manifests.py": "52e031e50b5d5f395d647c40850c8bd9c27ab3be01cae054e767d3faf5956e38",
+        "tools/renew_source_record_readouts.py": "428e0e33a5ee3e2a785ae7050e7819a1c77c35894b6cc0667e9d251fe535cbf8",
+        "tools/renew_source_records_atlas.py": "2ff18d131cd59d4276c44e2833bef36b8bcf1e8270b4eeb2d16dc0f09bcde3d0",
+        "tools/renew_source_records_comparison.py": "d6da3661305bf60410e6f4a3b3d72efbf660735f8abe2c3eb3e9a7fa34315f66",
+        "tools/source_record_manifest_authority.json": "a7cb0c314049fc18212f3785e4b348b5816fb06b3b4562bcd28e69be539a8992",
+        "tools/source_record_readout_owners.json": "5ce926726f445fba143bd4b18936596fa72f9e12481185031e58184bb73b87dc",
+        "tools/source_records_atlas_authority.json": "95bb023c369a5e108992b624be65803b95dada499f06bbfccfcb55e7c84b9e82",
+        "tools/test_retained_custody_routing.py": "bb33e38470adc63c78aac466090d1529dc34afb62470b4a884b55c9689a6b59b",
+        "tools/test_retained_field_custody.py": "5e619f2e61be5015dcb090e2a89ecd633c19590632a38600bd625b2ac8b8d162",
+        "tools/test_source_record_manifests.py": "38fd6c5e90da3370ee70d4299953b9adc73f313d50df2391f687c2852a2d17a6",
+        "tools/test_source_record_readouts.py": "8b4e94e96b75053a50c8b5040d3ff4f0c5f187f55f50af1e862d42d06fc57103",
+        "tools/test_source_records_atlas.py": "c88d6fc9c3b9a237183de1c9a6fd79a18fd2f19acde7ce220d73dc8f3c682ceb",
+        "tools/test_source_records_comparison.py": "d5e1d3fd55a414b946a6e3faf3c88b2383bea4b7883b00fbc493e04530acb302"
+      },
+      "schema": "oph.retained_source_records_custody_test_execution.v1",
+      "tests_passed": 73
+    }
+  },
+  "historical_runs_validate_current_live_custody": false,
+  "schema": "oph.field_current_retained_suite_executions.v1"
+}

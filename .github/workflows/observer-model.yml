@@ -9,6 +9,13 @@ on:
       - 'tools/check_retained_field_custody.py'
       - 'tools/test_retained_field_custody.py'
       - 'tools/*source_record*'
+      - 'tools/*field_current*'
+      - 'claims/claim_registry.yaml'
+      - 'claims/assumption_dictionary.md'
+      - 'claims/completion_program.json'
+      - 'tracking/premise_register.json'
+      - 'paper/release_info.tex'
+      - 'paper/paper_release_manifest.json'
       - 'tools/test_numeric_evidence_medium.py'
       - 'tools/test_retained_custody_routing.py'
       - 'code/P_derivation/**'
@@ -42,6 +49,13 @@ on:
       - 'tools/check_retained_field_custody.py'
       - 'tools/test_retained_field_custody.py'
       - 'tools/*source_record*'
+      - 'tools/*field_current*'
+      - 'claims/claim_registry.yaml'
+      - 'claims/assumption_dictionary.md'
+      - 'claims/completion_program.json'
+      - 'tracking/premise_register.json'
+      - 'paper/release_info.tex'
+      - 'paper/paper_release_manifest.json'
       - 'tools/test_numeric_evidence_medium.py'
       - 'tools/test_retained_custody_routing.py'
       - 'code/P_derivation/**'
@@ -84,13 +98,15 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python -m model.verify --hashes-only
+      - run: python -m model.verify_current --hashes-only
   observer:
     name: Observer construction (${{ matrix.os }}, shard ${{ matrix.shard }})
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
@@ -115,6 +131,8 @@ jobs:
       OPENBLAS_CORETYPE: Haswell
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
       - name: Fetch the model's recorded base release
         # A fork's origin need not carry the canonical release tags.
         run: git fetch --no-tags --depth=1 https://github.com/FloatingPragma/observer-patch-holography.git refs/tags/r2053:refs/tags/r2053
@@ -134,7 +152,7 @@ jobs:
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
-      - run: python -m model.verify --shard-index ${{ matrix.shard }} --shard-count 6
+      - run: python -m model.verify_current --shard-index ${{ matrix.shard }} --shard-count 6
       - if: matrix.shard == 2
         run: python code/source_scalar_time_refinement/verify_source_scalar_time_refinement.py
   regression:
@@ -160,12 +178,23 @@ jobs:
       OPENBLAS_CORETYPE: Haswell
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: model/requirements.txt
       - run: python -m pip install -r model/requirements.txt
+      - name: Execute three immutable custody suites
+        if: matrix.shard == 0
+        run: |
+          python tools/check_retained_completion_custody.py
+          python tools/check_retained_field_custody.py
+          python tools/check_retained_source_records_custody.py
+      - name: Check current custody maintenance routes
+        if: matrix.shard == 0
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_field_current_record_manifests.py tools/test_retained_source_records_custody.py
       - name: Check native field receipt portability
         if: matrix.shard == 0
         run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json

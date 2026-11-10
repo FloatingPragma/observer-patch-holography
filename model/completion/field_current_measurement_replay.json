@@ -1,0 +1,18 @@
+{
+  "actual_binary64_replay_byte_exact": true,
+  "canonical_scientific_payload_exactly_preserved": true,
+  "comparison": "exact",
+  "fresh_sha256": "09263ef294f95ae60cf912c806708b947bee59d328cb2ed62d8764c2683c645b",
+  "maximum_absolute_array_replay_difference": 0.0,
+  "physical_error_bound_claimed_by_replay_tolerance": false,
+  "producer": "model.native_energy_measurement.packet:produce",
+  "receipt": "model/native_energy_measurement/results.json",
+  "retained": "model/completion/historical/r2063_live_inputs/model/native_energy_measurement/results.json",
+  "retained_sha256": "6c4f66f29e34eac29bac5d7ebe1c857606888eede03113761556c41eb1b0ffeb",
+  "reviewed_source_scope_append": {
+    "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+    "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+    "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+    "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+  }
+}

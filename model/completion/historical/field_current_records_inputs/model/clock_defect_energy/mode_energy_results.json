@@ -1,0 +1,1498 @@
+{
+  "schema": "oph.clock_defect_energy.mode_energy.v1",
+  "campaign": {
+    "campaign_id": "OPH-FINITE-THEOREM-JOINS-2026-10-28-v1",
+    "contract_sha256": "74f90725265ede3c439ac43ea2bed9987ef97824da242ceb90fce1a3ac5b8113",
+    "predecessor_campaign": "OPH-CLOCK-DEFECT-ENERGY-2026-10-28-v1",
+    "pending_pr_head": "3d282b3d59763fa1a5171ad9a4fbc09fc0abf35a"
+  },
+  "source_sha256": {
+    "Lean/Dynamics/WardLimitManifest.lean": "6bae06ce219aa104014a3094298c3f376586cc54d03223b534b94a95565a6b0d",
+    "Lean/EventAlgebra/Basic.lean": "a25f4f757df59629c883ae5a7a471915ffa4d3513f866aba281a9ae91df56f75",
+    "Lean/EventAlgebra/Lueders.lean": "3ada7f27ba0f483c2c5ca0ebda18b0da00c28c2a1424c17c9feefa0067d61343",
+    "Lean/EventAlgebra/PartitionAverage.lean": "bed73bc36d2f89d32f684477134e584fc5fd5dab99b72d0ee76d63865a3e4c37",
+    "Lean/EventAlgebra/PartitionPinching.lean": "589f8bdc8deb1cce22e7843ed5300d25abf5a37f4cc9ef49cab5a404ba9b05c8",
+    "Lean/EventAlgebra/PublicRecordAlgebra.lean": "9301de8050611cac94a53b2d28b9b6c26d3019ede6b0c5034160696b7236fcc4",
+    "Lean/EventAlgebra/SlotLocalitySurface.lean": "36619cf280b2f5cb8d6510b44b2ca17e547cad9640d47dbaf864ac23e97a4f30",
+    "Lean/EventAlgebra/TwoScalePublicRepair.lean": "65c6c3568a4fc29b118007e03b57902308a58e23aaff30b57548dc6edf4d489d",
+    "Lean/Geometry/CanonicalLorentzModule.lean": "20ad875b95e605ab4e6201c00b1e74ab6dd590d0e5578587d6facdc08c095707",
+    "Lean/Geometry/CausalOrderComposition.lean": "ff6ef987e0337f065253a3b51de916c7f5299304f0d652e34ae738f406fd81a7",
+    "Lean/Geometry/CelestialNullCone.lean": "228316aa8d33b73e94fed99639147f462b6e116351c4765196c34ee1d747cb07",
+    "Lean/Geometry/EventGermDisplacement.lean": "0f5129b2f66cf0eeb3be585fe0fcaf718ee12515fa9eeac96612d1dc82e6ed11",
+    "Lean/Geometry/EventPopulationChartInterface.lean": "68f08212179f5f0e2000fc6aef79d810b6dd27aaa262879304814aa8f6bb5b6d",
+    "Lean/Geometry/InternalEnergyInertia.lean": "48a468bbb8e397abdf512005a87b923f393bf96cc8535b18b03ed42e98d0eb04",
+    "Lean/Geometry/LorentzOverlapCocycle.lean": "c86d3f7eb320490bd944d3c05bb838115c3400e297a0731e311cf4c6b24ef025",
+    "Lean/Geometry/MassShellKinematics.lean": "fc5014a35da01b0ae3a9ac64c43e9669ff7716471aa622d6df3b32944b2919cd",
+    "Lean/Geometry/NativeRepairSemanticPlacement.lean": "f744ad503c7f16736239ba4bc77383f4b47c62fc6d4b35f72f6315dcf3bfa09e",
+    "Lean/Geometry/ObserverFrameHyperboloid.lean": "a15eb2c5629931e1b5498021aa686f7c1bb1921536a84e768d197dddbba9c896",
+    "Lean/Geometry/ObserverRestSpace.lean": "17942dd37eb3a1cdc37ca648f14fab2395ddaa17fa272fa81c97b7d3a88825fd",
+    "Lean/Geometry/ProperTimeInternalAction.lean": "8933451e0b96b0f1a339ca7912dd7e1c26cde321b5144440ee7127fd95a76307",
+    "Lean/Geometry/SourceActionMeasure.lean": "802361b7efc592b84d2df4d00506818a9d9354fd239b94eaf63e26792ea3a73d",
+    "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean": "4ce2b74387dd9cbfb19d8204beabdd4e1d1786b7c2941578c74812f97bf86b6f",
+    "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean": "bf0cbf400e9ee06fd1d89e48f2c9a241a6398780f15f970bc6da0111bb8bc466",
+    "Lean/ObserverPatchHolography/Locality/DependencyCone.lean": "6163ba7901ef2a67d92eea0be62f061d551c0418b0dcaa7ef8b386e47d4e1f99",
+    "Lean/ObserverPatchHolography/Locality/NoSignalling.lean": "197ffac07205eeb7363559d12e12e67955f3458b49e40f9c29aeec5a5e3eecc0",
+    "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean": "82b69fe3daa8b57c0770ecf764c9547228747052b292f3a4b2465a7ea5ee445a",
+    "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean": "16f92e06b37afb0e6c381118b35b40d27f06c9206976638b31fb5250f70db956",
+    "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean": "8cf2c2c2c9d0fdbcdd423ec450048f2cd8640edb77e7fbac2adeb47fdffe0466",
+    "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean": "222c18b38e5a901902a918ed42427d158cd274248dbf0ba2c3b36f2c3a3f6e07",
+    "Lean/QFT/CPRestrictionNet.lean": "b3ed269db07de2ca6e062cf54b86762ab8d35259268d0f987d49a3ed738af146",
+    "Lean/QFT/CoverageReceipt.lean": "141450acc89579668c95c129157688fdcb0d40d180122406f4029fd80f7751ca",
+    "Lean/QFT/FiniteCausalObserverNet.lean": "d523da22cad68d20f67ab860d165dd7800e1b69892ab7053aaa7d761a617c626",
+    "Lean/QFT/NoncommutativeWitness.lean": "901bdeea971cd50a2067982458fd2d679d4235777525044b9105a8bde4a9de14",
+    "Lean/QFT/ObserverAccessCut.lean": "c95c8e4ed6b06000b3141e4f36108e1a41cd9eface7e3c2d6735779f0afef3e1",
+    "Lean/QFT/ObserverNetDescent.lean": "43c86c2be90d4db28c40bd1164746e42baa017e9f9c2efed17e33f03f47e2bbe",
+    "Lean/QFT/RichFibreRegionalNet.lean": "d59234e11cc24c61a699fa031f57a6599151f95f274c8885a5d65e8d3dc71465",
+    "Lean/QFT/RichFibreWitness.lean": "502ba73db9dfc92fb249f7c4279e58ec8d0ac7d0cdd466ce805a5272641628f5",
+    "Lean/Screen/A5PortAction.lean": "5efd9ea0ca2d12f8beb3f20111e80d748984ec0cbef484dd3d7cbb766954f9cc",
+    "Lean/Screen/A5PortModule.lean": "6bd28a569e34b9214085ed9fe8d0cbfb4cbaebf6e0d73c9626e03a28af768f17",
+    "Lean/Screen/A5PrimitivePortPrediction.lean": "cb2e81d0555fa90ee1db6502c7af2d540a785b8567d3310fdd776a21fb5aad4e",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "Lean/Screen/PrimitivePortTranslationBridge.lean": "e741554cd7dd171b92e1c0ccaea28956def866cd826fd6a6036ea8fb87865a67",
+    "Lean/Screen/RegionalContinuity.lean": "fa00c3aed6580174519e1d828ad81572d7ac7b759a3274dbc60e99761d76bd28",
+    "Lean/Screen/SeamChargeContinuity.lean": "b962b66edd392d28351972653cca9168e369e8d0d53afebea91e47ccd7698cc9",
+    "Lean/Screen/SeamCurrentCarrierQuotient.lean": "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f",
+    "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+    "Lean/Time/ClockReadout.lean": "bbe0b9d99047a4de4e2bbc5cf01ec026bfa26e6fb63212702a5be8080053266d",
+    "Lean/Time/TimeOrderLedger.lean": "88deb0a144a143330a017fc9fcc743d63584502b56ca659d8b2e0c534b853e5c",
+    "Lean/Tower/ConsensusTower.lean": "673fe69d0eeb714bd19d9a895e90676761d9d3d23b1e33ba252e56515026e9d3",
+    "Lean/lake-manifest.json": "65c7120947e5a3ad487de7311a46f792f62dd92718e220f82fefbda2d7d3f59d",
+    "Lean/lakefile.lean": "bab220d390af699ec517bb1421f1f94484e48b4a84c776dee40bf2da7ba8b9df",
+    "Lean/lean-toolchain": "7dc000621e0046d1aada809e2b7177e64454645cf4c741e9daaf79c99ec2e7a2",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/clock_defect_energy/MODE_ENERGY.md": "cba85be1da1690bd6b23a046ff582670891a0866c9c67008fff1079b3ad4b525",
+    "model/clock_defect_energy/clock_wave.py": "29aa35f763c18305b161e5b3c31cf6e01216c2116ea82b3c4dff5cb2265a35d0",
+    "model/clock_defect_energy/contract.py": "c6ca5b9964c9958f482d55458c3cad7503b7e3c7398ddfb9c88c6348e56935f2",
+    "model/clock_defect_energy/joins_contract.py": "9e8cc2ec87c207d83d864e4c5fd587da45844a2cd8c5833aa9a429f557f3cd6a",
+    "model/clock_defect_energy/mode_energy.py": "95d0bdbf20dffcb9d6698585d6895125d48aeaf0f02fa7e7bb1e268f95e5c386",
+    "model/clock_defect_energy/test_mode_energy.py": "5ef19cc0797fa29af16fd5956c4a529ba9565fcbbaa7e2b2baaeb63851afe87d",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/federated_observer/SCALING.md": "c535947fa1a7b363b907a1cf62a32d31717eae40a7520110a3ca20c18f869122",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/__main__.py": "4d0d6c0a2ebe25a9a2c1d314a5efea267bc70f8573f81b201a833bf4efaef59e",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/__main__.py": "1b2b18ba571b8699fe93296b7991f074c5103c8f1a8bd1edc30341a2e2f6325d",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/record_recovery.py": "0ad1c23cac53bbcf00c32ada6ce01660466b4e9c71e5e58a0226a0bf5609a193",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/continuum_dynamics.py": "667c79896bd1748b492b9fce3dadbdb4e10f62d130359e5cf45ace70de4214c5",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/observer_time_fields/wave_reference.py": "4b37e0ded33523e746657bfa3ef768581ef7e7ef9d6e66cea9d9d9180cbf50eb",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/causal_placement.py": "41d1004dd8e7b1ba24e7a1fc3d149b45c75853b9012bf18cd33bec170df7ad61",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/observation_process.py": "a84d701f3224d9b46e93d6f15fb0be2950ce39e7093652f0033f72c312c3b004",
+    "model/physical_space_time/occupation_field.py": "9e41bcb86957da607b3ce518aeb0fbff939b02c3d735bf686cb2b56e130b0f9f",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "native_record_forms": {
+    "source_dimension": 66,
+    "complete_columns_per_law": 3960,
+    "stationary_reference": "uniform binary66 under uniform seam/coin selection",
+    "parameter": "native attempted events, including zero current",
+    "covariance": [
+      [
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36",
+        "-5/396"
+      ],
+      [
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "-5/396",
+        "5/36"
+      ]
+    ],
+    "increment_second_moment": [
+      [
+        "5/198",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "0",
+        "-1/198",
+        "-1/198"
+      ],
+      [
+        "-1/198",
+        "5/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "5/198",
+        "-1/198",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "-1/198"
+      ],
+      [
+        "0",
+        "0",
+        "-1/198",
+        "5/198",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-1/198",
+        "-1/198",
+        "5/198",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198"
+      ],
+      [
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "-1/198",
+        "5/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198"
+      ],
+      [
+        "0",
+        "0",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "5/198",
+        "-1/198",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0"
+      ],
+      [
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "5/198",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0"
+      ],
+      [
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "0",
+        "-1/198",
+        "-1/198",
+        "5/198",
+        "-1/198",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "-1/198",
+        "5/198",
+        "0",
+        "0"
+      ],
+      [
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "5/198",
+        "-1/198"
+      ],
+      [
+        "-1/198",
+        "0",
+        "-1/198",
+        "0",
+        "-1/198",
+        "-1/198",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/198",
+        "5/198"
+      ]
+    ],
+    "C_and_E_forms_equal": true,
+    "current_continuity_all_columns": true,
+    "registered_finite_continuity_map": {
+      "source_to_registered_lean_port": [
+        8,
+        10,
+        1,
+        3,
+        7,
+        11,
+        0,
+        4,
+        6,
+        9,
+        2,
+        5
+      ],
+      "registered_gram_entries_checked_exactly": 144,
+      "coordinate_witness_theorem": "OPH.PrimitivePortFrameQuotient.rawAxis_dot_eq_sourceGram",
+      "all_pass": true,
+      "source_seam_maps": [
+        {
+          "source_seam": [
+            0,
+            1
+          ],
+          "registered_seam_index": 25,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            0,
+            5
+          ],
+          "registered_seam_index": 26,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            0,
+            7
+          ],
+          "registered_seam_index": 16,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            0,
+            10
+          ],
+          "registered_seam_index": 11,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            0,
+            11
+          ],
+          "registered_seam_index": 19,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            1,
+            5
+          ],
+          "registered_seam_index": 29,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            1,
+            7
+          ],
+          "registered_seam_index": 17,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            1,
+            8
+          ],
+          "registered_seam_index": 22,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            1,
+            9
+          ],
+          "registered_seam_index": 27,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            2,
+            3
+          ],
+          "registered_seam_index": 6,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            2,
+            4
+          ],
+          "registered_seam_index": 8,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            2,
+            6
+          ],
+          "registered_seam_index": 0,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            2,
+            10
+          ],
+          "registered_seam_index": 5,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            2,
+            11
+          ],
+          "registered_seam_index": 7,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            3,
+            4
+          ],
+          "registered_seam_index": 13,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            3,
+            6
+          ],
+          "registered_seam_index": 2,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            3,
+            8
+          ],
+          "registered_seam_index": 12,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            3,
+            9
+          ],
+          "registered_seam_index": 14,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            4,
+            5
+          ],
+          "registered_seam_index": 24,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            4,
+            9
+          ],
+          "registered_seam_index": 23,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            4,
+            11
+          ],
+          "registered_seam_index": 18,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            5,
+            9
+          ],
+          "registered_seam_index": 28,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            5,
+            11
+          ],
+          "registered_seam_index": 20,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            6,
+            7
+          ],
+          "registered_seam_index": 3,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            6,
+            8
+          ],
+          "registered_seam_index": 4,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            6,
+            10
+          ],
+          "registered_seam_index": 1,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            7,
+            8
+          ],
+          "registered_seam_index": 15,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            7,
+            10
+          ],
+          "registered_seam_index": 9,
+          "current_orientation": -1
+        },
+        {
+          "source_seam": [
+            8,
+            9
+          ],
+          "registered_seam_index": 21,
+          "current_orientation": 1
+        },
+        {
+          "source_seam": [
+            10,
+            11
+          ],
+          "registered_seam_index": 10,
+          "current_orientation": 1
+        }
+      ],
+      "charge_and_current_incidence_intertwine": true
+    },
+    "dirichlet_form": "D(v)=E[(F_v(after)-F_v(before))^2]/2=v^T L v/396",
+    "mode_profile": [
+      "1",
+      "-1",
+      "-1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "mode_eigenvalue": 6,
+    "mode_variance": "20/33",
+    "mode_increment_second_moment": "4/33",
+    "normalized_dirichlet_rate": "1/10",
+    "elementary_wave_phase_relation": "1-cos(theta)=D(v)/Var(F_v)=1/10",
+    "bare_excess_movement_redefined": false,
+    "physical_energy_identified": false
+  },
+  "existing_full_source_mode": {
+    "ports": 240,
+    "seams": 630,
+    "clock_port": 0,
+    "native_eigenvalue": 6,
+    "exact_first_carrier_profile": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "1",
+      "-1",
+      "-1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "all_other_profile_entries": "0",
+    "external_seam_ports_of_first_carrier": [
+      1,
+      3,
+      10
+    ],
+    "profile_cell_compression": "0 on every cell",
+    "internal_fixture_survives_as_a_bounded_nonconstant_continuum_mode": false,
+    "same_internal_fixture_scaled_eigenvalue_at_level_l": "6*4^l",
+    "complete_one_attempt_clock_record_counts": [
+      {
+        "incident": 0,
+        "nonzero_incident_current": 0,
+        "count": 1250
+      },
+      {
+        "incident": 1,
+        "nonzero_incident_current": 0,
+        "count": 10
+      }
+    ],
+    "constant_angular_mode_eigenvalue": 0,
+    "clock_ticks_require_nonzero_current": false
+  },
+  "response": {
+    "executed_gap": "E_n(p)=2*n*sqrt(Q)*acos(cos(theta/(2*n))*cos(p/(2*n*sqrt(Q))))",
+    "rest_gap": "E_n(0)=sqrt(Q)*theta=a",
+    "independent_radial_curvature": "E_n_second(0)=cot(theta/(2*n))/(2*n*sqrt(Q))",
+    "kinetic_mass_from_curvature": "m_n=1/E_n_second(0)=2*n*sqrt(Q)*tan(theta/(2*n))",
+    "massless_branch_signal_speed": "1 in the declared radial symbol units, below phase aliasing",
+    "rest_to_inertia_ratio": "(theta/(2*n))*cot(theta/(2*n))",
+    "ideal_product_gap": "sqrt(a^2+p^2)",
+    "ideal_independent_curvature": "1/a",
+    "ideal_mass_shell_relation": "E0=m_kin*c^2 with c=1",
+    "radial_symbol_is_native_physical_momentum": false,
+    "pulse_subdivision_is_carrier_refinement": false,
+    "gravitational_stress_constructed": false
+  },
+  "theorem_maps": [
+    {
+      "path": "Lean/Geometry/SourceActionMeasure.lean",
+      "theorem": "normalized_symmetrizer_unique",
+      "model_map": "The connected native twelve-port Laplacian is symmetric with negative reciprocal edge support; uniform positive capacities normalized to1 are its unique diagonal symmetrizer.",
+      "verified_inputs": "Exact complete-record covariance, current form and native Laplacian; rank11 and edge-square factorization checked independently.",
+      "remaining": "A relative quadratic action does not select physical kinetic normalization, volume or an action unit."
+    },
+    {
+      "path": "Lean/Screen/RegionalContinuity.lean",
+      "theorem": "regional_continuity",
+      "model_map": "q=x, qNext=native_output and source=0, transported by the checked sourceToRERPort permutation; C/E current is mapped to the registered seam with its required orientation sign.",
+      "verified_inputs": "Pointwise continuity on every supported binary source/seam/coin column implies every regional sum.",
+      "remaining": "Conserved occupation is not identified with stress-energy. WardLimitManifest still requires a stress realization and controlled refinement."
+    },
+    {
+      "path": "Lean/Geometry/MassShellKinematics.lean",
+      "theorem": "fourMomentum_time_sq_eq_mass_sq_add_spatial",
+      "model_map": "For the ideal existing product symbol, E=sqrt(a^2+p^2), frame=(E/a,p/a,0,0), declared rest parametera>0 and c=1.",
+      "verified_inputs": "Actual source eigenmode fixes theta anda; anticommuting product axes give the ideal symbol. Independent curvature1/a agrees. Finite split words have the retained controlled deviation.",
+      "remaining": "Radial apparatus and momentum dictionary are declared. No localized defect or physical Lorentz frame is inferred."
+    },
+    {
+      "path": "Lean/Geometry/InternalEnergyInertia.lean",
+      "theorem": "compositeStationary_iff_eom",
+      "model_map": "The theorem locates the action-shape premise behind equal rest and inertial energy; it is not imported from bare record activity.",
+      "verified_inputs": "The product gap and its radial-symbol curvature are computed independently, so their equality or finite splitting mismatch is tested rather than defined.",
+      "remaining": "The theorem worldline/composite action is not yet derived for the native history defect."
+    },
+    {
+      "path": "Lean/Geometry/ProperTimeInternalAction.lean",
+      "theorem": "slope_selection",
+      "model_map": "Reuse its refinement-invariance and proper-time criteria as the action-selection contract for any defect action.",
+      "verified_inputs": "The finite product response tends to its own ideal mass-shell relation as pulse subdivision error vanishes.",
+      "remaining": "Pulse subdivision is not the theorem midpoint worldline refinement and does not discharge its proper-time premise."
+    },
+    {
+      "path": "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean",
+      "theorem": "modularEnergy_gibbs_sub",
+      "model_map": "The existing product-mode faithful Gibbs target uses energy levels0,omega and common beta; the modular ledger difference equals beta times energy difference.",
+      "verified_inputs": "The existing source product preparation/readout test is reused; the finite pulse word is separately compared to the ideal generator.",
+      "remaining": "An arbitrary transported three-charge target or finite prepared state cannot silently replace this Gibbs target."
+    }
+  ],
+  "finite_inertia_bounds": [
+    {
+      "subdivisions": 1,
+      "rest_to_independent_inertia_ratio": [
+        "99920559231843/100000000000000",
+        "24980139807961/25000000000000"
+      ],
+      "mass_shell_defect_upper": "79459704317/100000000000000",
+      "pulses_per_original_trigger": 2,
+      "source_load_export_calls_per_trigger": 4
+    },
+    {
+      "subdivisions": 2,
+      "rest_to_independent_inertia_ratio": [
+        "99980142174443/100000000000000",
+        "24995035543611/25000000000000"
+      ],
+      "mass_shell_defect_upper": "9929504307/50000000000000",
+      "pulses_per_original_trigger": 4,
+      "source_load_export_calls_per_trigger": 8
+    },
+    {
+      "subdivisions": 4,
+      "rest_to_independent_inertia_ratio": [
+        "24998758922871/25000000000000",
+        "19999007138297/20000000000000"
+      ],
+      "mass_shell_defect_upper": "99287649/2000000000000",
+      "pulses_per_original_trigger": 8,
+      "source_load_export_calls_per_trigger": 16
+    },
+    {
+      "subdivisions": 8,
+      "rest_to_independent_inertia_ratio": [
+        "6249922433257/6250000000000",
+        "99998758932113/100000000000000"
+      ],
+      "mass_shell_defect_upper": "310268127/25000000000000",
+      "pulses_per_original_trigger": 16,
+      "source_load_export_calls_per_trigger": 32
+    }
+  ],
+  "source_execution": {
+    "rows": [
+      {
+        "subdivisions": 1,
+        "radial_symbol_parameter": "0",
+        "word_sha256": "784ed0f036ae552af2b3c332ae09fdf0ad3b054091bdd357660256422b9a3685",
+        "source_pulses": 2,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "82223887/33554432",
+          "5138993/2097152"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 1,
+        "radial_symbol_parameter": "2/5",
+        "word_sha256": "75373f88c6e2e297d6e9cc26af704dca28defe74a2dc9139a2077d17191c1889",
+        "source_pulses": 2,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "26095/67108864",
+          "26097/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "13051/33554432",
+          "3263/8388608"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "166622549/67108864",
+          "166622551/67108864"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33552301/67108864",
+            "33552303/67108864"
+          ],
+          [
+            "2129/67108864",
+            "2131/67108864"
+          ],
+          [
+            "2129/67108864",
+            "2131/67108864"
+          ],
+          [
+            "33552301/67108864",
+            "33552303/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 1,
+        "radial_symbol_parameter": "4/5",
+        "word_sha256": "a4dd08a6fef9e48833837276c1c8211bfa3aad3a3566432e6660ea121addbe9f",
+        "source_pulses": 2,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "52189/67108864",
+          "52191/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "52205/67108864",
+          "52207/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "86491451/33554432",
+          "21622863/8388608"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "16772955/33554432",
+            "4193239/8388608"
+          ],
+          [
+            "1065/8388608",
+            "4261/33554432"
+          ],
+          [
+            "1065/8388608",
+            "4261/33554432"
+          ],
+          [
+            "16772955/33554432",
+            "4193239/8388608"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 2,
+        "radial_symbol_parameter": "0",
+        "word_sha256": "edb46f355f700fe85a60c6372762d6eebc2e5aa331eb5bf4dd859adda3e98b65",
+        "source_pulses": 4,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "82223887/33554432",
+          "5138993/2097152"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 2,
+        "radial_symbol_parameter": "2/5",
+        "word_sha256": "5c00bbfbd0f74716ebacce29bac7d607f4748a44899ca36a3077855391ca0978",
+        "source_pulses": 4,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "6523/33554432",
+          "1631/8388608"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "6525/33554432",
+          "3263/16777216"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "83311919/33554432",
+          "5206995/2097152"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 2,
+        "radial_symbol_parameter": "4/5",
+        "word_sha256": "a1c887ed533742adc153568525a1365cba6f20b4de1aa0ce7a78baeebd436106",
+        "source_pulses": 4,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "26091/67108864",
+          "26093/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "13051/33554432",
+          "3263/8388608"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "86493933/33554432",
+          "43246967/16777216"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33545915/67108864",
+            "33545917/67108864"
+          ],
+          [
+            "8515/67108864",
+            "8517/67108864"
+          ],
+          [
+            "8515/67108864",
+            "8517/67108864"
+          ],
+          [
+            "33545915/67108864",
+            "33545917/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 4,
+        "radial_symbol_parameter": "0",
+        "word_sha256": "81a2274d1c8c55d4bc74e955fa16c0cf046db1e4fd2a894e2a76dc6e840b2787",
+        "source_pulses": 8,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "82223887/33554432",
+          "5138993/2097152"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 4,
+        "radial_symbol_parameter": "2/5",
+        "word_sha256": "5ae263183532781630d8bc79ffb7a1b6e1abcb2efc071600b88f4275269bafd5",
+        "source_pulses": 8,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "3261/33554432",
+          "1631/16777216"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "6525/67108864",
+          "6527/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "5207005/2097152",
+          "83312081/33554432"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 4,
+        "radial_symbol_parameter": "4/5",
+        "word_sha256": "208448a06c54d0cc952d3b96b28984652247229a29cf39422355badb3c56d3c5",
+        "source_pulses": 8,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "13045/67108864",
+          "13047/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "6525/33554432",
+          "3263/16777216"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "172989107/67108864",
+          "172989109/67108864"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "8386479/16777216",
+            "16772959/33554432"
+          ],
+          [
+            "4257/33554432",
+            "2129/16777216"
+          ],
+          [
+            "4257/33554432",
+            "2129/16777216"
+          ],
+          [
+            "8386479/16777216",
+            "16772959/33554432"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 8,
+        "radial_symbol_parameter": "0",
+        "word_sha256": "afda56e95bca15c7ad2a0e4cecaa3288cb13e0be2a5b3e3098e4bc8bec73ffe0",
+        "source_pulses": 16,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "82223887/33554432",
+          "5138993/2097152"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "0",
+            "1/67108864"
+          ],
+          [
+            "33554431/67108864",
+            "33554433/67108864"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 8,
+        "radial_symbol_parameter": "2/5",
+        "word_sha256": "9de828264e5c452b4b9c2df33d70a964abdcf74fbab7d2165faf4978af45c847",
+        "source_pulses": 16,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "3261/67108864",
+          "3263/67108864"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "1631/33554432",
+          "51/1048576"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "10414015/4194304",
+          "83312121/33554432"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "133/4194304",
+            "1065/33554432"
+          ],
+          [
+            "16776151/33554432",
+            "2097019/4194304"
+          ]
+        ]
+      },
+      {
+        "subdivisions": 8,
+        "radial_symbol_parameter": "4/5",
+        "word_sha256": "0e6b5577d689a58705c16047b9a8ce8d8987febbb9225484a0c2f89d0c03aed0",
+        "source_pulses": 16,
+        "matrix_residual_diagnostic_interval": [
+          "0",
+          "1/67108864"
+        ],
+        "target_generator_unitary_error_diagnostic_interval": [
+          "3261/33554432",
+          "1631/16777216"
+        ],
+        "analytic_split_bound_formula": "a*p/(4*Q*n)",
+        "split_bound_display_interval": [
+          "6525/67108864",
+          "6527/67108864"
+        ],
+        "floating_execution_budget": "1/10000000000",
+        "spectral_gap_diagnostic_interval": [
+          "172989417/67108864",
+          "172989419/67108864"
+        ],
+        "complete_system_reference_probability_intervals": [
+          [
+            "33545917/67108864",
+            "33545919/67108864"
+          ],
+          [
+            "8513/67108864",
+            "8515/67108864"
+          ],
+          [
+            "8513/67108864",
+            "8515/67108864"
+          ],
+          [
+            "33545917/67108864",
+            "33545919/67108864"
+          ]
+        ]
+      }
+    ],
+    "source_compiler_proper_code_and_failure_contract_reused": true,
+    "floating_display_intervals_are_rigorous_interval_arithmetic": false,
+    "ideal_proper_code_failure_probability": 0,
+    "new_hardware_fidelity_certificate": false
+  },
+  "scope": {
+    "physical_mass_derived": false,
+    "localized_defect_identified": false,
+    "physical_comparison_count_added": 0,
+    "integrated_gate_accepted": false
+  }
+}

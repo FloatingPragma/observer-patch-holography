@@ -1,0 +1,311 @@
+{
+  "schema": "oph.executable_program_class.v2",
+  "proposed_program_id": "OPH-EXECUTABLE-COMPLETION-2026-10-29-v2",
+  "adoption": {
+    "status": "ADOPTED_AFTER_REVIEW",
+    "changes_current_registry": true,
+    "independent_review": {
+      "verdict": "PASS",
+      "path": "model/completion/program_class_v2_review.json",
+      "sha256": "3e6443c99b2bc55afbb9ded20c32519b73d005f415853d235f918cb4b2f91ade",
+      "reviewed_contract_digest": "aad2cc606725e39fe438bb36d0fb9890d3ac79289464e5f203ba69a7cf56fc07"
+    }
+  },
+  "predecessor": {
+    "program_id": "OPH-EXECUTABLE-COMPLETION-2026-10-28",
+    "commit": "c35b09c099e5950f736befcf126c654542d78e15",
+    "tree": "d2047e134c99cf3e0f543e5a036f4e9cefdaaa74",
+    "old_finite_campaigns_preserved": true,
+    "prior_failures_preserved": true
+  },
+  "purpose": "Freeze a concrete executable source/service class and observation decision contract. Acceptance of this class or its observer establishes none of EMH-1 through EMH-5.",
+  "hypothesis": {
+    "path": "claims/executable_model_hypothesis.json",
+    "mandatory_obligations": [
+      "EMH-1",
+      "EMH-2",
+      "EMH-3",
+      "EMH-4",
+      "EMH-5"
+    ],
+    "source_selected_physical_outputs_required": true,
+    "imported_field_action_counts_as_physical_success": false,
+    "full_universe_or_internal_closure_in_first_milestone": false
+  },
+  "carriers": [
+    {
+      "id": "local_integer",
+      "definition": "The existing twelve-port H78 nonnegative integer total-two carrier; H66 is its invariant binary shell.",
+      "source": "model/observer/native.py",
+      "admissible_loads": "all78 configurations; no arbitrary total or new species",
+      "growth": "one elementary carrier; may be an explicitly declared observer component in a larger admitted binary presentation"
+    },
+    {
+      "id": "binary_native_federation",
+      "definition": "The full binary occupation tensor product is the ambient carrier on the pinned port_pair geodesic federation with240*4^level ports and630*4^level seams. Each admitted state/algebra uses one declared fixed global total0..ports; cross-global-number coherence is not admitted by this interpreter. Regional partial traces retain every resulting local number sector.",
+      "source": "model/federated_observer/source.py",
+      "builder": "source._source().build_federation(level,'port_pair')",
+      "growth": "integer level>=0; local evaluators may RESOURCE_STOP without excluding larger levels",
+      "local_total_two_tensor_invariance_claimed": false,
+      "geometry_selected_from_physical_observations": false
+    },
+    {
+      "id": "independent_native_product",
+      "definition": "Finite independent products of admitted single-cell observers, with identities on untouched factors and explicit literal source-word couplings.",
+      "growth": "any positive finite factor count with a finite declared program and resource envelope",
+      "factor_count_is_physical_space_dimension": false
+    }
+  ],
+  "laws": {
+    "fixed": "The existing endpoint floor/ceiling map; C commits coin/current and E resolves endpoint input imbalance. Every raw record and zero branch is part of the instrument.",
+    "local_alternative_family": {
+      "contract": "model/local_repair_family/campaign.json",
+      "port_weights": {
+        "count": 12,
+        "min": 1,
+        "max": 32,
+        "max_ratio": "4",
+        "primitive_gcd": 1
+      },
+      "seam_weights": {
+        "count": 30,
+        "min": 1,
+        "max": 16
+      },
+      "probability_max_denominator": 256,
+      "repair_probability_min": "1/16",
+      "mixture": "explicit classical C/E tag; identity holds permitted"
+    },
+    "federation": "The existing fair binary C/E instruments on every actual internal and joining seam; global occupation conserved. No unimplemented endpoint-biased federation stationary theorem is admitted as evidence.",
+    "scheduler": "Fixed declared seams, independent uniform seams or the typed record-only finite controller. A selected-seam experiment never inherits a uniform-scheduler theorem without a separate proof.",
+    "forbidden": [
+      "hidden-source-state controller input",
+      "coherent addition of forgotten classical alternatives",
+      "unrecorded successful-output conditioning",
+      "new primitive matrices or an imported target Hamiltonian as a native repair"
+    ]
+  },
+  "services": {
+    "interface_package": "model/native_program",
+    "primitives": "Existing complete native instruments, hold and literal repeated schedules, bounded FIFO/export/halt, and the complete proper-code source_word service. Input preparation is counted as supplied initialization. A particular native encoding or pointer protocol requires its separately bound existing implementation; there is no arbitrary preparation, pointer, matrix or callback primitive.",
+    "source_word_kinds": [
+      "X",
+      "Y",
+      "Z",
+      "I",
+      "H",
+      "J"
+    ],
+    "source_word_source": "model/observer/source_scalar/compiler.py",
+    "angles": "canonical rational strings exactly representing finite binary64 values; denominator a power of two<=2^1074; numerator at most1100bits; absolute value<=2^20",
+    "mandatory_accounting": [
+      "source pulses",
+      "six-level processor load/export calls",
+      "ancilla initialization",
+      "native attempts",
+      "random selector and coin calls",
+      "complete record writes",
+      "FIFO retention",
+      "all exported records",
+      "controller and program storage",
+      "timeout and recovery",
+      "every complement/abort output"
+    ],
+    "supplied_services_are_declared_premises": true,
+    "coherent_services_derived_from_passive_repair": false
+  },
+  "refinements": {
+    "tensor": "Port/factor injections define observable inclusions A->A tensor I and state restrictions by actual partial trace, retaining reference systems and all local occupation sectors.",
+    "native_coordinate": "The retained cell-parent coordinate lift/conditional-mean R/J maps are a separate commutative readout interface; they are not quantum-state coarse-graining of fixed-total configurations.",
+    "existing_countercontrol": "model/federated_observer/refinement.py",
+    "dynamical_intertwining_assumed": false,
+    "future_acceptance": "A specific candidate tower must give explicit state, algebra, operation, clock and comparison maps with finite complete-output error bounds tending to zero on each claimed observable menu. Admissibility of finite levels does not establish a limit.",
+    "physical_geometry": "No host address, graph embedding, refinement index, solver counter or source-program ordinal is identified with physical spacetime by this contract."
+  },
+  "resource_envelope": {
+    "description": "Program AST and literal source words have fixed finite bounds enforced by the source interpreter; repeated commands retain their expanded semantic counts.",
+    "ast_nodes_max": 4096,
+    "source_word_literals_max": 65536,
+    "repeat_count_max": 4294967296,
+    "fifo_capacity_min": 1,
+    "fifo_capacity_max": 8,
+    "source_pulses_per_finite_request_max": "281474976710656",
+    "native_attempts_per_finite_request_max": "4294967296",
+    "archive_bits_per_finite_request_max": "1099511627776",
+    "candidate_presentations_per_search_epoch_max": 1024,
+    "host_seconds_per_local_run_max": 3600,
+    "host_memory_bytes_per_local_run_max": "68719476736",
+    "larger_towers": "A finite probe at any growth level is admitted only within its request envelope. Failure to evaluate or certify a larger request is RESOURCE_STOP; it is not mathematical exclusion or a completed continuum limit.",
+    "host_limits_are_physical_clock": false,
+    "contract_does_not_authorize_large_runs": true
+  },
+  "observer_acceptance": {
+    "intended_member": "The continuing canonical local observer with complete native record acquisition, preparation, source-compiled coherent clock/readout and explicit export accounting.",
+    "source_contract": "model/local_repair_family/record_clock_campaign.json",
+    "source_receipt": "model/local_repair_family/record_clock_results.json",
+    "full_spatial_field_intertwiner_required_for_CP01": false,
+    "field_particle_gravity_obligations_remain_with_construction_gates": true,
+    "required_checks": [
+      "typed grammar membership with literal source-bound expansion or counted-service constructor",
+      "state and complete instrument defined before execution",
+      "all outcomes, zeros, stops, reference outputs and continuation retained",
+      "resources recomputed independently of supplied totals",
+      "accessible overlapping algebra/readout restrictions specified",
+      "each theorem actually invoked has its finite model premises proved",
+      "original q3 adoption disposition explicit"
+    ],
+    "q3": {
+      "recipe": "original #1077 q=3 common-code scalar preparation and five-pointer history",
+      "historical_status": "UNEXECUTED_NOT_OBSTRUCTED",
+      "proposed_active_v2_disposition": "NOT_ADOPTED",
+      "reason": "V2 uses the complete continuing native-record observer as its CP-01 witness. This removes only the requirement to execute that particular historical scalar recipe; the physical field and internal-closure obligations are unchanged.",
+      "evidence_preserved": true
+    }
+  },
+  "targets": {
+    "structural_menu": {
+      "path": "tracking/observation_ledger.json",
+      "selection": "all71 existing rows; no row selected by numerical agreement",
+      "first_milestone": "EMH-1 through EMH-5 on one construction; 3+1 interacting chiral fields, observed species/defects/spectrum, and same-process G1--G6 Einstein reconstruction",
+      "no_positive_global_photon_theory_gap": true
+    },
+    "charged_spectrum": {
+      "quantities": [
+        "ye",
+        "ymu",
+        "ytau",
+        "yu",
+        "yd",
+        "ys",
+        "yc",
+        "yb",
+        "yt",
+        "theta12_CKM",
+        "theta23_CKM",
+        "theta13_CKM",
+        "delta_CKM"
+      ],
+      "scheme": "A common MSbar running parameter point with stated matching to the named physical mass and weak-current observations. Pole/running/resonance definitions must be preserved.",
+      "comparison_fixtures": [
+        "code/particles/data/particle_reference_values.json",
+        "code/particles/data/pdg_2026_conditional_quark_comparison.json"
+      ],
+      "fixed_targets": "all charged fermion mass rows; no direct-reconstruction top mass substituted for cross-section pole extraction; all relevant CKM current constraints in the bound observation/forecast registers",
+      "missing_matching_or_covariance": "INCONCLUSIVE; no fitted SM parameter point counts as a derived spectrum"
+    },
+    "neutrinos": {
+      "source": "code/particles/neutrino/nufit61_sources.json",
+      "quantities": [
+        "sin2_theta12",
+        "sin2_theta13",
+        "sin2_theta23",
+        "delta_CP",
+        "delta_m21_squared",
+        "delta_m3l_squared"
+      ],
+      "selection": "Retain both orderings and both atmospheric treatments. The source must choose its predicted ordering before comparison; do not choose a favorable profile after evaluation.",
+      "marginal_diagnostic": "Report every named1D profile at the complete source uncertainty interval; delta_chi_square<=9 everywhere is a necessary compatibility diagnostic, not a joint confidence region.",
+      "absolute_masses": "Report a definite mechanism and mass-scale output with its uncertainty; do not treat an unmeasured lightest mass or Majorana phase as an observed target."
+    },
+    "gravity": {
+      "rows": [
+        "OL-B1",
+        "OL-B2",
+        "OL-B3",
+        "OL-B4",
+        "OL-B5",
+        "OL-B6"
+      ],
+      "acceptance": "Realize the actual G1--G6 hypotheses on the common tower, derive conserved stress and the Einstein relation with one positive calibrated Newton constant, and account all declared error terms. Finite tensor completion alone is insufficient.",
+      "empirical_comparisons": "Use the exact existing observation and frozen-prediction rows bound here; unavailable likelihood/covariance or missing physical attachment yields INCONCLUSIVE."
+    },
+    "physical_comparison_rule": {
+      "exposure": "ALL_EXISTING_FIXTURES_RETROSPECTIVE",
+      "interval_rule": "The full calculated theory/numerical/matching/calibration interval must lie inside each applicable frozen quoted comparison interval for a compatibility pass; disjointness is a candidate discrepancy. Mixed/overlapping intervals are INCONCLUSIVE.",
+      "uncertainties": "Keep quoted confidence levels and correlations; do not convert marginal ranges to independent Gaussian sigmas. Missing theory error or required joint covariance prevents integrated empirical acceptance.",
+      "joint_acceptance": "Separate derived/independent output from calibration ancestry. A group of marginal matches is not a joint significance claim; EMH-5 requires an independently checked complete uncertainty/comparison certificate.",
+      "structural_no_numeric_likelihood": "Prove the named source-level mathematical target and preserve its physical-identification premise; do not invent a confidence number."
+    },
+    "prospective_arm": {
+      "status": "DISABLED_IN_V2",
+      "eligible_datasets": [],
+      "reason": "Every named current target is exposed. V2 authorizes retrospective consistency tests only; a novel-prediction campaign needs a successor contract fixing a specific unexposed dataset and scoring rule before validation.",
+      "prospective_claim_allowed": false
+    }
+  },
+  "calibrations": {
+    "dimensional": "One common observer-clock/energy/length dictionary per construction, with mutually calibrated local clocks. Imported SI definitions are recorded; no preferred universal physical clock is required.",
+    "allowed_fit_parameters": "At most one overall dimensional clock/energy anchor for a declared construction; its measurement, source transition and covariance must be fixed before the output comparison. Until such an anchor is source-attached, compare dimensionless outputs only.",
+    "forbidden": [
+      "species-dependent mass conversions",
+      "separate clocks or speeds chosen per particle",
+      "target-fitted coupling tables counted as source deductions",
+      "empirical P or N ancestry reset by a new source/program name"
+    ],
+    "PN": "Every transitive P/N ancestor is classified as source-derived, calibrated, imported or target-exposed using the bound frozen-prediction and provenance registers. Conditional uses remain conditional.",
+    "anchor_selection": "V2 adds no physical dimensional anchor; existing dimensional benchmarks retain their existing anchors and cannot be promoted to a unified physical prediction."
+  },
+  "exposure": {
+    "parent_tree_policy": "Every retained artifact in the predecessor tree is treated as prior exposure; all failures, fitted inputs, retrospective results and obstruction domains survive this proposal.",
+    "additional_current_push": "All particle/premise-push results are development evidence, not blind validation. Contract adoption occurs after this exposure.",
+    "registers": [
+      "tracking/observation_ledger.json",
+      "claims/frozen_prediction_register.json",
+      "claims/physical_identification_registry.json",
+      "code/particles/runs/status/blind_prediction_provenance.json"
+    ],
+    "source_hashes": {
+      "claims/executable_model_hypothesis.json": "1855a611870a64b3d97fbaa8759385761dda9130a1517233193af2c7f170cd2b",
+      "tracking/observation_ledger.json": "4c372d75b2a1dafeb11a773b37ef1a5a36e620f39326ad311a108a9bd4bd00d3",
+      "claims/frozen_prediction_register.json": "11bff1e460104d12f344a8ad8c409f5e040fdd18605a806b58c00cff19159980",
+      "claims/physical_identification_registry.json": "7067d1a59ca45c877aae0760a2cdf19407bde64ce581065840805dd9845ed83c",
+      "code/particles/data/particle_reference_values.json": "1c47e0ebf7f02d41a29c4ea133336de02ddc1064c1992ccd91580de44eb408d2",
+      "code/particles/data/pdg_2026_conditional_quark_comparison.json": "3ac4c0dc31f9d13eb51e54c868ecfa9068416328f974e1762202a4b62ef1c3ac",
+      "code/particles/neutrino/nufit61_sources.json": "8fab3d1228e7d5945cbae9a62c68028f177c9fc3a0b2fc7e3f1c287818ea9b94",
+      "code/particles/runs/status/blind_prediction_provenance.json": "01873324e30bc29e4ff0cfb1563642212418e04cdbe0984813ee8299812e79ed",
+      "model/local_repair_family/campaign.json": "83334963514064b24be063f9afec26eb0463a512e28a03fd9b5232fadbc51c20",
+      "model/local_repair_family/record_clock_campaign.json": "b67b82ebfc34282a9281147ec45717de410e02a75610d32062153c2ff6be0fa3",
+      "model/local_repair_family/record_clock_results.json": "ea709f6bb519b780b4be325ccb2a549f24fd89ac7a03048b7afd45f43171bf66",
+      "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+      "model/federated_observer/refinement.py": "a0397ba5a42383ff0e8c8f18c56aa4c704c3d82096a1468c3a2203f443d5d063",
+      "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+      "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+      "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+      "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8"
+    }
+  },
+  "decisions": {
+    "class_admission": "Typed source/program/interface admission, without any assertion of physical success.",
+    "observer_acceptance": "One admitted complete observer witness with all original CP-01 criteria and explicit theorem-instance maps.",
+    "theorem_map_acceptance": "Complete reviewed CP-13 relevance/ownership map and cleanup joined to accepted CP-00/01; future physical premises stay explicit.",
+    "candidate_failure": "A failed target on a specific admitted member rejects only that member and tested interface.",
+    "class_exclusion": "A theorem must quantify every member and service admitted by this exact version before excluding the class.",
+    "whole_program_falsification": "Only an independently reviewed exclusion of the entire frozen class and mandatory target conjunction, with all escape routes in this class covered, arms this verdict.",
+    "resource_stop": "Emit an accounted stop; preserve input, records and incomplete obligations. No falsification follows from timeout, finite search exhaustion or missing data.",
+    "success": "All mandatory EMH obligations and their owning gate contracts on the same source/tower, including independent empirical certificates; neither admission nor CP-00/01/13 closure changes their NOT_ESTABLISHED status.",
+    "versioning": "Changing any primitive, admissible family, mandatory target, calibration rule, comparison dataset, error rule or resource/search ceiling creates a successor version; prior evidence is retained."
+  },
+  "interpreter_binding": {
+    "source_hashes": {
+      "model/native_program/README.md": "b9a5c3473f0ce8caedc3dffa78cd35d1696fe9298eef1306c304e91648d96b1c",
+      "model/native_program/__init__.py": "daedcdc14150d8e259d6a6e9205258c98ba9c947cfc7aa6fef154026f490a454",
+      "model/native_program/interpreter.py": "312dfd30f67e27dbb697bcd5419d9c00ae1be1631c112570954e39091fbc27e8",
+      "model/native_program/members.py": "311dc18d0af0ea41fc330cf6652cbc5f48dba57eb3696e0bca8352a84e8663f3",
+      "model/native_program/receipt.py": "9f507a9f2e14ee628fa3fa420e5b3ba393ccd8d9b5ca475314da0d12e3bc3cfd",
+      "model/native_program/results.json": "9aae3c06d3d153a3a2de6d6147219e5d79f658f92e30972f115fe75c2cef5d6c",
+      "model/native_program/test_interpreter.py": "22d71d85a76c709b2880ac3a441222e4c22347363ac827e4ece265a503fabe7e"
+    },
+    "member_receipt": "model/native_program/results.json",
+    "independent_check": "model/native_program/test_interpreter.py",
+    "actual_member": "record_clock_member",
+    "accepted_member_status": "ADMITTED",
+    "prior_native_events_executed": 31457280,
+    "fresh_trillion_pulse_replay_claimed": false
+  },
+  "review_implementation_bindings": {
+    "model/completion/program_class_v2.py": "38b44e3a0a76f6dbe261b6b277b2971b0cc1121e096e12a444f5be8164dc4319",
+    "model/completion/test_program_class_v2.py": "8035a133f08fe17c832749b27f134ab27e6f795b4872cca0342539335bb89d7a",
+    "docs/EXECUTABLE_PROGRAM_CLASS_V2_PROPOSAL.md": "71b8110e6835f7cfd606bc76ab3ba2af4326cc2ad89ffe1b645792b2d432db28",
+    "model/completion/historical/exposure/provenance.json": "6a2df257894e32619db093fc66ec2c60d14929e6ff4c9b840044d257aa9bef93"
+  }
+}

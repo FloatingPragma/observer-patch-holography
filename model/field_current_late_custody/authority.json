@@ -1,0 +1,75 @@
+{
+  "class_modified": false,
+  "copied_child_result_is_not_metadata_only": true,
+  "exact_added_subtree": {
+    "canonical_sha256": "6c22681c900163218eaea3f14e1f00c4715f57425c5fd58569f6cf304ba8a928",
+    "scope": "Configured finite stationary H66 population realization with complete native attempt records; no coherent instrument, particle energy, empirical sampling, or unrestricted hidden-dimension identification.",
+    "source_json_path": [
+      "short_record_population_realization"
+    ],
+    "source_receipt": "model/native_record_response/results.json",
+    "target_json_path": [
+      "weighted_native_complete_record_response",
+      "short_record_population_realization"
+    ]
+  },
+  "exact_source_additions_by_location": {
+    "root.native_clock_comparison.source_bindings": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.native_controlled_transfer_experiment.source_bindings": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.source_sha256": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    },
+    "root.weighted_native_complete_record_response.source_sha256": {
+      "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+      "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+      "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+      "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231"
+    }
+  },
+  "input_sha256": {
+    "Lean/SourceLaw/RecordRealization.lean": "26dfd52ccd75e29d3b3f518719ba370dfc502ba350c5b8b41de6723a659b7864",
+    "model/completion/field_current_interface_parent_replays.json": "c9bd1024ccd1edcda7c03c0651a9e84df4ab94d4d035472b98bd74bf36b0edef",
+    "model/completion/field_current_records_custody_authority.json": "e9fe3efea315ffcc1e877df916eb411a28959eff122f8b6bd57addf91c2b63c0",
+    "model/completion/field_current_records_custody_current.json": "e9e1117b1daa0e9db54b903a972ed07f4927f5d3546eb3050071e960f4efcad6",
+    "model/completion/field_current_records_replays.json": "035fe1c307cdae86e309881536c407334ac6dcd724611577c13834c2b5863503",
+    "model/completion/program_class_v2.json": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec",
+    "model/native_clock_comparison/results.json": "e59422d7ee1dcc1c536a3f50d65bec5e468b7e53c7a40b1e2d99416408ce4c62",
+    "model/native_record_response/SHORT_RECORD_RECONSTRUCTION.md": "194f10986e81a096be290ba615b1d0f5b72f99d39e4f3c50bf7adc6b81b1c98d",
+    "model/native_record_response/results.json": "df687d604efdce497a419dd6ae24eca84babb387659927e00f7ced1558c47f83",
+    "model/native_record_response/short_records.py": "3e9ecafdc322d386afb83532113ea4b55466b5be6655a4eff325692101cc161e",
+    "model/native_record_response/test_short_records.py": "3dde9821de4b6065c8bd65f7f67e4eb94210f9396fd30d6ff0181287e9a40231",
+    "model/native_transfer_control/results.json": "fe091e54d29f9080fc6dfb3ba8853c09d825c75454d1e1e7db060058ce1df50e",
+    "model/particle_identification/completion_certificate.py": "91b78a5bc168efece4a1a6436a907a0ffc7d5b44261132cb10685a15cfcae091",
+    "model/regional_clock/verify.py": "07862ddf012af7384605be6a31ad02aa3b17ac52f666fc8ea952ab9189c024b8",
+    "tools/renew_canonical_live_receipts.py": "9b04569aa9f5429372576b789b9d5aee6ab46660642e8e7822fa0cc1af557315",
+    "tools/replay_model_receipts.py": "8361935365489bd44e71d9c1ff15de47ce5cde1f03475df1d056b3a50333ed87",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "old_scientific_fields_preserved": true,
+  "physical_statuses_changed": false,
+  "retained_receipts": {
+    "model/particle_identification/completion_results.json": {
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/particle_identification/completion_results.json",
+      "retained_sha256": "fc32cb97292b90edb3e333a39551740217efc71dc0e124409f168f654aa8ae79"
+    },
+    "model/regional_clock/results.json": {
+      "retained_path": "model/completion/historical/field_current_records_inputs/model/regional_clock/results.json",
+      "retained_sha256": "6fe58a8991dd9fb54b0723e76b7f428d84c14250e563b030b2570fc66f4f734f"
+    }
+  },
+  "schema": "oph.field_current_late_admission_authority.v1",
+  "sealed_class_sha256": "c5bddd55ea5b8f70bed3d0095b77cccbf6cad78e40dfbea707969953e935fcec"
+}

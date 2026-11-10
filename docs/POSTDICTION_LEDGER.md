@@ -54,7 +54,7 @@ Row classes name what a row consumes. `conditional_on_...` classes list their de
 
 ## Native defect and finite field reconstruction decisions
 
-source custody and retained artifact hashes checked; retained readout summary, not a fresh scientific replay. Canonical scientific replay belongs to `python -m model.verify`. These rows retain separate object contracts; they do not assemble a particle spectrum. See the [field-reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md).
+source custody and retained artifact hashes checked; retained readout summary, not a fresh scientific replay. Canonical scientific replay belongs to `python -m model.verify_current`, including the protected readout's complete interval validator. These rows retain separate object contracts; they do not assemble a particle spectrum. See the [field-reconstruction guide](research/OPH_FIELD_RECONSTRUCTION.md).
 
 | Source object | Retained result | Receipt |
 |---|---|---|
