@@ -41,8 +41,6 @@ def test_frequency_and_species_boundaries_are_visible(joint):
                    'ω² = |p|² + 4; |ω(0)| = 2 (declared units)',
                    'No GeV or Standard Model identity follows.',
                    'Its spinor memory and coupling law are declared architecture.',
-                   'The Taylor vector is never renormalized.',
-                   'Certified vector error ≤ 1/50000000',
                    'Fermionic hopping and tensor-wave exchange are distinct spatial laws'):
         assert phrase.lower() in text.lower()
 
@@ -64,7 +62,9 @@ def test_rest_parameter_and_collision_number_follow_receipts(joint):
 
 
 @pytest.mark.parametrize('claim', ['SM_identity_or_GeV_mass_derived','GeV_prediction',
-                                 'energies_are_physical_rest_masses', 'interacting_Lorentz_limit'])
+                                 'energies_are_physical_rest_masses', 'interacting_Lorentz_limit',
+                                 'GeV_mass_derived','chiral_SM_particle_identification',
+                                 'interacting_relativistic_limit_or_SM_or_GeV'])
 def test_nested_extension_promotion_is_rejected(claim):
     with pytest.raises(ValueError,match='physical promotion'):
         joint_panels.check_extension_scope({'nested':{'proof':[{'scope':{claim:True}}]}},'test')
@@ -107,3 +107,47 @@ def test_physical_promotion_rejected(monkeypatch, joint, claim):
     monkeypatch.setattr(joint_panels.json, 'loads', lambda _: changed)
     with pytest.raises(ValueError, match='scope promotion'):
         joint_panels.load()
+
+
+def test_positive_free_mass_current_binding_and_complete_apparatus_are_visible(joint):
+    text,c=visible(joint)
+    assert not c.overflow
+    for phrase in ('20 graded flux slots per cell', 'Positive particles and holes',
+                   'native gauge currents act trivially on these bare flux objects',
+                   'Free rest energy 2; neutral-pair threshold 4',
+                   '180 actual current identities; native K = 0',
+                   'Reservoir + battery', '36 outcomes, including failures',
+                   'E² = |p|² + 4; rest energy = 2 source units in this free limit',
+                   'All equal face-count masses give ratios one',
+                   'both spacetime chiralities and allows five independent mass coefficients',
+                   'one flux and one native occupation, bounded coupling gives vanishing contact response',
+                   'fixed-volume, fixed native-momentum window'):
+        assert phrase in text
+
+
+def test_apparatus_cannot_drop_failures_or_switch_the_clock(joint):
+    free=joint['extensions']['many_body_route']
+    original=joint['extensions']['mass_instrument']
+    changed=deepcopy(original);changed['experiments'][0]['complete_records'].pop()
+    with pytest.raises(ValueError,match='complete reservoir'):
+        joint_panels.check_mass_instrument(changed,free)
+    changed_free=deepcopy(free);changed_free['reference']['unique_positive_excitation_ground']=False
+    with pytest.raises(ValueError,match='positive free reference'):
+        joint_panels.check_mass_instrument(original,changed_free)
+    changed=deepcopy(original);changed['source']='different clock'
+    with pytest.raises(ValueError,match='different source clocks'):
+        joint_panels.check_mass_instrument(changed,free)
+    changed=deepcopy(original);changed['unit_map']['source_energy_unit_in_GeV']='1'
+    with pytest.raises(ValueError,match='unowned GeV scale'):
+        joint_panels.check_mass_instrument(changed,free)
+
+
+def test_dark_current_attachment_cannot_be_presented_as_native_binding(joint):
+    changed=deepcopy(joint['extensions']['field_identity_audit'])
+    changed['native_dark_current_module']['native_K_on_module']='1'
+    with pytest.raises(ValueError,match='native current module'):
+        joint_panels.check_identity(changed)
+    changed=deepcopy(joint['extensions']['field_identity_audit'])
+    changed['mass_normalization_and_chirality']['Dirac_R15_contains_both_chiralities_in_same_internal_representation']=False
+    with pytest.raises(ValueError,match='chirality boundary'):
+        joint_panels.check_identity(changed)

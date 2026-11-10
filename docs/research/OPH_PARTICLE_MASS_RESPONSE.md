@@ -1,114 +1,95 @@
 # Particle construction: source laws, mass operators and physical matching
 
-## Interacting finite readout before a mass assignment
+## Complete mass response of the graded free source
 
-The [joint defect-wave construction](../../model/coherent_defect_wave/PROOF.md)
-implements both directions of influence with a fixed unitary: link state
-changes a wave detector probability from `1/120` to `0`, while a change in
-wave preparation changes a face-position probability from `1` to `0`.
-Every binary detector includes its complement. A coherent product input also
-develops link/wave correlations with Schmidt weights `1/2,1/2`; this is a
-register diagnostic, with gauge-invariant reciprocal probabilities supplying
-the interaction test.
+The [graded paired-flux Hamiltonian](../../model/coherent_defect_wave/many_body_route/PROOF.md)
+has one complete occupation law and a unique finite filled-band ground.
+Each occupied carrier slot contains the literal inside/exterior holonomy
+pair with face count two. The declared mass coefficient and Wilson regulator
+give
 
-The [gauge-constrained preparation](../../model/coherent_defect_wave/GAUSS.md)
-preserves these one-tick comparisons. A conditional-frame return detector
-also preserves the constraint: coherent reversal returns with probability one,
-while recording the defect face first gives one half. Its stationary state comes from a
-complete filter of the same joint evolution, rather than a stationary state
-borrowed from a frozen link. The calculation supplies a finite interacting
-response, with no physical mass or species assignment. Mass extraction
-requires controlled spatial spectra and their observable interpretation.
+`E_a(p)^2=sum_i sin(a p_i)^2/a^2 + [2+sum_i(1-cos(a p_i))/a]^2`.
 
-The [complete frequency instrument](../../model/coherent_defect_wave/spectroscopy/PROOF.md)
-measures the literal joint U. Its four-bin clock and nonflat filter retain
-original weight `17/288`, with every preparation and detector alternative.
-Five face measurements of a [pure stationary background](../../model/coherent_defect_wave/background/PROOF.md)
-followed by that filter retain total orthogonal-excitation weight `283/7200`
-conditional on background preparation. A detector-created excitation is
-therefore available for subsequent dispersion tests; no bin is labelled as
-a rest mass.
+Relative to this same filled reference, particles add a pair and holes remove
+one; both have positive energy. The full gap is two, while neutral nonvacuum
+excitations start at four. The controlled continuum field has spin one half,
+fermionic statistics, causal propagation and `E^2-|p|^2=4`. These conclusions
+use the declared grading, vacuum and Hamiltonian. The five face channels
+carry zero native gauge charge and are degenerate copies, not a Standard
+Model multiplet.
 
-The [spatial CAR readout](../../model/coherent_defect_wave/species/PROOF.md)
-executes a commuting two-cell translation/phase instrument with four
-probabilities `1/120,59/120,1/4,1/4`. This is a joint finite record on one
-occupation law and clock. Its two translation labels and broad phase bins
-do not determine a three-dimensional mass shell.
+### What the apparatus measures
 
-The [candidate audit](../../model/coherent_defect_wave/species/CANDIDATES.md)
-proves that the primitive triplet channels have identical spectra. Their
-corresponding branches cannot be the three unequal charged-lepton masses.
-The [spatial audit](../../model/coherent_defect_wave/spatial/PROOF.md) also finds
-quadratic low-momentum dispersion for its spectator branch. These are exact
-restrictions of specified constructions, not numerical rounding errors or
-uncomputed mass corrections. The [particle dependency path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-requires a justified occupation/routing law, common-state energy-momentum
-response, physical transformation/current map and the appropriate mass
-definition before GeV conversion.
+The [mass instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
+executes an actual four-mode source block and a fermionic reservoir. Each
+reservoir setting has original probability one half. A mode SWAP and complete
+reservoir readout give addition, removal and both failure flags. The source
+readout consists of nine particle/hole occupation projectors on the entire
+sixteen-dimensional block, giving thirty-six complete joint records.
 
-## Response of a reversible repair defect
+Let `w=<e0,P_minus(p)e0>`. Before multiplying by the setting probability
+one half, the addition-setting energies and weights are
+`(E,1-w)`, `(0,w^2)`, `(2E,w(1-w))`; the removal-setting records are
+`(E,w)`, `(0,(1-w)^2)`, `(2E,w(1-w))`. The energy-E outcomes have relative
+charges plus or minus one. The other populated records have charge zero.
+All remaining joint outcomes, including zeros, stay in the instrument.
+At rest `E=2,w=1/2`, so the six populated original weights are
+`1/4,1/8,1/8,1/4,1/8,1/8`. Failed preparation can create an energy-four
+neutral pair; discarding it would give the wrong complete experiment.
 
-The [positive-clock source spectrum](../../model/coherent_defect_wave/dispersion/PROOF.md)
-has exactly populated zero-momentum energies
-`0,(5-sqrt(5))/60,1/10,(5+sqrt(5))/60` in the stated uniform-link reference.
-The three positive ratios `1:2.170820393…:2.618033989…` follow from the actual
-carrier projectors and joint U/U* action. Their additive hopping dispersion
-fails a common relativistic speed test. Consequently these numbers are
-source energies with an excluded common relativistic interpretation, rather than a
-GeV particle table.
+A nine-level battery with initial energy `4E` supplies a finite exactly
+energy-conserving completion. Its outgoing level records the source energy
+transfer. The proof extends the preparation separately within every complete
+total-energy shell and retains the edge shells as identity. Its equality
+with the driven preparation concerns the displayed energy-resolved records;
+tracing the battery can remove coherences between different energies.
 
-The [energy calculation](../../model/coherent_defect_wave/energy/PROOF.md)
-also executes nonadditive two-wave dynamics and bounds a positive finite-time
-defect-face response. The [cubic discrete instrument](../../model/coherent_defect_wave/cubic_readout/PROOF.md)
-resolves multiple spatial momenta with retained alternatives. These two
-clocks remain distinct. Neither an expectation value nor a Fourier bin is
-an isolated particle mass. The [chiral attachment](../../model/coherent_defect_wave/physical_attachment/PROOF.md)
-states which mass interactions are allowed and which source coefficients
-are unspecified.
+The executed momentum control `a=1,p=(0,0,pi/2)` has `E=sqrt(10)` and exact
+algebraic detector weights. The source's exact regulator inversion returns
+two at every tested momentum. The continuum estimate
+`b(a,P)=a^2 P^3/2+3a P^2/2` controls the energy, propagator and vacuum
+projector on `|p_i|<=P`; Wick bounds extend it to free-field words.
+The resulting rest energy is `m c^2=2*u_E GeV`, where `u_E` is the unspecified
+source energy standard. No experimental mass was inserted in this calculation.
+It establishes neither a measured species nor an interacting mass shift.
 
-## A mobile defect's specified rest-frequency response
+### Charge attachment and the missing mass dynamics
 
-The [mobile paired-flux program](../../model/coherent_defect_wave/mobile_flux/PROOF.md)
-transports the protected pair itself and reads its position jointly with a
-receiving native wave. The complete receiver records are
-`119/240,1/240,1/2,0`, conditional on the recorded Gauss-success branch.
-Its [Clifford routing completion](../../model/coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
-assigns the literal face count `D=2` to the mass coin `a*D`. The same object's
-one-particle source code then has controlled free frequencies
-`+/-sqrt(|p|^2+4)` and rest frequency `2` in declared source units.
-This chosen coupling explains the number inside that program; no observed
-particle mass was used to fit it. It does not determine which measured
-particle, if any, realizes that program, or its GeV conversion factor.
+The [actual native current module](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
+realizes the fifteen gauge weights of one chiral family in
+`Lambda^2(C^5)+Lambda^4(C^5)`. Its native repair generator is exactly zero.
+Transporting this cloud bound to a flux object requires the declared bound-
+object operation. A massive Dirac extension is vectorlike and admits five
+independent multiplet masses; a purely left-handed invariant constant mass
+vanishes. No source splitting of charged-lepton families follows from these
+facts. A Higgs state and mass-generating interaction need their own derivation
+on the selected source, together with unwanted-mode and locality control.
 
-An independent [finite collision](../../model/coherent_defect_wave/energy/PROOF.md)
-is exact on the earlier positive-Hamiltonian branch. Two dark wave flavours
-have onsite energy `2N-4n_a*n_b`. At
-`t=pi/sqrt(16+pi^2)`, the complete left-occupation probabilities for
-`0,1,2` are `pi^2/[2(16+pi^2)],16/(16+pi^2),pi^2/[2(16+pi^2)]`.
-These collision records and the mobile pair's free Dirac limit cannot be
-combined into an interacting mass by changing labels: they use different
-programs, clocks and source sectors.
+The [propagating native encounter](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+provides finite interaction with both registers in motion. Its optional
+four-component native memory has a free Dirac window on the flux clock.
+The retained density vertex fails the stated scalar boost test, and bounded
+contact strength gives a vanishing comparison in the stated one-flux/
+one-native momentum window of its three-dimensional refinement. These are explicit restrictions
+on that interaction, rather than numerical uncertainty in a mass table.
+The full interacting reference, nontrivial covariant limit and associated
+threshold or resonance are unproved.
 
-## A common finite clock for routing and native interaction
+### Other finite source energies
 
-The [native-routing join](../../model/coherent_defect_wave/native_routing_join/PROOF.md)
-uses the same transported link words, one independent native occupation
-register per routing lane, and the occupation-dependent Gauss encoding.
-Its fixed clock is `J(a,lambda)=exp(-i*a*lambda*K) R_a`, where
-`K=sum_lanes[I-Re U_F]` and `R_a` is the complete paired-flux route.
-The flat, empty product reference is fixed. On native-number sector N,
-`0<=K<=2N`; Taylor evaluation has an explicit operator-norm remainder.
-An executed three-dimensional experiment gives a strictly positive bounded
-probability that the native wave changes the routed pair's face label.
-Both detector outcomes are retained.
-
-This is a finite interaction on one source, state and clock. In the
-native-empty sector K is exactly zero, so the same clock retains the
-free one-object rest frequency `2` without a native vacuum mass correction.
-The native registers remain at their cells. Their covariant propagation,
-the interaction's Lorentz transformation, momentum-window control and
-nonvanishing continuum interaction require proof. The finite join does
-not transfer the separate positive-Hamiltonian collision spectrum to J.
+The [original coupled tick](../../model/coherent_defect_wave/PROOF.md) produces
+reciprocal complete face/wave responses and populated joint frequencies.
+The [positive-clock source](../../model/coherent_defect_wave/dispersion/PROOF.md)
+has energies `0,(5-sqrt(5))/60,1/10,(5+sqrt(5))/60`, with positive ratios
+`1:2.170820393...:2.618033989...`. Their additive hopping branches fail a
+common relativistic speed test. The
+[exact two-wave contact collision](../../model/coherent_defect_wave/energy/PROOF.md)
+uses that positive clock; the [cubic momentum detector](../../model/coherent_defect_wave/cubic_readout/PROOF.md)
+uses its own circuit clock. Neither result supplies a mass correction to
+the free graded field without an explicit state and operator transfer.
+The [particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md) and
+[atlas](OPH_PARTICLE_ATLAS_V3.svg) separate these source results from physical
+mass identification and dimensional calibration.
 
 ## Local seam response
 

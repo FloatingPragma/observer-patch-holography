@@ -1,98 +1,97 @@
 # Particle response and field-action selection
 
-## Specified joint source and interaction
+## Declared sources and their observable consequences
 
-The [joint program](../../model/coherent_defect_wave/PROOF.md) selects one
-explicit interaction rule: a wave step controlled by the retained link
-register, followed by five link moves controlled by local wave occupation.
-It is reversible, preserves the fixed-boundary flux and internal charge,
-and produces reciprocal detector contrasts. Its source-defined conditional
-gates use no particle-data calibration. This is an architectural choice,
-not a proof that the previous committed interpreter executes the same law.
+The [construction contract](../../model/CONSTRUCTION.md#what-is-being-built)
+permits explicit choices of carrier, memory, repair, grading and apparatus.
+A uniqueness proof is unnecessary. Identifying their output with a physical
+particle requires the source/state/reference/clock chain in the
+[particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md).
 
-The [interior Gauss sector](../../model/coherent_defect_wave/GAUSS.md) and
-[same-unitary preparation](../../model/coherent_defect_wave/PREPARATION.md)
-provide a compatible constrained state and clock. The
-[pure-background preparation](../../model/coherent_defect_wave/background/PROOF.md),
-[local spatial circuit](../../model/coherent_defect_wave/spatial/PROOF.md) and
-[shared-link CAR extension](../../model/coherent_defect_wave/species/PROOF.md)
-give explicit finite choices for further state, locality and occupation inputs.
-Parity-controlled and presence-controlled link repair agree at one occupation
-but differ at two; the declared primary occupation law uses parity. Tensor-wave
-partial exchange also differs from its CAR hopping counterpart. The latter
-preserves both local Gauss constraints and has a fixed empty-wave reference.
+The native defect/wave source has exact reciprocal detector contrasts,
+compatible Gauss preparation and a shared-link occupation extension. Its
+[positive-clock triplet bands](../../model/coherent_defect_wave/dispersion/PROOF.md)
+fail a common relativistic speed test. The separate paired-flux route has a
+free one-object Dirac window. These statements motivate explicit alternative
+constructions; they do not transfer a field theorem between clocks.
 
-The [selection and particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-keeps these program choices separate from their output claims. The tested
-tensor-wave phase unwrapped continuously from the stationary background is
-gapless and quadratic, so it fails the massless relativistic dispersion test.
-A massive interpretation needs its own rest-energy branch and further
-dispersion checks; quadratic kinetic energy alone does not exclude one. Physical spin,
-nonabelian currents, interacting relativistic refinement, complete overlap
-acceptance for A1–A2 and the A3 optimizer require their own witnesses. One
-central gauge constraint and an auxiliary representation with Standard Model
-weights do not select the complete Standard Model gauge and matter dynamics.
+### A complete graded free-field choice
 
-## Source choice for coherent seam transport
+The [graded Wilson source](../../model/coherent_defect_wave/many_body_route/PROOF.md)
+selects twenty carrier slots per cell, fermionic occupation signs, nearest-
+neighbor Wilson dynamics and a filled-negative-band reference. Each occupied
+slot contains the literal protected inside/exterior flux pair. Its face count
+`D=2` enters with declared coefficient one. Every local occupation is retained,
+and the source symbol is
 
-The [positive energy law](../../model/coherent_defect_wave/energy/PROOF.md)
-specifies a continuous source clock without a uniqueness requirement.
-Its nonlinear functional `I-Re U_F` introduces a particular many-occupation
-interaction; it does not merely rename the original Floquet clock.
-The [exact triplet dispersion](../../model/coherent_defect_wave/dispersion/PROOF.md)
-fails the required common relativistic limit, so the field selection must
-use a different kinetic/mass attachment or a different demonstrated sector.
+`h_a(p)=sum_i alpha_i sin(a p_i)/a + beta [2+sum_i(1-cos(a p_i))/a]`.
 
-The [physical attachment calculation](../../model/coherent_defect_wave/physical_attachment/PROOF.md)
-provides a constructive spin/current interface for the separate Clifford
-route and exact Higgs-current tensors for the chiral15. Hypercharge forbids
-all unbroken constant Weyl masses. The permitted up, down and charged-lepton
-Higgs channels leave their coupling coefficients free. If the full lifted
-`U(3) x U(2)` symmetry is retained, an explicit charged-memory controller
-compensates the determinant character of these vertices. Retaining only the
-trace-free gauge symmetry is another architectural choice. Neither choice
-selects the Higgs state or the observed mass coefficients.
+This construction supplies a positive excitation Hamiltonian, particle/hole
+charge conjugation and a controlled free spin-one-half relativistic field
+with rest energy two. Wilson corner energies diverge as `2+2n/a`, leaving
+one finite-energy valley per face channel. The fixed-momentum error controls
+the actual filled reference and all free-field correlation words. The
+[complete energy instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
+includes source preparation, reservoir flags and a finite work battery.
+The native face-changing law need not preserve a slot fixed to one face;
+implementing it on this entire occupation space is a distinct requirement.
 
-## Mobile paired flux and a specified routing law
+### An actual gauge module, with its mass restriction
 
-The [mobile-flux extension](../../model/coherent_defect_wave/mobile_flux/PROOF.md)
-permits zero or one regional pair per carrier, exchanges the full paired
-holonomy and its boundary data between carriers, and couples the received
-link word to the actual native wave. It preserves the positive Gauss sector
-and total pair number. Fixed regional boundary charge is replaced by this
-explicit conserving transport grammar; protection is relative to that grammar.
+The [native-current audit](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
+proves that the bare flux slots are gauge singlets. The literal interaction
+admits only scalar pure-face matrices in its commutant, excluding a gauge
+assignment made just by partitioning the five faces into three and two.
+A native dark orbital for each internal component instead realizes
+`Lambda^2(C^5)+Lambda^4(C^5)`. Its irreducible weights, using left-handed
+conjugate labels, are
 
-The [complete two-lane route](../../model/coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
-adds Clifford memory, conditional local shifts and a mass coin with angle
-`a*D`. Its 121-state cell includes all collision configurations. The
-one-object code carries the same source pair, with `D=2`, and has a controlled
-free Dirac limit with rest frequency `2`. The memory, gate order and coefficient
-are chosen architecture. This route, the native-wave receiver interaction and
-the positive Hamiltonian are distinct specified laws. No free-route bound is
-transferred to their interacting combination. Joining the chiral currents,
-a physical many-body reference and the full interacting scaling limit is the
-remaining field-selection requirement.
+`(3bar,1,-2/3) + (3,2,1/6) + (1,1,1) + (1,2,-1/2) + (3bar,1,1/3)`.
 
-## A common finite clock for routing and native interaction
+These are actual source-current intertwiners for the trace-free subgroup,
+with dimensions `3+6+1+2+3`. The extra central degree current of the full
+native `U(3) x U(2)` is separate; gauging it is not implied by this family
+match. Their native repair tick is the identity, giving `K=0`. A bound flux/cloud
+object can be transported while preserving these currents. Its whole-object
+exterior encoding gives the canonical fermion algebra on the admitted code;
+it does not automatically prove geometric locality of the carrier realization.
+Four-component Dirac propagation of this module introduces both chiralities
+with the same gauge representation. A purely left-handed module has no
+constant invariant mass; Higgs vertices require specified dynamics and state.
+The allowed Dirac mass commutant has five independent multiplet coefficients.
+Neither representation weights nor `K=0` selects their values or generations.
 
-The [native-routing join](../../model/coherent_defect_wave/native_routing_join/PROOF.md)
-uses the same transported link words, one independent native occupation
-register per routing lane, and the occupation-dependent Gauss encoding.
-Its fixed clock is `J(a,lambda)=exp(-i*a*lambda*K) R_a`, where
-`K=sum_lanes[I-Re U_F]` and `R_a` is the complete paired-flux route.
-The flat, empty product reference is fixed. On native-number sector N,
-`0<=K<=2N`; Taylor evaluation has an explicit operator-norm remainder.
-An executed three-dimensional experiment gives a strictly positive bounded
-probability that the native wave changes the routed pair's face label.
-Both detector outcomes are retained.
+### Propagation and the interaction's refinement
 
-This is a finite interaction on one source, state and clock. In the
-native-empty sector K is exactly zero, so the same clock retains the
-free one-object rest frequency `2` without a native vacuum mass correction.
-The native registers remain at their cells. Their covariant propagation,
-the interaction's Lorentz transformation, momentum-window control and
-nonvanishing continuum interaction require proof. The finite join does
-not transfer the separate positive-Hamiltonian collision spectrum to J.
+The [propagating native source](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+adds a local transport schedule to the common native/flux clock. Its minimal
+native root-SWAP route has a quadratic low branch that freezes when time and
+spacing scale together. A declared four-component native memory instead
+implements full-CAR directional shifts and a controlled free Dirac window.
+The native update uses shared links and summed spin-component endpoint parity;
+it is not a sequential product of independent link updates.
+
+The flat-link operator `K_0` is a momentum-independent native term. Selecting
+`V=K-K_0` removes that term and preserves the actual face-changing encounter,
+but changes the physical law. It is not a scalar shift of the energy origin
+or a normal-ordering theorem. The tested density vertex fails a scalar boost
+condition. A bounded local contact interaction also has a vanishing continuum
+comparison in the stated one-flux/one-native momentum window. A covariant coupling with a
+specified nonvanishing refinement and a selected interacting reference is
+required before assigning relativistic interacting masses.
+
+### Physical selection and comparison
+
+The [dependency map](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+separates five physical requirements: compatible interacting source and
+reference; chiral gauge/Higgs content; controlled relativistic interaction;
+complete mass/scattering records; and an energy standard with independent
+particle identification. Finite theorem conclusions consume their precise
+premises on that same source. The free graded construction supplies a valid
+field example and mass readout; it does not supply a source-derived Standard
+Model spectrum. Its source rest energy has dimensional form `2*u_E` GeV,
+with `u_E` unspecified. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) distinguishes
+this free result from the native interacting constructions.
 
 ## Local transport architecture
 

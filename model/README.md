@@ -1,37 +1,54 @@
 # The runnable OPH model
 
-The [joint defect-wave program](coherent_defect_wave/PROOF.md) evolves a
-moving protected regional flux and a coherent wave under one reversible
-clock. Exact complete detectors show influence in both directions. The
-same program admits an interior Gauss constraint and a faithful stationary
-preparation. Its finite interaction uses explicit occupation-controlled
-repair gates. Its [particle path](coherent_defect_wave/PARTICLE_PATH.md)
-includes a prepared pure stationary background, complete frequency records,
-a connected local circuit and a shared-link occupation extension.
+These executable constructions produce finite source events and complete
+observer records. Their effective fields follow from specified source,
+state and clock contracts. The
+[particle path](coherent_defect_wave/PARTICLE_PATH.md) separates proved
+attachments from the interacting and empirical tests needed for a measured
+particle spectrum.
 
-The [positive-clock construction](coherent_defect_wave/energy/PROOF.md) executes
-an exact two-wave collision with complete occupation records and retained
-preparation failures. A control distinguishes its contact interaction from
-independent hopping. The positive Hamiltonian is a specified clock choice;
-its source energies have [tested nonrelativistic bands](coherent_defect_wave/dispersion/PROOF.md),
-without a physical mass assignment.
+## Free particle and mass records
 
-The [mobile-flux source](coherent_defect_wave/mobile_flux/PROOF.md) adds a flat
-sector and transports complete inside/exterior flux pairs between cells.
-Its five face locations are not five species. A
-[two-lane routing construction](coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
-has a controlled free Dirac limit for the same link object, with rest-frequency
-magnitude two under a declared face-count coin. The routing memory and clock
-are architecture choices. A positive-energy many-body reference, physical
-statistics, interacting relativistic limit and measured particle dictionary
-require further construction.
+The [graded flux field](coherent_defect_wave/many_body_route/PROOF.md) has a
+literal protected-defect encoding, complete fermionic occupations and a
+positive filled-sea reference. Its controlled continuum readouts form a
+massive free Dirac field. The
+[mass instrument](coherent_defect_wave/mass_instrument/PROOF.md) records
+particle and antiparticle rest energy two in source units, with failures
+and battery work retained. The grading, regulator and mass coefficient are
+specified architecture. An interacting chiral theory, measured species
+assignment and independent GeV scale require further source attachments.
 
-The [native-routing join](coherent_defect_wave/native_routing_join/PROOF.md)
-puts the transported flux and native interaction on one specified clock,
-with the same Gauss encoding and fixed flat/empty reference. Its complete
-face detector has a strictly positive certified response to an occupied
-native register. The native-empty sector retains the free route exactly;
-this coupling does not generate a vacuum mass correction there.
+## Native interactions and charged objects
+
+The [propagating native construction](coherent_defect_wave/propagating_native_join/PROOF.md)
+moves native waves and protected flux on a shared finite clock, with
+complete interaction records. Its free kinetic controls do not establish
+an interacting relativistic limit. The
+[native charged cloud](coherent_defect_wave/field_identity_audit/PROOF.md)
+carries the exact fifteen fermion-family weights and admits bound transport
+preserving actual source currents. Idle repair fixes that cloud, so its
+weak coupling contributes no mass correction. The
+[positive-clock collision](coherent_defect_wave/energy/PROOF.md) is another
+exact finite control, on its separately stated source and reference.
+
+## Transporting source defects
+
+The [mobile-flux source](coherent_defect_wave/mobile_flux/PROOF.md) adds a
+flat sector and moves complete inside/exterior pairs between cells. A
+[two-lane route](coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
+has a controlled one-object Dirac window for that same link object. The
+[native-routing join](coherent_defect_wave/native_routing_join/PROOF.md)
+adds an actual native response on one clock. These constructions retain
+their own occupation rules and references; the full graded Wilson field's
+positive vacuum is not assigned to them by relabelling their states.
+
+The [joined defect-wave observer](coherent_defect_wave/PROOF.md) supplies
+reciprocal wave/flux influence, an interior Gauss constraint and a faithful
+stationary preparation under a reversible repair law. Its positive-energy
+extension has [tested nonrelativistic bands](coherent_defect_wave/dispersion/PROOF.md).
+These finite controls constrain candidate interpretations rather than
+asserting that every repair frequency is a particle mass.
 
 The [coherent seam observer](coherent_seam_repair/README.md) repairs seam
 disagreement while keeping the removed information in coherent memory.

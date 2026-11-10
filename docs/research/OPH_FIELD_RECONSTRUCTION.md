@@ -1,144 +1,92 @@
 # Field response and particle identification from observer records
 
-## Joint finite defect and wave dynamics
+## From a finite defect to a relativistic field
 
-The [joint construction](../../model/coherent_defect_wave/PROOF.md) couples
-the moving boundary-flux register to the coherent wave in one autonomous
-unitary. Its 72000-dimensional invariant sector combines ten link words with
-the 7200-dimensional wave register. These dimensions count register states,
-not particle species. Every tick applies link-dependent wave propagation
-followed by five reversible, occupation-controlled interior link moves.
-There is no externally updated background between ticks.
+The [source-specific path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+specializes the [common acceptance map](../../model/particle_joint_reconstruction/DEPENDENCIES.md).
+The construction permits declared carrier, grading, clock and preparation
+choices. Their observable consequences require proofs on that same source.
+The following branches have distinct clocks and occupation spaces; matching
+a one-object equation does not identify their interacting many-body theories.
 
-The interaction has reciprocal complete readouts. Two link preparations give
-wave detector probabilities `1/120` and `0`; two wave preparations give defect
-face-position probabilities `1` and `0`. Removing the corresponding coupling
-gate removes each contrast. Odd boundary flux and the internal charge are
-preserved. The [interior Gauss constraint](../../model/coherent_defect_wave/GAUSS.md)
-is invariant under the same evolution and supports those readout contrasts
-in a 36000-dimensional constrained sector.
+| Construction | Proved observable content | Physical boundary |
+| --- | --- | --- |
+| [Joint native defect/wave tick](../../model/coherent_defect_wave/PROOF.md) | Reciprocal complete detector contrasts, an invariant interior Gauss constraint, stationary preparation and populated finite frequencies. | A finite interaction does not determine relativistic particles. |
+| [Cubic native occupation source](../../model/coherent_defect_wave/cubic_readout/PROOF.md) and [positive clock](../../model/coherent_defect_wave/dispersion/PROOF.md) | Complete momentum/quadrature records; exact positive source-energy branches. | The tested triplet branches fail a common relativistic speed test. |
+| [Graded paired-flux Wilson source](../../model/coherent_defect_wave/many_body_route/PROOF.md) | Full occupation algebra, filled ground, positive particle/hole energies, spin-one-half free Dirac field and controlled three-spatial-dimensional refinement. | Its five face channels are neutral degenerate copies. Native interactions require an explicit transfer. |
+| [Native-current attachment](../../model/coherent_defect_wave/field_identity_audit/PROOF.md) | An actual native fifteen-state charge module and current-preserving whole-object transport. | Its native repair energy vanishes; a massive four-component attachment is vectorlike and does not select Standard Model masses. |
+| [Propagating native encounter](../../model/coherent_defect_wave/propagating_native_join/PROOF.md) | Both degrees of freedom propagate; the literal joint interaction changes the received face. A declared spin extension supplies controlled free Dirac windows on one clock. | The tested density vertex fails the scalar boost test; bounded contact vanishes in its stated one-flux/one-native refinement. |
 
-The [same-clock reference preparation](../../model/coherent_defect_wave/PREPARATION.md)
-is a complete filter of this joint unitary. Its faithful stationary ambient
-reference has eigenvalues at least `1/168600` and success probability
-`281/1080` from a fresh maximally mixed input. The constrained reference
-has its own normalization and eigenvalue bound `1/84300`. All failure
-outcomes are retained.
+### Positive energy and the same reference
 
-The [source-specific particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
-instantiates the common dependency map. A [prepared pure background](../../model/coherent_defect_wave/background/PROOF.md)
-is fixed by this U and its Gauss constraint, with complete preparation
-success `1/10` per fresh trial. A [connected cubic circuit](../../model/coherent_defect_wave/spatial/PROOF.md)
-uses local Gauss-dressed partial wave exchanges and the unchanged onsite U.
-It has a strict finite causal cone and fixes the identical product background.
-Its tested spectator branch is quadratic at small momentum, so this result
-does not establish relativistic dispersion.
+The graded source encodes every occupation in twenty literal paired-flux
+carrier slots per cell: five face labels times four Clifford components.
+All `2^20` local occupations are retained. Fermionic grading, a Wilson
+regulator and the coefficient converting the literal face count `D=2` into
+energy are declared architecture. Ordinary qubit implementations require
+parity strings; graded locality alone does not prove ordinary tensor-gate
+locality. The selected Hamiltonian is distinct from the finite routing tick.
+For spacing a and physical momentum p its actual one-body symbol is
 
-The [shared-link occupation extension](../../model/coherent_defect_wave/species/PROOF.md)
-supplies a unitary CAR architecture and complete constrained two-wave
-records. It agrees with U in its one-occupation sector. Spatial CAR hopping
-preserves both local constraints and fixes an empty-wave reference. It differs
-from tensor-wave exchange, so its dispersion requires a separate calculation.
-The exact pure-internal symmetry is `U(3) x U(2)`, with trace-free algebra
-`s(u(3) + u(2))`; this global symmetry does not implement local nonabelian
-gauge fields. The [same-U clock](../../model/coherent_defect_wave/spectroscopy/PROOF.md)
-executes complete finite frequency records, including an excitation
-orthogonal to the pure stationary background. The spatial CAR circuit also
-executes joint two-cell translation/phase records: in the order `(0,0)`,
-`(0,pi)`, `(pi,0)`, `(pi,pi)`, their probabilities are
-`1/120,59/120,1/4,1/4`. The complete clock and translation commute and every
-branch preserves both cell constraints. This is a finite momentum-phase
-measurement, without a physical energy assignment. A physical spin/current identification for this same source,
-a controlled interacting relativistic branch and its mass observable require
-further proof. The linked dependency table gives their precise acceptance conditions.
+`h_a(p)=sum_i alpha_i sin(a p_i)/a + beta [2+sum_i(1-cos(a p_i))/a]`.
 
-A [separate Clifford routing program](../../model/coherent_defect_wave/spatial/ROUTE.md)
-reuses the existing four-component matrices and executes local position-space
-shifts. On a fixed momentum window its free Dirac approximation error is at
-most `t*a*sum_(r<s)|h_r h_s|`, with `h=(p1,p2,p3,m)` and `t=n*a`.
-Its mass `m` is a declared input. A local native-U coupling is explicit,
-but the free error bound does not prove a relativistic limit of that coupled law.
+Filling every negative band gives one finite Slater ground. Relative to that
+same reference,
+`H-E_sea=sum E_a(p) [b* b+d* d] >= 0`.
+The full excitation gap is two, and the nonvacuum neutral sector has gap
+four. A particle adds a source pair; a hole removes a pair from this filled
+reference. Their opposite signed occupation charges are not electromagnetic
+charges. The reference has ten pairs per cell on average, so raw local pair
+count is not a single-particle position projector.
 
-## Cubic records, a positive clock and transformation checks
+On `|p_i|<=P`, the exact bound
+`||h_a-(alpha.p+2beta)||<=a^2 P^3/2+3a P^2/2`
+controls both dynamics and the filled-band projector. Wick expansion then
+controls all finite free-field words. The resulting effective description
+has `E^2-|p|^2=4`, positive particle/antiparticle energies, spin one half and
+causal graded fields. Wilson corner energies `2+2n/a` remove additional
+finite-energy valleys. This is a free relativistic field with its reference;
+it is not an interacting chiral field or a Yang-Mills mass-gap result.
 
-The [cubic occupation readout](../../model/coherent_defect_wave/cubic_readout/PROOF.md)
-executes the interacting tick on side-four and side-eight cubes. Its complete
-instruments resolve 8 and 64 translation labels, with 32 and 256 quadrature
-outcomes. The exact first moment is
-`c(q)=(-29/30) product_i[(1-i)/2+(1+i)cos(q_i)/2]`.
-A control without defect updates has the same first moments; its defect-face
-movement probability is zero, compared with `1/450` for the joint source.
-These finite means do not determine spectral poles or scattering.
+### Charge and interaction on actual source objects
 
-A [positive local Hamiltonian](../../model/coherent_defect_wave/energy/PROOF.md)
-is specified from the actual occupation unitary and spatial hopping. It has
-exact constrained empty-wave grounds, finite energy instruments and bound
-`0<=H<=(2+3pi)N`. This continuous clock differs from the ordered tick.
-Its [populated triplet bands](../../model/coherent_defect_wave/dispersion/PROOF.md)
-are exactly `E_m(k)=m+(pi/2)sum_i(1-cos k_i)`. Their common-speed and continuum
-tests exclude this branch as the required relativistic spectrum.
+The [current audit](../../model/coherent_defect_wave/field_identity_audit/PROOF.md)
+proves that native-empty flux slots are gauge singlets. The exact commutant
+of pure face matrices under the actual native interaction is scalar. A
+three-plus-two partition of the face labels therefore supplies no native
+color or weak current. Actual native dark orbitals instead realize
+`Lambda^2(C^5) + Lambda^4(C^5)`, with the fifteen chiral-family gauge weights under the trace-free subgroup.
+The extra central degree current is separate from that subgroup.
+All twelve subgroup current intertwiners are executed. Their even-degree repair tick
+is the identity, so `K=I-Re U_F=0` on this module. Binding and transporting
+that cloud with an odd flux object is a declared extension. Its whole-object
+exterior encoding preserves the actual currents, with geometric locality
+requiring a separate proof. A constant Dirac mass allows five independent
+multiplet coefficients; a constant purely left-handed mass is forbidden.
 
-The [spin/current attachment](../../model/coherent_defect_wave/physical_attachment/PROOF.md)
-constructs spin one half for the separate Clifford routing field. It checks
-the chiral15's anomaly cancellation and Higgs pairings, but those results do
-not identify the primitive wave or flux with that field. In the ten-word
-source sector, every cell has regional charge `Q_x=I`. Waves cross spatial
-cells; the detected defect-face change occurs inside a carrier. The mobile-flux extension below supplies a separate enlarged sector and
-transport law. The
-[particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md) specifies
-the physical acceptance conditions for each construction.
+The [moving native source](../../model/coherent_defect_wave/propagating_native_join/PROOF.md)
+removes spatial pinning in a specified interacting clock. Minimal native
+root-SWAP transport freezes in the fixed relativistic refinement. An explicit
+four-component native memory instead supplies a free Dirac branch. Its
+optional subtraction of the flat-link operator `K_0` is a change of dynamics,
+not a scalar energy-zero change or Wick normal ordering. The retained finite
+encounter has a positive face-changing response, but the stated interaction
+has neither a covariant surviving continuum vertex nor a proved interacting
+vacuum and mass shell.
 
-## A protected object with spatial position and a free relativistic route
+### Physical identification requirements
 
-The [mobile paired-flux construction](../../model/coherent_defect_wave/mobile_flux/PROOF.md)
-adds one flat gauge orbit to the five odd orbits, giving twelve literal link
-words. A Gauss-compatible exchange moves the entire inside/exterior defect
-pair between carriers. The carrier boundary data move with it. Total pair
-number is conserved, while each cell's regional charge can change. This
-explicitly changes the fixed-boundary architecture. The five odd orbits are
-five locations of one defect type inside a carrier, not five particle species.
-
-A complete two-cell experiment places the pair at either site with probability
-`1/2`, then transfers it deterministically after a second exchange. The moved
-holonomy also changes the actual receiving native wave: the four joint
-charge/pointer probabilities are `119/240,1/240,1/2,0`, conditional on successful
-Gauss preparation. Its four preparation flags, each of probability `1/4`,
-are retained. Thus both position and the receiver response concern the
-transported source object.
-
-The [two-lane routing completion](../../model/coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
-uses two eleven-state lanes per cell. Local swaps move the same flux code,
-and a declared four-component Clifford coin gives its one-object sector a
-controlled free Dirac limit. The mass angle is chosen as `a*D`, where the
-literal spherical face-defect count is `D=2` for this object. On
-`|p_i|<=P`, the continuum-approximation error is at most `t*a*(3P^2+6P)`.
-The rest frequency is therefore `2` in that specified clock; its coefficient
-and routing architecture are declared inputs. This is a source-object-to-free-field
-isometry, not a derivation of the original interaction's relativistic limit.
-The complete 121-state cell retains two-object collision configurations;
-fermionic statistics, a positive relativistic many-body vacuum, chiral gauge
-interactions and a Standard Model or GeV identification require separate proof.
-
-## A common finite clock for routing and native interaction
-
-The [native-routing join](../../model/coherent_defect_wave/native_routing_join/PROOF.md)
-uses the same transported link words, one independent native occupation
-register per routing lane, and the occupation-dependent Gauss encoding.
-Its fixed clock is `J(a,lambda)=exp(-i*a*lambda*K) R_a`, where
-`K=sum_lanes[I-Re U_F]` and `R_a` is the complete paired-flux route.
-The flat, empty product reference is fixed. On native-number sector N,
-`0<=K<=2N`; Taylor evaluation has an explicit operator-norm remainder.
-An executed three-dimensional experiment gives a strictly positive bounded
-probability that the native wave changes the routed pair's face label.
-Both detector outcomes are retained.
-
-This is a finite interaction on one source, state and clock. In the
-native-empty sector K is exactly zero, so the same clock retains the
-free one-object rest frequency `2` without a native vacuum mass correction.
-The native registers remain at their cells. Their covariant propagation,
-the interaction's Lorentz transformation, momentum-window control and
-nonvanishing continuum interaction require proof. The finite join does
-not transfer the separate positive-Hamiltonian collision spectrum to J.
+The remaining work is one compatible interacting occupation/source law and
+selected reference; chiral gauge and Higgs dynamics with controlled unwanted
+modes; a surviving relativistic interaction with uniform error control;
+complete charged thresholds or resonance records; and an operational energy
+scale plus independent species comparison. The
+[complete source-unit mass instrument](../../model/coherent_defect_wave/mass_instrument/PROOF.md)
+closes preparation, apparatus work and energy readout for the free graded
+branch. Its output is `2` source energy units, or `2*u_E` GeV when the energy
+conversion `u_E` is supplied. No measured Standard Model identification is
+claimed by these results. The [atlas](OPH_PARTICLE_ATLAS_V3.svg) renders these
+source and measurement boundaries.
 
 ## Local coherent seam operations
 

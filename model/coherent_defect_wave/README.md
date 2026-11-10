@@ -1,43 +1,63 @@
 # Coherent defect-wave observer
 
-A finite unitary clock couples a movable regional flux to a coherent carrier
-wave in both directions. The program uses all thirty central-link signs,
-preserves a fixed boundary charge and an interior Gauss constraint, and prepares
-its own stationary reference. Complete detectors distinguish the reciprocal
-responses and preserve interference until a recorded measurement intervenes.
-The construction does not identify a physical particle or supply a GeV mass.
+Executable source programs connect protected link flux, wave propagation
+and complete observer records. Their Hamiltonians, preparations and
+occupation rules are specified separately. The [particle path](PARTICLE_PATH.md)
+identifies which results can be joined and the physical conditions needed
+for a measured-particle comparison.
 
-The [particle path](PARTICLE_PATH.md) connects these finite results to the
-common dependency map. Its executable extensions include a
-[prepared pure stationary background](background/PROOF.md),
-[complete same-U frequency readout](spectroscopy/PROOF.md),
+## Massive free particles
+
+The [graded flux field](many_body_route/PROOF.md) encodes every fermionic
+occupation in literal Gauss-positive link slots. Its local Wilson clock
+has a positive filled-sea reference, particle and antiparticle partners,
+and a controlled massive free Dirac limit. The
+[complete mass instrument](mass_instrument/PROOF.md) reads rest energy two
+in source units, retaining preparation failures and apparatus work.
+Grading, regulator and face-count coefficient are architecture choices;
+interacting Standard Model identification and an independent GeV scale
+require additional source attachments.
+
+## Native interactions and charges
+
+The [native-routing join](native_routing_join/PROOF.md) couples flux and
+native update on one clock. The
+[propagating completion](propagating_native_join/PROOF.md) moves native waves
+with controlled free kinetic windows. Its contact bound concerns one flux
+and one native occupation with a preserved finite native momentum window;
+its density vertex fails the scalar-boost test. An
+[actual native occupation cloud](field_identity_audit/PROOF.md) carries the
+fifteen fermion-family weights and admits current-preserving bound transport.
+The idle repair fixes this cloud, giving no native mass correction; its
+Dirac attachment is vectorlike.
+
+## Moving the protected object
+
+The [mobile-flux source](mobile_flux/PROOF.md) adds a flat orbit and transports
+complete inside/exterior flux pairs between cells. Five face locations do
+not identify five observed species. A
+[two-lane route](mobile_flux/ROUTING_COMPLETION.md) gives the same object a
+controlled one-object Dirac window while retaining every collision state.
+The full graded field above specifies a different occupation law and
+positive reference; their interaction and state data cannot be transferred
+without an explicit intertwiner.
+
+## Finite energy and collision controls
+
+A [positive Hamiltonian](energy/PROOF.md) built from native repair and hopping
+has constrained grounds and an exact six-state two-wave collision with
+complete records. Its [populated triplet bands](dispersion/PROOF.md) fail the
+common relativistic dispersion test. The
+[cubic instrument](cubic_readout/PROOF.md) executes complete records at 8 and
+64 momenta on a different circuit clock. These controls identify what the
+specified laws produce, without treating an expectation value as a mass.
+
+The original joined observer also has a
+[prepared pure background](background/PROOF.md),
+[complete same-U readout](spectroscopy/PROOF.md),
 [connected spatial circuit](spatial/PROOF.md) and
-[shared-link occupation law](species/PROOF.md). Their distinct observation
-domains are explicit. The tested spatial spectator band is quadratic at
-small momentum; the primitive triplet copies have identical spectra.
-Neither result establishes a relativistic species or three lepton masses.
-
-## Energy and collisions
-
-A [specified positive Hamiltonian](energy/PROOF.md) combines onsite repair
-with spatial hopping. It has exact constrained grounds and an executed
-two-wave collision in a six-state invariant source sector. Complete detectors
-record occupation transfer, retain preparation failures and distinguish the
-contact interaction from independent hopping. This continuous clock differs
-from the circuit tick. Its [populated triplet bands](dispersion/PROOF.md)
-fail the required common relativistic dispersion test.
-
-## Moving defects and a free relativistic limit
-
-The [mobile-flux extension](mobile_flux/PROOF.md) adds a flat orbit and moves
-complete inside/exterior flux pairs between cells, preserving total pair
-count and Gauss constraints. Five face locations are not five species.
-A [two-lane routing construction](mobile_flux/ROUTING_COMPLETION.md) transports
-the same link object and has a controlled free Dirac window with rest-frequency
-magnitude two under a declared face-count coin. Its routing memory, clock and
-collision rule are architectural choices. A physical many-body vacuum,
-statistics, interacting relativistic limit and GeV identification require
-their own attachments.
+[shared-link occupation law](species/PROOF.md). The source contract below
+refers to that fixed-boundary program.
 
 ```sh
 python -m model.coherent_defect_wave --check
@@ -48,6 +68,10 @@ python -m model.coherent_defect_wave.species --check
 python -m model.coherent_defect_wave.energy --check
 python -m model.coherent_defect_wave.dispersion --check
 python -m model.coherent_defect_wave.mobile_flux --check
+python -m model.coherent_defect_wave.many_body_route --check
+python -m model.coherent_defect_wave.mass_instrument --check
+python -m model.coherent_defect_wave.propagating_native_join --check
+python -m model.coherent_defect_wave.field_identity_audit --check
 python -m pytest -q model/coherent_defect_wave
 ```
 
@@ -109,10 +133,3 @@ operational interaction and coherence controls, not particle-scattering data.
 imports, records every detector complement, and contains the separate declared
 architecture and physical-scope boundaries. Regenerate it with `--write` after
 a source change. No empirical particle inputs enter the construction.
-
-The [native-routing join](native_routing_join/PROOF.md) couples each routed
-link lane to its own native occupation register in one specified weak clock.
-It retains the flat/empty reference and exact native-empty free route, while
-an executed native-wave input gives a strictly positive bounded response of
-the transported defect. Lorentz-compatible native dynamics and a surviving
-interacting scaling limit are separate physical requirements.

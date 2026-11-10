@@ -4,6 +4,8 @@ import json
 from fractions import Fraction
 from pathlib import Path
 
+import sympy as s
+
 from .canvas import AMBER, BLUE, EDGE, MUTED, SOFT, TEAL, TEXT, VIOLET
 from .parts import CW, X0, card
 
@@ -11,7 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 RECEIPT = ROOT / 'model/coherent_defect_wave/results.json'
 EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'cubic_readout', 'energy', 'dispersion', 'physical_attachment', 'mobile_flux',
-              'native_routing_join')
+              'native_routing_join', 'many_body_route', 'mass_instrument',
+              'field_identity_audit', 'propagating_native_join')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -23,14 +26,19 @@ FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'interacting_relativistic_limit_proved', 'SM_particle_or_GeV_mass_identified',
              'positive_energy_many_body_vacuum_derived', 'physical_interacting_relativistic_limit',
              'scattering_or_SM_identity_or_GeV_mass', 'positive_energy_many_body_vacuum',
-             'physical_statistics_or_chiral_matter'}
+             'physical_statistics_or_chiral_matter', 'interacting_relativistic_limit_or_SM_or_GeV',
+             'chiral_SM_particle_identification', 'interacting_relativistic_limit',
+             'source_GeV_masses', 'physical_Standard_Model_identification',
+             'interacting_relativistic_mass', 'GeV_mass_derived',
+             'source_mass_renormalization_or_SM_identity_or_GeV_prediction'}
 
 
 def check_extension_scope(value, name):
     """Check nested claims too: a declared rest parameter is permitted, an SM mass is not."""
     if isinstance(value, dict):
         for key, item in value.items():
-            if key in FORBIDDEN and item is not False:
+            absent_mass_table=(key=='source_GeV_masses' and isinstance(item,(dict,list)) and not item)
+            if key in FORBIDDEN and item is not False and not absent_mass_table:
                 raise ValueError('joined extension physical promotion: ' + name + '/' + key)
             check_extension_scope(item, name + '/' + key)
     elif isinstance(value, list):
@@ -51,6 +59,41 @@ def check_native_join(value):
     if (not all(0<=lo<=hi<=1 for lo,hi in bounds.values()) or bounds[True][0]<=0
             or bounds[False][0]+bounds[True][1]!=1 or bounds[False][1]+bounds[True][0]!=1):
         raise ValueError('native routing join probability bounds are not complete')
+
+
+
+def check_mass_instrument(value, free):
+    if value['source'] != free['program']:
+        raise ValueError('mass apparatus and free field have different source clocks')
+    if (not free['reference']['unique_positive_excitation_ground']
+            or not free['scope']['CAR_statistics_are_declared_architecture']
+            or not free['source']['all_occupations_retained']
+            or free['algebra']['Wilson_clock_is_Floquet_logarithm']
+            or value['continuum_rest_energy_in_source_units']!=free['reference']['full_Fock_gap']):
+        raise ValueError('mass apparatus lacks its declared positive free reference')
+    if value['unit_map']['source_energy_unit_in_GeV'] is not None:
+        raise ValueError('mass apparatus substitutes an unowned GeV scale')
+    for experiment in value['experiments']:
+        records=experiment['complete_records']
+        weights=[s.sympify(r['probability']) for r in records]
+        if (len(records)!=36 or s.simplify(sum(weights,s.Integer(0)))!=1
+                or any(p.is_nonnegative is not True for p in weights)):
+            raise ValueError('mass apparatus omits complete reservoir records')
+        if not experiment['filled_negative_band_reference']:
+            raise ValueError('mass apparatus loses its positive reference')
+
+
+def check_identity(value):
+    dark=value['native_dark_current_module']
+    if (not value['scope']['actual_native_R15_current_binding']
+            or dark['module_prepared_or_bound_by_native_idle_law']
+            or dark['native_K_on_module']!='0' or dark['internal_dimension']!=15
+            or dark['empty_native_flux_code_actual_current_representation']!='trivial'):
+        raise ValueError('native current module or empty flux identity changed')
+    mass=value['mass_normalization_and_chirality']
+    if (mass['gauge_invariant_Dirac_mass_parameter_dimension']!=5
+            or not mass['Dirac_R15_contains_both_chiralities_in_same_internal_representation']):
+        raise ValueError('charged Dirac identity loses its mass or chirality boundary')
 
 
 def load():
@@ -87,9 +130,14 @@ def load():
             target = (ROOT/source).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
                 raise ValueError('stale joined extension input: ' + source)
+        if (name in ('many_body_route','mass_instrument','field_identity_audit','propagating_native_join')
+                and extension['schema']!='oph.coherent_defect_wave.'+name+'.v1'):
+            raise ValueError('joined extension schema changed: '+name)
         check_extension_scope(extension, name)
         if name=='native_routing_join':check_native_join(extension)
         value['extensions'][name] = extension
+    check_identity(value['extensions']['field_identity_audit'])
+    check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
 
 
@@ -294,41 +342,91 @@ def draw(c, data, y):
                '../../model/coherent_defect_wave/mobile_flux/' + proof, 16)
     y += h + 22
 
-    native_join=extensions['native_routing_join']
-    finite_join=native_join['finite_join']
-    h = 274
-    card(c, X0, y, CW, h, stroke=TEAL)
-    c.text(X0 + 28, y + 43, 'One finite clock joins routed flux to native repair', 28, TEXT, 700)
-    c.para(X0 + 28, y + 83, CW - 56,
-        'Routing and the weak native update read the very same link word. The specified '
-        'joint clock retains the gauge constraints and every collision sector. In a side-three '
-        'cube, native repair gives a strictly positive chance of changing the routed pair’s '
-        'internal face. Both detector outcomes have rigorous probability intervals; the Taylor '
-        'vector is never renormalized. Empty native registers recover the free route exactly, '
-        'so this interaction gives no vacuum mass correction there. Its interacting Lorentz '
-        'limit remains unproved.', 19, SOFT, 1.4)
-    c.text(X0 + 28, y + h - 60, 'Certified vector error ≤ ' +
-           finite_join['Taylor_vector_error_upper'] + ' · both outcomes retained',
-           18, TEAL, 700, maxw=CW-56)
-    c.link(X0 + 28, y + h - 25, 'Same source, reference, clock and detector',
-           '../../model/coherent_defect_wave/native_routing_join/PROOF.md', 16)
-    y += h + 22
+    free=extensions['many_body_route']
+    apparatus=extensions['mass_instrument']
+    identity=extensions['field_identity_audit']
+    rest=apparatus['continuum_rest_energy_in_source_units']
+    gap=free['reference']['relative_charge_zero_gap']
+    h,gap_x,w=434,22,(CW-44)/3
+    for i,(tag,title,body,number,proof,color) in enumerate((
+            ('A complete graded source', 'Positive particles and holes',
+             'A separate declared local law retains all occupations of '
+             +str(free['source']['literal_link_slots_per_cell'])+' graded flux slots per cell. '
+             'Fill its negative-energy bands to obtain the lowest-energy reference. Adding an '
+             'object or removing one costs positive energy; the missing object is a hole. '
+             'Their free Dirac limit is controlled. The native gauge currents act trivially on these bare flux objects.',
+             'Free rest energy '+rest+'; neutral-pair threshold '+gap,
+             'many_body_route',BLUE),
+            ('Actual source currents', 'Fifteen charged native states',
+             'A two-address native wave combination is invariant under the idle law up to phase. '
+             'Its even-occupation clouds form fifteen states with actual source currents and the '
+             'Standard Model weight pattern. A declared gate transports the cloud with its '
+             'graded flux object while conserving charge. The idle law gives zero interaction '
+             'energy on this cloud and supplies no binding.',
+             str(identity['native_dark_current_module']['actual_native_current_intertwiner_columns_checked'])+
+             ' actual current identities; native K = 0', 'field_identity_audit',VIOLET),
+            ('Two incoming objects, one link', 'A finite encounter with controlled error',
+             'Added four-component memory puts both incoming objects on one clock with a '
+             'common-speed free Dirac window. Their weak shared-link update changes the flux '
+             'face with positive probability; complete detector bounds are retained. '
+             'For one flux and one native occupation, bounded coupling gives vanishing '
+             'contact response in a fixed-volume, fixed native-momentum window.',
+             'Same source and clock; interacting limit open',
+             'propagating_native_join',TEAL))):
+        x=X0+i*(w+gap_x)
+        card(c,x,y,w,h,stroke=color)
+        c.caps(x+24,y+35,tag,color,12)
+        yy=c.para(x+24,y+76,w-48,title,24,TEXT,1.28,700)
+        c.para(x+24,yy+10,w-48,body,18,SOFT,1.36)
+        c.text(x+24,y+h-58,number,16,color,700,maxw=w-48)
+        c.link(x+24,y+h-25,'Exact source, reference and scope',
+               '../../model/coherent_defect_wave/'+proof+'/PROOF.md',16)
+    y+=h+22
 
-    h = 228
-    card(c, X0, y, CW, h, stroke=BLUE)
-    c.text(X0 + 28, y + 43, 'The remaining connection is physical identification', 28, TEXT, 700)
-    c.para(X0 + 28, y + 83, CW - 56,
-        'Spin and currents are proved for the declared free Dirac route. Fifteen internal '
-        'weights match one chiral fermion family, and their Higgs mass channels are checked; '
-        'the scalar state and coupling strengths are not selected. The positive energy clock, '
-        'the ordered cubic clock and the native-coupled spinor route are explicit, distinct programs. '
-        'Their receipts cannot be exchanged. A shared interacting relativistic limit, a '
-        'physical vacuum, statistics, measured species and GeV masses remain unproved.',
-        19, SOFT, 1.4)
-    c.link(X0 + 28, y + h - 25, 'Spin, currents and mass constraints',
-           '../../model/coherent_defect_wave/physical_attachment/PROOF.md', 16)
-    c.link(X0 + 805, y + h - 25, 'Dependencies and exact status',
-           '../../model/coherent_defect_wave/PARTICLE_PATH.md', 16)
+    h=366
+    card(c,X0,y,CW,h,stroke=BLUE)
+    c.text(X0+28,y+43,'What does a source mass measurement look like?',28,TEXT,700)
+    c.para(X0+28,y+83,CW-56,
+        'A finite reservoir adds or removes an object from the filled reference. A battery '
+        'supplies the work; the apparatus measures energy and relative pair count using the '
+        'same Hamiltonian. Failed preparations are retained and can create neutral pairs. '
+        'This gives an operational source mass, rather than reading a phase and calling it energy.',
+        19,SOFT,1.4)
+    diagram_y=y+180
+    boxes=((X0+28,250,'Reservoir + battery','Prepare and supply work',TEAL),
+           (X0+395,400,'Filled source reference','Add a particle / remove a hole',BLUE),
+           (X0+910,350,'Energy + charge records',
+            str(len(apparatus['experiments'][0]['complete_records']))+' outcomes, including failures',VIOLET))
+    for xx,ww,title,subtitle,color in boxes:
+        c.rect(xx,diagram_y,ww,72,'none',color,1.7,10)
+        c.text(xx+ww/2,diagram_y+29,title,19,color,700,anchor='middle',maxw=ww-20)
+        c.text(xx+ww/2,diagram_y+54,subtitle,15,SOFT,anchor='middle',maxw=ww-20)
+    c.arrow(X0+290,diagram_y+36,X0+380,diagram_y+36,TEAL,2.4,9)
+    c.arrow(X0+810,diagram_y+36,X0+895,diagram_y+36,BLUE,2.4,9)
+    c.text(X0+28,y+294,'E² = |p|² + '+str(int(rest)**2)+
+           '; rest energy = '+rest+' source units in this free limit',23,BLUE,700,maxw=CW-56)
+    c.text(X0+28,y+326,'GeV value = '+rest+
+           ' × energy unit in GeV. A physical clock reference fixes that unit; no measured particle is assigned.',
+           17,MUTED,maxw=CW-56)
+    c.link(X0+28,y+h-15,'Complete reservoir, battery and mass records',
+           '../../model/coherent_defect_wave/mass_instrument/PROOF.md',16)
+    y+=h+22
+
+    h=238
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'What is established, and what selects a measured particle?',28,TEXT,700)
+    c.para(X0+28,y+83,CW-56,
+        'The graded free source has a positive vacuum, fermionic statistics and measurable '
+        'particle/hole energies. It is a declared extension, not the logarithm of the '
+        'ordered clock. The charged native cloud is an exact current attachment, but its Dirac '
+        'extension contains both spacetime chiralities and allows five independent mass coefficients. '
+        'All equal face-count masses give ratios one. A common chiral interacting dynamics, '
+        'its physical reference and species tests are required; measured species and GeV masses remain unproved.',
+        19,SOFT,1.4)
+    c.link(X0+28,y+h-25,'Current binding, chirality and mass freedom',
+           '../../model/coherent_defect_wave/field_identity_audit/PROOF.md',16)
+    c.link(X0+805,y+h-25,'Dependencies and exact status',
+           '../../model/coherent_defect_wave/PARTICLE_PATH.md',16)
     y += h + 35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

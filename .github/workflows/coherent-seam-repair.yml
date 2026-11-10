@@ -42,4 +42,8 @@ jobs:
       - run: python -m model.coherent_defect_wave.physical_attachment --check
       - run: python -m model.coherent_defect_wave.mobile_flux --check
       - run: python -m model.coherent_defect_wave.native_routing_join --check
+      - run: python -m model.coherent_defect_wave.many_body_route --check
+      - run: python -m model.coherent_defect_wave.mass_instrument --check
+      - run: python -m model.coherent_defect_wave.propagating_native_join --check
+      - run: python -m model.coherent_defect_wave.field_identity_audit --check
       - run: python -m pytest -q -W error model/coherent_defect_wave
