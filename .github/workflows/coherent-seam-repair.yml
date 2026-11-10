@@ -85,7 +85,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering, affine_gauss_source, affine_gauss_mobile, affine_gauss_spectrum, affine_gauss_full_spectrum, affine_gauss_spectrum_validation, interacting_block_proca]
+        package: [interacting_block_propagation, interacting_block_quadrature, interacting_block_scattering, affine_gauss_source, affine_gauss_mobile, affine_gauss_spectrum, affine_gauss_full_spectrum, affine_gauss_spectrum_validation, affine_gauss_charged_clock, native_abelian_field_join, interacting_block_proca]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:

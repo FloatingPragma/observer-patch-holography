@@ -55,12 +55,26 @@ low-energy [localization law](coherent_defect_wave/chiral_joint/interacting_char
 Its multi-charge cloud retains screening, so the single-charge bound is
 not an unrestricted confinement claim.
 
+## Charged fields and energy detectors
+
+The [finite electric/magnetic source](affine_gauss_full_spectrum/PROOF.md)
+has a certified full charged ground, including transverse-field dressing.
+A [complete finite clock](affine_gauss_charged_clock/PROOF.md) measures that
+energy with every preparation and detector outcome retained. The
+[native attachment](native_abelian_field_join/PROOF.md) couples actual odd
+native probes to the field and proves positive original-attempt arrivals.
+These are finite source energies and motion; a relativistic species and
+an independent GeV scale require their physical comparison.
+
 ## Neutral fields and finite collisions
 
 Coupling complete interacting blocks gives a
 [controlled Klein–Gordon record limit](interacting_block_quadrature/PROOF.md)
 with the native block gap as its rest frequency. All native sectors,
 finite-capacity errors and measurement outcomes are retained. The
+[momentum-dependent vector instrument](interacting_block_proca/PROOF.md)
+on those same blocks gives a controlled free Proca description with three
+polarizations and explicit complete-record errors. The
 [finite collision experiment](interacting_block_scattering/PROOF.md)
 has a positive, error-bounded channel between two neutral components.
 The proved refinement becomes free; identifying a measured particle
