@@ -12,11 +12,26 @@ not a proof that the previous committed interpreter executes the same law.
 
 The [interior Gauss sector](../../model/coherent_defect_wave/GAUSS.md) and
 [same-unitary preparation](../../model/coherent_defect_wave/PREPARATION.md)
-provide a compatible constrained state and clock. The remaining field-selection
-requirements concern a spatial/refinement family, the complete response and
-overlap domain of A1–A2, the A3 optimizer construction, additional matter
-sectors and physical particle observables. One central gauge constraint
-does not select the complete Standard Model gauge and matter dynamics.
+provide a compatible constrained state and clock. The
+[pure-background preparation](../../model/coherent_defect_wave/background/PROOF.md),
+[local spatial circuit](../../model/coherent_defect_wave/spatial/PROOF.md) and
+[shared-link CAR extension](../../model/coherent_defect_wave/species/PROOF.md)
+give explicit finite choices for further state, locality and occupation inputs.
+Parity-controlled and presence-controlled link repair agree at one occupation
+but differ at two; the declared primary occupation law uses parity. Tensor-wave
+partial exchange also differs from its CAR hopping counterpart. The latter
+preserves both local Gauss constraints and has a fixed empty-wave reference.
+
+The [selection and particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+keeps these program choices separate from their output claims. The tested
+tensor-wave phase unwrapped continuously from the stationary background is
+gapless and quadratic, so it fails the massless relativistic dispersion test.
+A massive interpretation needs its own rest-energy branch and further
+dispersion checks; quadratic kinetic energy alone does not exclude one. Physical spin,
+nonabelian currents, interacting relativistic refinement, complete overlap
+acceptance for A1–A2 and the A3 optimizer require their own witnesses. One
+central gauge constraint and an auxiliary representation with Standard Model
+weights do not select the complete Standard Model gauge and matter dynamics.
 
 ## Source choice for coherent seam transport
 

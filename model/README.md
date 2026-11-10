@@ -5,8 +5,12 @@ moving protected regional flux and a coherent wave under one reversible
 clock. Exact complete detectors show influence in both directions. The
 same program admits an interior Gauss constraint and a faithful stationary
 preparation. Its finite interaction uses explicit occupation-controlled
-repair gates; a spatial relativistic family and particle masses require
-further construction.
+repair gates. Its [particle path](coherent_defect_wave/PARTICLE_PATH.md)
+includes a prepared pure stationary background, complete frequency records,
+a connected local circuit and a shared-link occupation extension. The tested
+spatial spectator branch has quadratic low-momentum dispersion; a controlled
+relativistic branch, physical species and particle masses require further
+construction.
 
 The [coherent seam observer](coherent_seam_repair/README.md) repairs seam
 disagreement while keeping the removed information in coherent memory.

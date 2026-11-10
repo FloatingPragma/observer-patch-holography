@@ -10,12 +10,33 @@ and [faithful stationary reference](../../model/coherent_defect_wave/PREPARATION
 are preserved by that same evolution. The reciprocal readout contrasts
 survive restriction to the gauge-invariant sector.
 
-The next mass calculation requires a spatial family of this joint program,
-populated momentum-dependent spectral responses, a controlled lifetime and
-the appropriate threshold or resonance definition. The joint tick has a
-finite unitary spectrum, but neither its phases nor its dimension are a
-particle mass table. Boundary protection is exact for the declared repairs;
-it does not supply a volume-independent energy gap or a GeV scale.
+The [complete same-U spectroscopy](../../model/coherent_defect_wave/spectroscopy/PROOF.md)
+executes four finite Fourier bins and both branches `(I+/-U^2)/2`. The active
+filter removes both flat phases and retains probability `17/288` per original
+trial, including the Gauss preparation failure. A separately
+[prepared pure stationary background](../../model/coherent_defect_wave/background/PROOF.md)
+supports a five-face disturbance with active weight `283/7200`; all forty
+face/filter/clock records are retained. These are actual finite source
+frequencies, with no mass assigned to a bin center.
+
+The [two-cell spatial CAR experiment](../../model/coherent_defect_wave/species/PROOF.md)
+has a commuting whole-cell translation and complete clock. Its four joint
+translation/phase probabilities are `1/120,59/120,1/4,1/4`, for labels
+`(0,0),(0,pi),(pi,0),(pi,pi)`. Both constraints and all alternatives are
+retained. This supplies an executed finite precursor to a dispersion
+measurement; a three-dimensional family and physical energy interpretation
+are additional requirements.
+
+The energy ambiguity is exact: positive generators with the same pure ground
+can exponentiate to this U while having gaps `2pi` or `4pi`. Those nonlocal
+countercontrols show why a local continuous-time law or justified branch is
+required. The [spatial circuit](../../model/coherent_defect_wave/spatial/PROOF.md)
+has a finite causal cone but a quadratic small-momentum spectator band.
+The [particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md) therefore
+requires an actual joint momentum-frequency response on a specified occupation
+law, relativistic dispersion and lifetime control, the appropriate threshold
+or resonance, and a unit reference. Boundary protection and finite frequencies
+alone supply neither a volume-independent rest mass nor a GeV scale.
 
 ## Coherent repair frequencies and mass identification
 

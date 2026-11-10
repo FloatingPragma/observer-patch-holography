@@ -34,12 +34,34 @@ def load():
     if not (coherent['return_projector_commutes_with_Gamma'] and
             coherent['all_recorded_branches_preserve_positive_constraint']):
         raise ValueError('return apparatus leaves the admitted gauge sector')
+    value['extensions'] = {}
+    for name in ('background', 'spectroscopy', 'spatial', 'species'):
+        path = RECEIPT.parent / name / 'results.json'
+        extension = json.loads(path.read_text())
+        if not extension.get('input_sha256'):
+            raise ValueError('missing joined extension custody: ' + name)
+        for source, digest in extension['input_sha256'].items():
+            target = (ROOT/source).resolve()
+            if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
+                raise ValueError('stale joined extension input: ' + source)
+        scope = extension.get('scope', extension.get('physical_scope', {}))
+        for key in ('physical_mass_identified', 'relativistic_mass_or_GeV_value',
+                    'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
+                    'rest_masses_derived', 'interacting_relativistic_continuum'):
+            if scope.get(key, False):
+                raise ValueError('joined extension physical promotion: ' + name + '/' + key)
+        value['extensions'][name] = extension
     return value
 
 
 def input_pins(value):
-    return {**value['input_sha256'], str(RECEIPT.relative_to(ROOT)):
+    pins = {**value['input_sha256'], str(RECEIPT.relative_to(ROOT)):
             hashlib.sha256(RECEIPT.read_bytes()).hexdigest()}
+    for name, extension in value['extensions'].items():
+        path = RECEIPT.parent/name/'results.json'
+        pins.update(extension['input_sha256'])
+        pins[str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
+    return pins
 
 
 def draw(c, data, y):
@@ -113,6 +135,57 @@ def draw(c, data, y):
     c.link(X0 + 28, y + 180, 'Same-U preparation and complete outcome proof',
            '../../model/coherent_defect_wave/PREPARATION.md', 16)
     c.link(X0 + 805, y + 180, 'Interior gauge constraint', '../../model/coherent_defect_wave/GAUSS.md', 16)
+    y += h + 22
+
+    extensions = value['extensions']
+    background = extensions['background']
+    spectrum = extensions['spectroscopy']
+    weight = spectrum['stationary_background_relative_readout']['total_nonflat_probability_per_background_trial']
+    h, gap, w = 394, 22, (CW - 44) / 3
+    for i, (tag, title, body, number, proof, color) in enumerate((
+            ('Prepare → disturb → read', 'A fixed background with visible excitations',
+             'Uniform link and wave amplitudes form a pure state fixed by the actual tick. '
+             'A complete apparatus prepares it. Reading its defect face disturbs that state; '
+             'a coherent filter then removes the unchanged background and retains every outcome.',
+             'Fresh preparation success: ' + background['joint_success_per_fresh_ambient_trial'],
+             'background', BLUE),
+            ('Cell → neighbor → detector', 'Connected propagation with a finite cone',
+             'Place cells on a declared cubic grid. A partial exchange carries wave information '
+             'to a neighbor while keeping its link memory local and preserving its constraint. '
+             'The arriving wave changes the neighbor’s defect motion. A finite cone bounds influence.',
+             'Small-momentum spectator mode: quadratic', 'spatial', TEAL),
+            ('One wave → several occupations', 'Several waves share the same links',
+             'The occupation extension uses antisymmetric wave states and one shared defect register. '
+             'Its one-wave sector is exactly the original program. Two-wave records are computed. '
+             'Fermionic hopping and tensor-wave exchange are distinct spatial laws.',
+             'Internal symmetry: U(3) × U(2)', 'species', VIOLET))):
+        x = X0 + i * (w + gap)
+        card(c, x, y, w, h)
+        c.caps(x + 24, y + 35, tag, color, 13)
+        yy = c.para(x + 24, y + 76, w - 48, title, 24, TEXT, 1.28, 700)
+        c.para(x + 24, yy + 10, w - 48, body, 18, SOFT, 1.36)
+        c.text(x + 24, y + h - 58, number, 16, color, 700, maxw=w - 48)
+        c.link(x + 24, y + h - 25, 'Exact construction and domain',
+               '../../model/coherent_defect_wave/' + proof + '/PROOF.md', 16)
+    y += h + 22
+
+    h = 330
+    card(c, X0, y, CW, h, stroke=AMBER)
+    c.text(X0 + 28, y + 43, 'A frequency becomes a mass only after the physical checks', 28, TEXT, 700)
+    c.para(X0 + 28, y + 83, CW - 56,
+        'The complete background experiment keeps 40 face/filter/clock records. Its active '
+        'excitation weight is ' + weight + ', conditional on background preparation. These are '
+        'dimensionless frequencies of the simulation. A separate two-cell CAR experiment jointly '
+        'resolves translation and phase, with all preparation failures retained. Its two momentum '
+        'labels do not determine a three-dimensional mass shell. A local energy convention, momentum-dependent '
+        'dispersion, physical spin and currents, and the appropriate pole or threshold must connect '
+        'them to a particle. The quadratic gapless spectator branch fails the massless '
+        'relativistic test near zero momentum. Equal triplet spectra cannot be three unequal lepton masses.',
+        19, SOFT, 1.4)
+    c.link(X0 + 28, y + h - 28, 'Complete source-frequency readout',
+           '../../model/coherent_defect_wave/spectroscopy/PROOF.md', 16)
+    c.link(X0 + 805, y + h - 28, 'Ten requirements and exact status',
+           '../../model/coherent_defect_wave/PARTICLE_PATH.md', 16)
     y += h + 22
     c.para(X0 + 24, y + 8, CW - 48,
         '{a|What this establishes.} A finite, reciprocal interaction with retained boundary flux, '

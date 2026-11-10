@@ -20,6 +20,32 @@ borrowed from a frozen link. The calculation supplies a finite interacting
 response, with no physical mass or species assignment. Mass extraction
 requires controlled spatial spectra and their observable interpretation.
 
+The [complete frequency instrument](../../model/coherent_defect_wave/spectroscopy/PROOF.md)
+measures the literal joint U. Its four-bin clock and nonflat filter retain
+original weight `17/288`, with every preparation and detector alternative.
+Five face measurements of a [pure stationary background](../../model/coherent_defect_wave/background/PROOF.md)
+followed by that filter retain total orthogonal-excitation weight `283/7200`
+conditional on background preparation. A detector-created excitation is
+therefore available for subsequent dispersion tests; no bin is labelled as
+a rest mass.
+
+The [spatial CAR readout](../../model/coherent_defect_wave/species/PROOF.md)
+executes a commuting two-cell translation/phase instrument with four
+probabilities `1/120,59/120,1/4,1/4`. This is a joint finite record on one
+occupation law and clock. Its two translation labels and broad phase bins
+do not determine a three-dimensional mass shell.
+
+The [candidate audit](../../model/coherent_defect_wave/species/CANDIDATES.md)
+proves that the primitive triplet channels have identical spectra. Their
+corresponding branches cannot be the three unequal charged-lepton masses.
+The [spatial audit](../../model/coherent_defect_wave/spatial/PROOF.md) also finds
+quadratic low-momentum dispersion for its spectator branch. These are exact
+restrictions of specified constructions, not numerical rounding errors or
+uncomputed mass corrections. The [particle dependency path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+requires a justified occupation/routing law, common-state energy-momentum
+response, physical transformation/current map and the appropriate mass
+definition before GeV conversion.
+
 ## Response of a reversible repair defect
 
 The [coherent seam observer](../../model/coherent_seam_repair/README.md) stores

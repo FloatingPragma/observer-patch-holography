@@ -25,12 +25,39 @@ reference has eigenvalues at least `1/168600` and success probability
 has its own normalization and eigenvalue bound `1/84300`. All failure
 outcomes are retained.
 
-This supplies the finite coupling of the specified defect and wave registers.
-A spatial/refinement family, additional matter occupations, physical
-spin/statistics, relativistic dispersion and mass readout require further
-construction. The coherent address reflection and occupation-controlled
-repair rule are declared architecture; the finite interaction does not
-establish a local interacting 3+1-dimensional field limit.
+The [source-specific particle path](../../model/coherent_defect_wave/PARTICLE_PATH.md)
+instantiates the common dependency map. A [prepared pure background](../../model/coherent_defect_wave/background/PROOF.md)
+is fixed by this U and its Gauss constraint, with complete preparation
+success `1/10` per fresh trial. A [connected cubic circuit](../../model/coherent_defect_wave/spatial/PROOF.md)
+uses local Gauss-dressed partial wave exchanges and the unchanged onsite U.
+It has a strict finite causal cone and fixes the identical product background.
+Its tested spectator branch is quadratic at small momentum, so this result
+does not establish relativistic dispersion.
+
+The [shared-link occupation extension](../../model/coherent_defect_wave/species/PROOF.md)
+supplies a unitary CAR architecture and complete constrained two-wave
+records. It agrees with U in its one-occupation sector. Spatial CAR hopping
+preserves both local constraints and fixes an empty-wave reference. It differs
+from tensor-wave exchange, so its dispersion requires a separate calculation.
+The exact pure-internal symmetry is `U(3) x U(2)`, with trace-free algebra
+`s(u(3) + u(2))`; this global symmetry does not implement local nonabelian
+gauge fields. The [same-U clock](../../model/coherent_defect_wave/spectroscopy/PROOF.md)
+executes complete finite frequency records, including an excitation
+orthogonal to the pure stationary background. The spatial CAR circuit also
+executes joint two-cell translation/phase records: in the order `(0,0)`,
+`(0,pi)`, `(pi,0)`, `(pi,pi)`, their probabilities are
+`1/120,59/120,1/4,1/4`. The complete clock and translation commute and every
+branch preserves both cell constraints. This is a finite momentum-phase
+measurement, without a physical energy assignment. Physical spin, chiral currents,
+a controlled interacting relativistic branch and its mass observable are
+unproved. The linked dependency table gives their precise acceptance conditions.
+
+A [separate Clifford routing program](../../model/coherent_defect_wave/spatial/ROUTE.md)
+reuses the existing four-component matrices and executes local position-space
+shifts. On a fixed momentum window its free Dirac approximation error is at
+most `t*a*sum_(r<s)|h_r h_s|`, with `h=(p1,p2,p3,m)` and `t=n*a`.
+Its mass `m` is a declared input. A local native-U coupling is explicit,
+but the free error bound does not prove a relativistic limit of that coupled law.
 
 ## Coherent seam repair and its observation domain
 

@@ -31,6 +31,16 @@ def test_both_reciprocal_readouts_and_preparation_domains_are_visible(joint):
         assert phrase in text
 
 
+def test_frequency_and_species_boundaries_are_visible(joint):
+    text, c = visible(joint)
+    assert not c.overflow
+    for phrase in ('Fresh preparation success: 1/10', '283/7200',
+                   '40 face/filter/clock records', 'quadratic gapless spectator branch',
+                   'Equal triplet spectra cannot be three unequal lepton masses',
+                   'Fermionic hopping and tensor-wave exchange are distinct spatial laws'):
+        assert phrase in text
+
+
 def test_numeric_preparation_label_is_receipt_driven(joint):
     changed = deepcopy(joint)
     changed['reference']['success_probability_from_uniform_basis_ensemble'] = '2/7'

@@ -13,8 +13,11 @@ The retained links control wave propagation, and local wave occupation
 controls reversible link moves in the same tick. Complete readouts certify
 both influences. A compatible [interior Gauss state](coherent_defect_wave/GAUSS.md)
 and [stationary preparation](coherent_defect_wave/PREPARATION.md) use that
-joint evolution. Spatial refinement, further occupations and physical
-mass/particle identification retain their own construction requirements.
+joint evolution. The [source-specific particle path](coherent_defect_wave/PARTICLE_PATH.md)
+attaches pure-background preparation, complete finite spectroscopy, a local
+spatial circuit and a shared-link CAR extension. The tensor-wave and CAR
+spatial laws have distinct sectors. Physical energy, relativistic dispersion,
+spin/current identification and mass extraction retain their own requirements.
 
 The spectral and precision continuation
 classifies the repair-active and repair-transparent chain spectra, proves

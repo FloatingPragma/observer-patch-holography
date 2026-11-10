@@ -32,4 +32,8 @@ jobs:
       - run: python -m model.coherent_seam_repair.protection --check
       - run: python -m pytest -q -W error model/coherent_seam_repair
       - run: python -m model.coherent_defect_wave --check
+      - run: python -m model.coherent_defect_wave.background --check
+      - run: python -m model.coherent_defect_wave.spectroscopy --check
+      - run: python -m model.coherent_defect_wave.spatial --check
+      - run: python -m model.coherent_defect_wave.species --check
       - run: python -m pytest -q -W error model/coherent_defect_wave

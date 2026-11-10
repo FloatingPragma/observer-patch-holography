@@ -7,8 +7,22 @@ its own stationary reference. Complete detectors distinguish the reciprocal
 responses and preserve interference until a recorded measurement intervenes.
 The construction does not identify a physical particle or supply a GeV mass.
 
+The [particle path](PARTICLE_PATH.md) connects these finite results to the
+common dependency map. Its executable extensions include a
+[prepared pure stationary background](background/PROOF.md),
+[complete same-U frequency readout](spectroscopy/PROOF.md),
+[connected spatial circuit](spatial/PROOF.md) and
+[shared-link occupation law](species/PROOF.md). Their distinct observation
+domains are explicit. The tested spatial spectator band is quadratic at
+small momentum; the primitive triplet copies have identical spectra.
+Neither result establishes a relativistic species or three lepton masses.
+
 ```sh
 python -m model.coherent_defect_wave --check
+python -m model.coherent_defect_wave.background --check
+python -m model.coherent_defect_wave.spectroscopy --check
+python -m model.coherent_defect_wave.spatial --check
+python -m model.coherent_defect_wave.species --check
 python -m pytest -q model/coherent_defect_wave
 ```
 
