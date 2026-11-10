@@ -43,7 +43,7 @@ class PairFockState:
         return dict(self.amplitudes)
 
     def norm_squared(self):
-        return s.expand(sum(s.conjugate(v)*v for _,v in self.amplitudes)/self.norm_denominator)
+        return s.expand(sum((s.conjugate(v)*v for _,v in self.amplitudes),s.Integer(0))/self.norm_denominator)
 
 
 def frame_sign(word,index):

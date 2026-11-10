@@ -17,6 +17,14 @@ def test_basis_bijection_and_wedge_sign():
     assert wedge_insert((1,4),4)==(None,0)
 
 
+def test_zero_pair_state_keeps_exact_arithmetic():
+    import sympy as s
+    zero=spatial_fock.PairFockState({},7)
+    assert zero.norm_squared()==s.Integer(0)
+    assert not zero.norm_squared().has(s.Float)
+    assert spatial_fock.exchange(zero).norm_squared()==s.Integer(0)
+
+
 @pytest.mark.parametrize('occupied',[(1,1),(2,1),(-1,),(7200,)])
 def test_invalid_occupation_rejected(occupied):
     with pytest.raises(ValueError):

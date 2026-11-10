@@ -10,45 +10,57 @@ relativistic mass shell or a Standard Model species.
 
 | Requirement | Source-bound result | Remaining acceptance condition |
 |---|---|---|
-| 1. Fixed law, state, reference and clock | Literal U, full link register, fixed boundary, complete Gauss preparation and stationary density; [pure background](background/PROOF.md) with success `1/10` per fresh trial | Name the spatial and occupation extension for each physical claim; do not mix its state or tick with another extension |
-| 2. Protection and gauge constraints | Odd regional flux, five movable face positions, paired gauge representatives, exact invariant interior constraint | Full physical gauge currents and representation content, with boundary charges, on the propagating occupation theory |
-| 3. Spatial local dynamics | [Dressed partial exchange](spatial/PROOF.md) supplies an interacting cubic circuit, exact local cone and product stationary background | A cell is a specified spatial site. Its placement is architecture; common refinement and physical rotation/boost action require proof |
-| 4. Preparation, detectors and populated frequencies | [Complete same-U readout](spectroscopy/PROOF.md) has nonflat weight `17/288` per original definite-link trial. Face disturbance of the pure background gives weight `283/7200` conditional on background preparation. The [spatial CAR circuit](species/PROOF.md) executes four joint two-cell translation/phase records | Extend the actual joint readout to several three-dimensional momenta and growing spatial domains on the same occupation source |
-| 5. Energy and clock | Exact dimensionless tick frequencies and finite-clock resolution bounds | Select a local continuous-time generator or justified low-frequency branch, reference energy, time scale and source-dependent conversion. Stationarity and positive energy alone do not fix the logarithm |
-| 6. Relativistic dispersion and controlled limits | The tested gapless triplet spectator band of the tensor-wave circuit has quadratic small-momentum dispersion | Test the populated branch's joint dispersion; if changing routing, specify and verify the replacement law. Prove convergence to a Lorentz-covariant branch with cutoff, volume and approximation bounds. A strict causal cone does not suffice |
-| 7. Occupations, transformations and species | [Shared-link CAR law](species/PROOF.md) extends literal U at degree one and executes a constrained two-wave readout | CAR is a chosen architecture. Prove physical spin, chirality, nonabelian currents and species content; auxiliary exterior representation weights alone do not identify propagating fields |
-| 8. Interactions, scattering and decay | Reciprocal single-cell influence, connected-cell influence and common-link multi-occupation records | Complete incoming/outgoing wave-packet experiments, controlled separation/time windows and stable-particle or resonance interpretation on one continuing source |
-| 9. Rest energy and mass | No named particle rest-energy output is certified | Extract the appropriate pole, charged threshold or resonance using the same momentum, clock and state. Set a unit reference only after the observable is established |
-| 10. Standard Model comparison | [Candidate table](species/CANDIDATES.md) distinguishes exact internal labels from particle hypotheses | Compare charges, physical spin/statistics, interactions, masses and uncertainty bounds independently. Equal triplet spectra rule out assigning their corresponding branches three unequal lepton masses |
+| 1. Fixed law, state, reference and clock | Literal U and its complete reference preparation; the [native-routing join](native_routing_join/PROOF.md) fixes the enlarged two-lane source, flat/empty reference and common clock `J=exp(-ia lambda K)R_a` | Name the spatial and occupation extension for each physical claim; do not mix its state or tick with another extension |
+| 2. Protection and gauge constraints | Odd regional flux and exact interior Gauss constraints; the [mobile-flux extension](mobile_flux/PROOF.md) adds a flat orbit and transports complete inside/exterior flux pairs while conserving total pair count | The mobile interface changes individual carrier boundaries. Full physical gauge currents and species charges require an attachment to the chosen propagating theory |
+| 3. Spatial local dynamics | [Dressed partial wave exchange](spatial/PROOF.md) supplies a cubic circuit and local cone. The [two-lane flux route](mobile_flux/ROUTING_COMPLETION.md) gives complete local gates, including every two-object cell state, and transports the actual paired-flux code | A cell and its routing memory are specified architecture. Their many-object physical statistics and interacting relativistic limit require proof |
+| 4. Preparation, detectors and populated frequencies | [Cubic records](cubic_readout/PROOF.md) resolve 8 and 64 momenta with complete instruments. The mobile-flux source retains all charge-position outcomes and preparation failures; two partial exchanges transfer a prepared pair with probability one | Execute common-clock spectral and scattering records for the routed flux theory. The cubic first moments also occur in a fixed-link control, so they alone do not identify interaction or a pole |
+| 5. Energy and clock | A [specified positive local Hamiltonian](energy/PROOF.md), `H=sum_x[I-Re U_F,x]+(pi/4)sum_edges dGamma(I-S)`, has exact constrained grounds, energy readouts and a volume-independent fixed-number bound | This is a declared continuous replacement clock. Its spectra cannot be inferred by relabelling discrete-tick bins; physical mass additionally needs relativistic dispersion and units |
+| 6. Relativistic dispersion and controlled limits | [Positive-clock triplet bands](dispersion/PROOF.md) fail the common relativistic test. The separate [paired-flux route](mobile_flux/ROUTING_COMPLETION.md) has signed one-object frequencies `+/-sqrt(p^2+4)` and error at most `ta(3P^2+6P)` on `abs(p_i)<=P` | The face-count mass coin and routing memory are declared architecture. Prove a positive-energy many-object reference and one interacting relativistic limit; the free-window estimate does not supply either |
+| 7. Occupations, transformations and species | The [attachment calculation](physical_attachment/PROOF.md) constructs Spin(3), currents and the free routing spin-one-half action. The auxiliary chiral15 has cancelling anomaly traces and three allowed Higgs channels; all unbroken constant masses are forbidden | Connect those fields to the same source's excitations, gauge fields and interaction law. Higgs state and Yukawa coefficients require specification and source response; the optional charged-memory controller preserves an extra source symmetry without determining masses |
+| 8. Interactions, scattering and decay | The [chosen-H collision](energy/PROOF.md) exactly intertwines six two-wave source states with an interacting occupation-transfer operator and complete records. The [common routed clock](native_routing_join/PROOF.md) also gives a strictly positive error-bounded native-wave/transported-flux response | These are finite interaction experiments on their stated clocks. Construct incoming/outgoing packets and controlled separation/time windows on the routed relativistic source before assigning scattering amplitudes or decay widths |
+| 9. Rest energy and mass | The [positive-clock spectral table](dispersion/PROOF.md) gives exact nonrelativistic source energies and ratios. The routed paired-flux object has rest-frequency magnitude two under its specified face-count coin | These clocks are different. The free routed value is not a positive-energy interacting particle mass or a GeV prediction; establish that interpretation and an independent unit reference |
+| 10. Standard Model comparison | [Candidate table](species/CANDIDATES.md) distinguishes internal labels from particle hypotheses; the mobile source's five odd orbits describe five face locations | Five locations are not five species. Compare physical charges, spin/statistics, interactions and masses independently. Equal primitive triplet spectra exclude their assignment to three unequal charged-lepton masses |
 
-The first four rows contain exact finite results. They do not collectively
-discharge the final six. No protected source object has a confirmed Standard
-Model identity or a source-derived GeV mass in this construction.
+Each row identifies a source-specific result and its physical acceptance
+condition. No protected source object has a confirmed Standard Model
+identity or a source-derived GeV mass in these constructions.
+
+The exact collision belongs to the positive Hamiltonian: for hopping
+`t_h=pi/4`, an internal singlet prepared one wave per cell has total
+double-occupation probability
+`t_h^2 sin^2(2 sqrt(1+t_h^2) tau)/(1+t_h^2)`. All six source columns and
+every occupation outcome are retained. The original dark-sector Floquet
+phase does not contain this contact interaction. The mobile-flux and Dirac
+routing constructions also have their own specified clocks; their records
+cannot be combined with this probability law without a common-source proof.
 
 ## Efficient dependency order
 
-1. Use the declared parity-controlled spatial **CAR** circuit, with one
-   shared link register per cell. This is a supplied complete finite law,
-   distinct from tensor-wave exchange; another occupation law defines a
-   different program.
-2. Its positive-Gauss empty-wave reference is stationary. Specify the
-   excitation protocol for the intended physical test, and fix a local
-   energy convention or justified branch. A physical ground-state claim
-   requires that interpretation in the same chosen law.
-3. Extend the executed two-cell translation/phase instrument to several
-   momenta of the cubic occupation family. The existing Fourier clock
-   theorem and exact local circuit cone can be reused. Apply the specified
-   energy convention to obtain an actual joint energy-momentum measure.
-4. Test the resulting dispersion before naming a particle. The spectator
-   phase unwrapped continuously from the background is gapless and quadratic,
-   so it fails the massless relativistic test. A massive interpretation needs
-   its own rest-energy branch and higher-order/multimomentum checks. Test a
-   declared Clifford routing extension on its own terms if adopting
-   that alternative. Such routing is one constructive route, not a
-   necessary form of every relativistic particle theory.
-5. For a surviving branch, compute rotation/spin, gauge-current vertices,
-   multi-packet scattering, lifetime and the relevant mass observable.
-   Only then assign units and compare with a named physical species.
+1. Establish a physical many-object reference and statistics for the complete
+   two-lane flux route. Its local collision rule is specified, but its free
+   one-object Dirac estimate neither supplies a positive-energy many-body
+   vacuum nor identifies negative frequencies as antiparticles.
+2. Establish a controlled interacting relativistic window for the
+   [specified common clock](native_routing_join/PROOF.md). Its native gate
+   is already joined to the same routed link object and has an executed
+   finite response. The native fields need covariant spatial dynamics,
+   a compatible coupling and a refinement/state scaling with surviving
+   interaction and controlled momentum leakage. Native-empty invariance
+   retains the free result but gives no native vacuum mass correction.
+3. Specify the physical field and charge dictionary. The routed position
+   detector measures the paired-flux object's cell. In the ten-word source,
+   by contrast, every cell has `Q_x=I`; only wave occupation crosses cells.
+   Standard Model identification additionally needs the chiral15's Higgs
+   pairings, a Higgs/reference state and coupling coefficients with a stated
+   source ancestry. The permitted tensors and optional determinant-charge
+   controller supply algebraic interfaces, without selecting these values.
+4. Reuse the exact Gauss encoding, spatial translations, energy instruments
+   and spin/current matrices to calculate populated branches and complete
+   multi-packet records on the chosen interacting source. Control finite
+   volume, momentum window, elapsed time and measurement errors together.
+5. Extract the relevant pole, charged threshold or resonance and its errors;
+   attach one physical unit reference and independently compare the complete
+   particle properties. Charge weights or fitted masses alone do not pass.
 
 Preparation, algebraic occupation lifting and routing/error analysis can be
 done in parallel. Their shared-source join precedes a physical mass table.
@@ -67,6 +79,17 @@ logarithm. `QFT/FiniteUnitaryScatteringNoGo` concerns ordinary powers of a
 fixed finite unitary; it does not prohibit relative scattering limits or
 controlled finite wave-packet experiments. The species proof gives the
 more detailed finite-premise crosswalk.
+
+The [centered continuum proof](../continuum_free_limit/README.md) already
+constructs the full free eight-valley Weyl vacuum net for its specified
+centered CAR source and bounded contact scaling. Its filled-sea/CAR argument
+is reusable once the same algebra, generator and ground conditions are
+supplied. It does not identify the mobile link-pair code with that CAR source,
+and its proved limit is free. The [ordered-spin field construction](../spin_canonical_field/README.md)
+also supplies a regular canonical continuum algebra with positive energy;
+it requires its specified spin Hamiltonian and ordered ground and does not
+supply a relativistic shell by itself. These existing results are retained
+rather than treated as absent or transferred between incompatible sources.
 
 The construction choices above are permitted architecture inputs. Their
 uniqueness is not a prerequisite. The physical dispersion, currents and

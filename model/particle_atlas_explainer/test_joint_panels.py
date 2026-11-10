@@ -27,18 +27,62 @@ def test_both_reciprocal_readouts_and_preparation_domains_are_visible(joint):
                    'Face detector: 1 versus 0', 'Return: 1 unread; 1/2 after readout',
                    '281/1080', '36,000 basis states', '281/2160',
                    'the retained link frame to compare amplitudes',
-                   'Every failure is retained.', 'rest masses and an interacting relativistic continuum are not identified.'):
+                   'Every failure is retained.', 'measured species and GeV masses remain unproved.'):
         assert phrase in text
 
 
 def test_frequency_and_species_boundaries_are_visible(joint):
     text, c = visible(joint)
     assert not c.overflow
-    for phrase in ('Fresh preparation success: 1/10', '283/7200',
-                   '40 face/filter/clock records', 'quadratic gapless spectator branch',
-                   'Equal triplet spectra cannot be three unequal lepton masses',
+    for phrase in ('Fresh preparation success: 1/10', '32 records; 256 on the larger cube',
+                   '1 : 2.17082 : 2.618034', 'source energies, not lepton masses',
+                   'Maximum double occupation: π²/(π² + 16)',
+                   'Five internal face locations describe one protected type',
+                   'ω² = |p|² + 4; |ω(0)| = 2 (declared units)',
+                   'No GeV or Standard Model identity follows.',
+                   'Its spinor memory and coupling law are declared architecture.',
+                   'The Taylor vector is never renormalized.',
+                   'Certified vector error ≤ 1/50000000',
                    'Fermionic hopping and tensor-wave exchange are distinct spatial laws'):
-        assert phrase in text
+        assert phrase.lower() in text.lower()
+
+
+def test_all_construction_receipts_are_loaded_and_pinned(joint):
+    assert set(joint['extensions'])==set(joint_panels.EXTENSIONS)
+    pins=joint_panels.input_pins(joint)
+    for name in joint_panels.EXTENSIONS:
+        assert 'model/coherent_defect_wave/'+name+'/results.json' in pins
+
+
+def test_rest_parameter_and_collision_number_follow_receipts(joint):
+    changed=deepcopy(joint)
+    changed['extensions']['mobile_flux']['protected_object_route']['positive_branch_rest_parameter']=3
+    changed['extensions']['energy']['finite_dark_collision']['maximum_double_occupation_probability']='1/7'
+    text,_=visible(changed)
+    assert 'ω² = |p|² + 9; |ω(0)| = 3 (declared units)' in text
+    assert 'Maximum double occupation: 1/7' in text
+
+
+@pytest.mark.parametrize('claim', ['SM_identity_or_GeV_mass_derived','GeV_prediction',
+                                 'energies_are_physical_rest_masses', 'interacting_Lorentz_limit'])
+def test_nested_extension_promotion_is_rejected(claim):
+    with pytest.raises(ValueError,match='physical promotion'):
+        joint_panels.check_extension_scope({'nested':{'proof':[{'scope':{claim:True}}]}},'test')
+
+
+def test_shared_register_and_complete_join_bounds_are_required(joint):
+    changed=deepcopy(joint['extensions']['native_routing_join'])
+    changed['shared_tuple']['native_U_reads_the_same_link_register_as_routing']=False
+    with pytest.raises(ValueError,match='shared link'):
+        joint_panels.check_native_join(changed)
+    changed=deepcopy(joint['extensions']['native_routing_join'])
+    changed['finite_join']['Taylor_output_renormalized']=True
+    with pytest.raises(ValueError,match='approximate readout'):
+        joint_panels.check_native_join(changed)
+    changed=deepcopy(joint['extensions']['native_routing_join'])
+    changed['finite_join']['exact_unitary_probability_enclosures'].pop()
+    with pytest.raises(ValueError,match='detector outcome'):
+        joint_panels.check_native_join(changed)
 
 
 def test_numeric_preparation_label_is_receipt_driven(joint):

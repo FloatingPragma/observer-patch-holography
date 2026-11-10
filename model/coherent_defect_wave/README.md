@@ -17,12 +17,37 @@ domains are explicit. The tested spatial spectator band is quadratic at
 small momentum; the primitive triplet copies have identical spectra.
 Neither result establishes a relativistic species or three lepton masses.
 
+## Energy and collisions
+
+A [specified positive Hamiltonian](energy/PROOF.md) combines onsite repair
+with spatial hopping. It has exact constrained grounds and an executed
+two-wave collision in a six-state invariant source sector. Complete detectors
+record occupation transfer, retain preparation failures and distinguish the
+contact interaction from independent hopping. This continuous clock differs
+from the circuit tick. Its [populated triplet bands](dispersion/PROOF.md)
+fail the required common relativistic dispersion test.
+
+## Moving defects and a free relativistic limit
+
+The [mobile-flux extension](mobile_flux/PROOF.md) adds a flat orbit and moves
+complete inside/exterior flux pairs between cells, preserving total pair
+count and Gauss constraints. Five face locations are not five species.
+A [two-lane routing construction](mobile_flux/ROUTING_COMPLETION.md) transports
+the same link object and has a controlled free Dirac window with rest-frequency
+magnitude two under a declared face-count coin. Its routing memory, clock and
+collision rule are architectural choices. A physical many-body vacuum,
+statistics, interacting relativistic limit and GeV identification require
+their own attachments.
+
 ```sh
 python -m model.coherent_defect_wave --check
 python -m model.coherent_defect_wave.background --check
 python -m model.coherent_defect_wave.spectroscopy --check
 python -m model.coherent_defect_wave.spatial --check
 python -m model.coherent_defect_wave.species --check
+python -m model.coherent_defect_wave.energy --check
+python -m model.coherent_defect_wave.dispersion --check
+python -m model.coherent_defect_wave.mobile_flux --check
 python -m pytest -q model/coherent_defect_wave
 ```
 
@@ -84,3 +109,10 @@ operational interaction and coherence controls, not particle-scattering data.
 imports, records every detector complement, and contains the separate declared
 architecture and physical-scope boundaries. Regenerate it with `--write` after
 a source change. No empirical particle inputs enter the construction.
+
+The [native-routing join](native_routing_join/PROOF.md) couples each routed
+link lane to its own native occupation register in one specified weak clock.
+It retains the flat/empty reference and exact native-empty free route, while
+an executed native-wave input gives a strictly positive bounded response of
+the transported defect. Lorentz-compatible native dynamics and a surviving
+interacting scaling limit are separate physical requirements.

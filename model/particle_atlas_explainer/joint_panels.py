@@ -1,6 +1,7 @@
 """Receipt-bound finite defect-wave interaction and its complete readouts."""
 import hashlib
 import json
+from fractions import Fraction
 from pathlib import Path
 
 from .canvas import AMBER, BLUE, EDGE, MUTED, SOFT, TEAL, TEXT, VIOLET
@@ -8,6 +9,48 @@ from .parts import CW, X0, card
 
 ROOT = Path(__file__).resolve().parents[2]
 RECEIPT = ROOT / 'model/coherent_defect_wave/results.json'
+EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
+              'cubic_readout', 'energy', 'dispersion', 'physical_attachment', 'mobile_flux',
+              'native_routing_join')
+FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
+             'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
+             'rest_masses_derived', 'interacting_relativistic_continuum',
+             'GeV_prediction', 'physical_rest_mass_identified',
+             'energies_are_physical_rest_masses', 'source_derived_GeV_masses',
+             'physical_particle_or_Standard_Model_identification',
+             'SM_particle_identification', 'GeV_masses', 'interacting_Lorentz_limit',
+             'dynamical_chiral_gauge_theory', 'SM_identity_or_GeV_mass_derived',
+             'interacting_relativistic_limit_proved', 'SM_particle_or_GeV_mass_identified',
+             'positive_energy_many_body_vacuum_derived', 'physical_interacting_relativistic_limit',
+             'scattering_or_SM_identity_or_GeV_mass', 'positive_energy_many_body_vacuum',
+             'physical_statistics_or_chiral_matter'}
+
+
+def check_extension_scope(value, name):
+    """Check nested claims too: a declared rest parameter is permitted, an SM mass is not."""
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if key in FORBIDDEN and item is not False:
+                raise ValueError('joined extension physical promotion: ' + name + '/' + key)
+            check_extension_scope(item, name + '/' + key)
+    elif isinstance(value, list):
+        for item in value:
+            check_extension_scope(item, name)
+
+
+def check_native_join(value):
+    if not value['shared_tuple']['native_U_reads_the_same_link_register_as_routing']:
+        raise ValueError('native routing join has no shared link register')
+    finite=value['finite_join']
+    if finite['Taylor_output_renormalized'] or not finite['complete_binary_instrument']:
+        raise ValueError('native routing join substitutes an incomplete approximate readout')
+    rows=finite['exact_unitary_probability_enclosures']
+    if len(rows)!=2 or {row['changed_face'] for row in rows}!={False,True}:
+        raise ValueError('native routing join omits a detector outcome')
+    bounds={row['changed_face']:(Fraction(row['lower']),Fraction(row['upper'])) for row in rows}
+    if (not all(0<=lo<=hi<=1 for lo,hi in bounds.values()) or bounds[True][0]<=0
+            or bounds[False][0]+bounds[True][1]!=1 or bounds[False][1]+bounds[True][0]!=1):
+        raise ValueError('native routing join probability bounds are not complete')
 
 
 def load():
@@ -35,7 +78,7 @@ def load():
             coherent['all_recorded_branches_preserve_positive_constraint']):
         raise ValueError('return apparatus leaves the admitted gauge sector')
     value['extensions'] = {}
-    for name in ('background', 'spectroscopy', 'spatial', 'species'):
+    for name in EXTENSIONS:
         path = RECEIPT.parent / name / 'results.json'
         extension = json.loads(path.read_text())
         if not extension.get('input_sha256'):
@@ -44,12 +87,8 @@ def load():
             target = (ROOT/source).resolve()
             if not target.is_relative_to(ROOT) or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
                 raise ValueError('stale joined extension input: ' + source)
-        scope = extension.get('scope', extension.get('physical_scope', {}))
-        for key in ('physical_mass_identified', 'relativistic_mass_or_GeV_value',
-                    'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
-                    'rest_masses_derived', 'interacting_relativistic_continuum'):
-            if scope.get(key, False):
-                raise ValueError('joined extension physical promotion: ' + name + '/' + key)
+        check_extension_scope(extension, name)
+        if name=='native_routing_join':check_native_join(extension)
         value['extensions'][name] = extension
     return value
 
@@ -139,8 +178,6 @@ def draw(c, data, y):
 
     extensions = value['extensions']
     background = extensions['background']
-    spectrum = extensions['spectroscopy']
-    weight = spectrum['stationary_background_relative_readout']['total_nonflat_probability_per_background_trial']
     h, gap, w = 394, 22, (CW - 44) / 3
     for i, (tag, title, body, number, proof, color) in enumerate((
             ('Prepare → disturb → read', 'A fixed background with visible excitations',
@@ -169,31 +206,130 @@ def draw(c, data, y):
                '../../model/coherent_defect_wave/' + proof + '/PROOF.md', 16)
     y += h + 22
 
-    h = 330
-    card(c, X0, y, CW, h, stroke=AMBER)
-    c.text(X0 + 28, y + 43, 'A frequency becomes a mass only after the physical checks', 28, TEXT, 700)
-    c.para(X0 + 28, y + 83, CW - 56,
-        'The complete background experiment keeps 40 face/filter/clock records. Its active '
-        'excitation weight is ' + weight + ', conditional on background preparation. These are '
-        'dimensionless frequencies of the simulation. A separate two-cell CAR experiment jointly '
-        'resolves translation and phase, with all preparation failures retained. Its two momentum '
-        'labels do not determine a three-dimensional mass shell. A local energy convention, momentum-dependent '
-        'dispersion, physical spin and currents, and the appropriate pole or threshold must connect '
-        'them to a particle. The quadratic gapless spectator branch fails the massless '
-        'relativistic test near zero momentum. Equal triplet spectra cannot be three unequal lepton masses.',
-        19, SOFT, 1.4)
-    c.link(X0 + 28, y + h - 28, 'Complete source-frequency readout',
-           '../../model/coherent_defect_wave/spectroscopy/PROOF.md', 16)
-    c.link(X0 + 805, y + h - 28, 'Ten requirements and exact status',
-           '../../model/coherent_defect_wave/PARTICLE_PATH.md', 16)
+    cubic = extensions['cubic_readout']
+    energies = extensions['dispersion']
+    collision = extensions['energy']['finite_dark_collision']
+    records = len(cubic['experiment']['complete_joint_records'])
+    refined = len(cubic['higher_momentum_experiment']['complete_joint_records'])
+    ratios = ' : '.join(f'{float(x):.6f}'.rstrip('0').rstrip('.')
+                        for x in energies['three_nonzero_source_energy_ratios_approximate'])
+    h, gap, w = 438, 22, (CW - 44) / 3
+    for i, (tag, title, body, number, proof, color) in enumerate((
+            ('Whole field → momentum record', 'Three spatial directions, one clock',
+             'The cubic experiment translates each whole cell: its wave and retained link data. '
+             'It records momentum and clock interference together, with every alternative kept. '
+             'The larger cube adds complex translation phases; its complete probabilities are '
+             'computed without materializing every branch vector. Preparation failures count too.',
+             f'{records} records; {refined} on the larger cube', 'cubic_readout', BLUE),
+            ('One explicit positive energy law', 'Exact energies; a failed relativistic test',
+             'The declared positive clock has exact carrier energies and three-dimensional '
+             'dispersion. Its three populated positive gaps have the ratios below. Their '
+             'curvatures imply different limiting speeds; refining this additive branch '
+             'does not give a common relativistic mass shell. These are source energies, not lepton masses.',
+             ratios, 'dispersion', AMBER),
+            ('Two waves → three detector outcomes', 'An exact finite collision',
+             'Six actual source states form an invariant interacting sector of the same '
+             'positive clock. From the specified pair preparation, two waves exchange '
+             'occupation between cells. The detector '
+             'keeps zero, one and two waves on the left. The source contact term changes '
+             'this response compared with independent waves. The carrier flux stays in its cell.',
+             'Maximum double occupation: ' +
+             collision['maximum_double_occupation_probability'].replace('pi', 'π').replace('**2', '²'),
+             'energy', TEAL))):
+        x = X0 + i * (w + gap)
+        card(c, x, y, w, h)
+        c.caps(x + 24, y + 35, tag, color, 12)
+        yy = c.para(x + 24, y + 76, w - 48, title, 24, TEXT, 1.28, 700)
+        c.para(x + 24, yy + 10, w - 48, body, 18, SOFT, 1.36)
+        c.text(x + 24, y + h - 58, number, 16, color, 700, maxw=w - 48)
+        c.link(x + 24, y + h - 25, 'Source, clock and complete readout',
+               '../../model/coherent_defect_wave/' + proof + '/PROOF.md', 16)
     y += h + 22
-    c.para(X0 + 24, y + 8, CW - 48,
-        '{a|What this establishes.} A finite, reciprocal interaction with retained boundary flux, '
-        'coherent propagation and complete specified detectors. Its fixed boundary, one-defect '
-        'sector, quantum registers and control order are declared. Physical particle species, '
-        'spin, rest masses and an interacting relativistic continuum are not identified.',
-        18, MUTED, 1.42)
-    y += 112
+
+    mobile = extensions['mobile_flux']
+    paired, route = mobile['paired_flux'], mobile['protected_object_route']
+    mass = route['positive_branch_rest_parameter']
+    h, gap, w = 470, 22, (CW - 22) / 2
+    for i, (tag, title, body, proof, color) in enumerate((
+            ('Boundary data travel with the defect', 'The protected pair really changes cell',
+             'The enlarged link domain includes a flat vacuum. An interface gate carries '
+             'the interior flux and its exterior compensator together. Complete position '
+             'records give equal left/right chances after one exchange and certain transfer '
+             'after two. The moved link changes the receiver’s wave response. Five internal '
+             'face locations describe one protected type, not five identified species.',
+             'PROOF.md', AMBER),
+            ('Same source object → free Dirac window', 'A rest frequency for that same flux pair',
+             'Two routing lanes carry the literal paired-flux link code. Their local memory '
+             'has ' + str(route['full_two_lane_local_dimension']) + ' states, including collisions. '
+             'A chosen mass coin uses the actual count of ' + str(route['source_face_count']) +
+             ' flipped faces. The same object’s position and Fourier readouts have a controlled '
+             'free Dirac limit. Its spinor memory and coupling law are declared architecture.',
+             'ROUTING_COMPLETION.md', VIOLET))):
+        x = X0 + i * (w + gap)
+        card(c, x, y, w, h, stroke=color)
+        c.caps(x + 24, y + 35, tag, color, 12)
+        yy = c.para(x + 24, y + 76, w - 48, title, 25, TEXT, 1.28, 700)
+        c.para(x + 24, yy + 12, w - 48, body, 18, SOFT, 1.36)
+        if i == 0:
+            box_y = y + h - 143
+            for box_x in (x + 44, x + w - 199):
+                c.rect(box_x, box_y, 145, 62, 'none', EDGE, 1.7, 10)
+                c.circle(box_x + 55, box_y + 24, 8, AMBER)
+                c.circle(box_x + 90, box_y + 24, 8, 'none', AMBER, 2)
+                c.line(box_x + 63, box_y + 24, box_x + 82, box_y + 24, AMBER, 1.4)
+            c.arrow(x + 204, box_y + 25, x + w - 215, box_y + 25, color, 2.4, 9)
+            c.text(x + 61, box_y + 52, 'inside + outside', 14, SOFT)
+            c.text(x + w - 184, box_y + 52, 'inside + outside', 14, SOFT)
+            c.text(x + 24, y + h - 55,
+                   'P(left/right) = ' + paired['charge_position_records_after_one_exchange']['10'] +
+                   ' / ' + paired['charge_position_records_after_one_exchange']['01'], 18, color, 700)
+        else:
+            c.text(x + 24, y + h - 115, 'ω² = |p|² + ' + str(mass*mass) + ';  |ω(0)| = ' +
+                   str(mass) + ' (declared units)', 23, color, 700, maxw=w-48)
+            c.para(x + 24, y + h - 79, w - 48,
+                   'Bounded-window error: t·a·(3P² + ' + str(3*abs(mass)) +
+                   'P). No GeV or Standard Model identity follows.',
+                   17, MUTED, 1.3)
+        c.link(x + 24, y + h - 25, 'Literal source encoding and proof',
+               '../../model/coherent_defect_wave/mobile_flux/' + proof, 16)
+    y += h + 22
+
+    native_join=extensions['native_routing_join']
+    finite_join=native_join['finite_join']
+    h = 274
+    card(c, X0, y, CW, h, stroke=TEAL)
+    c.text(X0 + 28, y + 43, 'One finite clock joins routed flux to native repair', 28, TEXT, 700)
+    c.para(X0 + 28, y + 83, CW - 56,
+        'Routing and the weak native update read the very same link word. The specified '
+        'joint clock retains the gauge constraints and every collision sector. In a side-three '
+        'cube, native repair gives a strictly positive chance of changing the routed pair’s '
+        'internal face. Both detector outcomes have rigorous probability intervals; the Taylor '
+        'vector is never renormalized. Empty native registers recover the free route exactly, '
+        'so this interaction gives no vacuum mass correction there. Its interacting Lorentz '
+        'limit remains unproved.', 19, SOFT, 1.4)
+    c.text(X0 + 28, y + h - 60, 'Certified vector error ≤ ' +
+           finite_join['Taylor_vector_error_upper'] + ' · both outcomes retained',
+           18, TEAL, 700, maxw=CW-56)
+    c.link(X0 + 28, y + h - 25, 'Same source, reference, clock and detector',
+           '../../model/coherent_defect_wave/native_routing_join/PROOF.md', 16)
+    y += h + 22
+
+    h = 228
+    card(c, X0, y, CW, h, stroke=BLUE)
+    c.text(X0 + 28, y + 43, 'The remaining connection is physical identification', 28, TEXT, 700)
+    c.para(X0 + 28, y + 83, CW - 56,
+        'Spin and currents are proved for the declared free Dirac route. Fifteen internal '
+        'weights match one chiral fermion family, and their Higgs mass channels are checked; '
+        'the scalar state and coupling strengths are not selected. The positive energy clock, '
+        'the ordered cubic clock and the native-coupled spinor route are explicit, distinct programs. '
+        'Their receipts cannot be exchanged. A shared interacting relativistic limit, a '
+        'physical vacuum, statistics, measured species and GeV masses remain unproved.',
+        19, SOFT, 1.4)
+    c.link(X0 + 28, y + h - 25, 'Spin, currents and mass constraints',
+           '../../model/coherent_defect_wave/physical_attachment/PROOF.md', 16)
+    c.link(X0 + 805, y + h - 25, 'Dependencies and exact status',
+           '../../model/coherent_defect_wave/PARTICLE_PATH.md', 16)
+    y += h + 35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)
     c.link(X0 + 805, y, 'Exact joint receipt', '../../model/coherent_defect_wave/results.json', 17)

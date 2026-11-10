@@ -7,10 +7,31 @@ same program admits an interior Gauss constraint and a faithful stationary
 preparation. Its finite interaction uses explicit occupation-controlled
 repair gates. Its [particle path](coherent_defect_wave/PARTICLE_PATH.md)
 includes a prepared pure stationary background, complete frequency records,
-a connected local circuit and a shared-link occupation extension. The tested
-spatial spectator branch has quadratic low-momentum dispersion; a controlled
-relativistic branch, physical species and particle masses require further
-construction.
+a connected local circuit and a shared-link occupation extension.
+
+The [positive-clock construction](coherent_defect_wave/energy/PROOF.md) executes
+an exact two-wave collision with complete occupation records and retained
+preparation failures. A control distinguishes its contact interaction from
+independent hopping. The positive Hamiltonian is a specified clock choice;
+its source energies have [tested nonrelativistic bands](coherent_defect_wave/dispersion/PROOF.md),
+without a physical mass assignment.
+
+The [mobile-flux source](coherent_defect_wave/mobile_flux/PROOF.md) adds a flat
+sector and transports complete inside/exterior flux pairs between cells.
+Its five face locations are not five species. A
+[two-lane routing construction](coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
+has a controlled free Dirac limit for the same link object, with rest-frequency
+magnitude two under a declared face-count coin. The routing memory and clock
+are architecture choices. A positive-energy many-body reference, physical
+statistics, interacting relativistic limit and measured particle dictionary
+require further construction.
+
+The [native-routing join](coherent_defect_wave/native_routing_join/PROOF.md)
+puts the transported flux and native interaction on one specified clock,
+with the same Gauss encoding and fixed flat/empty reference. Its complete
+face detector has a strictly positive certified response to an occupied
+native register. The native-empty sector retains the free route exactly;
+this coupling does not generate a vacuum mass correction there.
 
 The [coherent seam observer](coherent_seam_repair/README.md) repairs seam
 disagreement while keeping the removed information in coherent memory.

@@ -48,6 +48,70 @@ definition before GeV conversion.
 
 ## Response of a reversible repair defect
 
+The [positive-clock source spectrum](../../model/coherent_defect_wave/dispersion/PROOF.md)
+has exactly populated zero-momentum energies
+`0,(5-sqrt(5))/60,1/10,(5+sqrt(5))/60` in the stated uniform-link reference.
+The three positive ratios `1:2.170820393…:2.618033989…` follow from the actual
+carrier projectors and joint U/U* action. Their additive hopping dispersion
+fails a common relativistic speed test. Consequently these numbers are
+source energies with an excluded common relativistic interpretation, rather than a
+GeV particle table.
+
+The [energy calculation](../../model/coherent_defect_wave/energy/PROOF.md)
+also executes nonadditive two-wave dynamics and bounds a positive finite-time
+defect-face response. The [cubic discrete instrument](../../model/coherent_defect_wave/cubic_readout/PROOF.md)
+resolves multiple spatial momenta with retained alternatives. These two
+clocks remain distinct. Neither an expectation value nor a Fourier bin is
+an isolated particle mass. The [chiral attachment](../../model/coherent_defect_wave/physical_attachment/PROOF.md)
+states which mass interactions are allowed and which source coefficients
+are unspecified.
+
+## A mobile defect's specified rest-frequency response
+
+The [mobile paired-flux program](../../model/coherent_defect_wave/mobile_flux/PROOF.md)
+transports the protected pair itself and reads its position jointly with a
+receiving native wave. The complete receiver records are
+`119/240,1/240,1/2,0`, conditional on the recorded Gauss-success branch.
+Its [Clifford routing completion](../../model/coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
+assigns the literal face count `D=2` to the mass coin `a*D`. The same object's
+one-particle source code then has controlled free frequencies
+`+/-sqrt(|p|^2+4)` and rest frequency `2` in declared source units.
+This chosen coupling explains the number inside that program; no observed
+particle mass was used to fit it. It does not determine which measured
+particle, if any, realizes that program, or its GeV conversion factor.
+
+An independent [finite collision](../../model/coherent_defect_wave/energy/PROOF.md)
+is exact on the earlier positive-Hamiltonian branch. Two dark wave flavours
+have onsite energy `2N-4n_a*n_b`. At
+`t=pi/sqrt(16+pi^2)`, the complete left-occupation probabilities for
+`0,1,2` are `pi^2/[2(16+pi^2)],16/(16+pi^2),pi^2/[2(16+pi^2)]`.
+These collision records and the mobile pair's free Dirac limit cannot be
+combined into an interacting mass by changing labels: they use different
+programs, clocks and source sectors.
+
+## A common finite clock for routing and native interaction
+
+The [native-routing join](../../model/coherent_defect_wave/native_routing_join/PROOF.md)
+uses the same transported link words, one independent native occupation
+register per routing lane, and the occupation-dependent Gauss encoding.
+Its fixed clock is `J(a,lambda)=exp(-i*a*lambda*K) R_a`, where
+`K=sum_lanes[I-Re U_F]` and `R_a` is the complete paired-flux route.
+The flat, empty product reference is fixed. On native-number sector N,
+`0<=K<=2N`; Taylor evaluation has an explicit operator-norm remainder.
+An executed three-dimensional experiment gives a strictly positive bounded
+probability that the native wave changes the routed pair's face label.
+Both detector outcomes are retained.
+
+This is a finite interaction on one source, state and clock. In the
+native-empty sector K is exactly zero, so the same clock retains the
+free one-object rest frequency `2` without a native vacuum mass correction.
+The native registers remain at their cells. Their covariant propagation,
+the interaction's Lorentz transformation, momentum-window control and
+nonvanishing continuum interaction require proof. The finite join does
+not transfer the separate positive-Hamiltonian collision spectrum to J.
+
+## Local seam response
+
 The [coherent seam observer](../../model/coherent_seam_repair/README.md) stores
 the antisymmetric seam component in a coherent correction register. An address
 reflection completes its wave step. Its clock, prepared reference and optional

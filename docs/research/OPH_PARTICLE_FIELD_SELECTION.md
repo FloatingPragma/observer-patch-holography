@@ -35,6 +35,67 @@ weights do not select the complete Standard Model gauge and matter dynamics.
 
 ## Source choice for coherent seam transport
 
+The [positive energy law](../../model/coherent_defect_wave/energy/PROOF.md)
+specifies a continuous source clock without a uniqueness requirement.
+Its nonlinear functional `I-Re U_F` introduces a particular many-occupation
+interaction; it does not merely rename the original Floquet clock.
+The [exact triplet dispersion](../../model/coherent_defect_wave/dispersion/PROOF.md)
+fails the required common relativistic limit, so the field selection must
+use a different kinetic/mass attachment or a different demonstrated sector.
+
+The [physical attachment calculation](../../model/coherent_defect_wave/physical_attachment/PROOF.md)
+provides a constructive spin/current interface for the separate Clifford
+route and exact Higgs-current tensors for the chiral15. Hypercharge forbids
+all unbroken constant Weyl masses. The permitted up, down and charged-lepton
+Higgs channels leave their coupling coefficients free. If the full lifted
+`U(3) x U(2)` symmetry is retained, an explicit charged-memory controller
+compensates the determinant character of these vertices. Retaining only the
+trace-free gauge symmetry is another architectural choice. Neither choice
+selects the Higgs state or the observed mass coefficients.
+
+## Mobile paired flux and a specified routing law
+
+The [mobile-flux extension](../../model/coherent_defect_wave/mobile_flux/PROOF.md)
+permits zero or one regional pair per carrier, exchanges the full paired
+holonomy and its boundary data between carriers, and couples the received
+link word to the actual native wave. It preserves the positive Gauss sector
+and total pair number. Fixed regional boundary charge is replaced by this
+explicit conserving transport grammar; protection is relative to that grammar.
+
+The [complete two-lane route](../../model/coherent_defect_wave/mobile_flux/ROUTING_COMPLETION.md)
+adds Clifford memory, conditional local shifts and a mass coin with angle
+`a*D`. Its 121-state cell includes all collision configurations. The
+one-object code carries the same source pair, with `D=2`, and has a controlled
+free Dirac limit with rest frequency `2`. The memory, gate order and coefficient
+are chosen architecture. This route, the native-wave receiver interaction and
+the positive Hamiltonian are distinct specified laws. No free-route bound is
+transferred to their interacting combination. Joining the chiral currents,
+a physical many-body reference and the full interacting scaling limit is the
+remaining field-selection requirement.
+
+## A common finite clock for routing and native interaction
+
+The [native-routing join](../../model/coherent_defect_wave/native_routing_join/PROOF.md)
+uses the same transported link words, one independent native occupation
+register per routing lane, and the occupation-dependent Gauss encoding.
+Its fixed clock is `J(a,lambda)=exp(-i*a*lambda*K) R_a`, where
+`K=sum_lanes[I-Re U_F]` and `R_a` is the complete paired-flux route.
+The flat, empty product reference is fixed. On native-number sector N,
+`0<=K<=2N`; Taylor evaluation has an explicit operator-norm remainder.
+An executed three-dimensional experiment gives a strictly positive bounded
+probability that the native wave changes the routed pair's face label.
+Both detector outcomes are retained.
+
+This is a finite interaction on one source, state and clock. In the
+native-empty sector K is exactly zero, so the same clock retains the
+free one-object rest frequency `2` without a native vacuum mass correction.
+The native registers remain at their cells. Their covariant propagation,
+the interaction's Lorentz transformation, momentum-window control and
+nonvanishing continuum interaction require proof. The finite join does
+not transfer the separate positive-Hamiltonian collision spectrum to J.
+
+## Local transport architecture
+
 The [coherent repair construction](../../model/coherent_seam_repair/PROOF.md)
 defines its memory, address reflection, state preparation and walk clock as
 architecture. No uniqueness theorem is required for those choices. They also

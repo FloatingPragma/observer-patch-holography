@@ -36,4 +36,10 @@ jobs:
       - run: python -m model.coherent_defect_wave.spectroscopy --check
       - run: python -m model.coherent_defect_wave.spatial --check
       - run: python -m model.coherent_defect_wave.species --check
+      - run: python -m model.coherent_defect_wave.cubic_readout --check
+      - run: python -m model.coherent_defect_wave.energy --check
+      - run: python -m model.coherent_defect_wave.dispersion --check
+      - run: python -m model.coherent_defect_wave.physical_attachment --check
+      - run: python -m model.coherent_defect_wave.mobile_flux --check
+      - run: python -m model.coherent_defect_wave.native_routing_join --check
       - run: python -m pytest -q -W error model/coherent_defect_wave
