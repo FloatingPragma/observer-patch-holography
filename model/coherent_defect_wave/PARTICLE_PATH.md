@@ -31,6 +31,11 @@ The separate open Wilson gauge-matter family retains its own source contract.
 | [Three-axis quantum source](chiral_joint/periodic_family/PROOF.md) | Full R15 matter, quantum links/scalars, three exact commuting translations and complete physical phase control | Its physical ground and three-dimensional dispersion are separate from the reduced lepton control |
 | [Dressed finite interaction](chiral_joint/field_limit/PROOF.md) | Actual Gauss-block generator residual below 1e-12, plus a positive connected energy at a separately declared large link penalty | Raw long paths amplify a blank reference; a bounded hardware alternative has its own spectrum and physical limit |
 | [Spectral-edge attachment](chiral_joint/spectral_edges/PROOF.md) | Actual original preparation weight supplies the existing threshold theorem | Stable poles, charged infrared thresholds, resonances and confined-quark parameters require their own physical identifications |
+| [Literal Peter–Weyl links](chiral_joint/peter_weyl_links/PROOF.md) | All 37 coordinate channels, full endpoint currents, contraction and cubic rotations; positive neutral propagation from actual fifth-order source moment | Complete finite prepared response; no stationary moving branch or continuum identification |
+| [All-family compensated transport](chiral_joint/family_transport/PROOF.md) | One H and dual-native reference, all five actual irreps, thirty complete second powers, local prepared/control contrast at least 1/81866304 | The compensated excitation retains its flux string; a static reference does not prove free charged propagation |
+| [Complete physical local reference](chiral_joint/local_reference/PROOF.md) | Full quark character bound and all 104 decisive physical states prove the global local ground doublet, gap about 0.08955533047607, and exact mean occupation fifteen | Zero boundary gauge charge, no hopping; a many-cell vacuum needs link-compensated sectors and hopping |
+| [Matter-generated ring](chiral_joint/matter_induced_ring/PROOF.md) and [contractible square](chiral_joint/matter_induced_plaquette/PROOF.md) | Complete eliminated-state kernels and original-clock loop records; the PW square includes singlet and colored channels | Energy-dependent kernels and finite records do not establish an autonomous gauge phase or physical boson |
+| [Exact finite rational clock](chiral_joint/finite_clock/PROOF.md) | Same-H unitary functional calculus, explicit full-space error, positive neutral and all-family contrast; complete 72-state rational loop execution | Declared finite algebraic service; no efficient huge-source local circuit or physical time calibration |
 
 
 The canonical dictionary is a charge-conjugating change of variables on the
@@ -59,7 +64,10 @@ charged dark module have K=0; neither supplies a hidden vacuum mass correction.
    quantum gauge/Higgs H has an explicit nonempty Gauss sector, a faithful
    physical Gibbs state and complete preparation using that same clock.
    Its uniform two-cell member also has a fully enclosed physical spectrum
-   and unique neutral ground. Establish a growing zero-temperature/reference
+   and unique neutral ground. Exact full-sector bounds determine the
+   full-family zero-boundary-charge local ground doublet and gap. Nonblank
+   links admit charged local sectors; the lattice reference must include
+   them and actual hopping. Establish a growing zero-temperature/reference
    trajectory with uniform spectral or correlation control. Existence
    of each finite Gibbs filter does not prove efficient preparation, a
    Lorentz vacuum or a nontrivial growing-family limit. The onsite ground,

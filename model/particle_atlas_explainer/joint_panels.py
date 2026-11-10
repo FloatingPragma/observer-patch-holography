@@ -21,7 +21,10 @@ EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'chiral_joint/higgs_composites', 'chiral_joint/spectral_edges',
               'chiral_joint/oriented_links', 'chiral_joint/neutral_mobility',
               'chiral_joint/family_cell', 'chiral_joint/neutral_local_spectrum',
-              'chiral_joint/neutral_composite', 'chiral_joint/periodic_boson_records')
+              'chiral_joint/neutral_composite', 'chiral_joint/periodic_boson_records',
+              'chiral_joint/peter_weyl_links', 'chiral_joint/family_transport',
+              'chiral_joint/local_reference', 'chiral_joint/matter_induced_ring',
+              'chiral_joint/matter_induced_plaquette', 'chiral_joint/finite_clock')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -57,7 +60,13 @@ FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'moving_neutrino_or_relativistic_mass_identified', 'three_observed_neutrino_generations',
              'empirical_neutrino_identification', 'named_physical_bosons_identified',
              'Higgs_photon_W_Z_gluon_particle_identification', 'physical_Lorentz_spin_or_mass',
-             'continuum_propagation_or_GeV_mass'}
+             'continuum_propagation_or_GeV_mass', 'physical_mass_or_relativistic_propagation_inferred',
+             'representation_names_are_measured_particle_identifications',
+             'prepared_states_identified_as_ground_or_free_particles',
+             'physical_photon_gluon_W_or_Z_identified', 'physical_photon_or_W_Z_gluon_identified',
+             'Coulomb_confining_or_relativistic_phase', 'physical_GeV_scale',
+             'interacting_many_cell_vacuum_proved',
+             'raw_charge_identified_with_measured_particle_number'}
 
 
 def check_extension_scope(value, name):
@@ -201,8 +210,32 @@ def load():
     check_local_reference(value['extensions']['chiral_joint/neutral_local_spectrum'])
     check_neutral_detectors(value['extensions']['chiral_joint/neutral_composite'],
                             value['extensions']['chiral_joint/periodic_boson_records'])
+    check_PW_transport(value['extensions'])
     check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
+
+
+
+def check_PW_transport(extensions):
+    pw=extensions['chiral_joint/peter_weyl_links']['complete_neutral_transfer_experiment']
+    family=extensions['chiral_joint/family_transport']
+    dictionary=family['actual_native_family_dictionary']
+    law=family['same_clock_full_H_probability_records']
+    local=extensions['chiral_joint/local_reference']['global_physical_ground_and_gap']
+    if (pw['extra_neutral_hopping_term'] or pw['discarded_source_states_or_dynamical_terms']
+            or Fraction(pw['complete_arrival_probability_interval'][0])<=0):
+        raise ValueError('Peter-Weyl source motion changed')
+    if (dictionary['native_families']!=1
+            or {r['six_Y'] for r in dictionary['native_irrep_rows']}!={-4,1,6,-3,2}
+            or law['source_or_reference_states_discarded']
+            or Fraction(law['strict_local_record_contrast_lower_bound'])<=0):
+        raise ValueError('complete family transport changed')
+    if (local['full_maximal_module_physical_dimension']!=104
+            or local['global_physical_ground_rank']!=2 or local['dark_energy_one_rank']!=56
+            or not local['full_physical_complement_excluded_by_strict_bound']
+            or Fraction(local['global_physical_gap_interval'][0])<=0
+            or local['interacting_many_cell_vacuum_proved']):
+        raise ValueError('complete local reference or scope changed')
 
 
 def check_periodic(value, higgs):
@@ -651,57 +684,94 @@ def draw(c, data, y):
            '../../model/coherent_defect_wave/chiral_joint/periodic_boson_records/PROOF.md',16)
     y+=h+22
 
-    motion=extensions['chiral_joint/neutral_mobility']['complete_physical_arrival_experiment']
-    h=405
+    motion=extensions['chiral_joint/peter_weyl_links']['complete_neutral_transfer_experiment']
+    family=extensions['chiral_joint/family_transport']['same_clock_full_H_probability_records']
+    h=655
     card(c,X0,y,CW,h,stroke=TEAL)
-    c.text(X0+28,y+43,'A tested design change lets a neutral packet move',28,TEXT,700)
-    c.para(X0+28,y+82,CW-56,
-        'A bare local Higgs–lepton packet carries a conserved star tag in the original link law. '
-        'That tag prevents this particular packet from moving with its required flux record. '
-        'An explicit extra hopping rule changes the tag at both endpoints and preserves the physical gauge constraints.',
-        19,SOFT,1.4)
+    c.text(X0+28,y+43,'Quantum links let a neutral packet move',28,TEXT,700)
+    c.para(X0+28,y+83,CW-56,
+        'The full Peter–Weyl link rule includes 27 transitions between excited flux sectors. '
+        'Those transitions release the conserved star tag of the minimal link rule. '
+        'The source then transports a scalar–lepton packet using its actual Yukawa and hopping terms. '
+        'No extra neutral hopping term is inserted.',19,SOFT,1.4)
     w=(CW-104)/3
-    labels=(('119-state quantum link','Both flux orientations; bounded transport. '
-             'All 24 proper cubic rotations preserve the chosen Hamiltonian.'),
-            ('Prepare the physical packet','A scalar and lepton form a gauge singlet. '
-             'Its fermionic reference and both spin branches are retained.'),
-            ('Read a neighboring detector','At t = '+motion['source_time']+', arrival is at least '+
-             motion['complete_arrival_probability_interval'][0]+'. No arrival is the complementary record.'))
+    labels=(('Prepare a neutral packet','Scalar and lepton form a gauge singlet. '
+             'Keep both spin branches and the fermionic reference.'),
+            ('Let the source act','119 states per link. Five actual H factors '
+             'give the first neighboring transfer; every matter block contributes.'),
+            ('Read the next cell','Opposite-spin arrival has a strictly positive '
+             'full-H bound. The complete no-arrival record is retained.'))
     for i,(title,body) in enumerate(labels):
         xx=X0+28+i*(w+24)
-        c.rect(xx,y+176,w,130,'#142337',EDGE,1,8)
-        c.text(xx+14,y+205,title,19,TEAL,700,maxw=w-28)
-        c.para(xx+14,y+233,w-28,body,17,SOFT,1.32)
-    c.para(X0+28,y+337,CW-56,
-        'All quark, scalar and link interactions participate. The full error is bounded. '
-        'This proves finite physical motion on a declared extension; a stationary vacuum and relativistic mass require their own calculation.',
-        18,MUTED,1.35)
-    c.link(X0+28,y+h-15,'Exact source, preparation, detector and arrival bound',
-           '../../model/coherent_defect_wave/chiral_joint/neutral_mobility/PROOF.md',16)
+        c.rect(xx,y+181,w,144,'#142337',EDGE,1,8)
+        c.text(xx+14,y+212,title,19,TEAL,700,maxw=w-28)
+        c.para(xx+14,y+242,w-28,body,17,SOFT,1.32)
+        if i<2:c.text(xx+w+5,y+259,'→',19,TEAL,700)
+    c.text(X0+28,y+369,'All five matter representations also move with their compensating flux',23,TEAL,700,maxw=CW-56)
+    c.para(X0+28,y+408,CW-56,
+        'Up-conjugate quarks, the quark doublet, charged-lepton singlet, lepton doublet and '
+        'down-conjugate quarks share one Hamiltonian and one dual-native reference. '
+        'Every full preparation includes its gauge and spin partners. A local detector distinguishes '
+        'prepared arrival from the preparation-off background at the same time.',19,SOFT,1.4)
+    c.text(X0+28,y+517,'Common time '+family['common_source_time']+' · positive local contrast ≥ '+
+        family['strict_local_record_contrast_lower_bound'],21,TEAL,700,maxw=CW-56)
+    c.para(X0+28,y+553,CW-56,
+        'These are source representation names and compensated finite motion. '
+        'A stationary moving branch, physical mass shell and measured species require their own identification. '
+        'The exact finite rational clock preserves the detector contrast.',18,MUTED,1.35)
+    c.link(X0+28,y+h-18,'Actual link law and neutral propagation',
+           '../../model/coherent_defect_wave/chiral_joint/peter_weyl_links/PROOF.md',16)
+    c.link(X0+660,y+h-18,'All-family transport and complete local detectors',
+           '../../model/coherent_defect_wave/chiral_joint/family_transport/PROOF.md',16)
     y+=h+22
 
+    local=extensions['chiral_joint/local_reference']
+    gap=local['global_physical_ground_and_gap']['global_physical_gap_interval']
     h=420
     card(c,X0,y,CW,h,stroke=BLUE)
-    c.text(X0+28,y+43,'All quark and lepton channels in one quantum cell',28,TEXT,700)
-    c.text(X0+28,y+92,'97,878 states  →  240 exact classes  →  36 physical spectral states',25,BLUE,700,maxw=CW-56)
+    c.text(X0+28,y+43,'Which interacting local state is the reference?',28,TEXT,700)
+    c.text(X0+28,y+92,'All 5 × 2³⁰ local states  →  exact symmetry bounds  →  a ground doublet',25,BLUE,700,maxw=CW-56)
     c.para(X0+28,y+132,CW-56,
-        'Every native Yukawa channel acts on the quantum scalar. Exact algebra gives all energy probabilities '
-        'from the empty preparation, including its complementary zero-weight outcome. '
-        'The preparation-sector ground energy is about −11.14103 source units; it is not a particle mass or a global-vacuum claim.',
+        'Exact collective algebra compares every zero-boundary-charge physical sector, including states '
+        'invisible to the empty preparation. The decisive module has 104 physical states and 56 dark '
+        'energy-one states. Its true physical local ground has spin ½ and energy about −11.23059 source units.',
         19,SOFT,1.4)
-    c.para(X0+28,y+225,CW-56,
-        'A physical neutral spin-½ preparation reaches 113,948 states and has 49 exact energy lines. '
-        'Its ground is lower: about −11.23059. Thus the empty-register cyclic ground cannot be the universal vacuum. '
-        'This energy comparison is not a negative particle mass.',
-        19,SOFT,1.4)
-    c.para(X0+28,y+323,CW-56,
-        'Conjugation sends raw L to 2 − L; the centered charge is L − 1. This local ground has centered charge zero. '
-        'The common interacting reference must include the other sectors and their correlations.',
-        18,MUTED,1.35)
-    c.link(X0+28,y+h-15,'Exact full-family energy records',
-           '../../model/coherent_defect_wave/chiral_joint/family_cell/PROOF.md',16)
-    c.link(X0+650,y+h-15,'Physical neutral sector and reference comparison',
-           '../../model/coherent_defect_wave/chiral_joint/neutral_local_spectrum/PROOF.md',16)
+    c.text(X0+28,y+232,'First local excitation gap: '+f'{float(sum(map(Fraction,gap))/2):.11f}'+' source units',24,BLUE,700,maxw=CW-56)
+    c.para(X0+28,y+270,CW-56,
+        'The stationary ground density has mean native occupation fifteen. This filled interacting reference '
+        'is not a claim of fifteen particles. The empty-register cyclic ground cannot be the universal vacuum; '
+        'the lower reference energy is not a negative particle mass.',19,SOFT,1.4)
+    c.para(X0+28,y+360,CW-56,
+        'The many-cell reference must also include link-compensated local charges and the actual hopping.',18,MUTED,1.35)
+    c.link(X0+28,y+h-15,'Complete local ground, dark states, gap and occupations',
+           '../../model/coherent_defect_wave/chiral_joint/local_reference/PROOF.md',16)
+    y+=h+22
+
+    h=355
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'A matter excitation leaves a closed gauge-loop record',28,TEXT,700)
+    sx,sy=X0+75,y+111
+    for dx,dy in ((0,0),(124,0),(124,124),(0,124)):
+        c.circle(sx+dx,sy+dy,9,VIOLET)
+    for dx1,dy1,dx2,dy2 in ((0,0,124,0),(124,0,124,124),(124,124,0,124),(0,124,0,0)):
+        c.line(sx+dx1,sy+dy1,sx+dx2,sy+dy2,VIOLET,3)
+    c.text(sx+42,sy-18,'1 →',20,VIOLET,700)
+    c.text(sx+143,sy+69,'2 ↓',20,VIOLET,700)
+    c.text(sx+43,sy+154,'← 3',20,VIOLET,700)
+    c.text(sx-46,sy+69,'↑ 4',20,VIOLET,700)
+    c.para(X0+300,y+91,CW-336,
+        'Four actual hops bring the matter excitation back to its starting cell. '
+        'The quantum links keep a closed, gauge-invariant trace. All spin signs, internal '
+        'indices and the compensating reference are included. A contractible square is '
+        'generated by the matter Hamiltonian; no magnetic loop term is inserted.',19,SOFT,1.4)
+    c.text(X0+300,y+220,'Fourth moments: −1/256 (singlet), −1/768 (colored)',22,VIOLET,700,maxw=CW-336)
+    c.para(X0+300,y+257,CW-336,
+        'Complete loop and no-loop probabilities are bounded on the same source. '
+        'A physical photon/gluon phase and a relativistic mass spectrum do not follow from this finite loop alone.',18,MUTED,1.35)
+    c.link(X0+28,y+h-18,'Actual square, complete records and eliminated-state proof',
+           '../../model/coherent_defect_wave/chiral_joint/matter_induced_plaquette/PROOF.md',16)
+    c.link(X0+830,y+h-18,'Finite unitary clock and its error',
+           '../../model/coherent_defect_wave/chiral_joint/finite_clock/PROOF.md',16)
     y+=h+35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

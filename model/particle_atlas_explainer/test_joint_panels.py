@@ -222,3 +222,16 @@ def test_two_cell_energy_story_preserves_full_ground_and_preparation_failures(jo
     value['original_attempt_readout']['records'][1]['probability_interval']=['-1','2']
     with pytest.raises(ValueError,match='invalid probability interval'):
         joint_panels.check_two_cell(value)
+
+
+def test_full_quantum_transport_and_local_ground_cannot_drop_their_domains(joint):
+    import copy
+    cases=[('chiral_joint/peter_weyl_links', ('complete_neutral_transfer_experiment','extra_neutral_hopping_term'), True),
+           ('chiral_joint/family_transport', ('same_clock_full_H_probability_records','source_or_reference_states_discarded'), True),
+           ('chiral_joint/local_reference', ('global_physical_ground_and_gap','dark_energy_one_rank'), 0),
+           ('chiral_joint/local_reference', ('global_physical_ground_and_gap','interacting_many_cell_vacuum_proved'), True)]
+    for package,path,value in cases:
+        altered=copy.deepcopy(joint['extensions'])
+        altered[package][path[0]][path[1]]=value
+        with pytest.raises(ValueError):
+            joint_panels.check_PW_transport(altered)

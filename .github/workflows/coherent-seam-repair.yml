@@ -51,13 +51,13 @@ jobs:
       - run: python -m model.coherent_defect_wave.chiral_higgs --check
       - run: python -m model.coherent_defect_wave.chiral_particle_map --check
       - run: python -m model.coherent_defect_wave.chiral_joint --check
-      - run: python -m pytest -q -W error model/coherent_defect_wave --ignore=model/coherent_defect_wave/chiral_joint/two_cell --ignore=model/coherent_defect_wave/chiral_joint/periodic_family --ignore=model/coherent_defect_wave/chiral_joint/field_limit --ignore=model/coherent_defect_wave/chiral_joint/periodic_spectrum --ignore=model/coherent_defect_wave/chiral_joint/higgs_composites --ignore=model/coherent_defect_wave/chiral_joint/spectral_edges --ignore=model/coherent_defect_wave/chiral_joint/oriented_links --ignore=model/coherent_defect_wave/chiral_joint/neutral_mobility --ignore=model/coherent_defect_wave/chiral_joint/family_cell --ignore=model/coherent_defect_wave/chiral_joint/neutral_local_spectrum --ignore=model/coherent_defect_wave/chiral_joint/neutral_composite --ignore=model/coherent_defect_wave/chiral_joint/periodic_boson_records
+      - run: python -m pytest -q -W error model/coherent_defect_wave --ignore=model/coherent_defect_wave/chiral_joint/two_cell --ignore=model/coherent_defect_wave/chiral_joint/periodic_family --ignore=model/coherent_defect_wave/chiral_joint/field_limit --ignore=model/coherent_defect_wave/chiral_joint/periodic_spectrum --ignore=model/coherent_defect_wave/chiral_joint/higgs_composites --ignore=model/coherent_defect_wave/chiral_joint/spectral_edges --ignore=model/coherent_defect_wave/chiral_joint/oriented_links --ignore=model/coherent_defect_wave/chiral_joint/neutral_mobility --ignore=model/coherent_defect_wave/chiral_joint/family_cell --ignore=model/coherent_defect_wave/chiral_joint/neutral_local_spectrum --ignore=model/coherent_defect_wave/chiral_joint/neutral_composite --ignore=model/coherent_defect_wave/chiral_joint/periodic_boson_records --ignore=model/coherent_defect_wave/chiral_joint/peter_weyl_links --ignore=model/coherent_defect_wave/chiral_joint/family_transport --ignore=model/coherent_defect_wave/chiral_joint/local_reference --ignore=model/coherent_defect_wave/chiral_joint/matter_induced_ring --ignore=model/coherent_defect_wave/chiral_joint/matter_induced_plaquette --ignore=model/coherent_defect_wave/chiral_joint/finite_clock
 
   constrained-spectrum:
     strategy:
       fail-fast: false
       matrix:
-        package: [two_cell, periodic_family, field_limit, periodic_spectrum, higgs_composites, spectral_edges, oriented_links, neutral_mobility, family_cell, neutral_local_spectrum, neutral_composite, periodic_boson_records]
+        package: [two_cell, periodic_family, field_limit, periodic_spectrum, higgs_composites, spectral_edges, oriented_links, neutral_mobility, family_cell, neutral_local_spectrum, neutral_composite, periodic_boson_records, peter_weyl_links, family_transport, local_reference, matter_induced_ring, matter_induced_plaquette, finite_clock]
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:

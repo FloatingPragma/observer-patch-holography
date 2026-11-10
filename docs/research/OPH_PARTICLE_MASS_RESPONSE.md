@@ -102,148 +102,51 @@ mass splittings; no named generation or measured GeV prediction is selected.
 
 ### One quantum Hamiltonian, physical subspace and clock
 
-The [common quantum gauge/Higgs construction](../../model/coherent_defect_wave/chiral_joint/PROOF.md)
-places the spectral coefficients, actual quantum-link path products, local
-Yukawa terms and invariant scalar/link energies in one Hermitian H. Every
-local total Gauss current commutes with H. For `beta>0`, the physical Gibbs reference
-`rho_beta=P_G exp(-beta H) P_G / Tr(P_G exp(-beta H))` is faithful on its
-nonempty physical subspace and stationary for the same `exp(-it H)`.
-A complete success/failure filter prepares it from the maximally mixed
-physical input, using a specified controller that preserves total Gauss
-charge and total fermion parity, with its graded ancilla retained. The
-explicit side-two norm bound is `||H||<=1884` at unit parameters. This is
-a finite spectral-controller construction. The full
-cubic-family eigensystem and efficient preparation are not supplied; the
-complete two-cell physical spectrum below has a separate certified calculation.
-
-A separate control on the same operator grammar retains all 122880 states
-of two lepton cells, a quantum link and a quantum scalar. Starting from
-empty matter, its first action creates a gauge-compatible pair/scalar;
-its second propagates a created lepton to the other cell. The exact
-arrival component has `||R H^2 Omega||^2=3`, with a strictly positive
-complete finite-time arrival bound and the no-arrival alternative retained.
-This input is explicitly distinct from the Gibbs reference. The common
-finite construction supplies no interacting Lorentz vacuum, physical Higgs
-phase, mass renormalization or GeV prediction. No magnetic plaquette term
-is implicit in the declared Hamiltonian.
+The [common finite quantum construction](../../model/coherent_defect_wave/chiral_joint/PROOF.md)
+retains quantum links, all matter occupations and the quantum scalar in one
+Gauss-invariant Hamiltonian. Its physical Gibbs filter has complete success
+and failure records. The [source and clock contract](OPH_FIELD_RECONSTRUCTION.md#one-quantum-hamiltonian-physical-subspace-and-clock)
+specifies its state, reference, norm bound and scope. A classical Higgs or
+link expectation is not substituted for this quantum source.
 
 ### A complete two-cell physical ground and boundary sectors
 
-The [uniform two-cell calculation](../../model/coherent_defect_wave/chiral_joint/two_cell/SPECTRUM_PROOF.md)
-retains both quantum Yukawa terms, both scalar memories and the actual
-quantum link on one 614400-state active source. Exact Gauss projection
-leaves 1053 neutral physical states, 718 with right boundary charge `-1`
-and 783 with right boundary charge `+1`. Every conserved occupation block
-and every physical energy is enclosed; the calculation is not restricted
-to states reached from an empty input. The neutral physical ground is
-unique, has `(L,2Sz)=(2,0)` and energy approximately `-4.554826635` in the
-specified clock. Its certified excitation gap exceeds `0.394804412`.
-The exported energy intervals have radius `2^-28` source units. A complete
-energy instrument prepares this ground from the physical maximally mixed
-input with original probability `1/1053`, retaining the other outcomes and
-a compensating preparation reference carrying the opposite L and twice-spin projection.
-
-The right-negative-boundary ground is an odd-L doublet near `-3.502782787`.
-The right-positive-boundary absolute ground near `-3.712362234` has L=4,
-so a single removal from the L=2 neutral reference cannot reach it. The
-complete right spin-up e^c instrument instead certifies the first visible
-addition transfer in `[1.0520438402,1.0520438552]` and removal transfer in
-`[0.9097986244,0.9097986394]`, in source energy units. Their positive
-joint record weights are enclosed by `[0.2183892428,0.2183892504]` and
-`[0.2308929339,0.2308929414]`, respectively. These probabilities retain the
-reservoir setting factor one half and condition only on successful ground
-preparation. The unconditional protocol multiplies them by `1/1053` and
-retains preparation failure `1052/1053`. Removal reaches L=3; the L=4
-absolute charged minimum is a zero response of this probe. These finite
-energy transfers are visible detector lines, without a rest-mass or GeV
-identification.
-
-The [exact symmetries](../../model/coherent_defect_wave/chiral_joint/two_cell/SYMMETRIES.md)
-prove the odd-sector Kramers degeneracy and map right addition to left
-removal with the charge-compensating boundary transformed. They do not
-require equality of addition and removal at the same pinned boundary.
-The one open quantum link admits no literal source-field translation.
-A separately declared two-oriented-link periodic source has an exact
-antiperiodic translation and a complete momentum-phase PVM. A physical
-local pair/scalar preparation gives all four phase weights `(1/2,0,1/2,0)`.
-Its state is not the open-edge ground, and that ground's energies are not
-transferred to the periodic Hamiltonian. Three-dimensional dispersion,
-physical spin, interacting rest masses and an independent GeV scale remain
-separate physical requirements.
+The [complete open and periodic spectra](OPH_FIELD_RECONSTRUCTION.md#a-complete-two-cell-physical-ground-and-boundary-sectors)
+compare every conserved physical sector on each stated reduced source.
+The open-source first charged transfers are approximately `1.052043848`
+and `0.909798632`; the periodic source gives equal conjugate first transfers
+`0.97009612853`. All are source energy units. Their separate original
+ground-preparation probabilities are `1/1053` and `1/3424`, with failures
+retained. The periodic phase records supply only one squared momentum;
+none of these lines alone determines a rest mass.
 
 ### Controlled motion and the finite particle dependency path
 
-The [propagation calculation](../../model/coherent_defect_wave/chiral_joint/two_cell/PROPAGATION_PROOF.md) prepares an actual
-right-cell matter pair correlated with its quantum scalar, using the local
-Yukawa pulse `exp(-i*pi*H_Y/4)`. All Gauss constraints hold, every preparation
-branch is retained, and the left cell starts empty. At source time `1/20`,
-a complete receiver-parity detector has arrival probability in
-`[63853775/34359738368,128634893/68719476736]` on the open source. The separate
-periodic source gives `[31793921/68719476736,32424155/68719476736]` and equal
-opposite-direction laws. Exact degree-eight evolution and full-H remainder
-bounds certify both intervals. Removing only hopping makes arrival exactly
-zero at all times. This measures motion on a nonstationary physical input;
-it does not identify a ground-state particle or a scattering amplitude.
-
-The [periodic comparison](../../model/coherent_defect_wave/chiral_joint/two_cell/REFINEMENT_PROOF.md) retains a charge `-1`
-compensator with a two-position register and translates it with the source.
-A colocated e^c occupation and compensator satisfy every Gauss constraint;
-the complete joint translation-phase probabilities are `(0,1/2,0,1/2)`.
-These are source-plus-reference phases. Their reduction to source-particle
-momentum requires its own reference argument. Two antiperiodic cells have
-only one odd-sector momentum magnitude, so they cannot determine both a
-mass and a speed. Four cells give two magnitudes; six give three, permitting
-an additional shell consistency test once energies are calculated.
-
-Inserting a blank second quantum link does not transfer the open spectrum
-to the periodic source. On an explicitly physical input the compressed
-Hamiltonian residual vanishes, while the full residual has squared norm
-`3/16`, entirely in the omitted link states. No constant clock rescaling
-or energy offset removes that leakage. Each refined source therefore needs
-its own physical reference and complete energy/momentum records, or an
-explicit full-residual comparison that bounds every omitted component.
-
-| Finite step | Result on the declared source | Requirement for a particle mass |
-| --- | --- | --- |
-| 1. Hamiltonian and constrained carrier | Complete active Gauss bases and actual quantum scalar/link H | Preserve that operator/state ancestry under refinement |
-| 2. Reference and preparation | Independently certified open and periodic grounds, with complete preparation laws `1/1053` and `1/3424` | Control the physical reference on a growing three-dimensional family |
-| 3. Energy instrument | [2627 original-attempt periodic records](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md), including equal visible charged thresholds and quantum Higgs overlap | Establish the moving branch and its physical mass observable |
-| 4. Motion and momentum | Controlled finite arrival; periodic energy and joint-reference phases on one ground; full three-axis operator family | Source-relative dispersion across independent momentum magnitudes and sizes |
-| 5. Candidate discrimination | [Actual native currents, CAR, Kramers and conjugation tests](../../model/coherent_defect_wave/chiral_joint/two_cell/CANDIDATES.md) | Separate elementary, composite and boundary-bound responses; no empirical species is assigned |
-| 6. Size, cutoff and field transfer | A finite dressed interaction has a full error bound; raw long quantum paths fail the blank-reference uniform bound | Control the chosen link architecture, physical reference and interaction under refinement |
-
-The finite completion of steps 1–3 and the motion controls in step 4 do not
-supply the physical conclusions in the final column. Scalar/flavor response,
-interacting relativistic control and an independent energy reference retain
-their separate roles in a GeV comparison.
+The [shared dependency table](OPH_FIELD_RECONSTRUCTION.md#controlled-motion-and-the-finite-particle-dependency-path)
+tracks the common source, physical reference, complete energy instrument,
+translation readout, sector identification and refinement. The
+[finite motion proofs](../../model/coherent_defect_wave/chiral_joint/two_cell/PROPAGATION_PROOF.md)
+retain all detector outcomes. The [open-to-periodic comparison](../../model/coherent_defect_wave/chiral_joint/two_cell/REFINEMENT_PROOF.md)
+proves nonzero omitted-link leakage, so those spectra cannot be transferred
+by a clock rescaling. A defensible GeV mass requires the appropriate moving
+spectral branch on one physical reference, controlled finite-size and cutoff
+errors, and one independent energy standard.
 
 ### Periodic spectra and the quantum Higgs connection
 
-The [complete periodic calculation](../../model/coherent_defect_wave/chiral_joint/periodic_spectrum/PROOF.md)
-has 3424 neutral physical states, a unique ground near `-4.33817023295`,
-and equal same-boundary charged transfers `0.97009612853 +/- 3e-8`
-in source units. All 2627 original-attempt records retain the `1/3424`
-ground-preparation probability and its failure. Energy and joint
-source/reference phase are read on this same Hamiltonian; the phase
-pair supplies only one squared momentum and no rest-mass fit.
-The [actual quantum Higgs composite](../../model/coherent_defect_wave/chiral_joint/higgs_composites/PROOF.md)
-has a positive residue in that same first line, without a scalar background.
-The [field reconstruction](OPH_FIELD_RECONSTRUCTION.md#periodic-quantum-ground-charged-fields-and-controlled-interaction)
-details the full-domain quark/lepton equations, neutral star-parity selection,
-three-axis source, controlled finite dressed interaction, and
-sector-appropriate mass criteria. These are finite source results; observed
-species, three generations and GeV masses are not assigned.
-The [spatial and full-family results](OPH_FIELD_RECONSTRUCTION.md#spatial-symmetries-neutral-motion-and-the-full-family-cell)
-include orientation-closed contractive links, exact proper cubic rotations,
-a controlled physical neutral-packet arrival on a declared hopping extension,
-and a 36-state exact physical spectral reduction of the full-family quantum
-cell. Each source retains its own preparation and reference; their spectra
-are not transferred across different Hamiltonians. The physical neutral local component has a lower ground near
-`-11.23058529425`, so the empty-preparation component minimum is not a
-universal vacuum. Exact centered-charge and spin identities distinguish
-this reference correction from a particle-mass statement. The common
-interacting reference requires the other conserved sectors and their
-correlations.
+The [quantum Higgs identities and periodic detectors](OPH_FIELD_RECONSTRUCTION.md#periodic-quantum-ground-charged-fields-and-controlled-interaction)
+connect elementary and composite operators to the same charged line,
+retain neutral creation/removal and scalar/loop records, and use the actual
+quantum scalar. These reduced lepton results have their own Hamiltonian.
+
+The [full-family local reference and Peter–Weyl source](OPH_FIELD_RECONSTRUCTION.md#spatial-symmetries-neutral-motion-and-the-full-family-cell)
+provide two complementary results. Exact collective algebra proves the
+global zero-boundary-charge local ground is a spin-one-half doublet near
+`-11.23058529425`, with physical gap `0.08955533047607` and mean native
+occupation fifteen. Full Peter–Weyl coordinate transitions permit neutral
+motion and matter-generated contractible loops without an added neutral
+hopping or magnetic term. Their finite records do not transfer the local
+ground to the full hopping Hamiltonian or assign measured particle masses.
 
 ### Other finite energy responses
 

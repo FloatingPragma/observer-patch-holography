@@ -45,6 +45,15 @@ reference and an independent energy scale require their own control.
 
 ## Native interactions and charges
 
+The [full quantum-link source](chiral_joint/peter_weyl_links/README.md)
+transports neutral packets and all five native matter representations while
+retaining their references and complete detector records. Four matter hops
+also produce a contractible gauge-loop record, without an inserted magnetic
+term. The [complete local ground](chiral_joint/local_reference/README.md)
+is a spin-one-half doublet with gap about 0.08955533 source units. The
+[particle path](PARTICLE_PATH.md) specifies the many-cell reference and
+dispersion needed to interpret such finite responses as physical masses.
+
 The [native-routing join](native_routing_join/PROOF.md) couples flux and
 native update on one clock. The
 [propagating completion](propagating_native_join/PROOF.md) moves native waves
