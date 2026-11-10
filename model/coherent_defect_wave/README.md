@@ -31,6 +31,19 @@ The quantum scalar reference does not select that background, the Yukawa
 coefficients or measured species; an interacting chiral continuum requires
 its own proof.
 
+## An interacting physical reference
+
+The [complete two-cell source](chiral_joint/two_cell/README.md) keeps
+quantum scalar/link registers and every active lepton occupation. Its
+certified neutral ground supports complete charged detector lines near
+1.05204385 and 0.90979863 source units, retaining preparation failures.
+[Finite propagation](chiral_joint/two_cell/PROPAGATION_PROOF.md) also
+moves a prepared physical pair through the quantum link. A separate periodic
+source gives physical joint source/reference momentum phases. Its extra
+link changes the dynamics, so open-edge energies cannot be transferred to
+it. The [particle path](PARTICLE_PATH.md) specifies the dispersion,
+reference and comparison tests required for a relativistic GeV mass.
+
 ## Native interactions and charges
 
 The [native-routing join](native_routing_join/PROOF.md) couples flux and

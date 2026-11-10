@@ -33,6 +33,19 @@ neutral Weyl role. Selecting a physical scalar state and mass coefficients,
 and proving the interacting relativistic limit, are separate requirements;
 these roles do not identify measured particles.
 
+## An interacting physical reference
+
+The [complete two-cell source](coherent_defect_wave/chiral_joint/two_cell/README.md) keeps
+quantum scalar/link registers and every active lepton occupation. Its
+certified neutral ground supports complete charged detector lines near
+1.05204385 and 0.90979863 source units, retaining preparation failures.
+[Finite propagation](coherent_defect_wave/chiral_joint/two_cell/PROPAGATION_PROOF.md) also
+moves a prepared physical pair through the quantum link. A separate periodic
+source gives physical joint source/reference momentum phases. Its extra
+link changes the dynamics, so open-edge energies cannot be transferred to
+it. The [particle path](coherent_defect_wave/PARTICLE_PATH.md) specifies the dispersion,
+reference and comparison tests required for a relativistic GeV mass.
+
 ## Native interactions and charged objects
 
 The [propagating native construction](coherent_defect_wave/propagating_native_join/PROOF.md)

@@ -15,7 +15,8 @@ EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'cubic_readout', 'energy', 'dispersion', 'physical_attachment', 'mobile_flux',
               'native_routing_join', 'many_body_route', 'mass_instrument',
               'field_identity_audit', 'propagating_native_join', 'chiral_source',
-              'chiral_regulator', 'chiral_higgs', 'chiral_particle_map', 'chiral_joint')
+              'chiral_regulator', 'chiral_higgs', 'chiral_particle_map', 'chiral_joint',
+              'chiral_joint/two_cell')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -36,7 +37,8 @@ FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'background_is_a_quantum_Higgs_vacuum_theorem',
              'interacting_chiral_continuum', 'measured_species_identified',
              'onsite_gap_is_relativistic_particle_mass', 'full_reference_is_physical_Lorentz_vacuum',
-             'physical_pole_mass_or_GeV_prediction'}
+             'physical_pole_mass_or_GeV_prediction', 'physical_rest_mass_or_GeV_identification',
+             'observed_species_identified', 'finite_gap_is_Clay_mass_gap'}
 
 
 def check_extension_scope(value, name):
@@ -106,6 +108,31 @@ def check_identity(value):
         raise ValueError('charged Dirac identity loses its mass or chirality boundary')
 
 
+def check_two_cell(value):
+    if (value['schema']!='oph.coherent_defect_wave.chiral_joint.two_cell.v1'
+            or value['source']['active_dimension']!=614400):
+        raise ValueError('two-cell physical source changed')
+    ground=next(row for row in value['full_spectra'] if row['boundary']==0)
+    if (ground['full_physical_dimension']!=1053 or not ground['ground_is_certifiably_simple']
+            or ground['ground_window_candidate_labels']!=[{'L':2,'twoSz':0,'eigen_index':0}]):
+        raise ValueError('two-cell complete physical ground is missing')
+    law=value['original_attempt_readout']
+    rows=law['records']
+    if (law['probabilities_renormalized'] or law['record_count_including_preparation_failure']!=len(rows)
+            or len(rows)!=461 or rows[0]['outcome']!='preparation_failure'
+            or rows[0]['probability_interval']!=['1052/1053']*2
+            or law['preparation']['original_ground_success_probability']!='1/1053'):
+        raise ValueError('two-cell original preparation failures are missing')
+    if any(not 0<=s.Rational(r['probability_interval'][0])<=s.Rational(r['probability_interval'][1])<=1
+           for r in rows):
+        raise ValueError('two-cell invalid probability interval')
+    low=sum(s.Rational(r['probability_interval'][0]) for r in rows)
+    high=sum(s.Rational(r['probability_interval'][1]) for r in rows)
+    if not low<=1<=high:raise ValueError('two-cell original probability law is incomplete')
+    if {r['kind'] for r in value['conditional_readout']['records']}!={'add','add_fail','remove','remove_fail'}:
+        raise ValueError('two-cell charged probe drops a branch')
+
+
 def load():
     value = json.loads(RECEIPT.read_text())
     if value['schema'] != 'oph.coherent_defect_wave.v1':
@@ -147,6 +174,7 @@ def load():
         if name=='native_routing_join':check_native_join(extension)
         value['extensions'][name] = extension
     check_identity(value['extensions']['field_identity_audit'])
+    check_two_cell(value['extensions']['chiral_joint/two_cell'])
     check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
 
@@ -424,12 +452,14 @@ def draw(c, data, y):
 
     field_map=extensions['chiral_particle_map']
     spectrum=field_map['background_spectrum']
-    quantum=extensions['chiral_higgs']['quantum_spectrum']
-    qdim=extensions['chiral_higgs']['quantum_interaction']['full_dimension']
-    observed=sorted({r['excitation_energy_above_full_ground']
-                     for r in quantum['complete_driven_reservoir_energy_records']
-                     if r['setting']=='add' and r['reservoir_out']==0
-                     and s.sympify(r['probability'])!=0},key=s.sympify)
+    finite=extensions['chiral_joint/two_cell']
+    charged={r['kind']:r for r in finite['conditional_readout']['records']}
+    thresholds=[]
+    for kind in ('add','remove'):
+        first=charged[kind]['complete_energy_windows'][0]
+        assert s.Rational(first['probability_interval'][0])>0
+        interval=list(map(s.Rational,first['energy_transfer_interval']))
+        thresholds.append(f'{float(sum(interval)/2):.8f}')
     h=678
     card(c,X0,y,CW,h,stroke=VIOLET)
     c.text(X0+28,y+43,'A chiral field dictionary from the actual source currents',28,TEXT,700)
@@ -454,22 +484,24 @@ def draw(c, data, y):
         mass=spectrum['background_mass_energy'][key].replace('abs(', '|').replace(')', '|').replace('*','·')
         c.text(X0+800,yy,mass+' source units',20,SOFT)
     c.para(X0+28,y+408,CW-56,
-        'All fields have spin ½. Weak currents act only on left components; color and electric '
+        'In this background field dictionary, all fermion fields have spin ½. '
+        'Weak currents act only on left components; color and electric '
         'charge act on both halves of the massive fields. Antiparticles have conjugate charges. '
         'The seven Dirac color/lepton components plus one neutral Weyl field form ONE family. '
         'No electron/muon/tau generation is selected, and v and the three Yukawa coefficients are inputs.',
         19,SOFT,1.4)
     c.para(X0+28,y+527,CW-56,
-        'The quantum scalar is retained in a separate exact '+str(qdim)+'-state lepton/scalar calculation: '
-        'its ground energy is '+quantum['full_ground_energy']+', while a complete charged probe sees excitation energies '+
-        ' and '.join(observed)+'. '
-        'These finite detector energies do not establish relativistic masses. A common quantum '
-        'gauge/Higgs Hamiltonian has a specified thermal reference; its interacting continuum and GeV masses are unproved.',
+        'In the separate finite lepton control, quarks are empty spectators. Both quantum scalars '
+        'and the quantum link are retained. Its 614,400 source states yield '
+        '1,053 neutral physical states and one certified ground. Preparation succeeds with probability 1/1053; '
+        'failures are recorded. Visible charged transfers are '+' and '.join(thresholds)+
+        ' source units. Conjugate experiments reflect the boundary. These are detector energies; '
+        'relativistic dispersion, electron/muon/tau identity and GeV masses are unproved.',
         18,MUTED,1.38)
     c.link(X0+28,y+h-25,'Source IDs, all currents and conditional mass formulas',
            '../../model/coherent_defect_wave/chiral_particle_map/PROOF.md',16)
     c.link(X0+805,y+h-25,'Quantum state and complete records',
-           '../../model/coherent_defect_wave/chiral_higgs/PROOF.md',16)
+           '../../model/coherent_defect_wave/chiral_joint/two_cell/READOUT_PROOF.md',16)
     y += h + 35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

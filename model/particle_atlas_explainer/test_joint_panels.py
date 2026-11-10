@@ -27,7 +27,8 @@ def test_both_reciprocal_readouts_and_preparation_domains_are_visible(joint):
                    'Face detector: 1 versus 0', 'Return: 1 unread; 1/2 after readout',
                    '281/1080', '36,000 basis states', '281/2160',
                    'the retained link frame to compare amplitudes',
-                   'Every failure is retained.', 'its interacting continuum and GeV masses are unproved.'):
+                   'Every failure is retained.',
+                   'relativistic dispersion, electron/muon/tau identity and GeV masses are unproved.'):
         assert phrase in text
 
 
@@ -120,6 +121,8 @@ def test_positive_free_mass_current_binding_and_complete_apparatus_are_visible(j
                    'E² = |p|² + 4; rest energy = 2 source units in this free limit',
                    'A chiral field dictionary from the actual source currents',
                    'No electron/muon/tau generation is selected',
+                   '1,053 neutral physical states and one certified ground',
+                   '1.05204385 and 0.90979863 source units',
                    'Weak currents act only on left components',
                    'one flux and one native occupation, bounded coupling gives vanishing contact response',
                    'fixed-volume, fixed native-momentum window'):
@@ -163,3 +166,18 @@ def test_conditional_dictionary_cannot_be_promoted_to_measured_species_or_masses
     value['identification']['measured_GeV_predictions']={'electron':'0.000511'}
     with pytest.raises(ValueError,match='physical promotion'):
         joint_panels.check_extension_scope(value,'chiral_particle_map')
+
+
+def test_two_cell_energy_story_preserves_full_ground_and_preparation_failures(joint):
+    value=deepcopy(joint['extensions']['chiral_joint/two_cell'])
+    value['original_attempt_readout']['records'].pop(0)
+    with pytest.raises(ValueError,match='preparation failures'):
+        joint_panels.check_two_cell(value)
+    value=deepcopy(joint['extensions']['chiral_joint/two_cell'])
+    value['full_spectra'][0]['ground_is_certifiably_simple']=False
+    with pytest.raises(ValueError,match='physical ground'):
+        joint_panels.check_two_cell(value)
+    value=deepcopy(joint['extensions']['chiral_joint/two_cell'])
+    value['original_attempt_readout']['records'][1]['probability_interval']=['-1','2']
+    with pytest.raises(ValueError,match='invalid probability interval'):
+        joint_panels.check_two_cell(value)

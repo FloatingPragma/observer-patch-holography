@@ -25,6 +25,8 @@ The separate open Wilson gauge-matter family retains its own source contract.
 
 | [Common quantum gauge/Higgs source](chiral_joint/PROOF.md) | Spectral path coefficients, actual quantum links and quantum Yukawa terms form one Hermitian Gauss-invariant H. A complete filter prepares a faithful physical Gibbs state on its own clock. A 122880-state reducing control has proved nonzero same-H pair creation and quantum-link arrival | Full global diagonalization and efficient preparation are not supplied. The finite thermal reference is not a relativistic vacuum. No implicit plaquette term, interacting continuum or physical mass follows |
 
+| [Complete uniform two-cell source](chiral_joint/two_cell/SPECTRUM_PROOF.md) and [exact symmetries](chiral_joint/two_cell/SYMMETRIES.md) | Full active Gauss dimensions 1053, 718 and 783 for neutral and right-compensated sectors; complete certified energies and a unique neutral ground near -4.554826635. Exact odd-sector Kramers pairs and reflected-boundary particle/hole correspondence. A distinct two-link periodic source supplies conserved complete momentum phases | Fixed-boundary charged minima can be dark to a selected probe. Open-edge energies are not periodic-source dispersions or rest masses; three-dimensional physical identification and GeV calibration are separate |
+
 The canonical dictionary is a charge-conjugating change of variables on the
 same thirty-mode CAR algebra. It does not relabel the vectorlike Dirac times
 R15 comparison program as chiral. No independent mirror family is added by
@@ -50,8 +52,9 @@ charged dark module have K=0; neither supplies a hidden vacuum mass correction.
 1. **A controlled physical limit of the common reference.** The finite
    quantum gauge/Higgs H has an explicit nonempty Gauss sector, a faithful
    physical Gibbs state and complete preparation using that same clock.
-   Establish a useful zero-temperature/reference trajectory, with physical
-   boundary charges and uniform spectral or correlation control. Existence
+   Its uniform two-cell member also has a fully enclosed physical spectrum
+   and unique neutral ground. Establish a growing zero-temperature/reference
+   trajectory with uniform spectral or correlation control. Existence
    of each finite Gibbs filter does not prove efficient preparation, a
    Lorentz vacuum or a nontrivial growing-family limit. The onsite ground,
    empty-state encounter and free filled sea keep their distinct domains.
@@ -114,21 +117,39 @@ photon-containing physical theory cannot have a positive global vacuum gap.
 
 ## Smallest interacting comparison and scalar response criterion
 
-A concrete finite comparison uses two equivalent cells, each with the full
-six lepton CAR modes and five-state quantum scalar, joined by the same
-six-state lepton quantum link. Its active carrier has
-`2^12 * 5^2 * 6 = 614400` states. Both local charged-lepton Yukawa terms
-must be retained. This differs from the executed creation/arrival control,
-which switches off the left Yukawa term and leaves its scalar vacant.
-A compensated boundary probe and the full physical ground or thermal state
-of that uniform two-cell Hamiltonian would test charged spectral response.
-A vacuum-generated cyclic subspace cannot be assumed to contain its ground.
-The [exact sector enumerator](chiral_joint/reduction/README.md) retains
-4140 diagonal-Gauss basis states without boundary charge and 2496 with a
-right compensator of charge minus one. Conserved lepton number and spin
-projection split them into blocks of size at most 642 and 354. These are
-weight-sector counts; the full weak-singlet projection is a separate calculation.
-Two cells alone supply neither three-dimensional dispersion nor a rest mass.
+The [uniform two-cell source](chiral_joint/two_cell/SPECTRUM_PROOF.md) has
+614400 active states with both local Yukawa terms and both scalar memories.
+Its [full Gauss basis](chiral_joint/two_cell/BASIS_PROOF.md) has dimensions
+1053 at neutral boundary, 718 at right charge minus one, 783 at right charge
+plus one and 718 at reflected left charge plus one. Exact rational kernels
+and a full generalized-eigenbasis certificate cover every physical state.
+The unique neutral ground is in `(L,2Sz)=(2,0)`, near -4.554826635, with a
+certified positive gap exceeding 0.394804412. Its preparation probability
+from `P/1053` is 1/1053, with failures and any L-compensating reference retained.
+These are calculated finite physical-source premises, distinct from an
+interacting Lorentz vacuum or a growing-family mass theorem.
+
+A right e^c addition changes L from two to one; removal changes it to three.
+The right-positive-boundary ground has L=4 and is exactly dark to this
+removal instrument. The complete compensated right spin-up probe certifies
+visible addition and removal transfers near 1.05204385 and 0.90979863
+source units, with positive joint weights near 0.21838925 and 0.23089294.
+These include the reservoir setting probability and condition on successful
+ground preparation; the full law retains preparation failure 1052/1053.
+Neither transfer is assigned a relativistic rest mass. The [source antiunitaries](chiral_joint/two_cell/SYMMETRIES.md)
+prove same-boundary odd-L Kramers pairs and the equality of complete right
+addition and reflected left removal laws when the reference and boundary
+apparatus are transformed together. They do not compare the two operations
+at one pinned boundary. Conserved L and Sz alone do not identify a particle.
+
+The original one-link operator has an exact rank obstruction to literal
+source-field translation. The separately specified periodic completion
+retains two actual quantum links and has `HT=TH`, `T^2=(-1)^N` and complete
+four-phase momentum records. A Gauss-singlet local pair/scalar state has
+weights `(1/2,0,1/2,0)`. This supplies the commuting-translation premise of
+the finite momentum theorem. Its Hamiltonian differs from the open edge;
+its reference and energies require their own calculation. Two sites do not
+supply three-dimensional dispersion or a relativistic rest mass.
 
 A quantitative quantum-to-background comparison has an exact acceptance
 criterion. Write `W xi=xi tensor psi`, where psi is the retained scalar and
@@ -156,6 +177,58 @@ orientation reference and total-Gauss-compatible effects. Larger scalar
 memory alone selects neither that reference nor v, flavor parameters,
 quantum gauge propagation, or a physical vacuum. This criterion makes the
 required approximation testable without replacing an operator by its mean.
+
+## Six finite dependencies and the physical refinement
+
+| Step | Source result | Physical scope |
+| --- | --- | --- |
+| 1. Operator and Gauss domain | The complete active two-cell carrier, actual currents and quantum scalar/link Hamiltonian are specified; every constrained basis is certified | These are finite source premises |
+| 2. Reference and preparation | The entire neutral spectrum has a unique ground, a positive gap and a complete ground filter with original success `1/1053` | The growing-family vacuum requires separate control |
+| 3. Complete energy records | [The actual compensated probe](chiral_joint/two_cell/READOUT_PROOF.md) has 460 conditional windows and 461 original-attempt outcomes; both quoted charged lines have certified positive weight | A finite detector threshold does not identify a rest mass |
+| 4. Motion and phase readout | [Propagation](chiral_joint/two_cell/PROPAGATION_PROOF.md) has controlled nonzero arrival; the [periodic compensator construction](chiral_joint/two_cell/REFINEMENT_PROOF.md) supplies physical joint source/reference momentum phases | Energy and momentum on one physical reference, three dimensions and a relativistic branch need their own calculation |
+| 5. Candidate discrimination | [Actual current, CAR and symmetry criteria](chiral_joint/two_cell/CANDIDATES.md) distinguish charged, scalar and composite operator channels | Boundary dependence, pole/residue and physical spin/interactions determine identity; no empirical assignment follows from the finite labels |
+| 6. Refinement | The blank-link transfer fails an exact full-residual test; the replacement route retains every omitted component and a sufficient momentum menu | Establish source-family state, dynamics and complete-record error bounds; no open-source energy is imported into the periodic source |
+
+For step 4, the local quantum Yukawa pulse prepares a physical right pair/scalar
+state with an empty receiver. At source time `1/20`, open-source arrival lies
+in `[63853775/34359738368,128634893/68719476736]`, while the distinct periodic
+source gives `[31793921/68719476736,32424155/68719476736]`. Exact degree-eight
+polynomials and full-H unitary remainders bound both records. Removing only
+hopping preserves receiver parity, giving zero arrival at every time. These
+are nonstationary preparations, separate from the measured neutral ground.
+
+The periodic charged phase experiment keeps a compensator charge `-1` at
+an explicit retained position and translates it with the e^c source. All
+Gauss constraints hold for every branch of its complete `(0,1/2,0,1/2)`
+phase law. The observable is joint source/reference translation. It is not
+an independently identified particle momentum. The two-cell odd sector has
+`P^2=pi^2/(4a^2) I`, which gives only one magnitude and cannot determine two
+mass-shell parameters. The even antiperiodic ring needs four cells for two
+magnitudes and six for three. Their energies and reference are not supplied
+by this menu count.
+
+For step 6, appending a blank periodic link gives zero compressed generator
+residual on an actual physical pair/scalar input, but full residual squared
+`3/16` in the omitted-link states. That component survives any constant
+clock rescaling and energy shift. A complete link detector has strictly
+positive periodic response where the embedded open evolution gives zero.
+The error concerns observed records, rather than an arbitrary basis norm.
+The fixed primitive raising link also obeys
+`||(U-u)psi||^2+||(U^dagger-conj(u))psi||^2 >= abs(u)^2`.
+Thus replacing both link directions by one nonzero classical number has no
+vanishing relative residual on that primitive product-reference route.
+Larger or dressed quantum constructions are outside this exclusion.
+
+A defensible replacement fixes the growing periodic/cubic Hamiltonian,
+reference, scalar/link cutoffs and scale trajectory; computes energy and
+joint momentum on that same source; and bounds the full generator residual
+or works directly with the interacting quantum records. A finite comparison
+with generator residual epsilon has complete-record error at most
+`min(1,initial_error+abs(t)*epsilon/hbar+2*tail+effect_error+numerical_error)`
+under the stated common-state and observation-domain hypotheses. Only after
+those errors are controlled can multiple momentum magnitudes test one
+common positive speed and rest parameter. The finite comparison theorem
+provides an acceptance criterion; it does not make its residual small.
 
 ## Existing theorem interfaces
 
