@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1709,
+  "surface_count": 1720,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1761,6 +1761,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/affine_gauss_full_spectrum/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_full_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/affine_gauss_mobile/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1797,6 +1807,21 @@
     },
     {
       "path": "model/affine_gauss_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_spectrum_validation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_spectrum_validation/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/affine_gauss_spectrum_validation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2337,6 +2362,21 @@
     },
     {
       "path": "model/coherent_defect_wave/chiral_joint/higgs_composites/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3552,6 +3592,21 @@
     },
     {
       "path": "model/interacting_band_extension/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_block_proca/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_block_proca/PROVENANCE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/interacting_block_proca/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
