@@ -64,8 +64,20 @@ measures energy, then charge position and field occupation, with every
 preparation and detector outcome retained. The
 [native attachment](native_abelian_field_join/PROOF.md) couples actual odd
 native probes to the field and proves positive original-attempt arrivals.
+Its [successive position and energy records](native_abelian_energy_records/PROOF.md)
+bound arrival followed by acceptance near the actual admitted charged
+ground, including the position measurement's backaction and all failures.
 These are finite source energies and motion; a relativistic species and
 an independent GeV scale require their physical comparison.
+
+A separate [free Dirac construction](native_block_dirac/PROOF.md) uses
+the actual odd native states in a complete fermionic occupation code.
+Its declared square-root kinetic law, spinor filters and programmable
+apparatus give a controlled free spin-one-half record limit with a
+source-selected rest frequency. The same native ground and clock support
+complete particle/antiparticle detector records. This construction has
+full-range couplers; it does not inherit the charged field's interaction
+or identify a Standard Model lepton.
 
 ## Neutral fields and finite collisions
 
