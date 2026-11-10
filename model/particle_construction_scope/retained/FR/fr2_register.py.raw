@@ -1,0 +1,386 @@
+"""FR item 2: the two-object generation register of DEFINITION.md, its unitarity, its one-tick compression onto the
+characters, the cancellation controls, the analyzer and preparation alternatives of CANDIDATES.md, and the read counts.
+EXACT (sympy; integers for the full 432-state unitarity). Writes fr2_register.json.
+
+Formulas written before evaluation (DEFINITION.md section 6):
+  psi_obj = V W |in_obj>; Psi_x = K_theta T (psi_C (x) psi_E (x) |x>); M[x', x] = <Phi (x) x'| Psi_x>.
+  Expected for the primary choices: M = (sqrt2/3) C(theta),
+      C(theta) = sqrt(1/6) I + sqrt(1/12) (z R + z^-1 R^-1),  z = exp(i theta),
+  because <E agrees> = sqrt(1/6), <C repairs +-> = sqrt(1/12) each, <idle> = sqrt(2/3) for both objects.
+  Eigenvalues on v_k (R v_k = w^k v_k): (sqrt2/3)(sqrt(1/6) + 2 sqrt(1/12) cos(theta + 2 pi k/3)); abs(b)/a = 1/sqrt2.
+"""
+from __future__ import annotations
+
+import sys
+import time
+from fractions import Fraction as Fr
+
+import numpy as np
+import sympy as sp
+
+import fr_common as FC
+
+OUT = 'fr2_register.json'
+z = sp.Symbol('z')  # exp(i theta); |z| = 1
+th = sp.Symbol('theta', real=True)
+R = FC.shift3(1)
+Ri = FC.shift3(-1)
+I3 = sp.eye(3)
+a13, a23 = sp.sqrt(sp.Rational(1, 3)), sp.sqrt(sp.Rational(2, 3))
+
+
+def C_target(zz=z):
+    return sp.sqrt(sp.Rational(1, 6)) * I3 + sp.sqrt(sp.Rational(1, 12)) * (zz * R + R.inv() / zz)
+
+
+def obj_ops(s=1):
+    W = FC.obj_event(s) * FC.obj_address_reflection()
+    return W, FC.obj_orient()
+
+
+def psi(prep, s=1, oriented=True):
+    W, V = obj_ops(s)
+    v = FC.obj_state(*prep)
+    out = W * v
+    if oriented:
+        out = V * out
+    return out.applyfunc(sp.nsimplify)
+
+
+def tick_apply(psiC, psiE, coupling='address', clock=True):
+    """Return dict x -> 432-vector (as dict (iC, iE, x') -> amplitude) of K T (psiC (x) psiE (x) |x>)."""
+    res = {}
+    for x in range(3):
+        vec = {}
+        for iC in range(12):
+            aC = psiC[iC]
+            if aC == 0:
+                continue
+            l, r, o = iC // 4, (iC // 2) % 2, iC % 2
+            if r == 1:
+                step = (1 if o == 0 else -1) if coupling == 'address' else 1
+                ph = (z if o == 0 else 1 / z) if clock else 1
+            else:
+                step, ph = 0, 1
+            xp = (x + step) % 3
+            for iE in range(12):
+                aE = psiE[iE]
+                if aE == 0:
+                    continue
+                key = (iC, iE, xp)
+                vec[key] = vec.get(key, 0) + ph * aC * aE
+        res[x] = vec
+    return res
+
+
+def compress(Phi, psiC, psiE, coupling='address', clock=True):
+    """Phi: dict (iC, iE) -> coefficient (the analyzer outcome vector). Returns the 3x3 compression."""
+    Ps = tick_apply(psiC, psiE, coupling, clock)
+    M = sp.zeros(3, 3)
+    for x in range(3):
+        for (iC, iE, xp), amp in Ps[x].items():
+            c = Phi.get((iC, iE), 0)
+            if c != 0:
+                M[xp, x] += sp.conjugate(c) * amp
+    return M.applyfunc(lambda e: sp.nsimplify(sp.expand(e)))
+
+
+def prod_vec(vC, vE, coef=1):
+    out = {}
+    for iC in range(12):
+        if vC[iC] == 0:
+            continue
+        for iE in range(12):
+            if vE[iE] == 0:
+                continue
+            out[(iC, iE)] = out.get((iC, iE), 0) + coef * vC[iC] * vE[iE]
+    return out
+
+
+def add_vec(*vs):
+    out = {}
+    for v in vs:
+        for k, c in v.items():
+            out[k] = out.get(k, 0) + c
+    return out
+
+
+def norm2(v):
+    return sp.nsimplify(sum(sp.Abs(c) ** 2 for c in v.values()))
+
+
+def flags(s_C=1, s_E=1):
+    F = FC.obj_flag
+    return {
+        'E_agree': F('p', 0, 'u', s_E), 'E_idle': F('idle', 0, 'u'), 'E_repair': F('p', 1, 'u', s_E),
+        'C_idle': F('idle', 0, 'u'), 'C_agree': F('p', 0, 'u', s_C),
+        'C_rep+': F('p', 1, 0, s_C), 'C_rep-': F('p', 1, 1, s_C),
+    }
+
+
+def analyzer_E1(fl):
+    H = prod_vec(fl['C_idle'], fl['E_agree'])
+    Rp = prod_vec(fl['C_rep+'], fl['E_idle'])
+    Rm = prod_vec(fl['C_rep-'], fl['E_idle'])
+    return {k: c / sp.sqrt(3) for k, c in add_vec(H, Rp, Rm).items()}, (H, Rp, Rm)
+
+
+def unit(v):
+    n = sp.sqrt(sum(sp.Abs(x) ** 2 for x in v))
+    return (v / n).applyfunc(sp.nsimplify)
+
+
+def summarize(M, label):
+    """Circulant parameters of a 3x3 matrix that commutes with R: M = a I + b1 R + b2 R^-1."""
+    comm = (M * R - R * M).applyfunc(sp.simplify) == sp.zeros(3, 3)
+    a = sp.simplify(M[0, 0])
+    b1 = sp.simplify(M[1, 0])
+    b2 = sp.simplify(M[2, 0])
+    return {'label': label, 'commutes_with_R': comm, 'a': str(a), 'b(R)': str(b1), 'b(R^-1)': str(b2),
+            'matrix': [[str(M[i, j]) for j in range(3)] for i in range(3)]}
+
+
+def main():
+    t0 = time.time()
+    out = {'task': 'FR item 2: register, compression, controls', 'provenance': FC.provenance()}
+
+    # ---------------- unitarity of every factor (exact) and of the full tick (integer arithmetic)
+    W, V = obj_ops(1)
+    T = sp.zeros(36, 36)
+    for iC in range(12):
+        l, r, o = iC // 4, (iC // 2) % 2, iC % 2
+        for x in range(3):
+            xp = (x + ((1 if o == 0 else -1) if r == 1 else 0)) % 3
+            T[iC * 3 + xp, iC * 3 + x] = 1
+    unit_checks = {
+        'address_reflection_R2': FC.is_unitary(FC.obj_address_reflection()),
+        'event_Q': FC.is_unitary(FC.obj_event(1)),
+        'event_Q_with_link_exp(i pi/3)': FC.is_unitary(FC.obj_event(sp.exp(sp.I * sp.pi / 3))),
+        'oriented_record_V': FC.is_unitary(V),
+        'coupling_T_on_C_x_F': FC.is_unitary(T),
+        'clock_K': 'diagonal, entries z^(+-1) or 1 with |z| = 1',
+    }
+    # full U0 = T V (W_C (x) W_E) on 12 x 12 x 3 = 432 states, as 4 U0 in integers
+    W2 = np.array((2 * W).tolist(), dtype=np.int64)
+    Vn = np.array(V.tolist(), dtype=np.int64)
+    Tn = np.array(T.tolist(), dtype=np.int64)
+    # order of tensor factors: (C, E, F); T acts on (C, F)
+    WCE = np.kron(np.kron(W2, W2), np.eye(3, dtype=np.int64))
+    VV = np.kron(np.kron(Vn, Vn), np.eye(3, dtype=np.int64))
+    # embed T (C x F) into (C x E x F)
+    TT = np.zeros((432, 432), dtype=np.int64)
+    for iC in range(12):
+        for x in range(3):
+            col_cf = iC * 3 + x
+            row_cf = int(np.nonzero(Tn[:, col_cf])[0][0])
+            iC2, x2 = divmod(row_cf, 3)
+            for iE in range(12):
+                TT[iC2 * 36 + iE * 3 + x2, iC * 36 + iE * 3 + x] = 1
+    U4 = TT @ VV @ WCE
+    unit_checks['full_tick_4U0^T_4U0_equals_16_I (integer, 432 states)'] = bool(
+        np.array_equal(U4.T @ U4, 16 * np.eye(432, dtype=np.int64)))
+    out['unitarity'] = unit_checks
+    print('unitarity', unit_checks)
+    # V Q on blank records equals the law with the screen-address unitary at both addresses (with and without links)
+    eqv = {}
+    for name, s in (('s=1', 1), ('s=exp(i pi/3)', sp.exp(sp.I * sp.pi / 3)), ('s=-1', -1)):
+        Q = FC.obj_event(s)
+        Uplus = sp.zeros(12, 12)
+        for l in range(3):
+            for r in range(2):
+                for l2 in range(3):
+                    for r2 in range(2):
+                        Uplus[FC.oidx(l2, r2, 0), FC.oidx(l, r, 0)] = Q[FC.oidx(l2, r2, 0), FC.oidx(l, r, 0)]
+        Q_or = sp.zeros(12, 12)
+        for o in range(2):
+            for l in range(3):
+                for r in range(2):
+                    for l2 in range(3):
+                        for r2 in range(2):
+                            Q_or[FC.oidx(l2, r2, o), FC.oidx(l, r, o)] = Uplus[FC.oidx(l2, r2, 0), FC.oidx(l, r, 0)]
+        blank = [FC.oidx(l, 0, o) for l in range(3) for o in range(2)]
+        diff = (FC.obj_orient() * Q - Q_or).applyfunc(lambda e: sp.simplify(sp.expand_complex(e)))
+        eqv[name] = all(diff[i, j] == 0 for i in range(12) for j in blank)
+    out['oriented_record_equals_screen_unitary_at_both_addresses_on_blank_records'] = eqv
+    print('V Q = Q_or on blank records:', eqv)
+
+    # ---------------- primary register (D1, B1, C1, E1)
+    fl = flags()
+    pC = psi((a13, 0, a23))
+    pE = psi((a13, 0, a23))
+    Phi, (H, Rp, Rm) = analyzer_E1(fl)
+    orth = {'|Phi|^2': str(norm2(Phi)),
+            'flags_orthonormal': all(sp.simplify(sum(sp.conjugate(u.get(k, 0)) * w.get(k, 0) for k in set(u) | set(w))
+                                                 - (1 if i == j else 0)) == 0
+                                     for i, u in enumerate((H, Rp, Rm)) for j, w in enumerate((H, Rp, Rm)))}
+    M = compress(Phi, pC, pE)
+    target = (sp.sqrt(2) / 3 * C_target()).applyfunc(sp.nsimplify)
+    eq = (M - target).applyfunc(sp.simplify) == sp.zeros(3, 3)
+    # eigenvalues on the characters
+    vk = FC.character_vectors()
+    eig = {}
+    for k, v in enumerate(vk):
+        lam_pred = sp.sqrt(2) / 3 * (sp.sqrt(sp.Rational(1, 6)) + sp.sqrt(sp.Rational(1, 12)) * (
+            z * FC.W3 ** k + FC.W3 ** (-k % 3) / z))
+        ok = ((M * v - lam_pred * v).applyfunc(lambda e: sp.simplify(sp.expand(e)))) == sp.zeros(3, 1)
+        lam_th = sp.simplify((lam_pred.subs(z, sp.exp(sp.I * th))).rewrite(sp.cos))
+        eig[f'k={k}'] = {'R_eigenvalue': f'w^{k}', 'M v_k = lambda_k v_k': ok,
+                         'lambda_k(theta)': str(sp.simplify(sp.expand_complex(lam_th)))}
+    a_coef = sp.sqrt(2) / 3 * sp.sqrt(sp.Rational(1, 6))
+    b_coef = sp.sqrt(2) / 3 * sp.sqrt(sp.Rational(1, 12))
+    out['primary'] = {
+        'choices': 'A1 neutral F, B1 oriented record, C1 address-keyed coupling, D1 sources at the screen tails, '
+                   'E1 Fourier zero over {E agrees x C idle, C repairs + x E idle, C repairs - x E idle}',
+        'analyzer': orth,
+        'object_amplitudes': {
+            '<E agrees>': str(sp.nsimplify((fl['E_agree'].T * pE)[0])),
+            '<E idle>': str(sp.nsimplify((fl['E_idle'].T * pE)[0])),
+            '<C idle>': str(sp.nsimplify((fl['C_idle'].T * pC)[0])),
+            '<C repairs +>': str(sp.nsimplify((fl['C_rep+'].T * pC)[0])),
+            '<C repairs ->': str(sp.nsimplify((fl['C_rep-'].T * pC)[0])),
+        },
+        'M': summarize(M, 'E1'),
+        'M_equals_(sqrt2/3) C(theta)': eq,
+        'abs_b_over_a': str(sp.nsimplify(b_coef / a_coef)),
+        'eigenvalues_on_characters': eig,
+        'sum_lambda^2_of_C': str(sp.nsimplify(3 * sp.Rational(1, 6) + 6 * sp.Rational(1, 12))),
+        'Q_in_positive_chamber': '2/3 for every theta with all lambda_k >= 0 (|theta| <= pi/12 mod 2 pi/3), since '
+                                 'sum lambda^2 = 1 and sum lambda = 3 a = sqrt(3/2)',
+    }
+    print('primary M = (sqrt2/3) C(theta):', eq, ' |b|/a =', out['primary']['abs_b_over_a'])
+
+    # ---------------- controls of the cancellation (B2, C2)
+    pC_plain = psi((a13, 0, a23), oriented=False)
+    pE_plain = psi((a13, 0, a23), oriented=False)
+    M_plain = compress(Phi, pC_plain, pE_plain)
+    M_blind_plain = compress(Phi, pC_plain, pE_plain, coupling='blind')
+    M_blind_or = compress(Phi, pC, pE, coupling='blind')
+    quad = (sp.sqrt(2) / 3 * (sp.sqrt(sp.Rational(1, 6)) * I3 + sp.sqrt(sp.Rational(1, 12)) * (z * R - R.inv() / z)))
+    out['controls_record_and_coupling'] = {
+        'B2_plain_record': summarize(M_plain, 'plain record, address-keyed'),
+        'B2_equals_quadrature_(sqrt2/3)(sqrt(1/6) I + sqrt(1/12)(z R - z^-1 R^-1))':
+            (M_plain - quad).applyfunc(sp.simplify) == sp.zeros(3, 3),
+        'C2_blind_coupling_plain_record': summarize(M_blind_plain, 'plain record, orientation-blind coupling'),
+        'C2_blind_plain_at_theta=0': summarize(M_blind_plain.subs(z, 1), 'theta = 0: repair cancels'),
+        'C2_blind_coupling_oriented_record': summarize(M_blind_or, 'oriented record, orientation-blind coupling'),
+        'B3_odd_analyzer_on_plain_record': None,
+    }
+    # B3: plain record with the orientation-odd analyzer (flip the sign of the reversed repair flag)
+    Rm_odd = {k: -c for k, c in Rm.items()}
+    Phi_odd = {k: c / sp.sqrt(3) for k, c in add_vec(H, Rp, Rm_odd).items()}
+    M_odd = compress(Phi_odd, pC_plain, pE_plain)
+    out['controls_record_and_coupling']['B3_odd_analyzer_on_plain_record'] = {
+        **summarize(M_odd, 'plain record, odd analyzer'),
+        'equals_primary': (M_odd - M).applyfunc(sp.simplify) == sp.zeros(3, 3)}
+    print('B2 quadrature', out['controls_record_and_coupling']['B2_equals_quadrature_(sqrt2/3)(sqrt(1/6) I + sqrt(1/12)(z R - z^-1 R^-1))'],
+          ' B3 = primary', out['controls_record_and_coupling']['B3_odd_analyzer_on_plain_record']['equals_primary'])
+
+    # ---------------- preparations (D2 - D6)
+    prep = {}
+    M_head = compress(Phi, psi((0, a13, a23)), pE)
+    prep['D2_C_at_screen_head'] = {**summarize(M_head, 'C load at the head'),
+                                  'equals_(sqrt2/3) C(theta + pi)': (M_head - sp.sqrt(2) / 3 * C_target(-z)).applyfunc(
+                                      sp.simplify) == sp.zeros(3, 3)}
+    M_coh = compress(Phi, psi((a13 / sp.sqrt(2), a13 / sp.sqrt(2), a23)), pE)
+    prep['D3_C_coherent_symmetric'] = summarize(M_coh, 'C load (tail + head)/sqrt2: repair cancels')
+    prep['D4_C_mixture'] = {'statement': 'incoherent half-and-half of D1 and D2: the consensus outcome is the mixture of '
+                                         '(sqrt2/3) C(theta) and (sqrt2/3) C(theta + pi); A-clock energies average to '
+                                         '(2/9)(1/6 + (1/3) cos^2(theta + 2 pi k/3)) (LNAT2 E8 quadrature spectrum)'}
+    M_Ehead = compress(Phi, pC, psi((0, a13, a23)))
+    M_Emix = compress(Phi, pC, psi((a13 / sp.sqrt(2), a13 / sp.sqrt(2), a23)))
+    prep['D5_E_at_junction_(screen head)'] = {'equals_primary': (M_Ehead - M).applyfunc(sp.simplify) == sp.zeros(3, 3)}
+    prep['D5_E_coherent_symmetric'] = {'equals_primary': (M_Emix - M).applyfunc(sp.simplify) == sp.zeros(3, 3)}
+    # D6 unequal activities
+    aC_, aE_ = sp.symbols('alpha_C alpha_E', positive=True)
+    M_act = compress(Phi, psi((sp.sqrt(aC_), 0, sp.sqrt(1 - aC_))), psi((sp.sqrt(aE_), 0, sp.sqrt(1 - aE_))))
+    a_act = sp.simplify(M_act[0, 0])
+    b_act = sp.simplify(M_act[1, 0].subs(z, 1))
+    prep['D6_activities'] = {'a': str(a_act), 'b (theta=0)': str(b_act),
+                             '(b/a)^2': str(sp.simplify((b_act / a_act) ** 2)),
+                             'balance_1/2_iff': 'alpha_C (1 - alpha_E) = alpha_E (1 - alpha_C), i.e. alpha_C = alpha_E'}
+    out['preparations'] = prep
+    print('D2 head = C(theta+pi):', prep['D2_C_at_screen_head']['equals_(sqrt2/3) C(theta + pi)'],
+          ' D5 E-source independence:', prep['D5_E_at_junction_(screen head)'], prep['D5_E_coherent_symmetric'])
+
+    # ---------------- analyzer alternatives (E2 - E7)
+    ana = {}
+    # E2 exclusive with matched no-read states of the D1 preparation
+    nC = (pC.multiply_elementwise(sp.Matrix([1 if ((i // 2) % 2) == 0 else 0 for i in range(12)])))
+    nE = (pE - (fl['E_agree'].T * pE)[0] * fl['E_agree'])
+    nC_n, nE_n = unit(nC), unit(nE)
+    H2 = prod_vec(nC_n, fl['E_agree'])
+    Rp2 = prod_vec(fl['C_rep+'], nE_n)
+    Rm2 = prod_vec(fl['C_rep-'], nE_n)
+    Phi2 = {k: c / sp.sqrt(3) for k, c in add_vec(H2, Rp2, Rm2).items()}
+    M2 = compress(Phi2, pC, pE)
+    ana['E2_exclusive_matched'] = {**summarize(M2, 'E2'),
+                                   'no_read_norms^2': [str(sp.nsimplify(sum(x ** 2 for x in nC))),
+                                                       str(sp.nsimplify(sum(sp.Abs(x) ** 2 for x in nE)))],
+                                   'equals_sqrt(5/18) C(theta)': (M2 - sp.sqrt(sp.Rational(5, 18)) * C_target()).applyfunc(
+                                       sp.simplify) == sp.zeros(3, 3)}
+    M2_Ehead = compress(Phi2, pC, psi((0, a13, a23)))
+    ana['E2_with_E_at_junction'] = summarize(M2_Ehead, 'E2, E load at the junction port (screen head)')
+    # E3 marginal (algebraic): each read with its own amplitude
+    aE = (fl['E_agree'].T * pE)[0]
+    bp = (fl['C_rep+'].T * pC)[0]
+    bm = (fl['C_rep-'].T * pC)[0]
+    M3 = ((aE * I3 + bp * z * R + bm * R.inv() / z) / sp.sqrt(3)).applyfunc(sp.nsimplify)
+    ana['E3_marginal'] = {**summarize(M3, 'E3'), 'equals_C(theta)/sqrt3': (M3 - C_target() / sp.sqrt(3)).applyfunc(
+        sp.simplify) == sp.zeros(3, 3), 'note': 'joint records counted in both classes; no single projective outcome'}
+    # E4 precedence (matched class norms)
+    nCn2 = sp.nsimplify(sum(x ** 2 for x in nC))
+    nEn2 = sp.nsimplify(sum(sp.Abs(x) ** 2 for x in nE))
+    for name, a_, b_ in (('E4a_rotation_first', aE * sp.sqrt(nCn2), bp), ('E4b_hold_first', aE, bp * sp.sqrt(nEn2))):
+        ana[name] = {'a': str(sp.nsimplify(a_)), 'b': str(sp.nsimplify(b_)),
+                     '(b/a)^2': str(sp.nsimplify((b_ / a_) ** 2)),
+                     'Q_at_theta=0': str(sp.nsimplify(sp.Rational(1, 3) + sp.Rational(2, 3) * (b_ / a_) ** 2))}
+    # E5 product readout: Phi_C = Fourier zero over {C idle, C rep+, C rep-}, Phi_E = E agrees
+    PhiC = (fl['C_idle'] + fl['C_rep+'] + fl['C_rep-']) / sp.sqrt(3)
+    Phi5 = prod_vec(PhiC, fl['E_agree'])
+    M5 = compress(Phi5, pC, pE)
+    ana['E5_product'] = {**summarize(M5, 'E5'), 'reading': 'the E factor is a scalar; the identity part comes from C idle'}
+    # E6 one object: C agrees as the hold
+    Phi6 = prod_vec((fl['C_agree'] + fl['C_rep+'] + fl['C_rep-']) / sp.sqrt(3), unit(pE))
+    M6 = compress(Phi6, pC, pE)
+    ana['E6_one_object'] = {**summarize(M6, 'E6'), 'equals_C(theta)/sqrt3': (M6 - C_target() / sp.sqrt(3)).applyfunc(
+        sp.simplify) == sp.zeros(3, 3)}
+    # E7 LNAT2 two-flag analyzer alpha|0,even> + beta|1,odd> on the plain record, alpha = beta
+    even = FC.obj_flag('p', 0, 'u')
+    odd = (FC.obj_flag('p', 1, 0) - FC.obj_flag('p', 1, 1)) / sp.sqrt(2)
+    Phi7 = prod_vec((even + odd) / sp.sqrt(2), unit(pE_plain))
+    M7 = compress(Phi7, pC_plain, pE_plain)
+    ana['E7_LNAT2_two_flag_plain'] = {**summarize(M7, 'E7'),
+                                      '(b/a)': str(sp.nsimplify(sp.simplify(M7[1, 0].subs(z, 1) / M7[0, 0])))}
+    out['analyzers'] = ana
+    print('E2 = sqrt(5/18) C:', ana['E2_exclusive_matched']['equals_sqrt(5/18) C(theta)'], ' E3:', ana['E3_marginal'][
+        'equals_C(theta)/sqrt3'], ' E6:', ana['E6_one_object']['equals_C(theta)/sqrt3'], ' E7 b/a:',
+        ana['E7_LNAT2_two_flag_plain']['(b/a)'])
+
+    # ---------------- read counts per tick from the records of U_tick |in> (F1 - F4)
+    def prob(vec, pred):
+        return sp.nsimplify(sum(sp.Abs(vec[i]) ** 2 for i in range(12) if pred(i)))
+    active = lambda i: i // 4 in (0, 1)
+    rec = lambda i: (i // 2) % 2
+    adr = lambda i: i % 2
+    P_Rp = prob(pC, lambda i: active(i) and rec(i) == 1 and adr(i) == 0)
+    P_Rm = prob(pC, lambda i: active(i) and rec(i) == 1 and adr(i) == 1)
+    P_H = prob(pE, lambda i: active(i) and rec(i) == 0)
+    P_Cagree = prob(pC, lambda i: active(i) and rec(i) == 0)
+    out['read_counts'] = {
+        'P(R+)': str(P_Rp), 'P(R-)': str(P_Rm), 'P(H)': str(P_H), 'P(C agrees)': str(P_Cagree),
+        'P(R+ and H)': str(P_Rp * P_H),
+        'F1_P(R+ xor H)_two_objects': str(sp.nsimplify(P_Rp + P_H - 2 * P_Rp * P_H)),
+        'F2_P(exactly one of H, R+, R-)': str(sp.nsimplify(P_H * (1 - P_Rp - P_Rm) + (P_Rp + P_Rm) * (1 - P_H))),
+        'F3_one_object_P(R+ xor C agrees)': str(sp.nsimplify(P_Rp + P_Cagree)),
+        'F4_expected_reads_H_R+_R-': str(sp.nsimplify(P_H + P_Rp + P_Rm)),
+        'variance_of_X_per_carrier (F1)': str(sp.nsimplify((P_Rp + P_H - 2 * P_Rp * P_H) * (
+            1 - (P_Rp + P_H - 2 * P_Rp * P_H)))),
+    }
+    print('read counts', out['read_counts'])
+    out['seconds'] = round(time.time() - t0, 2)
+    FC.jdump(out, OUT)
+    print('written', OUT, out['seconds'], 's')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,310 @@
+"""T4 of lane L-NAT round 3: FR's two-object generation register (repair-law/work/FR/DEFINITION.md), reimplemented
+independently from its definition; one-tick check; native status of its pieces; multi-tick behaviour.
+
+EXACT unless labelled. Writes lnat3_t4.json. Formulas written before evaluation:
+  Per object (index 4 l + 2 r + o; l: tail 0, head 1, idle 2; r: record; o: 0 screen '+', 1 reversed '-'):
+    R2 exchanges o; Q applies U_(tail,head) at o = 0 and U_(head,tail) at o = 1 (repository reflector, link 1);
+    W = Q R2; V = diag(-1 on r = 1, o = 1).
+  Tick on C (x) E (x) F (432 states): U(z) = K T V (W_C (x) W_E), T: R^{+1} on F if (r_C, o_C) = (1, 0), R^{-1} if (1, 1);
+    K: z on (r_C, o_C) = (1, 0), conj(z) on (1, 1). U(z) = z^-1 U_-1 + U_0 + z U_1 with integer-scaled U_m.
+  Preparation |in> = (x)_obj (sqrt(1/3)|tail> + sqrt(2/3)|idle>) |0> (|+> + |->)/sqrt2.
+  Analyzer Phi = (phi_H + phi_+ + phi_-)/sqrt3, phi_H = |C idle,0,u>|E p,0,u>, phi_+- = |C p,1,+->|E idle,0,u>.
+  One tick: M = <Phi|U|in> = (sqrt2/3) C(theta), C = sqrt(1/6) I + sqrt(1/12)(z R + conj(z) R^-1) (FR's result).
+  Multi-tick: (i) K_n = <Phi|U^n|in> against M^n; (ii) G = <Phi|U|Phi> (consensus outcome each tick, no
+  re-preparation); (iii) records replaced by blank records after each tick (fresh records); (iv) read counts of tick 2.
+"""
+from __future__ import annotations
+
+import json
+from itertools import product
+
+import mpmath as mp
+import numpy as np
+import sympy as s
+
+OUT = 'lnat3_t4.json'
+mp.mp.dps = 30
+NO = 12
+
+
+def oidx(l, r, o):
+    return 4 * l + 2 * r + o
+
+
+def obj_W2():
+    """2 W as an integer matrix (W = Q R2)."""
+    R2 = np.zeros((NO, NO), dtype=np.int64)
+    for l, r, o in product(range(3), range(2), range(2)):
+        R2[oidx(l, r, 1 - o), oidx(l, r, o)] = 1
+    Q2 = 2 * np.eye(NO, dtype=np.int64)
+    for o in range(2):
+        a, b = (0, 1) if o == 0 else (1, 0)
+        sites = [oidx(a, 0, o), oidx(b, 0, o), oidx(a, 1, o), oidx(b, 1, o)]
+        signs = [1, -1, -1, -1]  # v = (|a,0> - |b,0> - |a,1> - |b,1>)/sqrt2, 2 v v^T = signs signs^T
+        for si, i in zip(signs, sites):
+            for sj, j in zip(signs, sites):
+                Q2[i, j] -= si * sj
+    return Q2 @ R2
+
+
+def obj_V():
+    return np.diag([(-1 if (r == 1 and o == 1) else 1) for l, r, o in
+                    [(i // 4, (i // 2) % 2, i % 2) for i in range(NO)]]).astype(np.int64)
+
+
+def full_index(iC, iE, x):
+    return iC * 36 + iE * 3 + x
+
+
+def tick_parts():
+    """Return integer matrices A_m with 4 U = sum_m z^m A_m, m in (-1, 0, 1)."""
+    W2 = obj_W2()
+    V = obj_V()
+    B_obj = V @ W2  # 2 V W per object
+    B = np.kron(np.kron(B_obj, B_obj), np.eye(3, dtype=np.int64))  # 4 (V W (x) V W) (x) 1_F
+    D = 432
+    T = np.zeros((D, D), dtype=np.int64)
+    for iC in range(NO):
+        r, o = (iC // 2) % 2, iC % 2
+        for iE in range(NO):
+            for x in range(3):
+                step = (1 if o == 0 else -1) if r == 1 else 0
+                T[full_index(iC, iE, (x + step) % 3), full_index(iC, iE, x)] = 1
+    TB = T @ B
+    A = {m: np.zeros((D, D), dtype=np.int64) for m in (-1, 0, 1)}
+    for i in range(D):
+        iC = i // 36
+        r, o = (iC // 2) % 2, iC % 2
+        m = (1 if o == 0 else -1) if r == 1 else 0
+        A[m][i, :] = TB[i, :]
+    return A
+
+
+def laurent_mul(P, Qd):
+    out = {}
+    for m1, A1 in P.items():
+        for m2, A2 in Qd.items():
+            out[m1 + m2] = out.get(m1 + m2, 0) + A1 @ A2
+    return out
+
+
+def obj_vec(tail, head, idle, r=0, addr='u'):
+    v = {}
+    for l, amp in ((0, tail), (1, head), (2, idle)):
+        if amp == 0:
+            continue
+        if addr == 'u':
+            for o in range(2):
+                v[oidx(l, r, o)] = v.get(oidx(l, r, o), 0) + amp / s.sqrt(2)
+        else:
+            v[oidx(l, r, addr)] = v.get(oidx(l, r, addr), 0) + amp
+    return v
+
+
+def kron_vec(vC, vE):
+    return {(iC, iE): aC * aE for iC, aC in vC.items() for iE, aE in vE.items()}
+
+
+def add(*vs, coef=None):
+    out = {}
+    for k, v in enumerate(vs):
+        c = 1 if coef is None else coef[k]
+        for key, a in v.items():
+            out[key] = out.get(key, 0) + c * a
+    return out
+
+
+def compress(Phi, Ulaur, psi, scale):
+    """<Phi| (x) 1_F  U  |psi> (x) 1_F as a Laurent polynomial dict m -> 3x3 sympy matrix; U = (1/scale) sum z^m A_m."""
+    out = {}
+    for m, A in Ulaur.items():
+        M = s.zeros(3, 3)
+        for (iC2, iE2), c2 in Phi.items():
+            for x2 in range(3):
+                row = A[full_index(iC2, iE2, x2)]
+                for (iC, iE), c in psi.items():
+                    for x in range(3):
+                        val = row[full_index(iC, iE, x)]
+                        if val:
+                            M[x2, x] += s.conjugate(c2) * c * int(val)
+        M = (M / scale).applyfunc(lambda e: s.nsimplify(s.expand(e)))
+        if M != s.zeros(3, 3):
+            out[m] = M
+    return out
+
+
+def laurent_to_matrix(L, z):
+    return sum((z ** m * M for m, M in L.items()), s.zeros(3, 3))
+
+
+def circ_params(M):
+    return {'a (I)': str(s.simplify(M[0, 0])), 'b (R)': str(s.simplify(M[1, 0])), 'c (R^-1)': str(s.simplify(M[2, 0]))}
+
+
+def masses_from(Mnum):
+    """A-clock masses |lambda_k|^2 of a numeric 3x3 matrix commuting with R (characters v_k)."""
+    w = mp.e ** (2j * mp.pi / 3)
+    lam = []
+    for k in range(3):
+        v = [w ** (-(j * k)) / mp.sqrt(3) for j in range(3)]
+        Mv = [sum(Mnum[i][j] * v[j] for j in range(3)) for i in range(3)]
+        lam.append(Mv[0] / v[0])
+    return lam
+
+
+def main():
+    out = {'task': 'LNAT3 T4: FR register, independent reimplementation and multi-tick'}
+    A = tick_parts()
+    # unitarity: sum_m A_m^T A_m = 16 I and sum_m A_m^T A_{m+d} = 0 for d != 0
+    D = 432
+    S0 = sum(A[m].T @ A[m] for m in A)
+    S1 = A[-1].T @ A[0] + A[0].T @ A[1]
+    S2 = A[-1].T @ A[1]
+    out['unitarity_exact'] = {'sum A_m^T A_m = 16 I': bool(np.array_equal(S0, 16 * np.eye(D, dtype=np.int64))),
+                              'cross terms d = 1 vanish': bool(not S1.any()), 'cross terms d = 2 vanish': bool(not S2.any())}
+    # vectors
+    a13, a23 = s.sqrt(s.Rational(1, 3)), s.sqrt(s.Rational(2, 3))
+    inC = obj_vec(a13, 0, a23)
+    inE = obj_vec(a13, 0, a23)
+    psi_in = kron_vec(inC, inE)
+    p_vec = lambda r, addr: obj_vec(1 / s.sqrt(2), 1 / s.sqrt(2), 0, r, addr)
+    idle = obj_vec(0, 0, 1)
+    phiH = kron_vec(idle, p_vec(0, 'u'))
+    phiP = kron_vec(p_vec(1, 0), idle)
+    phiM = kron_vec(p_vec(1, 1), idle)
+    Phi = add(phiH, phiP, phiM, coef=[1 / s.sqrt(3)] * 3)
+    z = s.Symbol('z')
+    Rm = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)
+    Ctar = s.sqrt(s.Rational(1, 6)) * s.eye(3) + s.sqrt(s.Rational(1, 12)) * (z * Rm + Rm.T / z)
+    # one tick
+    M1 = compress(Phi, A, psi_in, 4)
+    M1m = laurent_to_matrix(M1, z)
+    out['one_tick'] = {'M_equals_(sqrt2/3)C(theta)': (M1m - s.sqrt(2) / 3 * Ctar).applyfunc(s.simplify) == s.zeros(3, 3),
+                       'M': circ_params(M1m)}
+    # ---- native status of V: product of squares of quarter-turns on (r = 1, o = 1) basis states
+    Vq = np.eye(NO, dtype=complex)
+    for l in range(3):
+        i = oidx(l, 1, 1)
+        Vi = np.eye(NO, dtype=complex)
+        Vi[i, i] = 1j
+        Vq = Vq @ Vi @ Vi
+    out['V_is_product_of_squared_quarter_turns'] = bool(np.allclose(Vq, obj_V()))
+    # SWAP reading of V: record conjugate value after V W on |tail>: + for both orientations
+    W2, V = obj_W2(), obj_V()
+    after = {}
+    for o in range(2):
+        e = np.zeros(NO); e[oidx(0, 0, o)] = 1  # tail, blank record, address o (before R2)
+        out_v = (V @ W2 @ e) / 2
+        # R2 moved the address to 1 - o; read record X value on the seam at address 1 - o
+        oo = 1 - o
+        pl = (out_v[oidx(0, 0, oo)] + out_v[oidx(0, 1, oo)], out_v[oidx(1, 0, oo)] + out_v[oidx(1, 1, oo)])
+        mi = (out_v[oidx(0, 0, oo)] - out_v[oidx(0, 1, oo)], out_v[oidx(1, 0, oo)] - out_v[oidx(1, 1, oo)])
+        after[f'address {"+" if oo == 0 else "-"}'] = {'weight on record |+>': float(sum(x * x for x in pl) / 2),
+                                                       'weight on record |->': float(sum(x * x for x in mi) / 2)}
+    out['record_conjugate_value_after_VW_tail_input'] = after
+    # agree and repair branches share the load state |p>: T is not a load motion
+    out['agree_and_repair_same_load_state'] = 'EXACT (SWAP form, lnat3_t1.json part A): U|s,0> = |p>(|0> + eps|1>)/sqrt2'
+    # ---- Schmidt rank of Phi across C | E
+    Cmat = s.zeros(NO, NO)
+    for (iC, iE), c in Phi.items():
+        Cmat[iC, iE] += c
+    out['Phi_Schmidt_rank_C|E'] = Cmat.rank()
+    # ---- multi-tick (i): K_n = <Phi|U^n|in>
+    multi = {}
+    Un = dict(A)
+    th = s.Rational(2, 9)
+    zt = mp.e ** (1j * mp.mpf(2) / 9)
+    def num(L, scale):
+        return [[complex(sum(complex(L[m][i, j].evalf(25)) * complex(zt ** m) for m in L)) for j in range(3)] for i in range(3)] if L else [[0] * 3] * 3
+    for n in range(1, 5):
+        if n > 1:
+            Un = laurent_mul(Un, A)
+        Kn = compress(Phi, Un, psi_in, 4 ** n)
+        Knm = laurent_to_matrix(Kn, z)
+        Mn = (s.sqrt(2) / 3 * Ctar) ** n
+        diff = (Knm - Mn).applyfunc(lambda e: s.simplify(s.expand(e)))
+        comm = (Knm * Rm - Rm * Knm).applyfunc(s.simplify) == s.zeros(3, 3)
+        entry = {'commutes_with_R': comm, 'K_n': circ_params(Knm), 'K_n_equals_M^n': diff == s.zeros(3, 3),
+                 'z_powers_present': sorted(Kn.keys())}
+        if Kn:
+            Knum = [[complex(laurent_to_matrix(Kn, z)[i, j].subs(z, s.exp(s.I * th)).evalf(25)) for j in range(3)] for i in range(3)]
+            lam = [complex(x) for x in masses_from([[mp.mpc(x) for x in row] for row in Knum])]
+            ms = sorted(abs(x) ** 2 for x in lam)
+            entry['theta=2/9'] = {'|lambda_k|': [abs(x) for x in lam], 'Q': sum(ms) / sum(abs(x) for x in lam) ** 2,
+                                  'm2/m1, m3/m1': [ms[1] / ms[0], ms[2] / ms[0]] if ms[0] > 1e-30 else 'm1 = 0'}
+        multi[f'n={n}'] = entry
+    out['multi_tick_unread_K_n'] = multi
+    # ---- (ii) consensus outcome each tick, no re-preparation: G = <Phi|U|Phi>
+    G = compress(Phi, A, Phi, 4)
+    Gm = laurent_to_matrix(G, z)
+    out['consensus_each_tick_G=<Phi|U|Phi>'] = {'G': circ_params(Gm), 'commutes_with_R': (Gm * Rm - Rm * Gm).applyfunc(s.simplify) == s.zeros(3, 3),
+                                               'G_proportional_to_M': None}
+    # proportionality test: G = c M for a scalar c?
+    ratio = None
+    if M1m[0, 0] != 0:
+        c = s.simplify(Gm[0, 0] / M1m[0, 0])
+        ratio = (Gm - c * M1m).applyfunc(s.simplify) == s.zeros(3, 3)
+        out['consensus_each_tick_G=<Phi|U|Phi>']['G_proportional_to_M'] = {'c = G_00/M_00': str(c), 'G = c M': ratio}
+    # ---- (iii) fresh records: after tick 1 (outcome Phi), both records replaced by blank records (Kraus |0><r|)
+    def reset_branches(vec):
+        """Split a (C,E) vector into the four reset branches (rC, rE) -> vector with both records set to 0."""
+        br = {}
+        for (iC, iE), c in vec.items():
+            lC, rC, oC = iC // 4, (iC // 2) % 2, iC % 2
+            lE, rE, oE = iE // 4, (iE // 2) % 2, iE % 2
+            key = (rC, rE)
+            nk = (oidx(lC, 0, oC), oidx(lE, 0, oE))
+            br.setdefault(key, {})
+            br[key][nk] = br[key].get(nk, 0) + c
+        return br
+    fresh = {}
+    branches = reset_branches(Phi)
+    E_k = [mp.mpf(0)] * 3
+    for key, vec in branches.items():
+        Gk = compress(Phi, A, vec, 4)
+        Gkm = laurent_to_matrix(Gk, z) if Gk else s.zeros(3, 3)
+        fresh[f'reset branch (r_C, r_E) = {key}'] = {'operator': circ_params(Gkm),
+                                                     'has_rotation_part': bool(Gkm[1, 0] != 0 or Gkm[2, 0] != 0)}
+        if Gk:
+            Knum = [[mp.mpc(complex(Gkm[i, j].subs(z, s.exp(s.I * th)).evalf(25))) for j in range(3)] for i in range(3)]
+            lam = masses_from(Knum)
+            for k in range(3):
+                E_k[k] += abs(lam[k]) ** 2
+    fresh['A_clock_energies_tick2_theta=2/9'] = [mp.nstr(e, 15) for e in E_k]
+    out['fresh_records_after_tick_1'] = fresh
+    # ---- (iv) read counts of tick 2 without analyzer (records reused, FR's U): from U^2 |in> (F traced)
+    def apply_obj(vec_obj, M2):
+        """vec_obj: dict -> numpy vector; M2: 2W-scaled per-object matrix incl. V."""
+        v = np.zeros(NO, dtype=object)
+        for i, c in vec_obj.items():
+            v[i] = c
+        return v
+    VW = (obj_V() @ obj_W2())  # 2 V W
+    def evolve(vec, n):
+        v = np.array([vec.get(i, 0) for i in range(NO)], dtype=object)
+        for _ in range(n):
+            v = np.array([sum(int(VW[i, j]) * v[j] for j in range(NO)) / 2 for i in range(NO)], dtype=object)
+        return v
+    counts = {}
+    for n in (1, 2, 3):
+        vC = evolve(inC, n)
+        vE = evolve(inE, n)
+        pr = lambda v, pred: s.nsimplify(sum(s.expand(v[i] * s.conjugate(v[i])) for i in range(NO) if pred(i)))
+        on_seam = lambda i: i // 4 in (0, 1)
+        P_rep_plus = pr(vC, lambda i: on_seam(i) and (i // 2) % 2 == 1 and i % 2 == 0)
+        P_rep = pr(vC, lambda i: on_seam(i) and (i // 2) % 2 == 1)
+        P_hold = pr(vE, lambda i: on_seam(i) and (i // 2) % 2 == 0)
+        counts[f'after tick {n}'] = {'P(C record 1, address +)': str(P_rep_plus), 'P(C record 1)': str(P_rep),
+                                     'P(E on seam, record 0)': str(P_hold),
+                                     'P(R+ xor H) (objects independent)': str(s.nsimplify(P_rep_plus + P_hold - 2 * P_rep_plus * P_hold))}
+        # source polarization of the C load on the seam before the next event (tail minus head weight)
+        tail = pr(vC, lambda i: i // 4 == 0)
+        head = pr(vC, lambda i: i // 4 == 1)
+        counts[f'after tick {n}']['C load tail - head weight'] = str(s.nsimplify(tail - head))
+    out['read_counts_records_reused'] = counts
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str))
+
+
+if __name__ == '__main__':
+    main()

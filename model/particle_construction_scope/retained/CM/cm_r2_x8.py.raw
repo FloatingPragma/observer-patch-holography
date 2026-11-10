@@ -1,0 +1,76 @@
+"""CM round 2, statement X8 (stated after r2_compare.json; explains a registered result, adds no reading).
+
+Single-site breaking Y_s = C_s + eps P_{p_s} (p_u != p_d) on Hermitian circulants: every character matrix element of
+P has modulus 1/3, so to first order in eps
+  V_kl = (eps/3) [ w^{p_d (l-k)}/(lam^d_l - lam^d_k) - w^{p_u (l-k)}/(lam^u_l - lam^u_k) ]   (k != l),
+and abs V_ub/abs V_cb is of order (lam_0 - lam_2)/(lam_0 - lam_1) in each sector, close to 1 for hierarchical sectors.
+Checked here on 300 random circulant pairs in one chamber, eps/hold = 1e-3: the first-order formula against the exact
+frames, and the ratio abs V13/abs V23. Reads no measured value. Writes x8.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 /tmp/oph-completion-venv/bin/python -B cm_r2_x8.py
+"""
+import json
+import os
+import random
+
+import mpmath as mp
+
+mp.mp.dps = 40
+HERE = os.path.dirname(os.path.abspath(__file__))
+W = mp.exp(2j * mp.pi / 3)
+R = mp.zeros(3, 3)
+for j in range(3):
+    R[(j + 1) % 3, j] = 1
+chars = [mp.matrix([W ** (-(j * k)) / mp.sqrt(3) for j in range(3)]) for k in range(3)]
+
+
+def circ(r, d):
+    return mp.eye(3) + (r / 2) * (mp.exp(1j * d) * R + mp.exp(-1j * d) * R.H)
+
+
+def frame(Y):
+    E, Q = mp.eighe(Y * Y.H)
+    idx = sorted(range(3), key=lambda i: mp.re(E[i]))
+    return [mp.re(E[i]) for i in idx], mp.matrix([[Q[r, i] for i in idx] for r in range(3)])
+
+
+random.seed(11)
+rows, worst = [], mp.mpf(0)
+ratios = []
+for _ in range(300):
+    ru, rd = mp.mpf(random.uniform(1.1, 1.95)), mp.mpf(random.uniform(1.1, 1.95))
+    du, dd = mp.mpf(random.uniform(0.02, 0.9)), mp.mpf(random.uniform(0.02, 0.9))
+    eps = mp.mpf('1e-3')
+    Pu, Pd = mp.diag([1, 0, 0]), mp.diag([0, 0, 1])
+    Cu, Cd = circ(ru, du), circ(rd, dd)
+    Eu, Qu = frame(Cu + eps * Pu)
+    Ed, Qd = frame(Cd + eps * Pd)
+    V = Qu.H * Qd
+    # first-order prediction in the mass-ordered character basis of each sector
+    def lam_and_order(r, d):
+        lam = [1 + r * mp.cos(d + 2 * mp.pi * k / 3) for k in range(3)]
+        order = sorted(range(3), key=lambda k: lam[k] ** 2)
+        return lam, order
+    lu, ou = lam_and_order(ru, du)
+    ld, od = lam_and_order(rd, dd)
+    pred = mp.zeros(3, 3)
+    for a in range(3):
+        for b in range(3):
+            if a == b:
+                continue
+            k, l = ou[a], od[b]
+            # <u_a| d_b> at first order; characters are shared, so k = l only when a = b in a common order
+            if k == l:
+                continue
+            t_d = W ** (2 * (l - k)) / (ld[l] - ld[k]) if ld[l] != ld[k] else 0
+            t_u = W ** (0 * (l - k)) / (lu[l] - lu[k]) if lu[l] != lu[k] else 0
+            pred[a, b] = (eps / 3) * (t_d - t_u)
+    errs = [abs(abs(V[a, b]) - abs(pred[a, b])) / abs(pred[a, b]) for a in range(3) for b in range(3)
+            if a != b and abs(pred[a, b]) > 0]
+    worst = max(worst, max(errs)) if errs else worst
+    ratios.append(float(abs(V[0, 2]) / abs(V[1, 2])))
+out = {'measured_values_read': False, 'pairs': 300, 'eps_over_hold': 1e-3,
+       'max_relative_error_first_order_moduli': float(worst),
+       'abs_V13_over_abs_V23_min_median_max': [min(ratios), sorted(ratios)[150], max(ratios)]}
+with open(os.path.join(HERE, 'x8.json'), 'w') as fh:
+    json.dump(out, fh, indent=1)
+print(out)

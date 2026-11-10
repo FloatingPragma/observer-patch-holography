@@ -1,0 +1,176 @@
+"""CM round 2 (CANDIDATES.md R2-B to R2-D): quark junctions in FR's two-object register, native readings.
+
+Step 0: FR's compression M(theta) rebuilt with FR's own functions (work/FR/fr2_register.py, imported read only, no byte
+code written) and checked to equal (sqrt2/3) C(theta): the family part used below is FR's register.
+Step 1: Y_s = C(theta) + junction term at the recording position (W1, W2, W3, W3', BD), assignments A and B, points N
+(theta = 2/9) and N0 (theta = 0); left frames, V, J, angles, spectra, dominant characters. mpmath 50 digits.
+Step 2: scan diagnostic (site form, assignment A, native base): abs V and J against eps/hold. No fit, no verdict.
+Reads no measured value. Writes r2.json.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_r2.py
+"""
+import json
+import os
+import sys
+import time
+
+import mpmath as mp
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+FRDIR = os.path.join(HERE, '..', 'FR')
+sys.dont_write_bytecode = True
+mp.mp.dps = 50
+OUT = {'measured_values_read': False}
+t0 = time.time()
+
+# ------------------------------------------------------------------------------------------- step 0: FR's register
+sys.path.insert(0, FRDIR)
+import sympy as sp  # noqa: E402
+import fr2_register as FR2  # noqa: E402  (read only)
+import fr_common as FC  # noqa: E402
+
+fl = FR2.flags()
+pC = FR2.psi((FR2.a13, 0, FR2.a23))
+pE = FR2.psi((FR2.a13, 0, FR2.a23))
+Phi, _ = FR2.analyzer_E1(fl)
+M = FR2.compress(Phi, pC, pE)
+target = (sp.sqrt(2) / 3 * FR2.C_target()).applyfunc(sp.nsimplify)
+OUT['FR_register_check'] = {
+    'repository_root_used_by_FR_code': FC.rer_root(),
+    'M_equals_(sqrt2/3)C(theta)': (M - target).applyfunc(sp.simplify) == sp.zeros(3, 3),
+    'M': [[str(M[i, j]) for j in range(3)] for i in range(3)],
+    'F_basis': 'x_j = rho_f^j(4) = (4, 5, 11); R x_j = x_{j+1}'}
+assert OUT['FR_register_check']['M_equals_(sqrt2/3)C(theta)']
+# F basis check against the carrier: rho_f = g^-1 and x = (4, 5, 11)
+gC, gE, g = FC.native_rotations()
+ginv = FC.inverse(g)
+xs = [4, ginv[4], ginv[ginv[4]]]
+OUT['FR_register_check']['x_j_from_carrier'] = xs
+assert xs == [4, 5, 11]
+sys.path.remove(FRDIR)
+
+# ------------------------------------------------------------------------------------------- step 1: readings
+W = mp.exp(2j * mp.pi / 3)
+R = mp.zeros(3, 3)
+for j in range(3):
+    R[(j + 1) % 3, j] = 1
+P = [mp.diag([1 if i == j else 0 for i in range(3)]) for j in range(3)]
+HOLD = mp.sqrt(mp.mpf(1) / 6)
+REP = mp.sqrt(mp.mpf(1) / 12)
+POS = {'C': 0, 'E': 2}                       # x_0 = 4 (C, face {2,3,4}), x_2 = 11 (E, face {2,10,11})
+chars = [mp.matrix([W ** (-(j * k)) / mp.sqrt(3) for j in range(3)]) for k in range(3)]
+for k in range(3):
+    assert mp.norm(R * chars[k] - W ** k * chars[k]) < mp.mpf('1e-45')
+
+
+def Cfam(th):
+    return HOLD * mp.eye(3) + REP * (mp.exp(1j * th) * R + mp.exp(-1j * th) * R.H)
+
+
+def junction(reading, obj, th, base):
+    """Return Y for the sector recorded by obj ('C' or 'E') on the given base operator."""
+    p = POS[obj]
+    hold = base[0, 0].real if base[0, 0].imag == 0 else abs(base[0, 0])
+    if reading == 'W1':
+        eps = (2 * mp.cos(th) * REP / HOLD if obj == 'C' else 2 * REP / HOLD) * hold
+        return base + eps * P[p]
+    if reading == 'W2':
+        return base + hold * P[p]
+    if reading == 'W3':
+        return base + (mp.sqrt(mp.mpf(6) / 7) - 1) * hold * P[p]
+    if reading == "W3'":
+        D = mp.eye(3) + ((mp.mpf(6) / 7) ** (mp.mpf(1) / 4) - 1) * P[p]
+        return D * base * D
+    if reading == 'BD':
+        if obj == 'C':
+            amp = REP / HOLD * hold
+            hop = mp.zeros(3, 3)
+            hop[0, 2] = mp.exp(1j * th)      # forward C repair: x_2 (11) -> x_0 (4)
+            hop[2, 0] = mp.exp(-1j * th)
+            return base + amp * hop
+        return base + 2 * REP / HOLD * hold * P[p]
+    raise ValueError(reading)
+
+
+def frame(Y):
+    E, Q = mp.eighe(Y * Y.H)
+    idx = sorted(range(3), key=lambda i: mp.re(E[i]))
+    Es = [mp.re(E[i]) for i in idx]
+    Qs = mp.matrix(3, 3)
+    for c, i in enumerate(idx):
+        for r in range(3):
+            Qs[r, c] = Q[r, i]
+    return Es, Qs
+
+
+def dominant_characters(Q):
+    out = []
+    for c in range(3):
+        col = mp.matrix([Q[r, c] for r in range(3)])
+        ov = [abs((chars[k].H * col)[0]) ** 2 for k in range(3)]
+        k = max(range(3), key=lambda i: ov[i])
+        out.append({'character_k': k, 'overlap': float(ov[k]), 'overlaps': [float(x) for x in ov]})
+    return out
+
+
+def analyse(Yu, Yd):
+    Eu, Qu = frame(Yu)
+    Ed, Qd = frame(Yd)
+    V = Qu.H * Qd
+    a = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    s13 = a[0][2]
+    c13 = mp.sqrt(1 - s13 ** 2)
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    du, dd = dominant_characters(Qu), dominant_characters(Qd)
+    return {
+        'abs_V': [[mp.nstr(x, 15) for x in row] for row in a],
+        'V12': float(a[0][1]), 'V23': float(a[1][2]), 'V13': float(a[0][2]),
+        's12': float(a[0][1] / c13), 's23': float(a[1][2] / c13), 's13': float(s13),
+        'J': float(J), 'J_30': mp.nstr(J, 30),
+        'unitarity_defect': float(mp.norm(V.H * V - mp.eye(3))),
+        'spectra': {'up': {'y1/y3': float(Eu[0] / Eu[2]), 'y2/y3': float(Eu[1] / Eu[2])},
+                    'down': {'y1/y3': float(Ed[0] / Ed[2]), 'y2/y3': float(Ed[1] / Ed[2])}},
+        'dominant_characters': {'up': du, 'down': dd},
+        'same_characters': [x['character_k'] for x in du] == [x['character_k'] for x in dd],
+    }
+
+
+ASSIGN = {'A': {'up': 'C', 'down': 'E'}, 'B': {'up': 'E', 'down': 'C'}}
+POINTS = {'N': mp.mpf(2) / 9, 'N0': mp.mpf(0)}
+res = {}
+for reading in ('W1', 'W2', 'W3', "W3'", 'BD'):
+    for an, asg in ASSIGN.items():
+        for pn, th in POINTS.items():
+            base = Cfam(th)
+            Yu = junction(reading, asg['up'], th, base)
+            Yd = junction(reading, asg['down'], th, base)
+            res[f'{reading}|{an}|{pn}'] = analyse(Yu, Yd)
+OUT['native'] = res
+# control: no junction term (FR's register alone): V = 1, J = 0
+OUT['control_no_junction'] = analyse(Cfam(POINTS['N']), Cfam(POINTS['N']))
+
+# ------------------------------------------------------------------------------------------- step 2: scan (diagnostic)
+scan = []
+for i in range(-10, 11):
+    e = mp.mpf(i) / 20
+    base = Cfam(POINTS['N'])
+    Yu = base + e * HOLD * P[POS['C']]
+    Yd = base + e * HOLD * P[POS['E']]
+    r = analyse(Yu, Yd)
+    scan.append({'eps_over_hold': float(e), 'V12': r['V12'], 'V23': r['V23'], 'V13': r['V13'], 'J': r['J'],
+                 'same_characters': r['same_characters']})
+OUT['scan_native_site_A_theta_2_9'] = scan
+OUT['seconds'] = round(time.time() - t0, 1)
+with open(os.path.join(HERE, 'r2.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('FR check', OUT['FR_register_check']['M_equals_(sqrt2/3)C(theta)'], OUT['FR_register_check']['x_j_from_carrier'])
+for k, r in res.items():
+    print(f"{k:12s} V12 {r['V12']:.6f} V23 {r['V23']:.6f} V13 {r['V13']:.6f} J {r['J']:+.6e} same_chars {r['same_characters']}"
+          f" | up y {r['spectra']['up']['y1/y3']:.3e} {r['spectra']['up']['y2/y3']:.3e}"
+          f" | down y {r['spectra']['down']['y1/y3']:.3e} {r['spectra']['down']['y2/y3']:.3e}"
+          f" | chars up {[d['character_k'] for d in r['dominant_characters']['up']]}"
+          f" down {[d['character_k'] for d in r['dominant_characters']['down']]}")
+print('control', OUT['control_no_junction']['V12'], OUT['control_no_junction']['J'])
+for s in scan:
+    print('scan', s)
+print('seconds', OUT['seconds'])

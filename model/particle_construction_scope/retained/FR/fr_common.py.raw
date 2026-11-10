@@ -1,0 +1,331 @@
+"""Shared exact objects for worker FR (two-object generation register, step S1).
+
+The public repository is imported read only. Its working tree at
+/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality was absent from 23:18 on 2026-11-10 (deleted from
+the oph-meta working tree by another process); the scripts then use a byte-identical snapshot whose
+model/coherent_seam_repair files match the package's own manifest hashes (checked at import). Set FR_RER to force a
+path.
+
+Conventions (see DEFINITION.md):
+  per seam object: basis (l, r, o), l in {0 tail, 1 head, 2 idle}, r in {0, 1}, o in {0 '+' screen, 1 '-' reversed};
+  index = 4 l + 2 r + o (12 states).
+  generation register F: |x_j>, x_j = rho_f^j(4), j = 0, 1, 2; R |x_j> = |x_{j+1}>.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+import sys
+from fractions import Fraction as Fr
+from functools import lru_cache
+
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+
+import sympy as sp  # noqa: E402
+
+RER_CANON = '/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality'
+SNAPSHOTS = ('/private/tmp/claude-501/lew_repo', '/private/tmp/claude-501/maud_repo')
+
+
+def _manifest_ok(root):
+    pkg = os.path.join(root, 'model', 'coherent_seam_repair')
+    try:
+        man = json.load(open(os.path.join(pkg, 'manifest.json')))
+    except OSError:
+        return False, {}
+    got = {}
+    for name, h in man['files'].items():
+        if not name.endswith('.py'):
+            continue
+        with open(os.path.join(pkg, name), 'rb') as fh:
+            got[name] = hashlib.sha256(fh.read()).hexdigest()
+        if got[name] != h:
+            return False, got
+    return True, got
+
+
+@lru_cache(maxsize=1)
+def rer_root():
+    cands = [os.environ['FR_RER']] if os.environ.get('FR_RER') else [RER_CANON, *SNAPSHOTS]
+    for root in cands:
+        if os.path.isdir(os.path.join(root, 'model', 'coherent_seam_repair')):
+            ok, got = _manifest_ok(root)
+            if ok:
+                if root not in sys.path:
+                    sys.path.insert(0, root)
+                return root
+    raise RuntimeError('no repository copy with a matching coherent_seam_repair manifest')
+
+
+def provenance():
+    root = rer_root()
+    sg = os.path.join(root, 'model', 'common_source', 'slow_geometry.py')
+    with open(sg, 'rb') as fh:
+        sgh = hashlib.sha256(fh.read()).hexdigest()
+    ok, got = _manifest_ok(root)
+    return {'repository_root_used': root,
+            'canonical_checkout_present': os.path.isdir(os.path.join(RER_CANON, 'model')),
+            'coherent_seam_repair_manifest_hashes_match': ok,
+            'program.py_sha256': got.get('program.py'), 'walk.py_sha256': got.get('walk.py'),
+            'slow_geometry.py_sha256': sgh}
+
+
+# ------------------------------------------------------------------ exact Q(sqrt5) arithmetic (pairs a + b sqrt5)
+def q5(a, b=0):
+    return (Fr(a), Fr(b))
+
+
+def q5_add(x, y):
+    return (x[0] + y[0], x[1] + y[1])
+
+
+def q5_sub(x, y):
+    return (x[0] - y[0], x[1] - y[1])
+
+
+def q5_mul(x, y):
+    return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
+
+
+def q5_sign(x):
+    a, b = x
+    if a == 0 and b == 0:
+        return 0
+    if a >= 0 and b >= 0:
+        return 1
+    if a <= 0 and b <= 0:
+        return -1
+    big = a * a > 5 * b * b
+    return (1 if a > 0 else -1) if big else (1 if b > 0 else -1)
+
+
+def vadd(u, v):
+    return tuple(q5_add(a, b) for a, b in zip(u, v))
+
+
+def vsub(u, v):
+    return tuple(q5_sub(a, b) for a, b in zip(u, v))
+
+
+def cross(u, v):
+    return (q5_sub(q5_mul(u[1], v[2]), q5_mul(u[2], v[1])),
+            q5_sub(q5_mul(u[2], v[0]), q5_mul(u[0], v[2])),
+            q5_sub(q5_mul(u[0], v[1]), q5_mul(u[1], v[0])))
+
+
+def dot(u, v):
+    out = q5(0)
+    for a, b in zip(u, v):
+        out = q5_add(out, q5_mul(a, b))
+    return out
+
+
+# ------------------------------------------------------------------ carrier geometry
+@lru_cache(maxsize=1)
+def carrier():
+    rer_root()
+    from model.common_source import slow_geometry as sg
+    src = sg.source()
+    seams = tuple(tuple(int(v) for v in e) for e in src.seams())
+    rots = tuple(tuple(int(v) for v in p) for p in src.rotations())
+    X = [tuple((Fr(a), Fr(b)) for (a, b) in row) for row in sg.raw_frame()]
+    adj = {i: set() for i in range(12)}
+    for a, b in seams:
+        adj[a].add(b)
+        adj[b].add(a)
+    assert len(seams) == 30 and len(rots) == 60 and all(len(v) == 5 for v in adj.values())
+    return {'seams': seams, 'rotations': rots, 'X': X, 'adj': adj}
+
+
+def compose(outer, inner):
+    """(outer o inner)[x] = outer[inner[x]]: inner first."""
+    return tuple(outer[inner[x]] for x in range(len(inner)))
+
+
+def inverse(p):
+    q = [0] * len(p)
+    for i, j in enumerate(p):
+        q[j] = i
+    return tuple(q)
+
+
+def order(p):
+    e = tuple(range(len(p)))
+    cur, k = p, 1
+    while cur != e:
+        cur, k = compose(p, cur), k + 1
+    return k
+
+
+def cycles(p):
+    seen, out = set(), []
+    for i in range(len(p)):
+        if i in seen:
+            continue
+        c, j = [], i
+        while j not in seen:
+            seen.add(j)
+            c.append(j)
+            j = p[j]
+        if len(c) > 1:
+            out.append(tuple(c))
+    return out
+
+
+@lru_cache(maxsize=1)
+def native_rotations():
+    rots = carrier()['rotations']
+    out = []
+    for a, b in ((2, 3), (2, 10)):
+        cand = [p for p in rots if order(p) == 2 and p[a] == b and p[b] == a]
+        assert len(cand) == 1
+        out.append(cand[0])
+    gC, gE = out
+    g = compose(gE, gC)
+    assert order(g) == 3
+    return gC, gE, g
+
+
+@lru_cache(maxsize=1)
+def faces():
+    adj = carrier()['adj']
+    fs = sorted({tuple(sorted((a, b, c))) for a in range(12) for b in adj[a] for c in adj[b]
+                 if c in adj[a] and len({a, b, c}) == 3})
+    assert len(fs) == 20
+    return tuple(fs)
+
+
+def outward(face):
+    """Cyclic order (p, q, r) of a face, counterclockwise seen from outside."""
+    X = carrier()['X']
+    p, q, r = face
+    n = cross(vsub(X[q], X[p]), vsub(X[r], X[p]))
+    sgn = q5_sign(dot(n, vadd(vadd(X[p], X[q]), X[r])))
+    assert sgn != 0
+    return (p, q, r) if sgn > 0 else (p, r, q)
+
+
+def face_normal(face):
+    X = carrier()['X']
+    p, q, r = face
+    return vadd(vadd(X[p], X[q]), X[r])
+
+
+def stabilizer_turn(face):
+    """The rotation of order three that fixes the face and turns it counterclockwise seen from outside (rho_face)."""
+    p, q, r = outward(face)
+    cand = [h for h in carrier()['rotations'] if h[p] == q and h[q] == r and h[r] == p]
+    assert len(cand) == 1
+    return cand[0]
+
+
+def screen_sign(face, a, b):
+    """Sign of n_face . (x_a x x_b): +1 when a -> b runs in the sense of rho_face about the face axis."""
+    X = carrier()['X']
+    return q5_sign(dot(face_normal(face), cross(X[a], X[b])))
+
+
+def screen_orientation(face, seam):
+    a, b = seam
+    s = screen_sign(face, a, b)
+    if s == 0:
+        return None
+    return (a, b) if s > 0 else (b, a)
+
+
+# ------------------------------------------------------------------ per seam-object operators (sympy, exact)
+I2 = sp.sqrt(2)
+NOBJ = 12
+
+
+def oidx(l, r, o):
+    return 4 * l + 2 * r + o
+
+
+def obj_address_reflection():
+    """R_2: exchange of the two orientations (2 u u^dag - 1 on two addresses)."""
+    M = sp.zeros(NOBJ, NOBJ)
+    for l in range(3):
+        for r in range(2):
+            for o in range(2):
+                M[oidx(l, r, 1 - o), oidx(l, r, o)] = 1
+    return M
+
+
+def obj_event(s=1):
+    """Q = sum_o |o><o| (x) U_k(o) on (load, record), k(+) = (tail, head) with link s, k(-) = (head, tail) with conj(s).
+
+    U_k = I - v v^dag, v = |m,0> - |p,1>, m = (|a> - s_ab|b>)/sqrt2, p = (|a> + s_ab|b>)/sqrt2 (repository reflector)."""
+    s = sp.nsimplify(s)
+    M = sp.zeros(NOBJ, NOBJ)
+    for o in range(2):
+        if o == 0:
+            a, b, sab = 0, 1, s
+        else:
+            a, b, sab = 1, 0, sp.conjugate(s)
+        v = sp.zeros(NOBJ, 1)
+        v[oidx(a, 0, o)] += 1 / I2
+        v[oidx(b, 0, o)] += -sab / I2
+        v[oidx(a, 1, o)] += -1 / I2
+        v[oidx(b, 1, o)] += -sab / I2
+        P = sp.zeros(NOBJ, NOBJ)
+        for l in range(3):
+            for r in range(2):
+                P[oidx(l, r, o), oidx(l, r, o)] = 1
+        M += P - v * v.H
+    return M.applyfunc(sp.nsimplify)
+
+
+def obj_orient():
+    """V: Z on the record at the reversed address (oriented record)."""
+    M = sp.zeros(NOBJ, NOBJ)
+    for l in range(3):
+        for r in range(2):
+            for o in range(2):
+                M[oidx(l, r, o), oidx(l, r, o)] = -1 if (r == 1 and o == 1) else 1
+    return M
+
+
+def obj_state(amp_tail, amp_head, amp_idle, r=0, addr='u'):
+    v = sp.zeros(NOBJ, 1)
+    for l, a in ((0, amp_tail), (1, amp_head), (2, amp_idle)):
+        if addr == 'u':
+            for o in range(2):
+                v[oidx(l, r, o)] += a / I2
+        else:
+            v[oidx(l, r, addr)] += a
+    return v
+
+
+def obj_flag(load, r, addr, s=1):
+    """Analyzer flag vector of one object: load in {'p' (agreeing state of the screen address), 'idle', 'tail', 'head'}."""
+    s = sp.nsimplify(s)
+    amps = {'p': (1 / I2, s / I2, 0), 'm': (1 / I2, -s / I2, 0), 'idle': (0, 0, 1), 'tail': (1, 0, 0),
+            'head': (0, 1, 0)}[load]
+    return obj_state(*amps, r=r, addr=addr)
+
+
+def shift3(power):
+    """R^power on F in the basis x_j = rho^j(x0): R|x_j> = |x_{j+1}>."""
+    M = sp.zeros(3, 3)
+    for j in range(3):
+        M[(j + power) % 3, j] = 1
+    return M
+
+
+W3 = sp.Rational(-1, 2) + sp.sqrt(3) * sp.I / 2
+
+
+def character_vectors():
+    return [sp.Matrix([W3 ** (-(j * k) % 3) for j in range(3)]) / sp.sqrt(3) for k in range(3)]
+
+
+def is_unitary(M):
+    return (M.H * M - sp.eye(M.shape[0])).applyfunc(sp.simplify) == sp.zeros(*M.shape)
+
+
+def jdump(obj, path):
+    with open(path, 'w') as fh:
+        json.dump(obj, fh, indent=1, default=str)

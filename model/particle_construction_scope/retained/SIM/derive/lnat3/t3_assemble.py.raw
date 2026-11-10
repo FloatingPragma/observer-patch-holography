@@ -1,0 +1,152 @@
+"""T3 of lane L-NAT round 3: assembly or obstruction, with the conditional numbers. Measured masses enter only in the
+last block (NOT BLIND there).
+
+Formulas written before evaluation:
+ 1. Joint law of the identity branch (E agreeing half, weight q) and one rotation component (C repair at one address
+    orientation, weight p) on the native matching code with blank owned records:
+      one seam event (K6): exclusive, P(xor) = p + q = 1/4;
+      one object, C event then E event, or E then C: exact coherent law (records summed coherently);
+      two independent objects: P(xor) = p + q - 2 p q = 2/9.
+ 2. Seam activity as an 'exactly one' detector between two objects: every port of a code state is occupied with
+    probability 1/6, and a seam event with a blank record replaces the occupations of its endpoints by their mean, so
+    every reachable state keeps 1/6 on every port; a seam joining two independent objects is active with probability
+    1/6 + 1/6 - 2/36 = 5/18.
+ 3. A-clock energies at source polarization f, balance |b|/a = r, clock phase theta:
+      E_k proportional to 1 + 4 r^2 cos^2(theta_k) + 4 f r cos(theta_k), theta_k = theta + 2 pi k/3 (masses m_k ~ E_k).
+    K5 weights: r = 1/sqrt2, theta = 2/9 (declared analyzer). Separable native readout (K6): theta = 1/4, analyzer
+    weighted (r = 1/sqrt2) or unbiased (r = 1/2).
+"""
+from __future__ import annotations
+
+import json
+
+import mpmath as mp
+import sympy as s
+
+import lnat3_common as L
+
+OUT = 'lnat3_t3.json'
+mp.mp.dps = 40
+
+
+def coherent_joint(choice, order):
+    def event(st, seam):
+        a, b = seam
+        out = {}
+        for (pair, recs), amp in st.items():
+            ina, inb = a in pair, b in pair
+            if ina != inb:
+                src = a if ina else b
+                partner = pair[1] if pair[0] == src else pair[0]
+                eps = 1 if src == a else -1
+                for end in (a, b):
+                    key = tuple(sorted((end, partner)))
+                    for r, sg in ((0, 1), (1, eps)):
+                        k2 = (key, recs + (r,))
+                        out[k2] = out.get(k2, 0) + sg * amp / 2
+            else:
+                k2 = (pair, recs + ('i',))
+                out[k2] = out.get(k2, 0) + amp
+        return out
+    joint, occ = {}, {}
+    for Lg, m in enumerate(L.matchings(choice)):
+        st = {(pair, ()): 1 / s.sqrt(6) for pair in m}
+        for name in order:
+            st = event(st, L.SEAMS[name])
+        for (pair, recs), amp in st.items():
+            w = s.nsimplify(s.expand(amp ** 2)) / 6
+            joint[recs] = joint.get(recs, 0) + w
+            for p_ in pair:
+                occ[p_] = occ.get(p_, 0) + w
+    iC, iE = order.index('C'), order.index('E')
+    P = lambda pred: s.nsimplify(sum(v for k, v in joint.items() if pred(k)))
+    rep = P(lambda k: k[iC] == 1)
+    hold = P(lambda k: k[iE] == 0)
+    both = P(lambda k: k[iC] == 1 and k[iE] == 0)
+    p = rep / 2
+    return {'P(C repair)': str(rep), 'P(E hold)': str(hold), 'P(C repair and E hold)': str(both),
+            'p per orientation component': str(p), 'P(rot+ xor hold)': str(s.nsimplify(p + hold - 2 * both / 2)),
+            'port occupations': sorted(str(v) for v in set(occ.values()))}
+
+
+def energies(f, r, t):
+    return [1 + 4 * r * r * mp.cos(t + 2 * mp.pi * k / 3) ** 2 + 4 * f * r * mp.cos(t + 2 * mp.pi * k / 3) for k in range(3)]
+
+
+def row(f, r, t):
+    E = energies(f, r, t)
+    kd = L.koide_from_masses(E)
+    rr = L.ratios(E)
+    return {'Q': mp.nstr(kd['Q'], 18), 'effective_|b|/a': mp.nstr(kd['b_over_a'], 18),
+            'effective_delta': mp.nstr(kd['delta'], 18) if kd['delta'] is not None else None,
+            'm2/m1': mp.nstr(rr[0], 15), 'm3/m1': mp.nstr(rr[1], 15), '_r': rr}
+
+
+def over_theta(f, r):
+    grid = [mp.pi * j / 3000 for j in range(3001)]
+    Qs, rmax = [], mp.mpf(0)
+    for t in grid:
+        E = energies(f, r, t)
+        if min(E) <= 0:
+            continue
+        Qs.append(L.koide_from_masses(E)['Q'])
+        rmax = max(rmax, L.ratios(E)[1])
+    return {'Q_min': mp.nstr(min(Qs), 12), 'Q_max': mp.nstr(max(Qs), 12), 'largest_ratio': mp.nstr(rmax, 12)}
+
+
+def main():
+    out = {'task': 'LNAT3 T3'}
+    # 1. joint laws
+    jl = {'one_seam_event_K6': {'P(xor)': '1/12 + 1/6 = 1/4 (exclusive outcomes of one event)'},
+          'two_independent_objects_K5': {'P(xor)': str(s.Rational(1, 12) + s.Rational(1, 6) - 2 * s.Rational(1, 72))}}
+    for choice in (0, 1):
+        for order in (('C', 'E'), ('E', 'C')):
+            jl[f'one_object_coloring_{choice}_order_{order[0]}_then_{order[1]}'] = coherent_joint(choice, order)
+    out['joint_laws'] = jl
+    # 2. seam activity between two independent objects
+    out['seam_activity_between_two_objects'] = {
+        'port_occupation_in_every_reachable_state': '1/6 (verified on the one-object sequences above)',
+        'P(exactly one endpoint occupied)': str(s.Rational(1, 6) + s.Rational(1, 6) - 2 * s.Rational(1, 36)),
+        'reading': 'the only occupation-level exactly-one detector of the law (seam activity) gives 5/18 between two '
+                   'independent code objects; 2/9 is the joint law of one repair-record component (1/12) and one agree '
+                   'record (1/6), and agree and repair branches have the same load state (SWAP form), so no seam event '
+                   'reads them'}
+    # 3. numbers
+    t29, t14 = mp.mpf(2) / 9, mp.mpf(1) / 4
+    r_bal, r_unb = 1 / mp.sqrt(2), mp.mpf(1) / 2
+    fvals = {'f = 1/3 (partner load)': mp.mpf(1) / 3,
+             'f = (3 + sqrt3)/6 (best record-preserving correction)': (3 + mp.sqrt(3)) / 6,
+             'f = 1 (added endpoint read)': mp.mpf(1),
+             'f = 0 (no source information)': mp.mpf(0)}
+    declared = {}
+    for name, fv in fvals.items():
+        rw = row(fv, r_bal, t29)
+        declared[name] = {k: v for k, v in rw.items() if k != '_r'}
+        declared[name]['over_theta_MEASURED_grid'] = over_theta(fv, r_bal)
+    out['declared_cross_object_analyzer_theta=2/9'] = declared
+    separable = {}
+    for an, rv in (('weighted odd analyzer, |b|/a = 1/sqrt2', r_bal), ('unbiased odd analyzer, |b|/a = 1/2', r_unb)):
+        for name, fv in fvals.items():
+            rw = row(fv, rv, t14)
+            separable[f'{an}; {name}'] = {k: v for k, v in rw.items() if k != '_r'}
+    out['separable_native_readout_K6_theta=1/4'] = separable
+    # ---------------- comparison with measurement (only here; NOT BLIND)
+    MU, MU_S = mp.mpf('206.7682830'), mp.mpf('0.0000046')
+    TAU, TAU_S = mp.mpf('3477.23'), mp.mpf('0.23')
+    def pulls(rr):
+        return {'mu_e': mp.nstr(rr[0], 12), 'mu_e_ppm': mp.nstr((rr[0] / MU - 1) * 10 ** 6, 6),
+                'tau_e': mp.nstr(rr[1], 12), 'tau_e_pull_sigma': mp.nstr((rr[1] - TAU) / TAU_S, 6)}
+    cmp_ = {}
+    for name, fv in fvals.items():
+        cmp_[f'declared analyzer, theta = 2/9, {name}'] = pulls(row(fv, r_bal, t29)['_r'])
+    for an, rv in (('weighted', r_bal), ('unbiased', r_unb)):
+        for name in ('f = 1/3 (partner load)', 'f = 1 (added endpoint read)'):
+            cmp_[f'separable K6, theta = 1/4, {an}, {name}'] = pulls(row(fvals[name], rv, t14)['_r'])
+    out['MEASURED_comparison_NOT_BLIND'] = {'measured': 'm_mu/m_e = 206.7682830(46), m_tau/m_e = 3477.23 +- 0.23',
+                                            'rows': cmp_}
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str))
+
+
+if __name__ == '__main__':
+    main()

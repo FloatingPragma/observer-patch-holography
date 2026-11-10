@@ -1,0 +1,247 @@
+"""T2 of lane L-NAT round 3: is there a native operation that acts as the discrete Fourier analyzer over the copy
+index across the C and E objects?
+
+EXACT unless labelled. Writes lnat3_t2.json. Formulas written before evaluation:
+
+ The required analyzer (KOIDE_SOURCE, LNAT2 T1 D7): the three flags h = (E hold, C not rotating),
+ r+ = (E not holding, C rotation +), r- = (E not holding, C rotation -) are orthogonal states of the two objects'
+ records; the analyzer projects onto (|h> + |r+> + |r->)/sqrt3 (orientation-odd signs on r-), giving the family
+ operator a I + b (S + S^-1) with a from the E hold and b from the C repair.
+
+ Theorem (separable readouts). Objects in a product state psi_E (x) psi_C; every E branch acts on F as I, C branch c
+ acts as T_c. For an outcome vector <A| on the records, K = sum_{e,c} conj(A_ec) psi_E(e) psi_C(c) T_c. If A = phi_E
+ (x) phi_C, K = <phi_E|psi_E> sum_c conj(phi_C(c)) psi_C(c) T_c: a scalar times a C-object operator. The flag vector
+ has Schmidt rank 2 across E|C.
+
+ Candidates: A1 third-turn Pi(g); A2 modular flow rho^{it}, rho = [(5/4) I + (W + W*)/2]/524; A3 CF-1 alternating
+ axis order; A4 consensus A* and R = 2 A A* - I; A5 heralded filter (2 I + W)/3.
+ Schur: an operator commuting with all 60 rotations acts on every isotypic component as I (x) X, hence as the
+ identity on the copy factor of a triplet.
+"""
+from __future__ import annotations
+
+import json
+
+import numpy as np
+import scipy.sparse as sp
+import sympy as s
+
+import lnat3_common as L
+
+C = L.C
+OUT = 'lnat3_t2.json'
+
+
+def separability_theorem():
+    out = {}
+    # generic branches: E branches e in {hold, e1, e2}, C branches c in {agree, inact, rp, rm}
+    pe = s.symbols('psiE_h psiE_1 psiE_2')
+    pc = s.symbols('psiC_ag psiC_in psiC_p psiC_m')
+    phE = s.symbols('phiE_h phiE_1 phiE_2')
+    phC = s.symbols('phiC_ag phiC_in phiC_p phiC_m')
+    Sm = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)
+    T = [s.eye(3), s.eye(3), Sm, Sm.T]
+    # product analyzer
+    K = s.zeros(3)
+    for i, e in enumerate(pe):
+        for j, c in enumerate(pc):
+            K += phE[i] * phC[j] * e * c * T[j]
+    Kc = sum((phC[j] * pc[j] * T[j] for j in range(4)), s.zeros(3))
+    scal = sum(phE[i] * pe[i] for i in range(3))
+    out['product_analyzer_gives_scalar_times_C_operator'] = (K - scal * Kc).applyfunc(s.expand) == s.zeros(3)
+    # entangled flag analyzer: |hold_E, inact_C> + |e1_E, rp_C> + |e1_E, rm_C> (signs absorbed)
+    A = s.zeros(3, 4)
+    A[0, 1] = 1; A[1, 2] = 1; A[1, 3] = 1
+    Kf = s.zeros(3)
+    for i in range(3):
+        for j in range(4):
+            Kf += A[i, j] * pe[i] * pc[j] * T[j]
+    out['flag_analyzer_operator'] = str(Kf.applyfunc(s.factor)[:, 0].T)
+    out['flag_analyzer_Schmidt_rank_across_E|C'] = A.rank()
+    out['flag_analyzer_identity_coefficient'] = str(Kf[0, 0])
+    # K5 numbers: psiE_h = 1/sqrt6, psiE_1 = sqrt(2/3) (E inactive), psiC_in = sqrt(2/3), psiC_p = psiC_m = 1/sqrt12
+    subs = {pe[0]: 1 / s.sqrt(6), pe[1]: s.sqrt(s.Rational(2, 3)), pc[1]: s.sqrt(s.Rational(2, 3)),
+            pc[2]: 1 / s.sqrt(12), pc[3]: 1 / s.sqrt(12)}
+    Kn = Kf.subs(subs)
+    out['K5_flag_analyzer_b_over_a'] = str(s.nsimplify(Kn[1, 0] / Kn[0, 0]))
+    out['statement'] = ('every instrument with product Kraus operators gives the family operator <phi_E|psi_E> times an '
+                        'operator built from the C branches alone: the identity coefficient is a C branch (agree or '
+                        'inactive) and the E agreeing half enters only as a common factor; the flag analyzer that puts '
+                        'the E hold on the identity and the C repair on the shifts has Schmidt rank 2')
+    out['corollary_phase'] = ('under the phase map of LNAT2 T2 the clock phase of the rotation element is the expected count '
+                              'of exclusive reads of the rotation branch and the identity branch; with a separable readout '
+                              'the identity branch is a C branch, exclusive with the C rotation in one event, so the count '
+                              'is P(rot) + P(identity branch) >= 1/12 + 1/6 = 1/4 (K6 of DA3), never 2/9 = p + q - 2 p q')
+    return out
+
+
+def third_turn():
+    out = {}
+    gC, gE, g = C.native_rotations()
+    rots = C.carrier()['rotations']
+    # rotations act on port and address only: record value preserved
+    keeps_record = True
+    for h in rots:
+        P = C.perm_operator(h).tocoo()
+        for r_, c_ in zip(P.row, P.col):
+            keeps_record &= (r_ // 60) % 2 == (c_ // 60) % 2
+    out['every_rotation_preserves_the_record_value'] = keeps_record
+    out['consequence'] = 'no rotation maps the hold flag (record 0) to a rotation flag (record 1)'
+    # orbits of the C and E addresses under <g>
+    def orbit(addr):
+        o, cur = [], addr
+        for _ in range(3):
+            o.append(cur)
+            cur = (g[cur[0]], g[cur[1]])
+        return o
+    oc, oe = orbit((2, 3)), orbit((2, 10))
+    out['g_orbit_of_C_address_(2,3)'] = [list(x) for x in oc]
+    out['g_orbit_of_E_address_(2,10)'] = [list(x) for x in oe]
+    out['C_and_E_addresses_in_one_g_orbit'] = bool(set(oc) & set(oe))
+    # an order-3 rotation cannot map (2,3) to (3,2)
+    out['order_3_rotation_mapping_(2,3)_to_(3,2)'] = any(
+        C.order(h) == 3 and h[2] == 3 and h[3] == 2 for h in rots)
+    # as an analyzer: a permutation matrix has one nonzero entry in the flag-zero row
+    Sm = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)
+    out['flag_zero_row_of_Pi(g)_on_three_flags'] = [int(x) for x in Sm.row(0)]
+    out['selects_one_branch'] = True
+    # Fourier readout of F while the flags stay orthogonal
+    c0, cp, cm = s.symbols('c0 cp cm')
+    th = s.symbols('theta', real=True)
+    w3 = s.exp(2 * s.pi * s.I / 3)
+    probs = []
+    for k in range(3):
+        # state sum_j c_j |flag_j> (x) S^j |f>, f = Fourier mode mixture; probability of mode k for input I3/3
+        probs.append(s.simplify((abs(c0) ** 2 + abs(cp) ** 2 + abs(cm) ** 2) / 3))
+    out['Fourier_mode_probabilities_with_orthogonal_flags_tracial_input'] = [str(p) for p in probs]
+    out['reading_F'] = ('measuring the third-turn charge of the family register projects on the Fourier modes of F; with '
+                        'the flags left orthogonal every mode gets sum_j |c_j|^2 / 3: the phases and the interference '
+                        'that make a I + b (S + S^-1) never enter')
+    out['order_of_gE_gC'] = C.order(g)
+    out['gC_gE_in_one_frame'] = C.order(g) == 2
+    return out
+
+
+def modular_flow():
+    out = {}
+    _, _, W120 = C.walk_integer()
+    I = sp.identity(C.DIM, dtype=np.int64, format='csr')
+    Rho = (600 * I + 2 * (W120 + W120.T)).tocsr()   # = 2096 * 120 * rho
+    out['rho_scaled'] = '2096 * 120 * rho = 600 I + 2 (120 W + 120 W^T)'
+    out['rho_symmetric'] = C.sparse_equal(Rho, Rho.T)
+    rots = C.carrier()['rotations']
+    comm = True
+    for h in rots:
+        P = C.perm_operator(h)
+        comm &= C.sparse_equal(P @ Rho, Rho @ P)
+    out['rho_commutes_with_all_60_rotations'] = comm
+    out['trace_check_2096_120'] = int(Rho.diagonal().sum()) == 2096 * 120 or {'trace': int(Rho.diagonal().sum())}
+    # spectra on the g-sectors 1 and 2 (orbit compression, 480-dimensional each)
+    gC, gE, g = C.native_rotations()
+    Pg = C.perm_operator(g).tocsr()
+    Pg2 = (Pg @ Pg).tocsr()
+    seen, reps = set(), []
+    for x in range(C.DIM):
+        if x in seen:
+            continue
+        reps.append(x)
+        y = x
+        for _ in range(3):
+            seen.add(y)
+            y = int(Pg[:, y].nonzero()[0][0])
+    reps = np.array(reps)
+    B = [(Rho).toarray()[np.ix_(reps, reps)].astype(float),
+         (Rho @ Pg).toarray()[np.ix_(reps, reps)].astype(float),
+         (Rho @ Pg2).toarray()[np.ix_(reps, reps)].astype(float)]
+    w = np.exp(2j * np.pi / 3)
+    spec = {}
+    for k in range(3):
+        Mk = B[0] + w ** k * B[1] + w ** (2 * k) * B[2]
+        ev = np.sort(np.linalg.eigvalsh((Mk + Mk.conj().T) / 2)) / (2096 * 120)
+        spec[k] = ev
+    out['sector_dimension'] = int(len(reps))
+    out['max_|spec(rho)_sector1 - spec(rho)_sector2|_MEASURED'] = float(np.max(np.abs(spec[1] - spec[2])))
+    out['reason_EXACT'] = ('Pi(gC) commutes with rho and maps the g-sector of character w onto the sector of w^2 '
+                           '(gC g gC = g^-1), so rho^{it} has equal spectra on the two sectors')
+    out['Schur'] = ('rho^{it} commutes with the 60 rotations, so on every isotypic component it is I (x) X_t; on the copy '
+                    'factor of a triplet (whose g-eigenbasis is the Fourier basis) it is the identity')
+    out['two_objects'] = '(rho_C (x) rho_E)^{it} = rho_C^{it} (x) rho_E^{it}: a product of one-object unitaries'
+    out['in_the_apparatus'] = ('no: the coherent program states that its apparatus does not implement every modular unitary '
+                               '(model/coherent_seam_repair/PROOF.md, optional apparatus)')
+    return out
+
+
+def consensus():
+    out = {}
+    _, _, W120 = C.walk_integer()
+    adr = C.carrier()['addresses']
+    pos = {pr: i for i, pr in enumerate(adr)}
+    zero_block = True
+    for x in range(12):
+        o = W120 @ C.embed_port(x)
+        for y in range(12):
+            zero_block &= sum(int(o[C.idx(y, 1, k)]) for k in range(60)) == 0
+    out['consensus_record1_from_record0_block_is_zero'] = zero_block
+    # orientation-even: A* gives the two orientations of the C seam equal weight
+    o2 = W120 @ C.embed_port(2)
+    rec1_C = {str(adr[k]): int(o2[C.idx(y, 1, k)]) for k in (pos[(2, 3)], pos[(3, 2)]) for y in (2,)}
+    out['record1_amplitudes_from_port_2_on_C_addresses_(x120*60)'] = rec1_C
+    out['reading'] = ('A* sums the two orientations of every seam with equal weight; the record-1 amplitudes of the two '
+                      'orientations are opposite, so the consensus removes the rotation pair (LNAT Q1); R = 2 A A* - I '
+                      'commutes with all rotations (Schur as for rho); for two objects it is R_C (x) R_E')
+    return out
+
+
+def cf1():
+    return {
+        'definition': 'S_fwd = (Q3 R)(Q2 R)(Q1 R), S_rev = (Q1 R)(Q2 R)(Q3 R), alternating (candidates/CF1.md section 8)',
+        'copy_index': 'the cone copies K in {0, K1, K2, K3}: at the cones the forward tick is 1_record (x) a_K and maps copy K '
+                      'to copy K (KOI part 3, EXACT); with flat links the tick commutes with lattice translations, so every '
+                      'product of ticks is block diagonal in momentum and never mixes copies (ARGUED from translation '
+                      'invariance; EXACT at the cones)',
+        'third_turn': 'no symmetry of the alternating period, unitary or antiunitary, with or without staggered phases (KOI '
+                      'part 4 item 3, EXACT)',
+        'axis_superposition': 'the schedule applies the three axes in sequence; an address superposition over the axes is a '
+                              'declared missing item (CF1.md section 6)',
+        'C_E_objects': 'the routing acts on (cell, record, spin) along one frame; gE gC has order 3, so gC and gE are not '
+                       'half-turns of one frame and the C and E seams are not frame seams of one frame',
+        'verdict': 'not a Fourier analyzer over any copy index, and it does not act on the C and E records',
+    }
+
+
+def heralded_filter():
+    return {
+        'operator': 'K_+ = (2 I + W)/3, K_- = sqrt2 (I - W)/3 (PROOF.md, declared preparation alpha = 1/2)',
+        'commutes_with_rotations': 'yes (a polynomial in W): Schur as for rho',
+        'structure': 'the only native linear combination of unitaries; its two terms are histories with no step and with '
+                     'one step of the whole walk, not the hold and rotation flags of one step; on two objects with '
+                     'W_C (x) W_E its Schmidt rank is 2 across the objects, with the identity term from the history in '
+                     'which neither object moved',
+        'verdict': 'not the flag analyzer: its identity term is the no-step history, not the E agreeing half',
+    }
+
+
+def main():
+    out = {'task': 'LNAT3 T2', 'RER_path_used': L.RER}
+    out['separability_theorem'] = separability_theorem()
+    out['A1_third_turn'] = third_turn()
+    out['A2_modular_flow'] = modular_flow()
+    out['A3_CF1_alternating_order'] = cf1()
+    out['A4_consensus'] = consensus()
+    out['A5_heralded_filter'] = heralded_filter()
+    out['native_grammar_lemma'] = {
+        'generators': 'per object: W, Q, R, the seam events U_e on that object\'s loads and owned record, detectors '
+                      '{P_i, I - P_i} and quarter-turns on that object\'s register basis, the heralded filter of that '
+                      'object\'s walk; across objects: simultaneous rotations Pi(h) (x) Pi(h)',
+        'statement': 'for two objects with no common seam every generator is of product form A_E (x) A_C, so every '
+                     'composition and every instrument built from them has product Kraus operators',
+        'exception': 'the heralded filter applied to the joint step W_C (x) W_E (see A5), whose terms are step counts',
+        'status': 'EXACT for the listed grammar (PROOF.md, optional apparatus and filter); the coherent program is a '
+                  'one-carrier program and defines no coherent operation on the records of two objects',
+    }
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str))
+
+
+if __name__ == '__main__':
+    main()

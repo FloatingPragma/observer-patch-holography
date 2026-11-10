@@ -1,0 +1,244 @@
+"""Worker DR (S5), section 6 of CANDIDATES.md: the pole shift of the charged line as a perturbation of K_theta in FR's
+two-object generation register, with an EM link on each seam and the Higgs memory coupled to the register.
+
+Run (FR's code imported read only from its work directory; FR's fr_common picks the RER snapshot itself):
+  cd <DR> && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=<FR> /tmp/oph-completion-venv/bin/python -B dr_register.py register.json
+
+Construction. FR's preparation psi_C, psi_E and analyzer flags H, R+, R- (fr2_register.flags, analyzer_E1) are used as
+they are. Each object is extended by its seam link (flux n in {-1, 0, 1}, energy omega_L n^2) and the register by one
+five-state Higgs memory (chiral_joint's phi_k, energy omega_M per excitation). Couplings:
+  V_L = sum_obj h_obj (|head><tail| S+ + |tail><head| S-)   (transport of the active load along its seam, Gauss law)
+  V_M = y sum_k (phi_k + phi_k^dag) times P_active (P4) or times P(r_C = 1) (P5)
+Clock energy of a basis state: E = -theta J, J = r_C (+1 at address +, -1 at address -) (K_theta = exp(i theta J)).
+Self-energy of flag f: Sigma_f(E) = sum_n |<n|V|f>|^2 / (E - E_n), with E_n = environment energy (+ the clock energy of
+the intermediate state in the reading 'kept'). Pole E_f = E_f^0 + Sigma_f(E_f), residue Z_f = 1/(1 - Sigma_f'(E_f)).
+Dressed compression (pole reading): M = (1/sqrt3) (a_H Z_H e^{-i E_H} I + a_+ Z_+ e^{-i E_+} R + a_- Z_- e^{-i E_-} R^-1).
+Measured values enter only the last block (NOT BLIND).
+"""
+import json
+import sys
+from pathlib import Path
+
+import sympy as sp
+from mpmath import mp, mpf, mpc, sqrt, exp, log, pi, findroot, fabs
+
+import fr2_register as F2
+
+FC = F2.FC
+mp.dps = 40
+OUT = Path(sys.argv[1])
+out = {'provenance_FR': FC.provenance()}
+
+a13, a23 = F2.a13, F2.a23
+psiC = F2.psi((a13, 0, a23))
+psiE = F2.psi((a13, 0, a23))
+fl = F2.flags()
+Phi, (Hf, Rp, Rm) = F2.analyzer_E1(fl)
+FLAGS = {'H': Hf, 'R+': Rp, 'R-': Rm}
+
+# bare check: FR's compression equals (sqrt2/3) C(theta)
+Mb = F2.compress(Phi, psiC, psiE)
+out['bare_equals_(sqrt2/3)C'] = bool(((Mb - sp.sqrt(2) / 3 * F2.C_target()).applyfunc(sp.simplify)) == sp.zeros(3, 3))
+assert out['bare_equals_(sqrt2/3)C']
+
+
+def overlap(f):
+    return sp.nsimplify(sum(sp.conjugate(c) * psiC[iC] * psiE[iE] for (iC, iE), c in f.items()))
+
+
+A = {k: overlap(f) for k, f in FLAGS.items()}
+out['bare_overlaps'] = {k: str(v) for k, v in A.items()}
+
+
+def lrO(i):
+    return i // 4, (i // 2) % 2, i % 2
+
+
+def clock_J(iC):
+    l, r, o = lrO(iC)
+    return 0 if r == 0 else (1 if o == 0 else -1)
+
+
+# chiral_joint memory fields (phi_k = |0><1+k| + |3+k><0|), written out (checked against FR's import of RER below)
+phi = []
+for k in range(2):
+    M = [[0] * 5 for _ in range(5)]
+    M[0][1 + k] = 1
+    M[3 + k][0] = 1
+    phi.append(M)
+try:
+    FC.rer_root()
+    from model.coherent_defect_wave.chiral_higgs.model import higgs_memory
+    fields = higgs_memory()[0]
+    out['memory_fields_match_chiral_higgs'] = all([[int(x) for x in fields[k].tolist()[i]] for i in range(5)] == phi[k]
+                                                  for k in range(2))
+except Exception as exc:                                    # the snapshot may lack the package; keep the written form
+    out['memory_fields_match_chiral_higgs'] = f'not checked: {exc}'
+
+
+def apply_V(state, hC, hE, y, mem_mode):
+    """state: dict (iC, iE, nC, nE, m) -> amp. Returns V|state>."""
+    res = {}
+
+    def add(k, v):
+        res[k] = res.get(k, 0) + v
+    for (iC, iE, nC, nE, m), amp in state.items():
+        for obj, (i, n, hh) in (('C', (iC, nC, hC)), ('E', (iE, nE, hE))):
+            l, r, o = lrO(i)
+            if hh != 0:
+                if l == 0 and n + 1 <= 1:     # tail -> head, flux +1
+                    j = FC.oidx(1, r, o)
+                    key = (j, iE, n + 1, nE, m) if obj == 'C' else (iC, j, nC, n + 1, m)
+                    add(key, hh * amp)
+                if l == 1 and n - 1 >= -1:    # head -> tail, flux -1
+                    j = FC.oidx(0, r, o)
+                    key = (j, iE, n - 1, nE, m) if obj == 'C' else (iC, j, nC, n - 1, m)
+                    add(key, sp.conjugate(hh) * amp)
+        if y != 0:
+            lC, rC, oC = lrO(iC)
+            lE, rE, oE = lrO(iE)
+            if mem_mode == 'active':
+                weight = int(lC in (0, 1)) + int(lE in (0, 1))
+            elif mem_mode == 'repair':
+                weight = int(rC == 1)
+            else:
+                weight = 0
+            if weight:
+                for k in range(2):
+                    for mm in range(5):
+                        c = phi[k][mm][m] + phi[k][m][mm]          # (phi_k + phi_k^dag)[mm, m]
+                        if c:
+                            add((iC, iE, nC, nE, mm), y * weight * c * amp)
+    return {k: v for k, v in res.items() if v != 0}
+
+
+def env_energy(key, wL, wM):
+    iC, iE, nC, nE, m = key
+    return wL * (nC ** 2 + nE ** 2) + wM * (1 if m else 0)
+
+
+def flag_state(f):
+    return {(iC, iE, 0, 0, 0): c for (iC, iE), c in f.items()}
+
+
+def self_energy_data(hC, hE, y, mem_mode):
+    """For each flag: list of (weight, env energy, clock J of the intermediate state); and second-order mixing checks."""
+    data, inter = {}, {}
+    for name, f in FLAGS.items():
+        st = flag_state(f)
+        nf = sp.nsimplify(sum(abs(c) ** 2 for c in st.values()))
+        v = apply_V(st, hC, hE, y, mem_mode)
+        groups = {}
+        for key, amp in v.items():
+            g = (env_energy(key, sp.Symbol('wL'), sp.Symbol('wM')), clock_J(key[0]))
+            groups.setdefault(g, {})[key] = amp
+        data[name] = [(sp.nsimplify(sum(abs(a) ** 2 for a in vec.values()) / nf), g[0], g[1]) for g, vec in groups.items()]
+        inter[name] = (v, nf)
+    # mixing among flags at second order: <f'| V P_n V |f> for f' != f (same energy group); also closure
+    mix = {}
+    for n1, (v1, nf1) in inter.items():
+        for n2, (v2, nf2) in inter.items():
+            if n1 < n2:
+                mix[f'{n1}|{n2}'] = str(sp.nsimplify(sum(sp.conjugate(v1.get(k, 0)) * a for k, a in v2.items())))
+    return data, mix
+
+
+def pole(E0, groups, theta, wL, wM, reading):
+    """Solve E = E0 + sum_j w_j/(E - e_j); groups: (weight, env energy expr, J of intermediate)."""
+    terms = []
+    for w_, e_, J_ in groups:
+        e_num = mpf(str(sp.N(e_.subs({sp.Symbol('wL'): wL, sp.Symbol('wM'): wM}), 50)))
+        if reading == 'kept':
+            e_num += -theta * J_
+        terms.append((mpf(str(sp.N(w_, 50))), e_num))
+    if not terms:
+        return mpf(E0), mpf(1)
+    f = lambda E: E - E0 - sum(w_ / (E - e_) for w_, e_ in terms)
+    E = findroot(f, mpf(E0) - sum(w_ / (e_ - E0) for w_, e_ in terms))
+    dS = -sum(w_ / (E - e_) ** 2 for w_, e_ in terms)
+    return E, 1 / (1 - dS)
+
+
+THETA = mpf(2) / 9
+W3 = exp(2j * pi / 3)
+AH, AP, AM = (mpc(complex(sp.N(A[k], 30))) for k in ('H', 'R+', 'R-'))
+
+
+def masses(EH, ZH, Ep, Zp, Em, Zm):
+    lam = [(AH * ZH * exp(-1j * EH) + AP * Zp * exp(-1j * Ep) * W3 ** k + AM * Zm * exp(-1j * Em) * W3 ** (-k))
+           / sqrt(3) for k in range(3)]
+    m = sorted(abs(x) ** 2 for x in lam)          # e, mu, tau
+    return m
+
+
+def evaluate(hC, hE, y, wL, wM, mem_mode, reading, h2scale=None):
+    data, mix = self_energy_data(hC, hE, y, mem_mode)
+    if h2scale is not None:                       # rescale link weights to |h|^2 = h2scale (weights linear in |h|^2)
+        data = {k: [(w_ * h2scale, e_, J_) for (w_, e_, J_) in g] for k, g in data.items()}
+    E0 = {'H': mpf(0), 'R+': -THETA, 'R-': THETA}
+    res = {k: pole(E0[k], data[k], THETA, wL, wM, reading) for k in FLAGS}
+    (EH, ZH), (Ep, Zp), (Em, Zm) = res['H'], res['R+'], res['R-']
+    m = masses(EH, ZH, Ep, Zp, Em, Zm)
+    Q = sum(m) / sum(sqrt(x) for x in m) ** 2
+    return {'weights': {k: [[str(w_), str(e_), J_] for (w_, e_, J_) in g] for k, g in data.items()},
+            'flag_mixing_second_order': mix,
+            'E': {k: str(v[0]) for k, v in res.items()}, 'Z': {k: str(v[1]) for k, v in res.items()},
+            'theta_eff': str((Em - Ep) / 2), 'phi_even': str(EH - (Ep + Em) / 2),
+            'balance_factors_Z+/ZH_Z-/ZH': [str(Zp / ZH), str(Zm / ZH)],
+            'mu_over_e': str(m[1] / m[0]), 'tau_over_e': str(m[2] / m[0]), 'Q': str(Q),
+            '_m': m}
+
+
+ALPHA_P = mpf('0.0072995452617244017571725360595355818930943140296429')
+quarter = sp.Rational(1, 4)
+rows = {
+    'bare': evaluate(0, 0, 0, 1, 1, 'none', 'kept'),
+    'P1_link_kept_(S)': evaluate(quarter, quarter, 0, 1, 1, 'none', 'kept'),
+    'P2_link_absent_(S)': evaluate(quarter, quarter, 0, 1, 1, 'none', 'absent'),
+    'P4_memory_reads_kept_(S)': evaluate(0, 0, 1, 1, 1, 'active', 'kept'),
+    'P4_memory_reads_absent_(S)': evaluate(0, 0, 1, 1, 1, 'active', 'absent'),
+    'P5_memory_repair_kept_(S)': evaluate(0, 0, 1, 1, 1, 'repair', 'kept'),
+    'P6_link_and_memory_(S)_kept': evaluate(quarter, quarter, 1, 1, 1, 'active', 'kept'),
+    'P7_string_on_C_absent_(S)': evaluate(-quarter, quarter, 0, 1, 1, 'none', 'absent'),
+}
+# P3: |h|^2 = alpha_P/pi with omega_L = 1: rescale the h = 1 weights
+rows['P3_link_absent_(P)'] = evaluate(1, 1, 0, 1, 1, 'none', 'absent', h2scale=float(ALPHA_P / pi))
+# exact second-order statements
+out['P6_cross_term'] = ('sum of the separate link and memory self-energies at second order: the link changes the flux, '
+                        'the memory the scalar number, so no intermediate state is shared (checked by the weights)')
+bare_m = rows['bare']['_m']
+out['bare_ratios'] = {'mu_over_e': str(bare_m[1] / bare_m[0]), 'tau_over_e': str(bare_m[2] / bare_m[0])}
+
+# ---------------------------------------------------------------- NOT BLIND
+ME, MMU, MTAU = mpf('0.51099895069'), mpf('105.6583755'), mpf('1776.93')
+SE, SMU, STAU = mpf('1.6e-10'), mpf('2.3e-6'), mpf('0.09')
+meas = (log(MMU / ME), log(MTAU / ME))
+sig = (sqrt((SMU / MMU) ** 2 + (SE / ME) ** 2), sqrt((STAU / MTAU) ** 2 + (SE / ME) ** 2))
+for k, r in rows.items():
+    m = r.pop('_m')
+    r['residual_mu_e_sigma'] = float((log(m[1] / m[0]) - meas[0]) / sig[0])
+    r['residual_tau_e_sigma'] = float((log(m[2] / m[0]) - meas[1]) / sig[1])
+    r['pass'] = bool(abs(r['residual_mu_e_sigma']) <= 3 and abs(r['residual_tau_e_sigma']) <= 1)
+
+
+# needed link weight in the 'absent' reading (pure D5 form), with omega_L = 1 per tick
+def mu_e_resid(h2):
+    r = evaluate(1, 1, 0, 1, 1, 'none', 'absent', h2scale=h2)
+    return log(mpf(r['mu_over_e'])) - meas[0]
+
+
+h2_need = findroot(mu_e_resid, mpf('1e-6'))
+rn = evaluate(1, 1, 0, 1, 1, 'none', 'absent', h2scale=h2_need)
+rn.pop('_m')
+out['needed_NOT_BLIND_absent_reading'] = {
+    'abs_h^2/omega_L^2': str(h2_need), 'in_(alpha_P/pi)^2': str(h2_need / (ALPHA_P / pi) ** 2),
+    'theta_eff': rn['theta_eff'], 'Z_H': rn['Z']['H'], 'tau_over_e': rn['tau_over_e'], 'Q': rn['Q']}
+out['rows'] = rows
+out['looks'] = {'section_6_rows': ['P1', 'P2', 'P3', 'P4 kept', 'P4 absent', 'P5', 'P6', 'P7'], 'count': 8,
+                'passes': [k for k, r in rows.items() if r['pass'] and k != 'bare']}
+OUT.write_text(json.dumps(out, indent=1, default=str))
+print(json.dumps({k: v for k, v in out.items() if k != 'rows'}, indent=1, default=str))
+for k, r in rows.items():
+    print(k, {x: r[x] for x in ('theta_eff', 'phi_even', 'balance_factors_Z+/ZH_Z-/ZH', 'mu_over_e', 'Q',
+                                'residual_mu_e_sigma', 'residual_tau_e_sigma', 'pass')})
+    print('   mixing', r['flag_mixing_second_order'], '| weights H', r['weights']['H'][:3], 'R+', r['weights']['R+'][:3])

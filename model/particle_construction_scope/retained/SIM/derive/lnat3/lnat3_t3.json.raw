@@ -1,0 +1,217 @@
+{
+ "task": "LNAT3 T3",
+ "joint_laws": {
+  "one_seam_event_K6": {
+   "P(xor)": "1/12 + 1/6 = 1/4 (exclusive outcomes of one event)"
+  },
+  "two_independent_objects_K5": {
+   "P(xor)": "2/9"
+  },
+  "one_object_coloring_0_order_C_then_E": {
+   "P(C repair)": "1/6",
+   "P(E hold)": "11/72",
+   "P(C repair and E hold)": "1/24",
+   "p per orientation component": "1/12",
+   "P(rot+ xor hold)": "7/36",
+   "port occupations": [
+    "1/6"
+   ]
+  },
+  "one_object_coloring_0_order_E_then_C": {
+   "P(C repair)": "11/72",
+   "P(E hold)": "1/6",
+   "P(C repair and E hold)": "1/24",
+   "p per orientation component": "11/144",
+   "P(rot+ xor hold)": "29/144",
+   "port occupations": [
+    "1/6"
+   ]
+  },
+  "one_object_coloring_1_order_C_then_E": {
+   "P(C repair)": "1/6",
+   "P(E hold)": "11/72",
+   "P(C repair and E hold)": "1/24",
+   "p per orientation component": "1/12",
+   "P(rot+ xor hold)": "7/36",
+   "port occupations": [
+    "1/6"
+   ]
+  },
+  "one_object_coloring_1_order_E_then_C": {
+   "P(C repair)": "11/72",
+   "P(E hold)": "1/6",
+   "P(C repair and E hold)": "1/24",
+   "p per orientation component": "11/144",
+   "P(rot+ xor hold)": "29/144",
+   "port occupations": [
+    "1/6"
+   ]
+  }
+ },
+ "seam_activity_between_two_objects": {
+  "port_occupation_in_every_reachable_state": "1/6 (verified on the one-object sequences above)",
+  "P(exactly one endpoint occupied)": "5/18",
+  "reading": "the only occupation-level exactly-one detector of the law (seam activity) gives 5/18 between two independent code objects; 2/9 is the joint law of one repair-record component (1/12) and one agree record (1/6), and agree and repair branches have the same load state (SWAP form), so no seam event reads them"
+ },
+ "declared_cross_object_analyzer_theta=2/9": {
+  "f = 1/3 (partner load)": {
+   "Q": "0.368748541272066322",
+   "effective_|b|/a": "0.230483864745668224",
+   "effective_delta": "0.173303667237168948",
+   "m2/m1": "1.42928827354788",
+   "m3/m1": "4.26442611559467",
+   "over_theta_MEASURED_grid": {
+    "Q_min": "0.333367169657",
+    "Q_max": "0.372380421481",
+    "largest_ratio": "4.2645711118"
+   }
+  },
+  "f = (3 + sqrt3)/6 (best record-preserving correction)": {
+   "Q": "0.460726792499668325",
+   "effective_|b|/a": "0.437138637905072957",
+   "effective_delta": "0.0432980458171660211",
+   "m2/m1": "1.26237459371961",
+   "m3/m1": "12.4715322257484",
+   "over_theta_MEASURED_grid": {
+    "Q_min": "0.354935878174",
+    "Q_max": "0.482197217251",
+    "largest_ratio": "13.8054263332"
+   }
+  },
+  "f = 1 (added endpoint read)": {
+   "Q": "0.666666666666666667",
+   "effective_|b|/a": "0.707106781186547524",
+   "effective_delta": "0.222222222222222222",
+   "m2/m1": "206.770315972729",
+   "m3/m1": "3477.4728371046",
+   "over_theta_MEASURED_grid": {
+    "Q_min": "0.409364785776",
+    "Q_max": "0.666666666667",
+    "largest_ratio": "2.43830607796e+41"
+   }
+  },
+  "f = 0 (no source information)": {
+   "Q": "0.344339106020975689",
+   "effective_|b|/a": "0.128486026600029678",
+   "effective_delta": "0.508345039261226153",
+   "m2/m1": "1.6331340906879",
+   "m3/m1": "2.46794362834458",
+   "over_theta_MEASURED_grid": {
+    "Q_min": "0.343145750508",
+    "Q_max": "0.346329235531",
+    "largest_ratio": "2.61803313014"
+   }
+  }
+ },
+ "separable_native_readout_K6_theta=1/4": {
+  "weighted odd analyzer, |b|/a = 1/sqrt2; f = 1/3 (partner load)": {
+   "Q": "0.367787704430432735",
+   "effective_|b|/a": "0.227335779510505347",
+   "effective_delta": "0.193437926571224494",
+   "m2/m1": "1.47839710168638",
+   "m3/m1": "4.25357859755744"
+  },
+  "weighted odd analyzer, |b|/a = 1/sqrt2; f = (3 + sqrt3)/6 (best record-preserving correction)": {
+   "Q": "0.455796806354119681",
+   "effective_|b|/a": "0.42859679132160978",
+   "effective_delta": "0.0505457071106864151",
+   "m2/m1": "1.30041605883861",
+   "m3/m1": "12.0614061861392"
+  },
+  "weighted odd analyzer, |b|/a = 1/sqrt2; f = 1 (added endpoint read)": {
+   "Q": "0.666666666666666667",
+   "effective_|b|/a": "0.707106781186547524",
+   "effective_delta": "0.25",
+   "m2/m1": "2710.21124931462",
+   "m3/m1": "39882.260906071"
+  },
+  "weighted odd analyzer, |b|/a = 1/sqrt2; f = 0 (no source information)": {
+   "Q": "0.344599580768322593",
+   "effective_|b|/a": "0.129997581333207461",
+   "effective_delta": "0.564931056532893418",
+   "m2/m1": "1.72458920602434",
+   "m3/m1": "2.51094882185804"
+  },
+  "unbiased odd analyzer, |b|/a = 1/2; f = 1/3 (partner load)": {
+   "Q": "0.354318934059198072",
+   "effective_|b|/a": "0.177421535019842246",
+   "effective_delta": "0.0908152624540963997",
+   "m2/m1": "1.14505638348365",
+   "m3/m1": "2.89484311804718"
+  },
+  "unbiased odd analyzer, |b|/a = 1/2; f = (3 + sqrt3)/6 (best record-preserving correction)": {
+   "Q": "0.416341490091566176",
+   "effective_|b|/a": "0.3528629126691402",
+   "effective_delta": "0.136957867117371073",
+   "m2/m1": "1.67530684325702",
+   "m3/m1": "8.98017334295569"
+  },
+  "unbiased odd analyzer, |b|/a = 1/2; f = 1 (added endpoint read)": {
+   "Q": "0.5",
+   "effective_|b|/a": "0.5",
+   "effective_delta": "0.25",
+   "m2/m1": "5.86749887960468",
+   "m3/m1": "42.7066819200103"
+  },
+  "unbiased odd analyzer, |b|/a = 1/2; f = 0 (no source information)": {
+   "Q": "0.338110782432117982",
+   "effective_|b|/a": "0.0846532553903095535",
+   "effective_delta": "0.542335198915493982",
+   "m2/m1": "1.3869449976812",
+   "m3/m1": "1.80687661851623"
+  }
+ },
+ "MEASURED_comparison_NOT_BLIND": {
+  "measured": "m_mu/m_e = 206.7682830(46), m_tau/m_e = 3477.23 +- 0.23",
+  "rows": {
+   "declared analyzer, theta = 2/9, f = 1/3 (partner load)": {
+    "mu_e": "1.42928827355",
+    "mu_e_ppm": "-993087.0",
+    "tau_e": "4.26442611559",
+    "tau_e_pull_sigma": "-15099.9"
+   },
+   "declared analyzer, theta = 2/9, f = (3 + sqrt3)/6 (best record-preserving correction)": {
+    "mu_e": "1.26237459372",
+    "mu_e_ppm": "-993895.0",
+    "tau_e": "12.4715322257",
+    "tau_e_pull_sigma": "-15064.2"
+   },
+   "declared analyzer, theta = 2/9, f = 1 (added endpoint read)": {
+    "mu_e": "206.770315973",
+    "mu_e_ppm": "9.83213",
+    "tau_e": "3477.4728371",
+    "tau_e_pull_sigma": "1.05581"
+   },
+   "declared analyzer, theta = 2/9, f = 0 (no source information)": {
+    "mu_e": "1.63313409069",
+    "mu_e_ppm": "-992102.0",
+    "tau_e": "2.46794362834",
+    "tau_e_pull_sigma": "-15107.7"
+   },
+   "separable K6, theta = 1/4, weighted, f = 1/3 (partner load)": {
+    "mu_e": "1.47839710169",
+    "mu_e_ppm": "-992850.0",
+    "tau_e": "4.25357859756",
+    "tau_e_pull_sigma": "-15099.9"
+   },
+   "separable K6, theta = 1/4, weighted, f = 1 (added endpoint read)": {
+    "mu_e": "2710.21124931",
+    "mu_e_ppm": "1.21075e+7",
+    "tau_e": "39882.2609061",
+    "tau_e_pull_sigma": "158283.0"
+   },
+   "separable K6, theta = 1/4, unbiased, f = 1/3 (partner load)": {
+    "mu_e": "1.14505638348",
+    "mu_e_ppm": "-994462.0",
+    "tau_e": "2.89484311805",
+    "tau_e_pull_sigma": "-15105.8"
+   },
+   "separable K6, theta = 1/4, unbiased, f = 1 (added endpoint read)": {
+    "mu_e": "5.8674988796",
+    "mu_e_ppm": "-971623.0",
+    "tau_e": "42.70668192",
+    "tau_e_pull_sigma": "-14932.7"
+   }
+  }
+ }
+}

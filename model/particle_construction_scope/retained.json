@@ -1,0 +1,90 @@
+{
+  "schema": "oph.particle_construction_scope.retained.v1",
+  "scope": "Byte-exact scoped Fable producers and original results; historical absolute path metadata is retained. Only explicitly enumerated path constants are adapted for public replay.",
+  "files": {
+    "CM/cm_r2.py": {
+      "retained_path": "retained/CM/cm_r2.py.raw",
+      "sha256": "1347dca3aa437929c20f9cf726375cbb33857daa8265f698686137771fd2c686"
+    },
+    "CM/cm_r2_x8.py": {
+      "retained_path": "retained/CM/cm_r2_x8.py.raw",
+      "sha256": "336e09c5c2138d875b7038d481990943fc87d44d056f1e9a0e1e6cc528c8eba5"
+    },
+    "CM/cm_r2_compare.py": {
+      "retained_path": "retained/CM/cm_r2_compare.py.raw",
+      "sha256": "5f5cc9b5a9f2963467709c9751ebec6ad038f404aed8802131f8e19e8526723d"
+    },
+    "FR/fr_common.py": {
+      "retained_path": "retained/FR/fr_common.py.raw",
+      "sha256": "2837144d3bd4c1aee0bed2f6db0b2e973ca204eb7b87a0f998b87bed32ed6e9f"
+    },
+    "FR/fr2_register.py": {
+      "retained_path": "retained/FR/fr2_register.py.raw",
+      "sha256": "4cd4460b40af8c98b878db667f02b0937157f2521f40bfbef0e22819e0fd3e83"
+    },
+    "DR/dr_register.py": {
+      "retained_path": "retained/DR/dr_register.py.raw",
+      "sha256": "c9ce8981a49ac773235fc1be961f5f2497a93edb1f1c4e2805f48f460b8ab386"
+    },
+    "SIM/derive/lnat/lnat_common.py": {
+      "retained_path": "retained/SIM/derive/lnat/lnat_common.py.raw",
+      "sha256": "2927e9a0f8de049f121a8a421ce45b12ad5bd080d42e82eb0b791be73661d28b"
+    },
+    "HT/part1_c1.py": {
+      "retained_path": "retained/HT/part1_c1.py.raw",
+      "sha256": "c16056d7c42622b77c07b38e74fe0723aed5d08bec5d5059cfa28c5862cede42"
+    },
+    "SIM/derive/lnat3/lnat3_common.py": {
+      "retained_path": "retained/SIM/derive/lnat3/lnat3_common.py.raw",
+      "sha256": "80d6f3fcdcbf60ffd42ee97410bb3081601a55438b9dce703e23541a434444f1"
+    },
+    "SIM/derive/lnat3/t1_source.py": {
+      "retained_path": "retained/SIM/derive/lnat3/t1_source.py.raw",
+      "sha256": "a37d0c6bbecf7c6015ef788b15c4aa87e7e72312df9f73bca13913ff89b50e3f"
+    },
+    "SIM/derive/lnat3/t2_analyzer.py": {
+      "retained_path": "retained/SIM/derive/lnat3/t2_analyzer.py.raw",
+      "sha256": "0997cf668936070be2e305c7550a43fc7dcf6449eeb0326fd1775e6d42325591"
+    },
+    "SIM/derive/lnat3/t3_assemble.py": {
+      "retained_path": "retained/SIM/derive/lnat3/t3_assemble.py.raw",
+      "sha256": "bb2dd09d0a2768c76da77f297dd3cac6e02882e3536095aeda20572f1a06a34d"
+    },
+    "SIM/derive/lnat3/t4_fr_multitick.py": {
+      "retained_path": "retained/SIM/derive/lnat3/t4_fr_multitick.py.raw",
+      "sha256": "ed308361f7138b6c7859c9a99248d043eb80dbbfd0dabda493046116eec60129"
+    },
+    "CM/r2.json": {
+      "retained_path": "retained/CM/r2.json.raw",
+      "sha256": "dff3fbfc904488f5cecbb4b706394866ca802b6b0c2bdbeb54fd959f062880ff"
+    },
+    "CM/x8.json": {
+      "retained_path": "retained/CM/x8.json.raw",
+      "sha256": "8b43ee3f32a8bb58e3530736cbfa12fba285b11e1286a854982aa6b44253564c"
+    },
+    "CM/r2_compare.json": {
+      "retained_path": "retained/CM/r2_compare.json.raw",
+      "sha256": "c76d71d5a92ef347395fb1e423a15d05975914e1e7d474c7f3eef0b585aca97c"
+    },
+    "DR/register.json": {
+      "retained_path": "retained/DR/register.json.raw",
+      "sha256": "0ad99611958ac626195a663f547a27734a6e9fe5e3da5c8b4f359da4e0ec515f"
+    },
+    "SIM/derive/lnat3/lnat3_t1.json": {
+      "retained_path": "retained/SIM/derive/lnat3/lnat3_t1.json.raw",
+      "sha256": "9e7d4c334319c497658e90177618b69c5d2783253c9882657f07f60c35830a9c"
+    },
+    "SIM/derive/lnat3/lnat3_t2.json": {
+      "retained_path": "retained/SIM/derive/lnat3/lnat3_t2.json.raw",
+      "sha256": "d44b30b41a38f9a8a9d3bfc18b1e9933f4db546a91b2a7cbe35339493e47c0be"
+    },
+    "SIM/derive/lnat3/lnat3_t3.json": {
+      "retained_path": "retained/SIM/derive/lnat3/lnat3_t3.json.raw",
+      "sha256": "0ffa7fd7c56c197e510a2b83f50a609f37124a41be4f58e40ebed649fafbecd9"
+    },
+    "SIM/derive/lnat3/lnat3_t4.json": {
+      "retained_path": "retained/SIM/derive/lnat3/lnat3_t4.json.raw",
+      "sha256": "bfe284cee52af0f2f9bb29a028044f9c3b390e5d3589a01337c942c408f8a0db"
+    }
+  }
+}

@@ -1,0 +1,232 @@
+"""CM round 2: NOT BLIND comparison (CANDIDATES.md R2-E, R2-F). The only round-2 script that reads measured values.
+
+Reads r2.json (native readings) and, after it exists, the measured values: the brief's CKM numbers and RER
+model/common_source/calibrated_matter_results.json (Yukawas at M_Z for the conditional base, CKM sines and delta).
+Conditional readings: the base of each sector is its measured M_Z circulant chart (CONDITIONAL on measured masses);
+junction terms as registered. FIT: the common eps/hold of the site form reproducing abs V_us = 0.2250 (one number per
+assignment, reported as a fit). Scan: diagnostic only.
+Run: cd RL/work/CM && PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. /tmp/oph-completion-venv/bin/python -B cm_r2_compare.py
+"""
+import itertools
+import json
+import math
+import os
+
+import mpmath as mp
+import numpy as np
+
+mp.mp.dps = 50
+HERE = os.path.dirname(os.path.abspath(__file__))
+RER = '/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality'
+r2 = json.load(open(os.path.join(HERE, 'r2.json')))
+assert r2['measured_values_read'] is False
+cal = json.load(open(os.path.join(RER, 'model/common_source/calibrated_matter_results.json')))['calibration']
+yuk = cal['matched_SM']['yukawa']
+ck = cal['CKM']
+s12m, s23m, s13m, dm = (float(ck['sin_theta12']), float(ck['sin_theta23']), float(ck['sin_theta13']),
+                        float(ck['delta_radians']))
+J_file = math.sqrt(1 - s12m ** 2) * math.sqrt(1 - s23m ** 2) * (1 - s13m ** 2) * s12m * s23m * s13m * math.sin(dm)
+BRIEF = {'V12': 0.2250, 'V23': 0.0418, 'V13': 0.00369, 'J': 3.1e-5}
+W3c = complex(-0.5, 3 ** 0.5 / 2)
+
+
+def chart(ys):
+    """Circulant chart of a measured triple (DF's convention, as in RL/work/QM/qm_compare.py)."""
+    y = np.sort(np.array([float(v) for v in ys]))
+    sq = np.sqrt(y)
+    best = None
+    for perm in itertools.permutations(range(3)):
+        z = sum(sq[perm[k]] * W3c ** (-k) for k in range(3)) * 2 / (3 * sq.mean())
+        d = math.atan2(z.imag, z.real)
+        if 0 <= d <= math.pi / 3 + 1e-12:
+            best = (abs(z), d)
+    r, d = best
+    return {'y1_over_y3': y[0] / y[2], 'y2_over_y3': y[1] / y[2], 'x': r * r / 4, 'r': r, 'delta': d}
+
+
+CH = {'up': chart(yuk['up']), 'down': chart(yuk['down'])}
+
+
+def verdict(pred, meas):
+    if pred < 1e-12:
+        return 'fails (exact zero)'
+    rel = pred / meas - 1
+    return ('passes' if abs(rel) <= 0.10 else 'fails') + f' ({100 * rel:+.1f} percent)'
+
+
+def judge(r):
+    out = {k: [r[k] if k != 'J' else abs(r['J']), BRIEF[k], verdict(r[k] if k != 'J' else abs(r['J']), BRIEF[k])]
+           for k in ('V12', 'V23', 'V13', 'J')}
+    out['J_vs_file'] = [abs(r['J']), J_file, verdict(abs(r['J']), J_file)]
+    out['sign_J'] = '+' if r['J'] > 0 else '-'
+    out['all_four_pass'] = all(out[k][2].startswith('passes') for k in ('V12', 'V23', 'V13', 'J'))
+    return out
+
+
+# ------------------------------------------------------------------------------------------ the register objects
+W = mp.exp(2j * mp.pi / 3)
+R = mp.zeros(3, 3)
+for j in range(3):
+    R[(j + 1) % 3, j] = 1
+P = [mp.diag([1 if i == j else 0 for i in range(3)]) for j in range(3)]
+POS = {'C': 0, 'E': 2}
+HOLD = mp.sqrt(mp.mpf(1) / 6)
+REP = mp.sqrt(mp.mpf(1) / 12)
+TH = mp.mpf(2) / 9
+chars = [mp.matrix([W ** (-(j * k)) / mp.sqrt(3) for j in range(3)]) for k in range(3)]
+
+
+def base_chart(s):
+    r, d = mp.mpf(CH[s]['r']), mp.mpf(CH[s]['delta'])
+    return mp.eye(3) + (r / 2) * (mp.exp(1j * d) * R + mp.exp(-1j * d) * R.H)
+
+
+def junction(reading, obj, th, base):
+    p = POS[obj]
+    hold = abs(base[0, 0])
+    if reading == 'W1':
+        return base + (2 * mp.cos(th) * REP / HOLD if obj == 'C' else 2 * REP / HOLD) * hold * P[p]
+    if reading == 'W2':
+        return base + hold * P[p]
+    if reading == 'W3':
+        return base + (mp.sqrt(mp.mpf(6) / 7) - 1) * hold * P[p]
+    if reading == "W3'":
+        D = mp.eye(3) + ((mp.mpf(6) / 7) ** (mp.mpf(1) / 4) - 1) * P[p]
+        return D * base * D
+    if reading == 'BD':
+        if obj == 'C':
+            hop = mp.zeros(3, 3)
+            hop[0, 2] = mp.exp(1j * th)
+            hop[2, 0] = mp.exp(-1j * th)
+            return base + REP / HOLD * hold * hop
+        return base + 2 * REP / HOLD * hold * P[p]
+    if reading.startswith('site:'):
+        return base + mp.mpf(reading[5:]) * hold * P[p]
+    raise ValueError(reading)
+
+
+def frame(Y):
+    E, Q = mp.eighe(Y * Y.H)
+    idx = sorted(range(3), key=lambda i: mp.re(E[i]))
+    Qs = mp.matrix(3, 3)
+    for c, i in enumerate(idx):
+        for rr in range(3):
+            Qs[rr, c] = Q[rr, i]
+    return [mp.re(E[i]) for i in idx], Qs
+
+
+def dom(Q):
+    out = []
+    for c in range(3):
+        col = mp.matrix([Q[rr, c] for rr in range(3)])
+        ov = [abs((chars[k].H * col)[0]) ** 2 for k in range(3)]
+        out.append(max(range(3), key=lambda i: ov[i]))
+    return out
+
+
+def analyse(Yu, Yd):
+    Eu, Qu = frame(Yu)
+    Ed, Qd = frame(Yd)
+    V = Qu.H * Qd
+    a = [[abs(V[i, j]) for j in range(3)] for i in range(3)]
+    J = mp.im(V[0, 0] * V[1, 1] * mp.conj(V[0, 1]) * mp.conj(V[1, 0]))
+    du, dd = dom(Qu), dom(Qd)
+    s13 = a[0][2]; c13 = mp.sqrt(1 - s13 ** 2); s12 = a[0][1] / c13; s23 = a[1][2] / c13
+    denom = mp.sqrt(1 - s12 ** 2) * mp.sqrt(1 - s23 ** 2) * c13 ** 2 * s12 * s23 * s13
+    sind = J / denom if denom > mp.mpf('1e-40') else mp.nan
+    return {'V12': float(a[0][1]), 'V23': float(a[1][2]), 'V13': float(a[0][2]), 'J': float(J),
+            'sin_delta_implied': float(sind), 'V13_over_V23': float(a[0][2] / a[1][2]) if a[1][2] > 0 else None,
+            'abs_V': [[float(x) for x in row] for row in a],
+            'spectra': {'up': [float(Eu[0] / Eu[2]), float(Eu[1] / Eu[2])],
+                        'down': [float(Ed[0] / Ed[2]), float(Ed[1] / Ed[2])]},
+            'chars_up': du, 'chars_down': dd, 'same_characters': du == dd}
+
+
+ASSIGN = {'A': {'up': 'C', 'down': 'E'}, 'B': {'up': 'E', 'down': 'C'}}
+OUT = {'NOT_BLIND': True, 'measured': {'brief': BRIEF, 'file_CKM': {'s12': s12m, 's23': s23m, 's13': s13m, 'delta': dm,
+                                                                   'J': J_file}, 'charts_MZ': CH},
+       'native_verdicts': {}, 'conditional': {}, 'fit': {}, 'scan_conditional_site_A': []}
+for k, r in r2['native'].items():
+    OUT['native_verdicts'][k] = judge(r)
+
+# conditional readings
+for reading in ('W1', 'W2', 'W3', "W3'", 'BD'):
+    for an, asg in ASSIGN.items():
+        Yu = junction(reading, asg['up'], TH, base_chart('up'))
+        Yd = junction(reading, asg['down'], TH, base_chart('down'))
+        r = analyse(Yu, Yd)
+        r['verdict'] = judge(r)
+        OUT['conditional'][f'{reading}|{an}'] = r
+# control: measured charts without a junction term
+OUT['conditional_control_no_junction'] = analyse(base_chart('up'), base_chart('down'))
+
+
+# FIT: common site eps/hold reproducing abs V_us = 0.2250 (smallest abs(eps)), per assignment
+def v12_of(e, an):
+    asg = ASSIGN[an]
+    Yu = junction('site:' + mp.nstr(e, 40), asg['up'], TH, base_chart('up'))
+    Yd = junction('site:' + mp.nstr(e, 40), asg['down'], TH, base_chart('down'))
+    return analyse(Yu, Yd)
+
+
+for an in ASSIGN:
+    grid = [mp.mpf(i) / 400 for i in range(-400, 401)]
+    vals = [(e, v12_of(e, an)['V12'] - BRIEF['V12']) for e in grid]
+    roots = []
+    for (e1, f1), (e2, f2) in zip(vals, vals[1:]):
+        if f1 == 0 or f1 * f2 < 0:
+            lo, hi = e1, e2
+            for _ in range(80):
+                mid = (lo + hi) / 2
+                fm = v12_of(mid, an)['V12'] - BRIEF['V12']
+                if (fm < 0) == (f1 < 0):
+                    lo = mid
+                else:
+                    hi = mid
+            roots.append((lo + hi) / 2)
+    roots.sort(key=lambda e: abs(e))
+    fits = []
+    for e in roots[:4]:
+        r = v12_of(e, an)
+        r['eps_over_hold_FIT'] = float(e)
+        r['verdict'] = judge(r)
+        fits.append(r)
+    OUT['fit'][an] = {'roots_found_in_[-1,1]': [float(e) for e in roots], 'smallest_four': fits}
+
+for i in range(-10, 11):
+    e = mp.mpf(i) / 20
+    r = v12_of(e, 'A')
+    OUT['scan_conditional_site_A'].append({'eps_over_hold': float(e), 'V12': r['V12'], 'V23': r['V23'], 'sin_delta_implied': r['sin_delta_implied'],
+                                           'V13': r['V13'], 'J': r['J'], 'same_characters': r['same_characters']})
+
+npass_native = sum(1 for v in OUT['native_verdicts'].values() if v['all_four_pass'])
+npass_cond = sum(1 for v in OUT['conditional'].values() if v['verdict']['all_four_pass'])
+OUT['summary'] = {'native_readings': len(OUT['native_verdicts']), 'native_all_four_pass': npass_native,
+                  'conditional_readings': len(OUT['conditional']), 'conditional_all_four_pass': npass_cond,
+                  'element_passes_native': {k: [n for n, v in OUT['native_verdicts'].items() if v[k][2].startswith('passes')]
+                                            for k in ('V12', 'V23', 'V13', 'J', 'J_vs_file')},
+                  'element_passes_conditional': {k: [n for n, v in OUT['conditional'].items()
+                                                     if v['verdict'][k][2].startswith('passes')]
+                                                 for k in ('V12', 'V23', 'V13', 'J', 'J_vs_file')}}
+with open(os.path.join(HERE, 'r2_compare.json'), 'w') as fh:
+    json.dump(OUT, fh, indent=1, default=str)
+
+print('charts', {s: {k: round(v, 6) for k, v in CH[s].items()} for s in CH})
+print('J_file', J_file)
+print('summary', json.dumps(OUT['summary'], indent=None))
+for k, v in OUT['native_verdicts'].items():
+    print('native', k, v['V12'][2], '|', v['V23'][2], '|', v['V13'][2], '| J', v['J'][2], v['sign_J'], '| Jfile', v['J_vs_file'][2])
+for k, r in OUT['conditional'].items():
+    v = r['verdict']
+    print('cond', k, 'V12 %.5f V23 %.5f V13 %.5f J %+.3e' % (r['V12'], r['V23'], r['V13'], r['J']), 'same', r['same_characters'],
+          r['chars_up'], r['chars_down'], '| y up', ['%.3e' % x for x in r['spectra']['up']], 'down', ['%.3e' % x for x in r['spectra']['down']])
+print('cond control', OUT['conditional_control_no_junction']['V12'], OUT['conditional_control_no_junction']['J'],
+      OUT['conditional_control_no_junction']['spectra'])
+for an, f in OUT['fit'].items():
+    print('FIT', an, 'roots', [round(x, 6) for x in f['roots_found_in_[-1,1]']])
+    for r in f['smallest_four']:
+        v = r['verdict']
+        print('    eps %.6f V12 %.5f V23 %.5f V13 %.5f J %+.3e' % (r['eps_over_hold_FIT'], r['V12'], r['V23'], r['V13'], r['J']),
+              v['V23'][2], v['V13'][2], v['J'][2], 'same', r['same_characters'])
+for s in OUT['scan_conditional_site_A']:
+    print('scan', s)

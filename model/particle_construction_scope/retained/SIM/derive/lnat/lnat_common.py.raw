@@ -1,0 +1,151 @@
+"""Shared exact objects for lane L-NAT (read-only use of the public repository).
+
+Carrier, rotations gC, gE, g = gE o gC, and the coherent seam-repair walk W = QR of
+model/coherent_seam_repair (state space port x parity x oriented address, dimension 1440).
+W is stored exactly as the integer matrix 120 W (2Q and 60R are integer matrices).
+Index convention copied from model/coherent_seam_repair/program.py (fibre 1):
+    index(port, parity, address) = (port*2 + parity)*60 + address.
+"""
+from __future__ import annotations
+
+import os
+import sys
+from fractions import Fraction as F
+from functools import lru_cache
+
+import numpy as np
+
+RER = '/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality'
+if RER not in sys.path:
+    sys.path.insert(0, RER)
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+
+from model.common_source import slow_geometry  # noqa: E402
+
+N_PORT, N_ADDR = 12, 60
+DIM = N_PORT * 2 * N_ADDR  # 1440
+
+
+@lru_cache(maxsize=1)
+def carrier():
+    src = slow_geometry.source()
+    seams = tuple(tuple(int(v) for v in e) for e in src.seams())  # source order, as program.py
+    addresses = tuple(pair for edge in seams for pair in (edge, edge[::-1]))
+    rotations = tuple(tuple(int(v) for v in p) for p in src.rotations())
+    assert len(seams) == 30 and len(addresses) == 60 and len(rotations) == 60
+    adj = np.zeros((12, 12), dtype=np.int64)
+    for a, b in seams:
+        adj[a, b] = adj[b, a] = 1
+    return {'seams': seams, 'addresses': addresses, 'rotations': rotations, 'adj': adj}
+
+
+def order(p):
+    q, k = tuple(range(len(p))), 0
+    cur = q
+    while True:
+        cur = tuple(p[i] for i in cur)
+        k += 1
+        if cur == q:
+            return k
+
+
+def compose(outer, inner):
+    """(outer o inner)[x] = outer[inner[x]]  ('inner first, then outer')."""
+    return tuple(outer[inner[x]] for x in range(len(inner)))
+
+
+def inverse(p):
+    inv = [0] * len(p)
+    for i, j in enumerate(p):
+        inv[j] = i
+    return tuple(inv)
+
+
+@lru_cache(maxsize=1)
+def native_rotations():
+    rots = carrier()['rotations']
+    out = []
+    for a, b in ((2, 3), (2, 10)):
+        cand = [p for p in rots if order(p) == 2 and p[a] == b and p[b] == a]
+        assert len(cand) == 1
+        out.append(cand[0])
+    gC, gE = out
+    g = compose(gE, gC)  # E applied after C
+    assert order(g) == 3
+    return gC, gE, g
+
+
+def cycles(p):
+    seen, out = set(), []
+    for i in range(len(p)):
+        if i in seen:
+            continue
+        c, j = [], i
+        while j not in seen:
+            seen.add(j); c.append(j); j = p[j]
+        if len(c) > 1:
+            out.append(tuple(c))
+    return out
+
+
+def idx(port, parity, address):
+    return (port * 2 + parity) * N_ADDR + address
+
+
+@lru_cache(maxsize=1)
+def walk_integer():
+    """Return (Q2, R60, W120): 2Q, 60R and 120W as exact int64 scipy CSR matrices."""
+    import scipy.sparse as sp
+    adr = carrier()['addresses']
+    Q2 = sp.lil_matrix((DIM, DIM), dtype=np.int64)
+    for i in range(DIM):
+        Q2[i, i] = 2
+    for k, (a, b) in enumerate(adr):
+        sites = [idx(a, 0, k), idx(b, 0, k), idx(a, 1, k), idx(b, 1, k)]
+        signs = [1, -1, -1, -1]  # v = (a0 - b0 - a1 - b1)/sqrt2, U_k = I - v v^T on address k
+        for si, i in zip(signs, sites):
+            for sj, j in zip(signs, sites):
+                Q2[i, j] = Q2[i, j] - si * sj  # 2 (v v^T)_ij = si sj
+    Q2 = Q2.tocsr()
+    rows, cols, vals = [], [], []
+    for block in range(24):
+        s = block * N_ADDR
+        for i in range(N_ADDR):
+            for j in range(N_ADDR):
+                rows.append(s + i); cols.append(s + j); vals.append(2 - (60 if i == j else 0))
+    R60 = sp.csr_matrix((np.array(vals, dtype=np.int64), (rows, cols)), shape=(DIM, DIM))
+    W120 = (Q2 @ R60).tocsr()
+    W120.eliminate_zeros()
+    return Q2, R60, W120
+
+
+def perm_operator(p):
+    """Sparse integer permutation Pi(p) on port x parity x address: |x,r,(a,b)> -> |p x, r, (p a, p b)>."""
+    import scipy.sparse as sp
+    adr = carrier()['addresses']
+    pos = {pair: k for k, pair in enumerate(adr)}
+    rows, cols = [], []
+    for x in range(12):
+        for r in (0, 1):
+            for k, (a, b) in enumerate(adr):
+                rows.append(idx(p[x], r, pos[(p[a], p[b])])); cols.append(idx(x, r, k))
+    return sp.csr_matrix((np.ones(len(rows), dtype=np.int64), (rows, cols)), shape=(DIM, DIM))
+
+
+def sparse_equal(A, B):
+    D = (A - B).tocsr()
+    D.eliminate_zeros()
+    return D.nnz == 0
+
+
+def embed_port(x):
+    """A|x> with blank parity and uniform address, as an exact Fraction-free integer vector (norm^2 = 60)."""
+    v = np.zeros(DIM, dtype=np.int64)
+    for k in range(N_ADDR):
+        v[idx(x, 0, k)] = 1
+    return v  # true state is v / sqrt(60)
+
+
+def frac(x):
+    return F(int(x[0]), int(x[1])) if isinstance(x, tuple) else F(x)

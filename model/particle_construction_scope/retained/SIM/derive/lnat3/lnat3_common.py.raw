@@ -1,0 +1,94 @@
+"""Shared exact objects for lane L-NAT round 3 (source endpoint and cross-object analyzer).
+
+The theory repository is read only. Its checkout moved on 2026-11-10 23:18; the path resolver below takes whichever of
+the two known paths exists. Nothing is written into it (sys.dont_write_bytecode, run with python -B).
+Round-1 helpers (../lnat/lnat_common.py) supply the carrier, the rotations gC, gE, g = gE o gC and the exact integer
+walk 120 W (index (port*2 + parity)*60 + address).
+"""
+from __future__ import annotations
+
+import os
+import sys
+from fractions import Fraction as F
+from functools import lru_cache
+from itertools import combinations
+
+sys.dont_write_bytecode = True
+os.environ.setdefault('PYTHONDONTWRITEBYTECODE', '1')
+
+RER_CANDIDATES = ('/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality',
+                  '/Users/muellerberndt/Projects/oph-meta/reverse-engineering-reality')
+RER = next(p for p in RER_CANDIDATES if os.path.isdir(os.path.join(p, 'model', 'coherent_seam_repair')))
+if RER not in sys.path:
+    sys.path.insert(0, RER)
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', 'lnat'))
+import lnat_common as C  # noqa: E402  (round 1; its own RER insert is harmless when that path is absent)
+
+import sympy as s  # noqa: E402
+
+SEAMS = {'C': (2, 3), 'E': (2, 10)}
+COLORING = {'C': 0, 'E': 1}
+
+
+@lru_cache(maxsize=2)
+def matchings(choice):
+    from model.common_source import native_gauge_object as obj
+    return tuple(tuple(tuple(p) for p in m) for m in obj.equivariant_matchings(choice))
+
+
+def adjacency():
+    return C.carrier()['adj']
+
+
+def active_components(choice, seam):
+    """For each logical state L (matching index): the active pairs on the seam as (source endpoint, partner).
+
+    A pair is active when exactly one of the two seam endpoints is occupied."""
+    a, b = seam
+    out = []
+    for L, m in enumerate(matchings(choice)):
+        rows = []
+        for pair in m:
+            ina, inb = a in pair, b in pair
+            if ina != inb:
+                src = a if ina else b
+                partner = pair[1] if pair[0] == src else pair[0]
+                rows.append((src, partner))
+        out.append(tuple(sorted(rows)))
+    return tuple(out)
+
+
+def seam_unitary_4(link=1):
+    """Coherent seam event on span{|a,0>,|b,0>,|a,1>,|b,1>} for oriented address (a,b): U = I - v v^T,
+    v = |m,0> - |p,1>, m = (|a> - link|b>)/sqrt2, p = (|a> + link|b>)/sqrt2 (program.py, fibre 1, link = +-1)."""
+    sites = ['a0', 'b0', 'a1', 'b1']
+    signs = [1, -link, -1, -link]  # 2 v v^T entries: signs_i signs_j (program.repair)
+    U = s.eye(4)
+    for i in range(4):
+        for j in range(4):
+            U[i, j] -= s.Rational(signs[i] * signs[j], 2)
+    return U, sites
+
+
+def koide_from_masses(ms):
+    """Koide data from three masses m_k: Q, |b|/a and delta (canonical, in [0, pi/3]) from sqrt(m_k)
+    = a + 2|b| cos(delta + 2 pi k/3)."""
+    import mpmath as mp
+    r = [mp.sqrt(m) for m in ms]
+    a = mp.fsum(r) / 3
+    dev = [x - a for x in r]
+    b2 = mp.fsum(d * d for d in dev) / 6
+    b = mp.sqrt(b2)
+    Q = mp.fsum(ms) / mp.fsum(r) ** 2
+    if b == 0:
+        return {'Q': Q, 'b_over_a': mp.mpf(0), 'delta': None}
+    c3 = mp.fsum(d ** 3 for d in dev) / (6 * b ** 3)
+    c3 = max(min(c3, mp.mpf(1)), mp.mpf(-1))
+    return {'Q': Q, 'b_over_a': b / a, 'delta': mp.acos(c3) / 3}
+
+
+def ratios(ms):
+    m = sorted(ms)
+    return m[1] / m[0], m[2] / m[0]

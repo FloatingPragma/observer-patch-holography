@@ -1,0 +1,101 @@
+{
+ "task": "LNAT3 T2",
+ "RER_path_used": "/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality",
+ "separability_theorem": {
+  "product_analyzer_gives_scalar_times_C_operator": true,
+  "flag_analyzer_operator": "Matrix([[psiC_in*psiE_h, psiC_p*psiE_1, psiC_m*psiE_1]])",
+  "flag_analyzer_Schmidt_rank_across_E|C": 2,
+  "flag_analyzer_identity_coefficient": "psiC_in*psiE_h",
+  "K5_flag_analyzer_b_over_a": "sqrt(2)/2",
+  "statement": "every instrument with product Kraus operators gives the family operator <phi_E|psi_E> times an operator built from the C branches alone: the identity coefficient is a C branch (agree or inactive) and the E agreeing half enters only as a common factor; the flag analyzer that puts the E hold on the identity and the C repair on the shifts has Schmidt rank 2",
+  "corollary_phase": "under the phase map of LNAT2 T2 the clock phase of the rotation element is the expected count of exclusive reads of the rotation branch and the identity branch; with a separable readout the identity branch is a C branch, exclusive with the C rotation in one event, so the count is P(rot) + P(identity branch) >= 1/12 + 1/6 = 1/4 (K6 of DA3), never 2/9 = p + q - 2 p q"
+ },
+ "A1_third_turn": {
+  "every_rotation_preserves_the_record_value": "True",
+  "consequence": "no rotation maps the hold flag (record 0) to a rotation flag (record 1)",
+  "g_orbit_of_C_address_(2,3)": [
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    10
+   ],
+   [
+    9,
+    1
+   ]
+  ],
+  "g_orbit_of_E_address_(2,10)": [
+   [
+    2,
+    10
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    9,
+    3
+   ]
+  ],
+  "C_and_E_addresses_in_one_g_orbit": false,
+  "order_3_rotation_mapping_(2,3)_to_(3,2)": false,
+  "flag_zero_row_of_Pi(g)_on_three_flags": [
+   0,
+   0,
+   1
+  ],
+  "selects_one_branch": true,
+  "Fourier_mode_probabilities_with_orthogonal_flags_tracial_input": [
+   "Abs(c0)**2/3 + Abs(cm)**2/3 + Abs(cp)**2/3",
+   "Abs(c0)**2/3 + Abs(cm)**2/3 + Abs(cp)**2/3",
+   "Abs(c0)**2/3 + Abs(cm)**2/3 + Abs(cp)**2/3"
+  ],
+  "reading_F": "measuring the third-turn charge of the family register projects on the Fourier modes of F; with the flags left orthogonal every mode gets sum_j |c_j|^2 / 3: the phases and the interference that make a I + b (S + S^-1) never enter",
+  "order_of_gE_gC": 3,
+  "gC_gE_in_one_frame": false
+ },
+ "A2_modular_flow": {
+  "rho_scaled": "2096 * 120 * rho = 600 I + 2 (120 W + 120 W^T)",
+  "rho_symmetric": true,
+  "rho_commutes_with_all_60_rotations": true,
+  "trace_check_2096_120": true,
+  "sector_dimension": 480,
+  "max_|spec(rho)_sector1 - spec(rho)_sector2|_MEASURED": 1.3877787807814457e-17,
+  "reason_EXACT": "Pi(gC) commutes with rho and maps the g-sector of character w onto the sector of w^2 (gC g gC = g^-1), so rho^{it} has equal spectra on the two sectors",
+  "Schur": "rho^{it} commutes with the 60 rotations, so on every isotypic component it is I (x) X_t; on the copy factor of a triplet (whose g-eigenbasis is the Fourier basis) it is the identity",
+  "two_objects": "(rho_C (x) rho_E)^{it} = rho_C^{it} (x) rho_E^{it}: a product of one-object unitaries",
+  "in_the_apparatus": "no: the coherent program states that its apparatus does not implement every modular unitary (model/coherent_seam_repair/PROOF.md, optional apparatus)"
+ },
+ "A3_CF1_alternating_order": {
+  "definition": "S_fwd = (Q3 R)(Q2 R)(Q1 R), S_rev = (Q1 R)(Q2 R)(Q3 R), alternating (candidates/CF1.md section 8)",
+  "copy_index": "the cone copies K in {0, K1, K2, K3}: at the cones the forward tick is 1_record (x) a_K and maps copy K to copy K (KOI part 3, EXACT); with flat links the tick commutes with lattice translations, so every product of ticks is block diagonal in momentum and never mixes copies (ARGUED from translation invariance; EXACT at the cones)",
+  "third_turn": "no symmetry of the alternating period, unitary or antiunitary, with or without staggered phases (KOI part 4 item 3, EXACT)",
+  "axis_superposition": "the schedule applies the three axes in sequence; an address superposition over the axes is a declared missing item (CF1.md section 6)",
+  "C_E_objects": "the routing acts on (cell, record, spin) along one frame; gE gC has order 3, so gC and gE are not half-turns of one frame and the C and E seams are not frame seams of one frame",
+  "verdict": "not a Fourier analyzer over any copy index, and it does not act on the C and E records"
+ },
+ "A4_consensus": {
+  "consensus_record1_from_record0_block_is_zero": true,
+  "record1_amplitudes_from_port_2_on_C_addresses_(x120*60)": {
+   "(2, 3)": 60,
+   "(3, 2)": -60
+  },
+  "reading": "A* sums the two orientations of every seam with equal weight; the record-1 amplitudes of the two orientations are opposite, so the consensus removes the rotation pair (LNAT Q1); R = 2 A A* - I commutes with all rotations (Schur as for rho); for two objects it is R_C (x) R_E"
+ },
+ "A5_heralded_filter": {
+  "operator": "K_+ = (2 I + W)/3, K_- = sqrt2 (I - W)/3 (PROOF.md, declared preparation alpha = 1/2)",
+  "commutes_with_rotations": "yes (a polynomial in W): Schur as for rho",
+  "structure": "the only native linear combination of unitaries; its two terms are histories with no step and with one step of the whole walk, not the hold and rotation flags of one step; on two objects with W_C (x) W_E its Schmidt rank is 2 across the objects, with the identity term from the history in which neither object moved",
+  "verdict": "not the flag analyzer: its identity term is the no-step history, not the E agreeing half"
+ },
+ "native_grammar_lemma": {
+  "generators": "per object: W, Q, R, the seam events U_e on that object's loads and owned record, detectors {P_i, I - P_i} and quarter-turns on that object's register basis, the heralded filter of that object's walk; across objects: simultaneous rotations Pi(h) (x) Pi(h)",
+  "statement": "for two objects with no common seam every generator is of product form A_E (x) A_C, so every composition and every instrument built from them has product Kraus operators",
+  "exception": "the heralded filter applied to the joint step W_C (x) W_E (see A5), whose terms are step counts",
+  "status": "EXACT for the listed grammar (PROOF.md, optional apparatus and filter); the coherent program is a one-carrier program and defines no coherent operation on the records of two objects"
+ }
+}

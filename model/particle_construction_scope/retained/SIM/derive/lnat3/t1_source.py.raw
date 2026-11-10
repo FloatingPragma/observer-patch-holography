@@ -1,0 +1,546 @@
+"""T1 of lane L-NAT round 3: which native register fixes the source endpoint of an active seam pair, and what the
+lepton circulant becomes when the source is known with fraction f.
+
+EXACT unless labelled. Writes lnat3_t1.json. Formulas written before evaluation:
+
+ A. SWAP form. On the seam block span{|a,r>,|b,r>} of an active oriented address (a,b), with p = (|a>+|b>)/sqrt2,
+    m = (|a>-|b>)/sqrt2: U_(a,b) = SWAP(port qubit in the basis (p, m), record qubit in the basis (0, 1)), and
+    U_(b,a) = Z_rec U_(a,b) Z_rec. Hence |s,0> -> |p> (x) (|0> + eps(o) eps(s) |1>)/sqrt2: the record's X value is
+    eps(o) eps(s) for every active pair, its Z value (agree 0 / repair 1) has probability 1/2 each for every s, o.
+ B. Matching code. Every logical state |L> = 6^-1/2 sum_{pair in M_L} |pair> has, on every seam (a,b), exactly one
+    pair containing a and exactly one containing b (perfect matching, (a,b) an edge). Active weight 1/3, source
+    polarization 0 in every L, the source entangled with the partner load.
+ C. Partner load. A partner z fixes the source L-independently iff it is a partner of one endpoint only. Tracial
+    polarization after the best partner-controlled correction: (number of exclusive components)/12; for a shared
+    partner the conditional record state is I/2 on the record qubit, so no partner-controlled unitary helps.
+ D. Record-preserving corrections (isometries controlled by the record's Z value): tracial polarization
+    f <= ||M||_1 / 6, M = sum_L |w_L><u_L|, u_L = (|x_L> + |y_L>)/sqrt2, w_L = (|x_L> - |y_L>)/sqrt2.
+    Nonzero spectrum of M^T M = spectrum of G_w G_u = I - A^2/4, A the adjacency of the shared-partner graph.
+ E. Committed records (coin, current), twist register, tape fields, causal depth, address orientation.
+ F. Compositions: second read (fresh record, reused record), the record of a previous event on the E seam (sharing
+    port 2), controlled half-turn, population argument (tracial port occupations stay 1/6).
+ G. Endpoint-occupation read before the event: effects on the code, correctability, polarization.
+ H. Circulant at fraction f (A-clock): K_eps = a I + eps b (z S + conj(z) S^2), eps = +-1 with mean f,
+    H(f) = (a^2 + 2 b^2) I + (2 f a b z + b^2 conj(z)^2) S + h.c.,
+    E_k = 1/3 + (1/6) cos(2 theta_k) + (sqrt2/3) f cos(theta_k), theta_k = theta + 2 pi k/3, a = 1/sqrt6, b = 1/sqrt12.
+"""
+from __future__ import annotations
+
+import json
+from collections import Counter
+from fractions import Fraction as F
+from itertools import product
+
+import mpmath as mp
+import numpy as np
+import sympy as s
+
+import lnat3_common as L
+
+C = L.C
+OUT = 'lnat3_t1.json'
+mp.mp.dps = 40
+
+
+def part_A():
+    out = {}
+    r2 = s.sqrt(2)
+    U, sites = L.seam_unitary_4(1)
+    # columns of B: p0, m0, p1, m1 written in the site basis (a0, b0, a1, b1)
+    B = s.Matrix([[1, 1, 0, 0], [1, -1, 0, 0], [0, 0, 1, 1], [0, 0, 1, -1]]) / r2
+    SWAP = s.Matrix([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]])
+    out['U_listed_in_basis_(p0,m0,p1,m1)_equals_SWAP'] = (B.T * U * B).applyfunc(s.simplify) == SWAP
+    # reversed address (b,a): same sites, the program puts the first endpoint of the address first
+    Urev_sites = s.zeros(4)
+    perm = [1, 0, 3, 2]  # (b0, a0, b1, a1) -> positions in (a0, b0, a1, b1)
+    for i in range(4):
+        for j in range(4):
+            Urev_sites[perm[i], perm[j]] = U[i, j]
+    Zrec = s.diag(1, 1, -1, -1)
+    out['U_reversed_equals_Zrec_U_Zrec'] = (Urev_sites - Zrec * U * Zrec).applyfunc(s.simplify) == s.zeros(4)
+    # repository program, all 30 seams, both orientations, both sources: record X value = eps(o) eps(s)
+    from model.coherent_seam_repair.program import Observer, State
+    obs = Observer()
+    addr = {pair: k for k, pair in enumerate(obs.addresses)}
+    ok, rows = True, 0
+    zprob = set()
+    for seam in obs.seams:
+        a, b = seam
+        for orient in (seam, seam[::-1]):
+            k = addr[orient]
+            for src in seam:
+                amps = [F(0)] * obs.dimension
+                amps[obs.index(src, 0, k)] = F(1)
+                st = obs.repair(State(tuple(amps), 1))
+                v = st.amplitudes
+                eo = 1 if orient == seam else -1
+                es = 1 if src == a else -1
+                # expected |p> (x) (|0> + eo es |1>)/sqrt2 = (1/2)(|a0> + |b0> + eo es (|a1> + |b1>))
+                want = {obs.index(a, 0, k): F(1, 2), obs.index(b, 0, k): F(1, 2),
+                        obs.index(a, 1, k): F(eo * es, 2), obs.index(b, 1, k): F(eo * es, 2)}
+                got = {i: x for i, x in enumerate(v) if x != 0}
+                ok &= got == want
+                zprob.add((sum(x * x for i, x in got.items() if (i // 60) % 2 == 0), sum(x * x for i, x in got.items() if (i // 60) % 2 == 1)))
+                rows += 1
+    out['repository_program_all_seams'] = {
+        'cases': rows, 'output_is_|p>_x_(|0>+eps(o)eps(s)|1>)/sqrt2': ok,
+        'record_Z_probabilities_(0,1)': sorted([str(a_), str(b_)] for a_, b_ in zprob)}
+    out['statement'] = ('the coherent seam event is the SWAP of the port qubit (basis p, m) with the owned record; the '
+                        'source endpoint times the address orientation is the record value in the basis '
+                        '(|0> +- |1>)/sqrt2 for every active pair; the agree/repair value (basis 0, 1) has probability '
+                        '1/2 for each source and orientation and carries no source information; the two are '
+                        'complementary observables of the same qubit')
+    return out
+
+
+def part_B():
+    out = {}
+    car = C.carrier()
+    bad = 0
+    for choice in (0, 1):
+        for seam in car['seams']:
+            for comps in L.active_components(choice, seam):
+                srcs = sorted(src for src, _ in comps)
+                partners = [p for _, p in comps]
+                if srcs != sorted(seam) or len(set(partners)) != 2:
+                    bad += 1
+    out['every_logical_state_every_seam_both_colorings_has_one_pair_per_endpoint'] = bad == 0
+    out['cases'] = 2 * 30 * 6
+    out['active_weight'] = '2/6 = 1/3 per logical state'
+    out['source_polarization_per_logical_state'] = '0 (amplitudes 1/sqrt6 on source a and on source b)'
+    out['reason'] = 'each matching is a perfect matching of the twelve ports by non-edges; a seam is an edge, so its two endpoints lie in two different pairs of every matching'
+    return out
+
+
+def shared_graph(choice, seam):
+    comps = L.active_components(choice, seam)
+    a, b = seam
+    x = [[p for src, p in c if src == a][0] for c in comps]
+    y = [[p for src, p in c if src == b][0] for c in comps]
+    shared = sorted(set(x) & set(y))
+    A = np.zeros((6, 6), dtype=int)
+    for z in shared:
+        i, j = x.index(z), y.index(z)
+        A[i, j] += 1
+        A[j, i] += 1
+    return x, y, shared, A
+
+
+def part_C_D():
+    out = {}
+    car = C.carrier()
+    summary = Counter()
+    graphs = Counter()
+    for choice in (0, 1):
+        for seam in car['seams']:
+            x, y, shared, A = shared_graph(choice, seam)
+            excl = 12 - 2 * len(shared)
+            degs = tuple(sorted(A.sum(1)))
+            # component structure of the shared-partner graph
+            comp_sizes = []
+            seen = set()
+            for v in range(6):
+                if v in seen:
+                    continue
+                stack, comp = [v], set()
+                while stack:
+                    w = stack.pop()
+                    if w in comp:
+                        continue
+                    comp.add(w)
+                    stack.extend(int(t) for t in np.nonzero(A[w])[0])
+                seen |= comp
+                comp_sizes.append(len(comp))
+            is_path = (sorted(comp_sizes) == [1, 5] and degs == (0, 1, 1, 2, 2, 2) and A.sum() == 8)
+            summary[(choice, excl, len(shared))] += 1
+            graphs[(choice, is_path)] += 1
+    out['C_partner_counts'] = {f'coloring {c}: exclusive components {e} of 12, shared partners {sh}': n
+                               for (c, e, sh), n in sorted(summary.items())}
+    out['C_shared_partner_graph_is_path_of_5_plus_isolated_1'] = {f'coloring {c}': f'{ok}: {n} seams'
+                                                                   for (c, ok), n in sorted(graphs.items())}
+    # detailed tables for the C and E objects
+    det = {}
+    for name in ('C', 'E'):
+        choice, seam = L.COLORING[name], L.SEAMS[name]
+        x, y, shared, A = shared_graph(choice, seam)
+        rows = []
+        for Lg in range(6):
+            rows.append({'L': Lg, 'partner_of_first_endpoint': x[Lg], 'partner_of_second_endpoint': y[Lg],
+                         'first_partner_exclusive': x[Lg] not in shared, 'second_partner_exclusive': y[Lg] not in shared})
+        det[name] = {'seam': list(seam), 'coloring': choice, 'shared_partners': shared, 'rows': rows,
+                     'shared_partner_edges_between_logical_states': [[int(i), int(j)] for i in range(6) for j in range(i + 1, 6) if A[i, j]]}
+    out['C_objects'] = det
+    # partner-controlled correction: tracial polarization; conditional record state for a shared partner
+    sgn_best = {}
+    for name in ('C', 'E'):
+        choice, seam = L.COLORING[name], L.SEAMS[name]
+        x, y, shared, A = shared_graph(choice, seam)
+        # best diagonal sign: sigma = +1 on exclusive partners of a, -1 on exclusive partners of b, shared arbitrary
+        best = F(-10)
+        for signs in product((1, -1), repeat=len(shared)):
+            sig = {}
+            for z in set(x) | set(y):
+                if z in shared:
+                    sig[z] = signs[shared.index(z)]
+                elif z in x:
+                    sig[z] = 1
+                else:
+                    sig[z] = -1
+            f = sum(F(sig[x[Lg]] - sig[y[Lg]], 2) for Lg in range(6)) / 6
+            best = max(best, f)
+        # conditional record density on partner z (tracial): sum over L of the record X states with that partner
+        cond = {}
+        for z in sorted(set(x) | set(y)):
+            plus = sum(1 for Lg in range(6) if x[Lg] == z)
+            minus = sum(1 for Lg in range(6) if y[Lg] == z)
+            rho = s.Matrix([[plus + minus, plus - minus], [plus - minus, plus + minus]]) / (2 * (plus + minus))
+            cond[z] = {'record_density_in_basis_(0,1)': [[str(rho[i, j]) for j in range(2)] for i in range(2)],
+                       'coherence_<0|rho|1>': str(rho[0, 1])}
+        sgn_best[name] = {'best_partner_sign_tracial_polarization': str(best),
+                          'conditional_record_state_given_partner': cond,
+                          'bound_any_partner_controlled_unitary': '1/3: shared partners leave the record at I/2, '
+                                                                  'which every unitary keeps at I/2; exclusive partners give a pure record'}
+    out['C_partner_controlled'] = sgn_best
+    # D: record-preserving bound, exact on every seam and both colorings
+    tnorms = Counter()
+    for choice in (0, 1):
+        for seam in car['seams']:
+            x, y, shared, A = shared_graph(choice, seam)
+            M = s.zeros(12, 12)
+            for Lg in range(6):
+                u = s.zeros(12, 1); w = s.zeros(12, 1)
+                u[x[Lg]] += 1; u[y[Lg]] += 1; w[x[Lg]] += 1; w[y[Lg]] -= 1
+                M += w * u.T / 2
+            ev = (M.T * M).eigenvals()
+            tn = s.radsimp(sum(s.sqrt(e) * mlt for e, mlt in ev.items()))
+            Am = s.Matrix(A.tolist())
+            Gw_Gu = s.eye(6) - Am * Am / 4
+            nz = sorted((str(e), mlt) for e, mlt in ev.items() if e != 0)
+            tnorms[(choice, str(s.nsimplify(tn)), str(sorted((str(e), m_) for e, m_ in Gw_Gu.eigenvals().items())))] += 1
+    out['D_record_preserving_bound'] = {
+        'trace_norm_of_M_counts': {f'coloring {c}: ||M||_1 = {t}; spectrum of G_w G_u = I - A^2/4: {sp}': n
+                                   for (c, t, sp), n in sorted(tnorms.items())},
+        'f_max': '(3 + sqrt3)/6 = %s' % mp.nstr((3 + mp.sqrt(3)) / 6, 20),
+        'singular_values': 'sin(pi j/6) for j = 1..5 (the path of five logical states) and 1 (the isolated one)',
+        'f_equal_1_for_every_L_needs': 'C w_L = u_L for all L with C a contraction, so G_w = G_u; but G_u = I + A/2 '
+                                       'and G_w = I - A/2 with A != 0: impossible',
+        'partner_sign_attains': '1/3',
+    }
+    # optimal record-preserving correction, per-L polarizations (numerical from the exact M of the C object)
+    x, y, shared, A = shared_graph(0, (2, 3))
+    us, ws = [], []
+    for Lg in range(6):
+        u = np.zeros(12); w = np.zeros(12)
+        u[x[Lg]] += 1; u[y[Lg]] += 1; w[x[Lg]] += 1; w[y[Lg]] -= 1
+        us.append(u / np.sqrt(2)); ws.append(w / np.sqrt(2))
+    Mn = sum(np.outer(ws[i], us[i]) for i in range(6))
+    Uu, Ss, Vt = np.linalg.svd(Mn)
+    Copt = Vt.T @ Uu.T
+    fL = [float(us[i] @ Copt @ ws[i]) for i in range(6)]
+    out['D_record_preserving_bound']['C_object_per_L_polarization_at_optimum_MEASURED'] = [round(v, 9) for v in fL]
+    out['D_record_preserving_bound']['C_object_mean_MEASURED'] = float(np.mean(fL))
+    # identity branch taken from the C inactive part (the K5 flag analyzer): inactive vectors are orthonormal across L
+    lam = s.symbols('lam')
+    Am = s.Matrix(A.tolist())
+    spec = Am.eigenvals()
+    f_inact = s.nsimplify(sum(s.sqrt(1 - e / 2) * m_ for e, m_ in spec.items()) / 6)
+    f_agree = s.nsimplify(sum(s.sqrt((1 + e / 2) * (1 - e / 2)) * m_ for e, m_ in spec.items()) / 6)
+    out['D_record_preserving_bound']['identity_branch_choices'] = {
+        'spectrum_of_A (shared-partner graph)': {str(k): v for k, v in spec.items()},
+        'agree branch (Gram I + A/2)': {'bound': str(f_agree), 'value': float(f_agree)},
+        'inactive branch (Gram I, the K5 flag analyzer)': {'bound': str(f_inact), 'value': float(f_inact),
+                                                           'closed_form': '(2 + sqrt3 + (1 + sqrt3)/sqrt2)/6'},
+        'general': 'record-0 Gram I + c A with c in [0, 1/2], repair Gram I - A/2: '
+                   'f <= (1/6) sum_lam sqrt((1 + c lam)(1 - lam/2)) <= (1/6) sum_lam (1 + (c - 1/2) lam/2) = 1, '
+                   'equality only if every eigenvalue lam of A is 0; A != 0, so f < 1 for every identity branch',
+    }
+    # postselected exact form for every L: contractions K0 r0_L = a e_L, K1 r1_L = b e_L need |b|^2 <= lambda_min(G_w)
+    Gw = s.eye(6) - Am / 2
+    lmin = min(Gw.eigenvals().keys(), key=lambda e: float(e))
+    out['D_record_preserving_bound']['postselected_exact_form'] = {
+        'statement': 'a record-controlled contraction can map the six repair branches to orthogonal vectors of common '
+                     'norm |b| only if |b|^2 <= lambda_min(G_w); the exact K5 form for every logical state then holds on '
+                     'a postselected outcome of weight at most this fraction of the repair weight',
+        'lambda_min(G_w)': str(lmin), 'value': float(lmin),
+        'native': 'no: the contraction is a specific operation on the twelve partner positions',
+    }
+    return out
+
+
+def part_E():
+    out = {}
+    from model.observer import native
+    # committed rule on one active load: (coin, current) and the source
+    table = {}
+    determined = True
+    seen = {}
+    for src in ('a', 'b'):
+        loads = (1, 0) if src == 'a' else (0, 1)
+        full = [0] * 12
+        full[2], full[3] = loads
+        for coin in (0, 1):
+            outl, (c_, cur) = native.native(tuple(full), (2, 3), coin)
+            table[f'source {src}, coin {coin}'] = {'current': cur, 'loads_after_(2,3)': [outl[2], outl[3]]}
+            key = (coin, cur)
+            if key in seen and seen[key] != src:
+                determined = False
+            seen[key] = src
+    out['committed_coin_current'] = {'table_seam_(2,3)': table,
+                                     'record_(coin,current)_determines_source_for_every_active_event': determined,
+                                     'current_nonzero_events': 'coin 0 at source a (j = +1), coin 1 at source b (j = -1): '
+                                                               '1/2 of active events',
+                                     'status': 'classical record of the committed rule; the coherent law has no coin and no current'}
+    out['twist_register'] = {
+        'rule (oph_defects DATASET.md section 1)': 'a repair with current j != 0 proposes delta = j mod 6 to the two faces '
+                                                     'of the seam (+delta on the face traversing a -> b, -delta on the other); '
+                                                     'applied when the cost condition holds; the record file keeps blocked proposals',
+        'committed_rule_fraction_of_active_events': '1/2 (the current events; holds propose no twist); sign(delta) = '
+                                                    'source direction on those, register change only when accepted',
+        'coherent_law': 'no current exists; the only unitary key is the address orientation (LNAT2 E1 Gram obstruction), '
+                        'which is independent of the source: for the uniform address input P(o | s) = 1/2 for both o',
+        'coherent_fraction': '0',
+    }
+    out['tape_end_tape_pos'] = {
+        'definition (oph_defects/universe.py _tape_rows)': 'tape_pos = position of the attempt in the sweep (schedule index); '
+            'tape_end = 0 on the observer\'s own seams and 0/1 on a glue seam by which carrier holds end a; both are functions '
+            'of the schedule draw seq and the geometry only',
+        'fraction': '0: they do not depend on the loads; the tape fields that do (tape_coin, tape_current) are the '
+                    'committed record above',
+    }
+    out['consensus_slice_order'] = {
+        'definition (DATASET.md section 1)': 'depth = 1 + max depth of earlier attempts sharing a port (or plaquette); '
+                                             'cuts are sets of attempts of depth <= T',
+        'fraction': '0: depth and cuts are functions of the schedule and the geometry; they order attempts and do not '
+                    'say where a load is',
+    }
+    out['address_orientation'] = {
+        'fraction_alone': '0: the address register is independent of the port register in A|x> and in the code',
+        'with_record_X_value': '1: eps(s) = eps(o) times the record X value (part A), at the price of reading the record '
+                               'in the basis complementary to agree/repair',
+    }
+    return out
+
+
+def part_F():
+    out = {}
+    U, sites = L.seam_unitary_4(1)
+    # C1: a second event on the same seam with a fresh record. After the first event the port qubit is |p>.
+    # The event maps |p,0> -> |p,0> (SWAP of p/m '0' with record 0).
+    p0 = s.Matrix([1, 1, 0, 0]) / s.sqrt(2)
+    out['C1_fresh_second_read'] = {
+        'U|p,0> = |p,0>': (U * p0 - p0).applyfunc(s.simplify) == s.zeros(4, 1),
+        'reading': 'after the first event the active load is |p> for both sources and both record values; a second event '
+                   'with a blank record writes 0 with probability 1; its input source is the symmetric superposition '
+                   '(gamma_a = gamma_b), so its rotation amplitude gamma_a - gamma_b vanishes'}
+    out['C2_reused_record'] = {'U^2 = I': (U * U - s.eye(4)).applyfunc(s.simplify) == s.zeros(4),
+                               'reading': 'echo: the second application undoes the first and returns the source to the port'}
+    # C3: a previous coherent event on the E seam (2,10) of the same object (fresh record r_E), then the C seam source.
+    # Exact on the pair space: tracial code input, E event coherent, joint law of (E record in Z and X basis, C source).
+    choice = 0
+    M = L.matchings(choice)
+    a_E, b_E = 2, 10
+    a_C, b_C = 2, 3
+    joint = {}
+    # state after the E event: dict (pair, rE) -> amplitude, for each logical L
+    for Lg, m in enumerate(M):
+        st = {}
+        for pair in m:
+            amp = 1 / s.sqrt(6)
+            ina, inb = a_E in pair, b_E in pair
+            if ina != inb:
+                srcE = a_E if ina else b_E
+                partner = pair[1] if pair[0] == srcE else pair[0]
+                epsE = 1 if srcE == a_E else -1
+                for end in (a_E, b_E):
+                    key = tuple(sorted((end, partner)))
+                    st[(key, 0)] = st.get((key, 0), 0) + amp / 2
+                    st[(key, 1)] = st.get((key, 1), 0) + epsE * amp / 2
+            else:
+                st[(pair, 0)] = st.get((pair, 0), 0) + amp
+        # record basis states: Z (0,1) and X (+,-); C source of each pair
+        def csrc(pair):
+            ina, inb = a_C in pair, b_C in pair
+            return 'a' if (ina and not inb) else ('b' if (inb and not ina) else 'inactive')
+        for basis in ('Z', 'X'):
+            for val in ((0, 1) if basis == 'Z' else ('+', '-')):
+                for pair_key in {k for k, _ in st}:
+                    if basis == 'Z':
+                        amp = st.get((pair_key, val), 0)
+                    else:
+                        sg = 1 if val == '+' else -1
+                        amp = (st.get((pair_key, 0), 0) + sg * st.get((pair_key, 1), 0)) / s.sqrt(2)
+                    w = s.nsimplify(s.simplify(amp * amp)) / 6  # tracial weight 1/6 per L
+                    joint_key = (basis, str(val), csrc(pair_key))
+                    joint[joint_key] = joint.get(joint_key, 0) + w
+    cond = {}
+    for basis in ('Z', 'X'):
+        for val in ((0, 1) if basis == 'Z' else ('+', '-')):
+            pa = s.nsimplify(joint.get((basis, str(val), 'a'), 0))
+            pb = s.nsimplify(joint.get((basis, str(val), 'b'), 0))
+            pin = s.nsimplify(joint.get((basis, str(val), 'inactive'), 0))
+            cond[f'E record {basis} = {val}'] = {'P(C source a)': str(pa), 'P(C source b)': str(pb), 'P(C inactive)': str(pin),
+                                                 'conditional_C_polarization': str(s.nsimplify((pa - pb) / (pa + pb))) if pa + pb else 'none'}
+    fe = {}
+    for basis in ('Z', 'X'):
+        num, den = 0, 0
+        for val in ((0, 1) if basis == 'Z' else ('+', '-')):
+            pa = s.nsimplify(joint.get((basis, str(val), 'a'), 0))
+            pb = s.nsimplify(joint.get((basis, str(val), 'b'), 0))
+            num += abs(pa - pb)
+            den += pa + pb
+        fe[f'E record read in basis {basis}'] = {'C_active_weight': str(s.nsimplify(den)),
+                                                 'fraction_f = E|polarization| over active C events': str(s.nsimplify(num / den))}
+    out['C3_previous_E_event_record'] = {
+        'setting': 'C object (coloring 0) in the tracial code state; coherent E-seam event (2,10) with a fresh record, '
+                   'then the C-seam source (2 or 3) of the following C event; law of (E record value, C source)',
+        'conditional_laws': cond,
+        'fraction': fe,
+        'reading': 'the E record is read either in its agree/repair basis or in its conjugate basis; neither value fixes the C source',
+    }
+    # population argument: a native seam event sets the occupations of its two endpoints to their mean
+    out['C5_population_invariant'] = {
+        'lemma': 'P\'(a) = P\'(b) = (P(a) + P(b))/2 for an event on seam (a,b) (load conserved, active load to |p>); '
+                 'rotations permute ports. The tracial code has P(port occupied) = 1/6 for every port (each port in one '
+                 'pair of every matching), so after any sequence of native seam events and rotations every port still has '
+                 'occupation 1/6 and the unconditional source polarization P(a occupied) - P(b occupied) of any later event is 0.',
+        'consequence': 'a nonzero polarization can only come from conditioning on a record correlated with the source; '
+                       'polarization 1 needs a record equal to the source',
+    }
+    # C6: controlled half-turn gC applied when the load sits on the second endpoint: injectivity
+    gC, gE, g = C.native_rotations()
+    x, y, shared, A = shared_graph(0, (2, 3))
+    images = {}
+    collisions = 0
+    for Lg in range(6):
+        # source-b component {3, y_L} -> {gC(3), gC(y_L)} = {2, gC(y_L)}
+        img = tuple(sorted((gC[3], gC[y[Lg]])))
+        images[Lg] = img
+        if img in {tuple(sorted((2, x[Lp]))) for Lp in range(6)}:
+            collisions += 1
+    out['C6_controlled_half_turn'] = {
+        'images_of_source_b_components': {str(k): list(v) for k, v in images.items()},
+        'collisions_with_source_a_components': collisions,
+        'injective': collisions == 0,
+        'reading': 'gC maps the non-neighbours of 3 onto the non-neighbours of 2, so every moved component lands on an '
+                   'occupied source-a component: the controlled half-turn is not unitary',
+    }
+    out['dimension_count'] = {
+        'source_a_subspace_of_the_66_pair_states': 10,
+        'active_components_to_place': 12,
+        'reading': 'no relabelling of pair states puts all twelve active components on source a; a general unitary that '
+                   'does so re-encodes the object (a code other than the matching code)',
+    }
+    return out
+
+
+def part_G():
+    out = {}
+    car = C.carrier()
+    ok_scalar, ok_correctable = True, True
+    for choice in (0, 1):
+        M = L.matchings(choice)
+        for seam in car['seams']:
+            a, b = seam
+            for label, test in (('source a', lambda pr: a in pr and b not in pr),
+                                ('source b', lambda pr: b in pr and a not in pr),
+                                ('inactive', lambda pr: (a in pr) == (b in pr))):
+                eff = s.zeros(6, 6)
+                images = []
+                for i in range(6):
+                    sel_i = [pr for pr in M[i] if test(pr)]
+                    images.append(set(sel_i))
+                    for j in range(6):
+                        sel_j = [pr for pr in M[j] if test(pr)]
+                        eff[i, j] = s.Rational(len(set(sel_i) & set(sel_j)), 6)
+                want = {'source a': s.Rational(1, 6), 'source b': s.Rational(1, 6), 'inactive': s.Rational(2, 3)}[label]
+                ok_scalar &= eff == want * s.eye(6)
+                # correctable: images of different L have disjoint supports (orthogonal), equal norms
+                ok_correctable &= all(not (images[i] & images[j]) for i in range(6) for j in range(i + 1, 6))
+    out['effects_on_code'] = {'source a': '1/6 I', 'source b': '1/6 I', 'inactive': '2/3 I',
+                              'scalar_on_all_seams_both_colorings': ok_scalar,
+                              'images_orthogonal_across_L (correctable by re-encoding)': ok_correctable}
+    out['polarization'] = ('1 on each active outcome: after the read the active load sits on a known endpoint, the event '
+                           'gives |p> (x) (|0> + eps(o) eps(s) |1>)/sqrt2 with known eps(s); the analyzer applies the sign')
+    out['cost'] = ('a coarse occupation detector (one port, all parity and address values) before every event; the '
+                   'coherent program\'s apparatus lists single basis-state detectors, so this detector is an added '
+                   'apparatus element; reading both endpoints also reads the activity (active weight 1/3), which '
+                   'separates the active and inactive branches of the object; reading one endpoint (b) keeps source a '
+                   'and inactive coherent (outcome 0, probability 5/6) and gives an active source-b branch with '
+                   'probability 1/6')
+    return out
+
+
+def part_H():
+    out = {}
+    th, f = s.symbols('theta f', real=True)
+    z = s.exp(s.I * th)
+    a, b = 1 / s.sqrt(6), 1 / s.sqrt(12)
+    S = s.Matrix(3, 3, lambda i, j: 1 if i == (j + 1) % 3 else 0)
+    S2 = S * S
+    Kp = a * s.eye(3) + b * (z * S + s.conjugate(z) * S2)
+    Km = a * s.eye(3) - b * (z * S + s.conjugate(z) * S2)
+    H = ((1 + f) / 2) * Kp.H * Kp + ((1 - f) / 2) * Km.H * Km
+    H = H.applyfunc(lambda e: s.simplify(s.expand(e)))
+    h0 = s.simplify(H[0, 0])
+    h1 = s.simplify(H[1, 0])
+    out['energy_circulant'] = {'diagonal': str(h0), 'S_coefficient (row 1, col 0)': str(h1),
+                               'formula': '(a^2 + 2 b^2) I + (2 f a b z + b^2 conj(z)^2) S + h.c.'}
+    out['energy_circulant_check'] = s.simplify(h1 - (2 * f * a * b * z + b ** 2 * s.conjugate(z) ** 2)) == 0
+    Ek = [s.Rational(1, 3) + s.cos(2 * (th + 2 * s.pi * k / 3)) / 6 + s.sqrt(2) / 3 * f * s.cos(th + 2 * s.pi * k / 3) for k in range(3)]
+    # verify that E_k are the eigenvalues of H at two test points (numerical, 1e-12)
+    match = True
+    for tv, fv in ((s.Rational(3, 10), s.Rational(2, 7)), (s.Rational(2, 9), s.Rational(1, 3))):
+        Hn = np.array(H.subs({th: tv, f: fv}).evalf(30).tolist(), dtype=complex)
+        ev = sorted(np.linalg.eigvalsh(Hn))
+        ek = sorted(float(e.subs({th: tv, f: fv}).evalf(30)) for e in Ek)
+        match &= all(abs(u - v) < 1e-12 for u, v in zip(ev, ek))
+    out['E_k_formula_matches_eigenvalues_at_test_points'] = match
+    out['sum_E_k'] = str(s.simplify(sum(Ek)))
+    # values at theta = 2/9
+    t29 = mp.mpf(2) / 9
+    def E_of(fv, t=t29):
+        return [mp.mpf(1) / 3 + mp.cos(2 * (t + 2 * mp.pi * k / 3)) / 6 + mp.sqrt(2) / 3 * fv * mp.cos(t + 2 * mp.pi * k / 3)
+                for k in range(3)]
+    table = {}
+    for name, fv in (('f = 0 (source unknown: native mixture)', mp.mpf(0)),
+                     ('f = 1/3 (partner load)', mp.mpf(1) / 3),
+                     ('f = (3 + sqrt3)/6 (best record-preserving correction)', (3 + mp.sqrt(3)) / 6),
+                     ('f = 1 (source known)', mp.mpf(1))):
+        Es = E_of(fv)
+        kd = L.koide_from_masses(Es)
+        r = L.ratios(Es)
+        table[name] = {'E_k (k = 0, 1, 2)': [mp.nstr(e, 20) for e in Es], 'Q': mp.nstr(kd['Q'], 20),
+                       'effective_|b|/a': mp.nstr(kd['b_over_a'], 20), 'effective_delta': mp.nstr(kd['delta'], 20),
+                       'm2/m1, m3/m1': [mp.nstr(r[0], 15), mp.nstr(r[1], 15)]}
+    out['theta=2/9'] = table
+    # ranges over theta at f = 1/3
+    grid = [mp.pi * j / 3000 for j in range(3001)]
+    Qs = [L.koide_from_masses(E_of(mp.mpf(1) / 3, t))['Q'] for t in grid]
+    rmax = max(L.ratios(E_of(mp.mpf(1) / 3, t))[1] for t in grid)
+    out['f=1/3_over_theta_MEASURED_grid'] = {'Q_min': mp.nstr(min(Qs), 12), 'Q_max': mp.nstr(max(Qs), 12),
+                                             'largest_ratio': mp.nstr(rmax, 12),
+                                             'bound': 'E_k in [1/3 - 1/6 - sqrt2 f/3, 1/3 + 1/6 + sqrt2 f/3]'}
+    # Q as a function of f at theta = 2/9: Q(1) = 2/3 and Q increases with f on [0, 1]
+    out['Q(f=1)_minus_2/3'] = mp.nstr(L.koide_from_masses(E_of(mp.mpf(1)))['Q'] - mp.mpf(2) / 3, 5)
+    fg = [mp.mpf(j) / 200 for j in range(201)]
+    Qf = [L.koide_from_masses(E_of(fv))['Q'] for fv in fg]
+    out['Q_increasing_in_f_on_grid_[0,1]'] = all(Qf[i] < Qf[i + 1] for i in range(200))
+    out['reading'] = ('at theta = 2/9 Koide balance Q = 2/3 is reached only at f = 1; every f < 1 gives Q < 2/3')
+    return out
+
+
+def main():
+    out = {'task': 'LNAT3 T1', 'RER_path_used': L.RER}
+    out['A_swap_form'] = part_A()
+    out['B_matching_code'] = part_B()
+    out['C_D_partner_and_bounds'] = part_C_D()
+    out['E_named_records'] = part_E()
+    out['F_compositions'] = part_F()
+    out['G_endpoint_occupation_read'] = part_G()
+    out['H_circulant_at_fraction_f'] = part_H()
+    json.dump(out, open(OUT, 'w'), indent=1, default=str)
+    print(json.dumps(out, indent=1, default=str)[:20000])
+
+
+if __name__ == '__main__':
+    main()

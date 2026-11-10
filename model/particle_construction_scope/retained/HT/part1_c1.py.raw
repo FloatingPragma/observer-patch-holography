@@ -1,0 +1,136 @@
+"""Part 1, C1: what the two flux orientations of the class-3 register fix for the boson's self-coupling.
+
+(1) EXACT (sympy): Higgs states of R8's condition (common eigenvector of B and B*) on the registers in question:
+    Z2 bit (+3 and -3 one class), cyclic counters Z_N, a two-level memory, a truncated oscillator.
+(2) EXACT (sympy): a finite register carries no canonical pair (trace of a commutator).
+(3) MEASURED (private copy of the D11 engine, two loops for y_t and lambda, the engine's one-loop gauge chart):
+    the SM flow from the nonlinear end lambda(E_cell) in {1, 2, 4}; minimum of lambda between E_cell and m_t;
+    m_H(tree) against m_t(pole). No measured value is read.
+Writes part1_c1.json."""
+import json
+import math
+import sys
+
+import numpy as np
+import sympy as sp
+
+sys.path.insert(0, ".")
+import d11_scan_copy as D  # noqa: E402
+import htlib as H  # noqa: E402
+
+out = {}
+
+# ---- (1) Higgs states ----
+def common_eigvecs(B):
+    """Solve B x = b x and B^dagger x = conj(b) x for nonzero x; return the list of |b| found."""
+    n = B.shape[0]
+    found = []
+    for b, mult, vecs in B.eigenvects():
+        for v in vecs:
+            w = (B.H * v) - sp.conjugate(b) * v
+            if sp.simplify(w.norm()) == 0:
+                found.append(sp.nsimplify(sp.Abs(b)))
+    return found
+
+
+regs = {}
+X = sp.Matrix([[0, 1], [1, 0]])
+regs["Z2_bit (B = X; +3 and -3 one class)"] = common_eigvecs(X)
+for N in (3, 6):
+    S = sp.zeros(N)
+    for k in range(N):
+        S[(k + 1) % N, k] = 1
+    regs[f"cyclic_counter_Z{N} (B = shift)"] = sorted(set(common_eigvecs(S)))
+sm = sp.Matrix([[0, 1], [0, 0]])
+regs["two_level_memory (B = sigma_minus)"] = common_eigvecs(sm)
+a = sp.zeros(4)
+for k in range(1, 4):
+    a[k - 1, k] = sp.sqrt(k)
+regs["oscillator_truncated_4 (B = a)"] = common_eigvecs(a)
+# R8's register per cell: empty or one quantum of the doublet (h1, h0); B lowers either component
+Bd = sp.zeros(3)
+Bd[0, 1] = 1
+Bd[0, 2] = 1
+regs["R8_register_empty_or_one_doublet_quantum (B = lowering)"] = common_eigvecs(Bd)
+out["higgs_states_abs_beta"] = {k: [str(x) for x in v] for k, v in regs.items()}
+
+# ---- (2) no canonical pair on a finite register ----
+n = 3
+phi = sp.Matrix(n, n, lambda i, j: sp.Symbol(f"f{min(i, j)}{max(i, j)}"))
+pi_ = sp.Matrix(n, n, lambda i, j: sp.Symbol(f"p{min(i, j)}{max(i, j)}"))
+out["trace_of_commutator_general_3x3"] = str(sp.simplify((phi * pi_ - pi_ * phi).trace()))
+out["trace_required_by_ccr"] = "i * dim = 3 i"
+
+# ---- (3) flow from the nonlinear end ----
+root = json.load(open("R_P_source_audit_pixel_certificate.json"))
+p, au = float(root["P_cand"]), float(root["alpha_U_P_cand"])
+sc = D.source_scales(p, au)
+v, mz = sc["v_transmutation_gev"], sc["mz_run_gev"]
+
+
+def run_from(mu_b, y0, lam0, n_steps=12000):
+    t0, t1 = math.log(mu_b), math.log(50.0)
+    dt = (t1 - t0) / n_steps
+    y, lam = y0, lam0
+    ln_mu = np.empty(n_steps + 1)
+    ya = np.empty(n_steps + 1)
+    la = np.empty(n_steps + 1)
+
+    def derivs(t, yv, lv):
+        g_y, g2, g3 = D.gauge_couplings(math.exp(t), mz)
+        d = D._beta_2loop_engine(math.sqrt(5 / 3) * g_y, g2, g3, yv, lv)
+        return d[3], d[4]
+
+    for i in range(n_steps + 1):
+        t = t0 + i * dt
+        ln_mu[i], ya[i], la[i] = t, y, lam
+        if i == n_steps:
+            break
+        k1 = derivs(t, y, lam)
+        k2 = derivs(t + dt / 2, y + dt / 2 * k1[0], lam + dt / 2 * k1[1])
+        k3 = derivs(t + dt / 2, y + dt / 2 * k2[0], lam + dt / 2 * k2[1])
+        k4 = derivs(t + dt, y + dt * k3[0], lam + dt * k3[1])
+        y += dt / 6 * (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0])
+        lam += dt / 6 * (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1])
+
+    def interp(mu):
+        x = math.log(mu)
+        return float(np.interp(x, ln_mu[::-1], ya[::-1])), float(np.interp(x, ln_mu[::-1], la[::-1]))
+
+    mu_g = 173.0
+    for _ in range(12):
+        mu_g = interp(mu_g)[0] * v / math.sqrt(2)
+    y_mt, l_mt = interp(mu_g)
+    a_s = D.alpha_run_1loop(D.ALPHA_3_MZ, D.B_SM_ALPHA_Y[2], mu_g, mz)
+    keep = ln_mu >= math.log(mu_g)
+    return {"mt_pole": D.top_pole_from_msbar(mu_g, a_s), "mh_tree": math.sqrt(max(0, 2 * l_mt)) * v,
+            "lambda_mt": l_mt, "yt_mt": y_mt, "min_lambda_between_mt_and_boundary": float(la[keep].min())}
+
+
+ec = sc["E_cell_pixel_energy"]
+rows = []
+for lam0 in (1.0, 2.0, 4.0):
+    for y0 in (0.36, 0.38, 0.40, 0.42, 0.44):
+        r = run_from(ec, y0, lam0)
+        r.update({"lambda_E_cell": lam0, "yt_E_cell": y0})
+        rows.append(r)
+out["nonlinear_end_flow"] = {"boundary_scale_GeV": ec, "v_GeV": v, "rows": rows,
+                             "lambda_never_reaches_zero": all(r["min_lambda_between_mt_and_boundary"] > 0 for r in rows)}
+# the same check with the boundary at the midpoint and at M_U (any boundary below the cell)
+rows2 = []
+for name in ("log_midpoint_half_turn", "mu_U_gauge_unification"):
+    for lam0 in (1.0, 4.0):
+        r = run_from(sc[name], 0.40, lam0)
+        r.update({"boundary": name, "lambda_boundary": lam0, "yt_boundary": 0.40})
+        rows2.append(r)
+out["nonlinear_end_flow_lower_boundaries"] = rows2
+json.dump(out, open("part1_c1.json", "w"), indent=1, default=str)
+print(json.dumps(out["higgs_states_abs_beta"], indent=1))
+print("trace", out["trace_of_commutator_general_3x3"])
+for r in rows:
+    print("lam0=%.0f y0=%.2f mt=%.3f mh=%.3f lam_mt=%.4f min_lam=%.4f" % (
+        r["lambda_E_cell"], r["yt_E_cell"], r["mt_pole"], r["mh_tree"], r["lambda_mt"],
+        r["min_lambda_between_mt_and_boundary"]))
+for r in rows2:
+    print(r["boundary"], "lam0=%.0f mt=%.3f mh=%.3f min_lam=%.4f" % (r["lambda_boundary"], r["mt_pole"], r["mh_tree"],
+                                                                     r["min_lambda_between_mt_and_boundary"]))

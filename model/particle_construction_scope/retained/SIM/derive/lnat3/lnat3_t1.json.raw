@@ -1,0 +1,687 @@
+{
+ "task": "LNAT3 T1",
+ "RER_path_used": "/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality",
+ "A_swap_form": {
+  "U_listed_in_basis_(p0,m0,p1,m1)_equals_SWAP": true,
+  "U_reversed_equals_Zrec_U_Zrec": true,
+  "repository_program_all_seams": {
+   "cases": 120,
+   "output_is_|p>_x_(|0>+eps(o)eps(s)|1>)/sqrt2": true,
+   "record_Z_probabilities_(0,1)": [
+    [
+     "1/2",
+     "1/2"
+    ]
+   ]
+  },
+  "statement": "the coherent seam event is the SWAP of the port qubit (basis p, m) with the owned record; the source endpoint times the address orientation is the record value in the basis (|0> +- |1>)/sqrt2 for every active pair; the agree/repair value (basis 0, 1) has probability 1/2 for each source and orientation and carries no source information; the two are complementary observables of the same qubit"
+ },
+ "B_matching_code": {
+  "every_logical_state_every_seam_both_colorings_has_one_pair_per_endpoint": true,
+  "cases": 360,
+  "active_weight": "2/6 = 1/3 per logical state",
+  "source_polarization_per_logical_state": "0 (amplitudes 1/sqrt6 on source a and on source b)",
+  "reason": "each matching is a perfect matching of the twelve ports by non-edges; a seam is an edge, so its two endpoints lie in two different pairs of every matching"
+ },
+ "C_D_partner_and_bounds": {
+  "C_partner_counts": {
+   "coloring 0: exclusive components 4 of 12, shared partners 4": 30,
+   "coloring 1: exclusive components 4 of 12, shared partners 4": 30
+  },
+  "C_shared_partner_graph_is_path_of_5_plus_isolated_1": {
+   "coloring 0": "True: 30 seams",
+   "coloring 1": "True: 30 seams"
+  },
+  "C_objects": {
+   "C": {
+    "seam": [
+     2,
+     3
+    ],
+    "coloring": 0,
+    "shared_partners": [
+     0,
+     1,
+     5,
+     7
+    ],
+    "rows": [
+     {
+      "L": 0,
+      "partner_of_first_endpoint": 5,
+      "partner_of_second_endpoint": 0,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 1,
+      "partner_of_first_endpoint": 1,
+      "partner_of_second_endpoint": 7,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 2,
+      "partner_of_first_endpoint": 0,
+      "partner_of_second_endpoint": 10,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": true
+     },
+     {
+      "L": 3,
+      "partner_of_first_endpoint": 9,
+      "partner_of_second_endpoint": 1,
+      "first_partner_exclusive": true,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 4,
+      "partner_of_first_endpoint": 7,
+      "partner_of_second_endpoint": 5,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 5,
+      "partner_of_first_endpoint": 8,
+      "partner_of_second_endpoint": 11,
+      "first_partner_exclusive": true,
+      "second_partner_exclusive": true
+     }
+    ],
+    "shared_partner_edges_between_logical_states": [
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      1,
+      4
+     ]
+    ]
+   },
+   "E": {
+    "seam": [
+     2,
+     10
+    ],
+    "coloring": 1,
+    "shared_partners": [
+     1,
+     5,
+     8,
+     9
+    ],
+    "rows": [
+     {
+      "L": 0,
+      "partner_of_first_endpoint": 7,
+      "partner_of_second_endpoint": 4,
+      "first_partner_exclusive": true,
+      "second_partner_exclusive": true
+     },
+     {
+      "L": 1,
+      "partner_of_first_endpoint": 1,
+      "partner_of_second_endpoint": 8,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 2,
+      "partner_of_first_endpoint": 8,
+      "partner_of_second_endpoint": 5,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 3,
+      "partner_of_first_endpoint": 0,
+      "partner_of_second_endpoint": 1,
+      "first_partner_exclusive": true,
+      "second_partner_exclusive": false
+     },
+     {
+      "L": 4,
+      "partner_of_first_endpoint": 9,
+      "partner_of_second_endpoint": 3,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": true
+     },
+     {
+      "L": 5,
+      "partner_of_first_endpoint": 5,
+      "partner_of_second_endpoint": 9,
+      "first_partner_exclusive": false,
+      "second_partner_exclusive": false
+     }
+    ],
+    "shared_partner_edges_between_logical_states": [
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   }
+  },
+  "C_partner_controlled": {
+   "C": {
+    "best_partner_sign_tracial_polarization": "1/3",
+    "conditional_record_state_given_partner": {
+     "0": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "1": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "5": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "7": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "8": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "1/2"
+       ],
+       [
+        "1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "1/2"
+     },
+     "9": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "1/2"
+       ],
+       [
+        "1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "1/2"
+     },
+     "10": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "-1/2"
+       ],
+       [
+        "-1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "-1/2"
+     },
+     "11": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "-1/2"
+       ],
+       [
+        "-1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "-1/2"
+     }
+    },
+    "bound_any_partner_controlled_unitary": "1/3: shared partners leave the record at I/2, which every unitary keeps at I/2; exclusive partners give a pure record"
+   },
+   "E": {
+    "best_partner_sign_tracial_polarization": "1/3",
+    "conditional_record_state_given_partner": {
+     "0": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "1/2"
+       ],
+       [
+        "1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "1/2"
+     },
+     "1": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "3": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "-1/2"
+       ],
+       [
+        "-1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "-1/2"
+     },
+     "4": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "-1/2"
+       ],
+       [
+        "-1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "-1/2"
+     },
+     "5": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "7": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "1/2"
+       ],
+       [
+        "1/2",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "1/2"
+     },
+     "8": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     },
+     "9": {
+      "record_density_in_basis_(0,1)": [
+       [
+        "1/2",
+        "0"
+       ],
+       [
+        "0",
+        "1/2"
+       ]
+      ],
+      "coherence_<0|rho|1>": "0"
+     }
+    },
+    "bound_any_partner_controlled_unitary": "1/3: shared partners leave the record at I/2, which every unitary keeps at I/2; exclusive partners give a pure record"
+   }
+  },
+  "D_record_preserving_bound": {
+   "trace_norm_of_M_counts": {
+    "coloring 0: ||M||_1 = sqrt(3) + 3; spectrum of G_w G_u = I - A^2/4: [('1', 2), ('1/4', 2), ('3/4', 2)]": 30,
+    "coloring 1: ||M||_1 = sqrt(3) + 3; spectrum of G_w G_u = I - A^2/4: [('1', 2), ('1/4', 2), ('3/4', 2)]": 30
+   },
+   "f_max": "(3 + sqrt3)/6 = 0.78867513459481288225",
+   "singular_values": "sin(pi j/6) for j = 1..5 (the path of five logical states) and 1 (the isolated one)",
+   "f_equal_1_for_every_L_needs": "C w_L = u_L for all L with C a contraction, so G_w = G_u; but G_u = I + A/2 and G_w = I - A/2 with A != 0: impossible",
+   "partner_sign_attains": "1/3",
+   "C_object_per_L_polarization_at_optimum_MEASURED": [
+    0.683012702,
+    0.683012702,
+    0.849679369,
+    0.849679369,
+    0.666666667,
+    1.0
+   ],
+   "C_object_mean_MEASURED": 0.788675134594813,
+   "identity_branch_choices": {
+    "spectrum_of_A (shared-partner graph)": {
+     "1": 1,
+     "-1": 1,
+     "-sqrt(3)": 1,
+     "sqrt(3)": 1,
+     "0": 2
+    },
+    "agree branch (Gram I + A/2)": {
+     "bound": "sqrt(3)/6 + 1/2",
+     "value": 0.7886751345948129
+    },
+    "inactive branch (Gram I, the K5 flag analyzer)": {
+     "bound": "sqrt(1 - sqrt(3)/2)/6 + sqrt(2)/12 + sqrt(6)/12 + sqrt(sqrt(3)/2 + 1)/6 + 1/3",
+     "value": 0.9439837433578356,
+     "closed_form": "(2 + sqrt3 + (1 + sqrt3)/sqrt2)/6"
+    },
+    "general": "record-0 Gram I + c A with c in [0, 1/2], repair Gram I - A/2: f <= (1/6) sum_lam sqrt((1 + c lam)(1 - lam/2)) <= (1/6) sum_lam (1 + (c - 1/2) lam/2) = 1, equality only if every eigenvalue lam of A is 0; A != 0, so f < 1 for every identity branch"
+   },
+   "postselected_exact_form": {
+    "statement": "a record-controlled contraction can map the six repair branches to orthogonal vectors of common norm |b| only if |b|^2 <= lambda_min(G_w); the exact K5 form for every logical state then holds on a postselected outcome of weight at most this fraction of the repair weight",
+    "lambda_min(G_w)": "1 - sqrt(3)/2",
+    "value": 0.13397459621556135,
+    "native": "no: the contraction is a specific operation on the twelve partner positions"
+   }
+  }
+ },
+ "E_named_records": {
+  "committed_coin_current": {
+   "table_seam_(2,3)": {
+    "source a, coin 0": {
+     "current": 1,
+     "loads_after_(2,3)": [
+      0,
+      1
+     ]
+    },
+    "source a, coin 1": {
+     "current": 0,
+     "loads_after_(2,3)": [
+      1,
+      0
+     ]
+    },
+    "source b, coin 0": {
+     "current": 0,
+     "loads_after_(2,3)": [
+      0,
+      1
+     ]
+    },
+    "source b, coin 1": {
+     "current": -1,
+     "loads_after_(2,3)": [
+      1,
+      0
+     ]
+    }
+   },
+   "record_(coin,current)_determines_source_for_every_active_event": true,
+   "current_nonzero_events": "coin 0 at source a (j = +1), coin 1 at source b (j = -1): 1/2 of active events",
+   "status": "classical record of the committed rule; the coherent law has no coin and no current"
+  },
+  "twist_register": {
+   "rule (oph_defects DATASET.md section 1)": "a repair with current j != 0 proposes delta = j mod 6 to the two faces of the seam (+delta on the face traversing a -> b, -delta on the other); applied when the cost condition holds; the record file keeps blocked proposals",
+   "committed_rule_fraction_of_active_events": "1/2 (the current events; holds propose no twist); sign(delta) = source direction on those, register change only when accepted",
+   "coherent_law": "no current exists; the only unitary key is the address orientation (LNAT2 E1 Gram obstruction), which is independent of the source: for the uniform address input P(o | s) = 1/2 for both o",
+   "coherent_fraction": "0"
+  },
+  "tape_end_tape_pos": {
+   "definition (oph_defects/universe.py _tape_rows)": "tape_pos = position of the attempt in the sweep (schedule index); tape_end = 0 on the observer's own seams and 0/1 on a glue seam by which carrier holds end a; both are functions of the schedule draw seq and the geometry only",
+   "fraction": "0: they do not depend on the loads; the tape fields that do (tape_coin, tape_current) are the committed record above"
+  },
+  "consensus_slice_order": {
+   "definition (DATASET.md section 1)": "depth = 1 + max depth of earlier attempts sharing a port (or plaquette); cuts are sets of attempts of depth <= T",
+   "fraction": "0: depth and cuts are functions of the schedule and the geometry; they order attempts and do not say where a load is"
+  },
+  "address_orientation": {
+   "fraction_alone": "0: the address register is independent of the port register in A|x> and in the code",
+   "with_record_X_value": "1: eps(s) = eps(o) times the record X value (part A), at the price of reading the record in the basis complementary to agree/repair"
+  }
+ },
+ "F_compositions": {
+  "C1_fresh_second_read": {
+   "U|p,0> = |p,0>": true,
+   "reading": "after the first event the active load is |p> for both sources and both record values; a second event with a blank record writes 0 with probability 1; its input source is the symmetric superposition (gamma_a = gamma_b), so its rotation amplitude gamma_a - gamma_b vanishes"
+  },
+  "C2_reused_record": {
+   "U^2 = I": true,
+   "reading": "echo: the second application undoes the first and returns the source to the port"
+  },
+  "C3_previous_E_event_record": {
+   "setting": "C object (coloring 0) in the tracial code state; coherent E-seam event (2,10) with a fresh record, then the C-seam source (2 or 3) of the following C event; law of (E record value, C source)",
+   "conditional_laws": {
+    "E record Z = 0": {
+     "P(C source a)": "11/144",
+     "P(C source b)": "7/48",
+     "P(C inactive)": "11/18",
+     "conditional_C_polarization": "-5/16"
+    },
+    "E record Z = 1": {
+     "P(C source a)": "11/144",
+     "P(C source b)": "1/144",
+     "P(C inactive)": "1/12",
+     "conditional_C_polarization": "5/6"
+    },
+    "E record X = +": {
+     "P(C source a)": "1/12",
+     "P(C source b)": "5/72",
+     "P(C inactive)": "25/72",
+     "conditional_C_polarization": "1/11"
+    },
+    "E record X = -": {
+     "P(C source a)": "5/72",
+     "P(C source b)": "1/12",
+     "P(C inactive)": "25/72",
+     "conditional_C_polarization": "-1/11"
+    }
+   },
+   "fraction": {
+    "E record read in basis Z": {
+     "C_active_weight": "11/36",
+     "fraction_f = E|polarization| over active C events": "5/11"
+    },
+    "E record read in basis X": {
+     "C_active_weight": "11/36",
+     "fraction_f = E|polarization| over active C events": "1/11"
+    }
+   },
+   "reading": "the E record is read either in its agree/repair basis or in its conjugate basis; neither value fixes the C source"
+  },
+  "C5_population_invariant": {
+   "lemma": "P'(a) = P'(b) = (P(a) + P(b))/2 for an event on seam (a,b) (load conserved, active load to |p>); rotations permute ports. The tracial code has P(port occupied) = 1/6 for every port (each port in one pair of every matching), so after any sequence of native seam events and rotations every port still has occupation 1/6 and the unconditional source polarization P(a occupied) - P(b occupied) of any later event is 0.",
+   "consequence": "a nonzero polarization can only come from conditioning on a record correlated with the source; polarization 1 needs a record equal to the source"
+  },
+  "C6_controlled_half_turn": {
+   "images_of_source_b_components": {
+    "0": [
+     1,
+     2
+    ],
+    "1": [
+     2,
+     5
+    ],
+    "2": [
+     2,
+     9
+    ],
+    "3": [
+     0,
+     2
+    ],
+    "4": [
+     2,
+     7
+    ],
+    "5": [
+     2,
+     8
+    ]
+   },
+   "collisions_with_source_a_components": 6,
+   "injective": false,
+   "reading": "gC maps the non-neighbours of 3 onto the non-neighbours of 2, so every moved component lands on an occupied source-a component: the controlled half-turn is not unitary"
+  },
+  "dimension_count": {
+   "source_a_subspace_of_the_66_pair_states": 10,
+   "active_components_to_place": 12,
+   "reading": "no relabelling of pair states puts all twelve active components on source a; a general unitary that does so re-encodes the object (a code other than the matching code)"
+  }
+ },
+ "G_endpoint_occupation_read": {
+  "effects_on_code": {
+   "source a": "1/6 I",
+   "source b": "1/6 I",
+   "inactive": "2/3 I",
+   "scalar_on_all_seams_both_colorings": true,
+   "images_orthogonal_across_L (correctable by re-encoding)": true
+  },
+  "polarization": "1 on each active outcome: after the read the active load sits on a known endpoint, the event gives |p> (x) (|0> + eps(o) eps(s) |1>)/sqrt2 with known eps(s); the analyzer applies the sign",
+  "cost": "a coarse occupation detector (one port, all parity and address values) before every event; the coherent program's apparatus lists single basis-state detectors, so this detector is an added apparatus element; reading both endpoints also reads the activity (active weight 1/3), which separates the active and inactive branches of the object; reading one endpoint (b) keeps source a and inactive coherent (outcome 0, probability 5/6) and gives an active source-b branch with probability 1/6"
+ },
+ "H_circulant_at_fraction_f": {
+  "energy_circulant": {
+   "diagonal": "1/3",
+   "S_coefficient (row 1, col 0)": "sqrt(2)*f*exp(I*theta)/6 + exp(-2*I*theta)/12",
+   "formula": "(a^2 + 2 b^2) I + (2 f a b z + b^2 conj(z)^2) S + h.c."
+  },
+  "energy_circulant_check": true,
+  "E_k_formula_matches_eigenvalues_at_test_points": true,
+  "sum_E_k": "1",
+  "theta=2/9": {
+   "f = 0 (source unknown: native mixture)": {
+    "E_k (k = 0, 1, 2)": [
+     "0.48380827822648310266",
+     "0.3201547164424806187",
+     "0.19603700533103627864"
+    ],
+    "Q": "0.34433910602097568937",
+    "effective_|b|/a": "0.12848602660002967828",
+    "effective_delta": "0.50834503926122615343",
+    "m2/m1, m3/m1": [
+     "1.6331340906879",
+     "2.46794362834458"
+    ]
+   },
+   "f = 1/3 (partner load)": {
+    "E_k (k = 0, 1, 2)": [
+     "0.637079186185733704",
+     "0.21352692846683699351",
+     "0.1493938853474293025"
+    ],
+    "Q": "0.36874854127206632241",
+    "effective_|b|/a": "0.230483864745668224",
+    "effective_delta": "0.17330366723716894763",
+    "m2/m1, m3/m1": [
+     "1.42928827354788",
+     "4.26442611559467"
+    ]
+   },
+   "f = (3 + sqrt3)/6 (best record-preserving correction)": {
+    "E_k (k = 0, 1, 2)": [
+     "0.84645114011917653789",
+     "0.067870661342766898513",
+     "0.085678198538056563599"
+    ],
+    "Q": "0.46072679249966832502",
+    "effective_|b|/a": "0.43713863790507295711",
+    "effective_delta": "0.04329804581716602112",
+    "m2/m1, m3/m1": [
+     "1.26237459371961",
+     "12.4715322257484"
+    ]
+   },
+   "f = 1 (source known)": {
+    "E_k (k = 0, 1, 2)": [
+     "0.94362100210423490666",
+     "0.00027135251554974312278",
+     "0.056107645380215350216"
+    ],
+    "Q": "0.66666666666666666667",
+    "effective_|b|/a": "0.7071067811865475244",
+    "effective_delta": "0.22222222222222222222",
+    "m2/m1, m3/m1": [
+     "206.770315972729",
+     "3477.4728371046"
+    ]
+   }
+  },
+  "f=1/3_over_theta_MEASURED_grid": {
+   "Q_min": "0.333367169657",
+   "Q_max": "0.372380421481",
+   "largest_ratio": "4.2645711118",
+   "bound": "E_k in [1/3 - 1/6 - sqrt2 f/3, 1/3 + 1/6 + sqrt2 f/3]"
+  },
+  "Q(f=1)_minus_2/3": "-1.8367e-40",
+  "Q_increasing_in_f_on_grid_[0,1]": true,
+  "reading": "at theta = 2/9 Koide balance Q = 2/3 is reached only at f = 1; every f < 1 gives Q < 2/3"
+ }
+}
