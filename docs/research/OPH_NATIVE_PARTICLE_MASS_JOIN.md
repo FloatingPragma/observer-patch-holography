@@ -1,5 +1,16 @@
 # Native particles, currents and mass operators
 
+The [physical preparation and odd charged readouts](OPH_FIELD_RECONSTRUCTION.md#physical-preparation-and-odd-charged-readouts-on-the-same-source)
+use one full interacting source at hopping `2^-34`. Complete `e^c` and
+`L` removal instruments have positive source-energy bins near `0.69166`
+and `0.09689`; their static charge reference costs four separately.
+A finite physical preparation has error at most `2.355922487e-7`.
+These are detector energy transitions, without a propagating rest-mass
+identification. The [family-clock and memory calculation](OPH_FIELD_RECONSTRUCTION.md#family-amplitudes-clocks-and-quantum-scalar-response)
+separates Koide amplitudes from the actual tick and proves that the specified
+quantum scalar response increases, rather than corrects, the heavy/light
+ratio excess.
+
 The [compensated quantum-scalar instrument](../../model/coherent_defect_wave/chiral_higgs/GAUSS_APPARATUS.md)
 retains 69 unconditional preparation/readout records. Ground preparation
 succeeds with probability `1/160`; its 56 charged-energy records are conditional

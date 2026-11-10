@@ -227,6 +227,24 @@
     "model/coherent_defect_wave/chiral_joint/higgs_composites/periodic_bridge.py": "fb3e2e610d757a4b7c7d9ba9b23b661251cc00c0aec7a2eeb5f7c322600f4250",
     "model/coherent_defect_wave/chiral_joint/higgs_composites/results.json": "6bac059d0b1b2c86d6f7915783c3964c6ebfbc877031d636fe814b18cb412441",
     "model/coherent_defect_wave/chiral_joint/higgs_composites/test_model.py": "d7b9e0a746704464a61e354f3e8dacc0dc39966ddbcdca3c7403a15ca96ee922",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md": "870d0acfeba928d498266de3884b5c1ab62c103c93d7d18a3db907232fbdfd9e",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/README.md": "e813e2ac4eb0115396514af50de0f12f5859b0a8246dd42aeaf15b5e8c0e2950",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/__init__.py": "a3434cf0009dc457efb5cbdea4ae876571448b16d713a48e14876ce48400d0ec",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/__main__.py": "c4f556c9f3b1c7c2b638bd108e4e5aab54c7e6ce42708541a85cb8b29a36c1f9",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/certificate.py": "b390eebb61f99455dc26c6a82e1bc5a6233f088c9e3b64b872f2fbe87fddb77d",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/local.py": "e58ae5e7348fb489d9a522bdfe397592c15d257bdb8e4923a4cb1b468b5cf3dd",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/model.py": "dc2aed1077188b3541821f33cfdcfec01bd238aaa81b0b286c13300c0ae09e2f",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/results.json": "e135f7b15460427068dd18541b0f7990a3d259d298467604283841c68f75ab34",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/test_response.py": "853b7869cb0b4cdbc25c3ae6d4ab3a91f93900c122b4adb445cd7b54ef180725",
+    "model/coherent_defect_wave/chiral_joint/interacting_charged_response/transfer.py": "5b660671a5ed688cfefbc833f1b4665de45447b46ce3d3f2ddb5313e7b8b73eb",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md": "74f363f3c02348bb70170808c7c09dc5f369d9b50a8d81d78090a58c265c1a75",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/README.md": "8271c8c31785fe3df1457d6b9520528a9d31b6325308bd635a8f5c055c967f86",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/__init__.py": "012ec8140b5de6c6bc6b19014b901f5c11eacede64423fd238d41515f7e6703d",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/__main__.py": "af7d5759dd1b6b55b8310debec96675fc690457de399eaa757121ce8b7f37272",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/certificate.py": "a0de1feeaf92ab7cf34114069d248149a434ecec8464db6f687dd4d80d1f4c64",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/model.py": "e85c5e0c0bd1dfe403fada4ff08df04da9e042e803d0b2eaeb9c32f50565cb41",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/results.json": "7335d80394ab25ab949ca0e359e70a8eca55636256255b684c68086be2a8c7a6",
+    "model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/test_preparation.py": "4c6f82692b900acfda729b38dc360d670ece5c847fcc8019faa7b327127d3c5c",
     "model/coherent_defect_wave/chiral_joint/local_reference/PROOF.md": "ca9063635380606eeb9645d0407d80d2cf84cbe840a205c8bea2a8dcca5f1953",
     "model/coherent_defect_wave/chiral_joint/local_reference/README.md": "c84959ed02acfd175ec7e08ada6d5d0c441c22dd4d12259cc37c46d36c974dfa",
     "model/coherent_defect_wave/chiral_joint/local_reference/__init__.py": "95e2d485285a64b6cee19996e91f209498081fdccead105305323bab147f9d1a",
@@ -787,7 +805,7 @@
     "same_joint_clock_reference": true
   },
   "layout": {
-    "height": "26319",
+    "height": "27029",
     "width": "1600"
   },
   "protected_catalogue_count": 11,
@@ -797,7 +815,7 @@
     "build.py": "c2e267853cca0490afc8fc5d6035951b46bf46f53177ea03da3bdf1998e1d084",
     "canvas.py": "d27e63198ab2581ccb23bc9b94bab4554909382584b78a69603f1fdd4900a49b",
     "families.py": "1889ff18bd2573a95312c746606779a936ea528db08d6c5e50d99e1d0f159e9a",
-    "joint_panels.py": "2642ed4aca0c609c16ed0fbd0c41625d441ec180c94584b6b19e419aa42aa27b",
+    "joint_panels.py": "3d6fa5acdfc99acae621118b0189376423a511e86bc2111a284974098e6015de",
     "parts.py": "78ae3232eeae31aab4f00cea67aa009db0451069175e924ac8ba8d164672d2e6",
     "repair_panels.py": "5b836a04fd1e26f2ab9ee077e20aaff5659cb5b135dcc925bfe4f87e92631721",
     "scenes_a.py": "5939af236b9c0e6256f5046d6c355727ab4be291bff952e59a1e61eef41fe604",
@@ -805,5 +823,5 @@
   },
   "schema": "oph.particle_atlas_explainer.v3",
   "source_physical_identifications": [],
-  "svg_sha256": "79b90fc22166b092e2f0f4a6c912119c315da9ff462d3438b5827d273125b203"
+  "svg_sha256": "153975eaf7224161f7371e1fe986fbfeff792070d0d78502a9964d1dd554c5f1"
 }

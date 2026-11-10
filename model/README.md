@@ -35,6 +35,21 @@ these roles do not identify measured particles.
 
 ## An interacting physical reference
 
+The [full eight-cell weak-hopping source](coherent_defect_wave/chiral_joint/atomic_spin_geometry/PROOF.md)
+has a unique physical interacting ground with all matter, scalar and link
+states retained. An [explicit physical preparation](coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md)
+supplies a bounded ground error and every failure record. Its
+[charged instruments](coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md)
+give positive `e^c` and `L` removal energy bins near `0.69166` and `0.09689`
+source units, with a separately costed static charge reference. These are
+finite detector transitions, not identified particle rest masses.
+The [native service compiler](native_quantum_service_bridge/PROOF.md)
+executes a singlet Yukawa code and a compensated U(1) code through explicit
+coherent transfer and port-control services, retaining their error budgets.
+The [family-clock calculation](finite_family_clock/PROOF.md) separately
+distinguishes a one-tick Koide effect, its controlled collision-clock
+extension and the complete quantum scalar-memory spectrum.
+
 The [complete two-cell source](coherent_defect_wave/chiral_joint/two_cell/README.md) keeps
 quantum scalar/link registers and every active lepton occupation. Its
 certified neutral ground supports complete charged detector lines near

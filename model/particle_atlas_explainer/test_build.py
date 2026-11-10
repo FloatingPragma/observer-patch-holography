@@ -20,8 +20,8 @@ def test_render_is_dark_compact_and_complete(data):
     svg = build.render(data)
     root = ET.fromstring(svg)
     assert root.get('width') == '1600'
-    # Includes the mobile-object and common-clock proof panels.
-    assert 12000 < int(root.get('height')) < 27000
+    # Includes the mobile-object, common-clock and complete charged-response panels.
+    assert 12000 < int(root.get('height')) < 28000
     text = ' '.join(''.join(root.itertext()).split())
     for phrase in ('From a twist to a particle', 'Topological defect:', 'Why nothing local can erase it',
                    'Position is where a record is written', 'Velocity is the slope of the records',

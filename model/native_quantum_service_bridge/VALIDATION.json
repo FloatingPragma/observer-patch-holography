@@ -1,0 +1,49 @@
+{
+  "exact_checks": {
+    "compensated_CAR_Gauss_columns": 491520,
+    "finite_general_compiler_input_columns": 8,
+    "native_yukawa_charge_columns": 24
+  },
+  "isolated_replay": {
+    "authenticated_runtime_modules": 172,
+    "command": "python3 -m model.native_quantum_service_bridge --check",
+    "copied_pinned_files": 225,
+    "external_work_folder_copied_or_imported": false,
+    "only_pinned_repository_inputs_and_receipts_present": true,
+    "status": "passed"
+  },
+  "schema": "oph.native_quantum_service_bridge.validation.v1",
+  "scope": {
+    "full_spatial_nonabelian_program_executed": false,
+    "passive_classical_run_identified_with_this_program": false,
+    "physical_analog_and_transfer_accuracy_supplied": true,
+    "real_reflection_universality_claimed": false
+  },
+  "sha256": {
+    "PROOF.md": "e57397a282ad0c8cf851414e5660af3bf6ffdfae108615a7729032dab8aff4d5",
+    "README.md": "44240705dd5b43eb9377d8003503204ea4f6d192b2ec08e372f23ca04210b79e",
+    "__init__.py": "e1718059338d758a7984bf332b0104ea18aefd3a20ed8b9dda41d6459bac4f81",
+    "__main__.py": "dcb7f3f146cbc7d0f7b77f88874fa2adb6c9b49db54e973e53a93f9ae33f8aa4",
+    "construction.py": "c0c9c22daf22ee7f9965a5b5f1da4ebb7fed3e7d04fcad66a2fc063d80234a2d",
+    "finite_compiler.json": "182cad9788628e50827f7ee76ad973e3e853565f04f45c5a7aaee7067c4dd56a",
+    "finite_compiler.py": "a2e23d46096156ae8cc359520f7f0dd3c5e86e95aafed987f8c9290e39f0bb29",
+    "pins.json": "6205eb93671093730038f524e6d312ffaba89bac879c27725efe344d13460f08",
+    "results.json": "f447a0e850dcf731bbe060d237c7980854feb9547543ccbc2c1d6cfbcf0524b8",
+    "test_compiler.py": "17d3fcf69f85e95a2801e88c79775970b581a1b6a3e55366fa3be3b06ae4cc90"
+  },
+  "tests": {
+    "command": "python3 -m pytest -q -p no:cacheprovider model/native_quantum_service_bridge",
+    "passed": 15
+  },
+  "whitespace_only_maintenance": {
+    "changes": [
+      "construction.py: removed extra blank at EOF",
+      "finite_compiler.py: removed extra blank at EOF"
+    ],
+    "current_cli_check": "passed",
+    "current_tests_passed": 15,
+    "full_producers_reexecuted": true,
+    "prior_isolated_replay_dependency_graph_unchanged": true,
+    "scientific_receipts_compared_with_only_implementation_hashes_excluded": true
+  }
+}

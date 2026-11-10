@@ -461,8 +461,9 @@ requires propagation, detector records and a controlled refinement on
 that chosen family. The ground theorem does not transfer to unit hopping,
 and the finite gap does not prove a continuum mass gap. A formal complete
 ground filter on the maximally mixed full carrier has success `1/D` and
-failure `1-1/D`, with `D=(5*2^30)^8*119^24`; an efficient native implementation
-and its full histogram are not supplied.
+failure `1-1/D`, with `D=(5*2^30)^8*119^24`. This is a kinematic
+preparation comparison: its failure generally violates source-only Gauss.
+The physical construction below instead preserves Gauss on every branch.
 
 The [complete interacting spin detector](../../model/coherent_defect_wave/chiral_joint/collective_spin_response/PROOF.md)
 uses this same source and its actual stationary ground at `lambda=2^-34`.
@@ -478,6 +479,96 @@ axes form eight positive coarse records. Their exact probability sum is
 one. The energy and momentum filters are declared finite spectral services;
 the result proves a visible collective line, including a positive spectral
 complement, without an empirical particle or rest-mass assignment.
+
+### Physical preparation and odd charged readouts on the same source
+
+An [explicit finite preparation](../../model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md)
+starts from physical vacua. Polynomial projection in the actual
+113948-state local component constructs each ground doublet. Retained
+fermionic spin references make gauge-neutral local singlets. A complete
+Householder controller prepares the native cube trial, without using the
+unknown interacting ground vector. Two source copies then undergo an
+energy-agreement filter built from the Cayley unitary of their actual
+`H0+2^-34*T`. Its finite schedule has
+`1197721483502453176152084669` terms. Preparation succeeds with
+probability at least `0.999999942661984`; the conditional source is within
+trace distance `2.355922487e-7` of the exact interacting ground.
+Every failure, copy and reference is retained. Algebraic synthesis,
+controlled Cayley operations and this large finite schedule are declared
+services; efficient native gate synthesis is a separate construction.
+
+The [finite native service compiler](../../model/native_quantum_service_bridge/PROOF.md)
+implements two concrete parts through the declared coherent port-control
+interface. The actual 320-state lepton/scalar source has a two-state
+singlet code with exact generator `[[0,-2],[-2,1]]`. One simultaneous
+source pulse gives its continuous evolution; six pointer pulses give
+the complete native C/E readout. A second compensated U(1) code checks
+491520 CAR/Gauss columns and reproduces all 32768 amplitudes with fifteen
+source pulses. Rational actuator-quantization bounds, retained export
+failures and reset timeouts enter one unconditional error budget.
+Coherent load/export and signed analog control remain declared services.
+The general finite Pauli compiler keeps padding and gives an explicit
+cost/error bound; its intermediate factors need not individually obey
+Gauss. It does not execute the huge non-Abelian cube preparation above.
+
+The [odd elementary instrument](../../model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md)
+removes an actual `e^c` or `L` fermion at one cell into a retained
+thirty-mode reference. All native gauge and spin currents commute with
+the complete transfer; total fermion parity is preserved. The reference
+Hamiltonian is `4*N_ref`. A full-sector bound proves that its vacuum
+together with the source ground is the unique ground of this enlarged
+physical Hamiltonian. Every reference occupation and link sector enters
+the comparison, including those with no prepared weight.
+
+| Native removal channel | Source excitation bin | Selected-bin probability | Complete outside probability |
+| --- | ---: | ---: | ---: |
+| `e^c` | `[0.6906800974,0.6926332644]` | `[0.4197041521,0.4201989707]` | `[0.0799404942,0.0801565287]` |
+| `L` | `[0.0959119144,0.0978650814]` | `[0.3210643365,0.3214971263]` | `[0.1785579463,0.1788807366]` |
+
+These are exact-ground probability enclosures. The physical preparation
+adds its stated trace-distance error and keeps preparation failure.
+Pump failure is about one half. The total source/reference excitation
+energy is the tabulated source bin plus four; that apparatus cost is
+explicitly excluded from the source-energy column. Complete positive
+local measures have nine and seventeen energies. Residual bounds transfer
+their visible weights to spectral bins of the full interacting Hamiltonian
+without assuming that no unseen state enters those bins. The result is
+an odd source response, not an isolated charged pole or an electron,
+muon or neutrino identification. A localized static compensator does
+not supply propagating charged-particle momentum or a rest mass.
+
+### Family amplitudes, clocks and quantum scalar response
+
+The [family-clock construction](../../model/finite_family_clock/PROOF.md)
+connects exact native repair columns to a declared three-character
+instrument. Its one-tick amplitude is `M=sqrt(2)/3*C(theta)`, with
+`C=I/sqrt(6)+(exp(i*theta)*R+exp(-i*theta)*R^-1)/sqrt(12)` and `R^3=I`.
+Where its eigenvalues are nonnegative, their squares obey Koide's
+`Q=2/3`. The literal second tick has amplitude `sqrt(3)/9*I`, so the
+one-tick effect is not the original tick's persistent energy spectrum.
+
+An explicit unconditional repeated-interaction extension supplies
+`A=M^dagger*M=(2/9)*C^2` as its effective generator. With `N` fresh
+retained ancillas over time `t`, the family/reference marginal channel
+differs from `exp(-it*A)` by diamond norm at most `min(2,4*t^2/N)`.
+This requires the stated inverse tick, projector phase gate and schedule.
+The XOR flag probability `2/9` alone does not fix a Hamiltonian phase.
+
+A separate three-family quantum scalar memory uses the full
+`5*2^18` carrier and the native Yukawa tensors. On its stationary
+vacuum-generated component, let `S=4*sum(y_f^2)`,
+`D0=sqrt(omega^2+4*S)` and `Df=sqrt(omega^2+4*S-8*y_f^2)`.
+Its lower charged transition is
+`m_f=(D0-Df)/2=4*y_f^2/(D0+Df)`, with a second positive spectral
+line, nine dark states and a complete no-operation outcome retained.
+The reference is a component ground, not an asserted global vacuum.
+For heavier/lighter coefficients the exact transition ratio exceeds
+the squared coefficient ratio at every positive coupling. It therefore
+cannot repair the `+9.83354 ppm` muon/electron excess of the
+`theta=2/9` squared-amplitude reading. Declaring three independently
+occupiable CAR families is also distinct from adding one common
+three-state register. None of these finite identities transfers a mass
+or family phase to the spatial interacting source without an explicit join.
 
 The [centre/current catalogue](../../model/particle_catalogue_correspondence/PROOF.md)
 recomputes the six classes of the 32-state exterior register and the actual

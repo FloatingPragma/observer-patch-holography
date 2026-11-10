@@ -1,0 +1,715 @@
+{
+  "family_instrument_and_collision_clock": {
+    "C_eigenvalues": [
+      "0.9714015658337363966294288441737409225938657198166943421079222213693198",
+      "0.01647278105086518542901002469513039835020181443228845875289862123500954",
+      "0.2368705245069874670402031684840743750389062060793522633555254410211508"
+    ],
+    "actual_FR_Floquet": {
+      "C_factor_characteristic_polynomial": "(eigenvalue - 1)**2*(eigenvalue + 1)**2*(eigenvalue**2 + 1)**2*(eigenvalue**2 + zeta)*(eigenvalue**2*zeta - 1)/zeta",
+      "E_factor_characteristic_polynomial": "(eigenvalue^4-1)^3",
+      "FR_report_arccos_readout_is_eigenphase_of_this_U": false,
+      "character_sector_factorization": "U_k=(D(z*omega^k)B) tensor B"
+    },
+    "architecture_ancestry": "balanced circulant is an inherited mass-informed architecture; no blind-prediction claim",
+    "collision_clock": {
+      "Hamiltonian": "A=M^dag M=(2/9) C(theta)^2",
+      "ancilla_generator": "P=U^dag(|Phi><Phi| tensor I)U",
+      "discarded_outcomes": [],
+      "fixed_FR_tick_has_this_generator": false,
+      "input": "fresh copies of the same prepared object pair",
+      "primary_Wilson_source_transfer": false,
+      "rows": [
+        {
+          "N": 1,
+          "diamond_error_upper_bound": 2.0,
+          "max_coherence_multiplier_error": 0.08800867349573892,
+          "min_coherence_modulus": 0.9130814996042961
+        },
+        {
+          "N": 2,
+          "diamond_error_upper_bound": 2.0,
+          "max_coherence_multiplier_error": 0.04483877507361094,
+          "min_coherence_modulus": 0.9552872715595807
+        },
+        {
+          "N": 10,
+          "diamond_error_upper_bound": 0.4,
+          "max_coherence_multiplier_error": 0.009121804021597167,
+          "min_coherence_modulus": 0.9908791901949163
+        },
+        {
+          "N": 100,
+          "diamond_error_upper_bound": 0.04,
+          "max_coherence_multiplier_error": 0.0009159014867283804,
+          "min_coherence_modulus": 0.9990840995102591
+        },
+        {
+          "N": 1000,
+          "diamond_error_upper_bound": 0.004,
+          "max_coherence_multiplier_error": 9.162787541546224e-05,
+          "min_coherence_modulus": 0.999908372125582
+        },
+        {
+          "N": 10000,
+          "diamond_error_upper_bound": 0.0004,
+          "max_coherence_multiplier_error": 9.163167016483714e-06,
+          "min_coherence_modulus": 0.9999908368329844
+        }
+      ],
+      "time": 1.0
+    },
+    "complete_binary_instrument": {
+      "family_character_k": [
+        0,
+        1,
+        2
+      ],
+      "no_operation_probability": [
+        0.7903064439768366,
+        0.9999396994409889,
+        0.9875316343599522
+      ],
+      "probability": [
+        0.20969355602316336,
+        6.030055901105476e-05,
+        0.01246836564004783
+      ],
+      "tracial_success_probability": 0.07407407407407408
+    },
+    "domain": "declared FR family instrument and explicit collision extension",
+    "empirical_inputs": [],
+    "exact_instrument": {
+      "B_unitary": true,
+      "M_equals_sqrt2_over3_C": true,
+      "R_order": 3,
+      "analyzer_norm": "1",
+      "clock_coefficient_inferred_from_read_probability": false,
+      "compression": "Matrix([[sqrt(3)/9, sqrt(6)/(18*z), sqrt(6)*z/18], [sqrt(6)*z/18, sqrt(3)/9, sqrt(6)/(18*z)], [sqrt(6)/(18*z), sqrt(6)*z/18, sqrt(3)/9]])",
+      "family_characters": [
+        "1",
+        "exp(2*pi*i/3)",
+        "exp(4*pi*i/3)"
+      ],
+      "physical_generations_from_characters": false,
+      "read_probabilities": {
+        "H": "1/6",
+        "R+": "1/12",
+        "independent_XOR": "2/9"
+      },
+      "trace_M_dagger_M": "2/9",
+      "tracial_success_probability": "2/27",
+      "two_tick_compression_for_all_phases": "sqrt(3)/9 * I3"
+    },
+    "multi_tick": [
+      {
+        "compression_eigenvalues": [
+          [
+            0.4579230896375104,
+            1.7967876121407672e-19
+          ],
+          [
+            0.007765343457378737,
+            1.509292376890253e-18
+          ],
+          [
+            0.11166183609473664,
+            1.8715532804212254e-17
+          ]
+        ],
+        "distance_from_M_power": 0.0,
+        "squared_amplitude_ratios": {
+          "Q": 0.6666666666666667,
+          "m2/m1": 206.77031597272645,
+          "m3/m1": 3477.472837104557
+        },
+        "ticks": 1
+      },
+      {
+        "compression_eigenvalues": [
+          [
+            0.19245008972987526,
+            9.442638579934155e-19
+          ],
+          [
+            0.19245008972987526,
+            -2.079611634410596e-35
+          ],
+          [
+            0.19245008972987526,
+            3.777055431973662e-18
+          ]
+        ],
+        "distance_from_M_power": 0.19238978917086422,
+        "squared_amplitude_ratios": {
+          "Q": 0.3333333333333333,
+          "m2/m1": 1.0,
+          "m3/m1": 1.0
+        },
+        "ticks": 2
+      },
+      {
+        "compression_eigenvalues": [
+          [
+            0.1924500897298752,
+            -0.11701930025634025
+          ],
+          [
+            0.19245008972987523,
+            0.2713133579934066
+          ],
+          [
+            0.19245008972987518,
+            -0.15429405773706664
+          ]
+        ],
+        "distance_from_M_power": 0.33263763321616785,
+        "squared_amplitude_ratios": {
+          "Q": 0.3433166878370812,
+          "m2/m1": 1.199350073850304,
+          "m3/m1": 2.1810914184674854
+        },
+        "ticks": 3
+      },
+      {
+        "compression_eigenvalues": [
+          [
+            0.19245008972987526,
+            1.0328538542332574e-18
+          ],
+          [
+            0.19245008972987526,
+            4.6271308083881444e-35
+          ],
+          [
+            0.19245008972987523,
+            2.655893190661313e-18
+          ]
+        ],
+        "distance_from_M_power": 0.19245008609371783,
+        "squared_amplitude_ratios": {
+          "Q": 0.3333333333333333,
+          "m2/m1": 1.0000000000000004,
+          "m3/m1": 1.0000000000000004
+        },
+        "ticks": 4
+      }
+    ],
+    "native_event": {
+      "actual_Observer_repair_columns": 360,
+      "exact_mismatches": 0,
+      "two_address_reflection_is_original_60_address_reflection": false
+    },
+    "neutral_background_comparison": {
+      "Y=y*C_rest_parameters": {
+        "Q": "0.4780353415280491598704454604753790079669100439245179422654813123232845",
+        "m2/m1": "14.3795102827853420820667965336175162269205297948022891336746747872791",
+        "m3/m1": "58.97010121328094288683887981490501584710426617764340934321578875572276"
+      },
+      "Y=y*C_squared_rest_parameters": {
+        "Q": "0.6666666666666666666666666666666666666666666666666666666666666666666667",
+        "m2/m1": "206.7703159727293886125503393177750774621787949100341561202502337507262",
+        "m3/m1": "3477.472837104598532313001225522648344599331860199226461797159304031647"
+      },
+      "these_are_different_Yukawa_operators": true,
+      "v_convention": "v=v_EW/sqrt(2) for H=(0,v)"
+    },
+    "one_tick_squared_amplitude_spectrum": {
+      "Q": "0.6666666666666666666666666666666666666666666666666666666666666666666667",
+      "m2/m1": "206.7703159727293886125503393177750774621787949100341561202502337507262",
+      "m3/m1": "3477.472837104598532313001225522648344599331860199226461797159304031647"
+    },
+    "phase_status": "declared theta=2/9; no fit in this calculation",
+    "register_and_Fock_are_distinct": {
+      "Fock_K_tensor_common_register_dimension": 192,
+      "Fock_K_tensor_three_family_one_particle_space_dimension": 262144,
+      "one_family_lepton_modes": 6,
+      "register_identified_with_independently_occupiable_generations": false
+    }
+  },
+  "immutable_parent_pins_validated": [
+    "model/coherent_defect_wave/chiral_higgs/results.json",
+    "model/coherent_seam_repair/manifest.json"
+  ],
+  "input_sha256": {
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
+    "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
+    "model/calibrated_measurement/__init__.py": "2d6202da14c69a38d3a5603f1cc90c3d2878f7637464d7bd3fd39ddc8efa0cec",
+    "model/calibrated_measurement/bounds.py": "fec098d950cff3ce03a0035ba25d847fd7623d7935f333f261ea796696422580",
+    "model/coherent_defect_wave/__init__.py": "15a75539d1ccf3de058e5c5a23a0cb9d656dca7ad9fcc25b4d6c46ab64afbf54",
+    "model/coherent_defect_wave/chiral_higgs/GAUSS_APPARATUS.md": "e2248b0999a0b3ad7bb2d216f81f7aea457c5d9d419f82a1c918b2bb0b2d2afd",
+    "model/coherent_defect_wave/chiral_higgs/PROOF.md": "9d625ae817fdbf2f46b9340f71fbd7530c885e7ed4c2d1d9810072506d2db413",
+    "model/coherent_defect_wave/chiral_higgs/__init__.py": "a463d1386a1ef3c4dbb6363dc7300f15956e9d710eff76fe3ce63a1c0b2f4cc0",
+    "model/coherent_defect_wave/chiral_higgs/__main__.py": "d2737fe1df4f11785c8e69fa08499325e281716b2e93bd15503ce1c15fa88172",
+    "model/coherent_defect_wave/chiral_higgs/apparatus.py": "4205c56180d80fda5827238d246b73dc16eb1ee40f8e3f4a7b425c628b322791",
+    "model/coherent_defect_wave/chiral_higgs/certificate.py": "6c64b0a27cc3e3abbccb9aa1fb840852a32430d7c69ab645ca1c3c2324f2acbe",
+    "model/coherent_defect_wave/chiral_higgs/model.py": "eb1a89b1b747adf7e87a7f5f8122d1501a039d804eced30eeca509b23ad97bb2",
+    "model/coherent_defect_wave/chiral_higgs/results.json": "73e7c33ca6c24b5ef9ffc8f038539af8176b956f3761398f05c7b3256032abf6",
+    "model/coherent_defect_wave/chiral_joint/__init__.py": "d773108bfa9b680d2234a13f2e0752839552756586c20d1678562e2e1d03a27b",
+    "model/coherent_defect_wave/chiral_joint/model.py": "46be98e1d440607fa997b97e65ed2a954c3c3cb5dd304c894215d6f04e087736",
+    "model/coherent_defect_wave/chiral_regulator/PROOF.md": "fd1767cf21331ada51d698b7627c04b681c7411d992d0f8651aa10d0e2e00496",
+    "model/coherent_defect_wave/chiral_regulator/__init__.py": "0f747f7f8e955b7c12e2d78a76235b5a72fcac9ee88556a62c1b9a33233ee1a0",
+    "model/coherent_defect_wave/chiral_regulator/model.py": "ab79c0e93e93de285d45d0764ac5cdca7f1bc9451c3f468fa9ed9dd9a8e3c2c0",
+    "model/coherent_defect_wave/chiral_source/PROOF.md": "a8603123bcd586fd216f27bc5b634dc4888b77568a0eb9bd5810067815bc0dc8",
+    "model/coherent_defect_wave/chiral_source/__init__.py": "c839a0e9fb57280063aa4030f10b368e6d09498ffd4fd74ec552256f588bef90",
+    "model/coherent_defect_wave/chiral_source/model.py": "58fdf2cff07b6abe4dbedd1d3b09a00b4ef881388594cc5f5ad8e404999dbc81",
+    "model/coherent_defect_wave/field_identity_audit/PROOF.md": "01b5c7f4d9abc2090e18a644ff084dedf435fb1b6fb086ebf84a22f3bbf71528",
+    "model/coherent_defect_wave/field_identity_audit/__init__.py": "996d055f29d70c33780741935e6d5823997ea67ad20ad2fa5a3f1073e6005fa9",
+    "model/coherent_defect_wave/field_identity_audit/model.py": "eca9232d079366471bd5b70cd5b77ceab4fcf75f7211b10dca4c787932d46317",
+    "model/coherent_defect_wave/gauss.py": "7df4e1550518a999586f1722eff4db26e15f960b75e793c7143c8400d59694b6",
+    "model/coherent_defect_wave/many_body_route/__init__.py": "95b5da641c99f8bb4a5589fb2074182b4143a79f2556a37accc1f4b4f69e8df4",
+    "model/coherent_defect_wave/many_body_route/spectrum.py": "87d99f221063a4682da911c70f562b0feb8b0c2b04e3b6b2ee95357314b1f0df",
+    "model/coherent_defect_wave/mass_instrument/__init__.py": "1cbea9c88cadc3db606acc9396e9cbd71adb97ad1502c84cb1b707eb59036c6e",
+    "model/coherent_defect_wave/mass_instrument/model.py": "e569d5c686db5106b9cac258a1ec0c58467336d70441ebd14ddde657e1d63749",
+    "model/coherent_defect_wave/mobile_flux/__init__.py": "63dca3148cb9a92619fad6432e7648d6a9bb516305102b339b465f5cd2b8778d",
+    "model/coherent_defect_wave/mobile_flux/lane_collision.py": "133d5d4ea96212f30d532d5e0cdffd58b456a5466e1defba08cd03981fea98d8",
+    "model/coherent_defect_wave/mobile_flux/model.py": "81e4d9e2fc4be488e98c0441d12d92d6f457a7d9a6c7bb065e558aefcac07822",
+    "model/coherent_defect_wave/mobile_flux/routing.py": "ff953d2ef7b45e4b6d8dcc94c58416ac408ba0b4ef12244d32b9104e44775d7c",
+    "model/coherent_defect_wave/model.py": "51531e26722d3b09ce525ce22d5677de4a17a48f0ea4492908dee9a72e053f4d",
+    "model/coherent_defect_wave/native_routing_join/__init__.py": "2fde73c3f3e383c6b289be4d890b1da606792cb3cf4dc1d6b3576941c263253e",
+    "model/coherent_defect_wave/native_routing_join/model.py": "11b1bd1131d2aba0fe3dcc7bd5479603bbf7df11b0f43fcf513263edf3357ffa",
+    "model/coherent_defect_wave/physical_attachment/PROOF.md": "d314bed5fa3a8d455dff88164be4a828d95368a8748a9454787b00c2dbd69497",
+    "model/coherent_defect_wave/physical_attachment/__init__.py": "00edb1860bb586f9696a329c93e2731c1b724022533bac164acbd612a3e4d98d",
+    "model/coherent_defect_wave/physical_attachment/chiral.py": "05d52fb0f8f7d65687a020d2864583546ed32f154b4cfb1e57849a0a0283b6ef",
+    "model/coherent_defect_wave/preparation.py": "0f52461b009a337addfa1f794a9a3eb5bdaebff575c00431ad764ec01b4bbea1",
+    "model/coherent_defect_wave/spatial/__init__.py": "68827a00fdfedec18e14b9870118725bcb38d842badb7f3020093a700b48bd1c",
+    "model/coherent_defect_wave/spatial/dirac_route.py": "14c7ca78cbcbb4716a68abc90f1aecfaa8bf7a6f0fa70e9fa3366f80f7f2169b",
+    "model/coherent_defect_wave/spatial/family.py": "4ccea4a67e66d0f24ce76de08dcab06be2c65d4b91247f3fbdc95e3fb794a411",
+    "model/coherent_defect_wave/species/__init__.py": "c82cc820f10d4fdba31a1406fba1149cf1ba81951fb43666cfc8acd208ab0fe0",
+    "model/coherent_defect_wave/species/fock.py": "b7145e0bfeb76dca33ac0683d486509ad0546fe4a5add5cb30a466fe9baac3c3",
+    "model/coherent_seam_repair/PREMISES.md": "0ba469ce232438f1059b2ffdd629abaf48ffc4cc7639a695dfdd813829774468",
+    "model/coherent_seam_repair/PROOF.md": "3b0e8c0ce174b488d22be89a247d1029cd02626dc8deeaf5029bd3f36fe5fbf7",
+    "model/coherent_seam_repair/PROTECTION.md": "50a2062aa42a472b6943733ecdcafd57d80bb6877ada7cca50afc292c02c5414",
+    "model/coherent_seam_repair/README.md": "23456a7403e3d0f7b02bfb34372f65694eb6db221276b28e5dba2d0c2d075129",
+    "model/coherent_seam_repair/__init__.py": "c63891b72256135bc8ba4824a67b620f1faad917a504291f59231410d438bb4d",
+    "model/coherent_seam_repair/__main__.py": "fae61279d2498549f50b9728e98647f122494f5ee1659ce990b5f35da9f04a7e",
+    "model/coherent_seam_repair/agreement.py": "8a0af6fd095c41283768bb92f4427d1cdceee5233f8dc31adad67c95d4daf282",
+    "model/coherent_seam_repair/agreement_results.json": "0e99037c96df1b33153a687c448d3a45a3caa164ee13bb4ebbabcad5eefe9883",
+    "model/coherent_seam_repair/apparatus.py": "07188933d9138ac6345a9e2b6129282603a23aeb9bb6a4fd11926dc9b665f3a1",
+    "model/coherent_seam_repair/certificate.py": "d37d3008911d8f2513748061dc28d0027e35851d836b5105b6ffc4f10d5e59c5",
+    "model/coherent_seam_repair/coherence.py": "477f325167b22eda44eef6a22f46a246d02d8139150224e69942768a212e60f9",
+    "model/coherent_seam_repair/committed.py": "bed6f876b1f9a7f6b4c32346991693c9675a1a7c41eead8d0e234f1b3db28f0f",
+    "model/coherent_seam_repair/common.py": "b788b17ef298902067f6132d170ce8aff1d9ce8d5c5ec8b08e42809ef606348d",
+    "model/coherent_seam_repair/gauge_walk.py": "34f376b412ebb19233d3b34ba49872592168f0117c663b2fa25554cdc9562c79",
+    "model/coherent_seam_repair/holonomy.py": "6bff8fab622f6846ca9efed25f149b98f3c413ec37b52ff1998aa06c06080d41",
+    "model/coherent_seam_repair/manifest.json": "b9c84a51c7070b6f85b17ad18ebbacb7ed976596e418c6f76e1bf3a816314b7d",
+    "model/coherent_seam_repair/program.py": "0a53aa71c9bf19029bdd75a668e7a6f38e807e1f593f0419db5b6f6f2adcdc7d",
+    "model/coherent_seam_repair/protection.py": "1bf9afa27e8749e08514a56c65c65ff11b60656b68944f7db7cc0b54a9f2b715",
+    "model/coherent_seam_repair/protection_results.json": "68ebcd98b2388c1ed3246dba2e7931347632e75e0307d64ae415171a34a6710f",
+    "model/coherent_seam_repair/results.json": "35cb6a4c07c39ffe24eec0412f0ba915350abbcf0ede9d37ba25d1db8b5e2a82",
+    "model/coherent_seam_repair/session.py": "4e7bc7ee7eec0d1374f1e5194bcbd5db2be7365267bf5c9c2058b7cf0bccff00",
+    "model/coherent_seam_repair/test_agreement.py": "37cb0bf621dc98b6f9be91ff5051973f3e0af82338336aeef8e424012c241a37",
+    "model/coherent_seam_repair/test_artifacts.py": "fafcc9593fbc314cac9eec0fdc5754b22a4a6b8fa5fcc89d6f8a9be9fc835736",
+    "model/coherent_seam_repair/test_protection.py": "2692e64e602ada3cefaafe5634675a15202064416add8307d71ef2d0b4e208ff",
+    "model/coherent_seam_repair/test_repair.py": "f8a6827843f288269ddad9e7b2b611c1d25bd4d60af55766b0fac74629035045",
+    "model/coherent_seam_repair/walk.py": "088a135de51334d15c83427fd84cb4c2efe30c3918668585401dcb711642d127",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/chiral_candidate/__init__.py": "10a17df74de08c2eb6e84954e825d30997cfa3c1f7d22e1e144491621a09b977",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
+    "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
+    "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
+    "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
+    "model/common_source/encoded_observer.py": "3b187d8d2be3594b522f3b713ff3e9e54f1ab71ab7661d8421100cdc078b7fbe",
+    "model/common_source/exact_output.py": "996e4eb3023e5fc56044f20f381931594e9f2aed31bba071a83f32ded7cdbb39",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
+    "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
+    "model/common_source/mass_response/__init__.py": "848f40bd5231002e7ac5e28ac9cab27481d47bab0f363c9f39c31f14b2656a7e",
+    "model/common_source/mass_response/history.py": "1046f4be64b2ad6498df83b1949ec316449d0ce0d9b57ce4763d96a0ed3a2abb",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/common_source/native_code_transport.py": "c068671558195838c5c93271dd47756630feb36a9c203cc9015bf3c4b066938a",
+    "model/common_source/native_gauge_object.py": "ddbd9ced23e85e9755396dcc917eb744d62e98f64b89535dfff0066e53782733",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_matter_attachment.py": "e09be6c457cd29aaa31e03f6109b52ccd93b592833daab8ec0b3bb9648163339",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/native_sm_current.py": "8ed16b421726dd460800d86846e5684163716cadc61c7cc2e8c21151d49593f1",
+    "model/common_source/occupation.py": "b9a42851ad8891a524c087ff1e3331323dbf9c8d3c38c3a5cf88b0128eb433b9",
+    "model/common_source/open_bounds.py": "3e3af0e789ae21c5393acf45abe5a83ae6ad11e1755567175e8a1e0f8d187538",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_native.py": "164a17f0392e16eda69babcffdef9da90a8f0afc26a2a678a9951816e41104f1",
+    "model/common_source/open_observer.py": "73efcb678b65bfcdfd35f2ba4321a66f661a42d6c08983a7dbd1e9ca9aba7a0c",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/operational.py": "d12e5bcf1f3f34e1f3076e7ad74e8eae0d324996d22d47c7f8d0983dd967e0c1",
+    "model/common_source/output_certificate.py": "175e6c7f105c5e9e2dbe6385993bf9745d1e276f4ebd8123fc0210fe90f48ff1",
+    "model/common_source/overlap_regulator.py": "4eaa8ef2ecee5667ab32ae16cbaaa237ffb78b589a0d18239b41bd04aec2fcb4",
+    "model/common_source/parameter_selection.py": "a9698bb9166d1eb5b8df44fdc6c7718899c781541cf98eecd40d153b873f68aa",
+    "model/common_source/particle_identification/__init__.py": "2c4e2f313c769ba55d203887a92ba14e65bbe7145287c89c95614dcf667a9683",
+    "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/quantum_native.py": "a15d8767c11cc62f3ea8fecb832e120fb998ca8a37142b61dd63a98206ecb594",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/refinement.py": "40b81ca6aa10bc4aba900cd7f6ff3f536176c1be736a40c28922f1b404ef13f3",
+    "model/common_source/repair_field_attachment.py": "a6b04bbf4ce4aba3843e9fdbf0329db7e79ddd5152b0fab12fabb1c307c8d02c",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/smooth_history.py": "2f25d0781527f609c414c111132faf3189b20cf3581c2e2f2ffa9d821aeaa1fb",
+    "model/common_source/smooth_protocol.py": "b3e9f706d6e239900f36c300deb7d83faba2b39e02d3c6ecc5b3a806d9316480",
+    "model/common_source/spatial.py": "873fa595f93ab8bc228d60bc46480acda2e5ea86fb0952db2d023670d1d36733",
+    "model/common_source/thermal_clock.py": "da6f53334510bea63fe2dc3ce641f0dcfb358439af3873b4ebdae94cdfabaa68",
+    "model/compiled_native_interface/__init__.py": "9b9bec2055ecd83075cd546f3f697519c7da32837c35dbd489bd79a09398b8a6",
+    "model/compiled_native_interface/construction.py": "72549c34bf1e1d315f3ab422d438f710d9fde980fb7e990b5490b03469f125cf",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/__init__.py": "f2352d90abb18dc526972cc1b849a049fdbe2993d379e711ed03c991130a077e",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/federated_quantum_sector/__init__.py": "b520b3f2ab16e3c4ee44ada51a387ecd9130c941c9212bca0a7f50da97cae1b6",
+    "model/federated_quantum_sector/construction.py": "af6ae95cf4473513e93a4f4c3a697f6abcede9f01770c7eba5f439f12269a141",
+    "model/finite_family_clock/PROOF.md": "83019bc85f0556d0822517cd7d0307fafbdc67ed144f3bef3b0f362a180282dc",
+    "model/finite_family_clock/PROVENANCE.md": "b771fd4b4e2eee5f6fa4bd10ba98d12aad057217a778f116dbd0261ba9d2ebc9",
+    "model/finite_family_clock/README.md": "4bd0cda02487731e0db1e7952c556e587303266016c87f0b3582d3bb3e6d8ec8",
+    "model/finite_family_clock/__init__.py": "f206f43e85064bc531e4824e5bd2e7ab9f1fcbced4f7bba5f68931051eb59413",
+    "model/finite_family_clock/__main__.py": "7bc5ad1508d2590fea023aebd0638f54021519d2f9d2eaea51e844f53d4e9d0d",
+    "model/finite_family_clock/certificate.py": "30d5859db648db482f558c88bc24f69f3d060c1b0353927b05b2178c453ffd50",
+    "model/finite_family_clock/family.py": "efc03c23d4b65f0f9dfc4c7da6e6ea73c56abfa62128c014310432aa6347d72d",
+    "model/finite_family_clock/memory.py": "f5b1208f3aeb97d2f9d4c94dc60db2bfc0303b0675a0f10ff30f4aea41f161b2",
+    "model/finite_family_clock/primitives.py": "96baa1b9690083b5ac1f27e3be13295ad41791ae8664a3b6b480eb322796f789",
+    "model/finite_family_clock/test_family_clock.py": "b16ea958abe99d0143023aa038167e2e1449b3539045ed66537a702a723e79a0",
+    "model/interacting_band_extension/__init__.py": "f3a8f4e46681add759b53f4d4840e670a6d134ea56bec22b38d348b013f84aa1",
+    "model/interacting_band_extension/algebra.py": "1d2b955f9b3c20ef9ddb2b1fd024d320a21cdb67ee6bd710ad6126e7939e009b",
+    "model/interacting_band_extension/construction.py": "b55bd454646353687335401ca993796306ee8079b881a6556f6f2b48488bc1d7",
+    "model/laboratory_clock/__init__.py": "ed84862b1b7acf3f1b63feabb8207105b22e99b70c930d79bc5e0c94bd499f94",
+    "model/laboratory_clock/event_geometry.py": "937174335bd528ed1beee023d9b32166a957320f80a00d658c8eb36a29001a15",
+    "model/native_action/__init__.py": "fb3c52e07daa664dd0a0c44ee06fa93f9cfceb0c572f3924478cb198a5a5c9c8",
+    "model/native_action/clock_histories.py": "41c698d743a98abf12912e4ab55e2ec91f3c4e8285e2f0c7015e01d3b0036f9f",
+    "model/native_action/construction.py": "b05c885a104f36f1bf68b288a58d6c16d86678a19ae8867e544df5c22d82039c",
+    "model/native_action/incident_refinement.py": "d0a0923564532bfc166a4d239572e63e41ee8b847dc9b3bf392aeb409a737c54",
+    "model/native_action/screen_compatibility.py": "976501acc55afdf07c6a5f2569f4e515c81ba50eafaf0e254ca653b5cffc610c",
+    "model/native_action/stopped_control.py": "d2a3de3f0c841b70656b78df3edf8431e305d126aec0ac7cca57308852791282",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/configuration.py": "f5d5b7ac614a5a1080015a1b1fa16e4d450fbb95a1ee4a2633f844823cdeeae9",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/common_variation.py": "22f132ba44430c63a3c35935b6fa0040e3579dfa80579e78d25dd62087500894",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_equilibration/history_entropy.py": "a92eab1867af2301ae1cd8c17a280c2e44cd86a50068c2f006d522ce95e02f2d",
+    "model/native_interface/__init__.py": "01a785b3666e979ff77d44b3eabf4f59573238a470f23bca172ed01032ec1205",
+    "model/native_interface/construction.py": "9406eba34986f27d47f7be10d3a155d6e37e5123854ff3db40c305cf4bc391fb",
+    "model/native_interface/pointer.py": "30485fdee1d221460c67b9791a34b7fa24b4dece718ab91bdfc3cbb24ca591ac",
+    "model/native_modular_reference/__init__.py": "e3008596e022bdcfb81b8c3dcaeefdfc9d8dfade97cff2256234402dec6860c6",
+    "model/native_modular_reference/cap_local_clock.py": "ccc4bf54b67866a59adb7904d1e3c19a4325ce53dc8963ed68848b83065510e8",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/compatibility.py": "0f51fc085cc8dd7dcf6a85904e82a51dbd875d966e45efc92402f85160f35946",
+    "model/native_modular_reference/completed_clock.py": "0a681d1957a28b3de755be7c0b1cb68812925b495f144bd414116479101cee16",
+    "model/native_modular_reference/construction.py": "4c3ce7e8cfe111b8f4d6fc260976416b14118d62bcea6fc9cf276055ef208a1f",
+    "model/native_modular_reference/full_flow.py": "1ce0c90ce278a518886a7c8a1e1e1c34efd9e760ad6ca1ff1b2da51318671ed6",
+    "model/native_modular_reference/learned_clock.py": "000a33a6e87100bb510b41c3c374bb801b70bb5ab5b5b2780e381806eebe4d03",
+    "model/native_modular_reference/local_history.py": "2bbaadda64786f29e299782df1a2414f382e82b4d28e1701f6ac06ac65554f1e",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/phase_inference.py": "908555cfc79c735d30d2fdda940c326d01e285f160858387b58957224156ac53",
+    "model/native_modular_reference/phase_readout.py": "92db9dd9208896992bdab212bc48b35c0fd3a6c0067139062e21435d470774ab",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/reference_tomography.py": "77a30720a44155d0b11c1801448dd5f5d8b5960230d03079c11d55e0839a0b11",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/coherent_continuation.py": "75c9442fb9a54c78af1e932b3b27011c539a9843cc2fcf33076a594a5e619091",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/scalar_response/field.py": "03c695bd529ca63b8bd2f7d3bdee598e8ab26158e4a5eb19f6628bf093d2ff6b",
+    "model/observer/source_discrimination/__init__.py": "c94ec6992b410eddd212eeff1875744e8419e0819d8fa947411e0698bbfeae11",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_particles/__init__.py": "d4898cd7ac4037731af3851b8b4a9101c553ec0f95e471c8e63c494af3c9f4cc",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "model/observer_reconstruction/__init__.py": "56826b3217ce1e18df3c5dbdbcb8ba7c2482be087a68de6f14e5440bce090a0f",
+    "model/observer_reconstruction/native_geometry.py": "42c8d5cb0c02789ec4ba46d79a23dd4c76bf72fd3b11c28003abc75c136b9854",
+    "model/observer_time_fields/__init__.py": "4c77f1b647adcecebc812334af52150b908d09454b6056c814665647af5cafd6",
+    "model/observer_time_fields/core.py": "c305f335e1bb1b1abf3ee078eee7f969dc2558522d04b547063601f45c95bde2",
+    "model/observer_time_fields/spatial_dynamics.py": "16a87eb2f63b91db972f8f0bed59ac98df47ba87a4072548714f6f33dca89c01",
+    "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
+    "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
+    "model/physical_space_time/__init__.py": "7981b2a9e4f2275ad2dcd8e49602c9e17b4984aa5abfa02c99ff98108e7868b0",
+    "model/physical_space_time/ancestry_green.py": "6d469a066bd9843830377a1cfb61be01fa3a61405b124147742bff04ebc3857e",
+    "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
+    "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
+    "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
+    "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
+    "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/endpoint_audit.py": "f362374fe6156ea9ceb4cd17d694fd1091bdb34c2085ef4080ee5dcdfbee90cb",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/predictions/protocol.py": "65ebbd8169359011a2b83ead003243bc72a35b8ade5c511781b0cc944018bd3e",
+    "model/predictions/repair_response.py": "2dce01e471eece85ef67838f7d56bc5b23ca68f202f097f4eca3edbb1ca9f0e3",
+    "model/primitive_observer/__init__.py": "b4be22f83a7a3f3f2b509d74593f65d550a227730ec34304acd966def77fb8b4",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/relational_event_clock/__init__.py": "36afb9a73231b07486d84a48f44b422aa7cb6b725668ee07cc453c4410f6b447",
+    "model/relational_event_clock/kernel.py": "5c2933ca60e2219b9550fc0cdaa11021a58948cda31195f4fbaa90420187a028",
+    "model/relative_observer_geometry/__init__.py": "00c42c630b613582af1d78b3c124788a0385dc2c137b6ac901ca04b8c9dceaf3",
+    "model/relative_observer_geometry/intrinsic_geometry.py": "1a13f1004fbe897d368bb8c9ae0c7bec41644b1fd002fc1fcaf3aadd3599df1f",
+    "model/relative_observer_geometry/temporal_records.py": "95fd3869dd3de8cc419c529979cfbb2f9d80d14683f49eda6bc45f6acdabe871",
+    "model/relativistic_scalar/__init__.py": "90c288752c5928c5401abcc8f74102f789ff2c2ce3a4054136581da92a0a3bf1",
+    "model/relativistic_scalar/lattice.py": "1c8699de003afc0c7d51af488f2ad49e28db3bd0c1fb83fc8c73469783d89663",
+    "model/repair_identification/__init__.py": "8f437d05b775590a935367956f706e4e1d9bdcdcc224f8790a2a7ff6db1fafa8",
+    "model/repair_identification/core.py": "15b705391cde6a051d5ddeec98b6c0a7712088679be0ebfa88cf168c78205eeb",
+    "model/repair_scheduler/__init__.py": "7e241f87b902e72de6e154b3f307dfbef44f6dab3eefdb4905a1b849e82ac4c0",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/__init__.py": "aca05029c4326bba3c7ac0237284dbe87c8ac5011769cd5bdf68152b443c21ae",
+    "model/scalar_observations/bounds.py": "88bcc254df50658396517a6d7317120bfd97c94b4ea3085c7f8db2306b7c6bf3",
+    "model/scalar_observations/experimental_readout/__init__.py": "4fe571d3440bea33028288fa3314a6712962f8c8b1bb629ed828084d8e0460cd",
+    "model/scalar_observations/experimental_readout/canonical_source.py": "399445016aacf94db537a69427bf6bc9035633ba740fc4005be764b7a03bdc9e",
+    "model/scalar_observations/experimental_readout/executable_source.py": "94d8bfd9858632b9f900d5ede34992e3083e029a9b5622f6f86a75f53ba75a15",
+    "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
+    "model/scalar_observations/lattice.py": "3f08c67ee7c1be4ac89ba031f021a79ae308aba2dffa9ca6c296deb982ddf074",
+    "model/scalar_observations/protocol.py": "b07cd72b87aa73f464ec90b79d53077f8c5da322acced1d58058bcd49a19dc7d",
+    "model/scalar_observations/source.py": "3c580b2c69970e2f16136eea00e3b9cfa926f75ca265ffdf1a85036089620c94",
+    "model/standard_model_source_map/__init__.py": "24e90ab186b8e9ad160b73547132fe874ff77f6061a402edd843abc0e078b2f5",
+    "model/standard_model_source_map/algebra.py": "3f812b0f8959c4fb48da6a8f462d5b4be59f9aa50bd5fe9b296b46ac573dea4c",
+    "model/standard_model_source_map/fermion_attachment.py": "3a9c353acf994452659a48a4e7d4d022d06660c462a6e21b1029023a5544b44b",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "same_H_quantum_memory": {
+    "architectural_inputs": [
+      "three copies of native lepton CAR modes",
+      "one shared five-state scalar memory",
+      "diagonal family Yukawa coefficients",
+      "scalar penalty omega>0",
+      "no hopping"
+    ],
+    "baseline_squared_circulant_ratios": [
+      "206.7703159727293886125503393177750774621787949100341561202502337507262",
+      "3477.472837104598532313001225522648344599331860199226461797159304031647"
+    ],
+    "clock": "exp(-itH), hbar=1",
+    "domain": "local three-family quantum-Higgs memory, no spatial hopping",
+    "empirical_inputs": [],
+    "explicit_preparation": {
+      "energy": "1/2 - sqrt(273)/14",
+      "exact_Householder_maps_blank_to_ground": true,
+      "full_source_global_ground_claim": false,
+      "idle_reference_dimension": 1,
+      "norm_squared": "1",
+      "preparation": "Householder on blank-minus-ground, identity on orthogonal complement",
+      "preparation_success_probability": "1",
+      "stationary_under_actual_H": true
+    },
+    "families": [
+      {
+        "S_source": "4*y0**2 + 4*y1**2 + 4*y2**2",
+        "S_target": "2*y0**2 + 4*y1**2 + 4*y2**2",
+        "complete_dark_spectral_weight_exact": "0",
+        "composite_independently_compiled_from_native_CAR_and_scalar": true,
+        "diagnostic": {
+          "closed_form_residues": [
+            0.9896863924468192,
+            2.1808854398045364e-05
+          ],
+          "complete_elementary_record_probability": 1.0,
+          "complete_target_dimension": 11,
+          "dark_energy": 0.9999999999999987,
+          "dark_multiplicity": 9,
+          "dark_total_elementary_residue": 1.3214703457392162e-32,
+          "elementary_preparation_no_operation_probability": 0.010291798698782495,
+          "lines": [
+            {
+              "composite_residue": 0.0003003538750541437,
+              "elementary_residue": 0.9896863924468194,
+              "energy_transfer": 0.01742078898275712
+            },
+            {
+              "composite_residue": 0.00011971954122270638,
+              "elementary_residue": 2.1808854398044605e-05,
+              "energy_transfer": 2.342966588425573
+            }
+          ],
+          "residue_sum": 0.9897082013012175,
+          "same_H_amplitude_identity_max_error": 1.8735013540549517e-16,
+          "source_reference_energy": -0.6801936887041649
+        },
+        "family": 0,
+        "same_H_rectangular_identity_exact": true,
+        "source_dimension": 13,
+        "target_dimension": 11
+      },
+      {
+        "S_source": "4*y0**2 + 4*y1**2 + 4*y2**2",
+        "S_target": "4*y0**2 + 2*y1**2 + 4*y2**2",
+        "complete_dark_spectral_weight_exact": "0",
+        "composite_independently_compiled_from_native_CAR_and_scalar": true,
+        "diagnostic": {
+          "closed_form_residues": [
+            0.9584806424704461,
+            0.0003521627344227063
+          ],
+          "complete_elementary_record_probability": 1.0,
+          "complete_target_dimension": 11,
+          "dark_energy": 0.9999999999999987,
+          "dark_multiplicity": 9,
+          "dark_total_elementary_residue": 1.913960590709423e-31,
+          "elementary_preparation_no_operation_probability": 0.04116719479513142,
+          "lines": [
+            {
+              "composite_residue": 0.004875908548364378,
+              "elementary_residue": 0.9584806424704458,
+              "energy_transfer": 0.07132406754273501
+            },
+            {
+              "composite_residue": 0.0018452661120652203,
+              "elementary_residue": 0.00035216273442269474,
+              "energy_transfer": 2.289063309865595
+            }
+          ],
+          "residue_sum": 0.9588328052048686,
+          "same_H_amplitude_identity_max_error": 7.424616477180734e-16,
+          "source_reference_energy": -0.6801936887041649
+        },
+        "family": 1,
+        "same_H_rectangular_identity_exact": true,
+        "source_dimension": 13,
+        "target_dimension": 11
+      },
+      {
+        "S_source": "4*y0**2 + 4*y1**2 + 4*y2**2",
+        "S_target": "4*y0**2 + 4*y1**2 + 2*y2**2",
+        "complete_dark_spectral_weight_exact": "0",
+        "composite_independently_compiled_from_native_CAR_and_scalar": true,
+        "diagnostic": {
+          "closed_form_residues": [
+            0.905582682092338,
+            0.0017911296186167095
+          ],
+          "complete_elementary_record_probability": 1.0,
+          "complete_target_dimension": 11,
+          "dark_energy": 0.9999999999999997,
+          "dark_multiplicity": 9,
+          "dark_total_elementary_residue": 3.336673628650886e-32,
+          "elementary_preparation_no_operation_probability": 0.09262618828904556,
+          "lines": [
+            {
+              "composite_residue": 0.025412991679360165,
+              "elementary_residue": 0.9055826820923377,
+              "energy_transfer": 0.16751891165003463
+            },
+            {
+              "composite_residue": 0.008612955039064694,
+              "elementary_residue": 0.0017911296186167095,
+              "energy_transfer": 2.192868465758295
+            }
+          ],
+          "residue_sum": 0.9073738117109544,
+          "same_H_amplitude_identity_max_error": 2.498001805406602e-16,
+          "source_reference_energy": -0.6801936887041649
+        },
+        "family": 2,
+        "same_H_rectangular_identity_exact": true,
+        "source_dimension": 13,
+        "target_dimension": 11
+      }
+    ],
+    "finite_memory_mass_rows": [
+      {
+        "Q": "0.666666666666845712491407329342812471230766485212176405807854551541789",
+        "mu/e": "206.7703159727524791883867205892621718382270689218494025436956963086637",
+        "tau/e": "3477.472837111159477877594605873499551615212314758369328731803618922336",
+        "y_over_omega": "0.000001"
+      },
+      {
+        "Q": "0.6666668457101539874609180423564631040979928254440925589702110847185171",
+        "mu/e": "206.770339062940976653745114002814025075927987424449542630720110641744",
+        "tau/e": "3477.479397969956825519652894512493091157637267930811931400979754596231",
+        "y_over_omega": "0.001"
+      },
+      {
+        "Q": "0.666684547905714559103162692003788716809146463071244557766005753570185",
+        "mu/e": "206.7726213935059180687163017340135271504759364848964712251520994482097",
+        "tau/e": "3478.128130589834978720588845221396709777703099983000283468215484436895",
+        "y_over_omega": "0.01"
+      },
+      {
+        "Q": "0.6682508136411548321325291586764046610685312626767602957686066915207508",
+        "mu/e": "206.9697596531182960571064468656310265379907678371781376444089566219933",
+        "tau/e": "3535.951812952848954192852341058972897444031620593260411185199672759453",
+        "y_over_omega": "0.1"
+      },
+      {
+        "Q": "0.6796590583628116348749631708022520936094327643933362443360809088004603",
+        "mu/e": "208.1468624674738867417227511939939436267065881732336703261726544085408",
+        "tau/e": "3984.108801967530998812738356968870285145509124478115423409684079788783",
+        "y_over_omega": "1.0"
+      },
+      {
+        "Q": "0.6807014240055016290611106906814559528206034134167336491512934178985662",
+        "mu/e": "208.2341228348730958636305587763080190406949196276783169753239658635728",
+        "tau/e": "4027.58666020482183065211541242142058619040036120117154923139631711012",
+        "y_over_omega": "100.0"
+      }
+    ],
+    "gauge_compensation": {
+      "actual_native_current_columns_checked": 12,
+      "all_twelve_compensated_Ward_identities": true,
+      "apparatus_Hamiltonian": "0",
+      "apparatus_dimension": 2,
+      "apparatus_success_charge": "-1",
+      "elementary_instrument_effects": "T^dag T and I-T^dag T, both retained",
+      "source_creator_hypercharge": "1",
+      "source_creator_weak_and_colour_singlet": true
+    },
+    "physical_rest_mass_proved": false,
+    "primary_common_source_transfer": false,
+    "reference": "normalized negative-energy eigenvector of the vacuum-generated invariant star",
+    "reference_claimed_global_ground": false,
+    "reference_stationary": true,
+    "same_native_one_family": {
+      "actual_native_pair_Ward_checks": 72,
+      "actual_native_scalar_commutator_checks": 24,
+      "complete_native_columns_compared": 320,
+      "mismatches": 0
+    },
+    "source_dimension": 1310720,
+    "symbolic_spectrum": {
+      "D0": "sqrt(omega^2+4S)",
+      "D_f": "sqrt(omega^2+4S-8y_f^2)",
+      "S": "4 sum_f y_f^2",
+      "composite_residue": "transfer^2 * elementary_residue",
+      "dark_transfer": "(omega+D0)/2",
+      "exact_heavy_light_ratio": "(y_h/y_l)^2 (D0+D_l)/(D0+D_h) > (y_h/y_l)^2",
+      "high_transfer": "(D0+D_f)/2",
+      "low_transfer": "(D0-D_f)/2 = 4y_f^2/(D0+D_f)",
+      "low_transfer_leading_term": "2y_f^2/omega",
+      "target_dark_multiplicity": 9
+    }
+  },
+  "schema": "oph.finite_family_clock.v1",
+  "scope": {
+    "empirical_parameters_fitted_here": false,
+    "neutral_background_is_quantum_Higgs_state": false,
+    "observed_generations_derived": false,
+    "physical_rest_mass_or_GeV": false,
+    "primary_common_source_transfer": false
+  }
+}

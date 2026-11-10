@@ -28,7 +28,8 @@ EXTENSIONS = ('background', 'spectroscopy', 'spatial', 'species',
               'chiral_joint/atomic_reference_control', 'chiral_joint/atomic_even_remainder',
               'chiral_joint/charged_ground_exchange', 'chiral_joint/atomic_spin_geometry',
               'chiral_joint/atomic_momentum_response', 'chiral_joint/ground_composite_response',
-              'chiral_joint/ground_scalar_response', 'chiral_joint/collective_spin_response')
+              'chiral_joint/ground_scalar_response', 'chiral_joint/collective_spin_response',
+              'chiral_joint/interacting_ground_preparation', 'chiral_joint/interacting_charged_response')
 FORBIDDEN = {'physical_mass_identified', 'relativistic_mass_or_GeV_value',
              'GeV_mass', 'physical_particle_identity', 'SM_species_identified',
              'rest_masses_derived', 'interacting_relativistic_continuum',
@@ -216,6 +217,7 @@ def load():
                             value['extensions']['chiral_joint/periodic_boson_records'])
     check_PW_transport(value['extensions'])
     check_interacting_reference(value['extensions'])
+    check_charged_reference(value['extensions'])
     check_mass_instrument(value['extensions']['mass_instrument'],value['extensions']['many_body_route'])
     return value
 
@@ -240,6 +242,33 @@ def check_interacting_reference(extensions):
             or Fraction(line['outside_line_probability_conditioned_on_ground_preparation'][0])<=0
             or not line['ideal_finite_spectral_service_is_declared']):
         raise ValueError('complete collective line or declared apparatus changed')
+
+
+def check_charged_reference(extensions):
+    prep=extensions['chiral_joint/interacting_ground_preparation']['preparation']
+    filt=prep['finite_energy_agreement_filter']
+    if (not prep['scope']['constructive_finite_algebraic_service_schedule']
+            or prep['scope']['physical_native_efficiency_or_mass_identification']
+            or not 0<Fraction(filt['success_probability_lower'])<=1
+            or not 0<Fraction(filt['conditional_one_source_trace_distance_upper'])<Fraction(1,1000000)):
+        raise ValueError('physical preparation domain or error changed')
+    charged=extensions['chiral_joint/interacting_charged_response']
+    if charged['complete_probe_and_reference']['full_static_reference_modes']!=30:
+        raise ValueError('charged reference occupations omitted')
+    for row in charged['same_H_interacting_channels'].values():
+        scope=row['scope']; law=row['full_interacting_energy_readout']
+        if (scope['physical_rest_mass_or_free_charge_dispersion']
+                or not scope['full_complement_error_control']
+                or law['isolated_charged_eigenvalue_or_unchanged_multiplicity_claimed']
+                or law['reference_energy_subtracted_silently']
+                or Fraction(row['source']['reference_particle_cost'])!=4
+                or not row['constructive_approximate_preparation_records']['all_preparation_success_and_failure_branches_obey_source_Gauss']
+                or not row['reference_sector_comparison']['neutral_ground_tensor_reference_vacuum_is_unique_full_physical_ground_at_mu_four']):
+            raise ValueError('charged source, reference or physical scope changed')
+        for key in ('line','outside','failure'):
+            lo,hi=map(Fraction,law['conditional_probabilities'][key])
+            if not 0<lo<=hi<=1:
+                raise ValueError('complete charged detector has no positive '+key)
 
 
 def check_PW_transport(extensions):
@@ -807,7 +836,7 @@ def draw(c, data, y):
         'At a declared weak hopping strength, exact local bounds and a complete charged-state '
         'resolvent prove a unique physical ground. The first excited cluster has three cubic momenta. '
         'Its finite gap is computed with a bound for every complementary state.',19,SOFT,1.4)
-    stages=[('PREPARE','Ground filter','success 1/D'),('INTERVENE','Spin pump','all failures retained'),
+    stages=[('PREPARE','Physical controller','bounded ground error'),('INTERVENE','Spin pump','all failures retained'),
             ('RESOLVE','Three X momenta','line and complement')]
     w=(CW-100)/3
     for i,(label,title,detail) in enumerate(stages):
@@ -828,6 +857,48 @@ def draw(c, data, y):
            '../../model/coherent_defect_wave/chiral_joint/atomic_spin_geometry/PROOF.md',16)
     c.link(X0+730,y+h-18,'Complete source, apparatus and detector records',
            '../../model/coherent_defect_wave/chiral_joint/collective_spin_response/PROOF.md',16)
+    y+=h+35
+    charged=data['joint']['extensions']['chiral_joint/interacting_charged_response']
+    h=675
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'Move a fermion into an apparatus; retain its charge',28,TEXT,700)
+    c.para(X0+28,y+84,CW-56,
+        'The same interacting ground admits a physical preparation from blank states. '
+        'Retained spin references and a finite two-copy energy filter leave source error below '
+        '2.36 × 10⁻⁷. The declared algebraic controller succeeds with probability above 0.99999994; '
+        'its very large finite schedule is explicit. Every failure still satisfies Gauss constraints.',19,SOFT,1.4)
+    c.circle(X0+100,y+252,42,TEAL)
+    c.text(X0+100,y+259,'source',19,TEXT,700,'middle')
+    c.arrow(X0+165,y+252,X0+405,y+252,VIOLET,3,12)
+    c.text(X0+285,y+225,'one fermion transfer',18,VIOLET,600,'middle')
+    c.rect(X0+425,y+208,228,89,'#151b2e',VIOLET,1.5,14)
+    c.text(X0+539,y+246,'quantum reference',20,TEXT,700,'middle')
+    c.text(X0+539,y+276,'30 modes, all occupations',16,SOFT,400,'middle')
+    c.para(X0+700,y+224,CW-740,
+        'Joint charge and total fermion parity stay conserved. The apparatus keeps the '
+        'compensating fermion. Its energy cost is four source units, accounted separately.',18,SOFT,1.4)
+    c.text(X0+28,y+351,'ACTUAL SOURCE REMOVAL',15,VIOLET,700)
+    c.text(X0+400,y+351,'SOURCE ENERGY BIN',15,VIOLET,700)
+    c.text(X0+835,y+351,'PROBABILITY IN THAT BIN',15,VIOLET,700)
+    for i,(key,label) in enumerate((('ec','eᶜ · charged singlet'),('L','L · weak lepton doublet'))):
+        row=charged['same_H_interacting_channels'][key]['full_interacting_energy_readout']
+        energy=[float(Fraction(x)) for x in row['source_excitation_energy_bin_after_subtracting_declared_reference_cost']]
+        probability=[float(Fraction(x)) for x in row['conditional_probabilities']['line']]
+        yy=y+394+i*46
+        c.text(X0+28,yy,label,21,TEXT,600)
+        c.text(X0+400,yy,f'{energy[0]:.6f} – {energy[1]:.6f}',21,TEAL,600)
+        c.text(X0+835,yy,f'{probability[0]:.6f} – {probability[1]:.6f}',21,TEAL,600)
+    c.para(X0+28,y+488,CW-56,
+        'These probabilities use the exact ground. The physical preparation adds its error bound. '
+        'The remaining outcomes include the complete outside-bin signal and pump failure. '
+        'No rare outcome is deleted. Total source-plus-apparatus energies add four to each bin.',19,SOFT,1.4)
+    c.para(X0+28,y+575,CW-56,
+        'This is a charged detector transition with a static compensator. It does not yet '
+        'establish a freely propagating electron, neutrino or a rest mass in GeV.',18,MUTED,1.35)
+    c.link(X0+28,y+h-20,'Physical preparation and finite error proof',
+           '../../model/coherent_defect_wave/chiral_joint/interacting_ground_preparation/PROOF.md',16)
+    c.link(X0+740,y+h-20,'Full charged response and reference energy',
+           '../../model/coherent_defect_wave/chiral_joint/interacting_charged_response/PROOF.md',16)
     y+=h+35
     c.link(X0 + 24, y, 'Joint evolution and reciprocal detector proofs',
            '../../model/coherent_defect_wave/PROOF.md', 17)

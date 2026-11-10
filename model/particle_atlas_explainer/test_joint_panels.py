@@ -255,3 +255,17 @@ def test_interacting_line_cannot_drop_complement_or_change_mass_domain(joint):
     line['outside_line_probability_conditioned_on_ground_preparation']=['0','0']
     with pytest.raises(ValueError):
         joint_panels.check_interacting_reference(changed)
+
+
+def test_charged_panel_rejects_free_reference_and_unproved_pole(joint):
+    import copy
+    for section,key,value in (
+        ('source','reference_particle_cost',0),
+        ('scope','physical_rest_mass_or_free_charge_dispersion',True),
+        ('full_interacting_energy_readout','isolated_charged_eigenvalue_or_unchanged_multiplicity_claimed',True),
+        ('constructive_approximate_preparation_records','all_preparation_success_and_failure_branches_obey_source_Gauss',False),
+    ):
+        changed=copy.deepcopy(joint['extensions'])
+        changed['chiral_joint/interacting_charged_response']['same_H_interacting_channels']['ec'][section][key]=value
+        with pytest.raises(ValueError):
+            joint_panels.check_charged_reference(changed)

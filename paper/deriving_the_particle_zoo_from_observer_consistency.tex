@@ -931,9 +931,10 @@ in $[0.00204894419,0.00211090162]$ and outside-line probability in
 $[0.00001386725,0.00001938783]$, conditioned on ground preparation. The
 excitation energy lies in $[8.20758426381,8.21034719056]10^{-22}$ source
 units. Each source momentum retains its reference and one third of the
-corresponding total probability. Preparation from $I/D$ through the joint
-physical ground filter succeeds with probability $1/D$; its failure is
-retained. Together with pump failure and all line/outside outcomes, the
+corresponding total probability. The kinematic preparation from $I/D$ through the physical
+ground filter succeeds with probability $1/D$; its retained failure need
+not satisfy source-only Gauss. The physical protocol below preserves
+Gauss on all branches. Together with pump failure and all line/outside outcomes, the
 complete probability is one. These spectral filters are declared finite
 algebraic services, with no efficient native implementation asserted
 (\path{model/coherent_defect_wave/chiral_joint/collective_spin_response}, \cite{ophrepo}).
@@ -948,6 +949,90 @@ collective gap supplies neither a zero-momentum rest mass nor a growing
 relativistic limit, measured species identification or GeV scale
 (\path{model/coherent_defect_wave/chiral_joint/ground_composite_response},
 \path{model/coherent_defect_wave/chiral_joint/ground_scalar_response}, \cite{ophrepo}).
+
+\paragraph{Physical preparation and odd source response.}
+A finite algebraic controller starts from physical vacua, constructs the
+actual local ground doublets by polynomial projection, and prepares the
+native cube trial with retained fermionic spin references. A Householder
+unitary and a two-copy energy-agreement filter use the actual
+$H_0+2^{-34}T$. The Cayley filter needs no exact interacting ground vector
+or ground-energy input. With $1197721483502453176152084669$ terms,
+preparation succeeds with probability at least $0.999999942661984$;
+the conditional source trace distance from its true ground is at most
+$2.355922487\,10^{-7}$. Every failure branch remains physical. Exact
+algebraic synthesis, controlled matrix inversion and the finite schedule
+are declared services; the construction supplies no efficient native circuit
+(\path{model/coherent_defect_wave/chiral_joint/interacting_ground_preparation}, \cite{ophrepo}).
+
+The separate finite native service compiler executes a two-state
+singlet code of the actual $320$-state lepton/scalar source. Its exact
+$HV=Vh$ has $h=\left(\begin{smallmatrix}0&-2\\-2&1\end{smallmatrix}\right)$,
+so one simultaneous source pulse gives the full continuous code evolution;
+six pointer pulses supply the complete native C/E readout. A compensated
+$U(1)$ code also checks $491520$ CAR/Gauss columns and all $32768$
+amplitudes. Rational control-error bounds retain export failures and
+reset timeouts. Coherent load/export and signed analog port control are
+explicit services; the passive classical repair run does not implement
+them. The finite general compiler includes padding and an explicit
+product-formula cost, without executing the full non-Abelian cube
+preparation (\path{model/native_quantum_service_bridge}, \cite{ophrepo}).
+
+On the thirty-mode reference vacuum, the fermion transfer is
+\[
+ B_r=(2d_r)^{-1/2}\sum_{s,a\in r}r^\dagger_{sa}c_{0sa},
+ \qquad B_r^\dagger B_r=N_r/(2d_r)\le I.
+\]
+Its full dilation preserves
+joint Gauss charges and total fermion parity. The reference energy is
+$4N_{\rm ref}$; a bound over every reference occupation and source link
+sector proves that the neutral ground with blank reference is the unique
+physical ground of this enlarged Hamiltonian. Complete positive local
+resolvents have nine energies for $e^c$ removal and seventeen for $L$
+removal. Residual bounds transfer their weights to bins of the actual
+full interacting Hamiltonian without assuming that unseen eigenstates
+are absent from those bins:
+\[
+\begin{array}{c|c|c}
+\text{native removal}&\text{source energy bin}&\text{selected probability}\\\hline
+ e^c &[0.6906800974,0.6926332644]&[0.4197041521,0.4201989707]\\
+ L &[0.0959119144,0.0978650814]&[0.3210643365,0.3214971263].
+\end{array}
+\]
+The complete outside probabilities are enclosed respectively by
+$[0.0799404942,0.0801565287]$ and $[0.1785579463,0.1788807366]$;
+pump failure is about one half. The exact probabilities sum to one.
+These ground-reference intervals acquire the stated preparation error
+under the constructive protocol. Total source/reference excitation energy
+adds the declared reference cost four. A localized charged response does
+not identify an isolated propagating pole, a rest mass or an empirical
+lepton; the static compensator is retained in that distinction
+(\path{model/coherent_defect_wave/chiral_joint/interacting_charged_response}, \cite{ophrepo}).
+
+\paragraph{A family effect and an energy clock.}
+For the declared cyclic family register, native repair columns give the
+one-tick amplitude $M=\sqrt2\,C(\theta)/3$, where
+$C=I/\sqrt6+(e^{i\theta}R+e^{-i\theta}R^{-1})/\sqrt{12}$ and $R^3=I$.
+Positive eigenvalues of $C$ have squared values with Koide ratio $2/3$.
+The literal two-tick amplitude is instead $\sqrt3 I/9$.
+An unconditional collision extension realizes $A=M^\dagger M$ as a
+generator: $N$ fresh retained ancillas over time $t$ give marginal-channel
+diamond error at most $\min(2,4t^2/N)$ from $e^{-itA}$. The projector
+phase gate, inverse tick and schedule are explicit architecture inputs.
+The XOR probability $2/9$ does not alone choose a Hamiltonian phase.
+
+A separate native quantum scalar memory with three CAR families has
+$5\,2^{18}$ states. On its stationary vacuum-generated component, put
+$S=4\sum_f y_f^2$, $D_0=\sqrt{\omega^2+4S}$ and
+$D_f=\sqrt{\omega^2+4S-8y_f^2}$. Its lower charged line is
+$m_f=4y_f^2/(D_0+D_f)$; a second line, nine dark states and the no-operation
+record are retained. For $y_h>y_l>0$, $m_h/m_l>(y_h/y_l)^2$.
+Consequently this response cannot remove the $+9.83354$ ppm excess in
+the muon/electron comparison of the $\theta=2/9$ squared-amplitude
+reading. Three independently occupiable families, a common three-state
+register and a neutral classical Higgs background are distinct source
+constructions; these finite identities do not transfer their energies to
+the spatial interacting source
+(\path{model/finite_family_clock}, \cite{ophrepo}).
 
 \paragraph{A defect class and a particle representation.}
 The six-class register preserves colour triality and weak centre parity:
