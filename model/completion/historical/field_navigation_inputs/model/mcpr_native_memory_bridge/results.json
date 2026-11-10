@@ -1,0 +1,773 @@
+{
+  "admissibility": {
+    "forward": {
+      "absolute_mass_bound": {
+        "operator_norm_mass_matrix_over_v_strict_upper_bound": "1",
+        "sum_mass_over_v_cubed": [
+          "445192836159/1000000000000000000",
+          "1391227613/3125000000000000"
+        ],
+        "sum_mass_over_v_strict_upper_bound": "1"
+      },
+      "cubic_root_count": 3,
+      "inverse_branches": [
+        {
+          "p": [
+            "957/50000",
+            "1917/100000"
+          ],
+          "q": [
+            "54731748849/1000000000000",
+            "27379333077/500000000000"
+          ]
+        },
+        {
+          "p": [
+            "5997/100000",
+            "6001/100000"
+          ],
+          "q": [
+            "1045775211/62500000000",
+            "8385603677/500000000000"
+          ]
+        }
+      ],
+      "inverse_root_count": 2,
+      "method": "rational Taylor remainders and polynomial endpoint signs with degree exhaustion",
+      "normalized_mass_intervals": [
+        [
+          "2713605649563589766373803/10000000000000000000000000000",
+          "678401412390897441593451/2500000000000000000000000000"
+        ],
+        [
+          "561087628645745645317832241/10000000000000000000000000000",
+          "561087628645745645317832267/10000000000000000000000000000"
+        ],
+        [
+          "9436198765704690764915793927/10000000000000000000000000000",
+          "4718099382852345382457896979/5000000000000000000000000000"
+        ]
+      ],
+      "projector_weight_intervals": [
+        [
+          "35291/500000",
+          "3529103/50000000"
+        ],
+        [
+          "46421319/50000000",
+          "46421323/50000000"
+        ],
+        [
+          "49577/50000000",
+          "99157/100000000"
+        ]
+      ],
+      "source_interpretation": "exact supplied decimal P and alpha_U; conditional endpoint"
+    },
+    "measured_endpoint": {
+      "absolute_mass_bound": {
+        "operator_norm_mass_matrix_over_v_strict_upper_bound": "1",
+        "sum_mass_over_v_cubed": [
+          "111298201549/250000000000000000",
+          "445192806197/1000000000000000000"
+        ],
+        "sum_mass_over_v_strict_upper_bound": "1"
+      },
+      "cubic_root_count": 3,
+      "inverse_branches": [
+        {
+          "p": [
+            "957/50000",
+            "1917/100000"
+          ],
+          "q": [
+            "54731748849/1000000000000",
+            "27379333077/500000000000"
+          ]
+        },
+        {
+          "p": [
+            "5997/100000",
+            "6001/100000"
+          ],
+          "q": [
+            "1045775211/62500000000",
+            "8385603677/500000000000"
+          ]
+        }
+      ],
+      "inverse_root_count": 2,
+      "method": "rational Taylor remainders and polynomial endpoint signs with degree exhaustion",
+      "normalized_mass_intervals": [
+        [
+          "1356802932358605940424109/5000000000000000000000000000",
+          "2713605864717211880848219/10000000000000000000000000000"
+        ],
+        [
+          "561087624678390940436584371/10000000000000000000000000000",
+          "561087624678390940436584397/10000000000000000000000000000"
+        ],
+        [
+          "471809938472844592384128369/500000000000000000000000000",
+          "1887239753891378369536513483/2000000000000000000000000000"
+        ]
+      ],
+      "projector_weight_intervals": [
+        [
+          "35291/500000",
+          "3529103/50000000"
+        ],
+        [
+          "46421319/50000000",
+          "46421323/50000000"
+        ],
+        [
+          "49577/50000000",
+          "99157/100000000"
+        ]
+      ],
+      "source_interpretation": "exact supplied decimal P and alpha_U; conditional endpoint"
+    }
+  },
+  "all_pass": true,
+  "canonical_physical_premises_discharged": [],
+  "designs": [
+    {
+      "P": "1.63097209585889737696451390350695562847912625483895268486516",
+      "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
+      "coefficient_matrix": [
+        [
+          0.005302879030928463,
+          -0.007348719458269064,
+          8.494125868253185e-06
+        ],
+        [
+          -0.007348719458269064,
+          0.013847135846612462,
+          0.0
+        ],
+        [
+          8.494125868253185e-06,
+          0.0,
+          5.24965849130018e-06
+        ]
+      ],
+      "gain_over_v": 0.3986219736386163,
+      "independent_check": {
+        "all_checks_pass": true,
+        "current_outcomes_per_leg": 13,
+        "fine_current_native_records_per_input": 21632,
+        "max_residual_below_tolerance": true,
+        "numerical_tolerance": 2e-12,
+        "retained_binary_native_records_per_input": 512,
+        "retained_old_memory_inputs": 12
+      },
+      "inverse_branch": 0,
+      "mass_matrix_over_v": [
+        [
+          0.002113844105275537,
+          -0.002929361054171718,
+          3.3859452179379103e-06
+        ],
+        [
+          -0.002929361054171718,
+          0.005519772620418692,
+          0.0
+        ],
+        [
+          3.3859452179379103e-06,
+          0.0,
+          2.0926292287307987e-06
+        ]
+      ],
+      "masses_over_E_star": [
+        4.185110648223775e-23,
+        8.653482165360261e-21,
+        1.4553159534974395e-19
+      ],
+      "masses_over_v": [
+        2.07203040439445e-06,
+        0.000428430205498186,
+        0.00720520711902038
+      ],
+      "normalized_matrix": [
+        [
+          0.2768366378315174,
+          -0.38363967484999606,
+          0.0004434355814964191
+        ],
+        [
+          -0.38363967484999606,
+          0.7228893039072967,
+          0.0
+        ],
+        [
+          0.0004434355814964191,
+          0.0,
+          0.00027405826118586095
+        ]
+      ],
+      "p": 0.019155264536032227,
+      "q": 0.05474497127108985,
+      "source_branch": "forward",
+      "theta_left": 0.47142057342173355,
+      "theta_right": 0.35236359364212105,
+      "v_over_E_star": 2.019811407857633e-17,
+      "weights": [
+        0.07058202803281208,
+        0.9284264198633198,
+        0.000991552103868141
+      ]
+    },
+    {
+      "P": "1.63097209585889737696451390350695562847912625483895268486516",
+      "alpha_U": "0.04112424744181668514088993388965971943770774203135879",
+      "coefficient_matrix": [
+        [
+          0.016607046276940103,
+          -0.023014012465292253,
+          2.6601086042789957e-05
+        ],
+        [
+          -0.023014012465292253,
+          0.043365127597019014,
+          0.0
+        ],
+        [
+          2.6601086042789957e-05,
+          0.0,
+          1.6440375312104632e-05
+        ]
+      ],
+      "gain_over_v": 0.12728597668874678,
+      "independent_check": {
+        "all_checks_pass": true,
+        "current_outcomes_per_leg": 13,
+        "fine_current_native_records_per_input": 21632,
+        "max_residual_below_tolerance": true,
+        "numerical_tolerance": 2e-12,
+        "retained_binary_native_records_per_input": 512,
+        "retained_old_memory_inputs": 12
+      },
+      "inverse_branch": 1,
+      "mass_matrix_over_v": [
+        [
+          0.002113844105275537,
+          -0.002929361054171718,
+          3.3859452179379103e-06
+        ],
+        [
+          -0.002929361054171718,
+          0.005519772620418692,
+          0.0
+        ],
+        [
+          3.3859452179379103e-06,
+          0.0,
+          2.0926292287307987e-06
+        ]
+      ],
+      "masses_over_E_star": [
+        4.185110648223775e-23,
+        8.653482165360261e-21,
+        1.4553159534974395e-19
+      ],
+      "masses_over_v": [
+        2.07203040439445e-06,
+        0.000428430205498186,
+        0.00720520711902038
+      ],
+      "normalized_matrix": [
+        [
+          0.2768366378315174,
+          -0.38363967484999606,
+          0.0004434355814964191
+        ],
+        [
+          -0.38363967484999606,
+          0.7228893039072967,
+          0.0
+        ],
+        [
+          0.0004434355814964191,
+          0.0,
+          0.00027405826118586095
+        ]
+      ],
+      "p": 0.059988614249271224,
+      "q": 0.016753147223135312,
+      "source_branch": "forward",
+      "theta_left": 0.9551083277125498,
+      "theta_right": 0.1862614907649702,
+      "v_over_E_star": 2.019811407857633e-17,
+      "weights": [
+        0.07058202803281208,
+        0.9284264198633198,
+        0.000991552103868141
+      ]
+    },
+    {
+      "P": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+      "alpha_U": "0.041124336195630495",
+      "coefficient_matrix": [
+        [
+          0.005302879699683939,
+          -0.007348720393160615,
+          8.49412761920641e-06
+        ],
+        [
+          -0.007348720393160615,
+          0.01384713759001987,
+          0.0
+        ],
+        [
+          8.49412761920641e-06,
+          0.0,
+          5.249659573448785e-06
+        ]
+      ],
+      "gain_over_v": 0.3986219144760933,
+      "independent_check": {
+        "all_checks_pass": true,
+        "current_outcomes_per_leg": 13,
+        "fine_current_native_records_per_input": 21632,
+        "max_residual_below_tolerance": true,
+        "numerical_tolerance": 2e-12,
+        "retained_binary_native_records_per_input": 512,
+        "retained_old_memory_inputs": 12
+      },
+      "inverse_branch": 0,
+      "mass_matrix_over_v": [
+        [
+          0.0021138440581244225,
+          -0.0029293609920711936,
+          3.3859454133723196e-06
+        ],
+        [
+          -0.0029293609920711936,
+          0.005519772496147598,
+          0.0
+        ],
+        [
+          3.3859454133723196e-06,
+          0.0,
+          2.0926293495159063e-06
+        ]
+      ],
+      "masses_over_E_star": [
+        4.1854608855045644e-23,
+        8.654205597675481e-21,
+        1.4554376289838955e-19
+      ],
+      "masses_over_v": [
+        2.0720305221950478e-06,
+        0.00042843019285731843,
+        0.007205206960242024
+      ],
+      "normalized_matrix": [
+        [
+          0.27683663786706036,
+          -0.38363967532375665,
+          0.0004434356170393594
+        ],
+        [
+          -0.38363967532375665,
+          0.7228893038497869,
+          0.0
+        ],
+        [
+          0.0004434356170393594,
+          0.0,
+          0.0002740582831526061
+        ]
+      ],
+      "p": 0.01915526694927726,
+      "q": 0.05474496860321555,
+      "source_branch": "measured_endpoint",
+      "theta_left": 0.4714206058674789,
+      "theta_right": 0.3523635838032451,
+      "v_over_E_star": 2.0199803239725498e-17,
+      "weights": [
+        0.0705820274633935,
+        0.928426420353262,
+        0.0009915521833445717
+      ]
+    },
+    {
+      "P": "1.6309682094039593248792798477826489413359828516279250606661507533907793398933432",
+      "alpha_U": "0.041124336195630495",
+      "coefficient_matrix": [
+        [
+          0.016607045499036126,
+          -0.023014011412739913,
+          2.660108692550348e-05
+        ],
+        [
+          -0.023014011412739913,
+          0.043365125556700725,
+          0.0
+        ],
+        [
+          2.660108692550348e-05,
+          0.0,
+          1.644037585765159e-05
+        ]
+      ],
+      "gain_over_v": 0.12728597981182807,
+      "independent_check": {
+        "all_checks_pass": true,
+        "current_outcomes_per_leg": 13,
+        "fine_current_native_records_per_input": 21632,
+        "max_residual_below_tolerance": true,
+        "numerical_tolerance": 2e-12,
+        "retained_binary_native_records_per_input": 512,
+        "retained_old_memory_inputs": 12
+      },
+      "inverse_branch": 1,
+      "mass_matrix_over_v": [
+        [
+          0.0021138440581244225,
+          -0.0029293609920711936,
+          3.3859454133723196e-06
+        ],
+        [
+          -0.0029293609920711936,
+          0.005519772496147598,
+          0.0
+        ],
+        [
+          3.3859454133723196e-06,
+          0.0,
+          2.0926293495159063e-06
+        ]
+      ],
+      "masses_over_E_star": [
+        4.1854608855045644e-23,
+        8.654205597675481e-21,
+        1.4554376289838955e-19
+      ],
+      "masses_over_v": [
+        2.0720305221950478e-06,
+        0.00042843019285731843,
+        0.007205206960242024
+      ],
+      "normalized_matrix": [
+        [
+          0.27683663786706036,
+          -0.38363967532375665,
+          0.0004434356170393594
+        ],
+        [
+          -0.38363967532375665,
+          0.7228893038497869,
+          0.0
+        ],
+        [
+          0.0004434356170393594,
+          0.0,
+          0.0002740582831526061
+        ]
+      ],
+      "p": 0.05998861143159451,
+      "q": 0.016753149395661127,
+      "source_branch": "measured_endpoint",
+      "theta_left": 0.9551082922184507,
+      "theta_right": 0.1862615032792456,
+      "v_over_E_star": 2.0199803239725498e-17,
+      "weights": [
+        0.0705820274633935,
+        0.928426420353262,
+        0.0009915521833445717
+      ]
+    }
+  ],
+  "generic_algebra": {
+    "all_three_inverse_weight_identities_exact": true,
+    "determinant": "2/5 - 2*sqrt(5)/25 times u*v*w",
+    "inverse_polynomial": "-v*(v+w)*p^2+(v*(1-v+w)+(v+w)*w)*p-w",
+    "second_elementary_invariant": "4*(u*v+u*w+v*w)/5",
+    "trace": "u+v+w"
+  },
+  "issues": [
+    1141,
+    1142,
+    1143
+  ],
+  "schema": "oph.mcpr_native_memory_bridge.v1",
+  "scope": {
+    "MCPR_design_historically_target_informed": true,
+    "algebraic_inverse_and_admissibility_certified": true,
+    "all_quark_and_neutrino_parameters_derived": false,
+    "compiled_feedback_service_in_native_pulse_words": false,
+    "continuum_or_Einstein_limit_proved": false,
+    "correlated_C_duty_weak_pulse_generator_derived": true,
+    "every_native_record_and_memory_input_retained": true,
+    "integrated_gate_accepted": false,
+    "old_P_mass_law_realized_in_declared_native_mean_feedback": true,
+    "particle_equals_created_topological_defect_proved": false,
+    "physical_interacting_rest_mass_or_clock_derived": false,
+    "runtime_measured_charged_masses_consumed": false,
+    "static_mean_equals_finite_correlated_channel": false,
+    "unique_selection_by_bare_OPH_proved": false
+  },
+  "source_bindings": {
+    "Lean/ObserverPatchHolography/KoideCirculant.lean": "e2afb770c07dae918a4dd77e00c5e2aee9f2e108cf0da4706406b537678dc577",
+    "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
+    "Lean/Screen/A5FamilyBand.lean": "da86f97b63a871bedc4a5418c4b7b154ab3d354b7fdb41e9184f4c3b343e1521",
+    "Lean/Screen/A5PortAction.lean": "5efd9ea0ca2d12f8beb3f20111e80d748984ec0cbef484dd3d7cbb766954f9cc",
+    "Lean/Screen/A5PortModule.lean": "6bd28a569e34b9214085ed9fe8d0cbfb4cbaebf6e0d73c9626e03a28af768f17",
+    "Lean/Screen/A5ResponseWordAlgebra.lean": "5575c8e696c6d0b672daa349c650f4d028194b025f1318a6b27b7526286fb0df",
+    "Lean/Screen/ExteriorComponentBridge.lean": "f33a18a2ab340e4d9862758937c4db8c6abe689fb37a4aa97c4b47e7c624726e",
+    "Lean/Screen/ExteriorSelection.lean": "464f9606ef77cf911e1ea86544e4cca98056b4f67ebc7eba9aff8b03dab8c531",
+    "Lean/Screen/FermionSectorAssembly.lean": "b5b3fae51a8f8d40d7580eddb3bc28429b27f9fe63a655d469b58c880d8433a4",
+    "Lean/Screen/PortFrameGram.lean": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+    "Lean/Screen/PrimitivePortFrameQuotient.lean": "1edb876e3ccfe61dd2e98473e0398391aa28166b2e330742ae3f034db05e3cfd",
+    "Lean/Screen/QuantumMatterIntegration.lean": "9d2c3ab2519e62b7e7867872ebebfd879e198c30b141c59eb93982c7c4b217c1",
+    "Lean/Screen/SMStructureAdequacySurface.lean": "8770dea6ff61fc042cadac60faae13c46a4c9518802abe428b1290102bad0d53",
+    "Lean/Screen/WeylYukawaConventions.lean": "ec896bc9a0055698b62ddf8b69f5df8ea4bf86863d940b5bb02b6225ba6f9ea7",
+    "Lean/SourceLaw/ReflectionPositivity.lean": "e7fc6361cfbc57fb53fdfe24b188bda4615896a234cb4f0e849b222204a4e11e",
+    "Lean/Thermodynamics/CapFirstLaw.lean": "17e8be6e744552b4650efb58932e9a2ed7c7c545a962e17905dbbc70c2de9447",
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean": "6d1c8c2db46bba7bcb685d9f11f682ad4f96d01eff528d6f942e0f6666d87ce2",
+    "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean": "646f2b7865b6d14a21a05b08013c35848fd3380d89cfffa2fff6b390786c9a22",
+    "Lean/Thermodynamics/GreenKubo.lean": "9fa2770f728c0525a9bbc62675b67984403eb9b7407307d4d40995ba181cc2ca",
+    "Lean/Thermodynamics/NativeRepairFourCycle.lean": "61aa35e58e1409e1c5c37e0d7a91091709cb691dca3e00f3ac2dfc84f606be8d",
+    "Lean/Time/SourceCountClockEnclosure.lean": "61d64607600babe4b192541a9616c0c2bd1cc3fdc0e3342f9658cbc969f2f23c",
+    "code/a5_closure/manifests/echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "code/m1_source_realization/model.py": "c0089ba890db76ca9dc055c29800a328a3b6800dbb000247f38621288c5c03b2",
+    "code/m1_source_realization/receipt.json": "cef14e5c14bdf02e14f21d6f470bcfc6c6f396dd301e8067ca6454194f25ab49",
+    "code/particles/hierarchy/certificates/R_EW_tick_projection_certificate.json": "700227c93d2fa9011b38f3036522a7ef0ce06520feda5e58135b36336556c19c",
+    "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json": "5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c",
+    "code/particles/leptons/derive_charged_mcpr_completion_conditional.py": "67ab613d44f86c32b24463c578d350e5760da72256db2881f66b52748c0e482e",
+    "code/source_selection_model/DERIVATION.md": "e53df3ae59398a6abe2ad3b85f7871ff7ea728e72bd9de073af8bf398a86dcbe",
+    "code/source_selection_model/response.json": "226ab001894f357d3732d8a898fbae80e28b9e16ca41104a6f293190b441e053",
+    "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400",
+    "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/federation.py": "29b0bb7a1e4d8a2077f16dbb508b7e08e794a7191a4a9f51e6c1b471e726ca1d",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/__init__.py": "7f72d89ca6a367344b39089fbf24163e3eb6c742476ee5db3c813b12ff73617e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/claims.py": "962a829a454f8909773d818b96b656fc971aa9d1579cc4c53bbe6cde3cabfe14",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/__init__.py": "bc732866538c149253d0e72723ef8891e5ed68fd676b46dfaec237875540f6aa",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/constants/oph_pixel.py": "9ab43098d6648010b6bd17cbfa7382d4355619a92fe2d32d3339d79af615ec9f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/__init__.py": "56d3d5e684d53b61f38b24f32111728866fc5dc0151495dece8702d3c591d161",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/array_geometry.py": "e9b0d0c20c8598cb6e49a4965d892c8323b513b36a47dbb53b0cd49a6f873cb8",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_dynamics.py": "a20b928552bb51257bcc7b976f513fe227f5f36158b6e3b4786c315477c862da",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/echosahedral_federation.py": "ead1a96812ac1b243bbe2c1d175a368cd23d5c7b29a179e8718a82baf2edeec1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/graph.py": "533bb11fc2f53600d4f3bfec25c5781ddd2d1b31f41e3fbadbb73a6a219f8667",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/icosahedral.py": "89fac4f2d24bb4d85c4a84624b3c826e99cb717df68060dd23a4b26c6cfe9adc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patch_state.py": "85b7c4b9fe8b983571ca1944b5871c959e198ac4970c2412e85b195d4f34221f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/patchnet.py": "4664fe5717aac6e1433ab8ec618786cf7fbbd381b421632153ebf9ae78918dc7",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/pixel_scale.py": "0c6ce1b055df4334abba2a8b150905b4bb551e8b7f18fb2674cb6bcbb06963e5",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_microphysics.py": "8fe76b1b9bde24060afa6adcbb51e925865799866d1884490c26e4b172d59cf9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/core/screen_ports.py": "37b79a8a949fad2d18f17e850533c6ef33581f64c8f1a72dd94e45da93cef68e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/__init__.py": "0f8ea883cedb9b67cb2c6af038ebdcb9fc332b0a0d62a5ea1c5cc87d0b22794c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/anneal.py": "ff008ea37005cf667825a8cd8c7b2c5c6a2110523722da5ab089f8422dd366eb",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/consensus_certificate.py": "e6d282be435e41269ac8d581997508e5559d558ab8ffdc9e5756e3030cd7fc0f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/kernel_dispatcher.py": "5ecb419adbdd7a341359a8aab13bef3c2feb4490130c20defadc7a196f01e500",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/modular.py": "8978134a5846ad215c7a69205401c479a02019b7902e31bef283f18a6290ef9e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/positive_geometry.py": "b87cfb52bdc1e1d5762fa65259a026b50072d54d4e1c68bdbcac0159b05bf435",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/repair.py": "fdc6326cdbac39c86e00e9ad314a2d9fd6cf06714a2e06f0470b298177d80949",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/dynamics/self_readback_repair_closure.py": "7e7cda89350be6330c7425df69bf9647549e6e1890a64eaaf28289be6c640b2f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/__init__.py": "1875a81eb0bbac4cedfd2c3df77cabe06270b2ce8313e781b1af43174cdc04f3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/bundle.py": "b84548c3f62187ecc19b64fa11a5dc24915bc1b9a05066b3a6496524c5f61a71",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/cross_repo_artifacts.py": "f026e8653752e5bcb1c703ed253861d3444d7beff2fe572863b09508d7efbff6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/hashes.py": "e4a7ada049fa1137e2d53c8eadd36a574f03fca25793322906e854d8ef04773f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/particle_input_policy.py": "8d3683c8a3b6d249c484d253e08fd8425899c71a8d69ab5c78ee34780a7e06d3",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/production_envelope.py": "f34f03314efae563a3b42cae6646164354c74e7bf062f5091790a584d08c6d1e",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/evidence/verifier.py": "4997bb27fe34846b9c2a4fff14f8a8b9a6b238f4029e2ec0273f8e1f7de60f45",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/finite_groups.py": "1329f07ef90beb9d4be1efa5cd0cb76e323014670d8e90c8f7945eba54e401f6",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/__init__.py": "ede5295ec9dac5c42571287b5971c61a24647c3c9dee0b8b7187b7f195c9bb54",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/a5_sm_certificate.py": "8d7a99cc1ae093bc570bbb3b1677a028d23b82be23e90de4635a76380bde92f1",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/covariant_overlap.py": "f03127e7314b0be60ba18b0a0b4cc934aa8d314785636258796c68baae374aa9",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/higgs_carrier.py": "c150b9850364a4948995eca273e3571a9808960e840ad9fa361801c2beec5958",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/mar_sieve.py": "0043cc7d784f1be263dca5e3882b3d1698b8b91d75a8f2ba28beee516086a366",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/physical_a5_sm_requirements.py": "6e4b35bdf56d025793973d6dcc15cb34d0e60b5e7e5796926fdf96fa2cd03015",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/repair_projection.py": "e2fdd6165ae39006e3b83c0376137162d423adeabec293ab5c06c6fe0b2b0cec",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/source_to_eft.py": "6414f00bda171fad6e8e6c77295cab106fb163eae9f00a6656e0e89db4f87562",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/gauge/yang_mills_gap.py": "29d4bb3ba2ee6e25365196c48c6e6f96a61aee00325de0acde470a577098bc4c",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/__init__.py": "8e99c23175f57934eecaf9103dabd7b3d20d56ed55fe38174571290b3ef2b815",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/base.py": "8c3e34417a51c60fc2b3a6c7b9611a9ea476d90fd1e7c5e7816604855a90d2b2",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/clock.py": "15434d1fc409eb29d585bc4d5feefd8819279276e082d9ed711de3b598de19bc",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/registry.py": "7876a6087be4ca9ef4314625799a165e396f269fffbf51b7f6984805057f434f",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/s3.py": "65d34b9ec87c46a1befeb4a1945e1827fb1987a61493e890bb4b3c9ba384a675",
+    "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/groups/z2.py": "a32eb994598592ba9f9b763eee455a1e13720b0a8311a4d46c299794466a3624",
+    "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
+    "model/common_source/__init__.py": "becb29d889d8b0712a6b2d36734793bcb22575fc8999e80026e5c3e2f7a39ab5",
+    "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
+    "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
+    "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
+    "model/common_source/chiral_candidate/results.json": "a31d852a17afdda9b653a3913fd806221c6787188be906aba4da84b7da00ce48",
+    "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
+    "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
+    "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
+    "model/common_source/mass_response/history.py": "1046f4be64b2ad6498df83b1949ec316449d0ce0d9b57ce4763d96a0ed3a2abb",
+    "model/common_source/mass_response/model.py": "1ffdf1a680763d52d0841636aee3dc05a51a16487a5770b2e7208dcb3dbdaacf",
+    "model/common_source/native_code_transport.py": "c068671558195838c5c93271dd47756630feb36a9c203cc9015bf3c4b066938a",
+    "model/common_source/native_family_potential.py": "250d14c7de7ff2012acbd8d40314505fe36b41eaaef07e56e71f5649040343ae",
+    "model/common_source/native_family_protocol.py": "f08b1d10d0470fbe7cd420993a7c517860e101fbdc1b73fc5e3fae3ef1435def",
+    "model/common_source/native_family_protocol_results.json": "99b11430c9e83d4dae85dbe3bda8df62a08906675247ed9f6aae532798b78fdb",
+    "model/common_source/native_family_record_memory.py": "d81f97ae43160c838d7a0ba24dd6d7da26d7c0c1b079912667030c801cb64730",
+    "model/common_source/native_family_selection.py": "c061cd6b2eed26219ce53e36f123a9429379bc7bb93f62b5b2bfc5c5f8efbb8b",
+    "model/common_source/native_filtered_current_control.py": "d66218ddbf0094e504fd9a0ce2a2d7f32844d189628dc37fc819ab71daa62858",
+    "model/common_source/native_gauge_family_records.py": "d8baa95c9ce08ec86f1401b11e8305280714af23be32cd4fbee263185f51dc52",
+    "model/common_source/native_gauge_object.py": "ddbd9ced23e85e9755396dcc917eb744d62e98f64b89535dfff0066e53782733",
+    "model/common_source/native_join.py": "5103e163bfec42ea0a5c87647c4ff8998846cbdbc6fde8c33cb4a89581c38be0",
+    "model/common_source/native_mass_bath.py": "d8110ea4aa1d0906aef35be2ad96cca9627d85a584b615589ee27e4db58e2c97",
+    "model/common_source/native_mass_dressing.py": "e0bcf5f37bf2d19a50b79a87bc3c5eb7410c872e52a61d023c8d1ce4a5a824ee",
+    "model/common_source/native_mass_holonomy.py": "d5fb514c888f7ddf07b23928e6b732f717e8bb148b736fc420314788e8638c2f",
+    "model/common_source/native_mass_record_cycles.py": "a887a9321c271b9b124c14bbde8b24542c464a1cce2778838c3ebfbbcb96c023",
+    "model/common_source/native_matter_attachment.py": "e09be6c457cd29aaa31e03f6109b52ccd93b592833daab8ec0b3bb9648163339",
+    "model/common_source/native_matter_attachment_results.json": "17e2ab4eadfc1fc3147d4508a1622ad2da6a3ce9c167102089113019d4008f66",
+    "model/common_source/native_matter_theorems.py": "6014920ee21439990aa9bdcdc8e448b6c802024f6bf1aa35925518a3f74947c0",
+    "model/common_source/native_persistent_response.py": "0f64a7ac6604115f0b5875d73aa03b861c2325df1c25fb8c5cd66f3df288058f",
+    "model/common_source/native_record_yukawa_field.py": "0967c4b404c34d3a9a665082dfb2c38ec64af97e7043899b5fcf6899da09e73e",
+    "model/common_source/native_repair_mass.py": "59e70327e4071e98fe3e005af8b3a94e62f0b17cf20cfcf2db22b637df80e87e",
+    "model/common_source/native_repair_mass_attachment.py": "5d4cdd9a56c23a7a77f34252c7265efe97464db441e567d17b89501ba6cb5403",
+    "model/common_source/native_repair_mass_feedback.py": "0cda4b1a16d45fcb63dfd917ce8e45b739ee0b646db4e8f10fa1b36b82ef9467",
+    "model/common_source/native_repair_mass_h2.py": "b1daa48d072d7fcd3bab9315c79f99091795917f1c84cff90e52b5032e1313be",
+    "model/common_source/native_repair_mass_native_readout.py": "249bb2dc3c16a344fcc9a9d212f00fc89fc7abb77a91353b28c9995dd6b273c1",
+    "model/common_source/native_repair_mass_readout.py": "86766746f62e57a4483b40f87e684281a194c83b2701537c24524a707ade26db",
+    "model/common_source/native_repair_mass_results.json": "cfb33ce8419bd255edc21a23d4124e2ec2ef6f454b0a89df29d57832aa2af30c",
+    "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
+    "model/common_source/native_sm_current.py": "8ed16b421726dd460800d86846e5684163716cadc61c7cc2e8c21151d49593f1",
+    "model/common_source/native_virtual_exchange.py": "40a71b674f3f4a19ba3e279ee0a0201ce34bc2f56548550187127530cefcd728",
+    "model/common_source/open_environment.py": "ba8c33750ed256b457927ca3e8903a7fcb01de9629a99db3682c6d657ff80963",
+    "model/common_source/open_protocol.py": "936120dedfa4624ac0aa3117e3f1f2db2864ff229e53352c635e5a180fcbd852",
+    "model/common_source/parameter_selection.py": "a9698bb9166d1eb5b8df44fdc6c7718899c781541cf98eecd40d153b873f68aa",
+    "model/common_source/particle_identification/family_attachment.py": "ce52592e0fc50d1d24e903e34e7baeb450089d4ef4f3146088b10fe1dd9b1ef0",
+    "model/common_source/protocol.py": "4339a070f39f2ddbc958e83041e9b8935dd8efd50acfca80519c4d92ea6cfac2",
+    "model/common_source/record_code.py": "0359a77057cd38329bc696a1cc0566a1a8863f7cbf0a697312e4581cc5c10f7a",
+    "model/common_source/records.py": "7ff9a1a68b4b94c018364b73e0b9c651c9154f7e9b2ede21c51f17be79c1dafa",
+    "model/common_source/repair_field_attachment.py": "a6b04bbf4ce4aba3843e9fdbf0329db7e79ddd5152b0fab12fabb1c307c8d02c",
+    "model/common_source/scalar_coupling.py": "90e4000b0e48e4429e69891c0274966701cd59951f79d151dbe98a66e61ba0cf",
+    "model/common_source/slow_geometry.py": "91e808e06cc4fd883429405f3454dc53ee48eab7152eac36db93591749eebf38",
+    "model/common_source/test_native_code_transport.py": "e58f3f955caa2acf4ae75d97fceeb3803f9f2b9b1493492100456f0d5c1cae21",
+    "model/common_source/test_native_family_potential.py": "5c1778382d172d7765cde906be72faaf2f1c55cecca7b9e828a6ea1093cc87d3",
+    "model/common_source/test_native_family_protocol.py": "82ad78a57e417734044e1b7d94c411fe72d9d235324eab7426260ac671873b54",
+    "model/common_source/test_native_family_record_memory.py": "fe0a76891fe83a93270743cf2d340ac768dba12632868adbbbd950c08200eb5b",
+    "model/common_source/test_native_family_selection.py": "8021640e9a755399ce10175f50bcdf1ef5440cb6d4fe67293db48eb1ac2fbc05",
+    "model/common_source/test_native_filtered_current_control.py": "3077fcc9649c545b24b71af611882bdbb35dca8a91d56cb01987900d411a40db",
+    "model/common_source/test_native_gauge_family_records.py": "dd7b6637c9296d5391a275f183cee59fae7633a91759ce9b137034eeec2f7ca2",
+    "model/common_source/test_native_gauge_object.py": "de2ec904d687e1bdbcb28878c484b7ad6459a0e9490198a197cd0005759564e6",
+    "model/common_source/test_native_mass_bath.py": "4e5c8a4d491d343dcbbd4703912a54630b60aa3f54572cd6229fed7d9ed8fb0c",
+    "model/common_source/test_native_mass_dressing.py": "eae6d010a474677d6b67c326b9ed5409d8be21c534bb7d10ef477e32230abd15",
+    "model/common_source/test_native_mass_holonomy.py": "43e5bf6f7d3c067993a42f1dff4f9a067646451511084f8053ecc9065f97c47a",
+    "model/common_source/test_native_mass_record_cycles.py": "ca781a8831e1cad545960ac04ceaf11487b884bd2cfedf23b6e3e631833586b8",
+    "model/common_source/test_native_matter_attachment.py": "a02503c7d80e71cbcb2cfb22eb3241fc24caedf6898cd2f1a39d2a92e1601ef7",
+    "model/common_source/test_native_matter_theorems.py": "3ee47ef85330989308e263d6cce7b2e03b33a897160d82b551275c523bfe94e6",
+    "model/common_source/test_native_persistent_response.py": "044176b56dbe77ee8c073af2836c81dcb8bbcd22a00c84a19fa67ad2f09f60cd",
+    "model/common_source/test_native_record_yukawa_field.py": "8d041572b027584c059f4ccf41bf7e307f28bf75f5cc8f70709359966d4eae0a",
+    "model/common_source/test_native_repair_mass.py": "e7ded9f10d272f8313cee5e69eedc69d76a4aa820665b57e88af797932484c8f",
+    "model/common_source/test_native_repair_mass_attachment.py": "38ca90f81fb84e4786ea1a46778293caf0122d9d8695fa08f22bc692483195ff",
+    "model/common_source/test_native_repair_mass_feedback.py": "362a6a7a8f487626230a7c1666742516753419f50fa48b737148edc0de6012d4",
+    "model/common_source/test_native_repair_mass_h2.py": "06c3b3c0c819e0ad636917b84addc22eeb47696c10d04f12d8283acaa2475bd8",
+    "model/common_source/test_native_repair_mass_native_readout.py": "b589977ed2b770fd640601bdd13f9382597291e4e2ecd3833a2f7c48ed9c441d",
+    "model/common_source/test_native_repair_mass_readout.py": "4e72f0b76da44c08914ec037187c5557611dad175ad8ef342ff8ce8b4c4328d7",
+    "model/common_source/test_native_sm_current.py": "fbee360cfc2d87c63e958997202d5981d252c3136f930a28732ffe64abca33d4",
+    "model/common_source/test_native_virtual_exchange.py": "131e8bde8c9ae7c255b2ac040ec914e843b06866347f12a1b12d812afae16945",
+    "model/common_source/test_parameter_selection.py": "2504efad12f780a58772a31f8a56268160dbb3eeae82b986116143aa6d44ff3f",
+    "model/common_source/test_repair_field_attachment.py": "c3cb9e50f7be810f5573cfcfd0e89d3ef7a0567e81c3e4cd1f295dedbeeab28b",
+    "model/event_circulation/__init__.py": "d65a8cf85671e0bebddd416d7efc65fca572c81f8b79f7a503ab32e963bb795c",
+    "model/event_circulation/__main__.py": "f8819b5e3b13a38ed3de801a1a0312f0729f70a22a1e6323d7f925598658966a",
+    "model/event_circulation/construction.py": "b3a53c02034fab7a24e77a35313257bc321dda1c4a52ef2a25f9b70616edf2ba",
+    "model/federated_observer/source.py": "4a91b7f254fcee89c93b1ce3e9972ec0c809290ec987dbc87fcb0392319e549d",
+    "model/mcpr_native_memory_bridge/PROOF.md": "14727c45253a6b42f7ad7fb5ab9eba629e327a57747ab7a128c150a5f9a72856",
+    "model/mcpr_native_memory_bridge/README.md": "ae3f927457b66db896bf970b5e7a511f15cadecc009c39f65caf1bf6219efe6d",
+    "model/mcpr_native_memory_bridge/__init__.py": "34257435ab651f40063536b70e590f54945ab9bbb2f51062f0336b9b691c5479",
+    "model/mcpr_native_memory_bridge/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/mcpr_native_memory_bridge/certificate.py": "5d0e13de9bf8c286525d4f1d8e9aceb93cf6cbf838d70e98a0ff5e576ea5c262",
+    "model/mcpr_native_memory_bridge/construction.py": "caa4d3f58893a692d1a563263d56443efa8e3129deeae488ac31c13255968438",
+    "model/mcpr_native_memory_bridge/packet.py": "0d80fe266773671f1c111efbe9ab8cb0e760fd00819f6e40cef6f579a6574825",
+    "model/mcpr_native_memory_bridge/test_bridge.py": "82a44830858ded47f2381167328136f67e61ef58c6aba8f4e200a61c30192688",
+    "model/native_circulation/__init__.py": "f202d73c2d0428ff7e8d18c2957999d3de107e0c6fea9157b28ad335177a26e1",
+    "model/native_circulation/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_circulation/construction.py": "8588e337a2f45090b7dee53388593c1aea01d0ce4f6c5fe330bbc388c6a1e2bb",
+    "model/native_clock/__init__.py": "36ba1715e850fb28de6d8a8467d9c925abed2de1782514e3ff4b283640b19319",
+    "model/native_clock/__main__.py": "fd617457b5aa34100620a8cdde5bb841cf7cf4bbd95d92716e6d8412095b112a",
+    "model/native_clock/clock.py": "0a05dcd38f748fff119229f40672ff03540ed5e8c5a829fc3430bc66ed2338a4",
+    "model/native_clock/regional_preparation.py": "46a137e362c57f01c367e027edb11094e644dcc8b76bcd3c9398baa8f6d4c855",
+    "model/native_equilibration/__init__.py": "4a2543e0f885af867373d718184c433c1a5c3d5006f12dda5eb01cbb08ab0ad5",
+    "model/native_equilibration/__main__.py": "22d1dd37b519734f9c4f7527a0c9598e173a00e658ba4602ceb908877fd3038f",
+    "model/native_equilibration/construction.py": "381dc258389bcb930b9e075d66d5a7c167eb2ced01176cf7a209eb7dd9c5aca2",
+    "model/native_equilibration/cut_completion.py": "283b764685f21cc19f5ad9c1ff82371256c55f463fafe99ab3ea460458ead8ad",
+    "model/native_flavor_orbit/PROOF.md": "c1e3796d1d15494fa9f50b646d92906e6d7767081409278312534cd90f93a91f",
+    "model/native_flavor_orbit/README.md": "73f2c021a03e2cfd3463002bcf186bca5a78737c603a58ab91011652313585e2",
+    "model/native_flavor_orbit/__init__.py": "15b16fc770925a548110294fc01d68d7ae817ae15985e987291b1f6b08d5e171",
+    "model/native_flavor_orbit/__main__.py": "985cb735ff19dd4e2e816a2a1e84da5032d201b8836837afefe3fcfecfc9ab74",
+    "model/native_flavor_orbit/algebra.py": "276cabf61520a6fdd3893c2730fd613c4d09feb5e57e2238376ba01d24dcc0bb",
+    "model/native_flavor_orbit/correlated.py": "4d87b6da9b2bd3e7ca52b9889d450c1250dd2779d59b1479801bc6b65e958dee",
+    "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
+    "model/native_flavor_orbit/packet.py": "7a464078e75630e38fcbf896d7db5da3a1d98db44a129d1e01f89c28d6013c0c",
+    "model/native_flavor_orbit/results.json": "f46f441a8e7e8b313560208cbb39234e8b52784c27e008f27293d015cf80b911",
+    "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
+    "model/native_flavor_orbit/test_algebra.py": "7b84ec73c89c41ae58f2694f35251aed68241cdec5aae75faa884f68f6494c93",
+    "model/native_flavor_orbit/test_correlated.py": "1f4f464b3901d00606933a719e95f0150c4ac6bb854e6aa389af4dfd4d78bae0",
+    "model/native_flavor_orbit/test_packet.py": "464d7475e1b8c58c52ae833bbdf828bb87cef833cbfc6337a0238854c0c18ec2",
+    "model/native_flavor_orbit/test_spectrum.py": "dfbe4f442dc5ce5ba37bc399f5ea522ec4c9edbf2fceed35a95943f107fc0ded",
+    "model/native_modular_reference/common_caps.py": "a2807d204ac094690d743cca187e31f9a4ca3568a7725040921087089367ea20",
+    "model/native_modular_reference/local_preparation.py": "9346f5a018dc7bb50a899c25b64d00c3a08ffa788ecc500608dcd21b2271360d",
+    "model/native_modular_reference/phase_inference.py": "908555cfc79c735d30d2fdda940c326d01e285f160858387b58957224156ac53",
+    "model/native_modular_reference/preparation.py": "2a68a6b98068232787468842b16572a4cd3bba82233440b187e5e9bb596b7db8",
+    "model/native_modular_reference/regional.py": "8a824526c3af4bddb7af151d78852eb74cbdd02ee237d56b91f209caa96a4f91",
+    "model/native_quantum_history/__init__.py": "53ea847e697c4a3d1a3acc0a3baf7059b9572ce6a7f2386827ff51a263bd31ad",
+    "model/native_quantum_history/__main__.py": "d815f6536d1d7be6d3ee50205f31a6328b95ba055070c1dc88e10f9d9521a54a",
+    "model/native_quantum_history/construction.py": "99f6d67f9bef1e72222a425b4d70c80c679b1bfbaabbb68128f43fbdbe829f09",
+    "model/native_relational_readout/__init__.py": "baf460e26918fea66b2b254d60e00b102e7e98577f2f97bdd760e4d946476e70",
+    "model/native_relational_readout/__main__.py": "bd5ff6e8aa70cc3d74a79a41d0ebdef04d17cdf2addbfc6475487204ef6f2d16",
+    "model/native_relational_readout/construction.py": "3f01d15a3b199ea80957f4894c506f9dfb6cf5520bbe300fdff07c949c0089b8",
+    "model/observer/QUANTUM_MIXING.md": "853e2a6352615a3a63e3a84efdb67b784b8dcbaabcad0a8cc7cb3ab286d303e1",
+    "model/observer/__init__.py": "8c075559977af21e4de61a648f42a2f57efbb1e6bae727183acc70c35a316af0",
+    "model/observer/native.py": "dd7c87bcda73f55990690effd0633020ff05b9131205d2314793329f8e0c811d",
+    "model/observer/p_response/__init__.py": "12283bebf1bb3465a7184dac216f9a569b98b911308416f22f6cb80f238b98a5",
+    "model/observer/p_response/experiment.py": "44049e5702af83ab8a62e40f8f7d3b25b088ed24e47078a0b412c3b2400ed61e",
+    "model/observer/quantum_memory.py": "be5f6b9d46d016e24046ac49dd5eb04029fda4018f26ca1376d9687e67ef81d6",
+    "model/observer/quantum_mixing.py": "bc1a178c765e59dee0462bca04f26ec2e58f362b5fd0c623c819f12d11ece139",
+    "model/observer/scalar_response/__init__.py": "d58d04679545f488798fee6962710741ec695f20bc73e6a70fb29475219d0b93",
+    "model/observer/scalar_response/experiment.py": "c4948be6d905dbb1a1f74e0bc39406228d5da949e1b50c1e2054cba26f0358fb",
+    "model/observer/source_discrimination/certificate.py": "fd2c4ab1ac3499652b1a5d6ab5fefb44414b848a75e23df5b255d038323d4f05",
+    "model/observer/source_discrimination/circuit.py": "327b537d01901c223e375cfff6dce882cb9a73f6a3b36e5019750e801377dd7e",
+    "model/observer/source_discrimination/experiment.py": "3f7bacf7f99b93b7d7a72b3d3e97c9a7fb9de1b37311c48366e1be07a0d4095c",
+    "model/observer/source_scalar/__init__.py": "d3dcf546c13e23ceb9a58c19481e2e3f04134013d8047d83b020ec836d8e1e86",
+    "model/observer/source_scalar/bounds.py": "1c110719845e5b27f34845f5f68c8397f8cb9eb3108bd1636577b1e4ca17d327",
+    "model/observer/source_scalar/compiler.py": "b9b45904f2c400ee0f4515663409166e1798bc3112af24dcdbe1ebda644218f8",
+    "model/observer/source_scalar/cutoff.py": "df4057037cbdabed68734e1d746aa29caa5babe27527574a0828599d6118fd4e",
+    "model/observer/source_scalar/experiment.py": "0eafa4e47c0c3e855b82bdd997aa0c4fa0c08fc7572f63a818aaba4a7a5f5bb0",
+    "model/observer/source_scalar/field.py": "7368e6b0fada5ed89f5a1ea7969e6bf4f6fdad8648fa82d3851320a5146fb708",
+    "model/observer_particles/gauge_particle_identification.py": "a335cddbc8a4f402c83b4d2412f0bda03eb37172dc81b6d5a255cadc37aca42c",
+    "model/observer_particles/representation_identification.py": "e8ca7ac11775548094ff9f32dec6ac39dd44f4edc4031b4d1c71f1fdcdcab833",
+    "model/observer_particles/results/representation_identification.json": "3a3d05fd1b946ff96752ddd3fbc2b8939a595f16397023fe96d992f3c519094b",
+    "model/observer_particles/results/representation_identification_operators.json": "8cd9d4537d73539205420fb5de0321ec70ea72f66c5475978df92b6b35072122",
+    "model/observer_particles/results/unified_yukawa_action.json": "6f5fa5cb70be906442256ed09370365980341ed0562102087ba0b953bfb9006d",
+    "model/observer_particles/results/unified_yukawa_operators.json": "972ae764bf1b466b5506442969d35b262c15ba1b5207def1e8e3bd51e792e428",
+    "model/observer_particles/unified_yukawa_action.py": "7e18b5b60f250657f23042a605e347ab0a870d53e7cfce961e33b0c0f9def0b9",
+    "model/predictions/__init__.py": "868d8eae184116b4ad35d61843c5b2f7951fe690d322ad7e38acece1add37a51",
+    "model/predictions/observer_instrument.py": "4a136febf813609f704224669c22b7cba9735d7456d7046d577d03bfa4b8e56b",
+    "model/primitive_observer/runtime.py": "affc6bfe38da057489582304060d1f21ab4c61783a85a0b4e652078d880aa142",
+    "model/primitive_observer/transfer.py": "b1a9fb58ab81b5edc6b372a3ff39aed3e0c19529774acf04fd42ad7c05708d10",
+    "model/record_laws/__init__.py": "1b66289fa4160260460fa4e947b1f7339fe0e8d7382fe6848c0029896c02bd19",
+    "model/record_laws/burn_in.py": "ab570ba3c4da75361231538b2d22ac7e3c6884038778c2510d9aa4af796d47e5",
+    "model/record_laws/family.py": "ac615e49101faa9a7b0b42d07f01ff44f342c20195ea5f6e5f88743bd11b4919",
+    "model/repair_scheduler/coins.py": "c6f76f1dacf05b030479911cd07147ebcaa7e555c2223a3661f94e98657c98cb",
+    "model/requirements.txt": "7abaa47730e8e286d366dfe826151677735f20e92beeb7f197dd30e39bd648d2",
+    "model/scalar_observations/experimental_readout/stats.py": "566c75f9dd46df3f94bb80171d77202b16d519963d7c7664c54ac25bb5275648",
+    "requirements.txt": "c699c1ccca0b69d4359816fc02bc7f5645967a532322a8a453ee0d9c1fc7c41f",
+    "tools/strict_json.py": "77e2fb33745e518bdc69738d88eae1e0d13f171ee5f791e33050dfca826f0c89"
+  },
+  "source_design": {
+    "chosen_parameters": "independent current durations and C-duty feedback gain from MCPR source law",
+    "family_frame": "canonical kinetic I3; unitary diagonalization commutes with all native gauge currents",
+    "full_operator_identity": "gain*Z_C is unitarily equivalent to diag(m_i/v)",
+    "gain": "sum(m_i/v)/p, applied to every enabled pulse without conditioning",
+    "measured_endpoint_control": "uses the endpoint inferred from measured alpha, not a forward prediction",
+    "memory_law": "same twelve-input reset2 half-turn controller",
+    "repair_law": "unchanged native C/E repair",
+    "source_endpoints": "supplied decimal coordinates; forward branch has no full physical endpoint proof"
+  },
+  "weak_pulse_limit": {
+    "arbitrary_CQ_reference_trace_error": "4*g*T/(N*(1-p))+(8/(1-p)+4)*g^2*T^2/N",
+    "domain": "finite untouched reference, N>=1, T>=0, 0<=p<1, g>=0",
+    "finite_step_channel_equals_limit_unitary": false,
+    "generator": "X tensor (gain_over_v * Z_C)",
+    "stationary_product_preparation": "the first term is zero"
+  }
+}

@@ -150,6 +150,46 @@ rare-sector line, an internal gauge label or the neutral block result.
 <a id="uncalibrated-record-memory-protocol"></a>
 <a id="56-calibrated-action-and-matching-control"></a>
 
+## Full-field energy and vector rest frequency
+
+The [affine Gauss spectral calculation](../../model/affine_gauss_full_spectrum/PROOF.md)
+certifies the unique ground of the complete 70,928-state charged sector:
+`E1 in [1.8738097549651658,1.8738097549671659]`. Its finite Peierls
+interaction and all transverse occupations through the declared total
+cutoff are included. The reference contributes exactly one source unit.
+Subtracting that fixed cost gives about `0.873809754966`, not a GeV value.
+The zero-photon compression lies about `0.0001750058` higher. This is an
+actual same-H dressing correction with controlled arithmetic, not a
+correction to the unrelated Koide or pixel-dependent lepton formulas.
+
+The [finite energy detector](../../model/affine_gauss_charged_clock/PROOF.md)
+measures that actual H with a twenty-qubit phase pointer. Its acceptance
+probability includes the pump factor `1/4`; the accepted state's ground
+fidelity exceeds `0.99999999439512`, including rational-gate error. No exact
+ground projector is substituted for that finite pointer. The neutral energy
+phase removes a declared offset rather than choosing a measured mass scale.
+
+The [native field attachment](../../model/native_abelian_field_join/PROOF.md)
+has a different reference and total Hamiltonian. In its selected eigenchannel,
+`E_join=E_*+2+E_affine,1`, where `E_*` is an actual native energy in
+`[0.69068009748,0.69263326440]`. Its reference costs four, so the declared
+source-only expression is `E_*+E_affine,1-2`, about `0.5655` source units.
+This is a selected finite channel energy. The full charged ground and a
+physical mass are not obtained by subtracting an offset. The whole-bin
+alternative proves a positive original arrival response without choosing
+one unseen spectral line; its finite-time error is the native bin
+half-width times the observation time.
+
+The [filtered neutral Proca readout](../../model/interacting_block_proca/PROOF.md)
+instead supplies a controlled free massive vector description of the
+paired native blocks. Its rest frequency remains the source gap Delta;
+its effective mass parameter is `Delta/c_*^2`. Its three polarizations
+come from explicit momentum-dependent field filters and the induced
+rotation/boost action. They do not follow merely from a triplet dimension.
+There is no W/Z identification or absolute energy calibration in that
+construction. Both results are source-derived within their stated
+architectures; they solve different spectral problems.
+
 ## Canonical action masses and calibrated controls
 
 The [one-family background dictionary](../../model/coherent_defect_wave/chiral_particle_map/PROOF.md)

@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 import zlib
 
 from . import families, field_panels, joint_panels, repair_panels, scenes_a, scenes_b
+from . import retained_source_equivalence as retained
 from .canvas import AMBER, BG, Canvas, TEAL, VIOLET, n
 from .parts import SX, W
 
@@ -25,7 +26,7 @@ MOMENTUM = ROOT / 'model/particle_primary_momentum/PROOF.md'
 CANDIDATES = ROOT / 'model/standard_model_source_map/candidates/correspondence.json'
 IDENTITY_TESTS = ROOT / 'model/particle_candidate_confirmation/results.json'
 GAUGE = ROOT / 'model/particle_primary_reduced_sector/results.json'
-SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py')
+SOURCES = ('__init__.py', 'canvas.py', 'parts.py', 'scenes_a.py', 'scenes_b.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'build.py', 'retained_source_equivalence.py')
 
 CSS = ('@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}'
        '@keyframes hop{0%{opacity:0}1.5%,12.5%{opacity:1}14.5%,100%{opacity:0}}'
@@ -42,6 +43,12 @@ def sha(path):
 
 def receipt(path):
     """Read a frozen receipt and check its complete producer custody."""
+    if path.is_relative_to(ROOT) and str(path.relative_to(ROOT)) in retained.RETAINED_NAMES:
+        name = str(path.relative_to(ROOT))
+        expected = retained.load_authority(ROOT)['retained_receipts'][name]['sha256']
+        if sha(path) != expected:
+            raise ValueError('stale source custody: ' + name)
+        return retained.read_receipt(path, root=ROOT)
     result = json.loads(path.read_text())
     pins = result['source_sha256']
     if not pins:
@@ -87,8 +94,7 @@ def load():
         raise ValueError('gauge transition changed its finite-sector scope')
     data['candidates'], data['gauge'] = candidates, gauge
     identity = receipt(IDENTITY_TESTS)
-    from model.particle_candidate_confirmation.model import validate as validate_identity
-    validate_identity(identity)
+    retained.validate_receipt_value(str(IDENTITY_TESTS.relative_to(ROOT)), identity, root=ROOT)
     data['identity_tests'] = identity
     data['repair'] = repair_panels.load()
     data['protection'] = repair_panels.load_protection()
@@ -102,6 +108,8 @@ def load():
     data['inputs'].update(repair_panels.agreement_pins(data['agreement']))
     data['inputs'].update(joint_panels.input_pins(data['joint']))
     data['inputs'].update(data['field_records']['pins'])
+    data['retained_source_navigation'] = retained.navigation(root=ROOT)
+    data['inputs'].update(retained.authenticate_pins(identity['source_sha256'], root=ROOT))
     return data
 
 
@@ -187,6 +195,7 @@ def build():
         'candidate_mass_predictions_GeV': data['candidates']['mass_predictions_GeV'],
         'candidate_target_count': len(data['candidates']['target_rows']),
         'candidate_identity_test_count': len(data['identity_tests']['target_rows']),
+        'retained_source_navigation': data['retained_source_navigation'],
         'protected_catalogue_count': len(data['candidates']['protected_catalogue_rows']),
         'evidence_domains': {
             'isolated_gauge_transition': 'rare empty-matter reducing sector, source units',

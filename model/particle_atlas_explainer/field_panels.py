@@ -13,6 +13,10 @@ PATHS = {
     'propagation': 'model/interacting_block_propagation/results.json',
     'field': 'model/interacting_block_quadrature/results.json',
     'collision': 'model/interacting_block_scattering/results.json',
+    'charged_field': 'model/affine_gauss_full_spectrum/results.json',
+    'charged_clock': 'model/affine_gauss_charged_clock/results.json',
+    'vector': 'model/interacting_block_proca/results.json',
+    'conjugation': 'model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/results.json',
 }
 
 
@@ -37,6 +41,27 @@ def validate(data):
             or collision['three_dimensional_continuum_claim']
             or collision['exact_reducing_source_dimension'] != 1024):
         raise ValueError('Finite collision interpretation changed')
+    charged = data['charged_field']
+    if (charged['additional_state_truncation']
+            or charged['physical_one_charge_dimension'] != 70928
+            or charged['scope']['mass_GeV'] is not None
+            or charged['scope']['Standard_Model_identity'] is not None
+            or charged['scope']['translation_invariant_mass_shell_identified']):
+        raise ValueError('Charged field interpretation changed')
+    clock = data['charged_clock']
+    if (not clock['phase_apparatus']['common_source_evolution_retained']
+            or clock['phase_apparatus']['higher_source_charge_sectors_discarded']
+            or clock['scope']['exact_ground_projection']
+            or clock['scope']['GeV_mass'] is not None):
+        raise ValueError('Charged detector domain changed')
+    vector = data['vector']
+    if (vector['construction']['Standard_Model_particle_assignment'] is not None
+            or vector['construction']['measured_inputs']
+            or vector['construction']['strict_continuum_interaction'] != 'free; fixed-capacity interactions are controlled errors'
+            or not vector['complete_instruments']['all_failure_and_complement_records_retained']):
+        raise ValueError('Vector readout interpretation changed')
+    if data['conjugation']['reference_boundary']['same_reference_total_energy_equality_claimed']:
+        raise ValueError('Conjugate reference energy was silently changed')
 
 
 def load():
@@ -79,6 +104,7 @@ def draw(c, data, y):
     c.link(X0+28, y+h-20, 'Exact Gauss, spectral-separation and screening proof',
            '../../'+PATHS['charge'].replace('results.json', 'PROOF.md'), 16)
     y += h+35
+    y = charged_field_panel(c, d, y)+35
     h = 640
     card(c, X0, y, CW, h, stroke=TEAL)
     c.text(X0+28, y+43, 'One computed neutral gap → a controlled relativistic field description', 27, TEXT, 700)
@@ -104,8 +130,8 @@ def draw(c, data, y):
     c.para(X0+28, y+391, CW-56,
            'Ground-state, finite-capacity, evolution and detector errors are bounded together. '
            'A retained finite orientation reference makes the field measurements relational. '
-           'The three components are internal scalar labels, not the three polarizations of '
-           'a measured vector boson.', 19, SOFT, 1.4)
+           'The unfiltered components are internal scalar fields. The next panel shows the '
+           'additional readout and symmetry map that give a free vector description.', 19, SOFT, 1.4)
     c.para(X0+28, y+494, CW-56,
            'The paired exchange, replication and spacing-dependent clock are explicit design '
            'choices. The established refinement becomes free. A separate number-conserving '
@@ -116,6 +142,7 @@ def draw(c, data, y):
     c.link(X0+780, y+h-20, 'Distinct number-conserving propagation proof',
            '../../'+PATHS['propagation'].replace('results.json', 'PROOF.md'), 16)
     y += h+35
+    y = vector_panel(c, d, y)+35
     h = 500
     card(c, X0, y, CW, h, stroke=AMBER)
     c.text(X0+28, y+43, 'Finite interactions: prepare two packets and read a complete detector', 27, TEXT, 700)
@@ -141,4 +168,87 @@ def draw(c, data, y):
            19, TEAL, 600)
     c.link(X0+28, y+h-20, 'Finite collision theorem, comparison domains and exact intervals',
            '../../'+PATHS['collision'].replace('results.json', 'PROOF.md'), 16)
+    return y+h
+
+
+def charged_field_panel(c, d, y):
+    h = 800
+    card(c, X0, y, CW, h, stroke=BLUE)
+    c.text(X0+28, y+43, 'A charge and its dynamical field: an actual finite energy', 27, TEXT, 700)
+    c.para(X0+28, y+85, CW-56,
+           'A declared electric/magnetic source lets charge move while its compensating reference '
+           'stays fixed. Gauss constraints determine the longitudinal flux. Finite Peierls hopping '
+           'couples that charge to every retained transverse field state.', 19, SOFT, 1.4)
+    labels = [('13 matter modes', 'where the charge can be'),
+              ('5,456 field states', 'the field can change with it'),
+              ('70,928 states', 'the full one-charge calculation')]
+    for i, (label, sub) in enumerate(labels):
+        xx=X0+28+i*460
+        c.rect(xx, y+186, 414, 86, '#132636', BLUE, 1.5, 10)
+        c.text(xx+20, y+221, label, 23, BLUE, 700)
+        c.text(xx+20, y+250, sub, 17, SOFT)
+        if i<2:c.arrow(xx+420,y+230,xx+451,y+230,BLUE,2,7)
+    lo, hi = map(Fraction, d['charged_field']['actual_charged_ground_energy_interval'])
+    scale = 10**13
+    lo_n, hi_n = (lo*scale).__floor__(), (hi*scale).__ceil__()
+    lo_text = f'{lo_n//scale}.{lo_n%scale:013d}'
+    hi_text = f'{hi_n//scale}.{hi_n%scale:013d}'
+    c.text(X0+28, y+320, f'Total charged energy: [{lo_text}, {hi_text}] source units', 24, TEAL, 700)
+    c.para(X0+28, y+351, CW-56,
+           'The fixed reference contributes exactly 1. The field dressing lowers the zero-field '
+           'compression by about 0.0001750058. This correction is computed with the same Hamiltonian; '
+           'it is unrelated to a fitted lepton formula.', 18, SOFT, 1.4)
+    c.text(X0+28, y+440, 'Where would a position detector click in this charged ground?', 20, TEXT, 600)
+    for i,row in enumerate(d['charged_field']['actual_ground_position_records']):
+        lo,hi=map(Fraction,row['actual_ground_position_probability'])
+        p=float((lo+hi)/2);xx=X0+40+i*104; bh=310*p
+        color=AMBER if row['source_vertex']==1 else BLUE
+        c.rect(xx,y+570-bh,62,bh,color,r=3)
+        c.text(xx+31,y+595,str(row['source_vertex']),16,MUTED,500,'middle')
+        c.text(xx+31,y+556-bh,f'{100*p:.1f}%',15,SOFT,500,'middle')
+    c.text(X0+28,y+626,'All 13 locations are retained; vertex 1 contains the fixed compensating reference.',17,MUTED)
+    clock=d['charged_clock']['finite_rational_gate_record_bounds']
+    fidelity_n=(Fraction(clock['accepted_source_ground_fidelity_lower'])*10**11).__floor__()
+    fidelity_text=f'{fidelity_n//10**11}.{fidelity_n%10**11:011d}'
+    c.para(X0+28,y+658,CW-56,
+           f'A finite clock detector retains all 14 × 2²⁰ records, including 75% preparation failure. '
+           f'Its accepted source has ground fidelity above {fidelity_text}. '
+           'The full energy and numerical errors are bounded. This finite boundary problem '
+           'does not yet identify a relativistic particle, its spin or a GeV mass.',19,SOFT,1.4)
+    c.link(X0+28,y+h-20,'Full charged Hamiltonian and independent residual certificate',
+           '../../'+PATHS['charged_field'].replace('results.json','PROOF.md'),16)
+    c.link(X0+810,y+h-20,'Complete finite clock detector',
+           '../../'+PATHS['charged_clock'].replace('results.json','PROOF.md'),16)
+    return y+h
+
+
+def vector_panel(c,d,y):
+    h=610
+    card(c,X0,y,CW,h,stroke=VIOLET)
+    c.text(X0+28,y+43,'From three canonical fields to a massive vector readout',27,TEXT,700)
+    c.para(X0+28,y+85,CW-56,
+           'Keep the same native blocks, actual ground, clock and orientation reference. '
+           'Measure specific combinations of the fields and their conjugate momenta. '
+           'Those filters supply three vector polarizations and the constrained time component.',19,SOFT,1.4)
+    for i,(title,body,color) in enumerate([
+            ('Canonical pairs','Φ₁, Φ₂, Φ₃ and Π₁, Π₂, Π₃',TEAL),
+            ('Momentum-dependent filters','A₀ uses i p·Π / Ω',BLUE),
+            ('Complete vector detector','16 records, including every flag',VIOLET)]):
+        xx=X0+28+i*460
+        c.rect(xx,y+194,414,104,'#132636',color,1.5,10)
+        c.text(xx+20,y+231,title,21,color,700)
+        c.text(xx+20,y+270,body,17,SOFT)
+        if i<2:c.arrow(xx+420,y+248,xx+451,y+248,color,2,7)
+    c.para(X0+28,y+342,CW-56,
+           'The polarization sum, Proca equations and induced spin-one Lorentz action are proved '
+           'for the free limiting description. The finite source’s Lorenz defect and complete '
+           'measurement errors are bounded. The time component needs canonical momentum; '
+           'three field labels alone do not establish this result.',19,SOFT,1.4)
+    c.text(X0+28,y+454,'Rest frequency = the native gap Δ. Effective mass parameter = Δ / c*².',23,TEAL,700)
+    c.para(X0+28,y+494,CW-56,
+           'The explicit finite examples bound sixteen-outcome laws using a 19-mode Gaussian '
+           'calculation and full native error estimates. Their large block counts are analytic '
+           'capacity bounds. This readout does not identify W, Z or an interacting Standard Model sector.',19,MUTED,1.4)
+    c.link(X0+28,y+h-20,'Same-source vector filters, boosts, full records and capacity bounds',
+           '../../'+PATHS['vector'].replace('results.json','PROOF.md'),16)
     return y+h

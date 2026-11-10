@@ -29,6 +29,7 @@ gives the mass definitions, units and tested hierarchy mechanisms.
 | --- | --- | --- | --- |
 | Classical defect simulation | Integer load repair, local attempt records and a passive centre-class register | Current-driven register births, motion and ending causes during a declared load quench | No quantum field, Standard Model census or physical mass follows from the class labels |
 | Native quantum chiral source | Full local CAR algebra, quantum scalars/links, Gauss constraints and the actual finite interacting H | Physical preparation, same-ground neutral/odd energy records and charged arrival effects | Finite source results require their own spatial/refinement and physical dictionary |
+| Affine Gauss field source | Thirteen CAR modes, finite transverse oscillators, distributed longitudinal flux and a static charge reference | A certified full interacting charged ground and complete field/arrival records | Distinct declared source; finite boundary energy is not a relativistic mass |
 | Collective block extensions | Full interacting blocks coupled by declared dressed exchange or paired quadratures | A moving neutral band; a separately scaled dilute free Klein–Gordon record limit | Their inter-block couplings, replication and clock are additional architecture |
 | Prepared Dirac viewer mode | A separately prepared finite spinor box with a supplied free Hamiltonian and complete detector | Position and energy-band records, measurement work and exported histories | Four spinor components do not contain the full R15 gauge module or many-fermion antisymmetrization |
 | Primary Wilson family | Sixty CAR modes per cell, product-cutoff links, its own Gauss preparation and idle reference | Uniform local-output bounds, selected spectral measures and finite responses | Its source, state and clock are distinct from the thirty-mode chiral source |
@@ -176,6 +177,101 @@ thirteen outcomes. An explicit screened remote pair disproves extending the
 single-charge separation bound to every state. This is a finite constrained
 localization result, without thermodynamic confinement or a Coulomb phase.
 
+## A full charged ground with dynamical transverse fields
+
+The [affine Gauss source](../../model/affine_gauss_source/PROOF.md) is a
+declared electric/magnetic architecture on the thirteen-vertex icosahedral
+cone. It retains thirteen CAR modes, fourteen reference charges, twelve
+longitudinal bits and all 5,456 transverse states with total occupation at
+most three. Its counting metric is explicit. The physical space has
+44,695,552 states; the complete one-charge sector has 70,928. This source
+is distinct from the 119-state-link chiral Hamiltonian.
+
+Exact Gauss reduction gives distributed electric energy
+`E_C=rho^T (D^T D)^+ rho/2`, with a fixed compensator. A finite-capacity
+boundary term restores the stated oscillator vacuum and frequencies.
+The [mobile extension](../../model/affine_gauss_mobile/PROOF.md) adds literal
+finite Peierls hopping at strength `1/24`. It preserves Gauss, charge and
+the common clock, and proves positive arrival both with and without
+transverse excitation. No full-oscillator Weyl relation is substituted at
+the occupation boundary.
+
+The [full spectral certificate](../../model/affine_gauss_full_spectrum/PROOF.md)
+uses every one-charge state. An independently bounded full-H residual and
+the [separated second level](../../model/affine_gauss_spectrum/PROOF.md)
+give a unique charged ground at
+
+```
+E1 in [1.8738097549651658, 1.8738097549671659] source units.
+```
+
+One unit is the retained reference energy. The source-only column subtracts
+that specified cost, giving about `0.873809754966`, without calling it a
+rest mass. Actual transverse dressing lowers the zero-photon compression
+by about `0.0001750058`; the ground's nonvacuum transverse probability is
+between `0.00007224653680` and `0.00007224655239`. All thirteen position
+records and complete preparation/energy outcomes are retained. The
+[independent compression audit](../../model/affine_gauss_spectrum_validation/PROOF.md)
+and full residual test use different calculations.
+
+This establishes a finite interacting charged energy, rather than a mass
+inferred from static coefficients. Translation invariance, a relativistic
+dispersion, physical spin and an observed species remain separate targets.
+The graph size, transverse cutoff and static reference are part of the
+specified problem; its thirteen spatial levels are not thirteen particles.
+
+The [finite charged-energy clock](../../model/affine_gauss_charged_clock/PROOF.md)
+turns that certificate into a complete detector. A charge-compensated CAR
+rotation prepares the declared wave packet with probability `1/4`; failure
+has probability `3/4`. A twenty-qubit phase pointer retains all `2^20`
+outcomes and fourteen number records. Its accepted interval has original
+probability between `0.2499183323303489` and `0.2499819397665590`, with
+conditional ground fidelity above `0.99999999439512`. The error bound
+includes rational controlled-evolution gates and the explicit neutral-energy
+reference phase. The actual source evolves throughout the apparatus schedule.
+Logical source/pointer capacity is `45.07420898395135` nats; additional
+synthesis workspace is outside that count. This is an exact finite service
+specification with bounded implementation error, not an efficient native
+local circuit claim.
+
+## Native charged probes coupled to the finite field
+
+The [native Abelian field join](../../model/native_abelian_field_join/PROOF.md)
+places one complete eight-cell interacting source at each cone vertex.
+Every native Hamiltonian, Gauss sector and complement is retained. A declared
+local reference contains the original thirty-mode Fock reference, its
+conjugate with a shared vacuum, and two charge ports. A global compensated
+reference, longitudinal charge constraints and the same finite transverse
+field complete the physical space. The old reference energy `4N` by itself
+is not invariant under particle-hole conjugation; the enlarged reference
+implements the required symmetry explicitly.
+
+Two finite constructions have different acceptance claims. An actual
+eigenenergy `E_*` in the native `e^c` bin supplies odd cubic-spin `G1`
+matrix units. Its selected moving sector has
+`H_join-(13E_g+E_vac) = [H_affine,1+(E_*+2)I] tensor I_G1`.
+The energy includes a reference cost four. The selected creation operators
+are hard-core matrix units, not a full independently occupiable spinor CAR
+algebra. The unpenalized full charged ground is not identified by this
+restriction; a separate declared port penalty has its own exclusion proof.
+
+The whole-bin construction instead uses the normalized native vectors
+`P_J c_s g`, while retaining the actual native H on the entire bin. The bin
+half-width bounds the finite-time transfer error by `epsilon*|t|`; no
+unseen bin state is discarded. At source time `1/4`, unconditional radial
+and boundary neighbor arrival each exceed `3.06e-5`. Joint arrival and
+nonvacuum transverse-field probability exceed `1.67e-6` and `2.26e-6`,
+respectively. The six recorded branches retain preparation failure, exact
+ground-admission failure, pump failure, outside-bin response and both
+arrival outcomes. Exact ground admission is an additional declared spectral
+service, with its outcome and cost retained. Opposite charge has the same
+positive-time location/field records under a proved unitary field-parity
+map; an antiunitary symmetry alone would reverse time.
+
+This supplies an explicit native-current attachment and an interacting
+finite arrival law. A cubic `G1` doublet does not select a unique continuous
+Lorentz spin, and this fixed cone has no proved charged relativistic limit.
+
 ## Moving neutral blocks and the relativistic comparison
 
 The [number-conserving block construction](../../model/interacting_block_propagation/PROOF.md)
@@ -250,6 +346,37 @@ are relational on this source/reference state. Internal constituent
 translations remain distinct from macrocell translations. This lift
 preserves the error bounds without asserting finite-N ground uniqueness.
 
+
+## A vector field readout of the same neutral blocks
+
+The [Proca construction](../../model/interacting_block_proca/PROOF.md)
+uses the same paired source, selected actual ground, 3,072-state orientation
+reference and clock. It changes the field readout. In normalized units with
+rest frequency and speed one, set `Omega0=sqrt(1+|p|^2)` and
+
+```
+A0(p)=i p.Pi(p)/Omega_a(p),
+Ai(p)=[delta_ia+p_i*p_a/(Omega0+1)] Phi_a(p).
+```
+
+The time component uses the canonical momentum and the factor i; replacing
+it by `p.Phi` fails the real-field Hermiticity condition. The finite Lorenz
+defect is bounded by the actual lattice-frequency error. The limiting
+polarizations obey the massive vector polarization sum, the Proca equations
+and a positive-energy spin-one representation. The induced spatial action
+uses the same retained reference; a noncollinear boost checks its Wigner
+rotation. This is a different readout and symmetry action from treating the
+three unfiltered components as scalar fields.
+
+Two explicit finite-window experiments retain sixteen complete outcomes.
+Their native-to-Gaussian record errors include the actual-ground,
+finite-capacity, evolution and detector bounds. The stated enormous but
+finite block counts follow from those inequalities; they are not a
+cosmological memory-law prediction. The comparison's rest frequency is
+Delta and its effective mass parameter is `Delta/c_*^2`, with
+`c_*=Delta/sqrt(6)`. The established limit is free. This does not select
+the W or Z boson, derive a GeV conversion, or make finite native boosts
+exact symmetries.
 
 ## Finite neutral collisions
 
@@ -463,8 +590,12 @@ response**. Construct the complete matrix measure
 `M_xy(I)=<g|D_x^dag P_I(H-E_g)D_y|g>` with the actual dressing and retained
 compensator, then bound moving packets from those same bins. The existing
 low-bin localization theorem constrains the unit-penalty source. A Coulomb
-route can instead declare a different electric/magnetic Hamiltonian, but
-must establish its physical reference, cutoff tails and charged response.
+route has a declared finite electric/magnetic source with a certified full
+charged ground, complete finite energy detector and positive field-coupled
+arrival. The native Abelian join attaches the odd current and its whole
+spectral bin to that finite field. The coupled requirements are an
+energy-resolved arrival record on this joined H and a controlled
+spatial/refinement comparison with the same reference and energy detector.
 
 For the neutral collective route, the free relativistic record theorem
 supplies a precise comparison target. A nonzero interacting relativistic

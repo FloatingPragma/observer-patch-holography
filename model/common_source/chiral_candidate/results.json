@@ -212,7 +212,7 @@
         32
       ],
       "spin_order": "spin outermost: spin*45+k (0<=index<90)",
-      "Nambu_order": "(c(p), c†(-p)); this doubling is not an extra particle family"
+      "Nambu_order": "(c(p), c\u2020(-p)); this doubling is not an extra particle family"
     },
     "identities": {
       "one_generation_current_Higgs_identities": 72,
@@ -9166,8 +9166,8 @@
       }
     },
     "radial_boundary": {
-      "operator": "H=−i sigma_x d/dr on the finite radial interval",
-      "boundary_form": "−i[psi_dagger sigma_x phi]_0^L",
+      "operator": "H=\u2212i sigma_x d/dr on the finite radial interval",
+      "boundary_form": "\u2212i[psi_dagger sigma_x phi]_0^L",
       "scalar_Dirichlet_on_all_spinor_components": "symmetric minimal operator, not self-adjoint",
       "minimal_two_component_deficiency_indices": [
         2,
@@ -9736,7 +9736,7 @@
     "code/source_selection_model/response.py": "c66160a6b6246692e19b32e9b00383c8abca8b493655cf534932bfcd900e8400",
     "code/source_selection_model/verify_response.py": "1aaa22195b7241aaf61f0bda60940907f2416f406c53f81ebb3418005d95900e",
     "code/yang_mills/manifests/physical_compact_gauge_uninstantiated.json": "e512c4a67dc627789bd0450fedabfdc1dc81765021bc0b3eaab12763c7df979a",
-    "docs/research/OPH_PARTICLE_MASS_RESPONSE.md": "971c101006159bd564274e7a3209f44b477035de825fff0f90bb84577c3b64a5",
+    "docs/research/OPH_PARTICLE_MASS_RESPONSE.md": "dbc776c4154f1a1e0fc357360f0ee7f02896c1d0660e043d2be09e3e3caaf207",
     "evidence/native_geometric_source_20260925/spec.json": "a6b14ad3c89ab17d3c213375022975e1a35239a82810406b73157a6b856cadcc",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/__init__.py": "3ceeb20c7231ce9f8d3002529c5416523986dd9c79ea963b2e314bd13364726e",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_exact/carrier.py": "83354f120a0d40d9fd3c04721bbbb3c6140cc3c5bf10655d899e9aa4325804bb",

@@ -12,8 +12,8 @@ import re
 import xml.etree.ElementTree as ET
 
 from model.particle_candidate_atlas import builder as base
-from model.particle_candidate_confirmation.model import validate
 from . import build, families, field_panels, joint_panels, repair_panels
+from . import retained_source_equivalence as retained
 from .canvas import BG, Canvas, MUTED, TEAL, TEXT
 from .parts import CW, W, X0
 
@@ -21,13 +21,13 @@ ROOT = build.ROOT
 HERE = Path(__file__).resolve().parent
 OUTPUT = ROOT/'docs/research/OPH_PARTICLE_CANDIDATE_ATLAS.svg'
 AUDIT = HERE/'candidate_view_audit.json'
-SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py')
+SOURCES = ('candidate_view.py', 'families.py', 'repair_panels.py', 'joint_panels.py', 'field_panels.py', 'canvas.py', 'parts.py', 'test_candidate_view.py', 'retained_source_equivalence.py')
 
 
 def load():
     comparison, original_svg = base.build()
     confirmation = build.receipt(build.IDENTITY_TESTS)
-    validate(confirmation)
+    retained.validate_receipt_value(str(build.IDENTITY_TESTS.relative_to(ROOT)), confirmation, root=ROOT)
     if confirmation['physical_particle_map'] or confirmation['mass_predictions_GeV']:
         raise ValueError('unproved physical candidate promotion')
     return comparison, original_svg, confirmation
@@ -85,7 +85,7 @@ def produce():
     field = field_panels.load()
     svg = render(old_svg, confirmation, repair, protection, agreement, joint, field)
     build.check_links(svg)
-    pins = {**comparison['input_sha256'], **confirmation['source_sha256'],
+    pins = {**comparison['input_sha256'], **retained.authenticate_pins(confirmation['source_sha256'], root=ROOT),
             str(build.IDENTITY_TESTS.relative_to(ROOT)): build.sha(build.IDENTITY_TESTS)}
     pins.update(repair_panels.input_pins(repair))
     pins.update(repair_panels.protection_pins(protection))
@@ -98,6 +98,7 @@ def produce():
              'retained_numerical_svg_sha256': hashlib.sha256(old_svg.encode()).hexdigest(),
              'retained_numerical_audit_sha256': hashlib.sha256(base.canonical(comparison).encode()).hexdigest(),
              'confirmation_result_sha256': confirmation['content_sha256'],
+             'retained_source_navigation': retained.navigation(root=ROOT),
              'protected_catalogue_count': sum(len(g['rows']) for g in confirmation['labelled_catalogue']['protected_families']),
              'source_excitation_count': sum(len(g['rows']) for g in confirmation['labelled_catalogue']['excitation_families']),
              'physical_particle_map': [], 'mass_predictions_GeV': [],

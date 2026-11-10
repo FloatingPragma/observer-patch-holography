@@ -88,29 +88,17 @@ proof shows that the whole class of laws cannot work.
   anomaly-free matter representation, a (1+3)-dimensional causal order and the Einstein equation from null
   balance.
 - **Particle candidates and energy readouts.** The
-  [primary source](model/particle_joint_reconstruction/README.md) has six
-  certified physical occupation sectors with positive excitation thresholds.
-  Its odd composites propagate, carry finite rotation labels and have complete
-  spin-resolved energy readouts in all eight rows of a finite spatial analyzer.
-  Complete total-cube and native-number measurements give conserved labels
-  and populated original-state branches. Density probes have distinct spatial
-  energy moments. An [isolated gauge transition](model/particle_primary_reduced_sector/PROOF.md)
-  lies within $0.000044$ of 63 in source units, but its original sector weight
-  vanishes under refinement. [Regional charged spinors](model/particle_primary_regional_fermion/PROOF.md)
-  have populated charge, native spin-increment and pair-energy records; the
-  compensating endpoint is retained. Neither result supplies a physical
-  single-particle mass. The
-  [defect catalogue](model/protected_defect_catalog/CATALOG.md)
-  distinguishes source charges from physical species; a surviving
-  relativistic branch and GeV rest masses require further proof.
-  [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf).
-  The [best-guess map](model/standard_model_source_map/candidates/CANDIDATES.md)
-  lists the source IDs, gauge weights and spin comparisons behind lepton,
-  quark and gauge-field candidates. Flavor assignments and physical masses
-  remain unproved. A [static source fusion experiment](model/particle_primary_loop_fusion/PROOF.md)
-  distinguishes adjacent from disjoint loop energies. A separate
-  [executed contact interaction](model/contact_scattering/README.md) uses
-  22,531 native pulses; neither establishes Standard Model scattering.
+  [defect catalogue](model/protected_defect_catalog/CATALOG.md) records
+  protected source charges and candidate particle roles. Complete interacting
+  quantum sources give gauge-constrained energy records, including preparation
+  failures. A finite electric/magnetic field has a certified full charged
+  ground and finite energy detector. Its
+  [native charged-field attachment](model/native_abelian_field_join/PROOF.md)
+  couples actual odd probes and proves positive arrivals in a separately
+  specified Hamiltonian. The [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
+  connects these calculations to the physical tests: relativistic dispersion,
+  observed currents and an independent GeV scale are required for a measured
+  species assignment.
 - **Continuum fields and their measurements.** The ordered-spin construction has
   three continuous spatial dimensions, time, positive energy and finite propagation.
   Its position observable is conjugate to the same spatial momentum, with complete

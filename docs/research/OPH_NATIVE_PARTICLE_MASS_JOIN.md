@@ -108,6 +108,23 @@ operator-and-state comparison as any other local calculation.
 <a id="charge-creation-work-and-persistence-on-that-source"></a>
 <a id="same-candidate-transport-and-number-conserving-reads"></a>
 
+## Opposite charge on the actual interacting source
+
+The [native conjugation proof](../../model/coherent_defect_wave/chiral_joint/interacting_charge_conjugation/PROOF.md)
+constructs an antiunitary reflection/particle-hole map on the full scalar,
+CAR and 119-state link carrier. It preserves the actual interacting H and
+intertwines the Gauss generators. Origin addition and removal therefore
+have equal source spectral measures, including their outside-bin weights.
+No fitted mass equality is imposed.
+
+Antiunitarity gives `Theta U(t) Theta^-1=U(-t)`. It is not a unitary
+physical CP operation or a proof of relativistic CPT. The old reference
+Hamiltonian `4*N_ref` transforms to `120-4*N_ref`, so equal source measures
+do not imply equal total records with that unchanged reference. A common
+opposite-charge total-energy comparison requires an explicit symmetric
+reference construction. The odd origin channel has finite cubic type G1;
+that character is also compatible with higher continuum spins.
+
 ## Charged arrival and low-energy localization
 
 The [actual charged transport](../../model/coherent_defect_wave/chiral_joint/interacting_charged_transport/PROOF.md)
@@ -173,6 +190,46 @@ confinement.
 <a id="position-and-the-source-sector"></a>
 <a id="conserved-charge-and-the-physical-mass-gate"></a>
 <a id="the-required-common-source-maps"></a>
+
+## A charged energy obtained from the full field carrier
+
+The distinct [affine Gauss mobile source](../../model/affine_gauss_mobile/PROOF.md)
+couples thirteen CAR modes to finite dynamical transverse fields and an
+explicit longitudinal Gauss embedding. The [full charged calculation](../../model/affine_gauss_full_spectrum/PROOF.md)
+certifies its 70,928-state one-charge ground in
+`[1.8738097549651658,1.8738097549671659]`, including reference cost one.
+The verifier applies the complete Hamiltonian and bounds arithmetic error;
+it does not infer the answer from a low-dimensional compression or trust
+an eigensolver's reported convergence. The ground has strictly positive
+transverse dressing and thirteen complete position probabilities.
+
+This is a reproducible source-energy result on its own declared H, state,
+reference and clock. Its source-only energy after the stated reference
+subtraction is about `0.873809754966`. Neither number identifies an electron
+mass. The reference binds a finite boundary problem and the matter modes
+are spinless. Its [twenty-qubit energy detector](../../model/affine_gauss_charged_clock/PROOF.md)
+retains every pump and phase outcome, with accepted ground fidelity above
+`0.99999999439512` under a bounded rational-gate implementation. Its energy
+reference phase and autonomous source evolution are explicit.
+
+The [native Abelian join](../../model/native_abelian_field_join/PROOF.md)
+attaches thirteen complete native blocks, conjugate local references and
+compensated charge ports to this field. For an actual selected native
+energy `E_*`, the moving odd `G1` channel has total excitation energy
+`E_*+2+E_affine,1`; subtracting its reference cost four gives
+`E_*+E_affine,1-2`. The `G1` factor records the proper cubic action and
+does not by itself establish relativistic spin one half. The unpenalized
+Hamiltonian contains lower inactive port sectors; the selected sector is
+not called its full charged ground.
+
+For a probe with appreciable original probability, the whole native bin is
+retained. Its half-width controls the finite-time comparison, giving
+unconditional neighbor arrival above `3.06e-5` at time `1/4`, including
+preparation and the additional exact ground-admission service. Six complete
+records retain all failures and outside-bin weight. These are native charged
+field observations on a declared joined Hamiltonian. A momentum-dependent
+relativistic threshold and electromagnetic species assignment require their
+own comparison on that Hamiltonian.
 
 ## Physical mass readout criterion
 

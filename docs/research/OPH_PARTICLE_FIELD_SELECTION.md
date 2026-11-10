@@ -209,6 +209,42 @@ source estimates; it does not declare a photon phase of the unit-penalty source.
 <a id="same-occupation-fields-and-their-collective-limit"></a>
 <a id="mass-comparison-and-inverse-coordinates"></a>
 
+## Electric architecture, full charged spectrum and vector readout
+
+The [affine Gauss architecture](../../model/affine_gauss_source/PROOF.md)
+declares a counting metric on the icosahedral cone, thirteen CAR modes,
+one finite charge reference, longitudinal occupation constraints and a
+rotation-invariant total transverse cutoff. Its distributed Gauss energy
+is derived by exact reduction. The boundary term restoring the stated
+oscillator ground is part of the declared Hamiltonian. Literal finite
+Peierls hopping then gives one interacting source with complete physical
+preparation and readout. The [full ground certificate](../../model/affine_gauss_full_spectrum/PROOF.md)
+retains all 70,928 one-charge states and certifies an energy near
+`1.873809754966`, including reference cost one. An efficient native
+implementation, an infinite-volume Coulomb phase and a Standard Model
+assignment are not selection assumptions silently discharged by that number.
+
+The [complete charged clock](../../model/affine_gauss_charged_clock/PROOF.md)
+specifies a compensated pump, twenty-qubit phase pointer, neutral-energy
+reference phase and rational controlled gates. Its preparation failure and
+every phase outcome remain records. The [native attachment](../../model/native_abelian_field_join/PROOF.md)
+retains thirteen complete native blocks and enlarges the local reference to
+support conjugate charges without changing `4N` into a false invariant.
+The whole-bin transfer leaves the actual native H intact and proves positive
+field-coupled arrival. Its spectral services, charge ports and hopping are
+declared construction choices. The selected odd `G1` channel is not the full
+unpenalized charged ground or a proved relativistic electron field.
+
+On the separate neutral paired-block architecture, the
+[Proca instrument](../../model/interacting_block_proca/PROOF.md) uses the
+same H, ground, reference and clock as the scalar comparison, with a
+different explicitly declared field readout and induced Lorentz action.
+The time component depends on canonical momentum. Its complete detector
+bounds prove a free spin-one description; a source triplet alone does not
+force that description or select a named vector boson. Stating the readout
+is an allowed construction choice, while its native record approximation
+and transformation identities are proof obligations supplied by the package.
+
 ## Which selection tests constrain a mass model
 
 Complete finite response can reject a specified mechanism without excluding
@@ -248,17 +284,20 @@ bar that can be absorbed by an unspecified self-energy correction.
 The fixed source proves positive arrival and strong low-bin single-charge
 localization. Its first unresolved observable is the energy-resolved
 spatial measure with the retained cloud outcome. If the intended target is
-a Coulomb charged particle, declare the electric/magnetic source that is
-intended to support it and establish its own coupled physical ground and
-charged dressing. The measured charge in the finite proof is native
+a Coulomb charged particle, the affine Gauss construction supplies a
+finite electric/magnetic source, coupled charged ground and nonzero
+transverse dressing. The native attachment supplies a finite current
+transfer; its energy-resolved moving record and spatial/refinement limit
+require a coupled proof. The measured charge in the finite proof is native
 hypercharge; an unbroken electromagnetic generator and its coupling require
 their actual electroweak construction.
 
 The exact variational identity for a quadratic electric comparison is
 `min_(D E=rho) a_E||E||^2/2 = a_E rho^T(DD^T)^+rho/2` for neutral rho on
 a connected graph. Its distributed-flux cost differs from counting nonblank
-links. A physical inverse-distance limit, quantum transverse modes and the
-coupled charged threshold are additional calculations on that changed H.
+links. Quantum transverse modes and a coupled finite charged ground are supplied
+by the affine source. A physical inverse-distance limit and a relativistic
+charged threshold remain additional calculations on that changed H.
 The existing finite Green and Whitney packages retain their own geometry,
 reference and clock until a source transfer is proved.
 
