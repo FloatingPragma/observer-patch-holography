@@ -1,5 +1,11 @@
 # Particle construction: source laws, mass operators and physical matching
 
+The [candidate confirmation steps](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
+give the required tests for each named target within the common dependency map.
+Charged thresholds, unstable-particle resonances and renormalized quark masses
+have distinct observable definitions; a source pair-energy window supplies
+none of these identifications by unit conversion alone.
+
 The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
 retain eighteen named comparison targets while testing their source families.
 Conserved occupations forbid scalar source-marginal normal spectral kernels

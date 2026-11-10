@@ -1,5 +1,11 @@
 # Native particles, currents and mass operators
 
+The [candidate confirmation steps](../../model/particle_candidate_confirmation/CONFIRMATION_STEPS.md)
+give the required tests for each named target within the common dependency map.
+Charged thresholds, unstable-particle resonances and renormalized quark masses
+have distinct observable definitions; a source pair-energy window supplies
+none of these identifications by unit conversion alone.
+
 The [candidate identity tests](../../model/particle_candidate_confirmation/RESULTS.md)
 separate source-channel confirmation from physical particle identification.
 A coherent seven-state counter distinguishes the six signed neutral-composite

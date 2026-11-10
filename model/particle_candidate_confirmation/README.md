@@ -17,6 +17,9 @@ The consumer keeps its producer receipts separate, with deduplicated source
 hashes. It does not repeat the full spectral certificates or change an
 accepted physical dependency.
 
+The [confirmation steps](CONFIRMATION_STEPS.md) attach six physical tests
+to each target within the common field-and-particle dependency map.
+
 ## Charged elementary families
 
 The [local operator calculation](../particle_candidate_charged/PROOF.md)

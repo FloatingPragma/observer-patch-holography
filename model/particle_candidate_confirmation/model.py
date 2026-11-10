@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from model.particle_common_contract import contract
+from . import catalogue, steps
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).parent
@@ -22,7 +23,7 @@ SCHEMAS = {
 }
 SOURCE_INPUTS = tuple('model/particle_candidate_confirmation/' + name for name in
                      ('__init__.py', '__main__.py', 'model.py', 'test_model.py',
-                      'PROOF.md', 'README.md'))
+                      'PROOF.md', 'README.md', 'steps.py', 'catalogue.py'))
 SOURCE_TESTS = {
     'charged_leptons': 'A Higgs-conjugate composite gives a charged weak/color-singlet dressing; native currents forbid bare quadratic mixing between inequivalent representations.',
     'up_type_quarks': 'Exact native quark representations have no onsite generation multiplicity; a common bare Yukawa attachment is constrained by native charges.',
@@ -177,6 +178,7 @@ def build():
             'test_receipt': INPUTS[role],
             'supporting_receipts': supporting_receipts(name),
             'source_test_summary': SOURCE_TESTS[target_family(name)],
+            'confirmation_steps': steps.candidate_steps(name),
             'scope': 'source representation, conserved-charge and detector selection tests',
             'physical_identity_status': 'unresolved',
             'source_flavor_index': None,
@@ -191,6 +193,8 @@ def build():
                             'schema': values[role]['schema']}
                      for role, path in INPUTS.items()},
         'calculated_source_results': calculated_summary(values),
+        'confirmation_plan': steps.plan(),
+        'labelled_catalogue': catalogue.build(dictionary),
         'physical_particle_map': [],
         'mass_predictions_GeV': [],
         'fit_parameters_used': [],
@@ -232,10 +236,16 @@ def validate(value, *, authenticated=None):
         source = originals[row['target']]
         if any(row[key] != source[key] for key in ('source_component_ids', 'actual_primary_excitation_ids')):
             raise ValueError('candidate source assignments differ from the original dictionary')
+        if row.get('confirmation_steps') != steps.candidate_steps(row['target']):
+            raise ValueError('candidate confirmation requirements differ')
         if row.get('supporting_receipts') != supporting_receipts(row['target']):
             raise ValueError('candidate supporting evidence differs')
         if row['source_test_summary'] != SOURCE_TESTS[row['family']]:
             raise ValueError('candidate identity summary differs from its tested domain')
+    if value.get('confirmation_plan') != steps.plan():
+        raise ValueError('candidate confirmation plan differs')
+    if value.get('labelled_catalogue') != catalogue.build(original):
+        raise ValueError('candidate labelled catalogue differs')
     if len(set(value['source_excitation_ids'])) != 16 or len(set(value['protected_catalogue_ids'])) != 11:
         raise ValueError('candidate source IDs were lost or conflated')
     if value.get('content_sha256') != content_digest(value):
@@ -292,6 +302,8 @@ def render(value):
               'a populated propagating sector with controlled dispersion, and matching '
               'interaction records. Generation names require a source flavor discriminator. '
               'A unit conversion supplies none of these tests.', '',
+              '[Candidate confirmation steps](CONFIRMATION_STEPS.md); '
+              '[labelled defect and excitation families](CATALOGUE.md); '
               '[Calculated source tests and their domains](README.md); '
               '[candidate map](../standard_model_source_map/candidates/CANDIDATES.md).', '']
     return '\n'.join(lines)

@@ -106,3 +106,54 @@ def test_cross_family_support_cannot_be_removed(value):
     changed['content_sha256'] = m.content_digest(changed)
     with pytest.raises(ValueError, match='supporting evidence'):
         m.validate(changed)
+
+
+def test_each_target_has_the_same_required_sequence(value):
+    from . import steps
+    expected = [row[0] for row in steps.COMMON]
+    for row in value['target_rows']:
+        assert [s['id'] for s in row['confirmation_steps']] == expected
+        assert all(s['physical_confirmation_status'] == 'unproved' for s in row['confirmation_steps'])
+    covered = [t for f in value['confirmation_plan']['families'].values() for t in f['targets']]
+    assert sorted(covered) == sorted(r['target'] for r in value['target_rows'])
+
+
+def test_source_energy_cannot_erase_a_physical_confirmation_step(value):
+    changed = deepcopy(value)
+    changed['target_rows'][0]['confirmation_steps'].pop()
+    changed['content_sha256'] = m.content_digest(changed)
+    with pytest.raises(ValueError, match='confirmation requirements'):
+        m.validate(changed)
+
+
+def test_mass_definition_depends_on_the_candidate(value):
+    rows = {r['target']: r for r in value['target_rows']}
+    mass = lambda t: next(s['requirement'] for s in rows[t]['confirmation_steps'] if s['id'] == 'mass')
+    assert 'scheme' in mass('up')
+    assert 'infrared' in mass('electron')
+    assert 'complex-pole' in mass('Z')
+    assert 'mass at zero' in mass('photon')
+    assert 'free gluon pole' in mass('gluon')
+
+
+def test_labelled_families_preserve_domains_and_all_source_ids(value):
+    data = value['labelled_catalogue']
+    protected = [r for f in data['protected_families'] for r in f['rows']]
+    excited = [r for f in data['excitation_families'] for r in f['rows']]
+    assert len(protected) == 11 and len(excited) == 16
+    assert {r['source_id'] for r in protected} == set(value['protected_catalogue_ids'])
+    assert {r['source_id'] for r in excited} == set(value['source_excitation_ids'])
+    excluded = next(r for r in protected if r['source_id'] == 'bare_native_source')
+    assert excluded['source_record']['kind'] == 'exhaustive_exclusion'
+    assert all(r['source_record']['protected_defect_id'] is None for r in excited)
+    assert all(r['physical_particle_id'] is None for r in protected + excited)
+
+
+@pytest.mark.parametrize('field,replacement', [('physical_particle_map', ['electron']),
+                                             ('first_appearance_order', ['photon'])])
+def test_catalogue_cannot_invent_species_or_cosmological_order(value, field, replacement):
+    changed = deepcopy(value)
+    changed['labelled_catalogue'][field] = replacement
+    changed['content_sha256'] = m.content_digest(changed)
+    with pytest.raises(ValueError, match='labelled catalogue'):
+        m.validate(changed)
