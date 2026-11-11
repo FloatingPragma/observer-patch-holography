@@ -1,0 +1,91 @@
+{
+  "actual_artifacts": [
+    {
+      "pages": 50,
+      "path": "flagship/from_observer_consensus_to_standard_physics.pdf",
+      "sha256": "bde27a1a6df5c9fbab453c5ee925b844f3badbe5fc8d738d39d2de4e783fc614",
+      "size_bytes": 378124
+    },
+    {
+      "pages": 132,
+      "path": "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+      "sha256": "c277838f5cbf39b97e72baf3654eb6e254bb45f1548a5ccbccb7bd0442048a99",
+      "size_bytes": 816090
+    },
+    {
+      "pages": 87,
+      "path": "paper/executable_observer_construction.pdf",
+      "sha256": "a2592957a0504319db5d72d77cf1b596f7fd8100200446baef90712a5d9581b8",
+      "size_bytes": 648535
+    },
+    {
+      "pages": 427,
+      "path": "book/reverse-engineering-reality-book.pdf",
+      "sha256": "f0c21534566bd031d2c70bd6c7b17b8f5d298444f877848bb77a055dd87b1c27",
+      "size_bytes": 1449784
+    }
+  ],
+  "actual_builds_completed": true,
+  "build_and_check_logs": {
+    "oph-wrap-book-build.log": {
+      "output": "note: \"version 2\" Tectonic command-line interface activated\nnote: Running TeX ...\nwarning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1210) in paragraph at lines 350--358\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1509) in paragraph at lines 350--358\nnote: Rerunning TeX because \"book_manuscript.aux\" changed ...\nwarning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1210) in paragraph at lines 350--358\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1509) in paragraph at lines 350--358\nnote: Rerunning TeX because \"book_manuscript.aux\" changed ...\nwarning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1210) in paragraph at lines 350--358\nwarning: book_manuscript.tex:358: Underfull \\hbox (badness 1509) in paragraph at lines 350--358\nwarning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.\nnote: Running xdvipdfmx ...\nnote: Writing `/Users/muellerberndt/Projects/oph-meta/repair-law/temp/book_pdf_build/book_manuscript.pdf` (1.38 MiB)\nnote: Writing `/Users/muellerberndt/Projects/oph-meta/repair-law/temp/book_pdf_build/book_manuscript.log` (57.63 KiB)\nnote: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)\nOK   book_manuscript.log: 2 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\nBuilt book PDF at /Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/book/reverse-engineering-reality-book.pdf\n",
+      "sha256": "061ce1fbde29fade263f5948534733b44a17f94ff63088d09bcb570189470bfb"
+    },
+    "oph-wrap-core-build.log": {
+      "output": "/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/flagship/from_observer_consensus_to_standard_physics.pdf\n/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.pdf\n/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/executable_observer_construction.pdf\n",
+      "sha256": "29796cf99a2ce4f4fe837add938499f632096d285bc42ff67220d59297d7bf8c"
+    },
+    "oph-wrap-core-rebuild.log": {
+      "output": "/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/deriving_the_particle_zoo_from_observer_consistency.pdf\n/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/executable_observer_construction.pdf\n",
+      "sha256": "df8ee6d910d0c6c15cb5a9e459f0f81245fa1452c3926992831d322d6dc7121f"
+    },
+    "oph-wrap-manifest-candidate.log": {
+      "output": "Lean public theorem/lemma declarations: 12880 (expected floor: 12800)\nOK: every stated floor matches the expected value\n/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/paper_release_manifest.json (publication candidate)\n",
+      "sha256": "4c621fe45ec769e2f1eccaf915d9bf8fd2a5d5e9a8027c1e58546602418868b0"
+    },
+    "oph-wrap-manifest-preview.log": {
+      "output": "Lean public theorem/lemma declarations: 12880 (expected floor: 12800)\nOK: every stated floor matches the expected value\n/Users/muellerberndt/Projects/oph-meta/repair-law/reverse-engineering-reality/paper/paper_release_manifest.json (preview)\n",
+      "sha256": "d1dd861c3b1462a7488aa6f037858d64c560d3f133e649b95fc8c4acf611b9c5"
+    },
+    "oph-wrap-manifest-strict.log": {
+      "output": "paper release manifest OK: canonical book + 8 papers + 0 supplemental_papers + 0 extra_papers (paper membership derived from build_tex_papers.py)\n",
+      "sha256": "1f5d701b9f1f75c2bd57d5bfe5c73bef4ca9af8d263c9ff8380951c0b97d7169"
+    },
+    "oph-wrap-reader-style.log": {
+      "output": "reader style check OK\n",
+      "sha256": "c274b968e5456780d31bac9fd32b0d8f8cc70992c8fcfc4690c5848b3f46abe2"
+    },
+    "oph-wrap-warning-gate.log": {
+      "output": "OK   from_observer_consensus_to_standard_physics.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\nOK   deriving_the_particle_zoo_from_observer_consistency.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\nOK   executable_observer_construction.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\n",
+      "sha256": "c957d330b4a4f97582afd0593c956381ebdcf81177360f04e16670a6f69e50f7"
+    }
+  },
+  "build_commands": [
+    "python tools/build_tex_papers.py from_observer_consensus_to_standard_physics deriving_the_particle_zoo_from_observer_consistency executable_observer_construction",
+    "python tools/build_book_pdf.py",
+    "python tools/build_tex_papers.py deriving_the_particle_zoo_from_observer_consistency executable_observer_construction",
+    "python tools/generate_paper_release_manifest.py --preview",
+    "python tools/generate_paper_release_manifest.py",
+    "python tools/validate_paper_release_manifest.py --publication"
+  ],
+  "canonical_book_warning_gate": "2 allowed underfull; zero unexplained, overfull or reference/citation/glyph/font issues",
+  "flagship_abstract_exact_checkpoint": "6d39bfd75",
+  "fresh_warning_gate": "OK   from_observer_consensus_to_standard_physics.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\nOK   deriving_the_particle_zoo_from_observer_consistency.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\nOK   executable_observer_construction.log: 0 underfull (0 unexplained), 0 overfull, 0 ref/cite/glyph/font problems\n",
+  "reader_style_result": "reader style check OK",
+  "release_scope": "reviewed untagged r2064 publication candidate; not a GitHub release",
+  "rendered_inspected_pdf_pages": {
+    "book/reverse-engineering-reality-book.pdf": [
+      296
+    ],
+    "flagship/from_observer_consensus_to_standard_physics.pdf": [
+      25
+    ],
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": [
+      27
+    ],
+    "paper/executable_observer_construction.pdf": [
+      37
+    ]
+  },
+  "scientific_gate_acceptance_added": false
+}

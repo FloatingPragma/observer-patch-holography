@@ -1,0 +1,118 @@
+"""Independent finite controls for the charged local-record theorem."""
+from pathlib import Path
+from fractions import Fraction as F
+import importlib.util
+import numpy as np
+import mpmath as mp
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+spec=importlib.util.spec_from_file_location('charged_spatial_records_tested',HERE/'model.py')
+m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+
+def test_actual_packet_and_failure_intervals():
+    v=m.actual_packet_controls()
+    assert v['actual_32_mode_Gamma_gap_square_and_C_identity']
+    for success,failure in zip(v['actual_cube_pump_success_intervals'],v['actual_cube_pump_failure_intervals']):
+        lo,hi=map(F,success);fl,fh=map(F,failure)
+        assert F(11,20)<lo<=hi<1 and 0<fl<=fh<1
+        assert lo+fh>=1 and hi+fl<=1
+    assert v['uniform_pump_success_lower']=='11/20'
+
+
+def test_Neumann_heat_without_eigensolver():
+    mp.mp.dps=60
+    for N in (2,3,8,32):
+        for t in (mp.mpf('0.01'),mp.mpf('.1'),mp.mpf(1),mp.mpf(10),mp.mpf(100),mp.mpf(1000)):
+            diagonals=[]
+            for x in range(N):
+                value=mp.mpf(1)/N
+                for k in range(1,N):
+                    value+=2*mp.cos(mp.pi*k*(x+mp.mpf('.5'))/N)**2*mp.exp(-4*t*mp.sin(mp.pi*k/(2*N))**2)/N
+                diagonals.append(value)
+            centered=max(diagonals)**3-mp.mpf(1)/N**3
+            assert centered>=-mp.mpf('1e-55')
+            assert centered<=16*t**(-mp.mpf('1.5'))
+    assert F(328,21)<16
+
+
+def test_actual_reference_self_energy_and_green():
+    v=m.heat_and_reference_fixture()
+    rows=v['finite_reference_self_energy_fixture']
+    assert len({r['G_root_root'] for r in rows})==3
+    assert all(0<F(r['G_root_root'])<33 for r in rows)
+    for r in rows:assert F(r['reference_self_energy_over_m_g_squared'])==F(r['G_root_root'])/2
+    e=v['explicit_point_accuracy_example']
+    assert F(e['root_local_Green_absolute_upper'])<F(1,16)
+    assert F(e['local_Green_comparison_absolute_upper'])<F(1,8)
+    assert not e['large_box_matrices_executed']
+
+
+def test_full_four_component_CAR_Wick_reference_identity():
+    v=m.wick_fixture();assert v['full_CAR_dimension']==256
+    assert v['components_per_vertex']==4 and len(v['rows'])==4
+    for row in v['rows']:
+        assert F(row['charged_Coulomb'])-F(row['neutral_Coulomb'])-F(row['root_self'])==F(row['intrinsic_minus_root_potential'])
+    assert not v['source_fixture_identified_as_actual_native_ground']
+
+
+def test_literal_K3_coordinate_exponential_and_moments():
+    from scipy.linalg import expm
+    v=m.finite_photon_controls();Q=np.array(m.field.link_coordinates()[0],dtype=complex)
+    cut=m.field.cutoff(3);index=cut['states'].index((0,0,0,0,0))
+    variance=float(m.field.cube()['Q_edge_vacuum_variance'])
+    assert abs((Q@Q)[index,index]-variance)<1e-14
+    phase=expm(1j*Q/64);r=phase[index,index]
+    assert abs(r.imag)<1e-14 and 0<=1-r.real<=variance/(2*64**2)
+    ideal=np.exp(-variance/(2*64**2))
+    upper=F(v['uniform_K3_energy_cutoff_error_over_m_upper'])
+    assert abs(r-ideal)<=float(upper)/6
+    assert upper<F(1,70000)
+
+
+def test_Schur_order_for_actual_green_and_a_projector():
+    G=m.field.cube()['G'];V=8
+    U=s.Matrix([[(-1)**((i&j).bit_count())/s.sqrt(8) for j in range(8)]for i in range(8)])
+    P=U[:,:3]*U[:,:3].T
+    # Exact Gram factor proof for this finite control, avoiding an eigen test.
+    # G has actual L spectral values2,4,6; construct G square-root factors
+    # from polynomial projectors with exact radicals.
+    L=m.field.cube()['D'].T*m.field.cube()['D'];I=s.eye(V)
+    factors=[]
+    for lam in (2,4,6):
+        E=I
+        for other in (0,2,4,6):
+            if other!=lam:E=E*(L-other*I)/(lam-other)
+        assert E*E==E;factors.extend([E[:,j]/s.sqrt(lam) for j in range(V)])
+    assert sum((a*a.T for a in factors),s.zeros(V))==G
+    S=s.matrix_multiply_elementwise(G,P);D=s.diag(*G.diagonal())
+    SP=sum((s.diag(*a)*P*s.diag(*a) for a in factors),s.zeros(V))
+    SC=sum((s.diag(*a)*(I-P)*s.diag(*a) for a in factors),s.zeros(V))
+    assert SP==S and SC==D-S
+
+
+def test_complete_failure_weights_and_positive_local_record():
+    v=m.calculate()
+    for p in v['finite_program_examples']:
+        f=F(p['complete_assembly_failure_upper']);w=F(11,20)
+        assert F(p['original_charged_union_success_lower'])<= (1-f)*w
+        assert F(p['original_local_density_imbalance_lower'])<= (1-f)*w*w/4
+        # Four complete pointer patterns, two zero patterns on each fixed
+        # sign. Summing accepted and failed branches restores unit probability.
+        for actualw in (w,F(3,4),F(1)):
+            assert f+(1-f)*(actualw+1-actualw)==1
+    assert v['complete_local_law']['limiting_complete_local_density_imbalance_lower']=='121/1600'
+    assert not v['complete_local_law']['local_density_contrast_claimed_as_interaction_witness']
+    assert v['complete_local_law']['density_positive_signal_dimensionless_autonomous_wait']=='0'
+    assert not v['complete_local_law']['density_signal_bound_claimed_at_arbitrary_positive_wait']
+
+
+def test_energy_interval_and_clock_scope():
+    v=m.calculate();lo,hi=map(F,v['prepared_energy']['reference_subtracted_limit_over_m'])
+    assert lo==F(8081,8192) and 0<lo<hi
+    assert v['prepared_energy']['baseline']=='neutral prepared perpendicular free sea under the SAME H'
+    assert not v['prepared_energy']['subtraction_changes_H']
+    assert not v['prepared_energy']['energy_compression_equals_self_energy_or_rest_mass']
+    assert v['clock_capacity']['total_source_time']=='4+r+tau/m'
+    assert v['clock_capacity']['additional_pointer_bits_above_neutral_parent']==3
+    assert v['clock_capacity']['local_observer_record_alphabet']=='2^(r+4)'

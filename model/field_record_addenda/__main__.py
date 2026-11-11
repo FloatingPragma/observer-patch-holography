@@ -14,7 +14,7 @@ def main():
     for package in PACKAGES:
         subprocess.run([sys.executable,'-B','-m','model.field_record_addenda.'+package,command],
                        cwd=ROOT,env=env,check=True)
-    print('PASS: all ten complete additive producers, each in a cold process')
+    print('PASS: all eleven complete additive producers, each in a cold process')
 
 
 if __name__=='__main__':main()

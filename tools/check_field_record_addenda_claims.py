@@ -8,7 +8,8 @@ PACKAGES = ('native_quark_transport', 'native_quark_spatial_spectrum',
     'native_code_ground_preparation', 'native_wilson_cone_audit',
     'native_orthogonal_wilson_bridge', 'native_wilson_maxwell_locality',
     'native_wilson_maxwell_spatial_family', 'native_wilson_maxwell_interaction_witness',
-    'native_orthogonal_wilson_spatial_join', 'native_orthogonal_wilson_charged_band')
+    'native_orthogonal_wilson_spatial_join', 'native_orthogonal_wilson_charged_band',
+    'native_orthogonal_wilson_charged_spatial_records')
 
 
 def sha(path):
@@ -39,9 +40,9 @@ def check():
         value = json.loads((ROOT/row['receipt']).read_text())
         if not value['public_port']['exact_scientific_payload_equal'] or value['public_port']['physical_status_promotion']:
             raise ValueError('Unreviewed public source interpretation')
-    if tuple(names) != PACKAGES or [r['id'] for r in data['claims']] != [f'FR{i:02}' for i in range(1,11)]:
+    if tuple(names) != PACKAGES or [r['id'] for r in data['claims']] != [f'FR{i:02}' for i in range(1,12)]:
         raise ValueError('Changed claim membership')
-    print('PASS: ten typed finite-field claims; sealed class and physical statuses preserved')
+    print('PASS: eleven typed finite-field claims; sealed class and physical statuses preserved')
 
 
 if __name__ == '__main__':

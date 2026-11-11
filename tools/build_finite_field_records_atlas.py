@@ -13,7 +13,7 @@ import textwrap
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'docs/research/OPH_FINITE_FIELD_RECORDS.svg'
 BASE = ROOT / 'model/field_record_addenda'
-COLORS = ['#ffbd63', '#43e0ce', '#ae9aff', '#89b8ff']
+COLORS = ['#ffbd63', '#43e0ce', '#ae9aff', '#89b8ff', '#f7a6c6']
 
 
 def short(value, *, upper=False):
@@ -37,21 +37,23 @@ def render():
     from check_field_record_addenda_claims import check
     check()
     names = ('native_quark_spatial_spectrum', 'native_code_ground_preparation',
-             'native_orthogonal_wilson_spatial_join', 'native_orthogonal_wilson_charged_band')
+             'native_orthogonal_wilson_spatial_join', 'native_orthogonal_wilson_charged_band',
+             'native_orthogonal_wilson_charged_spatial_records')
     receipts = {name: json.loads((BASE / name / 'results.json').read_text()) for name in names}
-    q, prep, spatial, charged = (receipts[name] for name in names)
+    q, prep, spatial, charged, charged_spatial = (receipts[name] for name in names)
     quark = q['families']['uc']
     energy = quark['all_atomic_and_full_H_bins'][quark['best_certified_bin_index']]['source_excitation_relative_actual_neutral_ground']
     ground = prep['bounds_exact']
     witness = spatial['bounds_exact']
     cb = charged['bounds_exact']
     hashes = {name: hashlib.sha256((BASE / name / 'results.json').read_bytes()).hexdigest() for name in names}
-    parts = ['<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="2875" viewBox="0 0 3600 2875" role="img" aria-labelledby="title desc">',
+    height = 815+515*len(names)
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="{height}" viewBox="0 0 3600 {height}" role="img" aria-labelledby="title desc">',
         '<title id="title">Finite records: from an OPH source to a detector</title>',
-        '<desc id="desc">Four distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, and charged finite clusters. Complete outcomes and exact error bounds are retained. Physical particle identities and GeV masses remain unproved.</desc>',
+        '<desc id="desc">Five distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, charged finite clusters, and charged spatial records. Complete outcomes and exact error bounds are retained. Physical particle identities and GeV masses remain unproved.</desc>',
         '<metadata>'+escape(json.dumps({'receipt_sha256': hashes, 'physical_particle_identifications': [], 'source_derived_masses_GeV': []}, sort_keys=True))+'</metadata>',
         '<defs><linearGradient id="bg"><stop stop-color="#102139"/><stop offset="1" stop-color="#070d18"/></linearGradient><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#7296ba"/></marker></defs>',
-        '<rect width="3600" height="2875" fill="url(#bg)"/>',
+        f'<rect width="3600" height="{height}" fill="url(#bg)"/>',
         '<style>text{font-family:Arial,Helvetica,sans-serif;fill:#e5efff}.body{font-size:27px;fill:#bacbe2}.small{font-size:23px;fill:#a2b9d7}.title{font-size:36px;font-weight:bold}.metric{font-size:35px;font-weight:bold}.label{font-size:25px;letter-spacing:2px;font-weight:bold}a text{text-decoration:underline}</style>']
 
     def text(x, y, value, cls='body', color=None):
@@ -99,10 +101,15 @@ def render():
             ('Measure coupled records', 'A recorded electric kick or identity is followed by the actual coupled wait and a complete bounded-current readout. Local laws converge at fixed spacing.', '> '+short(witness['complete_finite_law_TV_separation_lower']), 'Complete finite-law separation from the zero-coupling control.'),
             ('Fix sector selection', 'A fixed cube penalty fails on large boxes. The separate source choice c(V)=18V+1 places the global ground inside the code at every finite cap.', 'Complement separation ≥ m', 'A variational sector result, not the interacting ground vector.')]),
         ('D · CHARGED FINITE CUBE', 'Explicit completion 23/2; same charge frame and raw offset; photon cap three.', names[3], [
-            ('Find a stable cluster', 'The first two free states are too close to the next levels for the interaction bound. The first eight form a separated cluster in each charge sector.', '> '+short(cb['charged_cluster_gap_over_m_lower'])+' m', 'Gap within Q = ±1. Eight states do not mean eight species.'),
+            ('Find a stable cluster', 'This instrument uses a proved eight-state cluster in each charge sector. Its uniform interaction estimate is inconclusive for the first two states alone.', '> '+short(cb['charged_cluster_gap_over_m_lower'])+' m', 'Gap within Q = ±1. Eight states do not mean eight species.'),
             ('Prepare and compensate', 'Recorded admission and energy agreement prepare two sources. An even fermionic pump adds or removes charge; R = −Q and its cost four remain.', 'Joint parity and Gauss charge kept', 'The opposite-charge spectra are paired by conjugation.'),
             ('Record two energies', 'A charged-source clock and retained neutral-partner clock resolve the desired joint subspace. Every failure and every pointer pattern remains.', '> '+short(cb['original_accepted_energy_pair_probability_lower']), 'Original acceptance probability; five complete driven slots.'),
-            ('Bound what was read', 'Accepted records lie in the charged cluster and neutral ground with a rigorous fidelity bound. The reference-corrected interval still contains binding effects.', '> '+short(cb['accepted_joint_cluster_ground_fidelity_lower']), 'Joint fidelity. No continuous spin, rest mass or GeV assignment.')])]
+            ('Bound what was read', 'Accepted records lie in the charged cluster and neutral ground with a rigorous fidelity bound. The reference-corrected interval contains binding effects.', '> '+short(cb['accepted_joint_cluster_ground_fidelity_lower']), 'Joint fidelity. No continuous spin, rest mass or GeV assignment.')]),
+        ('E · CHARGED PREPARED SPATIAL FAMILY', 'Same growing field and charge frame; nonstationary prepared input; static reference in each member.', names[4], [
+            ('Prepare a local charge', 'A literal local creation or removal acts on the prepared free sea. An even pointer pump retains every failure and supplies the Gauss-compensating reference.', 'Pump success ≥ 11/20', 'This state is not the interacting ground.'),
+            ('Send the boundary away', 'Enlarge the box around the observer. Keep the reference fixed within each experiment, then compare sources with that reference farther away.', 'Complete local records converge', 'Fixed spacing and bounded time; remote fine flags remain.'),
+            ('Account for its energy', 'The reference contributes cost four and a geometry-dependent Coulomb self energy. Subtract those displayed terms when comparing charged and neutral preparations.', 'Eref = 4 + ½ m g² G(root,root)', 'Corner, face and centre have different finite self energies.'),
+            ('Read a positive excess', 'Exact quantum exchange and finite photon bounds control the prepared energy above the matching neutral prepared sea. This is an expectation, not a spectral mass.', '≥ '+short(charged_spatial['prepared_energy']['reference_subtracted_limit_over_m'][0])+' m', 'A local charge signal is proved at preparation; the mass remains open.')])]
 
     for i, (label, subtitle, name, cards) in enumerate(lanes):
         y = 390 + i*515
@@ -116,11 +123,12 @@ def render():
                 parts.append(f'<path d="M{x+785} {y+255} H{x+865}" stroke="#7296ba" stroke-width="3" marker-end="url(#arrow)"/>')
         link(80, y+483, '../../model/field_record_addenda/'+name+'/PROOF.md', 'Proof, exact source definitions and all retained outcomes')
 
-    parts.append('<rect x="80" y="2470" width="3425" height="290" rx="22" fill="#263024" stroke="#64794f"/>')
-    text(115, 2524, 'WHAT STILL SEPARATES THESE RECORDS FROM A MEASURED PARTICLE', 'label', '#d1e99f')
-    lines(115, 2575, 'Prepare the same interacting state across size → extend the finite charged energies to spatial translations → control interacting dispersion and infrared resolution → match physical spin, statistics and currents → establish dimensionless ratios → attach an energy convention and compare with experiment.', width=180, step=41)
-    text(115, 2718, 'No Standard Model identity, source-derived GeV mass, interacting relativistic ultraviolet limit or early-universe abundance is asserted by this poster.', 'small', '#f3dbb0')
-    text(80, 2830, 'Exact receipt hashes are embedded in this SVG. Every number is an outward-rounded bound from the linked finite construction.', 'small')
+    bottom = 410+515*len(lanes)
+    parts.append(f'<rect x="80" y="{bottom}" width="3425" height="290" rx="22" fill="#263024" stroke="#64794f"/>')
+    text(115, bottom+54, 'WHAT STILL SEPARATES THESE RECORDS FROM A MEASURED PARTICLE', 'label', '#d1e99f')
+    lines(115, bottom+105, 'Prepare the same interacting state across size → extend the finite charged energies to spatial translations → control interacting dispersion and infrared resolution → match physical spin, statistics and currents → establish dimensionless ratios → attach an energy convention and compare with experiment.', width=180, step=41)
+    text(115, bottom+248, 'No Standard Model identity, source-derived GeV mass, interacting relativistic ultraviolet limit or early-universe abundance is asserted by this poster.', 'small', '#f3dbb0')
+    text(80, height-45, 'Exact receipt hashes are embedded in this SVG. Every number is an outward-rounded bound from the linked finite construction.', 'small')
     parts.append('</svg>')
     return '\n'.join(parts)+'\n'
 

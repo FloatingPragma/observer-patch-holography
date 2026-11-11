@@ -47,4 +47,11 @@ PACKAGES={'native_quark_transport': {'research_sha256': '5395b4e4601fba2b8f95366
                                            'dependencies': ['native_wilson_cone_audit',
                                                             'native_orthogonal_wilson_bridge'],
                                            'external_receipts': {'model/native_wilson_maxwell/results.json': 'eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72',
-                                                                 'model/affine_gauss_charged_clock/results.json': '7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'}}}
+                                                                 'model/affine_gauss_charged_clock/results.json': '7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'}},
+ 'native_orthogonal_wilson_charged_spatial_records': {'research_sha256': 'cc118f50fb65c045894d74a122000e2d8fec521a7558f9d7eaec3f98563e22fc',
+                                                      'entry': 'model',
+                                                      'dependencies': ['native_orthogonal_wilson_spatial_join',
+                                                                       'native_orthogonal_wilson_charged_band'],
+                                                      'external_receipts': {'model/native_wilson_maxwell/results.json': 'eba4963148b62f6841a038119ed5b9baf4a6f142009915b31e49d72dacd12b72',
+                                                                            'model/native_wilson_maxwell_ground_refinement/results.json': 'e5a40a0d4e8d183c933232758f211bcd44bf81944429867da4048c184fc7b96a',
+                                                                            'model/affine_gauss_charged_clock/results.json': '7c8f0214f1412e38bdc410c607d0a8f8765df323c3a33a778da923f3892e8613'}}}

@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="2875" viewBox="0 0 3600 2875" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="3390" viewBox="0 0 3600 3390" role="img" aria-labelledby="title desc">
 <title id="title">Finite records: from an OPH source to a detector</title>
-<desc id="desc">Four distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, and charged finite clusters. Complete outcomes and exact error bounds are retained. Physical particle identities and GeV masses remain unproved.</desc>
-<metadata>{&quot;physical_particle_identifications&quot;: [], &quot;receipt_sha256&quot;: {&quot;native_code_ground_preparation&quot;: &quot;68bea9f4a43ed23c2ac0d20132f4c35ba5ca7aeb87829040cadd2a565f92d40c&quot;, &quot;native_orthogonal_wilson_charged_band&quot;: &quot;1f608f85796d87e01c0cd9f062e0dd9c5235453bb37791f95bc0f6e4119bbace&quot;, &quot;native_orthogonal_wilson_spatial_join&quot;: &quot;9ee36aba72a038a9347a3139510f70b868c9e29b6dc4ee54cf218664242dfe61&quot;, &quot;native_quark_spatial_spectrum&quot;: &quot;d9ca9c5ca544cf4e62e30c946b7f0337bf8c7c9006b81d0171c3ba83f1733e5b&quot;}, &quot;source_derived_masses_GeV&quot;: []}</metadata>
+<desc id="desc">Five distinct finite constructions: charged transfer and energy, interacting cube preparation, revised spatial field records, charged finite clusters, and charged spatial records. Complete outcomes and exact error bounds are retained. Physical particle identities and GeV masses remain unproved.</desc>
+<metadata>{&quot;physical_particle_identifications&quot;: [], &quot;receipt_sha256&quot;: {&quot;native_code_ground_preparation&quot;: &quot;e301872e318fb001276a99ebf02c6a2afa9412f0567df89d50e895ec5ef64162&quot;, &quot;native_orthogonal_wilson_charged_band&quot;: &quot;39ca5cedc3f4df074b2b54c21a0fb683b91ca3e08e93881dd55f3de8a3ac7151&quot;, &quot;native_orthogonal_wilson_charged_spatial_records&quot;: &quot;8e144b798139546c927513855cdd6539e72b16fb94754b9411c11d3ccf1d6e54&quot;, &quot;native_orthogonal_wilson_spatial_join&quot;: &quot;45afc48eddfbe284618d3248d6bb4c97e1fc7304c1301df3b78fa6a908e01a62&quot;, &quot;native_quark_spatial_spectrum&quot;: &quot;27060cc72b20387eb75a0536a0e25fef163f3f89efb6b72dedc742b0d20bc438&quot;}, &quot;source_derived_masses_GeV&quot;: []}</metadata>
 <defs><linearGradient id="bg"><stop stop-color="#102139"/><stop offset="1" stop-color="#070d18"/></linearGradient><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#7296ba"/></marker></defs>
-<rect width="3600" height="2875" fill="url(#bg)"/>
+<rect width="3600" height="3390" fill="url(#bg)"/>
 <style>text{font-family:Arial,Helvetica,sans-serif;fill:#e5efff}.body{font-size:27px;fill:#bacbe2}.small{font-size:23px;fill:#a2b9d7}.title{font-size:36px;font-weight:bold}.metric{font-size:35px;font-weight:bold}.label{font-size:25px;letter-spacing:2px;font-weight:bold}a text{text-decoration:underline}</style>
 <text x="80" y="80" class="label" style="fill:#43e0ce">THE FINITE FIELD LABORATORY</text>
 <text x="80" y="165" class="title">From source dynamics to complete detector records</text>
@@ -168,10 +168,10 @@
 <circle cx="127" cy="2058" r="22" fill="#89b8ff"/>
 <text x="119" y="2066" class="small" style="fill:#07111e">1</text>
 <text x="164" y="2069" class="title">Find a stable cluster</text>
-<text x="112" y="2122" class="body">The first two free states are too close to the</text>
-<text x="112" y="2161" class="body">next levels for the interaction bound. The first</text>
-<text x="112" y="2200" class="body">eight form a separated cluster in each charge</text>
-<text x="112" y="2239" class="body">sector.</text>
+<text x="112" y="2122" class="body">This instrument uses a proved eight-state cluster</text>
+<text x="112" y="2161" class="body">in each charge sector. Its uniform interaction</text>
+<text x="112" y="2200" class="body">estimate is inconclusive for the first two states</text>
+<text x="112" y="2239" class="body">alone.</text>
 <text x="112" y="2279" class="metric" style="fill:#89b8ff">&gt; 0.016526456 m</text>
 <text x="112" y="2326" class="small">Gap within Q = ±1. Eight states do not mean eight</text>
 <text x="112" y="2356" class="small">species.</text>
@@ -203,18 +203,67 @@
 <text x="2819" y="2069" class="title">Bound what was read</text>
 <text x="2767" y="2122" class="body">Accepted records lie in the charged cluster and</text>
 <text x="2767" y="2161" class="body">neutral ground with a rigorous fidelity bound.</text>
-<text x="2767" y="2200" class="body">The reference-corrected interval still contains</text>
-<text x="2767" y="2239" class="body">binding effects.</text>
+<text x="2767" y="2200" class="body">The reference-corrected interval contains binding</text>
+<text x="2767" y="2239" class="body">effects.</text>
 <text x="2767" y="2279" class="metric" style="fill:#89b8ff">&gt; 0.99991834</text>
 <text x="2767" y="2326" class="small">Joint fidelity. No continuous spin, rest mass or GeV</text>
 <text x="2767" y="2356" class="small">assignment.</text>
 <a href="../../model/field_record_addenda/native_orthogonal_wilson_charged_band/PROOF.md" target="_blank">
 <text x="80" y="2418" class="small" style="fill:#71cbff">Proof, exact source definitions and all retained outcomes</text>
 </a>
-<rect x="80" y="2470" width="3425" height="290" rx="22" fill="#263024" stroke="#64794f"/>
-<text x="115" y="2524" class="label" style="fill:#d1e99f">WHAT STILL SEPARATES THESE RECORDS FROM A MEASURED PARTICLE</text>
-<text x="115" y="2575" class="body">Prepare the same interacting state across size → extend the finite charged energies to spatial translations → control interacting dispersion and infrared resolution → match</text>
-<text x="115" y="2616" class="body">physical spin, statistics and currents → establish dimensionless ratios → attach an energy convention and compare with experiment.</text>
-<text x="115" y="2718" class="small" style="fill:#f3dbb0">No Standard Model identity, source-derived GeV mass, interacting relativistic ultraviolet limit or early-universe abundance is asserted by this poster.</text>
-<text x="80" y="2830" class="small">Exact receipt hashes are embedded in this SVG. Every number is an outward-rounded bound from the linked finite construction.</text>
+<text x="80" y="2450" class="label" style="fill:#f7a6c6">E · CHARGED PREPARED SPATIAL FAMILY</text>
+<text x="80" y="2494" class="body">Same growing field and charge frame; nonstationary prepared input; static reference in each member.</text>
+<rect x="80" y="2525" width="770" height="370" rx="22" fill="#102035" stroke="#294461" stroke-width="2"/>
+<circle cx="127" cy="2573" r="22" fill="#f7a6c6"/>
+<text x="119" y="2581" class="small" style="fill:#07111e">1</text>
+<text x="164" y="2584" class="title">Prepare a local charge</text>
+<text x="112" y="2637" class="body">A literal local creation or removal acts on the</text>
+<text x="112" y="2676" class="body">prepared free sea. An even pointer pump retains</text>
+<text x="112" y="2715" class="body">every failure and supplies the Gauss-compensating</text>
+<text x="112" y="2754" class="body">reference.</text>
+<text x="112" y="2794" class="metric" style="fill:#f7a6c6">Pump success ≥ 11/20</text>
+<text x="112" y="2841" class="small">This state is not the interacting ground.</text>
+<path d="M865 2705 H945" stroke="#7296ba" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="965" y="2525" width="770" height="370" rx="22" fill="#102035" stroke="#294461" stroke-width="2"/>
+<circle cx="1012" cy="2573" r="22" fill="#f7a6c6"/>
+<text x="1004" y="2581" class="small" style="fill:#07111e">2</text>
+<text x="1049" y="2584" class="title">Send the boundary away</text>
+<text x="997" y="2637" class="body">Enlarge the box around the observer. Keep the</text>
+<text x="997" y="2676" class="body">reference fixed within each experiment, then</text>
+<text x="997" y="2715" class="body">compare sources with that reference farther away.</text>
+<text x="997" y="2794" class="metric" style="fill:#f7a6c6">Complete local records converge</text>
+<text x="997" y="2841" class="small">Fixed spacing and bounded time; remote fine flags remain.</text>
+<path d="M1750 2705 H1830" stroke="#7296ba" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1850" y="2525" width="770" height="370" rx="22" fill="#102035" stroke="#294461" stroke-width="2"/>
+<circle cx="1897" cy="2573" r="22" fill="#f7a6c6"/>
+<text x="1889" y="2581" class="small" style="fill:#07111e">3</text>
+<text x="1934" y="2584" class="title">Account for its energy</text>
+<text x="1882" y="2637" class="body">The reference contributes cost four and a</text>
+<text x="1882" y="2676" class="body">geometry-dependent Coulomb self energy. Subtract</text>
+<text x="1882" y="2715" class="body">those displayed terms when comparing charged and</text>
+<text x="1882" y="2754" class="body">neutral preparations.</text>
+<text x="1882" y="2794" class="metric" style="fill:#f7a6c6">Eref = 4 + ½ m g² G(root,root)</text>
+<text x="1882" y="2841" class="small">Corner, face and centre have different finite self</text>
+<text x="1882" y="2871" class="small">energies.</text>
+<path d="M2635 2705 H2715" stroke="#7296ba" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="2735" y="2525" width="770" height="370" rx="22" fill="#102035" stroke="#294461" stroke-width="2"/>
+<circle cx="2782" cy="2573" r="22" fill="#f7a6c6"/>
+<text x="2774" y="2581" class="small" style="fill:#07111e">4</text>
+<text x="2819" y="2584" class="title">Read a positive excess</text>
+<text x="2767" y="2637" class="body">Exact quantum exchange and finite photon bounds</text>
+<text x="2767" y="2676" class="body">control the prepared energy above the matching</text>
+<text x="2767" y="2715" class="body">neutral prepared sea. This is an expectation, not</text>
+<text x="2767" y="2754" class="body">a spectral mass.</text>
+<text x="2767" y="2794" class="metric" style="fill:#f7a6c6">≥ 0.98645019 m</text>
+<text x="2767" y="2841" class="small">A local charge signal is proved at preparation; the mass</text>
+<text x="2767" y="2871" class="small">remains open.</text>
+<a href="../../model/field_record_addenda/native_orthogonal_wilson_charged_spatial_records/PROOF.md" target="_blank">
+<text x="80" y="2933" class="small" style="fill:#71cbff">Proof, exact source definitions and all retained outcomes</text>
+</a>
+<rect x="80" y="2985" width="3425" height="290" rx="22" fill="#263024" stroke="#64794f"/>
+<text x="115" y="3039" class="label" style="fill:#d1e99f">WHAT STILL SEPARATES THESE RECORDS FROM A MEASURED PARTICLE</text>
+<text x="115" y="3090" class="body">Prepare the same interacting state across size → extend the finite charged energies to spatial translations → control interacting dispersion and infrared resolution → match</text>
+<text x="115" y="3131" class="body">physical spin, statistics and currents → establish dimensionless ratios → attach an energy convention and compare with experiment.</text>
+<text x="115" y="3233" class="small" style="fill:#f3dbb0">No Standard Model identity, source-derived GeV mass, interacting relativistic ultraviolet limit or early-universe abundance is asserted by this poster.</text>
+<text x="80" y="3345" class="small">Exact receipt hashes are embedded in this SVG. Every number is an outward-rounded bound from the linked finite construction.</text>
 </svg>

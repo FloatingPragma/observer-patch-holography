@@ -38,7 +38,7 @@ The first part is one function. At any instant, two things about the ball matter
 
 Both parts are countable for a ball you could actually throw. The height part is the **potential energy**, what the ball's position owes: the mass times the strength of gravity times the height. Gravity at the Earth's surface pulls at 9.81 meters per second per second, and rounding that to ten costs two percent and keeps the arithmetic simple, so a one-kilogram ball held a meter off the floor owes ten joules. The speed part is the **kinetic energy**, which is what the motion holds: half the mass times the square of the speed. That same ball moving at two meters per second holds two joules, and at four meters per second it holds eight, because the square is where the growth is. The function is the second of those less the first, joule for joule.
 
-The second part is a running total. The number the function hands back is per second, so run along the arc from the first moment to the last and keep a running total of it, the way a taxi meter accumulates while the wheels turn. One arc in, one number out. Every arc on the list gets a total this way.
+The second part is a running total. The function hands back an energy. Multiply it by each short interval of time and add along the arc, from the first moment to the last. The result has units of energy times time, joule-seconds. One arc in, one number out. Every arc on the list gets a total this way.
 
 Selection uses slopes. Stand on a hillside and step one pace in any direction: your height changes by an amount proportional to the size of the step. Stand on the floor of the valley and step one pace: your height barely changes, because the ground under you is level, and the change you do get shrinks with the square of the step rather than with the step. The bottom of a valley is where the slope is zero.
 
@@ -60,7 +60,7 @@ The cost grows with the square of the midpoint height and the payment grows in p
 
 Look at what had to be in your hand to do any of that. All three sums used the landing. Fixing the speed on each hop took the ball being back on the floor at one second, and without the finish there was nothing to add up. The ball has the start. It leaves your hand with a place and a speed and no information whatever about where it comes down, and the rule says it flies the arc whose total sits at the bottom of a parabola whose shape depends on where it comes down. Something in that description knows the ending before it happens, and the ball does not. Maupertuis put a supreme being in the gap.
 
-The one function of where you are and how fast you are going is the **Lagrangian**. Its running total along a path is the **action**, which is the word chapter twelve used for a single number scored over a whole arrangement. This is the same object scored along a history instead of across a wiring. The rule that selects the path where wiggling changes nothing is **stationary action**.
+The one function of where you are and how fast you are going is the **Lagrangian**. Its running total along a path is the **action**, which is the word chapter twelve used for a single number scored over a whole arrangement. This is the same object scored along a history instead of across a wiring. The rule that selects the path where wiggling changes nothing to first order is **stationary action**. The thrown-ball example gives a minimum. A general stationary action can instead be a maximum or a saddle, so zero slope alone does not mean least action.
 
 Everything about a system is in its Lagrangian. Hand somebody that function and every quantity the system has gets its equation of motion, by the same handle-turning in each case: take the function's sensitivity to how fast the quantity is changing, ask how that sensitivity changes as the run proceeds, and set it equal to the function's sensitivity to the quantity itself. One line goes in and the entire behavior comes out. **A Lagrangian is a compression**: the thing you keep when you throw away the histories, chosen so that the histories can be regenerated from it.
 
@@ -74,7 +74,7 @@ Emmy Noether arrived at Göttingen in the spring of 1915 at the invitation of Hi
 
 In April 1933 the Law for the Restoration of the Professional Civil Service removed her from the university. She went to Bryn Mawr College in Pennsylvania, and once a week to Princeton to lecture. In the spring of 1935 she had surgery for a tumor, the operation went well, and four days afterward she developed a fever and lost consciousness. She died on 14 April 1935, at fifty-three.
 
-Chapter five gave the correspondence and chapter eighteen used it: every continuous symmetry of the laws comes with exactly one conserved quantity, determined by the symmetry, and momentum and energy are what you get from the laws not caring where and not caring when. The machine that turns the one into the other is a recipe with three steps.
+Chapter five gave the correspondence and chapter eighteen used it: a continuous variational symmetry supplies a conserved current. Boundary conditions and gauge constraints decide which currents give independent conserved quantities. Spatial and time translation symmetries supply momentum and energy. The machine that turns a symmetry into its current is a recipe with three steps.
 
 Take the Lagrangian. Find a change you can make to it continuously, by an amount you can dial down to nothing, which leaves its value alone: slide the whole system a hair sideways, turn it by a small angle, advance every clock by the same interval, add the same small amount to a phase everywhere. Each of those is a direction of change with a size attached to it.
 
@@ -84,9 +84,9 @@ The number you get does not change along any history the Lagrangian selects. One
 
 Slide sideways and the number is momentum. Turn and it is angular momentum. Advance the clocks and it is energy. Add the same phase everywhere and it is electric charge, arriving by a second road. Chapter twelve reached it from the other end, by showing that a force whose charge leaks stops being a force at all. The recipe here starts from the same phase and hands back the quantity you can total up.
 
-The same statement holds on a discrete chain with no limit taken anywhere. A run is a list of states with one step between each neighboring pair, and a symmetry is a change that carries each state to another while leaving each step's contribution to the running total alone. Take the contribution's sensitivity to the change across one step and it comes out the same across every step of the run. Segment by segment, the number holds, and there is no continuum anywhere in the argument.
+A discrete variational system has a corresponding theorem. A run is a list of configurations, and a continuous symmetry acts on those configurations while preserving the discrete action. Differentiating that action along the symmetry gives a quantity conserved by its discrete equations of motion. No continuum limit is needed. A fixed discrete clock, however, has no infinitesimal time-translation symmetry merely because its ticks repeat; a conserved energy needs its own argument.
 
-Bookkeeping in this world was never a separate law added on top of the dynamics. It is a property of the line, extracted by a fixed recipe. A world has as many conservation laws as its line has continuous symmetries.
+For a system with that variational description, the conserved currents follow from the action by a fixed recipe. Establishing the description and its symmetries is part of the derivation; the recipe cannot supply a missing action or a missing symmetry.
 
 ## A product of small numbers
 
@@ -94,7 +94,7 @@ None of that touches Maupertuis's reading. The recipe is exact. A rule that scor
 
 Start again from the smallest assumption a world can be given.
 
-Something is in some configuration. There is a rule saying what it does next. The rule has three properties. It is local, so the next step depends only on the configuration it is standing in. It is memoryless, so the rule does not consult how that configuration was arrived at. And it is strictly positive, so nothing is flatly forbidden: every configuration it could move to has some chance, however small.
+Something is in a finite configuration. Fix its initial state and the number of steps. A memoryless rule assigns a transition probability to each next configuration, depending on the present configuration. Every allowed move has positive probability; forbidden moves can be left outside the history space. Spatial locality is a further property: the update must depend on the stated neighbouring data, rather than merely on the whole present configuration.
 
 That is the whole of the input. There is no action in it, no Lagrangian, no scoring, and nothing that looks at a history.
 
@@ -108,31 +108,31 @@ On the left is one number belonging to a whole history. Check it on the smallest
 
 Look at what that produces. It is a running total along a path, one contribution per step, and each contribution depends on where its step started and where it ended and on nothing else anywhere in the history. That is the shape of the thing the thrown ball was scored with, arrived at from a rule that contains no score.
 
-A history with a large total took improbable steps. A history with the smallest total is the most probable history there is. And a history whose total does not move when you jiggle one of its interior configurations, holding the ends, is sitting on the valley floor in that direction, which is what it means to be locally most likely. **Least action and maximum probability are two readouts of one thing.**
+A history with a large total took improbable steps. Minimizing this negative-log score is exactly the same as maximizing the probability of an individual history. The rule still samples all allowed histories; it does not always select the most probable one. Large collections of individually unlikely histories can carry most of the total probability. A finite list also has no derivative with respect to a configuration unless a differentiable interpolation is supplied.
 
-Run the total backwards. Give each history a weight that shrinks as its total grows, one over the exponential of the total, and out comes the odds of that history again, because exponentiating undoes the logarithm that built the total. Nothing has to be divided by anything to bring the weights to one across all the histories, since the odds added to one before any logarithm was taken.
+Run the total backwards. Give each history the exponential of minus its score, and its probability returns, because exponentiating undoes the logarithm. For the fixed initial state and length, those probabilities add to one. Conditioning on a particular final state requires division by that final state's probability. The resulting constant shifts every admitted history score equally.
 
 Then suppose somebody hands you a different running total, and a different overall scale to multiply it by, and their combination also reproduces the same odds. Their scale times their total equals the total above plus a constant, at every history, and there is no other freedom anywhere in the problem. You may slide the zero, and you may change the units. Everything else is forced.
 
-A world whose step rule is local, memoryless and strictly positive has an action, then, whether or not anybody writes one down.
+A memoryless rule therefore has an additive probability score. If its update probabilities factor over local terms, their negative logarithms give local contributions to that score. This dimensionless probability action is not yet the Lorentzian action whose quantum amplitude is exp(iS/ℏ). Recovering the latter, its interference and its stationary classical limit requires the quantum dynamics and continuum approximations to be connected separately.
 
-Nothing in that argument looks ahead, because the step rule has nothing to look ahead with. The endpoint turns up in the statement of the principle because the statement is about a completed history. A completed history has a finish in it the same way a receipt has a total printed at the bottom. A machine repairing locally, with no view past its own neighbors, produces a selection that looks global, because that is what taking the logarithm of a product of local factors does.
+Nothing in the probability identity looks ahead. Its endpoint belongs to a completed history, the same way a receipt has a total printed at the bottom. A local repair program can assign the corresponding additive score through its transition rule. That explains the score without a manager; it does not prove that every repair run minimizes a physical action.
 
-Maupertuis had found something real. The quantity a world comes out smallest on is improbability. A chain of local steps runs that tally by itself, without a manager and without a comparison ever being performed.
+The tally of improbability is exact for the stated stochastic rule. Its relation to stationary physical action is an additional mathematical question, not a consequence of taking a logarithm.
 
 ## Plateau's wire frames
 
 Joseph Plateau lost the sight of both eyes by the end of 1843, at forty-two. Ghent promoted him to full professor a few months later, and for the next four decades his wife Fanny, and afterwards his son and son-in-law, did the seeing for him. They dipped wire frames of every shape into soapy water mixed with glycerine, drew them out, and described aloud exactly what surface had formed. In 1873 he published nearly a thousand pages on the statics of liquids held together by molecular forces alone, every word of it dictated. Jean Taylor proved his rules about how the films meet each other in 1976, a hundred and three years afterward, as consequences of minimizing area.
 
-Dip a bent wire in soap solution and the film stretched across it is the surface of least area that wire will hold. It looks like the answer to a question about all possible surfaces. The film has no way of finding out what any other surface would have cost. Each patch of it pulls on the patches around it, the pulling is settled locally, patch against neighbor, and when no patch is being pulled harder one way than another the film stops moving. Where it stops has the least area available. Nothing in the film has ever evaluated an area.
+Dip a bent wire in soap solution and the film can settle into a surface that locally minimizes area under its constraints. Each patch pulls on its neighbours until forces balance. Different stable shapes can exist, and local settling does not guarantee the smallest area among every possible surface. The example explains local equilibration without an area-calculating manager; it does not prove a global optimization theorem.
 
 The settling is also too fast to see. By the time the frame is steady in your hand the film has finished. What Plateau's family described to him across forty years was the finished surface, every time.
 
 ## The interaction coefficients
 
-One common local metric carries the scalar, spinor and gauge terms. Exact invariant tensors connect the fifteen-state matter list to one Higgs doublet and its conjugate, giving the up, down and charged-lepton interactions of chapter twenty-seven. Gauge and Lorentz invariance fix their form. With three families, each interaction is a three-by-three table of complex numbers, one entry for every pair of family directions, and each entry says how strongly a left-handed core trades its handedness against the reference with a right-handed one.
+In the proposed common field description, exact invariant tensors connect the fifteen-state matter representation to one Higgs doublet and its conjugate. They give the allowed up, down and charged-lepton channels of chapter twenty-seven. Gauge and Lorentz covariance constrain those channels once their field representations have been supplied. Three family copies make each coupling a three-by-three table of complex numbers. Deriving the common interacting field state and the number of physical families is separate from listing its invariant tensors.
 
-The tables are where chapter thirty's masses live. Their sizes are the persistence costs of the cores, which is why they span orders of magnitude, and the tilts between the up table and the down table are the mixing angles. The geometry the line is written on answers to the stress of what moves on it, which is chapter twenty-five's balance entered into the same accounting.
+The tables are where the effective masses and mixing angles are encoded. Interpreting their entries as source persistence costs requires the mass-operator and physical-readout connection discussed in chapter thirty. The present finite construction has not computed the observed hierarchy. The corresponding connection between the source stress and an effective dynamical geometry has its own premises.
 
 ## The line
 
@@ -146,11 +146,11 @@ Four things added together, and each has its account in the chapters behind this
 
 The script L on the left is a Lagrangian in the sense taught above, with one change of scale. Where the thrown ball had a position and a speed, this one takes a field's value at a place and how fast that value is changing, and its running total runs over all of space and all of time rather than along a single arc.
 
-The first term is the carriers. Chapter twenty-six split the twelve dials of the wiring into a central one, a block of three and a block of eight, with nothing else arithmetically available. This term holds the energy stored in what those dials do around a loop. Chapter twelve's loop readings are the field strength, and squaring them and adding over the arrangement is the term.
+The first term is the carriers. Chapter twenty-six identifies a central response and three- and eight-dimensional blocks under its transport, response-completeness and Lie-closure premises. The group identification uses those premises; the dimension count alone is insufficient. This term holds the energy stored in what those dials do around a loop. Chapter twelve's loop readings are the field strength, and squaring them and adding over the arrangement is the term.
 
 The second term is matter, carrying chapter twenty-seven's fifteen states, repeated over three families. Inside it sits a comparison between a reading here and a reading next door, taken after the reading next door has been run through the dictionary sitting on the seam between them, which is chapter twelve's connection written with derivatives instead of exchange rates. That comparison is the entire content of the phrase "the force acts on matter". Relabel the readings differently from one place to the next and the whole expression keeps its value, because the derivatives of the relabeling cancel.
 
-The third term holds the couplings: the invariant channels through which the scalar doublet touches matter. Their coefficient tables hold the masses and the mixings, with sizes set by how long each core persists between repairs and tilts set by how the reference meets each kind of core. On the charged leptons the table sits on one face with chapter thirty's balance, which pins the tau.
+The third term holds the couplings: the invariant channels through which the scalar doublet touches matter. Their coefficient tables determine masses and mixings once the state, normalization and physical readout are fixed. The finite face response supplies chapter thirty's balance identity. Its application to the tau remains conditional on identifying that response with the charged-lepton mass operator and supplying the electron and muon inputs.
 
 The fourth term belongs to the scalar field itself, which is the settled reference read as a field. Its spin is zero and it points in the two weak slots. Its magnitude is the stiffness of the reference, 246.22 billion electron-volts in laboratory units, and the shape of the term is what it costs to push the reference away from where it settled. A ripple in that magnitude is the Higgs boson.
 

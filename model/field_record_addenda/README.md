@@ -1,6 +1,6 @@
 # Native motion and complete field records
 
-These ten constructions connect native charged responses to spatial motion,
+These eleven constructions connect native charged responses to spatial motion,
 finite field preparation and complete local observations. Each states its
 source, preparation, references and clock. The beta-Wilson and orthogonal-regulator families are distinct Hamiltonian
 choices. Fixed-cube ground conclusions and spatial record limits remain
@@ -19,6 +19,7 @@ or GeV mass is inferred.
 | [Local interaction witness](native_wilson_maxwell_interaction_witness/PROOF.md) | Strict complete-record separation from the matched zero-coupling comparison under the original spatial source. |
 | [Orthogonal Wilson spatial join](native_orthogonal_wilson_spatial_join/PROOF.md) | Revised fixed-frame free sea, complete local current record limit, raw-energy countercontrol and a separate source-only completion. |
 | [Charged energy cluster](native_orthogonal_wilson_charged_band/PROOF.md) | Lowest rank-eight cluster in each fixed charge sector, positive actual-ground residue and complete finite preparation/pump/energy records. |
+| [Charged spatial records](native_orthogonal_wilson_charged_spatial_records/PROOF.md) | Complete local charged records with a receding reference and an explicit prepared-energy comparison. |
 
 From the repository root:
 

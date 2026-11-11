@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1814,
+  "surface_count": 1819,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3436,6 +3436,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/documentary_release_successor/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/empirical_diagnostics/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3547,6 +3552,16 @@
     },
     {
       "path": "model/field_record_addenda/native_orthogonal_wilson_charged_band/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_charged_spatial_records/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_charged_spatial_records/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6937,6 +6952,16 @@
     },
     {
       "path": "model/resolved_particle_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/retained_identity_execution/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/retained_identity_execution/VERIFICATION.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

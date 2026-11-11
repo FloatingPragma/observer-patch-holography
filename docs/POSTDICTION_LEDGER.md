@@ -58,8 +58,8 @@ source custody and retained artifact hashes checked; retained readout summary, n
 
 | Source object | Retained result | Receipt |
 |---|---|---|
-| `native_total_two_load_collision` | native double-load defect decays; no nonconstant configuration invariant or maintenance-energy selection | [receipt](../model/common_source/native_defect_decision_results.json) |
-| `native_active_matching_memory` | these scalar record/diagonal costs cannot split logical-state masses; a common energy or mass is not excluded and no physical offset is derived | [receipt](../model/common_source/native_defect_decision_results.json) |
+| `native_total_two_load_collision` | native double-load defect decays; no nonconstant configuration invariant or maintenance-energy selection | [receipt](../model/common_source/native_defect_decision_live_results.json) |
+| `native_active_matching_memory` | these scalar record/diagonal costs cannot split logical-state masses; a common energy or mass is not excluded and no physical offset is derived | [receipt](../model/common_source/native_defect_decision_live_results.json) |
 | `supplied_four_mode_CAR_benchmark` | Inverse-response coordinate covariance from the supplied full finite response; no detector reconstruction or physical kinetic metric. | [receipt](../model/common_source/particle_identification/results.json) |
 | `supplied_chiral_charge_block` | Source-record reconstruction of one supplied finite charge block and joint derivatives; its mass coefficient, clock and apparatus remain supplied. | [receipt](../model/common_source/chiral_candidate/record_two_point_results.json) |
 | `supplied_chiral_finite_spectral_projection` | Fixed-interpolator charge-resolved response of the supplied chiral generator; finite clusters are not a particle census. | [receipt](../model/common_source/chiral_candidate/results.json) |

@@ -2,7 +2,7 @@
 
 The executable constructions now connect native charged probes to positive
 transfer records, source-energy bins, prepared finite field interactions and
-controlled local observations. They do not yet identify Standard Model species
+controlled local observations. They do not identify Standard Model species
 or produce source-derived GeV masses. The [typed claim supplement](../../claims/addenda/field_record_addenda.json)
 states the scope of each result; the [executable index](../../model/field_record_addenda/README.md)
 links its proofs, exact receipts and replay commands.
@@ -21,7 +21,7 @@ would require a separate implementation proof.
 |---|---|---|---|
 | Original interacting native charged source | Actual compensated preparation, retained partner and reference; one autonomous wait between two declared services | Positive quark-type arrival and active-source energy records | Not a momentum eigenstate, isolated colored particle or rest mass |
 | Completed beta-Wilson–Maxwell cube | Recorded code admission and finite energy-agreement filters; the same raw Hamiltonian at every photon cap | Controlled preparation and complete field/count histories | Fixed graph; control costs and unused branches remain |
-| Orthogonal-Wilson–Maxwell cube | Same native field/charge frame, new regulator and vacuum, retained old scalar offset, declared complement coefficient `21/2` | Corrected free coefficient, positive full physical finite gap, prepared coupled response | Different Hamiltonian; no interacting Lorentz or weak-chiral identification |
+| Orthogonal-Wilson–Maxwell cube | Same native field/charge frame, changed regulator and vacuum, retained old scalar offset, declared complement coefficient `21/2` | Corrected free coefficient, positive full physical finite gap, prepared coupled response | Different Hamiltonian; no interacting Lorentz or weak-chiral identification |
 | Charged orthogonal cube | Same physical fields and raw offset; complement coefficient `23/2`, cap three, five complete driven slots | Paired eight-state fixed-charge energy clusters and an accepted joint charged/neutral energy record | The rank is not a species count; fixed boundary reference and finite volume remain |
 | Growing orthogonal-Wilson–Maxwell family | Fresh algebraic sea preparation in the same charge frame; full original flags and actual coupled clock | Fixed-spacing complete record limit and nonzero current witness; the separate choice `c(V)=18V+1` selects the code ground | Coupled ground vector and its internal gap/dispersion remain open |
 | Growing beta-Wilson–Maxwell family | Independent full-box banks, complete code flags, first-success routing, actual coupled evolution | Positive-time local record limits at fixed spacing and a nonzero interaction witness | Nonstationary prepared state; not a growing interacting-ground or ultraviolet theorem |
@@ -116,8 +116,9 @@ silently inserted into a finite source.
 11. **Charged energies of the same finite coupled field.** At photon cap three,
    the orthogonal cube with the explicit complement coefficient `23/2` has
    paired rank-eight low clusters in each of the active charges `Q=+1,-1`.
-   The first two free states cannot be isolated by the available interaction
-   bound; retaining all eight gives separation above `0.01652645 m` from
+   The uniform interaction estimate used by this instrument does not isolate
+   the first two free states; this is an inconclusive estimate, not a proof
+   against a smaller cluster. Retaining all eight gives separation above `0.01652645 m` from
    higher states in the same charge sector, and above `0.21532398 m` from
    its native complement. The compensator `R=-Q` and its cost four remain.
    An even, two-mode fermionic pointer pump preserves the physical Gauss
@@ -139,10 +140,39 @@ silently inserted into a finite source.
    or Lorentz representation is inferred. Eight states are not eight
    particle species. See the [charged cluster and complete instrument](../../model/field_record_addenda/native_orthogonal_wilson_charged_band/PROOF.md).
 
+12. **Charged local records with the reference far away.** The same growing
+   orthogonal family admits a literal local creation/removal preparation
+   with conditional pump success at least `11/20`. Its physical Gauss map
+   supplies `R=-Q`; the reference is static in each finite experiment.
+   As the observer's distance from all boundaries and the reference grows,
+   complete local gauge-invariant records converge at fixed spacing and
+   bounded source time. The law retains assembly failures, nonvanishing
+   pump failures and all detector outcomes. The common alphabet is the
+   local observer's record; remote fine flags remain in each complete
+   source but are not identified across different volumes.
+
+   The actual-H expectation above the matching **neutral prepared sea**, after
+   subtracting `4+(m g²/2)G(root,root)`, has a positive limit in
+   `[8081/8192,81953/8192] m` at `g=1/64`. Its lower endpoint is
+   `0.9864501953125 m`. Quantum exchange cancels a rank-one classical-charge
+   contribution; replacing the packet by a classical charge density gives
+   the wrong energy. A uniform Green bound `G(x,x)<=33` controls the remaining
+   reference contribution. In the exact 27-vertex check the reference's
+   self energy differs between corner, face and centre: respectively
+   `29231/136080`, `829/6804` and `22/243`, in units `m g²`.
+   These are real reference energies, not a rounding discrepancy.
+
+   A complete local density detector has limiting signed outcome imbalance
+   at least `121/1600` immediately after preparation (`tau=0`). This is a
+   charged-preparation readout, not an interaction witness at arbitrary time.
+   The prepared state is nonstationary; its positive excess is **not** a
+   charged ground-state threshold or rest mass. See the [charged spatial
+   records and exact energy subtraction](../../model/field_record_addenda/native_orthogonal_wilson_charged_spatial_records/PROOF.md).
+
 The fixed cube, its oscillator comparison and the growing spatial family have
 different domains. A proof about one is not automatically a premise of another.
 In particular, a finite positive gap, a free common cone and a nonzero coupled
-record do not yet imply an interacting relativistic particle pole.
+record do not imply an interacting relativistic particle pole.
 
 ## The next particle-mass construction
 
@@ -159,7 +189,8 @@ the full named particle catalogue. It has these remaining requirements:
    it is not an assumed interacting vacuum.
 3. Extend the finite charged-cluster records above to growing boxes and
    actual spatial translations on that state. The cube step is proved;
-   a uniform charged-state construction is still required. Establish whether the observable is an isolated band, a dressed
+   the prepared charged local-record limit is also proved. A matching
+   interacting-ground or dressed-threshold construction is required. Establish whether the observable is an isolated band, a dressed
    charged threshold, a composite or a boundary excitation. In a massless
    gauge theory, a sharp charged Fock pole is not a prerequisite to every
    defensible charged mass definition; the chosen infrared observable and
@@ -183,14 +214,33 @@ about a supplied geometry, free field or calibrated detector remains conditional
 until this same source supplies that particular premise.
 
 Gravity and a cosmological thermal history are separate tasks. Class-register
-pair births in the large classical repair runs do not yet compute the early
+pair births in the large classical repair runs do not compute the early
 universe's quantum species distribution, reheating or nuclear abundances.
 The viewer keeps those run counts and imported cosmological comparisons
 distinct from these quantum-source records.
 
+## A relevant external ground-state theorem
+
+Grundling and Rudolph, *Dynamics for QCD on an infinite lattice* (2016),
+prove norm-limit lattice dynamics (Theorem 3.2), regular ground states from
+weak limit points (Theorem 3.9), and a gauge-invariant regular ground state
+(Theorem 4.1). Their setting uses a compact connected gauge group, link
+spaces `L²(G)` and the specified local Hamiltonian. It does not supply a
+unique vacuum, particle masses or a relativistic ultraviolet limit.
+[Read the original paper](https://arxiv.org/html/1512.06319v2).
+
+This is a useful proof route to audit, not a theorem automatically inherited
+by the current transverse-oscillator source. Its harmonic links, Coulomb
+reconstruction and full-native global code guard have different locality
+and representation requirements. Reuse needs an explicit matching local
+algebra and Hamiltonian, regularity of the limiting states, and a finite-cap
+approximation with controlled records. Alternatively, compact links can be
+a declared new architecture, with its own native embedding and cutoff proof.
+No uniqueness-of-architecture requirement is added by either route.
+
 ## Reproduction and public presentation
 
-The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the four
+The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the five
 source branches from left to right, with a [PNG copy](OPH_FINITE_FIELD_RECORDS.png).
 It complements the full candidate atlas without merging distinct Hamiltonians.
 
