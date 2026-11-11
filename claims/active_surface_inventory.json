@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1812,
+  "surface_count": 1814,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3537,6 +3537,16 @@
     },
     {
       "path": "model/field_record_addenda/native_orthogonal_wilson_bridge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_charged_band/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/field_record_addenda/native_orthogonal_wilson_charged_band/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

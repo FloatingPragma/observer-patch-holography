@@ -76,10 +76,10 @@ def test_no_private_runtime_resolver_or_generic_module_side_loading():
         assert 'reverse-engineering-reality'not in source
         assert 'CODEX_JOIN_REFINEMENT'not in source
     assert set(c.METADATA)=={'input_sha256','owned_source_sha256'}
-    assert sum(bool(v['dependencies'])for v in PACKAGES.values())==4
+    assert sum(bool(v['dependencies'])for v in PACKAGES.values())==5
 
 
-def test_all_nine_cold_public_producers_and_closed_manifests():
+def test_all_ten_cold_public_producers_and_closed_manifests():
     env=dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
     result=subprocess.run([sys.executable,'-B','-m','model.field_record_addenda','--check'],
                           cwd=ROOT,env=env,capture_output=True,text=True,check=False)

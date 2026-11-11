@@ -22,6 +22,7 @@ would require a separate implementation proof.
 | Original interacting native charged source | Actual compensated preparation, retained partner and reference; one autonomous wait between two declared services | Positive quark-type arrival and active-source energy records | Not a momentum eigenstate, isolated colored particle or rest mass |
 | Completed beta-Wilson–Maxwell cube | Recorded code admission and finite energy-agreement filters; the same raw Hamiltonian at every photon cap | Controlled preparation and complete field/count histories | Fixed graph; control costs and unused branches remain |
 | Orthogonal-Wilson–Maxwell cube | Same native field/charge frame, new regulator and vacuum, retained old scalar offset, declared complement coefficient `21/2` | Corrected free coefficient, positive full physical finite gap, prepared coupled response | Different Hamiltonian; no interacting Lorentz or weak-chiral identification |
+| Charged orthogonal cube | Same physical fields and raw offset; complement coefficient `23/2`, cap three, five complete driven slots | Paired eight-state fixed-charge energy clusters and an accepted joint charged/neutral energy record | The rank is not a species count; fixed boundary reference and finite volume remain |
 | Growing orthogonal-Wilson–Maxwell family | Fresh algebraic sea preparation in the same charge frame; full original flags and actual coupled clock | Fixed-spacing complete record limit and nonzero current witness; the separate choice `c(V)=18V+1` selects the code ground | Coupled ground vector and its internal gap/dispersion remain open |
 | Growing beta-Wilson–Maxwell family | Independent full-box banks, complete code flags, first-success routing, actual coupled evolution | Positive-time local record limits at fixed spacing and a nonzero interaction witness | Nonstationary prepared state; not a growing interacting-ground or ultraviolet theorem |
 
@@ -49,7 +50,7 @@ silently inserted into a finite source.
 3. **A measurement-order control.** Disjoint spectral bands satisfy
    `Pi2 exp(-it H_total) Pi1=0` when no intervening arrival projection is made.
    The positive arrival-then-energy event includes measurement backaction.
-   It does not show spontaneous energy gain or an already measured rest mass.
+   It does not show spontaneous energy gain or a measured rest mass.
 4. **Smaller complete ground preparation.** The fixed completed cube admits
    a two-copy, 64-label, one-filter preparation with original selected
    matter–field probability above `6.4978e-8`. Four copies and three 4096-label
@@ -100,7 +101,7 @@ silently inserted into a finite source.
    Its finite interaction-law separation exceeds `3.4360e-10`.
 10. **A volume-dependent ground-sector fix.** The retained old vacuum offset
    grows extensively. A fixed complement coefficient `21/2` therefore fails
-   to select the code ground on sufficiently large boxes, already at zero
+   to select the code ground on sufficiently large boxes, even at zero
    coupling. This is a proved obstruction, not a rounding discrepancy. In a
    separate declared source, choose `c(V)=18V+1`. A charge-neutral onsite
    product trial has energy at most `E_base+18mV`, for every finite photon
@@ -112,6 +113,32 @@ silently inserted into a finite source.
    [spatial join and variational proof](../../model/field_record_addenda/native_orthogonal_wilson_spatial_join/PROOF.md)
    and [remaining field steps](../../model/field_record_addenda/native_orthogonal_wilson_spatial_join/NEXT.md).
 
+11. **Charged energies of the same finite coupled field.** At photon cap three,
+   the orthogonal cube with the explicit complement coefficient `23/2` has
+   paired rank-eight low clusters in each of the active charges `Q=+1,-1`.
+   The first two free states cannot be isolated by the available interaction
+   bound; retaining all eight gives separation above `0.01652645 m` from
+   higher states in the same charge sector, and above `0.21532398 m` from
+   its native complement. The compensator `R=-Q` and its cost four remain.
+   An even, two-mode fermionic pointer pump preserves the physical Gauss
+   constraint and joint parity. Two complete energy clocks, following
+   recorded code admission and energy agreement, have original acceptance
+   probability above `0.56935668` and accepted joint charged-cluster/neutral-
+   ground fidelity above `0.99991834`. Every one of the `2^53` record labels
+   is retained, including zero-weight and failed outcomes. Five driven slots
+   use about 20,980.4 nats for the sources, references and pointers, excluding
+   synthesis workspace. These are analytic bounds from finite matrices,
+   not enumeration of the enormous full source matrix.
+
+   The reference-corrected transition is enclosed by
+   `0.57009819 m < E_charged-E_ground-4 < 2.35071144 m`.
+   This is a charged energy interval with Coulomb/reference effects, not a
+   relativistic rest mass. Charge conjugation pairs the two code spectra,
+   and the central `2 pi` action is odd fermion parity. A fixed reference
+   at one corner breaks full cubic rotation symmetry; no continuous spin
+   or Lorentz representation is inferred. Eight states are not eight
+   particle species. See the [charged cluster and complete instrument](../../model/field_record_addenda/native_orthogonal_wilson_charged_band/PROOF.md).
+
 The fixed cube, its oscillator comparison and the growing spatial family have
 different domains. A proof about one is not automatically a premise of another.
 In particular, a finite positive gap, a free common cone and a nonzero coupled
@@ -119,7 +146,7 @@ record do not yet imply an interacting relativistic particle pole.
 
 ## The next particle-mass construction
 
-The shortest defensible route uses one charged sector before attempting all
+The shortest defensible route uses one charged sector before attempting
 the full named particle catalogue. It has these remaining requirements:
 
 1. Use the declared orthogonal family with `c(V)=18V+1`, its retained raw
@@ -130,8 +157,9 @@ the full named particle catalogue. It has these remaining requirements:
 2. Prepare the same interacting state with complete original probabilities.
    The growing-family state above is a specified nonstationary free-sea input;
    it is not an assumed interacting vacuum.
-3. Extract charged spectral records and actual spatial translations on that
-   state. Establish whether the observable is an isolated band, a dressed
+3. Extend the finite charged-cluster records above to growing boxes and
+   actual spatial translations on that state. The cube step is proved;
+   a uniform charged-state construction is still required. Establish whether the observable is an isolated band, a dressed
    charged threshold, a composite or a boundary excitation. In a massless
    gauge theory, a sharp charged Fock pole is not a prerequisite to every
    defensible charged mass definition; the chosen infrared observable and
@@ -162,7 +190,7 @@ distinct from these quantum-source records.
 
 ## Reproduction and public presentation
 
-The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the three
+The [finite-record poster](OPH_FINITE_FIELD_RECORDS.svg) presents the four
 source branches from left to right, with a [PNG copy](OPH_FINITE_FIELD_RECORDS.png).
 It complements the full candidate atlas without merging distinct Hamiltonians.
 

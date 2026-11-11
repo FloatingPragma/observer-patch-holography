@@ -1,0 +1,165 @@
+"""Independent small-matrix and enclosure checks; no large-source diagonalization."""
+from fractions import Fraction as F
+from pathlib import Path
+import math
+import numpy as np
+import mpmath as mp
+import sympy as s
+
+HERE=Path(__file__).resolve().parent
+from . import model as m
+
+def test_actual_order_and_complete_charged_threshold():
+    v=m.calculate();levels=[tuple(map(F,x)) for x in v['free_positive_levels_over_m']]
+    assert v['positive_level_multiplicities']==[2,4,2,2,4,2]
+    assert all(levels[j][1]<levels[j+1][0] for j in range(5))
+    nu=F(v['bounds_exact']['charged_perturbation_norm_over_m_upper'])
+    assert levels[1][1]-levels[0][0]-2*nu<0
+    assert levels[3][0]-levels[2][1]-2*nu>F(16,1000)
+    assert levels[0][0]+2>levels[3][1] and 3*levels[0][0]>levels[3][1]
+    H,_,_,_,_=m.native_algebra().cube();x=s.Symbol('x')
+    expected=(4*x*x-5)**2*(4*x*x-13)**2*(16*x**4-136*x*x+241)**4*(16*x**4-264*x*x+977)**2/2**32
+    assert s.expand(H.charpoly(x).as_expr()-expected)==0
+
+
+def test_exact_Coulomb_polytope_and_fixed_root_countercontrol():
+    v=m.coulomb();assert v['Q_plus_one_vertex_count']==280 and v['Q_zero_vertex_count']==70
+    assert v['Q_plus_minus_one_Coulomb_over_m_g_squared_max']=='67/8'
+    G=m.field.cube()['G'];I=s.eye(8)
+    # Independently sum pairwise graph dipoles for every reported maximizer.
+    for rho in v['charged_maximizing_patterns']:
+        a=s.zeros(8,1)
+        for j,q in enumerate(rho):a+=q*(I[:,j]-I[:,0])
+        assert (a.T*G*a)[0]/2==s.Rational(67,8)
+    assert v['fixed_root_rotation_counterexample_Coulomb_over_m_g_squared']=='7/24'
+
+
+def test_full_CAR_pump_and_dual_flavor():
+    assert m.pump_controls()['full_even_unitarity_and_joint_parity']
+    c=[m.annihilator(3,j) for j in range(3)]
+    # Independent source-odd vector: it acquires the predicted grading sign,
+    # so the proof must explicitly restrict its D Kraus assertion to even input.
+    D=c[1].H;f=c[2];X=D*f.H-f*D.H;U=s.eye(8)+X+X*X
+    ket=s.eye(8)[:,1]
+    assert U*ket==s.eye(8)[:,7]
+    assert D*ket==-s.eye(8)[:,3]
+    assert U.H*U==s.eye(8)
+
+
+def test_rational_phases_and_signed_chord():
+    v=m.calculate();mp.mp.dps=100
+    q=mp.sqrt((13+5*mp.sqrt(6))/48);nu0=24*q/64+mp.mpf(8)/4096
+    nu1=24*q/64+mp.mpf(67)/(8*4096)
+    exact={'charged_cluster_lower':mp.atan(mp.sqrt(5)/2-nu1)/mp.pi,
+        'charged_cluster_upper':mp.atan(mp.sqrt(13)/2+nu1)/mp.pi,
+        'higher_charged_lower':mp.atan(mp.sqrt(33-4*mp.sqrt(7))/2-nu1)/mp.pi,
+        'neutral_ground_max_circle_distance':mp.atan(nu0)/mp.pi,
+        'neutral_excited_lower':mp.atan(2-nu0)/mp.pi,'pi':mp.pi}
+    def high(x):z=F(x);return mp.mpf(z.numerator)/z.denominator
+    for name,x in exact.items():
+        lo,hi=map(high,v['phase_enclosures'][name]);assert lo<=x<=hi
+    for x in np.linspace(-float(nu0),float(nu0),13):
+        for y in [2-float(nu0),3,100,1e8]:
+            assert abs((1-1j*x)/(1+1j*x)-(1-1j*y)/(1+1j*y))>4/3
+
+
+def test_all_outcome_phase_tail_and_wrap():
+    for M in (32,128,512):
+        for w in (-.085,0,.125,.3571,.499999,.999):
+            d=np.arange(M)/M-w;d-=np.rint(d)
+            kernel=np.sinc(M*d)/np.sinc(d)
+            prob=kernel*kernel
+            assert abs(sum(prob)-1)<3e-14
+            for delta in (F(1,16),F(1,8)):
+                assert sum(prob[np.abs(d)>=float(delta)])<=float(m.tail_bound(M,delta))+1e-14
+
+
+def test_complete_energy_agreement_fidelity():
+    v=m.calculate();b=v['bounds_exact'];p=float(F(b['free_vacuum_overlap_squared_lower']))
+    nu=float(F(b['neutral_perturbation_norm_over_m_upper']))
+    levels=np.array([-nu,2-nu,1000.]);weights=np.array([p,(1-p)/3,2*(1-p)/3])
+    angles=np.arctan(levels)/np.pi
+    difference=(angles[:,None]-angles[None,:]).ravel()
+    pointer=np.arange(64)/64
+    d=pointer[:,None]-difference[None,:];d-=np.rint(d)
+    probabilities=(np.sinc(64*d)/np.sinc(d))**2
+    joint=(weights[:,None]*weights[None,:]).ravel()
+    records=probabilities@joint
+    assert abs(sum(records)-1)<2e-14
+    assert records[0]>=p*p-1e-14
+    actual=p*p/records[0]
+    assert actual>=float(F(b['prepared_pair_ground_fidelity_lower']))-1e-14
+
+
+def test_joint_clock_law_bound_and_resource_enclosure():
+    v=m.calculate();b={k:F(x) for k,x in v['bounds_exact'].items()}
+    a=b['prepared_joint_cluster_ground_amplitude_lower'];beta=b['each_clock_false_positive_and_false_negative_upper']
+    t=(1-beta)**2*a*a
+    assert b['original_accepted_energy_pair_probability_lower']>F(56,100)
+    assert b['accepted_joint_cluster_ground_fidelity_lower']>F(9999,10000)
+    # Vary the unknown good weight and total pump success; worst case occurs
+    # at the certified good weight and total norm1.
+    for p in np.linspace(float(a*a),1,25):
+        for norm in np.linspace(p,1,7):
+            good=(1-float(beta))**2*p;false=float(beta)*(norm-p)
+            assert good/(good+false)+1e-14>=float(b['accepted_joint_cluster_ground_fidelity_lower'])
+    lo,hi=map(F,v['clock_and_capacity']['total_log_Hilbert_dimension_nats'])
+    mp.mp.dps=100
+    exact=2*(32*(256*mp.log(2)+8*mp.log(5)+24*mp.log(119)+mp.log(2**31+1))+7*mp.log(9)+mp.log(65)+mp.log(56))+53*mp.log(2)
+    assert mp.mpf(lo.numerator)/lo.denominator<=exact<=mp.mpf(hi.numerator)/hi.denominator
+    assert v['complete_instrument']['all_record_labels']==2**53
+    assert v['clock_and_capacity']['source_time']=='5'
+
+
+def test_charge_pairing_and_finite_photon_parity():
+    v=m.exact_controls()
+    assert v['paired_actual_Q_plus_minus_one_low_spectra']
+    assert v['full_56_state_photon_parity']
+    assert v['central_two_pi_action_on_fixed_charged_cluster']=='-I'
+    assert not v['full_double_cubic_action_with_fixed_root_claimed']
+    assert not v['native_high_complement_charge_conjugation_claimed']
+
+
+def test_compensated_pump_on_all_320_states():
+    # Exact integer sparse realization with actual finite reference shifts,
+    # all nonphysical Gauss labels and both pointer modes. Independent of
+    # producer's six-CAR representation; no floating tolerances.
+    from scipy import sparse as z
+    I=lambda n:z.eye(n,dtype=np.int64,format='csr')
+    diag=lambda v:z.diags(v,dtype=np.int64,format='csr')
+    kron=lambda a,b:z.kron(a,b,format='csr')
+    def eq(a,b):
+        d=(a-b).tocsr();d.eliminate_zeros();assert d.nnz==0
+    def car(n):
+        out=[]
+        for j in range(n):
+            rows=[];cols=[];data=[]
+            for w in range(2**n):
+                if (w>>j)&1:
+                    rows.append(w^(1<<j));cols.append(w)
+                    data.append((-1)**((w&((1<<j)-1)).bit_count()))
+            out.append(z.csr_matrix((data,(rows,cols)),shape=(2**n,2**n),dtype=np.int64))
+        return out
+    cs=car(4);fs=car(2);qs=[w.bit_count()-2 for w in range(16)];rs=list(range(-2,3))
+    Y=z.csr_matrix((np.ones(16,dtype=np.int64),([5*w+rs.index(-qs[w]) for w in range(16)],range(16))),shape=(80,16))
+    Q=kron(diag(qs),I(5));R=kron(I(16),diag(rs));G=Q+R
+    Ps=kron(diag([(-1)**w.bit_count() for w in range(16)]),I(5));P=Y@Y.T
+    even=Y@diag([int(q==0) for q in qs])@Y.T
+    pointercharge=-fs[0].T@fs[0]+fs[1].T@fs[1]
+    Ppointer=diag([1,-1,-1,1]);v0=z.csr_matrix(([1],([0],[0])),shape=(4,1))
+    for q,d,j in ((1,cs[0].T,0),(-1,cs[2],1)):
+        D=Y@d@Y.T;eq(D@D.T+D.T@D,P);eq(G@D,D@G)
+        eq(Q@D-D@Q,q*D);eq(R@D-D@R,-q*D)
+        fullD=kron(D,I(4));f=kron(Ps,fs[j]);X=fullD@f.T-f@fullD.T
+        eq(X@X@X,-X);U=I(320)+X+X@X;eq(U.T@U,I(320))
+        for conserved in (kron(G,I(4)),kron(Q,I(4))+kron(I(80),pointercharge),kron(Ps,Ppointer)):
+            eq(U@conserved,conserved@U)
+        maps=[]
+        for k in range(4):
+            vk=z.csr_matrix(([1],([k],[0])),shape=(4,1))
+            maps.append(kron(I(80),vk).T@U@kron(I(80),v0))
+        eq(maps[0],I(80)-D.T@D);eq(maps[1<<j],D@Ps)
+        eq(maps[1<<j]@even,D@even)
+        eq(sum((a.T@a for a in maps),z.csr_matrix((80,80),dtype=np.int64)),I(80))
+        for k,a in enumerate(maps):
+            if k not in(0,1<<j):assert a.nnz==0
