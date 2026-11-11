@@ -1,7 +1,7 @@
 {
   "active_target": "Source-derived particle rest energies and masses, with declared SI/GeV comparison units and explicit capacity dependence.",
   "candidate_correspondence": {
-    "finite_sector_ratio_result_sha256": "9fbcc6be06a0f7f8c8bd9c0a9814f22803b05a5a8e3e31b7b391ef97c6046a7d",
+    "finite_sector_ratio_result_sha256": "a81ffe7eb3309ad1fa6c2ff908a08a73f6030d9fa0d2938980b21aa09b463f5b",
     "mass_predictions_GeV": [],
     "named_targets": [
       "electron",
@@ -38,7 +38,7 @@
       "centered_full_CAR_charge_response",
       "kinetic_Weyl_nodes_and_free_fields"
     ],
-    "sha256": "d8eb3059031bea372b840151d19c410953da707de0c0b32ddb6c9f39d597aa82",
+    "sha256": "5bd62701ad84beaa83d55ae7636fdf40d42e5fb4696aa6bed12aa5b710172e49",
     "source_excitation_ids": [
       "up_left",
       "down_left",
@@ -73,28 +73,37 @@
     "path": "model/particle_candidate_confirmation/results.json",
     "physical_particle_map": [],
     "schema": "oph.particle_candidate_confirmation.v1",
-    "sha256": "078792e8dd7638297ca48fa44044ca46cdc81999fefc3d762615f4e0b5c5cae8",
+    "sha256": "4918f38d2c56885f0cafff3784ddf6f84ead0e770da9475dba4e8eae3f7462c3",
     "source_scientific_experiments_replayed_by_atlas": false,
     "target_count": 18,
     "targets": [
       {
         "family": "charged_leptons",
         "physical_identity_status": "unresolved",
-        "supporting_receipts": [],
+        "supporting_receipts": [
+          "model/particle_candidate_charged_propagation/results.json",
+          "model/particle_candidate_endpoint_threshold/results.json"
+        ],
         "target": "electron",
         "test_receipt": "model/particle_candidate_charged/results.json"
       },
       {
         "family": "charged_leptons",
         "physical_identity_status": "unresolved",
-        "supporting_receipts": [],
+        "supporting_receipts": [
+          "model/particle_candidate_charged_propagation/results.json",
+          "model/particle_candidate_endpoint_threshold/results.json"
+        ],
         "target": "muon",
         "test_receipt": "model/particle_candidate_charged/results.json"
       },
       {
         "family": "charged_leptons",
         "physical_identity_status": "unresolved",
-        "supporting_receipts": [],
+        "supporting_receipts": [
+          "model/particle_candidate_charged_propagation/results.json",
+          "model/particle_candidate_endpoint_threshold/results.json"
+        ],
         "target": "tau",
         "test_receipt": "model/particle_candidate_charged/results.json"
       },
@@ -144,7 +153,9 @@
         "family": "active_neutrinos",
         "physical_identity_status": "unresolved",
         "supporting_receipts": [
-          "model/particle_candidate_composites/results.json"
+          "model/particle_candidate_composites/results.json",
+          "model/particle_candidate_composite_spectrum/results.json",
+          "model/particle_candidate_neutral_dispersion/results.json"
         ],
         "target": "electron_neutrino",
         "test_receipt": "model/particle_candidate_charged/results.json"
@@ -153,7 +164,9 @@
         "family": "active_neutrinos",
         "physical_identity_status": "unresolved",
         "supporting_receipts": [
-          "model/particle_candidate_composites/results.json"
+          "model/particle_candidate_composites/results.json",
+          "model/particle_candidate_composite_spectrum/results.json",
+          "model/particle_candidate_neutral_dispersion/results.json"
         ],
         "target": "muon_neutrino",
         "test_receipt": "model/particle_candidate_charged/results.json"
@@ -162,7 +175,9 @@
         "family": "active_neutrinos",
         "physical_identity_status": "unresolved",
         "supporting_receipts": [
-          "model/particle_candidate_composites/results.json"
+          "model/particle_candidate_composites/results.json",
+          "model/particle_candidate_composite_spectrum/results.json",
+          "model/particle_candidate_neutral_dispersion/results.json"
         ],
         "target": "tau_neutrino",
         "test_receipt": "model/particle_candidate_charged/results.json"
@@ -206,7 +221,9 @@
         "family": "Higgs",
         "physical_identity_status": "unresolved",
         "supporting_receipts": [
-          "model/particle_candidate_charged/results.json"
+          "model/particle_candidate_charged/results.json",
+          "model/particle_candidate_scalar_gauge_response/results.json",
+          "model/particle_candidate_scalar_spectrum/results.json"
         ],
         "target": "Higgs",
         "test_receipt": "model/particle_candidate_bosons/results.json"
@@ -655,6 +672,7 @@
     "Lean/EventAlgebra/PublicRecordAlgebra.lean": "9301de8050611cac94a53b2d28b9b6c26d3019ede6b0c5034160696b7236fcc4",
     "Lean/EventAlgebra/Robertson.lean": "7b08a20ce5f865596fb34a1c969a7d27f5e5090ceb103eb223dd1c0b1c1c928e",
     "Lean/Geometry/EventFrameSoldering.lean": "bdc5257d6d259d63314cc913d4a57db91e71d0ceb8cc73d92bfb3c8d17ed26af",
+    "Lean/Geometry/MassShellKinematics.lean": "fc5014a35da01b0ae3a9ac64c43e9669ff7716471aa622d6df3b32944b2919cd",
     "Lean/Geometry/RecordGluingPrinciple.lean": "e87595ae0ca3c1378a04cfb5b0162fe71b0c61bd5b3515469ae2c3cc39bdffaa",
     "Lean/Geometry/RefiningLatticeCausalCone.lean": "b8b99907421ccf519235182a5298b0d92fdfd04ba37b6453a5717afe1015b62e",
     "Lean/Geometry/SourceOrderEinsteinComposition.lean": "f11db09374643cabfcb12e6e983af737b044799094e73409f274f020438ecf9d",
@@ -680,6 +698,7 @@
     "Lean/QFT/OperationalOverlapEvidence.lean": "78683a58dc6bd56bba8c1c47dddb10ab908534688eff047efc8a2936db556afe",
     "Lean/QFT/PathTimeSliceInterface.lean": "9d927b4c9bb435831689137b44a6b960cc8b85889411c65b5e92dac01724364b",
     "Lean/QFT/PeriodicMomentum.lean": "140d4116b69bd777afa59ce4dc7f850a659f9d89f28f835993c830251eaeef69",
+    "Lean/QFT/ScalarRegionalTimeSlice.lean": "44a2cc2cc1b2789f6c9e694287236e8acaf0abbbd2e7ef7d1423be365fa091a7",
     "Lean/QFT/SectorInheritance.lean": "20c81f3aea240a5e96f41a8897c5b582d9bb874e197c02393a6199dd9d50e492",
     "Lean/QFT/SourceRecurrenceClock.lean": "0670b5a254adde9cb3cb2bdadaf13149b462323a9c753bcaf45757c26cf50c33",
     "Lean/QFT/StructuralInheritance.lean": "25338daa1863afc8d523b38c2781c2895b3282514d56257cfa0c8b33c40745c2",
@@ -689,6 +708,7 @@
     "Lean/Screen/A5PortModule.lean": "6bd28a569e34b9214085ed9fe8d0cbfb4cbaebf6e0d73c9626e03a28af768f17",
     "Lean/Screen/A5ResponseWordAlgebra.lean": "5575c8e696c6d0b672daa349c650f4d028194b025f1318a6b27b7526286fb0df",
     "Lean/Screen/AssembledActionComposition.lean": "c368400073a23174dc0f13c2baa44eb23e143080ef71ca582c3a3b326a5b2f9a",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "7fb6eb5e6545817d4e5c208caa36f21fa379f218c744ffbb49364e7033436579",
     "Lean/Screen/DiscreteGauss.lean": "d276dbb8d1c1fcb9a2dfba64750b93c5a7afda889d30c0e3dbed764fedfd9f55",
     "Lean/Screen/ElectroweakBreakingComposition.lean": "fc99eaaca6b0782595ed24289ee4fd1e9080e8108f81b4d2e6c823da72d9fc3d",
     "Lean/Screen/ExteriorComponentBridge.lean": "f33a18a2ab340e4d9862758937c4db8c6abe689fb37a4aa97c4b47e7c624726e",
@@ -1017,8 +1037,8 @@
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/universe_timeline_viewer.py": "e659adc51660960f4c6b556c206e9bc857074e675a08e444d86a6418d27228cb",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualization_schema.py": "6e3f1c1360cc3b94fe709220677cdaa9e4177fce0a52bd8c50d854e367e5b9e2",
     "evidence/observer_dynamics_20260925/oph-physics-sim/oph_fpe/viz/visualizer_pack.py": "321a54b79d4b89a895f4b8d21f9611d5d68239c9886c74aa4868ceb3977aaa84",
-    "extra/yang_mills_gap_clay_problem.tex": "8e6c2fe53b5458c3fff5d46010e0e612bfa4cf99cc919125763dce63434d0734",
-    "flagship/from_observer_consensus_to_standard_physics.pdf": "90ca810969d5a06e43023745c712da0767635a1c5475b53fc8af7ced1d481c20",
+    "extra/yang_mills_gap_clay_problem.tex": "cbdf241f93e418e257a02ec0c905ddabd9e70732e183a2103723dff6e487c5b2",
+    "flagship/from_observer_consensus_to_standard_physics.pdf": "81de18791c519a7b804cfb0ce519cc72373bee601b0a1f4a43b231e3e75dfaf3",
     "model/__init__.py": "eff7e4cc748c51d89ef0dd1626dbe42a9bd453a2d6933eb26eb96cbc36113078",
     "model/anharmonic_transfer/__init__.py": "2a37d8911ef47c17a261f7d6e361092a4c8f00214d576c9975291d96e559903d",
     "model/anharmonic_transfer/environment.py": "861a218c6962a7244b877df12231a44c15f5cbaf59a9ea7700d6419c5065c466",
@@ -1138,7 +1158,7 @@
     "model/charged_lepton_response/phase_readout.py": "259eecd7c36d66e02eb1ab84ae73705abbd08a2065186d686cd34ed38debb0cb",
     "model/charged_lepton_response/phase_selection.py": "1c82ebf110fd0b6374a35e47cf190785a29baae6d65dc5bef96f940217f97edf",
     "model/charged_lepton_response/relativistic_mass.py": "5f5a9bff5871f5bac768c7a39fc01f121161f7cc2006a4ac6d94124bde5542c4",
-    "model/charged_lepton_response/results.json": "0c786509e865b96d5c0470183ace9aa67a12d3c838b554db05d9d5dbe9336f65",
+    "model/charged_lepton_response/results.json": "a5fe55b8c3fe0b018ac7cb8a833b465a9a3cb6bf7ed7c666f225a85267894781",
     "model/charged_lepton_response/test_calibrated_sanity.py": "61623e317b6826533eb8f6d63512ac6104d73a77123f833fd0d267b9056b2062",
     "model/charged_lepton_response/test_candidate_map.py": "e2e61495ea35162aeeea74f573223653032a0e87fc90a6c06ed56fe3f788aac3",
     "model/charged_lepton_response/test_car_koide.py": "878ee4bb4b39fb89e04330910221fda0a376417d6c82c381cdab9bbec2184b45",
@@ -1161,7 +1181,7 @@
     "model/common_source/chiral_candidate/action.py": "a9872ed067c39981c0b06e7af42cd200e0b700a4b0292ca923e09e504437b933",
     "model/common_source/chiral_candidate/gaussian_source.py": "d60733661c22d649741b3433db9330e3520d2b7c5d15fb6db79a07e82e49eade",
     "model/common_source/chiral_candidate/kinetic.py": "ef6e5199ded96f6249076732603749809c9e623b1249f80efc97bc6b7d9fccb5",
-    "model/common_source/chiral_candidate/results.json": "930b3caaccf7adfa1d61388911dbb5c417902cf8d609643e24f6ebef087f8d8a",
+    "model/common_source/chiral_candidate/results.json": "5594b66a30a5f9a0c76dc40c750b4409bb14a25c0b5ec4a2906bc6061ee8f999",
     "model/common_source/composition.py": "0da19f182d52049e1521ff4f6ae85184af8f993a66373fbf228716149472d6cc",
     "model/common_source/continuation_bounds.py": "138454651b9afca881f9b08f47dd27027bbd26f5410503293f654b35e0bdfd6c",
     "model/common_source/encoded_memory.py": "9833f762df6a62be658db182a9a1b3ec61ed28ae462d6e58da5d972371627060",
@@ -1170,7 +1190,7 @@
     "model/common_source/experiment.py": "10b9040d1d2f870f6d4a5e72df2848bbc0f55c136be0be3bacd2fbda28ff4ab8",
     "model/common_source/finite_signal.py": "0f74fe17b82e6140342aca048964984c7a5e35d8098e77ab298811b04e4df5ca",
     "model/common_source/full_repair_response/coupling.py": "69c142d04604adf2327e0b199893b214f004e8265bd4f3577b26f7c0e51aa288",
-    "model/common_source/full_repair_response/results.json": "4b28d8af6485a90fa9eb1fc56e55ae5dd12757ed12d464d3578693d49c9eed2e",
+    "model/common_source/full_repair_response/results.json": "2a4cdd915001e5a5857953f3c8d573e07cd3907d7f6c201175183dbdb4aabcc1",
     "model/common_source/gauge_matter.py": "5ae518551305352707d30f27568df549ab057e13a3a734d9eddc6410b84161bc",
     "model/common_source/halfline.py": "c53d49de709edeebdbf81781bc1454e2c45ea6715b1d0fcc341fadb313aff126",
     "model/common_source/infinite_history.py": "b579a3facd773f447796191ec1dc9f9e12b4473d129d4890164ddb8b3dd9becc",
@@ -1203,7 +1223,7 @@
     "model/common_source/native_repair_mass_h2.py": "b1daa48d072d7fcd3bab9315c79f99091795917f1c84cff90e52b5032e1313be",
     "model/common_source/native_repair_mass_native_readout.py": "249bb2dc3c16a344fcc9a9d212f00fc89fc7abb77a91353b28c9995dd6b273c1",
     "model/common_source/native_repair_mass_readout.py": "86766746f62e57a4483b40f87e684281a194c83b2701537c24524a707ade26db",
-    "model/common_source/native_repair_mass_results.json": "4d4e789aa6953d296d22f9925fde01c7dcd562e72ddc6405dbd7d258bcb03b2f",
+    "model/common_source/native_repair_mass_results.json": "5c04fb23123ec1d05555e01d526fdef675a9a1451c52c5a3493814a79db2c9e1",
     "model/common_source/native_routing.py": "bece6c1d39a4cf1a444e8bdc2d24dc42abaa4d16ada8d1174b246c9dd6f10f6a",
     "model/common_source/native_sm_current.py": "8ed16b421726dd460800d86846e5684163716cadc61c7cc2e8c21151d49593f1",
     "model/common_source/native_virtual_exchange.py": "40a71b674f3f4a19ba3e279ee0a0201ce34bc2f56548550187127530cefcd728",
@@ -1559,7 +1579,7 @@
     "model/mcpr_native_memory_bridge/certificate.py": "5d0e13de9bf8c286525d4f1d8e9aceb93cf6cbf838d70e98a0ff5e576ea5c262",
     "model/mcpr_native_memory_bridge/construction.py": "caa4d3f58893a692d1a563263d56443efa8e3129deeae488ac31c13255968438",
     "model/mcpr_native_memory_bridge/packet.py": "0d80fe266773671f1c111efbe9ab8cb0e760fd00819f6e40cef6f579a6574825",
-    "model/mcpr_native_memory_bridge/results.json": "0c42b29446868115a7e12d2ca07f3c11ad72e77d06e9eff5a61453eac04d8652",
+    "model/mcpr_native_memory_bridge/results.json": "b4670804994a2eff44cd5a93f63a8433551e837305282a1006c5623598dd21c2",
     "model/mcpr_native_memory_bridge/test_bridge.py": "82a44830858ded47f2381167328136f67e61ef58c6aba8f4e200a61c30192688",
     "model/moving_bound_pair/README.md": "10447440de65afd7a14a93d58e7058d82bad90a78af902a51f9061c39f03e48e",
     "model/moving_bound_pair/__init__.py": "e012e2fbe3dce1704e222ae7301d58807283d4987f68f0b9b3106cf9f4dbce30",
@@ -1613,7 +1633,7 @@
     "model/native_flavor_orbit/correlated.py": "4d87b6da9b2bd3e7ca52b9889d450c1250dd2779d59b1479801bc6b65e958dee",
     "model/native_flavor_orbit/intervals.py": "2f069d452d0929fefd3d2d0b0c61b9644a44149146e14c3fac2ddafd3d1e702f",
     "model/native_flavor_orbit/packet.py": "7a464078e75630e38fcbf896d7db5da3a1d98db44a129d1e01f89c28d6013c0c",
-    "model/native_flavor_orbit/results.json": "0fbbc27b9a89a9ab016f6d34307ea9456b79f5ec95e267871ac1ed52a29365c8",
+    "model/native_flavor_orbit/results.json": "8830ced81f56758435cde9f56a0b1d2175b708b263d1bc0e2242c1d0c0099f77",
     "model/native_flavor_orbit/spectrum.py": "5f793b5f50ce4ae931df0439c6987cdf6c62235a5103a227f948933e9017c0f2",
     "model/native_flavor_orbit/test_algebra.py": "7b84ec73c89c41ae58f2694f35251aed68241cdec5aae75faa884f68f6494c93",
     "model/native_flavor_orbit/test_correlated.py": "1f4f464b3901d00606933a719e95f0150c4ac6bb854e6aa389af4dfd4d78bae0",
@@ -1804,7 +1824,7 @@
     "model/particle_calibration_selection/clock_units.py": "53a05f85334a51e724a3e3cab19fd9fceee7b4f8c3e531e3242a4ccb1f78bc6b",
     "model/particle_calibration_selection/families_chirality.py": "916e6907e2d3fbd49b5ebdf0cb94b2cf5c1292b8546c6cb7015d6401878e676e",
     "model/particle_calibration_selection/phase_attenuation.py": "ed733079670a9ddac6cfdc2d4bea67cfe20eb572d8822f7332f59b9d946190cb",
-    "model/particle_calibration_selection/results.json": "8f0a1ec2f6891048a6b7177f75ec03d2cd3135702359f4c7b046b8409032c2af",
+    "model/particle_calibration_selection/results.json": "348e716733ca716b447c6fdcee0a7880158b81d8a1254ac0b71c39aeb066a4cc",
     "model/particle_calibration_selection/run.py": "1593ae7d805da92e0e74d1526dc6c767643d255a33967f00d68841e6458783eb",
     "model/particle_calibration_selection/test_capacity_response.py": "4baffea60166bc239dfccc0897e9279e30dbb6a3dfc9572ab9700bd73fe1a99c",
     "model/particle_calibration_selection/test_clock_units.py": "6f8af33a60f6986fcb05128c478317fdf8ef8b8bcb27baba6fa0805a7ac86fb5",
@@ -1824,7 +1844,7 @@
     "model/particle_candidate_atlas/__init__.py": "34d14dbd766651c7d3136429cb63b26327b488251e06e815d4ee7fab77882314",
     "model/particle_candidate_atlas/__main__.py": "f2aa9b1e469e50f804477d764dce92038ba917b031638aaf2e83c1e55ac0e20c",
     "model/particle_candidate_atlas/attenuation.py": "af3181fa7c3283716bcd500fdefbcda7c878f00365bcb0ca62b6baa3490f68e5",
-    "model/particle_candidate_atlas/audit.json": "5ae666ba587faddbf212c9c0ac16d37bbe19f8a11778c0e07c6257a9d9257656",
+    "model/particle_candidate_atlas/audit.json": "7168195d1c54767bcffbd020657960cb80bf9a1d16fb27b1a6bbac7b8d80a9ee",
     "model/particle_candidate_atlas/builder.py": "90c6a36460b0e8ee47d8890bfa4f2d9085ef0d8812766d419a147d16c8dfd0ff",
     "model/particle_candidate_atlas/calibrated_triplet.py": "1b1f485a04adbf63002930fe253276b22caecc394adff3ece7b2dcfd91520840",
     "model/particle_candidate_atlas/capacity_nonselection.py": "94cb85dbb26f83b137a4c52eae352c2b78301578e192cb7540c92d9587bacf55",
@@ -1853,30 +1873,75 @@
     "model/particle_candidate_bosons/__init__.py": "3acdea62a90369a0526881faf8deab0aa1bb159f8f371bdc8999b4d95c189e5c",
     "model/particle_candidate_bosons/__main__.py": "96997b4c2769f46f139eef6fb732d3a153dc08fe68ae2fc87fd403d897cf2730",
     "model/particle_candidate_bosons/model.py": "bdb47ad7b0885ce4b4674c90616abae61c8e647c8eca20f991fb02614070a16f",
-    "model/particle_candidate_bosons/results.json": "4a2c46c774c1ce94882650722c30d23154ae7053adb1b5e71105669a24947341",
+    "model/particle_candidate_bosons/results.json": "c9fbfb4b8c4779f57cc027db23d34d06fb5c19e4538437cac7126572761706aa",
     "model/particle_candidate_bosons/test_model.py": "ac63ceae6b64ec91cc22fecbe952318f6b7e107eadf5cbbabd9abdbb729c03d8",
     "model/particle_candidate_charged/PROOF.md": "a10a1ee01559aac3903d311414c639b051846890fe62089baa5ce9e8099cc3c3",
     "model/particle_candidate_charged/README.md": "634bf41c9bd7d1459ade857e8e34204ef9911159541f74dd53546b6d22c0446d",
     "model/particle_candidate_charged/__init__.py": "19fa90cd17ba9330eaa5a2f2ccbc840f728e0691c5e9a75ee5c5b885378c5d9b",
     "model/particle_candidate_charged/__main__.py": "85778e1257e9f9204c8858a54a8701c356a31dba96a75768b3840f3b6b68156f",
     "model/particle_candidate_charged/model.py": "2b32c184642c902d6d00b53fd258fe60c7177795814649e025924589bbe3202d",
-    "model/particle_candidate_charged/results.json": "29e3c780ffbe49ca560d9e6e89cf819a28f20ece18e46759753109267beb1fad",
+    "model/particle_candidate_charged/results.json": "ca1a64c58a810f0d64c6efbdc496c879a2bde20ebec74fae0daf3bbaa027f695",
     "model/particle_candidate_charged/test_model.py": "13f7e430c869285beb7a9f2907b8bbbf9a262683d3618d095a1d4fbd96b52c75",
+    "model/particle_candidate_charged_propagation/PROOF.md": "c5f11d3e4a165f0093c725b2807030360f26fa57caec353878e3d91f9877954e",
+    "model/particle_candidate_charged_propagation/README.md": "e4de121850232d67f168f4cc5e46179ee22ba809893d6ab4e06110652d92cd26",
+    "model/particle_candidate_charged_propagation/__init__.py": "eeba3c6d5072d968f5419631cac64f9b818be0968da5698c7c0d9f3ccca48940",
+    "model/particle_candidate_charged_propagation/__main__.py": "357803ae2c66eaba332e54d48d797e4d629a04488121290b12b964d0d43d519e",
+    "model/particle_candidate_charged_propagation/model.py": "47ad99c5f01cf9c305963cf9da3288a94f04b1024ce002f47be35452005646cc",
+    "model/particle_candidate_charged_propagation/results.json": "079212fdccee71858cd72c193c7b0e0628725643ff8bc78c19ab27ea6f629721",
+    "model/particle_candidate_charged_propagation/test_model.py": "be42db6a16c3fd44d5c88606d90cfb64aa767f6d2db0e7298ef7bb8ce58c658c",
+    "model/particle_candidate_composite_spectrum/PROOF.md": "e3798f69fcec1d14531c0f649d0c047089b62a498045538e204b192f53ad08a2",
+    "model/particle_candidate_composite_spectrum/README.md": "654b232194b940c82cc5f553b35cacb96e4cbf6f3d4984dadc4ee5a07ec6cd1b",
+    "model/particle_candidate_composite_spectrum/__init__.py": "29605c71d74b188bc78cef8aa6cbc49db40f34c8d5fe462b0af95b85e60ff805",
+    "model/particle_candidate_composite_spectrum/__main__.py": "442dcc880beafa0762a55731960862f571604af1aa7aca164c62a6aa97ee52ad",
+    "model/particle_candidate_composite_spectrum/model.py": "12dad583ff05c035c7d85025fc7bf2660b7437b10b6f46590cbb9c02517add94",
+    "model/particle_candidate_composite_spectrum/results.json": "4bead502c1f4c65c5820ceda5bcdb9faa456e3f4399ac795e794528b79b57316",
+    "model/particle_candidate_composite_spectrum/test_model.py": "6872aadc10f07d27f8b37f4bda9f51c05c49fb7a496ad6fde39920054aa7c24f",
     "model/particle_candidate_composites/PROOF.md": "287b18417ee57b7cb03e69412eac4d8c90e9e004681e59e9beb7fc4575a05692",
     "model/particle_candidate_composites/README.md": "810e25cb4d3a45c6db3d4b04256bce5f3f554a695941b35f0cc20ebbb999828d",
     "model/particle_candidate_composites/__init__.py": "28cec7c12254a84d63998e40980918852103ffae8b044df0ca3f042dcdf0f115",
     "model/particle_candidate_composites/__main__.py": "3b6d42e6ed847a84d1d14b530679838927da1c071bf75acf326c8b32d009c219",
     "model/particle_candidate_composites/model.py": "434f6bc0d371217b794d606bbd01fbfd35d890a86c8d24a6e2644fb8db307cdc",
-    "model/particle_candidate_composites/results.json": "5f657086257211742d5bb0b40378be6ebbeba24a6d7b53317f80c1dfd693f6d0",
+    "model/particle_candidate_composites/results.json": "f45b34c7e48207f65778ef5eb42bc802e1e159fe0957e2c245eacbcba1e3f138",
     "model/particle_candidate_composites/test_model.py": "b33533587c7660fe4a69ce3312f7c2210f226790e53d7058c75ab52b8563afb3",
-    "model/particle_candidate_confirmation/PROOF.md": "558d7f2320ad7654238b13f266fa8e8b5410e085ef59a677f7f2955c5cdbbfb5",
-    "model/particle_candidate_confirmation/README.md": "9f3071cf869a260aad9a29c9552bca80b4c097d2da265275cc1f6c5699e2eb2c",
-    "model/particle_candidate_confirmation/RESULTS.md": "5dd09c353c8e99dfd2d1e395f4d65d1b7d729e83706e64b2792dbea10f0aae88",
+    "model/particle_candidate_confirmation/PROOF.md": "d44b6255f313b23a117d9eebd357db23c2444dc27114240350b5e18568980f9f",
+    "model/particle_candidate_confirmation/README.md": "68c21f88711454b6bed718ca9e48e151721b0d7264a2aee050863220eb482c6a",
+    "model/particle_candidate_confirmation/RESULTS.md": "54d880da39313200396e2a21d7176d27d2159c92bb6f0c75b246dd3475711328",
     "model/particle_candidate_confirmation/__init__.py": "27d2753887ee5dd13e84a2df06102b1f4c99f9436a7b2af24dfb1ed67ea32c26",
-    "model/particle_candidate_confirmation/__main__.py": "17669cdcca2f153d0d98cbed43e34baa5469cd542ec2e3aa54990d249f2f6fd3",
-    "model/particle_candidate_confirmation/model.py": "27126d0ed8b3bbaf510c55b3f5bfdd85f0f6e637965408ffff18495fa48d3dec",
-    "model/particle_candidate_confirmation/results.json": "078792e8dd7638297ca48fa44044ca46cdc81999fefc3d762615f4e0b5c5cae8",
-    "model/particle_candidate_confirmation/test_model.py": "a9181ace406d10eabd39616ec35be8da47042d5be1b37443d1036af6208ba6cb",
+    "model/particle_candidate_confirmation/__main__.py": "50e8e53d46dbc0cd31b329468ecc5b394db71b447ca1f571da5300279d2042b8",
+    "model/particle_candidate_confirmation/catalogue.py": "84f57b576fe3da239b6ff38eb7f846d4e6356e1ef49f688cf3dca177e27775c8",
+    "model/particle_candidate_confirmation/model.py": "9d1ee36a511b10adae6c3e6f5e2a144e8d2bdea4e5f7c452c9551a55a43c2304",
+    "model/particle_candidate_confirmation/paths.py": "bc6750e5d4691fb34b92f7fdb47c03206d80cf148e6b7cb19bcdbcce0f823a14",
+    "model/particle_candidate_confirmation/results.json": "4918f38d2c56885f0cafff3784ddf6f84ead0e770da9475dba4e8eae3f7462c3",
+    "model/particle_candidate_confirmation/steps.py": "f8236538ac87049f58458c3bc12823619d4e1b96a78bf4c96f9aea6d15adf5ae",
+    "model/particle_candidate_confirmation/test_model.py": "ef17a596f0fe4ee4aeb895b7f2d6223fb19245bacfaac2452ec7a2b5d3825e72",
+    "model/particle_candidate_endpoint_threshold/PROOF.md": "101243771034d6dba8004a6f796e47b99cf06a75ba90babdb3dbca1dbdde01c9",
+    "model/particle_candidate_endpoint_threshold/README.md": "0611037f84bdaa6b6d961055f7c9bf30889dba2ebdf34a6f4f2fed211c594b9f",
+    "model/particle_candidate_endpoint_threshold/__init__.py": "5be031fd11443beb45439a7eb3a465a965aad98d9fb5787a1b75ed66709899b8",
+    "model/particle_candidate_endpoint_threshold/__main__.py": "70cfeb233d7e6167aefc5842624bb726b0e6f95694322e17f28cf663eca3414f",
+    "model/particle_candidate_endpoint_threshold/model.py": "40add2f843c87c9ae1e9a7dff6c38ee9edf69e06632da25e3205969922826ee1",
+    "model/particle_candidate_endpoint_threshold/results.json": "14a66d08f643709d6d4c7b73e808c16536b4f66b5a24418ddec1ccdac7af4e91",
+    "model/particle_candidate_endpoint_threshold/test_model.py": "9d96cce13a65f51811d743cb239584eea9b6f92cb7d91a5989d85f9abd6e6f53",
+    "model/particle_candidate_neutral_dispersion/PROOF.md": "5e21089f851c34594a8940aa1707454c60037cc6b5013514d3c8ed83fb0fbf0e",
+    "model/particle_candidate_neutral_dispersion/README.md": "4f9eeb85bf7547cf914525c19efc0a86373bb1f628a984dd713161416cfaa432",
+    "model/particle_candidate_neutral_dispersion/__init__.py": "285568ff577526894cd2a11983337248528905295b27bdccc0ec67b37908d324",
+    "model/particle_candidate_neutral_dispersion/__main__.py": "22d13396a787eb16ad0d9aba7c68723ed0499b9fb9de9fb5ce887fa46f208fdc",
+    "model/particle_candidate_neutral_dispersion/model.py": "2b2ec4ae1afdff266b8129b879db987787ccb263af2eff5078c4d31181a6deaa",
+    "model/particle_candidate_neutral_dispersion/results.json": "2882ce54ac7ee2277c92c7b429d76cc956ced84c34ddf5c0bbb9fe8c5995abaa",
+    "model/particle_candidate_neutral_dispersion/test_model.py": "79c32570fb9680b78ef3f8aea95d898c5cce2f434e3e658ca4b2453ac2513d27",
+    "model/particle_candidate_scalar_gauge_response/PROOF.md": "a1496d16bba56571b8a69502b6f2ca4fe8a319bdf34b8461d87a9d9832c921a8",
+    "model/particle_candidate_scalar_gauge_response/README.md": "128f767504abc6f221d10924f9b35170c084d137626c6deb2356de248b683543",
+    "model/particle_candidate_scalar_gauge_response/__init__.py": "5cbca01fe24fdd791c46fc097eb5efa5935f02f8f75e4ee6041eb9a4255a199a",
+    "model/particle_candidate_scalar_gauge_response/__main__.py": "3e50456c5fc5eaca30db832ab3ea25cf1e020a886feebedcff06fd3d774c8040",
+    "model/particle_candidate_scalar_gauge_response/model.py": "42f88b22d0c9068e19559bcd1fc390edec7841d98c3df5c310521e43d7e9520a",
+    "model/particle_candidate_scalar_gauge_response/results.json": "617cce03fb6e352cad08b44a7fc72ba2d1a8e0cb974ff82112220c1c7c3d7995",
+    "model/particle_candidate_scalar_gauge_response/test_model.py": "7ab41a9c84cf9b6f2e46d98c010ebcb3e7a41764a8cc651a835b2d27a756b24c",
+    "model/particle_candidate_scalar_spectrum/PROOF.md": "f38c04bc2fa00a61ff2b03435e3c7079075818d8b343a2299db875ef5db60145",
+    "model/particle_candidate_scalar_spectrum/README.md": "a4f26be7f38422f05f22e50991cd76c210e17a5497181d4965406c8ca63643bd",
+    "model/particle_candidate_scalar_spectrum/__init__.py": "fccad995c98f9af296ef14ccc75014a0ac652b09c5e0b085decdae70de7369e5",
+    "model/particle_candidate_scalar_spectrum/__main__.py": "d22e95f8d08d7f8c8497dc2d3dde253ef437e88155a43a7c0856f61e0c1be689",
+    "model/particle_candidate_scalar_spectrum/model.py": "96440c6c61ac0946a3fb25b7bb18420b88f242d64fce6abfd6e63212dd55f60d",
+    "model/particle_candidate_scalar_spectrum/results.json": "0fbb4538f5da130bcbbee68494246734ca178254e6af5a23654b071f1728fe66",
+    "model/particle_candidate_scalar_spectrum/test_model.py": "6cccc25cc80df5eefd062af76d55a68f178275a6a740e54685ba9e89f98149a6",
     "model/particle_charged_residue/PROOF.md": "0f1f120479af74f4a7f12adeff214b20cf495059b92cd551a91d05e7dc1cb65e",
     "model/particle_charged_residue/README.md": "c2503e21cd99a2a9fedd89d4f02eec0e8c5719198d9e173c20cacc3f3d63120e",
     "model/particle_charged_residue/__init__.py": "7bb4bcf24d02798af88ffad553d1fb615978ca0c242829d6aaa6c0a7b8b1d372",
@@ -1888,7 +1953,7 @@
     "model/particle_common_contract/README.md": "bdb34376882e6975cfc7ed2c3ccbbe4036e7fdd2f5ee831a149eca046a3a00a4",
     "model/particle_common_contract/__init__.py": "1a64e76f1ddf737489a91a8cad904f4335a0a0ddd8a7928a8ab014025ca170f5",
     "model/particle_common_contract/__main__.py": "a3abbedd88c1d24e22d2f35821020818fe3ba8bcc7fb46e00156da4145d47b3d",
-    "model/particle_common_contract/contract.json": "bb1387e2a94bf9efc6147ca3afe1b67cbee462e3add0b55ee1636a23df634242",
+    "model/particle_common_contract/contract.json": "7e884cd6d721ce81ccbaf270b8300fcb13ed1f2bcf7f1b8daa5b68091c171969",
     "model/particle_common_contract/contract.py": "76ac11478193f74407ec4032eacbac4853115d132cff5f34a5f8f17bd043b234",
     "model/particle_common_contract/provenance.py": "cbe1ac47552530df594a4dbcd3fa8296eaff6a7af093ab4ae582f78a5d13e723",
     "model/particle_common_contract/test_contract_audit.py": "47d02ea6d6033a23d71f310178304b5e7162fef783336f5225bede08590a4ea2",
@@ -2039,7 +2104,7 @@
     "model/particle_observer_outputs/higgs_records.py": "8494d22a3d64cb3c7d88bccf4f23c80fb02b67a1924cc616f750cefecb0ea7b9",
     "model/particle_observer_outputs/holonomy_transport.py": "57581d85afbb833a887e6db1c84f32e6d1e76650d97d6ec21866775ef3b84980",
     "model/particle_observer_outputs/readout_contract.py": "33388e2c8572b3b227f504a74c6cb78ec3ed5933e9609328ba975ee8fb78451a",
-    "model/particle_observer_outputs/results.json": "ee5d817c0547075ca6d47f03c2074d593dcdf73a8f54dce49700b4006098e4c7",
+    "model/particle_observer_outputs/results.json": "44d72c00c25370c0daf3b89180b5b173d096f99a1093521774810b867f786047",
     "model/particle_observer_outputs/run.py": "29e01d2a310b256c7dac078a7c81cb3138deb580789588717863ead87f3de6fc",
     "model/particle_observer_outputs/test_bare_effective.py": "328755076e593ef0473649d8f046b239ed44be179fb7e62d4492dbaf744542d5",
     "model/particle_observer_outputs/test_charged_higgs_records.py": "76addf707a89bf1d5352ef4efc357865c4a40810d3fdca17afbefce65fdea9ed",
@@ -2078,27 +2143,27 @@
     "model/particle_primary_boundary_correlation/__init__.py": "7e0d507f51e69d035b4f659eb9a57b5f11f5f61599b6b680c027cc4f234f29e2",
     "model/particle_primary_boundary_correlation/__main__.py": "92e348698baa741e985ec4743ef927eb074bc985589e9f26b46a0d3b1b8f3d28",
     "model/particle_primary_boundary_correlation/model.py": "e95b04f8b465b63179e3327d682ea3e5b0e8e9e68a3452c4be9e4d3f61c11966",
-    "model/particle_primary_boundary_correlation/results.json": "12398d61b4385b4322e57ebccf77d60b1b0cb4fce66ff78c938d7c7a9a8c35ab",
+    "model/particle_primary_boundary_correlation/results.json": "391b2e0bac5b39315135b2047b84a96bddeffbc04bdfb380ed2af2db690a0bb6",
     "model/particle_primary_boundary_correlation/test_model.py": "2285ecd539140518b5839f75f2b1bbf9a87ba80a53e6e76b66537406c0249af2",
     "model/particle_primary_boundary_information/PROOF.md": "54ebaa2531c0dbd38452e3ab8826e6381f79b5603598c8d75524b8dc3c6a42ac",
     "model/particle_primary_boundary_information/README.md": "34f2f0028dbe505955423dcf98f4779494ed221d1d896b7409638346097727bd",
     "model/particle_primary_boundary_information/__init__.py": "fc40301581cad4f01d47468fbfd3a989da17a2f67b23a5748474ea58cb9e866a",
     "model/particle_primary_boundary_information/__main__.py": "92f8b261dc39fecfa42927d9d7fe3cfdd6ed6b8f577ed1a349726a2c80eca448",
     "model/particle_primary_boundary_information/model.py": "ff29a08fbe466288024806bf7ab8af6a8faf97a15839dd21782f35eb4c7ca5c7",
-    "model/particle_primary_boundary_information/results.json": "3ca551c6b5d5173c6c839f8dd9c6eb7f6967882be175b0e11cf7477b75cbc57c",
+    "model/particle_primary_boundary_information/results.json": "dac82004e212553b9ec5d6ea0ef3ca6a4e99ab42edaa88e35f6663a3518ea152",
     "model/particle_primary_boundary_information/test_model.py": "167b2d92c91b1e24da39d806a0eaad1438eae18e3648199b982d0aa7604cee13",
     "model/particle_primary_branch_certificate/PROOF.md": "9dabef0ba596c18b2063874ee7390e1357905a74eb64a0967d8218531210697d",
     "model/particle_primary_branch_certificate/README.md": "855dd4570d4187c160105c25b6216e93ee7100ee625cb40103b4f704954e044d",
     "model/particle_primary_branch_certificate/__init__.py": "246808fbd318e0db05526c0db1d440bad4ffc069a27e6cb06e53d64d2c96cbad",
     "model/particle_primary_branch_certificate/__main__.py": "5440be14da28cf51128aaef847dab0b474f68c9ab10b71cf93265ba4395e2c96",
     "model/particle_primary_branch_certificate/model.py": "c9ea040865050cce49ffd6681020aabe6239efae9068dc927ea2eb2ff5680b9e",
-    "model/particle_primary_branch_certificate/results.json": "43939ac65c2aabc2b7f25896cc590f908709d0598d58b1d9d66503b78fb2b85f",
+    "model/particle_primary_branch_certificate/results.json": "93ed6efcdb4b6666af311fdfa0c1abf6b1367f1fbc01858203e9cacc6cc7cd95",
     "model/particle_primary_branch_certificate/test_model.py": "daed3f5863292f2e209c1dd28bf068c18013d13365f13688ee06bcf5e487fdae",
     "model/particle_primary_branch_resolution/PROOF.md": "ad3fe6359da14726e95c836d60c07751660b38e97c48cc742c69d7d75d4485b9",
     "model/particle_primary_branch_resolution/__init__.py": "472cd9e2381b17d660550fad70855cbf396946683c4debb0897c6f94c1140274",
     "model/particle_primary_branch_resolution/__main__.py": "841ded9788359f2f7b773389cfb694965a77c37e2e5a46bd96399132f9a5db4a",
     "model/particle_primary_branch_resolution/model.py": "43bd05f1beccbba6658759a8c1b05d09762933e2a8f34280f222bcb6441f3030",
-    "model/particle_primary_branch_resolution/results.json": "7fe36f80ad84653ec512e9c6eab0c6426d67717bab5a53ce015e440cf0a5f459",
+    "model/particle_primary_branch_resolution/results.json": "d084e9d88c78a4c1add4fa98dd522d3c784b16cb45d634f86b5e1ecd580cc219",
     "model/particle_primary_branch_resolution/test_model.py": "221d6f890bcf1463bc9514313ca6c5422451237c95a27273676b1d8b446219bc",
     "model/particle_primary_capacity/PROOF.md": "c3ff2319ccec99731872cce6f97d8437924049ee808d3b624c2d6e206093a891",
     "model/particle_primary_capacity/__init__.py": "80049213430999667ee1ab9378acfbcf443c9bfa8b66e8d0aff6e7ed81753b9b",
@@ -2113,21 +2178,21 @@
     "model/particle_primary_charge_conjugation/__init__.py": "dc6701f88e910d8f8eb380586a608e0edbbb48996df798f7ea224e54c174a315",
     "model/particle_primary_charge_conjugation/__main__.py": "6f89f4973db8e42b309d7c02b6b209e0aa849b21a946ead7cb83b4c755d15cd5",
     "model/particle_primary_charge_conjugation/model.py": "5b82bba7f85fb67b7714d79953e5b06b60f1a233e861ccaf80523a6ddbe946ae",
-    "model/particle_primary_charge_conjugation/results.json": "96b3bead0f932430c4aa437d01cd773f9f85ef87e800521cea853e0f1d1c6fcb",
+    "model/particle_primary_charge_conjugation/results.json": "ad35c0b99ea3bdc32fd0db5caa002e2f7e28a328891797d547c24e414687a482",
     "model/particle_primary_charge_conjugation/test_model.py": "dc76c9cbf1bcf194e710c2b9ef262098b6594df1419590de611476412fd04e66",
     "model/particle_primary_charged_readout/PROOF.md": "f6e5632dff9972dc08b80bb6dc5388b33cf89c35e7d89a60ad10a8630c84d36c",
     "model/particle_primary_charged_readout/README.md": "6e5dca2258c048d88b12f66af60bc71686bf0a5ac127d650255c301af6dc9413",
     "model/particle_primary_charged_readout/__init__.py": "a4392890f03781dfb742bef03fc0eaf00787667fda95c21a5617d0b62646b9c7",
     "model/particle_primary_charged_readout/__main__.py": "52f5cf326fce258a5bcad54b5fa53f863bea5da355b22ce9acc8fd25c346e806",
     "model/particle_primary_charged_readout/model.py": "3211823f83362df2b04c7c5ac6669818902d52075d96a2462c8e0f480a6f17db",
-    "model/particle_primary_charged_readout/results.json": "8c95f195d66260c61ae1ed820723c7444aba64bb8b971603aa11504b51eb8d6c",
+    "model/particle_primary_charged_readout/results.json": "2fed6e2fe624f0dcdc42b5876d31ef0388682dff8c3a0f72bf53323dd0395401",
     "model/particle_primary_charged_readout/test_model.py": "15bd4e1245f78a5be5ff7fb767948052a24045669f8fef930de8d16eba8a7c4b",
     "model/particle_primary_charged_string/PROOF.md": "4da28bc2468ce3054f9dd3c33c44a91a90de83888d85a7f81f457c68b5e1bbf6",
     "model/particle_primary_charged_string/README.md": "62a9f5700877d05d9dba9b8658d1fa941d3e8317b5cee24993b39ebc950040a7",
     "model/particle_primary_charged_string/__init__.py": "67a2e31ac493b8519bf2f78031fd3fee13c970edee0e63b3cb1de9a78dea44f3",
     "model/particle_primary_charged_string/__main__.py": "075c50bb622e5bce944a79df26f407cccec4a83cd5f048bc4a5db7ee09b7271e",
     "model/particle_primary_charged_string/model.py": "f1aaf5b86b6f9f6a3575733022c9c4510a4c3a589a4aa3905a6a03b361041987",
-    "model/particle_primary_charged_string/results.json": "000e5f3ca48f7508d77da3756219c38cd858c34ccdb18bed7005e4b3346eb115",
+    "model/particle_primary_charged_string/results.json": "f1ed1cbcd74eaa8cc83530367979a2c167814e055ae4e428b0d7476df8ca0d9f",
     "model/particle_primary_charged_string/test_model.py": "28db05cc6aabc0a6b87108974f2ef2e81b173ef790359f4e7fdfd4e6b353b314",
     "model/particle_primary_coherent_odd_response/KERNEL_PROOF.md": "de0c892eb1a4820b8afd89a0e5fe59df67527e5994c0260cfd259b854d5723dd",
     "model/particle_primary_coherent_odd_response/PROOF.md": "6fc24a3d187e1ca09802ef8d7cc459296627fa8083a29dde2ed53d85fbc91146",
@@ -2136,7 +2201,7 @@
     "model/particle_primary_coherent_odd_response/__main__.py": "ef56c6df590ef41faddcf11a8598fd5f74f940108133c12dd8f865c25c1471ce",
     "model/particle_primary_coherent_odd_response/kernel_reduction.py": "fcc1609a6d4c50be600f817aef4cd3bb1cb2c364cba8d036d1cffa267c500649",
     "model/particle_primary_coherent_odd_response/model.py": "fff158198b8cd54e3da1701a32736eafe2a16f88f4dc63739e7d97b14b3f2928",
-    "model/particle_primary_coherent_odd_response/results.json": "96cea48f2943bd15310c74646f4b73678b0e1dd2b74596b168342aded53b6d0d",
+    "model/particle_primary_coherent_odd_response/results.json": "0d9f58e12c2fb9e368dd9a1e308f06ac9f533f527a69b93f5243290be24d2408",
     "model/particle_primary_coherent_odd_response/test_kernel_reduction.py": "16ca443bd21ba3f4e20ce68af29c8d19d74471744897da328ac84afe1ec8facc",
     "model/particle_primary_coherent_odd_response/test_model.py": "c11ea6004ecf9f33c30d447f515c57bd22015f4f993f449492cc9d9152dfa8e3",
     "model/particle_primary_composite_spin/PROOF.md": "103650ddf88a68ad2ee25d9a28a8cd93b29a16c7fd019824b7cc5c5cb409df56",
@@ -2144,35 +2209,35 @@
     "model/particle_primary_composite_spin/__init__.py": "e4a4d005c2f6fb23182e191df70bd4eefc60a4434a77f3e74cc22d6f00880e21",
     "model/particle_primary_composite_spin/__main__.py": "c4b83919be8237740a2c5f1ac0ee899c244a41b75becd47b8bc156ecb0ecb500",
     "model/particle_primary_composite_spin/model.py": "5b942e86123df6fd2516d6c2c93f8e9cdbda1103e11d02b5031ce7f5b8f8df07",
-    "model/particle_primary_composite_spin/results.json": "0ce61b6b26c77466dc08948f8a5f3985a9d61dd363d327935fb2c6af22b89c5a",
+    "model/particle_primary_composite_spin/results.json": "4825db6406a088855114fc09ee9cfbc1247028a141cb45c0255071345ed30062",
     "model/particle_primary_composite_spin/test_model.py": "02604b96da9cba1fed8f2f5863eda5a70b7c4c9ca2dba263e5035f966798fb34",
     "model/particle_primary_composite_transport/PROOF.md": "2fac8a87267a181358ca0236ed9f170423cfccc6641a92e2e88ee026f3e349b1",
     "model/particle_primary_composite_transport/README.md": "9f73877276c342d2d2c60c8b00d6f0deb18dc265eceb936fa9e6240aa1868a5e",
     "model/particle_primary_composite_transport/__init__.py": "baab780f41238c84dfd3927d6900e800d0055758fe30375b435d13a77d5b8c0f",
     "model/particle_primary_composite_transport/__main__.py": "144f1155782e05d918cb705d3afd0af03ddc8f1236234526efcd534fbcc9aa18",
     "model/particle_primary_composite_transport/model.py": "e1b4c6be5f2edfe003baa089f554e8de8111156fe2ea4394fbf15f71c7180596",
-    "model/particle_primary_composite_transport/results.json": "f66aacd3a7321599f76083b3a71a856ea0dbaea086d490ebf5fb8ba35637f3a3",
+    "model/particle_primary_composite_transport/results.json": "53cfcdb684890b6448d8a0bfabd90b9e50beeb3845caa3a20008d704b903878f",
     "model/particle_primary_composite_transport/test_model.py": "614777424b31b8e1167169b424138fc6ba74d37b6c9030d1b68a0b3bf938d867",
     "model/particle_primary_covariant_stress/PROOF.md": "3033590fb1572c3159ad6eade72332b50e439a32ef07078dd38b05d978a620e3",
     "model/particle_primary_covariant_stress/README.md": "1f6a49210233d82fae85f696e65d30ba22ac580c964bcc61eb2f331a2aba495d",
     "model/particle_primary_covariant_stress/__init__.py": "a780400ecf3a58d56596aa5c491d8e3b8fbc90e30615676eb26d2c9ba3625cb9",
     "model/particle_primary_covariant_stress/__main__.py": "42e84057208623f637c6e2d2a324a5699e8fb5eb12dcea0453fd7c47c48d01dc",
     "model/particle_primary_covariant_stress/model.py": "4d50a242c1192373b352da2ef5287dfeac1c29e4fd3649767ca3be8bdbe4b8d9",
-    "model/particle_primary_covariant_stress/results.json": "dddcafa8fc912f466b011a7f52712b6f995edae0ba75500ec453ca5f1ac00a79",
+    "model/particle_primary_covariant_stress/results.json": "f64839e1597b209f3e0ee604f6db834e1bb8ac43716cadcaffe98e6a85e35dc7",
     "model/particle_primary_covariant_stress/test_model.py": "4eb650f612447099736c1cf25cfd4d10a68a9850fbf9b22f8f6b34694d0e14ff",
     "model/particle_primary_critical_refinement/PROOF.md": "62835175104832addc1b54176d539ca5cf9caf44ef52293f33a8495fddee6630",
     "model/particle_primary_critical_refinement/README.md": "92f837a2e32165823d154163f536d0d660ead00ecfe9924d6e9db5a69d0cf113",
     "model/particle_primary_critical_refinement/__init__.py": "6b65642f060cba19c0bf04befb55219f3863c2932fd71e384c1a5116f8563774",
     "model/particle_primary_critical_refinement/__main__.py": "1a1664f2ce460ab1c1b371a784fb7c3710fa2a3d8e0b52d91998a98017b5fc84",
     "model/particle_primary_critical_refinement/model.py": "d7b623b92a2e95a3faaa318f09fb018152ce386800ef0d4bb014b396ed76b654",
-    "model/particle_primary_critical_refinement/results.json": "b8e237294374f5d3291c820bea472335470b0c474d39c0de309b478b2aabe2c1",
+    "model/particle_primary_critical_refinement/results.json": "dd25c47ee625918a492d21117bda6212522f905ad36bdb28757b59e04d18d490",
     "model/particle_primary_critical_refinement/test_model.py": "24ea081c8737b9ebdd98c190bf42f809938600682f7ae59c332d47fbb111c4c7",
     "model/particle_primary_current_tail/PROOF.md": "64cc49a943d526eae7423bbc8bedbdb00f778728233cb35533f3ccecb3fc969e",
     "model/particle_primary_current_tail/README.md": "6519e896f94806be42f875ec724adee4bdfc626db9bda045f35f480f808a4a0d",
     "model/particle_primary_current_tail/__init__.py": "67f296003a4924735cc152943722e9fcf0a226f93f95b25136c94502634a3cc2",
     "model/particle_primary_current_tail/__main__.py": "43bfb7f632dae0d340f7879be027c0623bd6327e775b9352eabf30b5d519d245",
     "model/particle_primary_current_tail/model.py": "fe220af59bc54dd8a811f05df8aa6433d1fc888024cbb2029877a07e6134e219",
-    "model/particle_primary_current_tail/results.json": "dff0cab1a803626249aa37528986666b83a29a24ec3d5cdca45ab07a4fbf5f01",
+    "model/particle_primary_current_tail/results.json": "a7c112012ab5742b4f51c50b2716a003dea212e6a3759285eda642df11b64141",
     "model/particle_primary_current_tail/test_model.py": "ea0f0a317a10e77d214f136a8a28da6a7ccf3365a6e638b25548412632e83133",
     "model/particle_primary_endpoint_bounds/PROOF.md": "52f2662689c49b1149a9b6d6ed67afaa88b1de1cd2fc3bc155a1dda67ce69291",
     "model/particle_primary_endpoint_bounds/__init__.py": "7fc57cc9146cdbb394e384cea53bf0ec82d35d5499ce6610ea6dfd30bfaf6c59",
@@ -2182,20 +2247,20 @@
     "model/particle_primary_energy_response/__init__.py": "8015d89b91a985b0f89583bdfb0d4c3c3c5f809c646e806933611ddca84f4cea",
     "model/particle_primary_energy_response/__main__.py": "430ab89da4f2bddd39b598409e36d10e44f6912879c80f336a192767e86dd4f1",
     "model/particle_primary_energy_response/model.py": "313e61c21626e2f5115cd89c320d30db16dd6aecebbb13cdbedea065699aec2e",
-    "model/particle_primary_energy_response/results.json": "d1c26fa64910eddbd05a10a2f987519525f97b965ab67a4d5ec7b75fc4a3be95",
+    "model/particle_primary_energy_response/results.json": "5db5cc1edcb0075cf9f6cb7cabb1c6abf016615d1077e4e9d2e44ce9f9e09943",
     "model/particle_primary_energy_response/test_model.py": "ee4e627ec950bd26229d324f89481bf0f0982e5f814012a3e6e43fb7f344197a",
     "model/particle_primary_energy_tightness/PROOF.md": "0d35d0b520f0a988fa4f117c701c86b70b2cb88da8800ae710d9f4a17821a3e3",
     "model/particle_primary_energy_tightness/__init__.py": "929313103092292a1a74cc9ccfa74d8f77e95e66fe8073a0655caaba774e4eff",
     "model/particle_primary_energy_tightness/__main__.py": "be2f86c2c474c35d53d6796966cb2942fbbdbb4ba22715e01ba1232b4ab09ec6",
     "model/particle_primary_energy_tightness/model.py": "8dba617cf0bd02dcd5167353436e2dc1d1233e8bf855bc6fc3c64eb70d50b66b",
-    "model/particle_primary_energy_tightness/results.json": "4de1c3c7ac11662e0ba96af8ed666fb485e495e05981900fa843353e6a2e0e3c",
+    "model/particle_primary_energy_tightness/results.json": "04968a3f9ebc1c95e56dfaab0e178dcbb4ccd89556b47af2ae78a975b4453764",
     "model/particle_primary_energy_tightness/test_model.py": "ec392cf9f2f4599d0df87b4dc601133d598b09d480b1f133439d62c5668f9156",
     "model/particle_primary_equal_work_control/PROOF.md": "f0c162592d8015403572a8e57bca3e38d68501095988237f456764c1758cb068",
     "model/particle_primary_equal_work_control/README.md": "5608afee3b45154a0fdcb1843930f707e5d049f446d70e00fe14db9b5a963793",
     "model/particle_primary_equal_work_control/__init__.py": "81bce87c71630bf8ac6715490bb83548e4e1273f5bf651da2745025330137922",
     "model/particle_primary_equal_work_control/__main__.py": "3b62090e7c0833de003b0005e4a36af48cbaaa627c5d9c659a0fdf3d3f806a85",
     "model/particle_primary_equal_work_control/model.py": "02aa34337be2bb0805f614c824a92800bac779578966cc676467893143d50edc",
-    "model/particle_primary_equal_work_control/results.json": "ed092115b16ffd918d4823254367c1fed7ecd7318c9e3b785d36cc2fcbe3abec",
+    "model/particle_primary_equal_work_control/results.json": "eff2acb56fa72ef12501f1c4d131648d684f8ef59809719536b29569fecdbe84",
     "model/particle_primary_equal_work_control/test_model.py": "20e3edcf3b663ad7e7018356f7bafcdadd4805ace2142f9846b37168a6d49209",
     "model/particle_primary_field_algebra/PROOF.md": "a053b3bf69ae2c8ae3d3889429d8301669fbd3b322d781c7fd59055edee613b2",
     "model/particle_primary_field_algebra/__init__.py": "076801719ce833650e2a40e24dd0a390e84de338b8e9333488b23c7aa9f75a87",
@@ -2205,7 +2270,7 @@
     "model/particle_primary_geometric_cut/__init__.py": "e422624c648211622368640ab715de068ca7bca67a1f5ed399047db24b0c01fb",
     "model/particle_primary_geometric_cut/__main__.py": "b82062827b93e9d24bbc95b68dafb306653aadf6a97d718caeac4e86ace0670b",
     "model/particle_primary_geometric_cut/model.py": "207c377eee395234696f55e6e10512f1ccf793ea8bf9dfb87626f7de376e8307",
-    "model/particle_primary_geometric_cut/results.json": "a7d8c7c8edc15483224f68c11a74d8097cde6634c90a635c92efe8a93ab6917a",
+    "model/particle_primary_geometric_cut/results.json": "3f3021c9c7c2c59e96c4d63dcd419289bd2cad00ed7dc1ba9b077f788add7a6d",
     "model/particle_primary_geometric_cut/test_model.py": "692eab28b321cd6231cdec047f6b8ce077c738088ed504eaa4d00f44dd8ed0eb",
     "model/particle_primary_gravity_premises/PROOF.md": "7ae2e47878e03317918408c726cd8d34cea82468fabf77de9f4c62ecf757d54a",
     "model/particle_primary_gravity_premises/README.md": "319b0b259523a254a113d27a17f06f20dbf01b98f4de02ff9d0c30a5f746f509",
@@ -2221,7 +2286,7 @@
     "model/particle_primary_local_fluctuation/__init__.py": "79e0d11c846b2b21946abbe4e69e483c03855cddfe41ade6e4c887fd91a662f7",
     "model/particle_primary_local_fluctuation/__main__.py": "cbf54df722c3d369e780f16afbd307d67b4dc911773e67bacf62905d271ae205",
     "model/particle_primary_local_fluctuation/model.py": "4e6abaf7d7a65ab73d90f5671dd2e739f7b69cff460157bf11242182d1ee1252",
-    "model/particle_primary_local_fluctuation/results.json": "731f07e41161138dcc0545b0d84b423c730b6c3bd3bd3334177df8e83ae9d9c5",
+    "model/particle_primary_local_fluctuation/results.json": "90ab7b307db964b7abca66307536c5129ed9782bc2972f96d4df7043539fe6ff",
     "model/particle_primary_local_fluctuation/test_model.py": "6d6f35f7fca913ede55f3ba1f2c2aee530611e2ca6eb42f8fec58de7a98b933f",
     "model/particle_primary_locality/PROOF.md": "593ee510408f7151a6ad4664cb925b328863116509013bdaf0a3dfa492adf56a",
     "model/particle_primary_locality/README.md": "1271f5958bf9bc7a46c69cb8e2fae2788f0db387b8d22e8eb0b22b71788e118a",
@@ -2234,7 +2299,7 @@
     "model/particle_primary_loop_fusion/__init__.py": "01761c24addcf34107e49a07722266e5522fa3d3688695176c06f9ef43b74f38",
     "model/particle_primary_loop_fusion/__main__.py": "6c600a9c33b4d21eaf95cca9b30b789c94b42a8118dd6f2bf83c036de86977d8",
     "model/particle_primary_loop_fusion/model.py": "7dd3c988f87327ba802ef0d6d7970b4b2554b5c4a48e1852d289f212dfab67ee",
-    "model/particle_primary_loop_fusion/results.json": "20f3fa31293ceb994b4dc712e032e7dc2944a63f681f3b5accabc80b91e0f6d3",
+    "model/particle_primary_loop_fusion/results.json": "5cdae85ce56b5a1cdee0a77de4e21585b896bba4db3290167492a29083224e8c",
     "model/particle_primary_loop_fusion/test_model.py": "90d21e1c4244506709ba9978eb80d591e22eeb8877a446c82db9793fb80622bc",
     "model/particle_primary_mass_readout/PROOF.md": "daed8fddef27b42f626cbf1d22b7290615952faf8bf543ee6f3d92626fa71978",
     "model/particle_primary_mass_readout/__init__.py": "e7e52a780822dbbe818e5826b385b182065e5f9754d439518928b2e4b5dd7709",
@@ -2247,7 +2312,7 @@
     "model/particle_primary_momentum_transfer/__init__.py": "f07eb884c0f0769d6aaf43fc0f446615c0c769fef2dac458d81ffb4313380151",
     "model/particle_primary_momentum_transfer/__main__.py": "5a93d1ba38c66b22180c3b7c2c1a615f1f9a81628a517cfedf1c8c5e6d7bd869",
     "model/particle_primary_momentum_transfer/model.py": "174b91165b139efeb04c9f547a18b239257899ee7748a67dc145c3bbb088dee2",
-    "model/particle_primary_momentum_transfer/results.json": "9d8ca64d577860aac0f4f9e5903d0e09b9ec52f55d3aea868c7f3c7311574cb8",
+    "model/particle_primary_momentum_transfer/results.json": "2a129b2cca12aa4423602aeefed0c61e450fcc68a02e0fb4b994691e6046616b",
     "model/particle_primary_momentum_transfer/test_model.py": "8e3370dd486093108efe9ed19b6c25f513e56f34ccd0263bf61a0e9b5e335970",
     "model/particle_primary_occupation_bound/PROOF.md": "a5f9852fbb730ed6e8ff12c48df9af31203972e4a160d6c0f4cb7e4370023188",
     "model/particle_primary_occupation_bound/__init__.py": "592441e691b97f8fd7261ad40b88067e8898524ef604cad8e4aafaf58fbc81fb",
@@ -2259,55 +2324,55 @@
     "model/particle_primary_odd_low_energy/__init__.py": "a252e1da25b8fcde85759b86f1655758147009a4c4017b8a553b4616986701cd",
     "model/particle_primary_odd_low_energy/__main__.py": "41aa46f1d25e890e984ce3c9d20671fc6149d090280ec49d6f847d90854973ed",
     "model/particle_primary_odd_low_energy/model.py": "1a0a96ca60d83c1804ee0f578ac74f8c2c7809367cbb5924dbf1f65d6ccfe86a",
-    "model/particle_primary_odd_low_energy/results.json": "d026442743b547d08671fae617e851a7e151c672be8daa63a4390d789c14b037",
+    "model/particle_primary_odd_low_energy/results.json": "9dfa72b335553a76096cb3479026e8ac37ff9d6ea8937adacdf2b52b15a11384",
     "model/particle_primary_odd_low_energy/test_model.py": "a81b059cef3603d196570b5e6bc991aed695e6a7e379fd88869e6e3504125200",
     "model/particle_primary_odd_residual/PROOF.md": "6f9580bbe9e79824af3c90d5756b8f4ddede3bd4c7d00b316f60e1d58386eb6b",
     "model/particle_primary_odd_residual/__init__.py": "dfef258ce3de1db234797f213b81dea82253ac8a163a71fa6d53d92d5c8f38b1",
     "model/particle_primary_odd_residual/__main__.py": "19dde3ad37f6061b786347267a80fb3833cb936459211ba35153834a489be90a",
     "model/particle_primary_odd_residual/model.py": "280f886fd9e885fcd0fcdb9dfeffab2de21b375d945809175bce9bfaffb0f329",
-    "model/particle_primary_odd_residual/results.json": "9f057ad25eea6fca327b8b6d460330d29e3a760d7207ce3f05973d17616a0016",
+    "model/particle_primary_odd_residual/results.json": "3d024bb1c33e4f68b11a4a85aa12d971bc6ade8aae76d90925d2e19a56e6cdc4",
     "model/particle_primary_odd_residual/test_model.py": "271b5a091d7aafa449aac517aead3d84e7a0d8a49b771105cc49313ce586afc3",
     "model/particle_primary_odd_resolvent/PROOF.md": "ed11d9ba3a0f8da96277bd1c9a2b77a2820d4d165ecd38ddcec4c30b895d4096",
     "model/particle_primary_odd_resolvent/README.md": "7b1684e7868873d1b116354e0789f1a0b1b66172d4469757e9ec23589485ba37",
     "model/particle_primary_odd_resolvent/__init__.py": "f4d7ad3b7e70746b4f9afceb25f99c22732821574273942d29f03673a9834b6d",
     "model/particle_primary_odd_resolvent/__main__.py": "7ff06eb96a531140b08da5c017b850e0895ef5f9dea8e07be2530c52dd144ba7",
     "model/particle_primary_odd_resolvent/model.py": "bde54f2b7c844aca0cd954fb4df5b0ac6d8b71b327336dfc49d31fe1c0c8e024",
-    "model/particle_primary_odd_resolvent/results.json": "99bb964657cdb50263d161548e2d4b434bbe3817ba864d87289bbd7687b42da0",
+    "model/particle_primary_odd_resolvent/results.json": "c8d9cd2ded0cf55a8fcab1f340b6ecae89e9ee7862716a99be32a2b5c4f345bf",
     "model/particle_primary_odd_resolvent/test_model.py": "5993ec74d7fa636bfac497b276414890864f18ad311a4be942020932261f81d0",
     "model/particle_primary_odd_sum_rules/PROOF.md": "a45b132331f27f856f53f5ac935593c28e73b40da1de20b38d7905dd15c04e99",
     "model/particle_primary_odd_sum_rules/README.md": "3ece7640fb92a7cb176fab6b457d3454b921aed299e9e1d411aa01c759328db5",
     "model/particle_primary_odd_sum_rules/__init__.py": "557af7a141b5450bcfeed3b944d9d4d1bfdea9fcb572e4b56172ee01b1165dd0",
     "model/particle_primary_odd_sum_rules/__main__.py": "3078e79127a96144d6c14139b1d6495c87d7f4b148146740ce0bb2a997f2c1dd",
     "model/particle_primary_odd_sum_rules/model.py": "4c65b5ba8245566ab0601a4ae40bc78f7e5dd942c6282db9e447ecdeb4826c20",
-    "model/particle_primary_odd_sum_rules/results.json": "44e08f1baf26cd7bba46af7b5fd3556eef8b8e39e60fd351fb48dc76cc89aa57",
+    "model/particle_primary_odd_sum_rules/results.json": "6a762145bbb1b076ef971161e56969ab232c24f7d52ec8b96501ca1ed299318a",
     "model/particle_primary_odd_sum_rules/test_model.py": "28dffefa5c9d1c5bf616c794c7c212e1b935c3d86f70b7e8b4b050a05f6c73a1",
     "model/particle_primary_open_coframe/PROOF.md": "d6a2b959f017fff36b91e7ec596e33480f5fa72eede6038107fb3717e720a733",
     "model/particle_primary_open_coframe/README.md": "b1cd096105865c05f04cb1199c8e6cf8df5e4129caa5ba34878bf470917c7544",
     "model/particle_primary_open_coframe/__init__.py": "fa9844581565e233f767ce6c5ffb24c1440b1798e3150e652557e9ea0dbf361f",
     "model/particle_primary_open_coframe/__main__.py": "506d31f05c97e5aa4508423277f3494f92b7fdeab36e7cbf76aa08bb10df5654",
     "model/particle_primary_open_coframe/model.py": "dd6776dda259ca2d467fb444995175fcce82d2d6a7c94f08c7edc45fe1048c35",
-    "model/particle_primary_open_coframe/results.json": "a1a4398211e2ad0331e89e45adbd513db4c470c8920c68ada47ff26340c58916",
+    "model/particle_primary_open_coframe/results.json": "b10efd18fcde88e42e1be0ec50df22af485a6d948c856ab74a79179897f83149",
     "model/particle_primary_open_coframe/test_model.py": "7b85638ca85b92d20344c4a4269ba9d8bbfeb5255bdff035d08b5b9b066f31a6",
     "model/particle_primary_origin_momentum/PROOF.md": "ce11106d035d89d0c2aa74cf9935897f97cdedda73fd1a44ee6e45819187a021",
     "model/particle_primary_origin_momentum/README.md": "f89d72c320233be2d243741fd1474554686da12aaa3c064e21760a0f52e0b354",
     "model/particle_primary_origin_momentum/__init__.py": "2750ce9cb120bd3137b457ef26ae5e52110606e114a02f6059f94159be268f23",
     "model/particle_primary_origin_momentum/__main__.py": "3b642cdac56b4e9bd1fae94d7c0eda36771013e23e4ab1a165cf71f020925b86",
     "model/particle_primary_origin_momentum/model.py": "e077874dde674fdf0ec38c4babb2a88e1d9267349ffde0abeaeabc7d40a937b1",
-    "model/particle_primary_origin_momentum/results.json": "9a3fd9acd49c73a3df3625dc1566ce1cd69636eed536a80c40b0130f36d600c2",
+    "model/particle_primary_origin_momentum/results.json": "5bf986a64a2523ae2deba0ea3abe30b2977db79ac57e43cbb5224c8ef47d29e6",
     "model/particle_primary_origin_momentum/test_model.py": "88fa900b0f7e43d6ff7022d693712c0c3cbf58a2219c84a6cd34fbeb8bb6a8ef",
     "model/particle_primary_original_branch/PROOF.md": "5f57fa93243ca75127f976dceb419c8612d16a4ab116dea99cd884ac8ceb19e0",
     "model/particle_primary_original_branch/README.md": "b4c0ce701c1a80a8a205e5330a440ae0ccba71297ffb3780c43479da3ef97f04",
     "model/particle_primary_original_branch/__init__.py": "5c3fd861963ab5d2101f25b8a092c41e2be4227a612fe169742ae8348ae967c3",
     "model/particle_primary_original_branch/__main__.py": "301cc572e299a2d34d3f55202260796231718227e285ec302f17bc1da1ca679b",
     "model/particle_primary_original_branch/model.py": "3a169e149900d7e9f9a389dbb25deb83766df9bfb0dfe94ad1c0671eed7fd7f3",
-    "model/particle_primary_original_branch/results.json": "dd53fa9e957001fac8d48190c6347436602f373e272fa84bed9a480fa6c4af48",
+    "model/particle_primary_original_branch/results.json": "28d92c963ae7b1158b73e86db9d4471a17a0613ca7a1deb35e381decc3a40a42",
     "model/particle_primary_original_branch/test_model.py": "0c6b7063fb46075ea5e8e91e1b4826ad068c5a5177ce84534b5baa8e80bc39e8",
     "model/particle_primary_original_shell_moments/PROOF.md": "1e702261bafd5df805b09461b8cabc25ef834badbfc743394151cc8313badd28",
     "model/particle_primary_original_shell_moments/README.md": "d6314af1e7f8fa945477212799fa790029ba9857a4c5365c8dd5fb3d5055ad30",
     "model/particle_primary_original_shell_moments/__init__.py": "1911f25ae3ae2a9ba72bdf16eca3f4a7ca694d4e78cca98d28246f68e0a48973",
     "model/particle_primary_original_shell_moments/__main__.py": "144e30133f06da6bea9c0e56e1145258cecbdb4eb8495406d810974d060fe62d",
     "model/particle_primary_original_shell_moments/model.py": "21540b254df4ce65e74078a3dcb71a3e1018a8c44d6dcc200d1ccd9097d74a14",
-    "model/particle_primary_original_shell_moments/results.json": "fa81ca08ebddf9c39643abdb5b782d25603bb54d1c7c74e6f83ebfd0f83c513a",
+    "model/particle_primary_original_shell_moments/results.json": "bba122920401ef3bf6ccaf3e761104f949cd9e30eb0a2903658c21530f86ef20",
     "model/particle_primary_original_shell_moments/test_model.py": "8ac0dabfce98cb50e75bab4b62845fb8714ce7e012aa9a805e256a0e02d549ae",
     "model/particle_primary_pair_channels/PROOF.md": "a5553d882083087705dd13b77515dddbc164b0da4161a251b9090a0656aee0dc",
     "model/particle_primary_pair_channels/__init__.py": "75d255e60e27ed13d2b70ca715b8dae510e4dfd63370742506eb94391a2bfb3b",
@@ -2319,14 +2384,14 @@
     "model/particle_primary_populated_momentum/__init__.py": "4e9d9b837fe26954f8de399f09ce4543b33a0ed92711e9683b009c10d7982315",
     "model/particle_primary_populated_momentum/__main__.py": "7d1f22393e24be47555847339d36dd44c43ca5bec88ab1def6c18814b2d30380",
     "model/particle_primary_populated_momentum/model.py": "20f4f19fc51c7bd87b0b9dd9032c2cfda17c6ea7f72041e4192b8fc4f52ef0da",
-    "model/particle_primary_populated_momentum/results.json": "0b34344f331c87c7d9614ece5e55534b0fce88aceb6bc3734d14bb8a7bbefd1c",
+    "model/particle_primary_populated_momentum/results.json": "3cb704a8234054efe0164fedee40d3cae3004ba08c9a08fe2fc261f168a32c75",
     "model/particle_primary_populated_momentum/test_model.py": "5ef830c4e05a7a69a42330e4fa816929db3be9ee19699ab82fe72c3fbddf3e6b",
     "model/particle_primary_reduced_sector/PROOF.md": "8aaf53fb4229a74edb535a90cef9e4ba44ec31aef1b2a6c92ed5477e26ea65f3",
     "model/particle_primary_reduced_sector/README.md": "a528d90cbf3d118b0262bcaae8cc733b6eba5962ec8e553ec2435534557e05e8",
     "model/particle_primary_reduced_sector/__init__.py": "adb49376d2a43e77f8f395c98740d008bcc9796e11f91fc33702446282bc9870",
     "model/particle_primary_reduced_sector/__main__.py": "62097e0351ffc4ba884cd0878d57d1625d0d15015e7dba9a5b6afc01c2f83bbf",
     "model/particle_primary_reduced_sector/model.py": "ff7c3f680224a290f6c5d72e524b351f6efae3ab6eeed30cb190ffb8c3ba249d",
-    "model/particle_primary_reduced_sector/results.json": "dde219138ca8f8aa7447b10a14c69beb905d2e9782b491a2cbabb0047e9befa4",
+    "model/particle_primary_reduced_sector/results.json": "d1134d6fffd5421eefd7d454b42fba12e920b79421bba0f4b6ac22439767a1a8",
     "model/particle_primary_reduced_sector/test_model.py": "1836d01952b7b4ba46eeb2fa03f12ec76eb421fcbbeb57ef71024e6a82cdcaa4",
     "model/particle_primary_refinement_response/PROOF.md": "99ca58503c92afb83c83741cdb0330142f16be43580fa75d476d70aac70bba61",
     "model/particle_primary_refinement_response/__init__.py": "73859ea3daa5999e09f7a7b660a8508fb79f272c5b95c1650a1b1b6fec8c9d69",
@@ -2338,7 +2403,7 @@
     "model/particle_primary_regional_fermion/__init__.py": "254a5b63811a0998e53e47cbca5a0037799c1980c9e1e2e2c40b8d18b33838a7",
     "model/particle_primary_regional_fermion/__main__.py": "66f6a4b2752c8247d448621f95bf4b6a0973114d5cdd55291ad9d2a7ad8afe4c",
     "model/particle_primary_regional_fermion/model.py": "61a1cb65ef55909817a256600b2aec05527bde8be2b34a95b19961d22ef35b84",
-    "model/particle_primary_regional_fermion/results.json": "44a25cf6f85bec7fc445a7b3f4665f31e17af0d5eca364f4759ae0284004ed5b",
+    "model/particle_primary_regional_fermion/results.json": "2c010d4232d60da780eee4d3581692014c8167e4692cec940c2e09e6fa1b7285",
     "model/particle_primary_regional_fermion/test_model.py": "a7e9322066f968fcdedacc016401b47838710202bf5d3f20a2bc72e6d11ba9cf",
     "model/particle_primary_residual_refinement/PROOF.md": "da02272410199dd5ddaaa4b2a5625c1fdcaa367df45acaf3c1e68670d413c8e9",
     "model/particle_primary_residual_refinement/__init__.py": "01f64a64286a7c91622f757a0a6fac4c2bd43a4848eaf3521ba668befdf084db",
@@ -2354,21 +2419,21 @@
     "model/particle_primary_sector_threshold/__init__.py": "1e2d4b31fa8ed6617d46a3502b16ce007ece7aa57ae230e9d4a689d47357713d",
     "model/particle_primary_sector_threshold/__main__.py": "9de899c987c8356a14a773332be1c02e3b7b190f7b51afa1b81610b14d3f2ca1",
     "model/particle_primary_sector_threshold/model.py": "8ce156c60f8dc37d77a5f4c346ef6a1bdeb95da8ae4f86ec4ee9e5cf5f9ac5c8",
-    "model/particle_primary_sector_threshold/results.json": "443fd538b51fd16888abe4cd1e78a30f4dc93c42d51d9be66e7128b498a7b8ee",
+    "model/particle_primary_sector_threshold/results.json": "1fa8e20ad59419e000ebd20597eff6b162de247676dfc38236e0d38450cc365b",
     "model/particle_primary_sector_threshold/test_model.py": "b145c34fb6b0d456d5c9dca2497e97dcb0a89d3a858beb1ce0d6c98036cae594",
     "model/particle_primary_selected_odd_response/PROOF.md": "2859318ee085d89cfe825ef735c194face194a6cde84d4dbd3f8c02c6bc15ba1",
     "model/particle_primary_selected_odd_response/README.md": "e17563ec3a6f1f19cbd66aa124f6e1c02fc4d2c275f4dabb79f84f0fc49e5846",
     "model/particle_primary_selected_odd_response/__init__.py": "ffb9bf1cc79ac470307212cb8be3d8139f2f386e0e996db34b975e707513c83d",
     "model/particle_primary_selected_odd_response/__main__.py": "96bc6fd53709f702e1e1ad1038876588dbf49c18fd0a3a45fe13587ac086fd6d",
     "model/particle_primary_selected_odd_response/model.py": "38c5cc03cf6b47ef593c404a41bbffbc595b261dbc0745fa7b0be97e0ec09de4",
-    "model/particle_primary_selected_odd_response/results.json": "b8fa34113bc2b4538872cff0ae1e2d3ea3a339e46ef35e4cf8f484d33db442ad",
+    "model/particle_primary_selected_odd_response/results.json": "b570a14b123a57124848711bbb961e5327e04c944288f33d5898892687a57ef5",
     "model/particle_primary_selected_odd_response/test_model.py": "3f3efd4a769465740b3372cff331d29c26fe873ac70e43a57b24a3971b2af546",
     "model/particle_primary_selected_spin_response/PROOF.md": "5f1955f4ac5f2a69b579f4eadf24fc6317db40a1f083d267b5ca487fdc4636ef",
     "model/particle_primary_selected_spin_response/README.md": "bdb94e36cc18a6b31b598b8d83d9025f8a745ece3beca8f003c7b19a72f348c0",
     "model/particle_primary_selected_spin_response/__init__.py": "fc0f036a374b095da84eae8adda2a3b1599e160d64b2678014e8ab343e6fd2ce",
     "model/particle_primary_selected_spin_response/__main__.py": "75005be4bf980375c5011ff9d81568925d531afe0bd9967ecdef05f041c8c430",
     "model/particle_primary_selected_spin_response/model.py": "cc9c749c5d3904e8a8b124c5629aa0359f3fbea99843dfcb2b1471c9cd0dd89f",
-    "model/particle_primary_selected_spin_response/results.json": "169c89c6dee1789e6bc5dcd858f3bb3bc83187d0843316696165f6ade0cc92d3",
+    "model/particle_primary_selected_spin_response/results.json": "498072003e37c9cc6d826c598785596a4b6fc4e42509a8f891498bf14d4834e4",
     "model/particle_primary_selected_spin_response/test_model.py": "ce54378a37900edcfeaed77a14f1724ac8f4a6d29f46c079a7b1e0b1d0b5a9b8",
     "model/particle_primary_spatial_algebra/PROOF.md": "178c978079a3a06be4cd37d0bc00b82428d5ba063dc6342e1594b905245852de",
     "model/particle_primary_spatial_algebra/__init__.py": "c9edba5d397e579e4385839ba0e6a2f555e2909ff8733e609021f4f16c0bca84",
@@ -2378,7 +2443,7 @@
     "model/particle_primary_spectral_resolution/__init__.py": "2245fdc8e835917772a45f72cbe421553f58a482d5f4e6259abfb5a1506c010e",
     "model/particle_primary_spectral_resolution/__main__.py": "f93ef73bbf7842d96c5b1ae45de6d3efd2015da65bb467241ef1d1df02fddcef",
     "model/particle_primary_spectral_resolution/model.py": "b01c342a70c4ba021df57b5b722927c0877363b5417095854d66dee05ee51107",
-    "model/particle_primary_spectral_resolution/results.json": "ce388864beeaff445bb474b2088353dcb334b49332698f7f1ddc782096d7bdd5",
+    "model/particle_primary_spectral_resolution/results.json": "03d2b3d3387c02aafad48cf12226cb53942c439022aba40ca165f37fb0a1b0a3",
     "model/particle_primary_spectral_resolution/test_model.py": "7cf5e77cc8bc462df9ff4ba076e8378390fe06cc72f7b14eef44354cab35bb15",
     "model/particle_primary_spectral_scale/PROOF.md": "3264d7231cea098d4fd80381c6e96d51317c5335b3f7ed73bf95981e3364fd2d",
     "model/particle_primary_spectral_scale/__init__.py": "774f79817563f616dc60c237a1ffd8ac0d07e1994cb16ae67d23b86f3ef8bc98",
@@ -2390,7 +2455,7 @@
     "model/particle_primary_staggered_response/__init__.py": "4e55508ffa303ea010b7c4a060cb85d6eee43807b25e1b59b503ca5de4bbcd82",
     "model/particle_primary_staggered_response/__main__.py": "2d09e02476f49285371f78a5bad52dabaa5fd95c010422ce19580a3ecf658d4d",
     "model/particle_primary_staggered_response/model.py": "d51d52b8886173b9e688dfa7f879aa53129a0b02ec0cc3683b1a1d8bfea4fb32",
-    "model/particle_primary_staggered_response/results.json": "675c84f69bca8c253706e4e392f62edac9e352f6583e088cdb326871cc067618",
+    "model/particle_primary_staggered_response/results.json": "78f6e0552863ddf78080db8eeac7ca73bbac1bf1ad29f14bcc4ff7b502f39ff9",
     "model/particle_primary_staggered_response/test_model.py": "8d1476b9ad85244c8260c37541a2ed8b20ad41e1ea8b71076b7bb5ff7e2cdfef",
     "model/particle_primary_stress/PROOF.md": "763e27a30d59679b389ca56e4340ca62c75ac54c88f78e8d3a5afcb60eaf0ddd",
     "model/particle_primary_stress/__init__.py": "5d87ae127d06c1f718ae8af1ecd6e31fcf3532e1171683b1beaef0ea2cdbfce0",
@@ -2408,21 +2473,21 @@
     "model/particle_primary_weighted_spectral_tail/__init__.py": "d13141e6645a6ed37ab4adc5c9d5a3b42f9a6a75bac20a58edc6ef4f2925825c",
     "model/particle_primary_weighted_spectral_tail/__main__.py": "f98932b76da19459c94a543f3e9d50ac9e347d6c92bd29c6f73cef9f452ccbdb",
     "model/particle_primary_weighted_spectral_tail/model.py": "8c6155f58036b4d592e8293f4290f2cb767c01024c852d9f3b79ae719dca788c",
-    "model/particle_primary_weighted_spectral_tail/results.json": "8f392ca15d63e9bf27d18533e20af022884cc60e5b81f4deb84e4b0d16da5124",
+    "model/particle_primary_weighted_spectral_tail/results.json": "bb7a651fc0c155334ed6077a9599fd1d8c5ce4c7e36add99f31e64c7b5b9d538",
     "model/particle_primary_weighted_spectral_tail/test_model.py": "2d49ab849bc6c92e836248d90adb9c1105e444ab927ba7ce1f6fb1af86f0516e",
     "model/particle_primary_weighted_survival/PROOF.md": "3b83ccb022e947fc7e32f5744a6fb0400d1dbe69f05dfab1201ca724b9c2e5b4",
     "model/particle_primary_weighted_survival/README.md": "a9026b3b225e4971466e46bca4919940cb4fedfb27064873061c1e48fad5f426",
     "model/particle_primary_weighted_survival/__init__.py": "d62edfb2df94021b9bc4951d0d7a8871844a19f2c268f01286a0bc0095c0550a",
     "model/particle_primary_weighted_survival/__main__.py": "3a251e122a1b7aa1e55171bc760def639109d69b7538a791be49160ebd5501e3",
     "model/particle_primary_weighted_survival/model.py": "8396330d5dbd747e6f6405a0996837469b404dc74f944090b8b1bd37aa71da79",
-    "model/particle_primary_weighted_survival/results.json": "1937ef687dafc7ad17765d97d66ea45269a94e39b5e67e3ef54ce89426f694aa",
+    "model/particle_primary_weighted_survival/results.json": "b71e7077338cdc7ea76e862bc56eb19c463385f19dcfb9cbe720fd763a2f8050",
     "model/particle_primary_weighted_survival/test_model.py": "af9d7ed69ee690b7b2e3c904772fabec61db8b7df9d225680fb377623f7554fb",
     "model/particle_primary_work_spectrum/PROOF.md": "7b2a827ce05f2418d020a5df737ab45edf64e4bae4ce1ce8bfaee16768181481",
     "model/particle_primary_work_spectrum/README.md": "bafd8e5c40614773ade20eac2b838ae72bc4cff9838a4f69d197514d91d70466",
     "model/particle_primary_work_spectrum/__init__.py": "42a5b2737ad18e35bdb99e4f66ba5f08bf15371fa84fc395b47361264e081d9d",
     "model/particle_primary_work_spectrum/__main__.py": "646fef54fabb32eacccd5eadf04d7bbca440d21cfefc7cea881bf2e2cc7eae3f",
     "model/particle_primary_work_spectrum/model.py": "30de01c7b8f42e38793a93994263c0be712a4d449afbe397f66572094bcf4d50",
-    "model/particle_primary_work_spectrum/results.json": "2ddc6fcd29f55c616cc5732fc711aad0223973175b9e3aee1a62c154a5bb7204",
+    "model/particle_primary_work_spectrum/results.json": "bb775d61ab5c5c0b27dc0ba8992227423bf97c49b4b6e2128bfec4e7477c1eab",
     "model/particle_primary_work_spectrum/test_model.py": "12995555be38fc0af9a1438d465ed1cc14ddc13ec0aff693cbc200c007f06caf",
     "model/particle_regional_geometry/PROOF.md": "3bc9445701ac834d748fe9154df48318505120be6174bcbec424ba3c5e5d4274",
     "model/particle_regional_geometry/README.md": "4a21db22bc4395adbcee38a6b134b59c994a250de2e7f200aaaf643098759d55",
@@ -2491,7 +2556,7 @@
     "model/physical_space_time/construction.py": "6d4ef05c636e8d1cd404a5a433fc89174527f631dd53046706d38ee4e707c934",
     "model/physical_space_time/continuum_field.py": "822efc9ecf8cc626fc152b0ada5739769d075c639cf245543a6d6123f6d2a7d4",
     "model/physical_space_time/local_continuum.py": "d68d4db5e9289e96192e5144ee79ad8ab33f09254c766eb21eb7560fbee19f22",
-    "model/physical_space_time/occupation_field_results.json": "13a3252e868e100d3d305ffd78704e02e58da6324466835a12952d053148814b",
+    "model/physical_space_time/occupation_field_results.json": "83e6a40144cc498e6c47d10b5001b74bc2292e058458c0f9fcee517bb9f05582",
     "model/physical_space_time/source_green.py": "cb501e86b56c1368970c422b6df9a949879c840c07caf0bd2ca843d54eefbc66",
     "model/physical_space_time/uniform_green.py": "8a99be41695b3a1a791487d941c448e65d8ddc4926d03e83d8297b7235b051a8",
     "model/pixel_mass_closure/PROOF.md": "fece9e1538490d1a6ceaf38f2903f7d4f2d5c139eee10630b946b83bc6084307",
@@ -2523,7 +2588,7 @@
     "model/protected_defect_catalog/README.md": "c7d41864bb0f7bbca30dfd6f07e14ca0d23898c150d3feaabd22d9b21a099fb5",
     "model/protected_defect_catalog/__init__.py": "53f25646e289f3cd86b18d4fe4e625794015f9cc3460ddd352de7649218d184b",
     "model/protected_defect_catalog/__main__.py": "383d8c2214442ee3d02e745065abe93d9ee4b3fa6ea9084b5ed2564958dbdf6c",
-    "model/protected_defect_catalog/catalog.json": "66efda6d5d2c22cb0fd77a165f6ed267c7d9732b217cf53ddf68f3b3b9ef264b",
+    "model/protected_defect_catalog/catalog.json": "e0dfee37a0679aa39f844995ace4f7fc486d6822b105217c41fdba4404004116",
     "model/protected_defect_catalog/charge.py": "2ade2fc89f47f4bb4468990136f8c49417aad380d4deb9120b91cbd21c5e7e8c",
     "model/protected_defect_catalog/field.py": "b565cbf787281a0745c2a778ccca0c4f47976f693387acbe9c957c304fef54b2",
     "model/protected_defect_catalog/mechanism.py": "cdfff939f72ebe3ffc5fcd7a4e3cca58374e790a9412bf58061e9dd6b2b40478",
@@ -2786,7 +2851,7 @@
     "model/spin_charge_dispersion/__init__.py": "81fab3a1d62f1ad4efbaa2f168b5ff5bb88c7d74721662ffdab1de6654c28e9a",
     "model/spin_charge_dispersion/dimer.py": "c12ec83bf9899079a769c033a1c33098a6052c35f47b5d372edf09ce241c5e2f",
     "model/spin_charge_dispersion/order.py": "1314b0ae8a11f4a0deb782408c35f231c20cf6ad569ae85bb013948e8d1c2be8",
-    "model/spin_charge_dispersion/results.json": "7fe78ea88136ac6f2eb3fe5279108a76d8820045d0fa8b68050afbb9225a985b",
+    "model/spin_charge_dispersion/results.json": "3ec0bd77e24b9090492ff87406997f9adf461a540d967daac60fa08d3c3b30cf",
     "model/spin_covariant_localization/CONTINUUM_POSITION.md": "1abd23c98bcdfc5f7d70c8f461e253332189390724ededfc51f6893c4389eae5",
     "model/spin_current_spectrum/README.md": "8523ef4a6d55016ad01171d58464668967da43cc3877d4fe90ade36abc2f15b1",
     "model/spin_dynamical_localization/PROOF.md": "46599c4902a1068bda52ae763256e1373cb587465951520202dd248e0bafedc7",
@@ -2826,7 +2891,7 @@
     "model/spin_joint_field_limit/joint_symmetry.py": "a989dc9e675f1f15c6603d3fa7da95b175a11408e1fe61544c5bf5ba1f120eb6",
     "model/spin_joint_field_limit/packet.py": "3230abf278cc3eeb58a80e748b0e4bbcfa9d6e2b155402fb887d01793270bcc6",
     "model/spin_joint_field_limit/quantum_force_slack.py": "e298922696dee7130571311b3c626b2bae9915b03fb28b2a027887c288c3d402",
-    "model/spin_joint_field_limit/results.json": "a6375b0fa8c04fd10fffe8f1c916e1fe17ae4c83db699cbe5c6ffd07ffb2162f",
+    "model/spin_joint_field_limit/results.json": "646630799a8f14b043f030528e6ddb7b3bdd37927ee085d225c21b8b9564b677",
     "model/spin_joint_field_limit/speed_concentration.py": "fcd6e9292212d52e9d3e5b892eb8f73d97c323eaf09ec214a3bc9d390ed7b27a",
     "model/spin_joint_field_limit/test_arctan_bands.py": "35a258349468ec90a5e5b040043b5e0c7e897b85fd05978353176b009cdb6d34",
     "model/spin_joint_field_limit/test_clock_comparison.py": "48222ad1b5474cda3e57e73e6b906b176b3cd62cfd04f5904dfa3648787439b2",
@@ -2890,7 +2955,7 @@
     "model/standard_model_source_map/candidates/PROOF.md": "634aed7c0f0797d32879a32bf03768ac0529ec78626e2c59c8e9756345656973",
     "model/standard_model_source_map/candidates/__init__.py": "684711c206095bab7c2d9f5075626667d15ea05542436774dbeabf5f4e2bbf66",
     "model/standard_model_source_map/candidates/__main__.py": "bdcdb0360435142ec61e075ccfc8d3cf211e80babb926e8f9ec53e9b2fe809a7",
-    "model/standard_model_source_map/candidates/correspondence.json": "d8eb3059031bea372b840151d19c410953da707de0c0b32ddb6c9f39d597aa82",
+    "model/standard_model_source_map/candidates/correspondence.json": "5bd62701ad84beaa83d55ae7636fdf40d42e5fb4696aa6bed12aa5b710172e49",
     "model/standard_model_source_map/candidates/finite_sector_ratios.py": "c4dad1aeda9c505d750bfe32eaa73f092f58687eb0a5d248371e2690c2864f9b",
     "model/standard_model_source_map/candidates/model.py": "f3e0d95911ee32dfe17fb0640afa007cf3e0c47d620d8c963731179f232f530c",
     "model/standard_model_source_map/candidates/test_finite_sector_ratios.py": "0a92e8de761b736ec353020152be8d1c2e112243dac1aa6cac875e6cfff1445f",
@@ -2901,7 +2966,7 @@
     "model/standard_model_source_map/kinetic_attachment.py": "ca6a289cfc5b8c99456bc119e02152af12c0fa5a97943231f36009a5ea9e4618",
     "model/standard_model_source_map/koide_source.py": "b7e5db3ef297ec578ca5e9c0df7740a8ed998aac2fc7c11f253c507d4a51dc75",
     "model/standard_model_source_map/packet.py": "8a8157b69c08b11eb64b0c4e856f9e97144ea5ee5e95e60dc130c0eb003433d4",
-    "model/standard_model_source_map/particle_map.json": "5161f7811334a6b0e5d22a248df9ef0b17eefc1a446624b4840d0ee4564b284c",
+    "model/standard_model_source_map/particle_map.json": "48ce0a0a736430ebd61a8b24ce315a5f5a29fca8ec8bb2716542c4384cde7dcf",
     "model/standard_model_source_map/source_mass_readout.py": "edee4fd5c878d60c80e3e0d6212518eaec401e2bd3054af3e0984a4604645691",
     "model/standard_model_source_map/test_feedback_limit.py": "59648d5c16b38b48134c3343453661fc47510249114d85b810fdb9482fefd31f",
     "model/standard_model_source_map/test_fermion_attachment.py": "fa9a923b42d354e6fb74e0d0952b43c22f27bf88dfdafdc039a4cdcaba971a62",
@@ -2943,9 +3008,9 @@
     "model/weyl_geometric_modular/algebra.py": "06cddd3d8b46e6cbc4ca2ae12d0c99bd26e248f7f494f02c7892c9341b7e015d",
     "model/winding_sector_search/__init__.py": "82949027896e2efe83a7ee6daed2012bd0124354466f34f774efb731cec44f39",
     "model/winding_sector_search/algebra.py": "bbc258526c7040580ac1d5ba8930644b9d10f687650e0ccab3b1b34ee7fa2b83",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "7f66825d059e17b6f5005313e51ea86d3217380cd24cb93f7a48a89b4a493c44",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "ea767502571d8939a92dea3b5a1028f7ae0a4351323af0c5520ac4b7431a41c4",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "8865b4b180b74b503273050b2a4a577475179794946a7642290c6ef7d96dac25",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf": "80df43261de903c2916daada7c31cf114d84f6cf3441be865eb38aa1e3acf645",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf": "e4b9b10e20f2d7fb9bafed7ff96517072deb31ab3c70fbf33cbd59f2b43e17e1",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "7b65a46fe2f2b635ca0b1d04e9ac75faa1078bad549115f582a44764222ecbf7",
     "paper/tex_fragments/BAND_EDGE_CONTACT.tex": "0f23b4bfe9ddb2ae67fc53736537790d3650ad93d1eaf24ba2aec8c42ba5b5f2",
     "paper/tex_fragments/CENTERED_NATIVE_PREPARATION.tex": "e5e713898d0cc316f0b77936299607874a7877fb36981f1b236ce35d0fcae8df",
     "paper/tex_fragments/CENTERED_PARTICLE_SPECTRUM.tex": "e4c81ac387cf5be5216502fefdfb331403bcbc31344b8862ab1d05e1d6cc2bb0",
@@ -4601,12 +4666,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "1acae0280bbdefeb2f6daa3aeaa94c20baea712b8802b58346f38e0ffc83bdf0"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "19a77003b05cd65cd3bf34b40ced5226004330f26d180eae7619d081829757cb"
         }
       ],
       "path": "model/particle_primary_branch_resolution/results.json",
-      "receipt_sha256": "7fe36f80ad84653ec512e9c6eab0c6426d67717bab5a53ce015e440cf0a5f459",
+      "receipt_sha256": "d084e9d88c78a4c1add4fa98dd522d3c784b16cb45d634f86b5e1ecd580cc219",
       "schema": "oph.primary_branch_resolution_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1571
@@ -4614,24 +4679,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "0e6f77e9a0cab14085a5638873fcdb2f6d22b7e4d10bd39882f5739519751e53"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "5d13a1dc0fda759e3761c1054f0e023a3f7d366f52cf1f3352d8b2e7aa77b09a"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "7b8eb1d19fac248793099a077eb47adce3f659d6dbe1f2157e9cafd9f026b7dd"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "766de293a43109b60eae2bc671a37d5a4151bf30f993aa71772aa02547e79b2e"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "85f8ad8e2709c0465bfa9d5d9a66d30215aad83640d2dcb5dd855b9dcc559960"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "c3bf759e0cd957511cb1058323efc4948075014bd0984d352fbaed50bbf2feb2"
         },
         {
-          "member_id": "32f25a2dfc245c0a4af91c7078708989ac1abc718a734ad8bdd5a2268948b606",
-          "result_sha256": "f1128ee2f8977f8a7a5b43eb371a3b4f1896687eff5f7bfa4342e66734b04234"
+          "member_id": "23baf4783fa3b04f521f8b0559477a05ebb9eaaeaf08e6a0b319e15122377604",
+          "result_sha256": "d56eb38bd89050b95995153d303c06271680939284ca0e47241b76c7e00ee311"
         }
       ],
       "path": "model/particle_primary_energy_tightness/results.json",
-      "receipt_sha256": "4de1c3c7ac11662e0ba96af8ed666fb485e495e05981900fa843353e6a2e0e3c",
+      "receipt_sha256": "04968a3f9ebc1c95e56dfaab0e178dcbb4ccd89556b47af2ae78a975b4453764",
       "schema": "oph.primary_energy_tightness_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1567
@@ -4639,24 +4704,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "8554e4e8747b5d510132c6d34135cf45a3ad55ae04af7070c7d97526c4231466",
-          "result_sha256": "540e0f178bd3c522fe16efe9319d493e980a676739405a54ba118d7aa887788e"
+          "member_id": "d85010bb35c3d70560ff674e0a1c9bfb8fd4dec435cc19cee4e93c0ec40f68c0",
+          "result_sha256": "99a2d72eacb2d45d3c5dc95b1ae15c62962629bd517903e78d52989a72b1fd75"
         },
         {
-          "member_id": "bf61129d15ce250038e6f3eccf35646c5f4db5284e6233510253d391ba1f1b5d",
-          "result_sha256": "17b9b0bab00c28093e673f9f86cf30380429abca157293ad07311099dc05c925"
+          "member_id": "42fb1c16c55df47e3b00a791e1d30e57bc6b1e096bfdeb0c153a86474deb4107",
+          "result_sha256": "daa8a31b17d3d224a2bb5a966123d17e8481f6245168b0164ed39dc4f5b9ec07"
         },
         {
-          "member_id": "d8a23b2cd0ff2c779b522036cd518719d0a1dfc336b29446c2d0747fa8585b14",
-          "result_sha256": "559caf4dfe2c07ea61dcd8d85a8c1f94c6692a3b9d7710fdbe06968ad74e82a5"
+          "member_id": "f0f9e5c9fea06d1632e7b6281beba96a28393c330e2e7eaceab7cff1f4852ca3",
+          "result_sha256": "5855c7c796daf1ec7ec7d2847f626a59f0968d315002e63553be2ac51cf280c5"
         },
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "4b48af2eda2291a9531d6f2011fc81229f85f4a1e793ab854d5f2cebace15478"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "bc52c94e8e4a527f52179c3bfa9240c5ca5f3de2ee0dea8ca8a7fc414a3f4440"
         }
       ],
       "path": "model/particle_primary_origin_momentum/results.json",
-      "receipt_sha256": "9a3fd9acd49c73a3df3625dc1566ce1cd69636eed536a80c40b0130f36d600c2",
+      "receipt_sha256": "5bf986a64a2523ae2deba0ea3abe30b2977db79ac57e43cbb5224c8ef47d29e6",
       "schema": "oph.primary_origin_momentum_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1568
@@ -4664,20 +4729,20 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "842589017574587754ae171d2ffdeb5b5653071d2ba3ccab2f58f8cab72372f0"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "612d83e252c4f9af398a38217480711912704aa54904d9944eb5685eff93d069"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "f16ee63d4d587e5ff70f73348c061c67c76e06921c3775a0031235b07a618845"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "d8a5c129533e349e03923549880beaf4f2a1cb569f6a916d37f6044d002a8e8b"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "129c50aa93ad13b9c50bac364ed4e3ffd4cc8d1bb47490007628127eaec2d5ec"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "eaa952cc384d58a3f64788ccc391a508c661c793a87070abec8371783789532d"
         }
       ],
       "path": "model/particle_primary_open_coframe/results.json",
-      "receipt_sha256": "a1a4398211e2ad0331e89e45adbd513db4c470c8920c68ada47ff26340c58916",
+      "receipt_sha256": "b10efd18fcde88e42e1be0ec50df22af485a6d948c856ab74a79179897f83149",
       "schema": "oph.primary_open_coframe.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1540
@@ -4685,12 +4750,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "ea6508e0bbe889fc05c4d78914106de521c32d88adfca320d40e409522bb5630"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "b4a9f2fc8468a2bb42ac5443b73cb222d12baf7ea25f073d90842a7ce8588c46"
         }
       ],
       "path": "model/particle_primary_charged_string/results.json",
-      "receipt_sha256": "000e5f3ca48f7508d77da3756219c38cd858c34ccdb18bed7005e4b3346eb115",
+      "receipt_sha256": "f1ed1cbcd74eaa8cc83530367979a2c167814e055ae4e428b0d7476df8ca0d9f",
       "schema": "oph.primary_charged_string.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1554
@@ -4698,12 +4763,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "98ed4c8d4326213861a748c23b7b4528bd97e0cd3ed5c025744dd23e7a981f44"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "f82f1c1a321e9067d24b750afeeb905830e2aa47684f5807cb7be3e715ff1ab2"
         }
       ],
       "path": "model/particle_primary_odd_residual/results.json",
-      "receipt_sha256": "9f057ad25eea6fca327b8b6d460330d29e3a760d7207ce3f05973d17616a0016",
+      "receipt_sha256": "3d024bb1c33e4f68b11a4a85aa12d971bc6ade8aae76d90925d2e19a56e6cdc4",
       "schema": "oph.primary_odd_residual_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1564
@@ -4711,24 +4776,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "60ceb6d29342f21598d9abfa122f2505bbd834c6b7b952734d1a3361280a9837"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "3a7a0b013a9a1a96f2d6a4bc0db8602bb653f54938ea0dc3c061981a5054e727"
         },
         {
-          "member_id": "ff9bd6aecf106e9413a75f253b7f365de5f5f53993306e9e06459cad47afa3c7",
-          "result_sha256": "82d9f11531a99b47aa62c02a917d25d1a7e24c85ba87d9a1c6b85718cd2a8dd7"
+          "member_id": "31fffd11fe938818435a449c75cc2ef12e0c54ef64bb2e1d88576c672edf7091",
+          "result_sha256": "ea7ec5bcbe62de03121fd96f73d393624938afd3031dd6bc026badd24b744d37"
         },
         {
-          "member_id": "53f4b7013cc68e765d28090d02f25bae52720ce41ed5b96fd5d031f6b3e63003",
-          "result_sha256": "1a3527ea55a3679d7c975d7e4afa94519c577a39450b10ed4d5e20385b759795"
+          "member_id": "ecea4596c1365791724758d32afd14fbda07d72ed5500c491f999d26165cccc9",
+          "result_sha256": "468b4989381a36d61d06927e96fc34d07a8a847a821a03044aa35b636df47b5e"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "afc7c285bbea37ec7e1f2b7dc0a558a1008fbae33a6556b12efbd2d9cef476ee"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "a5a7b48a9f7373410edd2bb3fdc91a827c95abe92cd54ecdce26588c5f229527"
         }
       ],
       "path": "model/particle_primary_momentum_transfer/results.json",
-      "receipt_sha256": "9d8ca64d577860aac0f4f9e5903d0e09b9ec52f55d3aea868c7f3c7311574cb8",
+      "receipt_sha256": "2a129b2cca12aa4423602aeefed0c61e450fcc68a02e0fb4b994691e6046616b",
       "schema": "oph.primary_momentum_transfer_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1571
@@ -4736,24 +4801,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "ebf38e5a12a4e80dfbaf3a87e959f454eff418c18ddf83bd41a0cbd93d56c9f2"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "0c8bb7e2fc2b4ff251b1f1ca361939dab7c4e13ef9c37dfc5a0f1bd9da7998cd"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "973ae23cf3581ff4c6e32696c10722f99812dce7058cb69d571cf3a7a2253240"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "a75fb9b1e21bcb6a1b539513b446813c4c68004f12cdaf402b83a69c066387a1"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "d0d1a521727f78159204a9441437a2c5e9cb289c7ddec92fda6b5e9f6260c402"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "7345d5fc8fd60d9cea3c23e8b151a19ce18862c17ff2be27aa768a3ffae96fdd"
         },
         {
-          "member_id": "4eae629d80d539033e7a1f1ed207fa9528cfe3b0402391bcf3d9ae0b08b78925",
-          "result_sha256": "5d00a14f2570dcbede3dbdfaa98d606d6cf966e163066172df00423911d573c7"
+          "member_id": "d03adb2b1c640a844c97d15b622f5ae4b1eff8636164dc7097004ee843440dca",
+          "result_sha256": "b2b24f5d688ea32b9a92459605bcd87f60a8a4e172a54a41b60149cf6c30cc3a"
         }
       ],
       "path": "model/particle_primary_local_fluctuation/results.json",
-      "receipt_sha256": "731f07e41161138dcc0545b0d84b423c730b6c3bd3bd3334177df8e83ae9d9c5",
+      "receipt_sha256": "90ab7b307db964b7abca66307536c5129ed9782bc2972f96d4df7043539fe6ff",
       "schema": "oph.primary_local_fluctuation_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1573
@@ -4761,12 +4826,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "9ec243bd43b9686d575a934b5afd0da1b2a367e6a8a05a158c7347f79d867c86"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "897c551f25918226a67176b86ef4aeedb0b60099704d988ca284088c84f74ee8"
         }
       ],
       "path": "model/particle_primary_spectral_resolution/results.json",
-      "receipt_sha256": "ce388864beeaff445bb474b2088353dcb334b49332698f7f1ddc782096d7bdd5",
+      "receipt_sha256": "03d2b3d3387c02aafad48cf12226cb53942c439022aba40ca165f37fb0a1b0a3",
       "schema": "oph.primary_spectral_resolution_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1571
@@ -4774,12 +4839,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "93cf13861c7c96242f80bdbd5cfc9748bb76a6a417ef3fba4da79966435fdb94"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "56a1feacfdc2e933c480871edf2b0d5f303e774e0252011412f2654577cf8e56"
         }
       ],
       "path": "model/particle_primary_charged_readout/results.json",
-      "receipt_sha256": "8c95f195d66260c61ae1ed820723c7444aba64bb8b971603aa11504b51eb8d6c",
+      "receipt_sha256": "2fed6e2fe624f0dcdc42b5876d31ef0388682dff8c3a0f72bf53323dd0395401",
       "schema": "oph.primary_charged_readout_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1561
@@ -4787,12 +4852,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "560726a685bd2223368c5eb2df84b873c7178f214b6cda5ee0aba8935fe8c9e4"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "3bce270ee991b631efffb1e3ba69d84fdc8afcf7145d54d8b232c181d2a15e37"
         }
       ],
       "path": "model/particle_primary_staggered_response/results.json",
-      "receipt_sha256": "675c84f69bca8c253706e4e392f62edac9e352f6583e088cdb326871cc067618",
+      "receipt_sha256": "78f6e0552863ddf78080db8eeac7ca73bbac1bf1ad29f14bcc4ff7b502f39ff9",
       "schema": "oph.primary_staggered_response_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1563
@@ -4800,24 +4865,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "64e686f33622dfa1bde1c76f90def1988cc1764fa6c5603a135a935be0a2cf1a"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "d6b101ced379f7c9e5b6b8db9c3be27aa5c4093dac74bac5d38a088082c06a14"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "3a92d1bbf4e51323fed39850813d4a749b565aa42844dc9dcbc17e2696c9b0d5"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "e31158c155cdd9ea77ee430b9734b24b9d7ab75f1d768dcff2c024ce82811d22"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "e7464c2722bb3aebac4ff7895600a972f3bed0e531ec0b3857ab8481735e1ef9"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "6bd8a69a0c5bbe7adb750d1c9edd8af886b26084edd8abd84f8f9974bfd6a084"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "7bc2800c5ccd1af7ba2d84e0f37614d5a8389e169b6366fc868fccfa415e9646"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "d131446017e2d7e852f807b92876882d39a04b4b5b59ee3acc234de4cdc8f308"
         }
       ],
       "path": "model/particle_primary_current_tail/results.json",
-      "receipt_sha256": "dff0cab1a803626249aa37528986666b83a29a24ec3d5cdca45ab07a4fbf5f01",
+      "receipt_sha256": "a7c112012ab5742b4f51c50b2716a003dea212e6a3759285eda642df11b64141",
       "schema": "oph.primary_current_tail_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1598
@@ -4825,12 +4890,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "d2d33b42a3ab9f4642ca6bab206027f95460e016de7c756d5cd2322540d6fb17"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "ecdb550b1ab132b539d97cc707b6e058126f445e8f56dfc2495b11bd986072e4"
         }
       ],
       "path": "model/particle_primary_sector_threshold/results.json",
-      "receipt_sha256": "443fd538b51fd16888abe4cd1e78a30f4dc93c42d51d9be66e7128b498a7b8ee",
+      "receipt_sha256": "1fa8e20ad59419e000ebd20597eff6b162de247676dfc38236e0d38450cc365b",
       "schema": "oph.primary_sector_threshold_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1576
@@ -4838,12 +4903,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "a1f35c0ffd744697c6e21fefe82c3f43bb6294cb49a81edc4051170b1b156feb"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "f40564db43c4caa7268faab37e3fcebbe7051866d485a3c6f6aeaba757a42bd3"
         }
       ],
       "path": "model/particle_primary_populated_momentum/results.json",
-      "receipt_sha256": "0b34344f331c87c7d9614ece5e55534b0fce88aceb6bc3734d14bb8a7bbefd1c",
+      "receipt_sha256": "3cb704a8234054efe0164fedee40d3cae3004ba08c9a08fe2fc261f168a32c75",
       "schema": "oph.primary_populated_momentum_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1578
@@ -4851,24 +4916,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "7c6b5559127e3c9c747dabc354317f6560f46c56c1ccf4d38ff5e8d0f0492348"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "37dbdfdbac143abd1210439bddeebc8a0ba5043d35cf4f8cabe5d087d6400a34"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "ed47608b4818638c23d1d143d0c4fde713e8fb4b96a23e49831da5828a93436b"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "9d5774e7a071f6c6d51bd137f038e656c6e638e8667207a49972e41998550d64"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "26a9d8bb8d0a09ff59c556298cfecc4f376d73c01314a4e6a06dd39e0fed10d7"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "eab8c94d4a7b6bc55c8540de14f4c59817351adc44eda4cdcdb1027a83e8a9fc"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "65a2196b16d7fefae1192fa7b5be4a3e685b9b98c3ed58e852b5c50986a2cc58"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "498242715f8a8c608b666793fdeedef9ed463eb95055ee5eb5639d18143f0820"
         }
       ],
       "path": "model/particle_primary_weighted_survival/results.json",
-      "receipt_sha256": "1937ef687dafc7ad17765d97d66ea45269a94e39b5e67e3ef54ce89426f694aa",
+      "receipt_sha256": "b71e7077338cdc7ea76e862bc56eb19c463385f19dcfb9cbe720fd763a2f8050",
       "schema": "oph.primary_weighted_survival_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1579
@@ -4876,24 +4941,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "40f2ab5dc7f082a8b536894659fcf568483708aec282323475b46f5f7f604490"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "d21845e85d5350ed37da0320e2998f42b3c30daaf2067d92d484d5a9d66f5b3b"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "e98eb6315e26bc923628982d2f7b29cbf2554fea21910b546b0f30cd7ff40ee8"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "5bd323550a98384146b9db7c5577ffc83fa7cef83d9df45c53a1ec2b4318423b"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "9f63862c5094739eb9fe8c495afd52aff259fa0c832092daffa96ce92f26ab45"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "5117fb10a115c58b8c469c259a1906ea5683f54e3fb48e5889301254e32c6ba0"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "72927eb70fa95cc03203d2302c458cebaf64856d3047ce0457632ce2803385d5"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "33162d4221617faea0b96bcbb2516ec370576fd8fa9ed902e7ed200312f00184"
         }
       ],
       "path": "model/particle_primary_charge_conjugation/results.json",
-      "receipt_sha256": "96b3bead0f932430c4aa437d01cd773f9f85ef87e800521cea853e0f1d1c6fcb",
+      "receipt_sha256": "ad35c0b99ea3bdc32fd0db5caa002e2f7e28a328891797d547c24e414687a482",
       "schema": "oph.primary_charge_conjugation_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1516
@@ -4901,12 +4966,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "bd569fe5cdf41b225f195a4cb2ffa3bef7e72b3f7d668952af36d200aaa3cc44"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "90c644f014cc19853bd8c31f7b415375c6da4160bd29fce1913b4609168b291f"
         }
       ],
       "path": "model/particle_primary_composite_spin/results.json",
-      "receipt_sha256": "0ce61b6b26c77466dc08948f8a5f3985a9d61dd363d327935fb2c6af22b89c5a",
+      "receipt_sha256": "4825db6406a088855114fc09ee9cfbc1247028a141cb45c0255071345ed30062",
       "schema": "oph.primary_composite_spin_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1576
@@ -4914,12 +4979,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "4ef17275c2616619382938a8fa74ef41c6396b69a14b551a3c117f4a981b84d9"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "e40ee2c377650efb13c65adbfd189fb33443db04c8cf762623b0c29e1704cb95"
         }
       ],
       "path": "model/particle_primary_composite_transport/results.json",
-      "receipt_sha256": "f66aacd3a7321599f76083b3a71a856ea0dbaea086d490ebf5fb8ba35637f3a3",
+      "receipt_sha256": "53cfcdb684890b6448d8a0bfabd90b9e50beeb3845caa3a20008d704b903878f",
       "schema": "oph.primary_composite_transport_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1584
@@ -4927,24 +4992,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "c01a76448563c8259b76cb0169ceb9ba3c9e13f236ed18a34b8a27dbe92a1b19"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "ae7b569ca333248a8ef11ebe7907de44908db264e8734281b3459cac9a3181c5"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "cc01075394eb4d283486f9558895464aff399bc508a469ac0a97148ef72dafad"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "8009b9c0f5f4998e8a8dff1e7d6a224e8e78fc19991c6b64d4f078f6d1a71538"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "029bcc03348c2d004c0b2fbdb7f6698b256934f2c4daaa280b225fd807ae78af"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "fbf143f009ea65cbae964cad461b3b347c168594cd42a4d7bc36f147ff6fae7d"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "b10e3af57b48b287d344897441544dc984929e36f6532918b10cea752615ae2c"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "1ea6ffa3b31ac7d03c551cf6c5b6cc5296a712cc08838281da542db38591b769"
         }
       ],
       "path": "model/particle_primary_selected_odd_response/results.json",
-      "receipt_sha256": "b8fa34113bc2b4538872cff0ae1e2d3ea3a339e46ef35e4cf8f484d33db442ad",
+      "receipt_sha256": "b570a14b123a57124848711bbb961e5327e04c944288f33d5898892687a57ef5",
       "schema": "oph.primary_selected_odd_response_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1597
@@ -4952,24 +5017,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "b3e8bb7ceed3581d3c2b5e78d74af5484da76b1597057c5e179c3879f230f986"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "a1a7cc40aad994137cb32e9e674f5308bbe77f64f9666771554a93dbceb52487"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "421cc63fa0f6435c43ec8b676f1d457adc91beebea4a85327892dd358fd321a0"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "3e3bac105562de436aa43a453634d6980d9e04717a33ed907904982aa1ec71e9"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "5228f09c4daced991befe1c851ade48e040473e72df3ffb170ffc61bc5e182e8"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "a5dbe887533dbf7784cd21c513efa13b6a271d9721e7b2fee7e4cb57c52a08e0"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "482b84e008cd49fff2df99aee6ec7eda4448cef802019ab791c810772a0fcc2d"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "d0c841f1bc689e171eb06f407d6452a77c9c51f48810ab5474cf96cf283e27ea"
         }
       ],
       "path": "model/particle_primary_covariant_stress/results.json",
-      "receipt_sha256": "dddcafa8fc912f466b011a7f52712b6f995edae0ba75500ec453ca5f1ac00a79",
+      "receipt_sha256": "f64839e1597b209f3e0ee604f6db834e1bb8ac43716cadcaffe98e6a85e35dc7",
       "schema": "oph.primary_covariant_stress_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1533
@@ -4977,24 +5042,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "ec62c4665d54a82f886264bdf24e7f2d370a689c5c40cd4766d94274afd3cb93"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "24ef3da15e865cb6878e633c4d6d5f3192ea49a9031aa1f0362e4f45fa77b1d9"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "089efd9e79c7a8ea698f5bf6210707644a95a03fdb4667d7f2b0cbdeac412f11"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "3f87661d8b57380b6fff8a1d3e171e6c56dcb9e2baa19eaa1908a46abbccfada"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "e5b26858963d6b35234d3f3e51de3a0cb4153c62862af730dda8c02a5b9bc3e6"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "fcbc5e7861441398428b324e579cbc20d1c3747ff13f3eac66034dd172418ae4"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "e89a8bb1fc0a7d1f20d279525132f09f603b4e1bbc4787d51f60680dd525cc71"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "7be4bf4041c5bdd6030e5eb34b1156f2ae23e8694daca9f85d0a1e622cc868e6"
         }
       ],
       "path": "model/particle_primary_selected_spin_response/results.json",
-      "receipt_sha256": "169c89c6dee1789e6bc5dcd858f3bb3bc83187d0843316696165f6ade0cc92d3",
+      "receipt_sha256": "498072003e37c9cc6d826c598785596a4b6fc4e42509a8f891498bf14d4834e4",
       "schema": "oph.primary_selected_spin_response_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1612
@@ -5002,12 +5067,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "e7b9b2ec035e587100e13d23dd67ad441872ed8aecd36c68715b6b9a123cf365"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "1dd4c4e1c41503a645195eee545d4baff65fc83a76c9c1136bae04ff91b28fc1"
         }
       ],
       "path": "model/particle_primary_odd_resolvent/results.json",
-      "receipt_sha256": "99bb964657cdb50263d161548e2d4b434bbe3817ba864d87289bbd7687b42da0",
+      "receipt_sha256": "c8d9cd2ded0cf55a8fcab1f340b6ecae89e9ee7862716a99be32a2b5c4f345bf",
       "schema": "oph.primary_odd_resolvent_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1614
@@ -5015,24 +5080,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "0592709cee5056f6dc0d974f942dc666c5fa0bb9e4715431386d08e2d9c45659"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "4fd003b878e2d7bfe270af18804f045c08499dcdbd77d952d5e7a3f7335da9ea"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "4ee78658c9db2cf9d7d184f31afd70e8d066ba74fb11b7a4cd7a5b9ff2ddaf62"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "c2ca8835ab830f7430f0f29653036303f15b852c2719e72198ab847a06de7a02"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "73659282d4029bbd2243cb6d3bc9c380c2af58f40b9198b192d1534c9c6dc2ea"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "4d52bd12c5d199cf788ff10465cbc24c175138e58e4c7cc0adf861baf1f49be8"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "14a612d57b074a6f681d0ec24ad3ec04621ed92e7d80ea073d6836592ccf2b8c"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "ed5bf708e32497b45f8ce0d893fdd7ed960a9a26e523bbeca8d85f5da6a8d330"
         }
       ],
       "path": "model/particle_primary_odd_low_energy/results.json",
-      "receipt_sha256": "d026442743b547d08671fae617e851a7e151c672be8daa63a4390d789c14b037",
+      "receipt_sha256": "9dfa72b335553a76096cb3479026e8ac37ff9d6ea8937adacdf2b52b15a11384",
       "schema": "oph.primary_odd_low_energy_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1606
@@ -5040,24 +5105,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "79a56d989cacd8bbad12fbae98da7cb3017a224956e5f33d02787cf4c3fbf662"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "9bbd711282cc6745528e93e3a0a7cfa614fa05048d39b706e304d1374996eb75"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "71764d4bdce5cb23f23822fdb1809d1f5d00bf729da95f53b142d9252c213c22"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "d4a31bc54c72b77f5297a62da31dd283eacd71cf79f140d5b79b0e4313a6b032"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "db1cbd6c79eac6117855bc703359f7b060397ddf32f6043757c7aa6440908b6e"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "8e48dc32855d02b0e5cf7d1bd9a9d8331b51b3b6117a8ff626e987f3903e26a5"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "c73035c316b293d5c6b996182701c8d41d415539918ed6b1c6f5c97604a352b3"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "7a25bea4a5a7165eddabd8861e02cf842f4c50f9a10b073bb1458e2ca51d38f3"
         }
       ],
       "path": "model/particle_primary_geometric_cut/results.json",
-      "receipt_sha256": "a7d8c7c8edc15483224f68c11a74d8097cde6634c90a635c92efe8a93ab6917a",
+      "receipt_sha256": "3f3021c9c7c2c59e96c4d63dcd419289bd2cad00ed7dc1ba9b077f788add7a6d",
       "schema": "oph.primary_geometric_cut_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1528
@@ -5065,12 +5130,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "c443888772a4deb22cd0f6ddb6f37a9b63da61875a7dca2011fc5beabc783b50"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "b978751965a727b9400f03df1f985572d4f91079daab45b372951feea46070a0"
         }
       ],
       "path": "model/particle_primary_coherent_odd_response/results.json",
-      "receipt_sha256": "96cea48f2943bd15310c74646f4b73678b0e1dd2b74596b168342aded53b6d0d",
+      "receipt_sha256": "0d9f58e12c2fb9e368dd9a1e308f06ac9f533f527a69b93f5243290be24d2408",
       "schema": "oph.primary_coherent_odd_response_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1621
@@ -5078,12 +5143,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "0d2308a23a86edf3e6ef84c55068fb675f22eae0f689b18240bf1dd0e3ccceb5"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "cf845a35866b25e765dfe5891a9bd7910425de2431e3703898e15961cf8c69ff"
         }
       ],
       "path": "model/particle_primary_original_shell_moments/results.json",
-      "receipt_sha256": "fa81ca08ebddf9c39643abdb5b782d25603bb54d1c7c74e6f83ebfd0f83c513a",
+      "receipt_sha256": "bba122920401ef3bf6ccaf3e761104f949cd9e30eb0a2903658c21530f86ef20",
       "schema": "oph.primary_original_shell_moments_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1615
@@ -5091,12 +5156,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "573cf61499568745a6244654c349159a8c933720bb5458d8ca0f80f0a8b13682"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "a6f0084b88987f72207f0f1f835c48e1c3b79713ae985bfa1c497cf6701cd5f9"
         }
       ],
       "path": "model/particle_primary_original_branch/results.json",
-      "receipt_sha256": "dd53fa9e957001fac8d48190c6347436602f373e272fa84bed9a480fa6c4af48",
+      "receipt_sha256": "28d92c963ae7b1158b73e86db9d4471a17a0613ca7a1deb35e381decc3a40a42",
       "schema": "oph.primary_original_branch_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1655
@@ -5104,24 +5169,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "bbf3431df3f79bc15aa3244ad9dc17f74cd978aab8374122c158b7b561a0d835"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "1ee24eff99e06e1297f4c35abf0b0090e243f819f1a00e7e72cfc9a8f64fd63c"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "4471efe1f2970cac9e4997590f65ebcf854ecccbb120c6f50799322cf3b4fa32"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "416262564a15d215fa2a0428e70e5ea040ad593009f80cb3a8ff7e0e3e89f758"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "5b19d01d076ca8d108b800c8d32b29b74462e0e168c9c4573952a58bfc009f95"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "9bba747ffdf329793559a9332231a2fa393f949e78b177677d65841d4c075304"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "1c2ee3c3b72e49e0783c35158971cc89a709c38c3e3bad58bdf9b47b25fbe41e"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "382a59f633fa3957082b660cc27136be97e554a14711faea9bdc85c73a055862"
         }
       ],
       "path": "model/particle_primary_critical_refinement/results.json",
-      "receipt_sha256": "b8e237294374f5d3291c820bea472335470b0c474d39c0de309b478b2aabe2c1",
+      "receipt_sha256": "dd25c47ee625918a492d21117bda6212522f905ad36bdb28757b59e04d18d490",
       "schema": "oph.primary_critical_refinement_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1599
@@ -5129,24 +5194,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "cc79ddf07e0d0c2d15081d9eb123109596b7273bce7540bd845346a1e2331802"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "e88ed11efd01cf40a31f05abdc3fe1f280ae1670afd0437c9922240a2bc75e7c"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "afc5dfd4cfbd93d878fc640647932c73b2b25eaf0a6765e0ef166d790687923b"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "f668f51b3da0cf69c425c967ec5eee5f0a3523b5d8c88ee198ac12df7c438e9b"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "cebdc4cbf01e04b314f540e6feda4069a6acc8be581ffec3744007745a7d35f8"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "b6459f848d430f612e0eb2c28d9bcca51ca213f5b4dbf1eb7a84f6120611e35c"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "94367e16ef7ee75ebabcee2a4373d2165fd7ed725d1ff6b47e372fd9f22e53b4"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "2fd3c8533243d5e7860908ca9d7a13f67aad3b7d6dc32441f9c147e215122de3"
         }
       ],
       "path": "model/particle_primary_boundary_information/results.json",
-      "receipt_sha256": "3ca551c6b5d5173c6c839f8dd9c6eb7f6967882be175b0e11cf7477b75cbc57c",
+      "receipt_sha256": "dac82004e212553b9ec5d6ea0ef3ca6a4e99ab42edaa88e35f6663a3518ea152",
       "schema": "oph.primary_boundary_information_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1566
@@ -5154,28 +5219,28 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "06a0c444722c822c50c9cfb833d484d5ed1113cd6ac164f53a3add1b181311b2"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "1cf30d0552c4d3f1afbe46e3ad66b7040316ff5c5ecb433d2782c932c1317553"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "e4b9d2c6dcf5c229dd0974fe45df9530d72497dfb152e8af4a239afe6a2c9b9a"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "4543edd7d96a5cdcfc3a0d63e5f10bd6307680db433a8301e93af656f552a274"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "d3833701b7e27328a5095fe559364c29d213bea6a3ce8b68f01800ed88ef9738"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "e1e77442c6a3e0e0452a6b5f62d925b8e3400d62804fb6b33c8c1d1c8dabda5d"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "b63cfff608a988cbccd0c1757979dc98ec7fbe1b43cc0299c30a3def20cb0c88"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "9ebacbdb25215d50a4231af81b95a873d33f19db125a6da12109e0c9d2523474"
         },
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "ad6d6d5ddc2c4a1312535e85b9ae0d10f5fa506af591e66bdf0119f4ed744b18"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "a4b1d9f8071724d78f422aa98f66cdfe7018f35e30d503c0008e630d7e851d71"
         }
       ],
       "path": "model/particle_primary_odd_sum_rules/results.json",
-      "receipt_sha256": "44e08f1baf26cd7bba46af7b5fd3556eef8b8e39e60fd351fb48dc76cc89aa57",
+      "receipt_sha256": "6a762145bbb1b076ef971161e56969ab232c24f7d52ec8b96501ca1ed299318a",
       "schema": "oph.primary_odd_sum_rules_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1661
@@ -5183,12 +5248,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "7957da6a2befb05cec57d8d6862ad633f2491d2d165183f2cac67fa5a239b4e9"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "f9a008b70c72a7d87a01743ba2e5a711e5e31a00121385934dd5fac19a131b58"
         }
       ],
       "path": "model/particle_primary_branch_certificate/results.json",
-      "receipt_sha256": "43939ac65c2aabc2b7f25896cc590f908709d0598d58b1d9d66503b78fb2b85f",
+      "receipt_sha256": "93ed6efcdb4b6666af311fdfa0c1abf6b1367f1fbc01858203e9cacc6cc7cd95",
       "schema": "oph.primary_branch_certificate_receipt.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1642
@@ -5196,24 +5261,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "cbb2b708d04794337118cd8b2fe81127181b8e8246882ef7bf87174e0d9ee468"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "1b5e5b5c046629472c8384549548041fff748790433ad1e22acfc50b3e93cc34"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "5e8e3c4dfa95c5ded9acb67ccdd0eae278f8599155b5606278023b8cd16f1ddf"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "a881ce7b473cdb63b9e6cdae72f3ea14159465fe7f89f686fadebee9c18c61d4"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "611fdc79d0a39d550946c30f73353ad04d1d5f2d5386e312188f8c4ec8e0ffee"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "994a5d4508f0d8460c3f0c2e0698aa599cae3ac3cba7493e7190d5eaf7ef2dd6"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "c62baf7f0980a17835f078079ee49fc0bedf36f7ab1d8b6dd2dbb3afbfa60e79"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "e0356f3cbcc1876f5523dbcc306c80aa4a6dcf94ad7e2629669c8c1bf3087fd2"
         }
       ],
       "path": "model/particle_primary_work_spectrum/results.json",
-      "receipt_sha256": "2ddc6fcd29f55c616cc5732fc711aad0223973175b9e3aee1a62c154a5bb7204",
+      "receipt_sha256": "bb775d61ab5c5c0b27dc0ba8992227423bf97c49b4b6e2128bfec4e7477c1eab",
       "schema": "oph.primary_work_spectrum_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1602
@@ -5221,24 +5286,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "56d0f0c53fe7b1cebf4dd9d9c0f0d47cd2b1e93b8e30daa9c24177cf49987e36"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "b78f298ac8f426cfd94d5e7383275bc0609aa57cc2b53f1385f89c276e6c28b0"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "598544fb769a60c8482d99094d932baa30dc288d8e3fd9c185318f3e5374e6a2"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "1453fb137804d90efc6735e82f6ce14ea286ee66615a515dd21a8f3cf4ecf981"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "ecf075ac6c3580047d46b91d4dc2fbe554a27f00e647ddbcf5177011705f70c0"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "4f4f32552ec9ba99535fbf9a2eb213ffb9e8a577099ab351202c28e9a55b94ac"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "52c6250acc631c163c113edecb4ee2cb1f21701cb26d22200db6daf0a457f200"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "fa60d078765b269d5c527d8dde5d5b7dd24239d6fadeff708c78ccf03c7a3904"
         }
       ],
       "path": "model/particle_primary_boundary_correlation/results.json",
-      "receipt_sha256": "12398d61b4385b4322e57ebccf77d60b1b0cb4fce66ff78c938d7c7a9a8c35ab",
+      "receipt_sha256": "391b2e0bac5b39315135b2047b84a96bddeffbc04bdfb380ed2af2db690a0bb6",
       "schema": "oph.primary_boundary_correlation_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1572
@@ -5246,12 +5311,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "636ec7d5ceb0229e6b43b007da08a892c9a61ccaddd0850fde6808a114b13623"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "cb2d7c1d403f0497a6b570b09bb0784daa17a659e8baddbc7febc577d7a126f1"
         }
       ],
       "path": "model/particle_primary_reduced_sector/results.json",
-      "receipt_sha256": "dde219138ca8f8aa7447b10a14c69beb905d2e9782b491a2cbabb0047e9befa4",
+      "receipt_sha256": "d1134d6fffd5421eefd7d454b42fba12e920b79421bba0f4b6ac22439767a1a8",
       "schema": "oph.primary_reduced_sector_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1658
@@ -5259,12 +5324,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "2a691b2d3be1ce0e30e30cd0c14a784153742513c6e32fefbf7b8eaa9492efd1"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "b2f582d9ba96561b83b0568aa2ad622c3b5640b57e85f01ddb442fe86c67d6e6"
         }
       ],
       "path": "model/particle_primary_regional_fermion/results.json",
-      "receipt_sha256": "44a25cf6f85bec7fc445a7b3f4665f31e17af0d5eca364f4759ae0284004ed5b",
+      "receipt_sha256": "2c010d4232d60da780eee4d3581692014c8167e4692cec940c2e09e6fa1b7285",
       "schema": "oph.primary_regional_fermion_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1599
@@ -5272,24 +5337,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "63119b613d3234b447dbe0935f94b40f3c919f7cf0b2155dcf7995aaedd6699a"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "c9feab4b8606fac0997895388b96d425304c753243258f1001bb5cfc96b8dcd4"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "b0f32c5642260fbdbddcc7701d7f620ef0193d729993ed22d517f7c0eb934479"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "70c95fcc538ffeeca7b60b9c45628b32a7c1919158c61fc24dd60e4ff2ad69cf"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "0cc3ae773982230e8d9efce4e939ff0fe95ea8bbeb56df28ef23566762a8c173"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "42ab6cde9958dcf8edc5b20f0b96bfb6877aaade56278716286fee8fb344edc0"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "03700ef3f8b2cd2a510920b2acc32b46a1a90a8bdb9a825a41141045abadda86"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "390520120139b5f9aac5b6c370302a0ff5cada3eaf3ef638c06a4614c0b385a2"
         }
       ],
       "path": "model/particle_primary_weighted_spectral_tail/results.json",
-      "receipt_sha256": "8f392ca15d63e9bf27d18533e20af022884cc60e5b81f4deb84e4b0d16da5124",
+      "receipt_sha256": "bb7a651fc0c155334ed6077a9599fd1d8c5ce4c7e36add99f31e64c7b5b9d538",
       "schema": "oph.primary_weighted_spectral_tail_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1592
@@ -5297,24 +5362,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "96e9162def5094860c8a9fb3150aef96e7f6aa942f8fa9597e58974ca3655620"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "e662b71532f84198c7d4e46eb69db2cea5010401d88f7b578379eb27acf1390d"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "db39d4a040485923cdb67ed951ecc1e247dd230c6f67d7779bd17620b29ca51d"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "41ed57656d132d560f8b90ea8f7d2009c0f846d70240953056a6caa688798976"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "941381d86655ea54334c5eba5b9cd869a937c1b16eed29324c5718bd11f54e30"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "0ab80cbfcfb0e5177b250b731bfabe40f8c9f982abaacfc32c61d65a342ae505"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "b1f809cca23e103535f15810a5d09b8b86110120a2abf80989d5d9f36824e130"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "420ccd2b5312b34ba544277b8d70565e597863fbebdbe6c15fe100be9b0cf4a8"
         }
       ],
       "path": "model/particle_primary_energy_response/results.json",
-      "receipt_sha256": "d1c26fa64910eddbd05a10a2f987519525f97b965ab67a4d5ec7b75fc4a3be95",
+      "receipt_sha256": "5db5cc1edcb0075cf9f6cb7cabb1c6abf016615d1077e4e9d2e44ce9f9e09943",
       "schema": "oph.primary_energy_response_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1572
@@ -5322,12 +5387,12 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "c715c5fec9ea38e65d83a5f0706d2020ae4eaf4a618da7d57bf7e0488a268908"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "3b0cf027a5e64660d101e9b4c3e122645b3c9c77e6f9a0016d587d45c9408f2d"
         }
       ],
       "path": "model/particle_primary_loop_fusion/results.json",
-      "receipt_sha256": "20f3fa31293ceb994b4dc712e032e7dc2944a63f681f3b5accabc80b91e0f6d3",
+      "receipt_sha256": "5cdae85ce56b5a1cdee0a77de4e21585b896bba4db3290167492a29083224e8c",
       "schema": "oph.primary_loop_fusion_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1664
@@ -5335,24 +5400,24 @@
     {
       "member_result_bindings": [
         {
-          "member_id": "0e4e2adb346d3e390bc227521c790a3975433921bde255d99932acdcb36c32e0",
-          "result_sha256": "80ebadf6e4f3284ac535630d3d4424e0af9d0df5801153f62c784653900f18f4"
+          "member_id": "c4fc595d95a29ea3df0571b0e8f2c77891313540a526d07e46bf2ef63ad4dab7",
+          "result_sha256": "57fc6264ee756e999a2ca8da7ca8c70d4fe0f6223b4cb8168c71657f0bf9c0a0"
         },
         {
-          "member_id": "dd2dbe308fc55180ba37f96382bc2c440650799a0802bb950fcc53b454e5bf59",
-          "result_sha256": "4c62400518aa47ab431b693842d831b0ba93f9097b5026d68dd4468cfa36152a"
+          "member_id": "714c6c61ebc67563ef9030473d4a6e53eeafacad79ab3f94d436e459e6a0169f",
+          "result_sha256": "011bf4131c4deb25b0c4c0291e11db7b5f2beb067be2fbe1209a5090c4507270"
         },
         {
-          "member_id": "f799b90ce55be3083061e377412beaa9d7b4cbacf12aff2de0edf1aef71fb20f",
-          "result_sha256": "81aac2ccc12ade9eb32d317e17881e15a7c07fb515ce1d1e0eb1cd315837c53e"
+          "member_id": "546dc5479918b4effd0ba429a7168e26d7d5e94fc20ff62922916949776d66ea",
+          "result_sha256": "5dc6482738819c88d5ea95fc20fe07b3c70a1078b66da6e9be655c47674d9e17"
         },
         {
-          "member_id": "7565b81b7caff9f9c030850d3b7d62c5daa9b06838c175105da823c4a6c425f7",
-          "result_sha256": "7088a880cb459f34ce807f3f4c32089cb2902847386df27d90968c84d3c32736"
+          "member_id": "9ee0a18f65b90dbbd455648b9b432cb86a9b0279459085cf08576ce301a4df01",
+          "result_sha256": "b07425eab4ccf5c0e67af83d53845a648c393b21f38102e05e76b0520c2f0fdb"
         }
       ],
       "path": "model/particle_primary_equal_work_control/results.json",
-      "receipt_sha256": "ed092115b16ffd918d4823254367c1fed7ecd7318c9e3b785d36cc2fcbe3abec",
+      "receipt_sha256": "eff2acb56fa72ef12501f1c4d131648d684f8ef59809719536b29569fecdbe84",
       "schema": "oph.primary_equal_work_control_certificate.v1",
       "scientific_experiments_replayed_by_atlas": false,
       "source_pin_count": 1575

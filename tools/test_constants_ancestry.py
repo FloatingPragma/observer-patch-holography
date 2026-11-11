@@ -77,15 +77,15 @@ def test_section_page_is_scanned_by_the_reader_style_gate() -> None:
 
 def test_ledger_status_column_reads_the_supplied_ledger_rows() -> None:
     committed = ancestry_tool.render(ancestry_tool.validate(_register()))
-    assert "| CA-06 | hadron spectrum | `diagnostic` | OL-H6 | `owed` |" in committed
-    assert "Status pairing" in committed
+    assert "| CA-06 | hadron spectrum | `diagnostic` | OL-H6 | `partial` |" in committed
+    assert "Status pairing" not in committed
 
     ledger_rows = copy.deepcopy(ancestry_tool.load_ledger_rows())
-    ledger_rows["OL-H6"]["status"] = "partial"
+    ledger_rows["OL-H6"]["status"] = "owed"
     rows = ancestry_tool.validate(_register(), ledger_rows=ledger_rows)
     rendered = ancestry_tool.render(rows, ledger_rows=ledger_rows)
-    assert "| CA-06 | hadron spectrum | `diagnostic` | OL-H6 | `partial` |" in rendered
-    assert "Status pairing" not in rendered
+    assert "| CA-06 | hadron spectrum | `diagnostic` | OL-H6 | `owed` |" in rendered
+    assert "Status pairing" in rendered
 
 
 def test_supplied_ledger_rows_drive_the_premise_cross_check() -> None:

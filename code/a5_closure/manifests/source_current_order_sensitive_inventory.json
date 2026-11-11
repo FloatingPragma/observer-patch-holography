@@ -195,7 +195,7 @@
         ".pyc"
       ]
     },
-    "file_count": 946,
+    "file_count": 947,
     "files": [
       {
         "byte_count": 42558,
@@ -221,6 +221,11 @@
         "byte_count": 10681,
         "path": "Lean/Dynamics/ConditionalExpectationGenerator.lean",
         "sha256": "sha256:1a3d239b2ad46d33dfe749b2642ef916dfa0b655705bb5cd9217fe58d99886d2"
+      },
+      {
+        "byte_count": 2043,
+        "path": "Lean/Dynamics/IntegerFaceLift.lean",
+        "sha256": "sha256:6b676cdc440cfd2ad0453f5226a4da0c7fb97e42c94b30ae1c4c40cc63c99676"
       },
       {
         "byte_count": 5463,
@@ -4928,7 +4933,7 @@
         "sha256": "sha256:e27040d16417838d35b3481e7cd3f848967096d31b5dc689702157e7e2febe78"
       }
     ],
-    "files_sha256": "sha256:b44150a23dae6c70b25313c51b12abb958c70644b384774d44ae5a2ba54da067",
+    "files_sha256": "sha256:e474f183da7141c42f8977a6f47c94fd15c739e94c923e2e16b04d74130280cc",
     "staleness_rule": "any added, removed, renamed, or byte-changed included file below an audited directory invalidates the committed inventory"
   },
   "audited_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f",
@@ -7837,7 +7842,7 @@
     ],
     "through_upstream_main_sha": "4511928b1d4bee6bca5601e309b44595a76f797f"
   },
-  "inventory_sha256": "sha256:e56f8b456b6553627a5a42c398af9f7f85e2ce5dcb3dc415cd686fe1385bded5",
+  "inventory_sha256": "sha256:089d979a18bcf91c4d792317ef8570aaf3e31bdbfad31311139b4110ecfa7fb3",
   "minimal_missing_fields": [
     {
       "field": "perturbation_families",

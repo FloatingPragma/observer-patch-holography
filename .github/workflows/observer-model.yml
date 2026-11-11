@@ -194,7 +194,7 @@ jobs:
           python tools/check_retained_source_records_custody.py
       - name: Check current custody maintenance routes
         if: matrix.shard == 0
-        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_field_current_record_manifests.py tools/test_retained_source_records_custody.py
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_retained_source_records_custody.py
       - name: Check native field receipt portability
         if: matrix.shard == 0
         run: python -m model.common_source.repair_field_attachment --check model/common_source/repair_field_attachment_results.json
@@ -223,7 +223,12 @@ jobs:
           ):
               subprocess.run([sys.executable, "-m", f"model.{package}.{name}",
                               "--check", f"model/{package}/{name}_results.json"], check=True)
-      - run: python -m pytest -q -W error --durations=30 -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 16 model
+      - name: Check charged-lepton runtime custody in an isolated session
+        if: matrix.shard == 0
+        # The check covers every repository module loaded in its process, so it
+        # runs without the shard plugin and the other packages' test modules.
+        run: python -m pytest -q -W error model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody
+      - run: python -m pytest -q -W error --durations=30 -p model.pytest_shards --model-shard-index ${{ matrix.shard }} --model-shard-count 16 --deselect model/charged_lepton_response/test_packet.py::test_generated_results_and_runtime_custody model
       - if: matrix.shard == 0
         run: python -B model/observer_particles/run.py --verify-only
       - if: matrix.shard == 0

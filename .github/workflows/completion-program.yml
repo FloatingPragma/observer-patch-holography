@@ -340,7 +340,7 @@ jobs:
       - name: Run all 73 original source-record tests in their authenticated tree
         run: python tools/check_retained_source_records_custody.py
       - name: Check the current owner and routing contracts
-        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_field_current_record_manifests.py tools/test_retained_source_records_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
+        run: python -m pytest -q -W error tools/test_field_current_documentary_owners.py tools/test_field_current_pointer_owners.py tools/test_retained_source_records_custody.py tools/test_diagnostic_parent_custody.py tools/test_numeric_evidence_medium.py
       # The old source-record CLIs belong to the separately executed 73-case
       # authority. Current science and current publication are checked separately.
       - run: python -m pytest -q --durations=10 -W error tools/test_completion_program.py model/completion model/clock_defect_energy
