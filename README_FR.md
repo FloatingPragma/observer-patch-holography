@@ -125,7 +125,7 @@ de lois échoue.
   contrainte qu’utilise la dérivation d’Einstein.
   [Construction du continuum](model/completion/CONTINUUM_FIELD_AND_ENTROPY.md).
 - **Des mathématiques vérifiables.** La [bibliothèque Lean](Lean/) contient
-  plus de 12800 théorèmes et lemmes publics sans preuve admise, et chaque reçu
+  plus de 12900 théorèmes et lemmes publics sans preuve admise, et chaque reçu
   de calcul conservé est rejoué en intégration continue.
 - **Des tests fixés à l’avance.** Les prédictions et leurs règles de rejet
   entrent dans l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md)

@@ -30,6 +30,8 @@ ROOT = Path(__file__).resolve().parent.parent
 REGISTRY = ROOT / "claims" / "axiom_registry.yaml"
 # Active surface roots scanned for stale-basis tokens.
 ACTIVE_GLOBS = [
+    "Lean/EventAlgebra/NativeL2CountMoment.lean",
+    "Lean/EventAlgebra/NativeBinarySource*.lean",
     "README.md",
     "README_FR.md",
     "paper/*.tex",

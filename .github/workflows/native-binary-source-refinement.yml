@@ -1,0 +1,60 @@
+name: Native binary source refinement
+
+on:
+  pull_request:
+    paths:
+      - 'Lean/**'
+      - 'model/**'
+      - 'tools/strict_json.py'
+      - 'evidence/native_geometric_source_20260925/**'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/**'
+      - '.github/workflows/native-binary-source-refinement.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'Lean/**'
+      - 'model/**'
+      - 'tools/strict_json.py'
+      - 'evidence/native_geometric_source_20260925/**'
+      - 'evidence/observer_dynamics_20260925/oph-physics-sim/**'
+      - '.github/workflows/native-binary-source-refinement.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-refinement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_CORETYPE: Haswell
+      OPH_REQUIRE_KERNEL_TESTS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r model/requirements.txt
+      - name: Install pinned elan
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz
+          echo '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63  elan.tar.gz' | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Mathlib artifacts
+        working-directory: Lean
+        run: lake exe cache get
+      - name: Check retained source receipt and kernel mutation controls
+        # The verifier enrolls tools.strict_json itself and rejects source
+        # modules loaded before its enrollment. The plugins of
+        # model/conftest.py import that module, so they stay out of this run.
+        run: python -m pytest -q -W error --noconftest --basetemp "$RUNNER_TEMP/native-source-tests" model/native_binary_source_refinement

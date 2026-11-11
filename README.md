@@ -163,7 +163,7 @@ proof shows that the whole class of laws cannot work.
   [ten-step dependency map](model/particle_joint_reconstruction/DEPENDENCIES.md)
   records the precise remaining physical requirements.
 - **Mathematics you can check.** The [Lean library](Lean/) contains more than
-  12800 public theorems and lemmas with no admitted proofs. Computational
+  12900 public theorems and lemmas with no admitted proofs. Computational
   receipts bind their source inputs and include replay checks.
 - **Tests fixed in advance.** Predictions and their rejection rules enter the
   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) before the

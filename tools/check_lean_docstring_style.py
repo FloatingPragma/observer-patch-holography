@@ -365,6 +365,9 @@ SCOPE_RE = re.compile(
 # and Thermodynamics/FiniteConditionalRepair appear in PINNED_BYTES_MODULES, so
 # their blocks cannot grow without moving a published digest.
 AXIOM_BLOCK_COMPLETE = [
+    "Lean/EventAlgebra/NativeBinarySourceEndpoints.lean",
+    "Lean/EventAlgebra/NativeL2CountMoment.lean",
+    "Lean/EventAlgebra/NativeBinarySourceWitnesses.lean",
     "Lean/Computation/FixedFederationComplexity.lean",
     "Lean/Computation/FixedFederationCounterexamples.lean",
     "Lean/Computation/FixedFederationExecution.lean",
