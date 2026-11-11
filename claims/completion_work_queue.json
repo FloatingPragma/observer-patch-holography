@@ -1,0 +1,1442 @@
+{
+  "schema": "oph.completion_work_queue.v1",
+  "queue_id": "OPH-PREDICTION-AND-PREMISE-WORK-v1",
+  "purpose": "Finalize reproducible predictions and derive, implement or explicitly account for every premise consumed by one jointly consistent observer construction.",
+  "gate_acceptance_changed": false,
+  "physical_comparison_count_added": 0,
+  "execution_policy": [
+    "The immediate objective has two coupled parts: finish quantitative comparisons and close their implementation and physical-identification premises on the same source. Numerical agreement, mathematical consistency and empirical completeness have distinct acceptance conditions.",
+    "Each work item is sized for one focused prompt to deliver a bounded calculation, proof, counterexample or exact missing-premise statement. A controlled interacting chiral field domain, physical spectrum or geometric gravity theorem can require several successor items. The plan gives no completion percentage or guarantee that a whole physical gate fits one prompt.",
+    "Run the first batch on disjoint packages with one coordinator applying shared ledger and publication edits. Inspect predecessor receipts before starting dependent work; a rejected scientific prerequisite requires a revised task or an explicit blocker even if its bounded investigation is completed.",
+    "Reuse the existing finite theorem stack after matching its actual state, algebra, operation, reference, clock and error domain. Prefer reduced moments, exact quotient kernels and existing error-composition results over larger simulations. A large run requires an observable that can discriminate the alternatives and a stated resource cap.",
+    "Every completed task retains failures and original probabilities, a replayable receipt, an independent control and its remaining assumptions. Update the owning code/proof and canonical claim only for the proved domain. GitHub records review history; RER scientific prose states the supported result. Preserve all frozen gate contracts and empirical exposure.",
+    "Task completion_outcome records a scientific positive, negative or inconclusive result. Positive means the registered constructive claim or bounded proposition is supported; passing software tests alone does not establish that outcome. A verified counterexample can complete a task with a negative outcome and preserve its evidence, while an invalid method or missing required artifact cannot complete the task. Ordinary dependent tasks require positive predecessor outcomes; diagnostic aggregation explicitly lists other admitted outcomes."
+  ],
+  "premise_policy": [
+    "Explicit-assumption closure means that every consumed premise is derived on the selected source, imported with its hypotheses satisfied, or identified as an explicit primitive, empirical input or unresolved requirement. Relative mathematical consistency requires a common realization of the stated premises. A primitive declaration does not discharge a narrower implementation claim; a measured calibration cannot become an independent prediction.",
+    "The full assumption inventory covers the canonical premise register, the joint field/particle dependency graph and any unregistered apparatus or interpretation input used by public claims. Architectural uniqueness is not required. Hidden services, unproved cross-source transfer and circular physical definitions are inadmissible.",
+    "A mathematically consistent finite construction requires an actual common realization of its premises. Physical completeness additionally requires the shared interacting spectrum, clocks, gravity, observation/intervention laws and appropriate independent tests. Public communication must state which of these contracts the evidence satisfies."
+  ],
+  "priority_order": [
+    "WQ-01",
+    "WQ-04",
+    "WQ-05",
+    "WQ-07",
+    "WQ-08",
+    "WQ-09",
+    "WQ-19",
+    "WQ-20",
+    "WQ-02",
+    "WQ-06",
+    "WQ-17",
+    "WQ-03",
+    "WQ-10",
+    "WQ-11",
+    "WQ-12",
+    "WQ-13",
+    "WQ-14",
+    "WQ-15",
+    "WQ-16",
+    "WQ-18"
+  ],
+  "first_batch": [
+    "WQ-01",
+    "WQ-04",
+    "WQ-07",
+    "WQ-08"
+  ],
+  "tasks": [
+    {
+      "id": "WQ-01",
+      "title": "Account for every consumed premise and architectural input",
+      "gate": "CP-12",
+      "issue": 1148,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "tracking/premise_register.json",
+        "claims/axiom_registry.yaml",
+        "model/completion/finite_attachment_map.json",
+        "model/completion/finite_record_dynamics.json",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "claims/claim_registry.yaml"
+      ],
+      "premise_ids": [],
+      "reused_theorems": [],
+      "exact_prompt": "Reconcile all canonical premise rows and every conditional assumption in the joint field/particle dependency graph with the lepton-cycle, population, charged-source and gravity claim inputs. Produce one current assumption-closure table, preserving canonical IDs. Classify each consumed input as proved on this source, imported theorem with matched hypotheses, declared architectural primitive, empirical calibration, open implementation, open physical map or rejected candidate; mark non-consumption explicitly. Include preparation independence, analyzer, kick/reset/archive, clock, squared-eigenvalue mass assignment, coupling measure, species dictionary and thermal history. Give each unresolved consumed row a completion owner and the smallest witness or counterexample needed. Prove that every source-specific discharge names its state, algebra, operation, reference, clock and domain. Do not turn a declaration or receipt hash into a proof. Bind coverage to a named source/proof/claim manifest at a specific revision; the coverage claim applies to that audited dependency set. Declared physical interpretations close disclosure only and retain their open implementation or physical-map obligation.",
+      "outputs": [
+        {
+          "path": "model/completion/assumption_closure.json",
+          "description": "Complete typed input inventory and ownership; canonical premise statuses retained unless proved."
+        },
+        {
+          "path": "model/completion/assumption_closure.py",
+          "description": "Coverage and source-domain validator with missing-input and false-discharge controls."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m model.completion.assumption_closure",
+          "expected": "All canonical rows and joint-graph assumptions covered; missing and misclassified inputs rejected."
+        },
+        {
+          "command": "python3 tools/check_claim_registry.py",
+          "expected": "Scientific claim dependencies remain valid."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Every canonical row and consumed unregistered service has an explicit disposition, source domain and owner.",
+          "Each claimed discharge has a mathematical witness; each open input has a bounded next action."
+        ],
+        "fail": [
+          "An input is absent, a calibration is advertised as an independent prediction, or incompatible source domains are pooled."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "This inventory supports a complete statement of assumptions. It does not derive all physical assumptions or prove consistency merely by counting rows.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-02",
+      "title": "Compile the lepton preparation and bounded service controller",
+      "gate": "CP-02",
+      "issue": 1138,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/lepton_cycle/instrument.py",
+        "model/lepton_cycle/composition.py",
+        "model/lepton_cycle/PROOF.md",
+        "model/lepton_register_round/PROOF.md",
+        "model/native_quantum_service_bridge/finite_compiler.py",
+        "model/native_quantum_service_bridge/PROOF.md"
+      ],
+      "premise_ids": [
+        "PR-64",
+        "PR-65"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/lepton_cycle/PROOF.md",
+          "anchor": "",
+          "role": "Reuse complete instruments, archive-preserving reset and arbitrary-reference composition bounds."
+        },
+        {
+          "path": "model/native_quantum_service_bridge/PROOF.md",
+          "anchor": "",
+          "role": "Compile the actual preparation through the admitted elementary service contract."
+        }
+      ],
+      "exact_prompt": "Compile the existing 60-address Householder preparation through the admitted finite compiler, using an explicitly padded 64-state register. Certify every input column, padding behavior and an untouched entangled reference. Then execute at most three complete lepton cycles with actual preparation, analyzer, kick, inverse tick, return and SWAP/archive maps, retaining all four outcomes. Count the compiled tape, independent fresh-pair, routing, analog-control and archive resources separately. Compare the complete channel with the existing instrument and include a correlated-source countercontrol. Any supplied coherent load or reset remains an explicit primitive; do not call it autonomous.",
+      "outputs": [
+        {
+          "path": "model/lepton_cycle/service_execution.py",
+          "description": "Bounded controller and complete record execution."
+        },
+        {
+          "path": "model/lepton_cycle/service_execution_results.json",
+          "description": "Source-bound channel equality/error and resource receipt."
+        },
+        {
+          "path": "model/lepton_cycle/test_service_execution.py",
+          "description": "Reference, failure, capacity and correlation controls."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/lepton_cycle",
+          "expected": "Executed controller agrees with the full channel; unsafe reuse and missing failures fail."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The actual service sequence realizes the declared full instrument on the stated reference domain, with finite resource/error accounting.",
+          "Any unsupported primitive is isolated as an explicit implementation obligation."
+        ],
+        "fail": [
+          "A marginal reset leaves hidden correlations, rejects are discarded, or the controller uses an undeclared operation."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "Finite declared-service execution does not establish an autonomous apparatus, physical work unit or laboratory duration.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-03",
+      "title": "Test a common phase and energy clock on one source",
+      "gate": "CP-04",
+      "issue": 1140,
+      "depends_on": [
+        "WQ-02"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/lepton_register_round/PROOF.md",
+        "model/lepton_cycle/PROOF.md",
+        "model/particle_common_contract/PROOF.md",
+        "model/observer_time_fields/wave_reference.py",
+        "model/clocked_common_observer/clock.py",
+        "model/clock_defect_energy/joint_clock.py",
+        "model/lepton_register_round/clock.py"
+      ],
+      "premise_ids": [
+        "PR-15",
+        "PR-22",
+        "PR-23"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/lepton_cycle/PROOF.md",
+          "anchor": "",
+          "role": "Use the full-span channel bound on the actual current spectrum."
+        }
+      ],
+      "exact_prompt": "Execute the bounded weak and mass-read lepton cycles on one retained native-attempt timeline using the existing clocked-observer adapters. Retain waiting periods, preparation, reset, timeouts, all outcomes and the quantum reference. Demonstrate the effects of idling and correlated resets. Distinguish attempt count, successful-current count, cycle count and Hamiltonian parameter; sharing a timeline does not require identical clock and field generators. On this actual protocol, prove any energy-clock conversion claimed, or exhibit rescaling freedom that leaves all records unchanged. Do not fit a measured mass to determine the clock.",
+      "outputs": [
+        {
+          "path": "model/lepton_cycle/clock_energy_join.py",
+          "description": "Explicit finite generator comparison or rescaling counterexample."
+        },
+        {
+          "path": "model/lepton_cycle/clock_energy_join_results.json",
+          "description": "Declared source pair, clock map, errors and unresolved normalization."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/lepton_cycle",
+          "expected": "Clock comparison controls preserve complete channels and expose normalization freedom."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The actual timeline/channel identities and each admitted internal clock conversion are proved with retained waiting and failure records."
+        ],
+        "fail": [
+          "An exact incompatible-clock or rescaling witness excludes the proposed unique energy-clock identification."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "An internal clock comparison does not supply an independently calibrated SI or GeV unit.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-04",
+      "title": "Freeze a no-fit lepton comparison and residual budget",
+      "gate": "CP-07",
+      "issue": 1143,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/lepton_cycle/sensitivity.py",
+        "model/lepton_cycle/results.json",
+        "model/lepton_register_round/results.json",
+        "model/completion/particle_mass_table.json"
+      ],
+      "premise_ids": [
+        "PR-13",
+        "PR-15",
+        "PR-75"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/lepton_cycle/PROOF.md",
+          "anchor": "",
+          "role": "Use the exact shape Jacobian and reference-inclusive finite-round error without adjusting the phase."
+        }
+      ],
+      "exact_prompt": "Build a reproducible comparison for both lepton ratios with frozen editions of primary experimental inputs, uncertainties and available covariance. Keep theta=2/9 and balance=sqrt(2); do not tune the finite round count or any parameter to the residual. Separate exact architecture ratios, certified finite implementation error and the unproved physical mass map. Report the muon discrepancy, tau comparison and sensitivity to declared preparation errors without inventing a theory uncertainty. Retain a machine-readable calibration/exposure record and require primary-source citations for all reference values.",
+      "outputs": [
+        {
+          "path": "model/lepton_cycle/physical_comparison.json",
+          "description": "Two-ratio comparison with editions, covariance availability, exposed inputs and missing physical map."
+        },
+        {
+          "path": "model/lepton_cycle/compare.py",
+          "description": "Deterministic comparison and no-fit guards."
+        },
+        {
+          "path": "model/lepton_cycle/test_compare.py",
+          "description": "Target perturbation and calibration leakage controls."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/lepton_cycle",
+          "expected": "Both ratios replay and changing comparison targets leaves model outputs unchanged."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Both ratios have reproducible residuals and correctly separated experimental, implementation and missing physical uncertainties."
+        ],
+        "fail": [
+          "The residual is removed by fitting, a tau marginal is presented as a joint likelihood, or finite-round error is used as an arbitrary physical correction."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "This finalizes a conditional retrospective comparison, not the physical mass derivation.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-05",
+      "title": "Certify the lepton coefficient bridge and its physical boundary",
+      "gate": "CP-07",
+      "issue": 1143,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/lepton_cycle/instrument.py",
+        "model/lepton_cycle/PROOF.md",
+        "model/standard_model_source_map/koide_source.py",
+        "model/charged_lepton_response/phase_selection.py",
+        "model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md",
+        "model/charged_lepton_response/mass_response_bridge.py"
+      ],
+      "premise_ids": [
+        "PR-22",
+        "PR-50",
+        "PR-71"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/particle_common_contract/PROOF.md",
+          "anchor": "",
+          "role": "Retain one source, state, reference, charge sector and clock through the comparison."
+        }
+      ],
+      "exact_prompt": "At fixed theta=2/9, construct the literal family-frame intertwiner between the complete native mass-read effect and the admitted charged-family coefficient C-dagger C/3. Preserve the actual preparation, normalization and charged representation. Prove or refute the coefficient identity and reject extra squaring, native-pair substitution and loss of the 5/4 preparation factor. Then build an admission table for the full state, kinetic normalization, reference, clock and physical mass-pole joins: coefficient equality cannot silently supply them. Give the smallest explicit same-source measurement needed to settle one absent join. Use no measured mass to choose the map.",
+      "outputs": [
+        {
+          "path": "model/lepton_cycle/mass_assignment.py",
+          "description": "Exact coefficient/frame intertwiner with physical-admission checks."
+        },
+        {
+          "path": "model/lepton_cycle/mass_assignment_results.json",
+          "description": "Literal coefficient identity, normalization controls and remaining physical joins."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/lepton_cycle",
+          "expected": "Positive map and deliberately mismatched source/clock controls are distinguished."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The literal coefficient bridge is proved with exact normalization and frame controls; every unmatched physical premise is explicit."
+        ],
+        "fail": [
+          "An exact coefficient or representation counterexample refutes the proposed bridge; defining source energy by the desired formula is invalid methodology, not a bridge."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "An exact coefficient bridge does not establish a physical energy generator, pole mass, Lorentz kinematics or absolute unit.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-06",
+      "title": "Determine the sector measure consumed by the coupling chain",
+      "gate": "CP-07",
+      "issue": 1143,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/seam_class_balance/PROOF.md",
+        "model/seam_class_balance/exact.py",
+        "model/seam_class_balance/engine.py",
+        "model/repair_sector_bridge/PROOF.md",
+        "model/repair_sector_bridge/bridge.py",
+        "model/particle_construction_scope/comparison_inputs/CG/cg_observer.py.raw",
+        "model/observer/coherent_continuation.py"
+      ],
+      "premise_ids": [
+        "PR-20",
+        "PR-41",
+        "PR-51"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/repair_sector_bridge/PROOF.md",
+          "anchor": "",
+          "role": "Use exact kernel and sector-connectivity tests; stationarity alone does not select physical energy."
+        }
+      ],
+      "exact_prompt": "Fix one admitted source, operation set, electric-sector projectors and finite cutoff (with any required tail bound) before extraction. Derive sector transitions from the actual quantum channel and branch multiplicities, retaining no-ops and rejected outputs. For arbitrary within-sector states and coherences, prove adjoint preservation E*(P_j)=sum_i K_ij P_i; alternatively declare a restricted dephased or conditional-state family and prove its closure. Classical strong lumpability alone does not establish quantum sector closure. Solve stationary measures and remaining sector freedom exactly, or give a sector-preservation/nonclosure witness. Do not substitute the classical distance quotient for electric SU(2) sectors or identify finite-group and SU(2) labels without a map. Propagate only admitted measures through one coupling output, with no empirical target selection.",
+      "outputs": [
+        {
+          "path": "model/seam_class_balance/coupling_measure.py",
+          "description": "Exact microscopic measure and connectivity calculation."
+        },
+        {
+          "path": "model/seam_class_balance/coupling_measure_results.json",
+          "description": "Selected versus free weights and their coupling consequences."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/seam_class_balance model/repair_sector_bridge",
+          "expected": "Stationary, reducible-sector and wrong-proposal controls all behave as declared."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The actual source channel closes on the declared sector algebra or restricted state family, with a proved transition law and stationary-measure characterization."
+        ],
+        "fail": [
+          "An exact adjoint-channel or within-sector counterexample disproves the proposed closure/selection rule; retain it as a negative scientific result."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "A finite sector measure does not by itself establish four-dimensional running or physical renormalization matching.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-07",
+      "title": "Audit shared-reference covariance in the electroweak temperature",
+      "gate": "CP-11",
+      "issue": 1147,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/electroweak_crossover/finite_size.py",
+        "model/electroweak_crossover/reduction.py",
+        "model/electroweak_crossover/results.json",
+        "model/electroweak_crossover/PROOF.md",
+        "model/electroweak_crossover/certificate.py",
+        "model/electroweak_crossover/production.json"
+      ],
+      "premise_ids": [
+        "PR-41",
+        "PR-48",
+        "PR-49",
+        "PR-75"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/electroweak_crossover/PROOF.md",
+          "anchor": "",
+          "role": "Reuse matched-volume fits and finite-volume controls rather than reclassifying them as a continuum error bound."
+        }
+      ],
+      "exact_prompt": "Audit statistical propagation through y_c=y(T_lat)+fit_y-reference_ymax. The retained temperature and cutoff fits reuse the reference ensemble; derive the full influence weights and covariance terms instead of assuming independence. Recover genuine paired peak replicas if retained; otherwise calculate an explicit positive-semidefinite/Cauchy-compatible variance range from available marginal errors and report what cannot be identified. State that such a range is conditional on the supplied variance estimates and distinguish linearized propagation from a certified nonlinear or coverage bound. Add an exact-cancellation control. Keep statistical uncertainty, the declared reduction allowance, 0.349 GeV cutoff-form spread, finite volume and omitted hypercharge simulation distinct. Correct any unsupported precision claim and propagate the receipt to the paper and viewer through their owning sources. Do not invent samples or a continuum error bound.",
+      "outputs": [
+        {
+          "path": "model/electroweak_crossover/comparison_budget.json",
+          "description": "Correct shared-reference statistical propagation or explicit covariance-compatible bounds, with separate systematic domains."
+        },
+        {
+          "path": "model/electroweak_crossover/comparison_budget.py",
+          "description": "Replayable budget and fit-identifiability checks."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/electroweak_crossover",
+          "expected": "Existing fit controls pass; omission of any declared uncertainty component is detected."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Shared-reference covariance is propagated from retained paired data, or the identifiable variance interval is certified with exact-cancellation controls."
+        ],
+        "fail": [
+          "Independent errors are assumed for shared measurements without justification, missing covariance is invented, or fit spread is called a complete continuum uncertainty."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "This is a conditional effective-theory benchmark; its source-to-physical coupling derivation is a separate task.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-08",
+      "title": "Determine what the class census can say about species abundances",
+      "gate": "CP-05",
+      "issue": 1141,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/defect_particle_classes/PROOF.md",
+        "model/defect_particle_classes/results.json",
+        "model/native_abundance_epochs/PROOF.md",
+        "model/native_abundance_epochs/results.json",
+        "model/defect_integer_lift/PROOF.md"
+      ],
+      "premise_ids": [
+        "PR-12",
+        "PR-47",
+        "PR-55",
+        "PR-59"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/defect_particle_classes/PROOF.md",
+          "anchor": "",
+          "role": "Use the exact centre-class multiplicities and their known species degeneracies."
+        }
+      ],
+      "exact_prompt": "Construct the exact six-class pushforward of the 32 declared occupation patterns, then the typed extension to Higgs and gauge components. Separately apply the PR-59 restriction omitting exterior degrees zero and five: its 30-pattern grammar excludes the right-handed-neutrino pair, so the 32-pattern extension must not silently inherit that premise. Compute rank, nullspace and sharp feasible bounds for selected species aggregates, explicitly exhibiting different nonnegative within-class populations with the same census. Distinguish code quanta from simulated flux faces and list the additional premise needed to apply the decoder to run counts. Test the proposed 75/25 reading and the restricted grammar's 24:6 component count rather than assuming uniform occupation. Define one temperature and neutrino-content convention for a comparison-only thermal benchmark using primary sources. Specify whether the benchmark concerns number density or energy density, its normalization, equilibrium and chemical-potential assumptions, mass approximation and physical helicity counting; use the corresponding fermion/boson statistical weights. State which abundance combinations the actual observable could test. No benchmark is a simulated cosmological history.",
+      "outputs": [
+        {
+          "path": "model/native_abundance_epochs/species_identifiability.py",
+          "description": "Exact class-to-species inverse problem and counterexamples."
+        },
+        {
+          "path": "model/native_abundance_epochs/species_identifiability_results.json",
+          "description": "Observable abundance combinations and explicitly unidentifiable fractions."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/native_abundance_epochs model/defect_particle_classes",
+          "expected": "Indistinguishable class-census controls produce different species fractions as certified."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Identifiable combinations and ambiguity bounds are exact; a claim about quark/lepton percentages is accepted only if the observable determines it."
+        ],
+        "fail": [
+          "Representation counts are used as dynamical probabilities or a shared centre label is treated as unique species identity."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "A thermal benchmark is a comparison input; class counting alone supplies neither a temperature nor physical species abundances.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-09",
+      "title": "Test whether native population dynamics admits a thermal interpretation",
+      "gate": "CP-02",
+      "issue": 1138,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/native_abundance_epochs/model.py",
+        "model/native_abundance_epochs/PROOF.md",
+        "model/charge_conjugation_dynamics/PROOF.md",
+        "model/observer_time_fields/thermal.py"
+      ],
+      "premise_ids": [
+        "PR-07",
+        "PR-08",
+        "PR-15"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/native_abundance_epochs/PROOF.md",
+          "anchor": "",
+          "role": "Reuse the exact attempted-event kernel, communicating classes and absorption law."
+        },
+        {
+          "path": "Lean/Dynamics/ChargeConjugation.lean",
+          "anchor": "",
+          "role": "Preserve conjugation constraints when testing candidate thermal states."
+        }
+      ],
+      "exact_prompt": "For the unchanged exact 1296-state kernel, test finite-temperature Gibbs stationarity and detailed balance in every conserved-load sector. Use the proved nonpositive cost drift and strict-descent edges to prove an all-positive-temperature result where possible: a full-support law with strictly negative mean drift cannot be stationary. Characterize exceptional/recurrent sectors exactly and retain their free weights. Identify the minimum missing reverse moves, bath and temperature-readout premises without implementing a substituted thermal sampler as the native law. Attempt time and cosmic time remain distinct.",
+      "outputs": [
+        {
+          "path": "model/native_abundance_epochs/thermal_admission.py",
+          "description": "Exact stationarity and detailed-balance existence test."
+        },
+        {
+          "path": "model/native_abundance_epochs/thermal_admission_results.json",
+          "description": "Thermal admission or obstruction and required extra services."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/native_abundance_epochs model/charge_conjugation_dynamics",
+          "expected": "Absorbing, reverse-edge and sector-weight countercontrols prevent a false Gibbs claim."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "A Gibbs-stationarity claim is proved on the stated sector with all temperature, support and detailed-balance assumptions explicit."
+        ],
+        "fail": [
+          "An exact drift or reverse-edge witness excludes the proposed full-support finite-temperature equilibrium; characterize exceptional sectors."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "Neither a finite Gibbs law nor its obstruction establishes expansion, freeze-out or a physical early-Universe mixture.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-10",
+      "title": "Test localization of one charged excitation on the primary source",
+      "gate": "CP-03",
+      "issue": 1139,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/particle_common_contract/PROOF.md",
+        "model/particle_primary_regional_fermion/PROOF.md",
+        "model/particle_primary_charged_string/PROOF.md",
+        "model/particle_primary_charged_readout/PROOF.md",
+        "model/particle_primary_branch_certificate/PROOF.md"
+      ],
+      "premise_ids": [
+        "PR-47",
+        "PR-53",
+        "PR-54"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/particle_primary_regional_fermion/PROOF.md",
+          "anchor": "",
+          "role": "Use the actual charge-increment instrument and compensating boundary dressing."
+        }
+      ],
+      "exact_prompt": "Predeclare one existing charged endpoint preparation, compensating endpoint/reference, region and nonzero observation interval on the primary Wilson family, together with a nonvacuous leakage or lifetime target. Derive or enclose its autonomous regional excess and escape under the unchanged Hamiltonian, preserving original preparation probability, charge and all failures. Use local commutator/interval bounds rather than assume full-matrix diagonalization of the large primary member is feasible. Prove the chosen persistence criterion or exhibit spreading that excludes it. Infinitesimal continuity alone is insufficient, and no active recovery or unrelated charged-cluster gap can supply autonomous protection.",
+      "outputs": [
+        {
+          "path": "model/particle_primary_regional_fermion/localization.py",
+          "description": "Bounded same-probe regional persistence calculation."
+        },
+        {
+          "path": "model/particle_primary_regional_fermion/localization_results.json",
+          "description": "Original weights, charge and leakage with finite errors."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_primary_regional_fermion model/particle_primary_charged_readout",
+          "expected": "Charge, compensation, failure and leakage controls pass on the chosen member."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The predeclared nonzero-time persistence/leakage target is met with certified bounds on the same charged preparation and reference."
+        ],
+        "fail": [
+          "A certified escape/spreading calculation excludes the specified localization claim; this is a negative result for that candidate and interval."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "Finite persistence is not an asymptotically stable particle or a physical charge/spin identification.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-11",
+      "title": "Calculate the missing odd spectral moment on one common source",
+      "gate": "CP-06",
+      "issue": 1142,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/particle_primary_odd_sum_rules/PROOF.md",
+        "model/particle_primary_coherent_odd_response/KERNEL_PROOF.md",
+        "model/particle_primary_original_shell_moments/PROOF.md",
+        "model/particle_primary_composite_transport/PROOF.md",
+        "model/particle_common_contract/contract.py"
+      ],
+      "premise_ids": [
+        "PR-50",
+        "PR-53",
+        "PR-54",
+        "PR-71"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/particle_primary_odd_sum_rules/PROOF.md",
+          "anchor": "",
+          "role": "Use the exact shell reduction to the unresolved neighbour expectation instead of diagonalizing the full spectrum."
+        },
+        {
+          "path": "model/particle_primary_coherent_odd_response/KERNEL_PROOF.md",
+          "anchor": "",
+          "role": "Reuse the reduced set of component-summed original spectral measures."
+        }
+      ],
+      "exact_prompt": "Compute or rigorously enclose the actual neighbour expectation m1 for one existing odd probe on the smallest feasible selected primary member. Use the shell-moment reduction and retain the complete original preparation, creation/removal outcomes, common clock and source-bound reference. Compare it with the corresponding energy-resolved spatial record; test whether a nonzero connected interaction on that same source and preparation is available. If the interaction observable belongs to a different preparation, quantify the missing transfer instead of combining their successes. Declare matrix/precision limits before execution. This odd probe has its own declared primary clock and preparation; the lepton-clock conversion and charged-endpoint localization are separate comparisons, not assumed prerequisites or interchangeable probes.",
+      "outputs": [
+        {
+          "path": "model/particle_primary_odd_sum_rules/neighbour_moment.py",
+          "description": "Reduced exact or interval calculation of the actual odd neighbour moment."
+        },
+        {
+          "path": "model/particle_primary_odd_sum_rules/neighbour_moment_results.json",
+          "description": "Moment enclosure and same-source spatial/interaction comparison."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_primary_odd_sum_rules model/particle_primary_coherent_odd_response",
+          "expected": "Original spectral weight and kernel-reduction controls pass."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The missing finite moment is enclosed with non-vacuous error and its physical-consumer prerequisites are explicit."
+        ],
+        "fail": [
+          "An even-density contrast, supplied mass texture or a different-source contact interaction is reported as the odd probe result."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "The odd-probe preparation and charged endpoint have distinct contracts. A finite moment or interaction witness does not establish a charged physical mass, dispersion relation or interacting continuum.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-12",
+      "title": "Resolve one concrete chirality-pairing premise",
+      "gate": "CP-06",
+      "issue": 1142,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/particle_primary_odd_sum_rules/PROOF.md",
+        "model/particle_primary_charge_conjugation/PROOF.md",
+        "model/standard_model_source_map/fermion_attachment.py",
+        "model/particle_joint_reconstruction/CANDIDATE.md"
+      ],
+      "premise_ids": [
+        "PR-46",
+        "PR-47",
+        "PR-50"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/particle_primary_odd_sum_rules/PROOF.md",
+          "anchor": "",
+          "role": "Apply the all-capacity reflected Gamma5-law constraint to the proposed physical handedness map."
+        }
+      ],
+      "exact_prompt": "Apply the proved reflected Gamma5 energy-law identity to one explicitly named proposed physical chirality dictionary. Determine whether it can remove the unwanted reflected response while preserving the complete charge/current instrument. If it cannot, prove the finite obstruction and state one minimal symmetry-breaking operator or alternate dictionary whose consequences can be tested without a parameter scan. Any changed action is a separately declared candidate with its own acceptance ancestry; do not silently change the primary program or call native Gamma5 physical Lorentz chirality.",
+      "outputs": [
+        {
+          "path": "model/standard_model_source_map/chirality_admission.py",
+          "description": "One explicit chirality dictionary admission or exclusion test."
+        },
+        {
+          "path": "model/standard_model_source_map/chirality_admission_results.json",
+          "description": "Exact parity constraint, candidate domain and minimal unresolved premise."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_primary_odd_sum_rules model/particle_primary_charge_conjugation",
+          "expected": "Reflected-record equality remains intact and the proposed dictionary is tested against it."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The tested finite dictionary satisfies the retained charge/current and reflected-record constraints within its stated domain."
+        ],
+        "fail": [
+          "An exact reflected-record argument excludes the tested dictionary; retaining that counterexample narrows the construction without a universal no-go."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "A candidate-level chirality result does not establish an anomaly-free interacting chiral continuum.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-13",
+      "title": "Test a decisive uniform refinement-survival bound",
+      "gate": "CP-08",
+      "issue": 1144,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/particle_joint_reconstruction/DEPENDENCIES.md",
+        "model/particle_common_contract/PROOF.md",
+        "Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean",
+        "Lean/QFT/GroundRecordTail.lean",
+        "model/particle_primary_spectral_scale/PROOF.md",
+        "model/particle_primary_weighted_spectral_tail/PROOF.md",
+        "model/particle_primary_critical_refinement/PROOF.md",
+        "model/particle_primary_equal_work_control/PROOF.md"
+      ],
+      "premise_ids": [
+        "PR-16",
+        "PR-52",
+        "PR-70",
+        "PR-71",
+        "PR-72",
+        "PR-74"
+      ],
+      "reused_theorems": [
+        {
+          "path": "Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean",
+          "anchor": "telescoping_refinement_bound",
+          "role": "Compose actual adjacent-member record errors."
+        },
+        {
+          "path": "Lean/QFT/GroundRecordTail.lean",
+          "anchor": "downwardWeight_le_excess_div",
+          "role": "Use only for negative transfer; do not infer surviving finite-band weight."
+        }
+      ],
+      "exact_prompt": "On the fixed primary source trajectory, attempt one explicitly stated volume-independent relative-form bound for the actual hopping and magnetic perturbation against the onsite/electric action. Start from the existing local estimates and determine whether their constants certify a uniform dimensionless gap; retain a rigorous counterexample or failed inequality if they do not. Propagate any proved estimate through the declared cooling and clock scaling to the fixed-physical-energy response, including original preparation and finite-band weight. Use existing refinement and tail theorems only in their actual domains. Do not infer positive-energy survival from suppression of negative transfer, a positive mean or per-level bounds. Declare the analytic and numerical resource limit before a finite control calculation. Distinguish the relative-form estimate from spectral-gap stability: state the ground or multiplet projector, additive energy reference and every perturbative-stability hypothesis. A form lower bound alone is not a gap theorem.",
+      "outputs": [
+        {
+          "path": "model/particle_joint_reconstruction/joint_step.py",
+          "description": "One uniform-estimate or counterexample calculation on the fixed source trajectory."
+        },
+        {
+          "path": "model/particle_joint_reconstruction/joint_step_results.json",
+          "description": "Source constants, trajectory, original-weight consequences and remaining joint-limit premises."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_joint_reconstruction",
+          "expected": "Mismatched states, clocks and zero-residue transfers fail admission."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The specified uniform estimate is proved with its required spectral projectors and stability assumptions; only its justified original-weight consequences are admitted."
+        ],
+        "fail": [
+          "A certified counterexample excludes the specified uniform estimate or survival claim on that trajectory. A loose unsuccessful proof attempt is inconclusive, not a no-go."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "One uniform bound can expose a route obstruction; it does not alone establish a nontrivial interacting relativistic continuum.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-14",
+      "title": "Derive an open-boundary metric variation of the primary action",
+      "gate": "CP-09",
+      "issue": 1145,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/particle_primary_gravity_premises/premises.json",
+        "model/particle_primary_covariant_stress/PROOF.md",
+        "model/particle_primary_geometric_cut/PROOF.md",
+        "model/particle_primary_boundary_information/PROOF.md",
+        "model/particle_primary_boundary_correlation/PROOF.md",
+        "model/matched_einstein_limit/PROOF.md",
+        "Lean/QFT/CoarseEnergyWard.lean"
+      ],
+      "premise_ids": [
+        "PR-23",
+        "PR-24",
+        "PR-25",
+        "PR-26",
+        "PR-27",
+        "PR-28"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/particle_primary_boundary_information/PROOF.md",
+          "anchor": "",
+          "role": "Retain regional-algebra information, edge entropy and central coherence separately."
+        },
+        {
+          "path": "model/particle_primary_covariant_stress/PROOF.md",
+          "anchor": "",
+          "role": "Reuse the actual complete source stress/current instrument, including boundary work."
+        },
+        {
+          "path": "Lean/QFT/CoarseEnergyWard.lean",
+          "anchor": "coarse_continuity",
+          "role": "Reuse the finite energy Ward identity with actual boundary work."
+        }
+      ],
+      "exact_prompt": "Using the primary gravity-premise acceptance list, construct one open-boundary metric/coframe variation that reduces exactly to the selected flat source action at zero variation. Derive its first stress response and every boundary/work term on the same state and clock; do not substitute the distinct periodic parent. Compare the response with the actual covariant-stress instrument and determine whether this supplies a missing geometric premise or only a declared extension. Give a counterexample if the variation fails. Keep the G1-G6 inventory explicit, including geometric, modular and entropy errors required to be o(ell^4); do not define geometry by the desired Einstein equation or identify matter information with proper area. Flat-action agreement alone does not select a physical metric coupling: classify the metric variation as a declared extension unless a separate source-selection argument fixes it, and quantify the ambiguity.",
+      "outputs": [
+        {
+          "path": "model/particle_primary_gravity_premises/source_witness.py",
+          "description": "A bounded source witness or counterexample for one selected gravity premise."
+        },
+        {
+          "path": "model/particle_primary_gravity_premises/source_witness_results.json",
+          "description": "All G1-G6 dispositions plus the proved domain and scaling errors."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_primary_gravity_premises model/matched_einstein_limit",
+          "expected": "A wrong reference, omitted center term or unsupported scaling is rejected."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The specified open-boundary variation and its stress/boundary identity are derived on the declared extension, with every physical-selection and scaling premise still explicit."
+        ],
+        "fail": [
+          "A certified flat-action, stress or boundary mismatch excludes that proposed variation."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "A bounded premise witness does not establish the full geometric tower or physical Einstein dynamics.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-15",
+      "title": "Validate source-premise admission to the Einstein composition",
+      "gate": "CP-10",
+      "issue": 1146,
+      "depends_on": [
+        "WQ-14"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/matched_einstein_limit/PROOF.md",
+        "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
+        "Lean/Geometry/SourceOrderEinsteinComposition.lean",
+        "Lean/Geometry/EinsteinTensorBridge.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+      ],
+      "premise_ids": [
+        "PR-23",
+        "PR-24",
+        "PR-25",
+        "PR-26",
+        "PR-27",
+        "PR-28"
+      ],
+      "reused_theorems": [
+        {
+          "path": "Lean/Geometry/SourceOrderEinsteinComposition.lean",
+          "anchor": "",
+          "role": "Reuse the existing composition instead of reproving the abstract Einstein implication."
+        },
+        {
+          "path": "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
+          "anchor": "",
+          "role": "Propagate the actual matched small-ball errors and required scaling."
+        },
+        {
+          "path": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+          "anchor": "continuumEinstein_from_explicit_premises",
+          "role": "Instantiate the existing conditional continuum implication only with its full explicit premises."
+        }
+      ],
+      "exact_prompt": "Construct a typed adapter from the source gravity-witness receipt to the existing finite Einstein composition. Supply only premises proved on the same state, region map and clock. For each absent geometric or error-scaling premise, keep an explicit parameter in the conditional theorem and reject an unconditional admission. Demonstrate one positive synthetic theorem-instantiation control and one actual-source admission attempt, clearly distinguishing their domains. Do not replace missing source evidence with theorem names or defaults.",
+      "outputs": [
+        {
+          "path": "model/matched_einstein_limit/source_admission.py",
+          "description": "Source-premise adapter with exact missing-input diagnostics."
+        },
+        {
+          "path": "model/matched_einstein_limit/source_admission_results.json",
+          "description": "Actual-source admission verdict distinct from synthetic implication tests."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/matched_einstein_limit",
+          "expected": "Synthetic complete witnesses pass; actual missing premises fail closed."
+        },
+        {
+          "command": "cd Lean && lake build Geometry.SourceOrderEinsteinComposition",
+          "expected": "Existing finite implication compiles without proof holes."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "A typed adapter correctly validates complete actual witnesses or returns their exact missing-premise set; synthetic controls are labelled and no physical acceptance follows from adapter correctness."
+        ],
+        "fail": [
+          "A concrete counterexample shows that the proposed adapter conflates source domains or admits a missing premise."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "A complete adapter is not a proof that every physical input exists; CP-10 acceptance requires all actual same-source premises.",
+      "completion_evidence": [],
+      "accepted_dependency_outcomes": {
+        "WQ-14": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ]
+      }
+    },
+    {
+      "id": "WQ-16",
+      "title": "Expose the source constraints on flavour and neutrino parameters",
+      "gate": "CP-07",
+      "issue": 1143,
+      "depends_on": [
+        "WQ-01"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "model/conditional_standard_model/PROOF.md",
+        "model/particle_joint_reconstruction/CANDIDATE.md",
+        "model/completion/particle_mass_table.json",
+        "tracking/premise_register.json"
+      ],
+      "premise_ids": [
+        "PR-36",
+        "PR-47",
+        "PR-50",
+        "PR-55",
+        "PR-67",
+        "PR-69"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/conditional_standard_model/PROOF.md",
+          "anchor": "",
+          "role": "Reuse the conditional mass-action formulas while keeping supplied Yukawa and neutrino inputs explicit."
+        }
+      ],
+      "exact_prompt": "Enumerate the independent Yukawa, mixing and neutrino parameters consumed by the declared conditional candidate, quotienting only proved field-redefinition symmetries. Identify which combinations the native source actually constrains and which are fitted or free. Test one proposed additional source relation symbolically against the full parameter family and provide a counterexample if it fails. Output the smallest source equation and observable needed to constrain one remaining direction, without selecting masses or mixing angles from targets.",
+      "outputs": [
+        {
+          "path": "model/particle_joint_reconstruction/flavour_identifiability.py",
+          "description": "Parameter and source-constraint rank calculation."
+        },
+        {
+          "path": "model/particle_joint_reconstruction/flavour_identifiability_results.json",
+          "description": "Remaining physical flavour freedom and one bounded discriminating relation."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/particle_joint_reconstruction",
+          "expected": "Basis changes preserve observables; target substitutions cannot masquerade as source equations."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Every candidate flavour parameter has explicit ancestry and the tested source relation is proved across its stated parameter family."
+        ],
+        "fail": [
+          "A certified parameter-family counterexample excludes the proposed additional source relation."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "Parameter identifiability narrows the spectrum task; it does not itself derive quark Yukawas, oscillations or all generations.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-17",
+      "title": "Instantiate operational observers and expose external resources",
+      "gate": "CP-12",
+      "issue": 1148,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/repair_sector_bridge/record_observer.py",
+        "model/repair_sector_bridge/RECORD_OBSERVER.md",
+        "Lean/Tower/OperationalObserver.lean",
+        "Lean/QFT/OperationalOverlapEvidence.lean",
+        "model/CONSTRUCTION.md"
+      ],
+      "premise_ids": [
+        "PR-02",
+        "PR-32",
+        "PR-44",
+        "PR-58",
+        "PR-81",
+        "PR-82"
+      ],
+      "reused_theorems": [
+        {
+          "path": "Lean/Tower/OperationalObserver.lean",
+          "anchor": "OperationalObserver",
+          "role": "Instantiate the finite observer interface on the actual addressed-record source."
+        },
+        {
+          "path": "Lean/QFT/OperationalOverlapEvidence.lean",
+          "anchor": "operationalObservers_share_visible_event_record",
+          "role": "Reuse overlap agreement only after both maps refer to the same retained event."
+        }
+      ],
+      "exact_prompt": "Instantiate the operational-observer interface on the bounded addressed-record implementation and construct two observers sharing one actual event record. Include all no-ops, source halt at capacity and overlap maps. Separate the 298-bit mutable-register budget from immutable program, apparatus, initial-state knowledge and external archive/clock resources. Give a bounded self-description/readback test if the declared source supports it; otherwise provide an observational-indistinguishability witness explaining why the records cannot recover that specification. Do not promote overlap agreement to unique reconstruction of the underlying program. Bind the Lean generator and control/readback maps to the actual executable continuation table; the generic zero-generator ConsensusTower adapter or a purely declared structural instance does not establish that binding.",
+      "outputs": [
+        {
+          "path": "model/repair_sector_bridge/operational_observer.py",
+          "description": "Actual source/two-observer and resource interface."
+        },
+        {
+          "path": "model/repair_sector_bridge/operational_observer_results.json",
+          "description": "Overlap agreement, self-description domain and all external resource obligations."
+        },
+        {
+          "path": "Lean/Tower/RepairRecordObserver.lean",
+          "description": "Actual finite transition-table observer instance and overlap theorem application."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/repair_sector_bridge",
+          "expected": "Missing-address, capacity, observer mismatch and hidden-resource controls pass."
+        },
+        {
+          "command": "cd Lean && lake build Tower.RepairRecordObserver",
+          "expected": "The source-bound observer instance and overlap application compile without proof holes."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The actual finite observer satisfies the typed overlap contract and every supplied resource is exposed; self-description has a proved domain or explicit obstruction."
+        ],
+        "fail": [
+          "A finite record model is described as a closed Universe while its preparation, clock or archive is supplied externally."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "Finite observer consistency and bounded self-description do not establish unrestricted internal closure or completeness of all physical observables.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-18",
+      "title": "Issue one joint prediction and premise-closure verdict",
+      "gate": "CP-11",
+      "issue": 1147,
+      "depends_on": [
+        "WQ-01",
+        "WQ-02",
+        "WQ-03",
+        "WQ-04",
+        "WQ-05",
+        "WQ-06",
+        "WQ-07",
+        "WQ-08",
+        "WQ-09",
+        "WQ-10",
+        "WQ-11",
+        "WQ-12",
+        "WQ-13",
+        "WQ-14",
+        "WQ-15",
+        "WQ-16",
+        "WQ-17",
+        "WQ-19",
+        "WQ-20"
+      ],
+      "status": "blocked",
+      "blocked_by": [],
+      "source_paths": [
+        "claims/claim_registry.yaml",
+        "claims/completion_program.json",
+        "model/particle_joint_reconstruction/dependencies.json",
+        "model/completion/finite_record_dynamics.json",
+        "model/completion/particle_mass_table.json",
+        "model/CONSTRUCTION.md",
+        "claims/executable_model_hypothesis.json"
+      ],
+      "premise_ids": [
+        "PR-15",
+        "PR-22",
+        "PR-28",
+        "PR-39",
+        "PR-47",
+        "PR-50",
+        "PR-52",
+        "PR-71",
+        "PR-75"
+      ],
+      "reused_theorems": [],
+      "exact_prompt": "Integrate the bounded task receipts into one same-source prediction and assumption table. For every advertised lepton, field, thermal, population and gravity result, show its actual source, observable, input ancestry, physical map, full error budget and independently held-out test eligibility. Determine whether any integrated gate meets its complete acceptance contract; retain failed candidates and unfulfilled joins. Generate synchronized research-guide and particle-viewer wording from this table, distinguishing exact mathematical construction, conditional physical comparison and independently tested prediction. Review both numerical agreement and mathematical joint realizability. If the physical spectrum or cosmology is unestablished, publish the exact completed result and its smallest missing premise without a completion percentage. Retain separate categories for per-source mathematical construction, unresolved cross-source join, calibrated comparison and independently held-out prediction. A fully completed queue may establish a precise obstruction map rather than a complete physical theory. Include the full mission coverage: broader cosmology and internal-closure obligations outside the first field/particle/gravity milestone must retain explicit owners and acceptance requirements. Do not silently narrow the mission or require fundamental spacetime when a controlled effective observer description is the stated target.",
+      "outputs": [
+        {
+          "path": "model/completion/joint_prediction_admission.json",
+          "description": "Joint scientific admission verdict and unresolved premises with source bindings."
+        },
+        {
+          "path": "model/completion/joint_prediction_admission.py",
+          "description": "Acceptance, calibration and source-compatibility checks."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m model.completion.joint_prediction_admission",
+          "expected": "No pooled source mismatch, hidden calibration or incomplete physical gate can pass."
+        },
+        {
+          "command": "python3 tools/check_claim_registry.py",
+          "expected": "Claims and premise dependencies agree."
+        },
+        {
+          "command": "python3 tools/build_completion_program_current.py --check",
+          "expected": "Roadmap and machine source agree."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Every public claim has complete provenance and correct strength; any gate acceptance has its full same-source evidence and independent review."
+        ],
+        "fail": [
+          "Task count, polished presentation, isolated matches or declared primitives are used as evidence of complete physical theory."
+        ],
+        "inconclusive": [
+          "Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted."
+        ]
+      },
+      "scope_boundary": "The queue is a finite work plan. Completing its tasks can produce a precise obstruction or narrower conditional result; it does not guarantee completion of the theory.",
+      "completion_evidence": [],
+      "accepted_dependency_outcomes": {
+        "WQ-01": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-02": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-03": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-04": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-05": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-06": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-07": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-08": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-09": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-10": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-11": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-12": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-13": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-14": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-15": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-16": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-17": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-19": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ],
+        "WQ-20": [
+          "positive",
+          "negative",
+          "inconclusive"
+        ]
+      }
+    },
+    {
+      "id": "WQ-19",
+      "title": "Compress the retained lepton environment without erasure",
+      "gate": "CP-02",
+      "issue": 1138,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/lepton_cycle/instrument.py",
+        "model/lepton_cycle/composition.py",
+        "model/lepton_cycle/PROOF.md"
+      ],
+      "premise_ids": [
+        "PR-44",
+        "PR-64",
+        "PR-65"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/lepton_cycle/PROOF.md",
+          "anchor": "",
+          "role": "Use the actual pulled-back Gram matrices and the rank-three nonreturn environment."
+        }
+      ],
+      "exact_prompt": "Construct outcome-conditioned environment compression from the actual lepton Gram matrices, preserving every classical outcome and untouched quantum reference. Prove exact instrument equivalence for one, two and four rounds with independent fresh sources. Report minimal quantum environment ranks and retained storage, while counting the compression service itself. Include a countercontrol that compresses nonorthogonal states incorrectly. Do not erase history, discard a rejected branch or equate information dimension with physical work.",
+      "outputs": [
+        {
+          "path": "model/lepton_cycle/environment_compression.py",
+          "description": "Exact outcome-conditioned compression isometries."
+        },
+        {
+          "path": "model/lepton_cycle/environment_compression_results.json",
+          "description": "Reference-inclusive instrument equivalence and bounded storage counts."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/lepton_cycle",
+          "expected": "Complete instruments and reference correlations survive compression; lossy controls fail."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "The stated compression is an exact isometry on every admitted outcome environment and its storage/service costs are explicit."
+        ],
+        "fail": [
+          "A branch, classical record or reference correlation is erased without being accounted for."
+        ],
+        "inconclusive": [
+          "Retain certified rank bounds and the smallest unimplemented compression service."
+        ]
+      },
+      "scope_boundary": "Quantum environment compression is a finite resource improvement; it does not provide autonomous reset or a physical work budget.",
+      "completion_evidence": []
+    },
+    {
+      "id": "WQ-20",
+      "title": "Use retained time covariance in hadron correlator fits",
+      "gate": "CP-11",
+      "issue": 1147,
+      "depends_on": [],
+      "status": "ready",
+      "blocked_by": [],
+      "source_paths": [
+        "model/quenched_hadron_binding/analysis.py",
+        "model/quenched_hadron_binding/recorded_tables.json",
+        "model/quenched_hadron_binding/PROOF.md",
+        "model/quenched_hadron_binding/test_hadron_binding.py"
+      ],
+      "premise_ids": [
+        "PR-75"
+      ],
+      "reused_theorems": [
+        {
+          "path": "model/quenched_hadron_binding/PROOF.md",
+          "anchor": "",
+          "role": "Reuse paired gauge-stream jackknife replicas and crossed mass/potential fit choices."
+        }
+      ],
+      "exact_prompt": "Add a separately labelled correlated fit to the hadron correlators using the retained paired jackknife time covariance. Predeclare covariance-rank, conditioning and fit-window rules, refit every replica, and propagate through the existing mass/scale chain. Retain the diagonal-time fit as a control and include synthetic correlated data with known parameters plus a singular-covariance rejection. Report changes and fit sensitivity without claiming to bound quenching, volume or continuum effects. Use no measured hadron mass to select a fit rule.",
+      "outputs": [
+        {
+          "path": "model/quenched_hadron_binding/correlated_fits.py",
+          "description": "Covariance-aware fitting with fixed conditioning rules."
+        },
+        {
+          "path": "model/quenched_hadron_binding/correlated_fit_results.json",
+          "description": "Paired replica propagation and diagonal-fit comparison."
+        }
+      ],
+      "validation": [
+        {
+          "command": "python3 -m pytest -q model/quenched_hadron_binding",
+          "expected": "Synthetic correlated inputs recover known parameters; singular inputs reject and empirical targets do not affect the fit rule."
+        }
+      ],
+      "closure": {
+        "pass": [
+          "Correlated fits use genuine paired data and all admitted replicas/windows; input ancestry and approximation limits are preserved."
+        ],
+        "fail": [
+          "Conditioning or fit windows are chosen to improve agreement with the measured spectrum, or a singular covariance silently falls back."
+        ],
+        "inconclusive": [
+          "Report rank limits and retain the stated diagonal control without a precision upgrade."
+        ]
+      },
+      "scope_boundary": "Correlated fitting improves finite-ensemble inference; omitted sea quarks and the physical scale/refinement remain separate requirements. This task does not consume PR-14, the separate empirical hadronic vacuum-polarization transport payload.",
+      "completion_evidence": []
+    }
+  ]
+}

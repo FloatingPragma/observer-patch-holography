@@ -26,5 +26,5 @@ def test_dependency_checkbox_matches_predecessor_status():
 def test_printer_only_changes_dependency_checkboxes():
     contract = packet()
     for stage in contract["stages"]:
-        body = print_completion_issue.issue_body(stage, contract)
+        body = print_completion_issue.issue_body(stage, contract, include_work_queue=False)
         assert body.replace("- [x] ", "- [ ] ") == program.render_issue(stage, contract)

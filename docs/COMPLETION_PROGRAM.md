@@ -8,6 +8,972 @@ Coordination: [#1134](https://github.com/FloatingPragma/observer-patch-holograph
 
 Program: `OPH-EXECUTABLE-COMPLETION-2026-10-29-v2`. Boundary: `FROZEN`. Decision: `NOT_DECIDED`. No integrated gate is accepted by opening an issue.
 
+<!-- completion-work-queue:start -->
+## Bounded completion tasks
+
+Finalize reproducible predictions and derive, implement or explicitly account for every premise consumed by one jointly consistent observer construction.
+
+Source: [claims/completion_work_queue.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/completion_work_queue.json). Task completion records a bounded result; it does not accept a physical completion gate, discharge an unproved premise or add an independent physical comparison. Passing software tests alone does not establish a positive scientific outcome.
+
+### Execution policy
+
+The immediate objective has two coupled parts: finish quantitative comparisons and close their implementation and physical-identification premises on the same source. Numerical agreement, mathematical consistency and empirical completeness have distinct acceptance conditions.
+
+Each work item is sized for one focused prompt to deliver a bounded calculation, proof, counterexample or exact missing-premise statement. A controlled interacting chiral field domain, physical spectrum or geometric gravity theorem can require several successor items. The plan gives no completion percentage or guarantee that a whole physical gate fits one prompt.
+
+Run the first batch on disjoint packages with one coordinator applying shared ledger and publication edits. Inspect predecessor receipts before starting dependent work; a rejected scientific prerequisite requires a revised task or an explicit blocker even if its bounded investigation is completed.
+
+Reuse the existing finite theorem stack after matching its actual state, algebra, operation, reference, clock and error domain. Prefer reduced moments, exact quotient kernels and existing error-composition results over larger simulations. A large run requires an observable that can discriminate the alternatives and a stated resource cap.
+
+Every completed task retains failures and original probabilities, a replayable receipt, an independent control and its remaining assumptions. Update the owning code/proof and canonical claim only for the proved domain. GitHub records review history; RER scientific prose states the supported result. Preserve all frozen gate contracts and empirical exposure.
+
+Task completion_outcome records a scientific positive, negative or inconclusive result. Positive means the registered constructive claim or bounded proposition is supported; passing software tests alone does not establish that outcome. A verified counterexample can complete a task with a negative outcome and preserve its evidence, while an invalid method or missing required artifact cannot complete the task. Ordinary dependent tasks require positive predecessor outcomes; diagnostic aggregation explicitly lists other admitted outcomes.
+
+### Premise policy
+
+Explicit-assumption closure means that every consumed premise is derived on the selected source, imported with its hypotheses satisfied, or identified as an explicit primitive, empirical input or unresolved requirement. Relative mathematical consistency requires a common realization of the stated premises. A primitive declaration does not discharge a narrower implementation claim; a measured calibration cannot become an independent prediction.
+
+The full assumption inventory covers the canonical premise register, the joint field/particle dependency graph and any unregistered apparatus or interpretation input used by public claims. Architectural uniqueness is not required. Hidden services, unproved cross-source transfer and circular physical definitions are inadmissible.
+
+A mathematically consistent finite construction requires an actual common realization of its premises. Physical completeness additionally requires the shared interacting spectrum, clocks, gravity, observation/intervention laws and appropriate independent tests. Public communication must state which of these contracts the evidence satisfies.
+
+First batch: [WQ-01](#work-wq-01), [WQ-04](#work-wq-04), [WQ-07](#work-wq-07), [WQ-08](#work-wq-08).
+
+| Task | Bounded result | Owner | Status | Prerequisites |
+| --- | --- | --- | --- | --- |
+| [WQ-01](#work-wq-01) | Account for every consumed premise and architectural input | CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148) | ready | none |
+| [WQ-04](#work-wq-04) | Freeze a no-fit lepton comparison and residual budget | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | none |
+| [WQ-05](#work-wq-05) | Certify the lepton coefficient bridge and its physical boundary | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | none |
+| [WQ-07](#work-wq-07) | Audit shared-reference covariance in the electroweak temperature | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | ready | none |
+| [WQ-08](#work-wq-08) | Determine what the class census can say about species abundances | CP-05 / [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141) | ready | none |
+| [WQ-09](#work-wq-09) | Test whether native population dynamics admits a thermal interpretation | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
+| [WQ-19](#work-wq-19) | Compress the retained lepton environment without erasure | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
+| [WQ-20](#work-wq-20) | Use retained time covariance in hadron correlator fits | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | ready | none |
+| [WQ-02](#work-wq-02) | Compile the lepton preparation and bounded service controller | CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138) | ready | none |
+| [WQ-06](#work-wq-06) | Determine the sector measure consumed by the coupling chain | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | ready | none |
+| [WQ-17](#work-wq-17) | Instantiate operational observers and expose external resources | CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148) | ready | none |
+| [WQ-03](#work-wq-03) | Test a common phase and energy clock on one source | CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140) | blocked | [WQ-02](#work-wq-02) |
+| [WQ-10](#work-wq-10) | Test localization of one charged excitation on the primary source | CP-03 / [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-11](#work-wq-11) | Calculate the missing odd spectral moment on one common source | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-12](#work-wq-12) | Resolve one concrete chirality-pairing premise | CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-13](#work-wq-13) | Test a decisive uniform refinement-survival bound | CP-08 / [#1144](https://github.com/FloatingPragma/observer-patch-holography/issues/1144) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-14](#work-wq-14) | Derive an open-boundary metric variation of the primary action | CP-09 / [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-15](#work-wq-15) | Validate source-premise admission to the Einstein composition | CP-10 / [#1146](https://github.com/FloatingPragma/observer-patch-holography/issues/1146) | blocked | [WQ-14](#work-wq-14) (positive/negative/inconclusive) |
+| [WQ-16](#work-wq-16) | Expose the source constraints on flavour and neutrino parameters | CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143) | blocked | [WQ-01](#work-wq-01) |
+| [WQ-18](#work-wq-18) | Issue one joint prediction and premise-closure verdict | CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147) | blocked | [WQ-01](#work-wq-01) (positive/negative/inconclusive), [WQ-02](#work-wq-02) (positive/negative/inconclusive), [WQ-03](#work-wq-03) (positive/negative/inconclusive), [WQ-04](#work-wq-04) (positive/negative/inconclusive), [WQ-05](#work-wq-05) (positive/negative/inconclusive), [WQ-06](#work-wq-06) (positive/negative/inconclusive), [WQ-07](#work-wq-07) (positive/negative/inconclusive), [WQ-08](#work-wq-08) (positive/negative/inconclusive), [WQ-09](#work-wq-09) (positive/negative/inconclusive), [WQ-10](#work-wq-10) (positive/negative/inconclusive), [WQ-11](#work-wq-11) (positive/negative/inconclusive), [WQ-12](#work-wq-12) (positive/negative/inconclusive), [WQ-13](#work-wq-13) (positive/negative/inconclusive), [WQ-14](#work-wq-14) (positive/negative/inconclusive), [WQ-15](#work-wq-15) (positive/negative/inconclusive), [WQ-16](#work-wq-16) (positive/negative/inconclusive), [WQ-17](#work-wq-17) (positive/negative/inconclusive), [WQ-19](#work-wq-19) (positive/negative/inconclusive), [WQ-20](#work-wq-20) (positive/negative/inconclusive) |
+
+<a id="work-wq-01"></a>
+### WQ-01: Account for every consumed premise and architectural input
+
+Owner: CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148). Status: `ready`.
+
+This inventory supports a complete statement of assumptions. It does not derive all physical assumptions or prove consistency merely by counting rows.
+
+**Exact prompt**
+
+```text
+Reconcile all canonical premise rows and every conditional assumption in the joint field/particle dependency graph with the lepton-cycle, population, charged-source and gravity claim inputs. Produce one current assumption-closure table, preserving canonical IDs. Classify each consumed input as proved on this source, imported theorem with matched hypotheses, declared architectural primitive, empirical calibration, open implementation, open physical map or rejected candidate; mark non-consumption explicitly. Include preparation independence, analyzer, kick/reset/archive, clock, squared-eigenvalue mass assignment, coupling measure, species dictionary and thermal history. Give each unresolved consumed row a completion owner and the smallest witness or counterexample needed. Prove that every source-specific discharge names its state, algebra, operation, reference, clock and domain. Do not turn a declaration or receipt hash into a proof. Bind coverage to a named source/proof/claim manifest at a specific revision; the coverage claim applies to that audited dependency set. Declared physical interpretations close disclosure only and retain their open implementation or physical-map obligation.
+```
+
+**Inputs and theorem reuse**
+
+- [tracking/premise_register.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/tracking/premise_register.json)
+- [claims/axiom_registry.yaml](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/axiom_registry.yaml)
+- [model/completion/finite_attachment_map.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/finite_attachment_map.json)
+- [model/completion/finite_record_dynamics.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/finite_record_dynamics.json)
+- [model/particle_joint_reconstruction/dependencies.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/dependencies.json)
+- [claims/claim_registry.yaml](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/claim_registry.yaml)
+
+Canonical premise references: none assigned.
+
+**Bounded outputs**
+
+- `model/completion/assumption_closure.json`: Complete typed input inventory and ownership; canonical premise statuses retained unless proved.
+- `model/completion/assumption_closure.py`: Coverage and source-domain validator with missing-input and false-discharge controls.
+
+**Validation**
+
+```sh
+python3 -m model.completion.assumption_closure
+```
+
+All canonical rows and joint-graph assumptions covered; missing and misclassified inputs rejected.
+
+```sh
+python3 tools/check_claim_registry.py
+```
+
+Scientific claim dependencies remain valid.
+
+**Task closure**
+
+- Pass: Every canonical row and consumed unregistered service has an explicit disposition, source domain and owner.
+- Pass: Each claimed discharge has a mathematical witness; each open input has a bounded next action.
+- Fail: An input is absent, a calibration is advertised as an independent prediction, or incompatible source domains are pooled.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-04"></a>
+### WQ-04: Freeze a no-fit lepton comparison and residual budget
+
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `ready`.
+
+This finalizes a conditional retrospective comparison, not the physical mass derivation.
+
+**Exact prompt**
+
+```text
+Build a reproducible comparison for both lepton ratios with frozen editions of primary experimental inputs, uncertainties and available covariance. Keep theta=2/9 and balance=sqrt(2); do not tune the finite round count or any parameter to the residual. Separate exact architecture ratios, certified finite implementation error and the unproved physical mass map. Report the muon discrepancy, tau comparison and sensitivity to declared preparation errors without inventing a theory uncertainty. Retain a machine-readable calibration/exposure record and require primary-source citations for all reference values.
+```
+
+**Inputs and theorem reuse**
+
+- [model/lepton_cycle/sensitivity.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/sensitivity.py)
+- [model/lepton_cycle/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/results.json)
+- [model/lepton_register_round/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/results.json)
+- [model/completion/particle_mass_table.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/particle_mass_table.json)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md): Whole proof. Use the exact shape Jacobian and reference-inclusive finite-round error without adjusting the phase.
+
+Canonical premise references: PR-13, PR-15, PR-75.
+
+**Bounded outputs**
+
+- `model/lepton_cycle/physical_comparison.json`: Two-ratio comparison with editions, covariance availability, exposed inputs and missing physical map.
+- `model/lepton_cycle/compare.py`: Deterministic comparison and no-fit guards.
+- `model/lepton_cycle/test_compare.py`: Target perturbation and calibration leakage controls.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/lepton_cycle
+```
+
+Both ratios replay and changing comparison targets leaves model outputs unchanged.
+
+**Task closure**
+
+- Pass: Both ratios have reproducible residuals and correctly separated experimental, implementation and missing physical uncertainties.
+- Fail: The residual is removed by fitting, a tau marginal is presented as a joint likelihood, or finite-round error is used as an arbitrary physical correction.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-05"></a>
+### WQ-05: Certify the lepton coefficient bridge and its physical boundary
+
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `ready`.
+
+An exact coefficient bridge does not establish a physical energy generator, pole mass, Lorentz kinematics or absolute unit.
+
+**Exact prompt**
+
+```text
+At fixed theta=2/9, construct the literal family-frame intertwiner between the complete native mass-read effect and the admitted charged-family coefficient C-dagger C/3. Preserve the actual preparation, normalization and charged representation. Prove or refute the coefficient identity and reject extra squaring, native-pair substitution and loss of the 5/4 preparation factor. Then build an admission table for the full state, kinetic normalization, reference, clock and physical mass-pole joins: coefficient equality cannot silently supply them. Give the smallest explicit same-source measurement needed to settle one absent join. Use no measured mass to choose the map.
+```
+
+**Inputs and theorem reuse**
+
+- [model/lepton_cycle/instrument.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/instrument.py)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md)
+- [model/standard_model_source_map/koide_source.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/standard_model_source_map/koide_source.py)
+- [model/charged_lepton_response/phase_selection.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/charged_lepton_response/phase_selection.py)
+- [model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/charged_lepton_response/MASS_RESPONSE_BRIDGE.md)
+- [model/charged_lepton_response/mass_response_bridge.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/charged_lepton_response/mass_response_bridge.py)
+- [model/particle_common_contract/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/PROOF.md): Whole proof. Retain one source, state, reference, charge sector and clock through the comparison.
+
+Canonical premise references: PR-22, PR-50, PR-71.
+
+**Bounded outputs**
+
+- `model/lepton_cycle/mass_assignment.py`: Exact coefficient/frame intertwiner with physical-admission checks.
+- `model/lepton_cycle/mass_assignment_results.json`: Literal coefficient identity, normalization controls and remaining physical joins.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/lepton_cycle
+```
+
+Positive map and deliberately mismatched source/clock controls are distinguished.
+
+**Task closure**
+
+- Pass: The literal coefficient bridge is proved with exact normalization and frame controls; every unmatched physical premise is explicit.
+- Fail: An exact coefficient or representation counterexample refutes the proposed bridge; defining source energy by the desired formula is invalid methodology, not a bridge.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-07"></a>
+### WQ-07: Audit shared-reference covariance in the electroweak temperature
+
+Owner: CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147). Status: `ready`.
+
+This is a conditional effective-theory benchmark; its source-to-physical coupling derivation is a separate task.
+
+**Exact prompt**
+
+```text
+Audit statistical propagation through y_c=y(T_lat)+fit_y-reference_ymax. The retained temperature and cutoff fits reuse the reference ensemble; derive the full influence weights and covariance terms instead of assuming independence. Recover genuine paired peak replicas if retained; otherwise calculate an explicit positive-semidefinite/Cauchy-compatible variance range from available marginal errors and report what cannot be identified. State that such a range is conditional on the supplied variance estimates and distinguish linearized propagation from a certified nonlinear or coverage bound. Add an exact-cancellation control. Keep statistical uncertainty, the declared reduction allowance, 0.349 GeV cutoff-form spread, finite volume and omitted hypercharge simulation distinct. Correct any unsupported precision claim and propagate the receipt to the paper and viewer through their owning sources. Do not invent samples or a continuum error bound.
+```
+
+**Inputs and theorem reuse**
+
+- [model/electroweak_crossover/finite_size.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/finite_size.py)
+- [model/electroweak_crossover/reduction.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/reduction.py)
+- [model/electroweak_crossover/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/results.json)
+- [model/electroweak_crossover/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/PROOF.md)
+- [model/electroweak_crossover/certificate.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/certificate.py)
+- [model/electroweak_crossover/production.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/production.json)
+- [model/electroweak_crossover/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/electroweak_crossover/PROOF.md): Whole proof. Reuse matched-volume fits and finite-volume controls rather than reclassifying them as a continuum error bound.
+
+Canonical premise references: PR-41, PR-48, PR-49, PR-75.
+
+**Bounded outputs**
+
+- `model/electroweak_crossover/comparison_budget.json`: Correct shared-reference statistical propagation or explicit covariance-compatible bounds, with separate systematic domains.
+- `model/electroweak_crossover/comparison_budget.py`: Replayable budget and fit-identifiability checks.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/electroweak_crossover
+```
+
+Existing fit controls pass; omission of any declared uncertainty component is detected.
+
+**Task closure**
+
+- Pass: Shared-reference covariance is propagated from retained paired data, or the identifiable variance interval is certified with exact-cancellation controls.
+- Fail: Independent errors are assumed for shared measurements without justification, missing covariance is invented, or fit spread is called a complete continuum uncertainty.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-08"></a>
+### WQ-08: Determine what the class census can say about species abundances
+
+Owner: CP-05 / [#1141](https://github.com/FloatingPragma/observer-patch-holography/issues/1141). Status: `ready`.
+
+A thermal benchmark is a comparison input; class counting alone supplies neither a temperature nor physical species abundances.
+
+**Exact prompt**
+
+```text
+Construct the exact six-class pushforward of the 32 declared occupation patterns, then the typed extension to Higgs and gauge components. Separately apply the PR-59 restriction omitting exterior degrees zero and five: its 30-pattern grammar excludes the right-handed-neutrino pair, so the 32-pattern extension must not silently inherit that premise. Compute rank, nullspace and sharp feasible bounds for selected species aggregates, explicitly exhibiting different nonnegative within-class populations with the same census. Distinguish code quanta from simulated flux faces and list the additional premise needed to apply the decoder to run counts. Test the proposed 75/25 reading and the restricted grammar's 24:6 component count rather than assuming uniform occupation. Define one temperature and neutrino-content convention for a comparison-only thermal benchmark using primary sources. Specify whether the benchmark concerns number density or energy density, its normalization, equilibrium and chemical-potential assumptions, mass approximation and physical helicity counting; use the corresponding fermion/boson statistical weights. State which abundance combinations the actual observable could test. No benchmark is a simulated cosmological history.
+```
+
+**Inputs and theorem reuse**
+
+- [model/defect_particle_classes/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md)
+- [model/defect_particle_classes/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/results.json)
+- [model/native_abundance_epochs/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_abundance_epochs/PROOF.md)
+- [model/native_abundance_epochs/results.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_abundance_epochs/results.json)
+- [model/defect_integer_lift/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_integer_lift/PROOF.md)
+- [model/defect_particle_classes/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/defect_particle_classes/PROOF.md): Whole proof. Use the exact centre-class multiplicities and their known species degeneracies.
+
+Canonical premise references: PR-12, PR-47, PR-55, PR-59.
+
+**Bounded outputs**
+
+- `model/native_abundance_epochs/species_identifiability.py`: Exact class-to-species inverse problem and counterexamples.
+- `model/native_abundance_epochs/species_identifiability_results.json`: Observable abundance combinations and explicitly unidentifiable fractions.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/native_abundance_epochs model/defect_particle_classes
+```
+
+Indistinguishable class-census controls produce different species fractions as certified.
+
+**Task closure**
+
+- Pass: Identifiable combinations and ambiguity bounds are exact; a claim about quark/lepton percentages is accepted only if the observable determines it.
+- Fail: Representation counts are used as dynamical probabilities or a shared centre label is treated as unique species identity.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-09"></a>
+### WQ-09: Test whether native population dynamics admits a thermal interpretation
+
+Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `ready`.
+
+Neither a finite Gibbs law nor its obstruction establishes expansion, freeze-out or a physical early-Universe mixture.
+
+**Exact prompt**
+
+```text
+For the unchanged exact 1296-state kernel, test finite-temperature Gibbs stationarity and detailed balance in every conserved-load sector. Use the proved nonpositive cost drift and strict-descent edges to prove an all-positive-temperature result where possible: a full-support law with strictly negative mean drift cannot be stationary. Characterize exceptional/recurrent sectors exactly and retain their free weights. Identify the minimum missing reverse moves, bath and temperature-readout premises without implementing a substituted thermal sampler as the native law. Attempt time and cosmic time remain distinct.
+```
+
+**Inputs and theorem reuse**
+
+- [model/native_abundance_epochs/model.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_abundance_epochs/model.py)
+- [model/native_abundance_epochs/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_abundance_epochs/PROOF.md)
+- [model/charge_conjugation_dynamics/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/charge_conjugation_dynamics/PROOF.md)
+- [model/observer_time_fields/thermal.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer_time_fields/thermal.py)
+- [model/native_abundance_epochs/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_abundance_epochs/PROOF.md): Whole proof. Reuse the exact attempted-event kernel, communicating classes and absorption law.
+- [Lean/Dynamics/ChargeConjugation.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Dynamics/ChargeConjugation.lean): Whole proof. Preserve conjugation constraints when testing candidate thermal states.
+
+Canonical premise references: PR-07, PR-08, PR-15.
+
+**Bounded outputs**
+
+- `model/native_abundance_epochs/thermal_admission.py`: Exact stationarity and detailed-balance existence test.
+- `model/native_abundance_epochs/thermal_admission_results.json`: Thermal admission or obstruction and required extra services.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/native_abundance_epochs model/charge_conjugation_dynamics
+```
+
+Absorbing, reverse-edge and sector-weight countercontrols prevent a false Gibbs claim.
+
+**Task closure**
+
+- Pass: A Gibbs-stationarity claim is proved on the stated sector with all temperature, support and detailed-balance assumptions explicit.
+- Fail: An exact drift or reverse-edge witness excludes the proposed full-support finite-temperature equilibrium; characterize exceptional sectors.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-19"></a>
+### WQ-19: Compress the retained lepton environment without erasure
+
+Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `ready`.
+
+Quantum environment compression is a finite resource improvement; it does not provide autonomous reset or a physical work budget.
+
+**Exact prompt**
+
+```text
+Construct outcome-conditioned environment compression from the actual lepton Gram matrices, preserving every classical outcome and untouched quantum reference. Prove exact instrument equivalence for one, two and four rounds with independent fresh sources. Report minimal quantum environment ranks and retained storage, while counting the compression service itself. Include a countercontrol that compresses nonorthogonal states incorrectly. Do not erase history, discard a rejected branch or equate information dimension with physical work.
+```
+
+**Inputs and theorem reuse**
+
+- [model/lepton_cycle/instrument.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/instrument.py)
+- [model/lepton_cycle/composition.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/composition.py)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md): Whole proof. Use the actual pulled-back Gram matrices and the rank-three nonreturn environment.
+
+Canonical premise references: PR-44, PR-64, PR-65.
+
+**Bounded outputs**
+
+- `model/lepton_cycle/environment_compression.py`: Exact outcome-conditioned compression isometries.
+- `model/lepton_cycle/environment_compression_results.json`: Reference-inclusive instrument equivalence and bounded storage counts.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/lepton_cycle
+```
+
+Complete instruments and reference correlations survive compression; lossy controls fail.
+
+**Task closure**
+
+- Pass: The stated compression is an exact isometry on every admitted outcome environment and its storage/service costs are explicit.
+- Fail: A branch, classical record or reference correlation is erased without being accounted for.
+- Inconclusive: Retain certified rank bounds and the smallest unimplemented compression service.
+
+<a id="work-wq-20"></a>
+### WQ-20: Use retained time covariance in hadron correlator fits
+
+Owner: CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147). Status: `ready`.
+
+Correlated fitting improves finite-ensemble inference; omitted sea quarks and the physical scale/refinement remain separate requirements. This task does not consume PR-14, the separate empirical hadronic vacuum-polarization transport payload.
+
+**Exact prompt**
+
+```text
+Add a separately labelled correlated fit to the hadron correlators using the retained paired jackknife time covariance. Predeclare covariance-rank, conditioning and fit-window rules, refit every replica, and propagate through the existing mass/scale chain. Retain the diagonal-time fit as a control and include synthetic correlated data with known parameters plus a singular-covariance rejection. Report changes and fit sensitivity without claiming to bound quenching, volume or continuum effects. Use no measured hadron mass to select a fit rule.
+```
+
+**Inputs and theorem reuse**
+
+- [model/quenched_hadron_binding/analysis.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/analysis.py)
+- [model/quenched_hadron_binding/recorded_tables.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/recorded_tables.json)
+- [model/quenched_hadron_binding/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/PROOF.md)
+- [model/quenched_hadron_binding/test_hadron_binding.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/test_hadron_binding.py)
+- [model/quenched_hadron_binding/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/quenched_hadron_binding/PROOF.md): Whole proof. Reuse paired gauge-stream jackknife replicas and crossed mass/potential fit choices.
+
+Canonical premise references: PR-75.
+
+**Bounded outputs**
+
+- `model/quenched_hadron_binding/correlated_fits.py`: Covariance-aware fitting with fixed conditioning rules.
+- `model/quenched_hadron_binding/correlated_fit_results.json`: Paired replica propagation and diagonal-fit comparison.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/quenched_hadron_binding
+```
+
+Synthetic correlated inputs recover known parameters; singular inputs reject and empirical targets do not affect the fit rule.
+
+**Task closure**
+
+- Pass: Correlated fits use genuine paired data and all admitted replicas/windows; input ancestry and approximation limits are preserved.
+- Fail: Conditioning or fit windows are chosen to improve agreement with the measured spectrum, or a singular covariance silently falls back.
+- Inconclusive: Report rank limits and retain the stated diagonal control without a precision upgrade.
+
+<a id="work-wq-02"></a>
+### WQ-02: Compile the lepton preparation and bounded service controller
+
+Owner: CP-02 / [#1138](https://github.com/FloatingPragma/observer-patch-holography/issues/1138). Status: `ready`.
+
+Finite declared-service execution does not establish an autonomous apparatus, physical work unit or laboratory duration.
+
+**Exact prompt**
+
+```text
+Compile the existing 60-address Householder preparation through the admitted finite compiler, using an explicitly padded 64-state register. Certify every input column, padding behavior and an untouched entangled reference. Then execute at most three complete lepton cycles with actual preparation, analyzer, kick, inverse tick, return and SWAP/archive maps, retaining all four outcomes. Count the compiled tape, independent fresh-pair, routing, analog-control and archive resources separately. Compare the complete channel with the existing instrument and include a correlated-source countercontrol. Any supplied coherent load or reset remains an explicit primitive; do not call it autonomous.
+```
+
+**Inputs and theorem reuse**
+
+- [model/lepton_cycle/instrument.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/instrument.py)
+- [model/lepton_cycle/composition.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/composition.py)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md)
+- [model/lepton_register_round/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md)
+- [model/native_quantum_service_bridge/finite_compiler.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/finite_compiler.py)
+- [model/native_quantum_service_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/PROOF.md)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md): Whole proof. Reuse complete instruments, archive-preserving reset and arbitrary-reference composition bounds.
+- [model/native_quantum_service_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/native_quantum_service_bridge/PROOF.md): Whole proof. Compile the actual preparation through the admitted elementary service contract.
+
+Canonical premise references: PR-64, PR-65.
+
+**Bounded outputs**
+
+- `model/lepton_cycle/service_execution.py`: Bounded controller and complete record execution.
+- `model/lepton_cycle/service_execution_results.json`: Source-bound channel equality/error and resource receipt.
+- `model/lepton_cycle/test_service_execution.py`: Reference, failure, capacity and correlation controls.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/lepton_cycle
+```
+
+Executed controller agrees with the full channel; unsafe reuse and missing failures fail.
+
+**Task closure**
+
+- Pass: The actual service sequence realizes the declared full instrument on the stated reference domain, with finite resource/error accounting.
+- Pass: Any unsupported primitive is isolated as an explicit implementation obligation.
+- Fail: A marginal reset leaves hidden correlations, rejects are discarded, or the controller uses an undeclared operation.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-06"></a>
+### WQ-06: Determine the sector measure consumed by the coupling chain
+
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `ready`.
+
+A finite sector measure does not by itself establish four-dimensional running or physical renormalization matching.
+
+**Exact prompt**
+
+```text
+Fix one admitted source, operation set, electric-sector projectors and finite cutoff (with any required tail bound) before extraction. Derive sector transitions from the actual quantum channel and branch multiplicities, retaining no-ops and rejected outputs. For arbitrary within-sector states and coherences, prove adjoint preservation E*(P_j)=sum_i K_ij P_i; alternatively declare a restricted dephased or conditional-state family and prove its closure. Classical strong lumpability alone does not establish quantum sector closure. Solve stationary measures and remaining sector freedom exactly, or give a sector-preservation/nonclosure witness. Do not substitute the classical distance quotient for electric SU(2) sectors or identify finite-group and SU(2) labels without a map. Propagate only admitted measures through one coupling output, with no empirical target selection.
+```
+
+**Inputs and theorem reuse**
+
+- [model/seam_class_balance/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/seam_class_balance/PROOF.md)
+- [model/seam_class_balance/exact.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/seam_class_balance/exact.py)
+- [model/seam_class_balance/engine.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/seam_class_balance/engine.py)
+- [model/repair_sector_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/PROOF.md)
+- [model/repair_sector_bridge/bridge.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/bridge.py)
+- [model/particle_construction_scope/comparison_inputs/CG/cg_observer.py.raw](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_construction_scope/comparison_inputs/CG/cg_observer.py.raw)
+- [model/observer/coherent_continuation.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer/coherent_continuation.py)
+- [model/repair_sector_bridge/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/PROOF.md): Whole proof. Use exact kernel and sector-connectivity tests; stationarity alone does not select physical energy.
+
+Canonical premise references: PR-20, PR-41, PR-51.
+
+**Bounded outputs**
+
+- `model/seam_class_balance/coupling_measure.py`: Exact microscopic measure and connectivity calculation.
+- `model/seam_class_balance/coupling_measure_results.json`: Selected versus free weights and their coupling consequences.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/seam_class_balance model/repair_sector_bridge
+```
+
+Stationary, reducible-sector and wrong-proposal controls all behave as declared.
+
+**Task closure**
+
+- Pass: The actual source channel closes on the declared sector algebra or restricted state family, with a proved transition law and stationary-measure characterization.
+- Fail: An exact adjoint-channel or within-sector counterexample disproves the proposed closure/selection rule; retain it as a negative scientific result.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-17"></a>
+### WQ-17: Instantiate operational observers and expose external resources
+
+Owner: CP-12 / [#1148](https://github.com/FloatingPragma/observer-patch-holography/issues/1148). Status: `ready`.
+
+Finite observer consistency and bounded self-description do not establish unrestricted internal closure or completeness of all physical observables.
+
+**Exact prompt**
+
+```text
+Instantiate the operational-observer interface on the bounded addressed-record implementation and construct two observers sharing one actual event record. Include all no-ops, source halt at capacity and overlap maps. Separate the 298-bit mutable-register budget from immutable program, apparatus, initial-state knowledge and external archive/clock resources. Give a bounded self-description/readback test if the declared source supports it; otherwise provide an observational-indistinguishability witness explaining why the records cannot recover that specification. Do not promote overlap agreement to unique reconstruction of the underlying program. Bind the Lean generator and control/readback maps to the actual executable continuation table; the generic zero-generator ConsensusTower adapter or a purely declared structural instance does not establish that binding.
+```
+
+**Inputs and theorem reuse**
+
+- [model/repair_sector_bridge/record_observer.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/record_observer.py)
+- [model/repair_sector_bridge/RECORD_OBSERVER.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/repair_sector_bridge/RECORD_OBSERVER.md)
+- [Lean/Tower/OperationalObserver.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Tower/OperationalObserver.lean)
+- [Lean/QFT/OperationalOverlapEvidence.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/OperationalOverlapEvidence.lean)
+- [model/CONSTRUCTION.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/CONSTRUCTION.md)
+- [Lean/Tower/OperationalObserver.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Tower/OperationalObserver.lean): Anchor: `OperationalObserver`. Instantiate the finite observer interface on the actual addressed-record source.
+- [Lean/QFT/OperationalOverlapEvidence.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/OperationalOverlapEvidence.lean): Anchor: `operationalObservers_share_visible_event_record`. Reuse overlap agreement only after both maps refer to the same retained event.
+
+Canonical premise references: PR-02, PR-32, PR-44, PR-58, PR-81, PR-82.
+
+**Bounded outputs**
+
+- `model/repair_sector_bridge/operational_observer.py`: Actual source/two-observer and resource interface.
+- `model/repair_sector_bridge/operational_observer_results.json`: Overlap agreement, self-description domain and all external resource obligations.
+- `Lean/Tower/RepairRecordObserver.lean`: Actual finite transition-table observer instance and overlap theorem application.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/repair_sector_bridge
+```
+
+Missing-address, capacity, observer mismatch and hidden-resource controls pass.
+
+```sh
+cd Lean && lake build Tower.RepairRecordObserver
+```
+
+The source-bound observer instance and overlap application compile without proof holes.
+
+**Task closure**
+
+- Pass: The actual finite observer satisfies the typed overlap contract and every supplied resource is exposed; self-description has a proved domain or explicit obstruction.
+- Fail: A finite record model is described as a closed Universe while its preparation, clock or archive is supplied externally.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-03"></a>
+### WQ-03: Test a common phase and energy clock on one source
+
+Owner: CP-04 / [#1140](https://github.com/FloatingPragma/observer-patch-holography/issues/1140). Status: `blocked`.
+
+An internal clock comparison does not supply an independently calibrated SI or GeV unit.
+
+**Exact prompt**
+
+```text
+Execute the bounded weak and mass-read lepton cycles on one retained native-attempt timeline using the existing clocked-observer adapters. Retain waiting periods, preparation, reset, timeouts, all outcomes and the quantum reference. Demonstrate the effects of idling and correlated resets. Distinguish attempt count, successful-current count, cycle count and Hamiltonian parameter; sharing a timeline does not require identical clock and field generators. On this actual protocol, prove any energy-clock conversion claimed, or exhibit rescaling freedom that leaves all records unchanged. Do not fit a measured mass to determine the clock.
+```
+
+**Inputs and theorem reuse**
+
+- [model/lepton_register_round/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/PROOF.md)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md)
+- [model/particle_common_contract/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/PROOF.md)
+- [model/observer_time_fields/wave_reference.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/observer_time_fields/wave_reference.py)
+- [model/clocked_common_observer/clock.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/clocked_common_observer/clock.py)
+- [model/clock_defect_energy/joint_clock.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/clock_defect_energy/joint_clock.py)
+- [model/lepton_register_round/clock.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_register_round/clock.py)
+- [model/lepton_cycle/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/lepton_cycle/PROOF.md): Whole proof. Use the full-span channel bound on the actual current spectrum.
+
+Canonical premise references: PR-15, PR-22, PR-23.
+
+**Bounded outputs**
+
+- `model/lepton_cycle/clock_energy_join.py`: Explicit finite generator comparison or rescaling counterexample.
+- `model/lepton_cycle/clock_energy_join_results.json`: Declared source pair, clock map, errors and unresolved normalization.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/lepton_cycle
+```
+
+Clock comparison controls preserve complete channels and expose normalization freedom.
+
+**Task closure**
+
+- Pass: The actual timeline/channel identities and each admitted internal clock conversion are proved with retained waiting and failure records.
+- Fail: An exact incompatible-clock or rescaling witness excludes the proposed unique energy-clock identification.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-10"></a>
+### WQ-10: Test localization of one charged excitation on the primary source
+
+Owner: CP-03 / [#1139](https://github.com/FloatingPragma/observer-patch-holography/issues/1139). Status: `blocked`.
+
+Finite persistence is not an asymptotically stable particle or a physical charge/spin identification.
+
+**Exact prompt**
+
+```text
+Predeclare one existing charged endpoint preparation, compensating endpoint/reference, region and nonzero observation interval on the primary Wilson family, together with a nonvacuous leakage or lifetime target. Derive or enclose its autonomous regional excess and escape under the unchanged Hamiltonian, preserving original preparation probability, charge and all failures. Use local commutator/interval bounds rather than assume full-matrix diagonalization of the large primary member is feasible. Prove the chosen persistence criterion or exhibit spreading that excludes it. Infinitesimal continuity alone is insufficient, and no active recovery or unrelated charged-cluster gap can supply autonomous protection.
+```
+
+**Inputs and theorem reuse**
+
+- [model/particle_common_contract/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/PROOF.md)
+- [model/particle_primary_regional_fermion/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_regional_fermion/PROOF.md)
+- [model/particle_primary_charged_string/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_charged_string/PROOF.md)
+- [model/particle_primary_charged_readout/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_charged_readout/PROOF.md)
+- [model/particle_primary_branch_certificate/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_branch_certificate/PROOF.md)
+- [model/particle_primary_regional_fermion/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_regional_fermion/PROOF.md): Whole proof. Use the actual charge-increment instrument and compensating boundary dressing.
+
+Canonical premise references: PR-47, PR-53, PR-54.
+
+**Bounded outputs**
+
+- `model/particle_primary_regional_fermion/localization.py`: Bounded same-probe regional persistence calculation.
+- `model/particle_primary_regional_fermion/localization_results.json`: Original weights, charge and leakage with finite errors.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_primary_regional_fermion model/particle_primary_charged_readout
+```
+
+Charge, compensation, failure and leakage controls pass on the chosen member.
+
+**Task closure**
+
+- Pass: The predeclared nonzero-time persistence/leakage target is met with certified bounds on the same charged preparation and reference.
+- Fail: A certified escape/spreading calculation excludes the specified localization claim; this is a negative result for that candidate and interval.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-11"></a>
+### WQ-11: Calculate the missing odd spectral moment on one common source
+
+Owner: CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142). Status: `blocked`.
+
+The odd-probe preparation and charged endpoint have distinct contracts. A finite moment or interaction witness does not establish a charged physical mass, dispersion relation or interacting continuum.
+
+**Exact prompt**
+
+```text
+Compute or rigorously enclose the actual neighbour expectation m1 for one existing odd probe on the smallest feasible selected primary member. Use the shell-moment reduction and retain the complete original preparation, creation/removal outcomes, common clock and source-bound reference. Compare it with the corresponding energy-resolved spatial record; test whether a nonzero connected interaction on that same source and preparation is available. If the interaction observable belongs to a different preparation, quantify the missing transfer instead of combining their successes. Declare matrix/precision limits before execution. This odd probe has its own declared primary clock and preparation; the lepton-clock conversion and charged-endpoint localization are separate comparisons, not assumed prerequisites or interchangeable probes.
+```
+
+**Inputs and theorem reuse**
+
+- [model/particle_primary_odd_sum_rules/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_sum_rules/PROOF.md)
+- [model/particle_primary_coherent_odd_response/KERNEL_PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_coherent_odd_response/KERNEL_PROOF.md)
+- [model/particle_primary_original_shell_moments/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_original_shell_moments/PROOF.md)
+- [model/particle_primary_composite_transport/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_composite_transport/PROOF.md)
+- [model/particle_common_contract/contract.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/contract.py)
+- [model/particle_primary_odd_sum_rules/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_sum_rules/PROOF.md): Whole proof. Use the exact shell reduction to the unresolved neighbour expectation instead of diagonalizing the full spectrum.
+- [model/particle_primary_coherent_odd_response/KERNEL_PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_coherent_odd_response/KERNEL_PROOF.md): Whole proof. Reuse the reduced set of component-summed original spectral measures.
+
+Canonical premise references: PR-50, PR-53, PR-54, PR-71.
+
+**Bounded outputs**
+
+- `model/particle_primary_odd_sum_rules/neighbour_moment.py`: Reduced exact or interval calculation of the actual odd neighbour moment.
+- `model/particle_primary_odd_sum_rules/neighbour_moment_results.json`: Moment enclosure and same-source spatial/interaction comparison.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_primary_odd_sum_rules model/particle_primary_coherent_odd_response
+```
+
+Original spectral weight and kernel-reduction controls pass.
+
+**Task closure**
+
+- Pass: The missing finite moment is enclosed with non-vacuous error and its physical-consumer prerequisites are explicit.
+- Fail: An even-density contrast, supplied mass texture or a different-source contact interaction is reported as the odd probe result.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-12"></a>
+### WQ-12: Resolve one concrete chirality-pairing premise
+
+Owner: CP-06 / [#1142](https://github.com/FloatingPragma/observer-patch-holography/issues/1142). Status: `blocked`.
+
+A candidate-level chirality result does not establish an anomaly-free interacting chiral continuum.
+
+**Exact prompt**
+
+```text
+Apply the proved reflected Gamma5 energy-law identity to one explicitly named proposed physical chirality dictionary. Determine whether it can remove the unwanted reflected response while preserving the complete charge/current instrument. If it cannot, prove the finite obstruction and state one minimal symmetry-breaking operator or alternate dictionary whose consequences can be tested without a parameter scan. Any changed action is a separately declared candidate with its own acceptance ancestry; do not silently change the primary program or call native Gamma5 physical Lorentz chirality.
+```
+
+**Inputs and theorem reuse**
+
+- [model/particle_primary_odd_sum_rules/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_sum_rules/PROOF.md)
+- [model/particle_primary_charge_conjugation/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_charge_conjugation/PROOF.md)
+- [model/standard_model_source_map/fermion_attachment.py](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/standard_model_source_map/fermion_attachment.py)
+- [model/particle_joint_reconstruction/CANDIDATE.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/CANDIDATE.md)
+- [model/particle_primary_odd_sum_rules/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_odd_sum_rules/PROOF.md): Whole proof. Apply the all-capacity reflected Gamma5-law constraint to the proposed physical handedness map.
+
+Canonical premise references: PR-46, PR-47, PR-50.
+
+**Bounded outputs**
+
+- `model/standard_model_source_map/chirality_admission.py`: One explicit chirality dictionary admission or exclusion test.
+- `model/standard_model_source_map/chirality_admission_results.json`: Exact parity constraint, candidate domain and minimal unresolved premise.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_primary_odd_sum_rules model/particle_primary_charge_conjugation
+```
+
+Reflected-record equality remains intact and the proposed dictionary is tested against it.
+
+**Task closure**
+
+- Pass: The tested finite dictionary satisfies the retained charge/current and reflected-record constraints within its stated domain.
+- Fail: An exact reflected-record argument excludes the tested dictionary; retaining that counterexample narrows the construction without a universal no-go.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-13"></a>
+### WQ-13: Test a decisive uniform refinement-survival bound
+
+Owner: CP-08 / [#1144](https://github.com/FloatingPragma/observer-patch-holography/issues/1144). Status: `blocked`.
+
+One uniform bound can expose a route obstruction; it does not alone establish a nontrivial interacting relativistic continuum.
+
+**Exact prompt**
+
+```text
+On the fixed primary source trajectory, attempt one explicitly stated volume-independent relative-form bound for the actual hopping and magnetic perturbation against the onsite/electric action. Start from the existing local estimates and determine whether their constants certify a uniform dimensionless gap; retain a rigorous counterexample or failed inequality if they do not. Propagate any proved estimate through the declared cooling and clock scaling to the fixed-physical-energy response, including original preparation and finite-band weight. Use existing refinement and tail theorems only in their actual domains. Do not infer positive-energy survival from suppression of negative transfer, a positive mean or per-level bounds. Declare the analytic and numerical resource limit before a finite control calculation. Distinguish the relative-form estimate from spectral-gap stability: state the ground or multiplet projector, additive energy reference and every perturbative-stability hypothesis. A form lower bound alone is not a gap theorem.
+```
+
+**Inputs and theorem reuse**
+
+- [model/particle_joint_reconstruction/DEPENDENCIES.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/DEPENDENCIES.md)
+- [model/particle_common_contract/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_common_contract/PROOF.md)
+- [Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean)
+- [Lean/QFT/GroundRecordTail.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/GroundRecordTail.lean)
+- [model/particle_primary_spectral_scale/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_spectral_scale/PROOF.md)
+- [model/particle_primary_weighted_spectral_tail/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_weighted_spectral_tail/PROOF.md)
+- [model/particle_primary_critical_refinement/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_critical_refinement/PROOF.md)
+- [model/particle_primary_equal_work_control/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_equal_work_control/PROOF.md)
+- [Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObservableNormalForms/ObservableNormalForms/Refinement.lean): Anchor: `telescoping_refinement_bound`. Compose actual adjacent-member record errors.
+- [Lean/QFT/GroundRecordTail.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/GroundRecordTail.lean): Anchor: `downwardWeight_le_excess_div`. Use only for negative transfer; do not infer surviving finite-band weight.
+
+Canonical premise references: PR-16, PR-52, PR-70, PR-71, PR-72, PR-74.
+
+**Bounded outputs**
+
+- `model/particle_joint_reconstruction/joint_step.py`: One uniform-estimate or counterexample calculation on the fixed source trajectory.
+- `model/particle_joint_reconstruction/joint_step_results.json`: Source constants, trajectory, original-weight consequences and remaining joint-limit premises.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_joint_reconstruction
+```
+
+Mismatched states, clocks and zero-residue transfers fail admission.
+
+**Task closure**
+
+- Pass: The specified uniform estimate is proved with its required spectral projectors and stability assumptions; only its justified original-weight consequences are admitted.
+- Fail: A certified counterexample excludes the specified uniform estimate or survival claim on that trajectory. A loose unsuccessful proof attempt is inconclusive, not a no-go.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-14"></a>
+### WQ-14: Derive an open-boundary metric variation of the primary action
+
+Owner: CP-09 / [#1145](https://github.com/FloatingPragma/observer-patch-holography/issues/1145). Status: `blocked`.
+
+A bounded premise witness does not establish the full geometric tower or physical Einstein dynamics.
+
+**Exact prompt**
+
+```text
+Using the primary gravity-premise acceptance list, construct one open-boundary metric/coframe variation that reduces exactly to the selected flat source action at zero variation. Derive its first stress response and every boundary/work term on the same state and clock; do not substitute the distinct periodic parent. Compare the response with the actual covariant-stress instrument and determine whether this supplies a missing geometric premise or only a declared extension. Give a counterexample if the variation fails. Keep the G1-G6 inventory explicit, including geometric, modular and entropy errors required to be o(ell^4); do not define geometry by the desired Einstein equation or identify matter information with proper area. Flat-action agreement alone does not select a physical metric coupling: classify the metric variation as a declared extension unless a separate source-selection argument fixes it, and quantify the ambiguity.
+```
+
+**Inputs and theorem reuse**
+
+- [model/particle_primary_gravity_premises/premises.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_gravity_premises/premises.json)
+- [model/particle_primary_covariant_stress/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_covariant_stress/PROOF.md)
+- [model/particle_primary_geometric_cut/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_geometric_cut/PROOF.md)
+- [model/particle_primary_boundary_information/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_boundary_information/PROOF.md)
+- [model/particle_primary_boundary_correlation/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_boundary_correlation/PROOF.md)
+- [model/matched_einstein_limit/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/matched_einstein_limit/PROOF.md)
+- [Lean/QFT/CoarseEnergyWard.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/CoarseEnergyWard.lean)
+- [model/particle_primary_boundary_information/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_boundary_information/PROOF.md): Whole proof. Retain regional-algebra information, edge entropy and central coherence separately.
+- [model/particle_primary_covariant_stress/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_primary_covariant_stress/PROOF.md): Whole proof. Reuse the actual complete source stress/current instrument, including boundary work.
+- [Lean/QFT/CoarseEnergyWard.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/QFT/CoarseEnergyWard.lean): Anchor: `coarse_continuity`. Reuse the finite energy Ward identity with actual boundary work.
+
+Canonical premise references: PR-23, PR-24, PR-25, PR-26, PR-27, PR-28.
+
+**Bounded outputs**
+
+- `model/particle_primary_gravity_premises/source_witness.py`: A bounded source witness or counterexample for one selected gravity premise.
+- `model/particle_primary_gravity_premises/source_witness_results.json`: All G1-G6 dispositions plus the proved domain and scaling errors.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_primary_gravity_premises model/matched_einstein_limit
+```
+
+A wrong reference, omitted center term or unsupported scaling is rejected.
+
+**Task closure**
+
+- Pass: The specified open-boundary variation and its stress/boundary identity are derived on the declared extension, with every physical-selection and scaling premise still explicit.
+- Fail: A certified flat-action, stress or boundary mismatch excludes that proposed variation.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-15"></a>
+### WQ-15: Validate source-premise admission to the Einstein composition
+
+Owner: CP-10 / [#1146](https://github.com/FloatingPragma/observer-patch-holography/issues/1146). Status: `blocked`.
+
+A complete adapter is not a proof that every physical input exists; CP-10 acceptance requires all actual same-source premises.
+
+**Exact prompt**
+
+```text
+Construct a typed adapter from the source gravity-witness receipt to the existing finite Einstein composition. Supply only premises proved on the same state, region map and clock. For each absent geometric or error-scaling premise, keep an explicit parameter in the conditional theorem and reject an unconditional admission. Demonstrate one positive synthetic theorem-instantiation control and one actual-source admission attempt, clearly distinguishing their domains. Do not replace missing source evidence with theorem names or defaults.
+```
+
+**Inputs and theorem reuse**
+
+- [model/matched_einstein_limit/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/matched_einstein_limit/PROOF.md)
+- [Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean)
+- [Lean/Geometry/SourceOrderEinsteinComposition.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Geometry/SourceOrderEinsteinComposition.lean)
+- [Lean/Geometry/EinsteinTensorBridge.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Geometry/EinsteinTensorBridge.lean)
+- [Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean)
+- [Lean/Geometry/SourceOrderEinsteinComposition.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/Geometry/SourceOrderEinsteinComposition.lean): Whole proof. Reuse the existing composition instead of reproving the abstract Einstein implication.
+- [Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean): Whole proof. Propagate the actual matched small-ball errors and required scaling.
+- [Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean](https://github.com/FloatingPragma/observer-patch-holography/blob/main/Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean): Anchor: `continuumEinstein_from_explicit_premises`. Instantiate the existing conditional continuum implication only with its full explicit premises.
+
+Canonical premise references: PR-23, PR-24, PR-25, PR-26, PR-27, PR-28.
+
+**Bounded outputs**
+
+- `model/matched_einstein_limit/source_admission.py`: Source-premise adapter with exact missing-input diagnostics.
+- `model/matched_einstein_limit/source_admission_results.json`: Actual-source admission verdict distinct from synthetic implication tests.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/matched_einstein_limit
+```
+
+Synthetic complete witnesses pass; actual missing premises fail closed.
+
+```sh
+cd Lean && lake build Geometry.SourceOrderEinsteinComposition
+```
+
+Existing finite implication compiles without proof holes.
+
+**Task closure**
+
+- Pass: A typed adapter correctly validates complete actual witnesses or returns their exact missing-premise set; synthetic controls are labelled and no physical acceptance follows from adapter correctness.
+- Fail: A concrete counterexample shows that the proposed adapter conflates source domains or admits a missing premise.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-16"></a>
+### WQ-16: Expose the source constraints on flavour and neutrino parameters
+
+Owner: CP-07 / [#1143](https://github.com/FloatingPragma/observer-patch-holography/issues/1143). Status: `blocked`.
+
+Parameter identifiability narrows the spectrum task; it does not itself derive quark Yukawas, oscillations or all generations.
+
+**Exact prompt**
+
+```text
+Enumerate the independent Yukawa, mixing and neutrino parameters consumed by the declared conditional candidate, quotienting only proved field-redefinition symmetries. Identify which combinations the native source actually constrains and which are fitted or free. Test one proposed additional source relation symbolically against the full parameter family and provide a counterexample if it fails. Output the smallest source equation and observable needed to constrain one remaining direction, without selecting masses or mixing angles from targets.
+```
+
+**Inputs and theorem reuse**
+
+- [model/conditional_standard_model/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/conditional_standard_model/PROOF.md)
+- [model/particle_joint_reconstruction/CANDIDATE.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/CANDIDATE.md)
+- [model/completion/particle_mass_table.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/particle_mass_table.json)
+- [tracking/premise_register.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/tracking/premise_register.json)
+- [model/conditional_standard_model/PROOF.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/conditional_standard_model/PROOF.md): Whole proof. Reuse the conditional mass-action formulas while keeping supplied Yukawa and neutrino inputs explicit.
+
+Canonical premise references: PR-36, PR-47, PR-50, PR-55, PR-67, PR-69.
+
+**Bounded outputs**
+
+- `model/particle_joint_reconstruction/flavour_identifiability.py`: Parameter and source-constraint rank calculation.
+- `model/particle_joint_reconstruction/flavour_identifiability_results.json`: Remaining physical flavour freedom and one bounded discriminating relation.
+
+**Validation**
+
+```sh
+python3 -m pytest -q model/particle_joint_reconstruction
+```
+
+Basis changes preserve observables; target substitutions cannot masquerade as source equations.
+
+**Task closure**
+
+- Pass: Every candidate flavour parameter has explicit ancestry and the tested source relation is proved across its stated parameter family.
+- Fail: A certified parameter-family counterexample excludes the proposed additional source relation.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<a id="work-wq-18"></a>
+### WQ-18: Issue one joint prediction and premise-closure verdict
+
+Owner: CP-11 / [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147). Status: `blocked`.
+
+The queue is a finite work plan. Completing its tasks can produce a precise obstruction or narrower conditional result; it does not guarantee completion of the theory.
+
+**Exact prompt**
+
+```text
+Integrate the bounded task receipts into one same-source prediction and assumption table. For every advertised lepton, field, thermal, population and gravity result, show its actual source, observable, input ancestry, physical map, full error budget and independently held-out test eligibility. Determine whether any integrated gate meets its complete acceptance contract; retain failed candidates and unfulfilled joins. Generate synchronized research-guide and particle-viewer wording from this table, distinguishing exact mathematical construction, conditional physical comparison and independently tested prediction. Review both numerical agreement and mathematical joint realizability. If the physical spectrum or cosmology is unestablished, publish the exact completed result and its smallest missing premise without a completion percentage. Retain separate categories for per-source mathematical construction, unresolved cross-source join, calibrated comparison and independently held-out prediction. A fully completed queue may establish a precise obstruction map rather than a complete physical theory. Include the full mission coverage: broader cosmology and internal-closure obligations outside the first field/particle/gravity milestone must retain explicit owners and acceptance requirements. Do not silently narrow the mission or require fundamental spacetime when a controlled effective observer description is the stated target.
+```
+
+**Inputs and theorem reuse**
+
+- [claims/claim_registry.yaml](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/claim_registry.yaml)
+- [claims/completion_program.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/completion_program.json)
+- [model/particle_joint_reconstruction/dependencies.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/particle_joint_reconstruction/dependencies.json)
+- [model/completion/finite_record_dynamics.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/finite_record_dynamics.json)
+- [model/completion/particle_mass_table.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/completion/particle_mass_table.json)
+- [model/CONSTRUCTION.md](https://github.com/FloatingPragma/observer-patch-holography/blob/main/model/CONSTRUCTION.md)
+- [claims/executable_model_hypothesis.json](https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/executable_model_hypothesis.json)
+
+Canonical premise references: PR-15, PR-22, PR-28, PR-39, PR-47, PR-50, PR-52, PR-71, PR-75.
+
+**Bounded outputs**
+
+- `model/completion/joint_prediction_admission.json`: Joint scientific admission verdict and unresolved premises with source bindings.
+- `model/completion/joint_prediction_admission.py`: Acceptance, calibration and source-compatibility checks.
+
+**Validation**
+
+```sh
+python3 -m model.completion.joint_prediction_admission
+```
+
+No pooled source mismatch, hidden calibration or incomplete physical gate can pass.
+
+```sh
+python3 tools/check_claim_registry.py
+```
+
+Claims and premise dependencies agree.
+
+```sh
+python3 tools/build_completion_program_current.py --check
+```
+
+Roadmap and machine source agree.
+
+**Task closure**
+
+- Pass: Every public claim has complete provenance and correct strength; any gate acceptance has its full same-source evidence and independent review.
+- Fail: Task count, polished presentation, isolated matches or declared primitives are used as evidence of complete physical theory.
+- Inconclusive: Retain the bounded computation, explicit resource limit and smallest unresolved premise. Do not mark a physical gate accepted.
+
+<!-- completion-work-queue:end -->
+
 ## Existing foundations to extend
 
 Physical construction gates remain open, but the program starts from retained positive constructions. The rows below link to existing canonical claims; they are reuse/navigation bindings, not new proof-discharge assertions. Preserve these capabilities while constructing the missing joins.
@@ -92,7 +1058,7 @@ These source-bound component campaigns record actual progress without accepting 
 
 Assignment: `OPH-COMPLETION-SHARED-SOURCE-v7`. This plans provisional work; it does not select or freeze a successor law, change the retained campaign or accept a gate.
 
-Concentrate construction on three coupled tasks: a complete operational source and reference, its persistent interacting excitations, and its physical scale and spectrum. The coherent seam register, centre-class certificates and lattice comparisons provide concrete calculations to reuse. They have different preparations, clocks and actions; a common experiment or an explicit transfer map is the next result. The mission is a consistent complete physical theory on a stated domain, with shared observer statistics tested against observation. Architecture uniqueness is not a prerequisite.
+Finalize quantitative comparisons together with the premises needed to interpret them on one consistent source. The bounded work queue gives copyable prompts, exact inputs, outputs, controls and dependency order for prediction budgets, source services, physical maps and theorem applications. The coupled physical priorities are a complete operational source/reference, persistent interacting excitations and a shared physical scale/spectrum. Architecture choices may be declared; any claimed narrower implementation must be proved. Task completion and public presentation do not establish physical gate acceptance.
 
 | Owner | Next concrete result | Why this comes next |
 | --- | --- | --- |
@@ -118,7 +1084,7 @@ Shared source interface:
 - Keep empirical calibration and target-exposed model choices visible. Electroweak matching, pure-colour deconfinement and quenched valence spectroscopy do not constitute a common cosmological history.
 - Preserve the accepted CP-00 class and every retained failed candidate. A changed class needs an explicit successor contract; reordering work does not change scientific acceptance or erase exposure.
 
-CP-00, CP-01 and CP-13 retain their accepted finite scope. No downstream physical gate is accepted by this work assignment. The final common-source spectrum, interactions, physical gravity and independent comparisons require their stated joins. The scoped completion program does not by itself establish every full-Universe or internal-closure obligation.
+CP-00, CP-01 and CP-13 retain their accepted finite scope. Every consumed premise requires a source-specific proof, an imported theorem with its hypotheses met, or an explicit architectural/empirical input. Declaring an input does not discharge its implementation or physical interpretation. Bounded task closure may record a proof, counterexample or inconclusive result; gate acceptance requires the full same-process spectrum, interactions, physical gravity and independent comparisons stated in its contract. A complete public account reports both the demonstrated result and its remaining premises.
 
 Review stays inside these workstreams:
 
