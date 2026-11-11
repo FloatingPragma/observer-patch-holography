@@ -1,0 +1,205 @@
+"""Map from four-dimensional parameters and temperature to the three-dimensional SU(2) + Higgs theory.
+
+All formulas are those of Kajantie, Laine, Rummukainen, Shaposhnikov, Nucl. Phys. B458 (1996) 90,
+hep-ph/9508379: section 4.2 (integration over the superheavy scale), section 4.3 (integration over the
+heavy scale) and section 5 (relation of the MS-bar parameters to physical parameters).
+
+Input set (section 5.3 of that paper): G_mu, m_W, m_Z, m_H, m_t (pole masses), alpha_s.
+Output: g3bar^2, x = lambda3bar / g3bar^2, y = m3bar^2(g3bar^2) / g3bar^4, z = g3'^2 / g3bar^2.
+"""
+import math
+
+NF = 3      # families
+NS = 1      # Higgs doublets
+GAMMA_E = 0.5772156649015329
+C_B = math.log(4 * math.pi) - GAMMA_E          # 1.953808
+C_F = C_B - 2 * math.log(2.0)                  # 0.567514
+ZETA2_RATIO = -0.5699609930945328              # zeta'(2) / zeta(2)
+C_CONST = 0.5 * (math.log(8 * math.pi / 9) + ZETA2_RATIO - 2 * GAMMA_E)   # -0.348725
+LOOP = 1.0 / (16 * math.pi ** 2)
+
+
+# ---- the function F(k; m1, m2) of section 5.2 and its special values ------------------------------
+def F_k_m1_m2(k, m1, m2):
+    """General form for |m1 - m2| < k < m1 + m2."""
+    a = math.sqrt((m1 + m2) ** 2 - k * k)
+    b = math.sqrt(k * k - (m1 - m2) ** 2)
+    if abs(m1 - m2) < 1e-12 * m1:
+        mid = 1.0            # limit of (m1^2+m2^2)/(m1^2-m2^2) ln(m1/m2)
+        first = 0.0
+    else:
+        mid = (m1 * m1 + m2 * m2) / (m1 * m1 - m2 * m2) * math.log(m1 / m2)
+        first = (m1 * m1 - m2 * m2) / (k * k) * math.log(m1 / m2)
+    return 1.0 - first + mid - 2.0 / (k * k) * a * b * math.atan(b / a)
+
+
+def F_m1_m2_0(m1, m2):
+    """Real part of F(m1; m2, 0) = 1 + (r^2 - 1) ln(1 - 1/r^2), r = m2/m1."""
+    r2 = (m2 / m1) ** 2
+    return 1.0 + (r2 - 1.0) * math.log(abs(1.0 - 1.0 / r2))
+
+
+# ---- vacuum relations, section 5 ---------------------------------------------------------------------
+def vacuum_brackets(mu, mW, mH, mt, s2):
+    """One-loop brackets at scale mu. Returns (dg, piH, piW, sig): the corrections
+    delta g^2 / g0^2, Pi_H(-mH^2)/mH^2, Pi_W(-mW^2)/mW^2, Sigma_v - Sigma_s, each without the factor
+    g0^2/(16 pi^2)."""
+    h = mH / mW; t = mt / mW
+    h2 = h * h; t2 = t * t; t4 = t2 * t2; h4 = h2 * h2
+    lm = math.log(mu * mu / (mW * mW))
+    F_WWW = 2.0 - math.pi / math.sqrt(3.0)
+    F_WWH = F_k_m1_m2(mW, mW, mH)
+    F_Wt0 = F_m1_m2_0(mW, mt)
+    F_HHH = 2.0 - math.pi / math.sqrt(3.0)
+    F_HWW = F_k_m1_m2(mH, mW, mW)
+    F_Htt = F_k_m1_m2(mH, mt, mt)
+    F_ttH = F_k_m1_m2(mt, mt, mH)
+    F_ttW = F_k_m1_m2(mt, mt, mW)
+    F_tW0 = F_m1_m2_0(mt, mW)
+    # correction to g^2(mu), section 5.1
+    dg = ((4 * NF / 3.0 - 43 / 6.0) * lm - 33 / 4.0 * F_WWW + (h4 - 4 * h2 + 12) / 12.0 * F_WWH
+          - 0.5 * (t4 + t2 - 2) * F_Wt0 - 2 * math.log(t) - h2 / 24.0 + t2 / 4.0 + 20 * NF / 9.0 - 257 / 72.0)
+    # Higgs self-energy at the pole, section 5.2
+    piH = 3 / 8.0 * (2 * (h2 + 2 * t2 - 3) * lm + 3 * h2 * F_HHH + (h4 - 4 * h2 + 12) / h2 * F_HWW
+                     - 4 * t2 * (4 * t2 - h2) / h2 * F_Htt - 2 * h2 * math.log(h) - 8 * t2 * math.log(t)
+                     - 2 * h2 - 2 - 12 / h2 + 16 * t4 / h2)
+    # W self-energy at the pole, section 5.2; the term with ln(-1 - i eps) has zero real part
+    piW = 3 / 8.0 * (2 * ((16 * NF - 59) / 9.0 - h2 - 2 * t2 - 6 / h2 + 8 * t4 / h2) * lm - 22 * F_WWW
+                     + 2 / 9.0 * (h4 - 4 * h2 + 12) * F_WWH - 4 / 3.0 * (t4 + t2 - 2) * F_Wt0
+                     + 4 * h2 * (h2 - 2) / (h2 - 1) * math.log(h)
+                     + 8 / 3.0 * (3 * t2 - 2 - 12 * t4 / h2) * math.log(t)
+                     - 22 / 9.0 * h2 - 4 / h2 - 4 / 3.0 * t2 + 16 * t4 / h2 + 4 / 27.0 * (40 * NF - 17))
+    # top-quark self-energy combination at the pole, section 5.2
+    sig = 3 / 16.0 * (2 * (t2 - h2 - 6 / h2 + 8 * t4 / h2 - 32 / 3.0 * s2) * lm
+                      + 2 / 3.0 * (4 * t2 - h2) * F_ttH + 2 / 3.0 * (1 - 1 / t2) * F_ttW
+                      + 2 / 3.0 * (t2 + 1 - 2 / t2) * F_tW0
+                      + 4 * h2 * math.log(h) - 32 * t4 / h2 * math.log(t)
+                      - 4 / 3.0 * t2 * (2 * t2 + h2) / (t2 - h2) * math.log(t / h)
+                      + 128 / 3.0 * s2 * math.log(t)
+                      - 2 + 2 * t2 - 2 * h2 - 4 / h2 + 16 * t4 / h2 - 256 / 9.0 * s2)
+    return dg, piH, piW, sig
+
+
+def reduce(T, G_mu, mW, mZ, mH, mt, alpha_s, mu_over_T=None, linear=False, tree=False, gprime=True):
+    """Three-dimensional parameters at temperature T.
+
+    mu_over_T: MS-bar scale of the reduction in units of T; default 4 pi exp(-gamma_E), where L_b = 0.
+    linear:    True adds vacuum and thermal one-loop corrections before multiplying the tree value
+               (the result is then independent of mu exactly). False multiplies the two factors.
+    tree:      True drops every loop correction (tree-level reduction, for the order check).
+    gprime:    False sets g' = 0 (m_Z -> m_W), the SU(2) limit of section 5.3.
+    """
+    if mu_over_T is None:
+        mu_over_T = 4 * math.pi * math.exp(-GAMMA_E)
+    mu = mu_over_T * T
+    g02 = 4 * math.sqrt(2.0) * G_mu * mW * mW
+    gp2 = g02 * (mZ * mZ - mW * mW) / (mW * mW) if gprime else 0.0      # section 5.1
+    h = mH / mW; t = mt / mW
+    h2 = h * h; t2 = t * t; t4 = t2 * t2
+    gs2 = 4 * math.pi * alpha_s
+    s2 = gs2 / g02
+    lam0 = g02 / 8.0 * h2; gY0 = g02 / 2.0 * t2; nu0 = mH * mH / 2.0      # tree values, section 5.2
+    if tree:
+        g2 = g02
+        g32 = g02 * T; lam3 = lam0 * T; nut = nu0; gYt = gY0 * T
+        g3p2 = gp2 * T
+        m32 = -nut + T * (0.5 * lam3 + 3 / 16.0 * g32 + g3p2 / 16.0 + 0.25 * gYt)
+        return dict(g32=g32, x=lam3 / g32, y=m32 / g32 ** 2, z=g3p2 / g32, m32=m32, lam3=lam3, T=T,
+                    g2=g2, gp2=gp2, lam=lam0, gY2=gY0, nu2=nu0, mu=mu)
+    dg, piH, piW, sig = vacuum_brackets(mu, mW, mH, mt, s2)
+    k = g02 * LOOP
+    Lb = 2 * math.log(mu_over_T) - 2 * C_B
+    Lf = 2 * math.log(mu_over_T) - 2 * C_F
+    # thermal one-loop brackets, section 4.2
+    th_g = (44 - NS) / 6.0 * Lb - 4 * NF / 3.0 * Lf + 2 / 3.0
+    th_h = (44 - NS) / 6.0 * Lb - 4 * NF / 3.0 * Lf + 53 / 6.0 - NS / 3.0 + 4 * NF / 3.0 + 1.5 * h2 - 3 * t2
+    th_lam = -0.75 * ((6 / h2 - 6 + 2 * h2) * Lb + (4 * t2 - 8 * t4 / h2) * Lf - 4 / h2)
+    th_nu = -0.75 * ((h2 - 3) * Lb + 2 * t2 * Lf)
+    th_gY = -3 / 8.0 * ((6 * t2 - 6 - 64 / 3.0 * s2) * Lf + 2 + 28 * math.log(2.0) - 12 * h2 * math.log(2.0)
+                        + 8 * t2 * math.log(2.0) - 64 / 9.0 * s2 * (4 * math.log(2.0) - 3))
+    # vacuum one-loop corrections, sections 5.1 and 5.2
+    v_g = dg
+    v_lam = -piW + dg + piH
+    v_gY = -piW + dg + 2 * sig
+    v_nu = piH
+    g2 = g02 * (1 + k * v_g)
+    lam = lam0 * (1 + k * v_lam)
+    gY2 = gY0 * (1 + k * v_gY)
+    nu2 = nu0 * (1 + k * v_nu)
+    if linear:
+        g32 = g02 * T * (1 + k * (v_g + th_g))
+        h3 = 0.25 * g02 * T * (1 + k * (v_g + th_h))
+        lam3 = lam0 * T * (1 + k * (v_lam + th_lam))
+        nut = nu0 * (1 + k * (v_nu + th_nu))
+        gYt = gY0 * T * (1 + k * (v_gY + th_gY))
+        g2l = g02; laml = lam0
+    else:
+        kk = g2 * LOOP
+        g32 = g2 * T * (1 + kk * th_g)
+        h3 = 0.25 * g2 * T * (1 + kk * th_h)
+        lam3 = lam * T * (1 + kk * th_lam)
+        nut = nu2 * (1 + kk * th_nu)
+        gYt = gY2 * T * (1 + kk * th_gY)
+        g2l = g2; laml = lam
+    g3p2 = gp2 * T
+    mD = math.sqrt((2 / 3.0 + NS / 6.0 + NF / 3.0) * g2l) * T          # Debye masses, section 4.2
+    mDp = math.sqrt((NS / 6.0 + 5 * NF / 9.0) * gp2) * T if gp2 > 0 else 0.0
+    # heavy scale, section 4.3
+    g3b = g32 * (1 - g32 / (24 * math.pi * mD))
+    lam3b = lam3 - 3 * h3 * h3 / (8 * math.pi * mD)
+    if gp2 > 0:
+        lam3b -= (g3p2 ** 2 / (16 * mDp) + g3p2 * g32 / (4 * (mD + mDp))) / (8 * math.pi)
+    mu3 = g3b                                                        # y is defined at mu = g3bar^2
+    m32 = (-nut + T * (0.5 * lam3 + 3 / 16.0 * g32 + g3p2 / 16.0 + 0.25 * gYt)
+           - (3 * h3 * mD + 0.25 * g3p2 * mDp) / (4 * math.pi)
+           + T * T * LOOP * (g2l * g2l * (137 / 96.0 + 1.5 * NF * math.log(2.0) + NF / 12.0) + 0.75 * laml * g2l)
+           + LOOP * ((-0.75 * g32 ** 2 + 12 * h3 * g32 - 6 * h3 * h3) * (math.log(3 * T / (2 * mD)) + C_CONST)
+                     + 3 * h3 * g32 - 3 * h3 * h3)
+           + LOOP * (51 / 16.0 * g3b ** 2 + 9 * lam3b * g3b - 12 * lam3b ** 2) * (math.log(3 * T / mu3) + C_CONST))
+    return dict(g32=g3b, x=lam3b / g3b, y=m32 / g3b ** 2, z=g3p2 / g3b, m32=m32, lam3=lam3b, T=T,
+                g2=g2, gp2=gp2, lam=lam, gY2=gY2, nu2=nu2, mu=mu, mD=mD, h3=h3, g32_unbarred=g32)
+
+
+def solve_T(ytarget_of_x, pars, lo=60.0, hi=400.0, **kw):
+    """Temperature at which y(T) = ytarget_of_x(x(T)). Bisection; y grows with T."""
+    def f(T):
+        r = reduce(T, **pars, **kw)
+        return r['y'] - ytarget_of_x(r['x'])
+    a, b = lo, hi
+    fa, fb = f(a), f(b)
+    if fa * fb > 0:
+        raise ValueError("no sign change")
+    for i in range(80):
+        m = 0.5 * (a + b); fm = f(m)
+        if fa * fm <= 0:
+            b, fb = m, fm
+        else:
+            a, fa = m, fm
+    return 0.5 * (a + b)
+
+
+SM = dict(G_mu=1.16638e-5, mW=80.385, mZ=91.1876, mH=125.1, mt=173.3, alpha_s=0.118)
+
+
+def chain_inputs(v, g2, sin2, mH, mt, alpha_s):
+    mW = math.sqrt(g2) * v / 2.0
+    mZ = mW / math.sqrt(1.0 - sin2)
+    return dict(G_mu=1.0 / (math.sqrt(2.0) * v * v), mW=mW, mZ=mZ, mH=mH, mt=mt, alpha_s=alpha_s)
+
+
+# ---- cosmic time in the radiation era -----------------------------------------------------------------
+M_PLANCK_GEV = 1.220890e19
+HBAR_GEV_S = 6.582119569e-25
+E_CELL_GEV = 9.5599e18
+
+
+def cosmic_time_seconds(T_GeV, g_star=106.75):
+    """t = 1/(2H) with H^2 = (8 pi / 3) rho / M_Pl^2 and rho = (pi^2/30) g* T^4."""
+    t_inverse_GeV = math.sqrt(90.0 / (32.0 * math.pi ** 3 * g_star)) * M_PLANCK_GEV / T_GeV ** 2
+    return t_inverse_GeV * HBAR_GEV_S
+
+
+def ticks(seconds):
+    """Number of ticks hbar / E_cell."""
+    return seconds / (HBAR_GEV_S / E_CELL_GEV)
+
