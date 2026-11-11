@@ -39,6 +39,8 @@ jobs:
       - run: python -m pytest -q -W error model/defect_particle_classes
       - run: python -m model.lepton_register_round --check
       - run: python -m pytest -q -W error model/lepton_register_round
+      - run: python -m model.defect_integer_lift --check
+      - run: python -m pytest -q -W error model/defect_integer_lift
       - run: python -m model.native_quantum_service_bridge --check
       - run: python -m pytest -q -W error model/native_quantum_service_bridge
       - run: python -m model.coherent_defect_wave --check
